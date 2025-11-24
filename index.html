@@ -1,1 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Rajinikanth Vadla – AI engineer, solution provider, freelancer, and trainer specializing in AIOps, MLOps, DevOps, and CloudOps." />
+  <meta name="keywords" content="Rajinikanth Vadla, AI engineer, AIOps, MLOps, DevOps, CloudOps, freelancer, trainer, site reliability, platform engineering, automation" />
+  <meta name="author" content="Rajinikanth Vadla" />
+  <title>Rajinikanth Vadla | AI Engineer & Trainer</title>
+  <style>
+    :root {
+      --primary: #1b4965;
+      --accent: #13aa52;
+      --text: #1f2933;
+      --muted: #4a5568;
+      --bg: #f7fafc;
+      --card: #ffffff;
+      --shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+    }
 
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(6px);
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+    }
+
+    .container {
+      width: min(1120px, 95vw);
+      margin: 0 auto;
+      padding: 20px 0;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--primary);
+      font-size: 1.15rem;
+    }
+
+    nav ul {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      list-style: none;
+      flex-wrap: wrap;
+      font-weight: 600;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text);
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 18px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), #0f2940);
+      color: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .btn-secondary {
+      background: #e6f4f1;
+      color: var(--primary);
+      border: 1px solid rgba(27, 73, 101, 0.2);
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 35px rgba(27, 73, 101, 0.15);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 26px;
+      align-items: center;
+      padding: 48px 0 32px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #e8f1fa;
+      color: var(--primary);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.92rem;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      margin: 14px 0;
+      color: var(--text);
+      letter-spacing: -0.04em;
+    }
+
+    p.lead {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 18px;
+      max-width: 620px;
+    }
+
+    .metrics {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+
+    .metric {
+      background: var(--card);
+      padding: 14px 16px;
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      min-width: 150px;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 1.4rem;
+      color: var(--primary);
+    }
+
+    section {
+      padding: 42px 0;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      margin-bottom: 18px;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--card);
+      padding: 18px;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(0, 0, 0, 0.02);
+    }
+
+    .card h3 {
+      margin-bottom: 8px;
+      color: var(--primary);
+    }
+
+    .list {
+      list-style: none;
+      margin-top: 12px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .list li::before {
+      content: "";
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+
+    .highlight {
+      background: #e8f7f0;
+      color: var(--text);
+      padding: 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(19, 170, 82, 0.15);
+      margin-top: 12px;
+    }
+
+    .footer {
+      padding: 28px 0 40px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    form {
+      display: grid;
+      gap: 12px;
+    }
+
+    label {
+      font-weight: 700;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(27, 73, 101, 0.2);
+      font-size: 1rem;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(27, 73, 101, 0.12);
+    }
+
+    textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .seo-block {
+      background: #f0f4f8;
+      padding: 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(0, 0, 0, 0.03);
+      margin-top: 10px;
+      font-size: 0.98rem;
+      color: var(--muted);
+    }
+
+    @media (max-width: 720px) {
+      nav ul {
+        width: 100%;
+        justify-content: flex-start;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Rajinikanth Vadla",
+      "jobTitle": "AI Engineer | AIOps, MLOps, DevOps & CloudOps Trainer",
+      "description": "Rajinikanth Vadla is an AI engineer, solution provider, freelancer, and trainer specializing in automation, reliability, and cloud platforms.",
+      "url": "https://rajinikanth-vadla.github.io/",
+      "sameAs": [
+        "https://www.linkedin.com",
+        "https://github.com"
+      ],
+      "knowsAbout": ["AIOps", "MLOps", "DevOps", "CloudOps", "SRE", "Platform Engineering"]
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav aria-label="Primary navigation">
+        <div class="brand">Rajinikanth Vadla</div>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#training">Training</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a class="btn btn-secondary" href="mailto:contact@rajinikanthvadla.dev">Book a Call</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="hero">
+        <div>
+          <div class="badge">AI Engineer · Solution Provider · Trainer</div>
+          <h1>Rajinikanth Vadla</h1>
+          <p class="lead">I build reliable AI platforms, automate operations, and guide teams on AIOps, MLOps, DevOps, and CloudOps. Practical solutions, production-grade delivery, and hands-on training to help you ship with confidence.</p>
+          <div class="metrics" aria-label="Highlights">
+            <div class="metric"><strong>50+</strong>Automation & MLOps pipelines delivered</div>
+            <div class="metric"><strong>30+</strong>Teams trained on AIOps & DevOps</div>
+            <div class="metric"><strong>99.9%</strong>Reliability targets met for clients</div>
+          </div>
+          <div style="margin-top: 18px; display: flex; gap: 12px; flex-wrap: wrap;">
+            <a class="btn btn-primary" href="#contact">Start a Project</a>
+            <a class="btn btn-secondary" href="#training">View Training Tracks</a>
+          </div>
+        </div>
+        <div class="card" aria-label="Mission statement">
+          <h3>Outcome-driven delivery</h3>
+          <p>I focus on measurable results: faster releases, resilient services, and sustainable automation. Every engagement is tailored with clear milestones and transparent communication.</p>
+          <div class="highlight">Primary domains: AIOps, MLOps, DevOps automation, CloudOps, SRE maturity, FinOps-aware architectures.</div>
+        </div>
+      </section>
+
+      <section id="services">
+        <h2 class="section-title">Consulting & Implementation</h2>
+        <div class="card-grid">
+          <div class="card">
+            <h3>AIOps & Observability</h3>
+            <p>Deploy data-driven operations: anomaly detection, incident intelligence, runbook automation, and observability baselines.</p>
+            <ul class="list">
+              <li>Event correlation & alert quality tuning</li>
+              <li>Telemetry pipelines with OpenTelemetry</li>
+              <li>Automated runbooks and ChatOps</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>MLOps Foundations</h3>
+            <p>Production-grade machine learning pipelines with governance, CI/CD for models, and reliable rollout strategies.</p>
+            <ul class="list">
+              <li>Feature stores, model registries, drift monitoring</li>
+              <li>Blue/green & canary deployments for ML</li>
+              <li>Secure data and compliance practices</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>DevOps & Platform Engineering</h3>
+            <p>Build paved paths for developers: infrastructure as code, policy as code, and robust CI/CD workflows.</p>
+            <ul class="list">
+              <li>GitHub Actions, GitLab CI, and Argo CD</li>
+              <li>Kubernetes platform hardening</li>
+              <li>Scalable microservice reliability patterns</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>CloudOps & Cost Efficiency</h3>
+            <p>Operate cloud workloads with stability and financial discipline across AWS, Azure, and GCP.</p>
+            <ul class="list">
+              <li>Well-Architected reviews and remediation</li>
+              <li>FinOps dashboards and guardrails</li>
+              <li>Business continuity and disaster recovery</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience">
+        <h2 class="section-title">Delivery Approach</h2>
+        <div class="card-grid">
+          <div class="card">
+            <h3>Discovery & Design</h3>
+            <p>Workshops to capture objectives, map current state, and define measurable success criteria for your platform and teams.</p>
+          </div>
+          <div class="card">
+            <h3>Implementation Sprints</h3>
+            <p>Iterative delivery with clear demos and documentation. Infrastructure as code and repeatable pipelines by default.</p>
+          </div>
+          <div class="card">
+            <h3>Enablement & Handover</h3>
+            <p>Training, runbooks, and playbooks to keep your teams confident after launch. Pragmatic governance without red tape.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="training">
+        <h2 class="section-title">Training Tracks</h2>
+        <div class="card-grid">
+          <div class="card">
+            <h3>AIOps for Operations Teams</h3>
+            <p>Hands-on labs covering event correlation, observability pipelines, and automated incident response.</p>
+            <div class="highlight">Outcome: fewer false alerts, faster MTTR, measurable service quality.</div>
+          </div>
+          <div class="card">
+            <h3>MLOps for Data Teams</h3>
+            <p>From experimentation to production: CI/CD for models, governance, and monitoring to keep models healthy.</p>
+            <div class="highlight">Outcome: reliable releases, reproducibility, and trusted models.</div>
+          </div>
+          <div class="card">
+            <h3>DevOps for Engineering</h3>
+            <p>Infrastructure as code, security-minded pipelines, and platform blueprints tailored to your stack.</p>
+            <div class="highlight">Outcome: faster delivery, safer changes, happier developers.</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <h2 class="section-title">Let’s work together</h2>
+        <div class="contact-grid">
+          <div class="card">
+            <h3>Project & Training Requests</h3>
+            <p>Share your goals, timelines, and current stack. You will receive a tailored plan with a clear delivery path.</p>
+            <form>
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" placeholder="Your name" />
+
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" />
+
+              <label for="message">Project or training details</label>
+              <textarea id="message" name="message" placeholder="Describe the outcome you want"></textarea>
+
+              <button class="btn btn-primary" type="submit">Send Request</button>
+            </form>
+          </div>
+          <div class="card">
+            <h3>Direct contact</h3>
+            <p>Email: <a href="mailto:contact@rajinikanthvadla.dev">contact@rajinikanthvadla.dev</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">Connect</a></p>
+            <p>GitHub: <a href="https://github.com" target="_blank" rel="noreferrer">Projects & labs</a></p>
+            <div class="seo-block">
+              Optimized for searches like: “AIOps consultant”, “MLOps trainer”, “DevOps freelancer”, “CloudOps architect”, and “Rajinikanth Vadla”.
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      © <span id="year"></span> Rajinikanth Vadla. Production-grade solutions and training across AIOps, MLOps, DevOps, and CloudOps.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
