@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://rajinikanthvadla-ai.github.io/website/</loc>
+    <lastmod>2025-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://rajinikanthvadla-ai.github.io/website/assets/hero.svg</image:loc>
+      <image:title>Rajinikanth Vadla - AI Engineer Hero Banner</image:title>
+      <image:caption>Professional AI engineering and DevOps consulting services</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://rajinikanthvadla-ai.github.io/website/assets/architecture.svg</image:loc>
+      <image:title>Architecture Sprint Visual</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://rajinikanthvadla-ai.github.io/website/assets/delivery.svg</image:loc>
+      <image:title>Hands-on Delivery Visual</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://rajinikanthvadla-ai.github.io/website/assets/training.svg</image:loc>
+      <image:title>Live Training Visual</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://rajinikanthvadla-ai.github.io/website/assets/cloudops.svg</image:loc>
+      <image:title>CloudOps at Scale Visual</image:title>
+    </image:image>
+  </url>
+</urlset>
