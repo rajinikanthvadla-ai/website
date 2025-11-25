@@ -7,9 +7,19 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://rajinikanthvadla-ai.github.io/website/assets/hero.svg</image:loc>
-      <image:title>Rajinikanth Vadla - AI Engineer Hero Banner</image:title>
-      <image:caption>Professional AI engineering and DevOps consulting services</image:caption>
+      <image:loc>https://rajinikanthvadla-ai.github.io/website/assets/rajinikanth-vadla-profile-professional.png</image:loc>
+      <image:title>Rajinikanth Vadla - Professional AI Engineer Profile Photo</image:title>
+      <image:caption>Rajinikanth Vadla - Expert AI Engineer specializing in AIOps, MLOps, DevOps, and CloudOps</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://rajinikanthvadla-ai.github.io/website/assets/rajinikanth-vadla-fullbody-professional.png</image:loc>
+      <image:title>Rajinikanth Vadla - Professional Full Portrait</image:title>
+      <image:caption>Professional AI engineering and DevOps consulting services by Rajinikanth Vadla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://rajinikanthvadla-ai.github.io/website/assets/rajinikanth-vadla-portrait-artistic.png</image:loc>
+      <image:title>Rajinikanth Vadla - Artistic Portrait</image:title>
+      <image:caption>Rajinikanth Vadla - AI Engineer and DevOps Trainer</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://rajinikanthvadla-ai.github.io/website/assets/architecture.svg</image:loc>
