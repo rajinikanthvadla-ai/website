@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-label="Live training visual">
+  <defs>
+    <linearGradient id="train-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f3f60" />
+      <stop offset="100%" stop-color="#14aa70" />
+    </linearGradient>
+    <linearGradient id="train-bars" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#7fe3ff" stop-opacity="0.7" />
+      <stop offset="100%" stop-color="#aef1d7" stop-opacity="0.9" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#train-bg)" rx="24" />
+  <g fill="url(#train-bars)" opacity="0.92">
+    <rect x="200" y="300" width="120" height="260" rx="12" />
+    <rect x="360" y="240" width="120" height="320" rx="12" />
+    <rect x="520" y="200" width="120" height="360" rx="12" />
+    <rect x="680" y="260" width="120" height="300" rx="12" />
+    <rect x="840" y="180" width="120" height="380" rx="12" />
+  </g>
+  <circle cx="620" cy="520" r="120" fill="#0b2c45" opacity="0.35" />
+  <text x="100" y="110" fill="#e6f9ff" font-family="'Inter','Segoe UI',sans-serif" font-size="46" font-weight="700">Live training</text>
+  <text x="100" y="150" fill="#d2f2e5" font-family="'Inter','Segoe UI',sans-serif" font-size="22" font-weight="600">Workshops tailored to teams</text>
+</svg>

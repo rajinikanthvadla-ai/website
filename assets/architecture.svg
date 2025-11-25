@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-label="Architecture sprint visual">
+  <defs>
+    <linearGradient id="arch-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0e3757" />
+      <stop offset="100%" stop-color="#108a5c" />
+    </linearGradient>
+    <linearGradient id="arch-lines" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6de3ff" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#8eeecb" stop-opacity="0.9" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#arch-bg)" rx="24" />
+  <g stroke="url(#arch-lines)" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.85">
+    <rect x="140" y="160" width="260" height="180" rx="18" />
+    <rect x="500" y="160" width="260" height="180" rx="18" />
+    <rect x="860" y="160" width="200" height="180" rx="18" />
+    <rect x="200" y="420" width="300" height="180" rx="18" />
+    <rect x="640" y="420" width="300" height="180" rx="18" />
+    <path d="M270 340 L270 410 M630 340 L630 410 M720 340 L720 420 M1020 340 L1020 430" />
+    <path d="M400 250 L500 250 M760 250 L860 250" />
+    <path d="M350 510 L640 510 M940 510 L940 430" />
+  </g>
+  <text x="100" y="90" fill="#e6f7ff" font-family="'Inter','Segoe UI',sans-serif" font-size="48" font-weight="700">Architecture sprints</text>
+  <text x="100" y="135" fill="#d3f2e2" font-family="'Inter','Segoe UI',sans-serif" font-size="22" font-weight="600">Design-first blueprints for reliable delivery</text>
+</svg>

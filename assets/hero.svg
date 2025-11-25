@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-label="Rajinikanth Vadla hero banner">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f3d5e" />
+      <stop offset="100%" stop-color="#13aa52" />
+    </linearGradient>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#9be7ff" stop-opacity="0.45" />
+      <stop offset="100%" stop-color="#b8f1de" stop-opacity="0.75" />
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)" rx="28" />
+  <ellipse cx="1200" cy="260" rx="360" ry="180" fill="url(#glow)" opacity="0.4" />
+  <ellipse cx="400" cy="660" rx="320" ry="160" fill="url(#glow)" opacity="0.32" />
+  <rect x="90" y="650" width="1420" height="170" rx="22" fill="#0b2c45" opacity="0.7" />
+  <text x="140" y="300" fill="#e7f6ff" font-family="'Inter','Segoe UI',sans-serif" font-size="72" font-weight="700">Rajinikanth Vadla</text>
+  <text x="140" y="370" fill="#d6f3e4" font-family="'Inter','Segoe UI',sans-serif" font-size="30" font-weight="600">AI Engineering • AIOps • MLOps • DevOps • CloudOps</text>
+  <text x="140" y="440" fill="#eaf9ff" font-family="'Inter','Segoe UI',sans-serif" font-size="24" font-weight="500">Solution provider, freelancer, and trainer focused on production-grade delivery.</text>
+  <text x="140" y="720" fill="#f5fbff" font-family="'Inter','Segoe UI',sans-serif" font-size="24" font-weight="600">Reliable platforms | Automation-first | Hands-on enablement</text>
+</svg>

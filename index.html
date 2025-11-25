@@ -274,6 +274,78 @@
       color: var(--muted);
     }
 
+    .hero-visual {
+      position: relative;
+      overflow: hidden;
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      min-height: 340px;
+      background: linear-gradient(145deg, #d7e8f3 0%, #f5fbff 40%, #e8f7f0 100%);
+    }
+
+    .hero-visual img.banner {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(1.05);
+      display: block;
+    }
+
+    .profile-chip {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.94);
+      border-radius: 14px;
+      padding: 12px 14px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+      border: 1px solid rgba(27, 73, 101, 0.08);
+    }
+
+    .profile-chip img {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      border: 3px solid #e8f1fa;
+    }
+
+    .media-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    .media-tile {
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      position: relative;
+      background: #e8f1fa;
+    }
+
+    .media-tile img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .media-tile span {
+      position: absolute;
+      left: 12px;
+      bottom: 12px;
+      background: rgba(0, 0, 0, 0.64);
+      color: #fff;
+      padding: 6px 10px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
     @media (max-width: 720px) {
       nav ul {
         width: 100%;
@@ -335,6 +407,15 @@
             <a class="btn btn-secondary" href="#training">View Training Tracks</a>
           </div>
         </div>
+        <div class="hero-visual" aria-label="Hero imagery">
+          <img class="banner" src="assets/hero.svg" alt="Rajinikanth Vadla hero banner" />
+          <div class="profile-chip">
+            <img src="https://avatars.githubusercontent.com/rajinikanth-vadla" alt="Rajinikanth Vadla profile photo" loading="lazy" />
+            <div>
+              <strong>Rajinikanth Vadla</strong>
+              <div style="color: var(--muted); font-weight: 600;">AI Engineer & Trainer</div>
+            </div>
+          </div>
         <div class="card" aria-label="Mission statement">
           <h3>Outcome-driven delivery</h3>
           <p>I focus on measurable results: faster releases, resilient services, and sustainable automation. Every engagement is tailored with clear milestones and transparent communication.</p>
@@ -398,6 +479,28 @@
           <div class="card">
             <h3>Enablement & Handover</h3>
             <p>Training, runbooks, and playbooks to keep your teams confident after launch. Pragmatic governance without red tape.</p>
+          </div>
+        </div>
+      </section>
+
+      <section aria-label="Recent visuals">
+        <h2 class="section-title">In action</h2>
+        <div class="media-strip">
+          <div class="media-tile">
+            <img src="assets/architecture.svg" alt="Architecture sprint visual" loading="lazy" />
+            <span>Architecture sprints</span>
+          </div>
+          <div class="media-tile">
+            <img src="assets/delivery.svg" alt="Hands-on delivery visual" loading="lazy" />
+            <span>Hands-on delivery</span>
+          </div>
+          <div class="media-tile">
+            <img src="assets/training.svg" alt="Live training visual" loading="lazy" />
+            <span>Live training</span>
+          </div>
+          <div class="media-tile">
+            <img src="assets/cloudops.svg" alt="Cloud operations visual" loading="lazy" />
+            <span>CloudOps at scale</span>
           </div>
         </div>
       </section>
