@@ -66,7 +66,7 @@
       position: relative;
     }
 
-    /* Animated Grid Background */
+    /* Animated Dotted Grid Background */
     body::before {
       content: '';
       position: fixed;
@@ -75,9 +75,8 @@
       width: 100%;
       height: 100%;
       background-image:
-        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-      background-size: 50px 50px;
+        radial-gradient(circle, rgba(255, 255, 255, 0.15) 1.5px, transparent 1.5px);
+      background-size: 30px 30px;
       pointer-events: none;
       z-index: 0;
       animation: gridMove 20s linear infinite;
@@ -812,8 +811,8 @@
     /* Profile Images Grid */
     .profile-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2.5rem;
       margin-top: 3rem;
       padding: 3rem 0;
     }
@@ -826,6 +825,8 @@
       border: 2px solid rgba(255, 255, 255, 0.1);
       transition: all 0.4s ease;
       animation: float 6s ease-in-out infinite;
+      height: 100%;
+      min-height: 400px;
     }
 
     .profile-card:nth-child(2) {
@@ -863,8 +864,11 @@
 
     .profile-card img {
       width: 100%;
-      height: auto;
+      height: 100%;
+      min-height: 400px;
       display: block;
+      object-fit: cover;
+      object-position: center;
       transition: transform 0.4s ease;
     }
 
@@ -1392,20 +1396,30 @@
         <h3 style="color: var(--primary-cyan); font-size: 1.5rem; margin-bottom: 1rem;">
           🎥 Latest Videos & Tutorials
         </h3>
-        <p style="color: var(--text-secondary); margin-bottom: 1rem;">
-          Explore my YouTube channel for in-depth tutorials on DevOps, MLOps, Cloud Computing, and AI Engineering.
+        <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+          Explore my YouTube channel for in-depth tutorials on DevOps, MLOps, Cloud Computing, and AI Engineering. Watch practical implementations, best practices, and real-world scenarios.
         </p>
-        <div class="youtube-embed">
-          <iframe
-            src="https://www.youtube.com/embed?listType=user_uploads&list=@IamRajinikanthvadla"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-          </iframe>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+          <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 12px; text-align: center; border: 1px solid rgba(255, 255, 255, 0.1);">
+            <div style="font-size: 3rem; margin-bottom: 1rem;">🎓</div>
+            <h4 style="color: var(--text-primary); margin-bottom: 0.5rem;">Free Tutorials</h4>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">Step-by-step guides</p>
+          </div>
+          <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 12px; text-align: center; border: 1px solid rgba(255, 255, 255, 0.1);">
+            <div style="font-size: 3rem; margin-bottom: 1rem;">💼</div>
+            <h4 style="color: var(--text-primary); margin-bottom: 0.5rem;">Real Projects</h4>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">Enterprise scenarios</p>
+          </div>
+          <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 12px; text-align: center; border: 1px solid rgba(255, 255, 255, 0.1);">
+            <div style="font-size: 3rem; margin-bottom: 1rem;">🚀</div>
+            <h4 style="color: var(--text-primary); margin-bottom: 0.5rem;">Best Practices</h4>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">Production-ready tips</p>
+          </div>
         </div>
         <div style="text-align: center; margin-top: 2rem;">
-          <a href="https://www.youtube.com/@IamRajinikanthvadla?sub_confirmation=1" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-            Subscribe to My Channel
+          <a href="https://www.youtube.com/@IamRajinikanthvadla?sub_confirmation=1" target="_blank" rel="noopener noreferrer" class="btn btn-secondary cta-highlight" style="font-size: 1.1rem; padding: 1.2rem 2.5rem;">
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            Visit My YouTube Channel & Subscribe
           </a>
         </div>
       </div>
