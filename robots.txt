@@ -33,7 +33,7 @@ User-agent: ia_archiver
 Allow: /
 
 # Sitemap location
-Sitemap: https://rajinikanthvadla.com/sitemap.xml
+Sitemap: https://www.rajinikanthvadla.com/sitemap.xml
 
 # Host
-Host: https://rajinikanthvadla.com
+Host: https://www.rajinikanthvadla.com
