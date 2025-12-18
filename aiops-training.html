@@ -172,6 +172,7 @@
         <li><a href="courses.html">Courses</a></li>
         <li><a href="mentorship.html">Mentorship</a></li>
         <li><a href="contact.html">Contact</a></li>
+        <li><a href="index.html#success-stories">Success Stories</a></li>
         <li><a href="https://topmate.io/rajinikanthvadla" target="_blank" rel="noopener noreferrer" class="btn-nav">Book a Session</a></li>
       </ul>
       <button class="mobile-menu-btn" aria-label="Toggle menu">
@@ -390,6 +391,39 @@
     </div>
   </section>
 
+  <!-- Success Stories Section -->
+  <section class="success-stories" id="success-stories">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">⭐ Real Results</span>
+        <h2 class="section-title">Student <span>Success Stories</span></h2>
+        <p class="section-subtitle">See how our students transformed their careers with hands-on training</p>
+      </div>
+      <div class="success-stories-grid">
+        <div class="story-card" onclick="openStory(this)"><img src="assets/students success story -1.jpg" alt="Student Success Story" loading="lazy"><div class="story-card-overlay"><span class="story-card-badge">✓ Verified Success</span></div></div>
+        <div class="story-card" onclick="openStory(this)"><img src="assets/stoty-2.jpg" alt="Student Success Story" loading="lazy"><div class="story-card-overlay"><span class="story-card-badge">✓ Career Growth</span></div></div>
+        <div class="story-card" onclick="openStory(this)"><img src="assets/stoty-3.jpg" alt="Student Success Story" loading="lazy"><div class="story-card-overlay"><span class="story-card-badge">✓ Job Placed</span></div></div>
+        <div class="story-card" onclick="openStory(this)"><img src="assets/stoty-4.jpg" alt="Student Success Story" loading="lazy"><div class="story-card-overlay"><span class="story-card-badge">✓ Skills Upgraded</span></div></div>
+        <div class="story-card" onclick="openStory(this)"><img src="assets/stoty-5.jpg" alt="Student Success Story" loading="lazy"><div class="story-card-overlay"><span class="story-card-badge">✓ Certified</span></div></div>
+      </div>
+      <div class="success-stories-row-2">
+        <div class="story-card" onclick="openStory(this)"><img src="assets/stoty-6.png" alt="Student Success Story" loading="lazy"><div class="story-card-overlay"><span class="story-card-badge">✓ DevOps Role</span></div></div>
+        <div class="story-card" onclick="openStory(this)"><img src="assets/stoty-7.jpg" alt="Student Success Story" loading="lazy"><div class="story-card-overlay"><span class="story-card-badge">✓ MLOps Expert</span></div></div>
+        <div class="story-card" onclick="openStory(this)"><img src="assets/stoty-8.png" alt="Student Success Story" loading="lazy"><div class="story-card-overlay"><span class="story-card-badge">✓ Cloud Architect</span></div></div>
+        <div class="story-card" onclick="openStory(this)"><img src="assets/stoty-9.png" alt="Student Success Story" loading="lazy"><div class="story-card-overlay"><span class="story-card-badge">✓ AI Engineer</span></div></div>
+        <div class="story-card" onclick="openStory(this)"><img src="assets/stoty-10.png" alt="Student Success Story" loading="lazy"><div class="story-card-overlay"><span class="story-card-badge">✓ Tech Lead</span></div></div>
+      </div>
+      <div class="success-stats">
+        <div class="success-stat"><span class="success-stat-number">500+</span><span class="success-stat-label">Engineers Trained</span></div>
+        <div class="success-stat"><span class="success-stat-number">60%</span><span class="success-stat-label">Avg Salary Hike</span></div>
+        <div class="success-stat"><span class="success-stat-number">95%</span><span class="success-stat-label">Placement Rate</span></div>
+        <div class="success-stat"><span class="success-stat-number">4.9★</span><span class="success-stat-label">Student Rating</span></div>
+      </div>
+      <div class="success-cta"><a href="https://topmate.io/rajinikanthvadla" target="_blank" rel="noopener noreferrer" class="btn-green">🚀 Start Your Success Story Today</a></div>
+    </div>
+  </section>
+  <div class="story-lightbox" id="storyLightbox" onclick="closeStory()"><button class="story-lightbox-close" onclick="closeStory()">&times;</button><img src="" alt="Success Story" id="lightboxImg"></div>
+
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
@@ -453,6 +487,9 @@
         mobileBtn.classList.toggle('active');
       });
     }
+    function openStory(card) { const img = card.querySelector('img'); const lightbox = document.getElementById('storyLightbox'); const lightboxImg = document.getElementById('lightboxImg'); lightboxImg.src = img.src; lightboxImg.alt = img.alt; lightbox.classList.add('active'); document.body.style.overflow = 'hidden'; }
+    function closeStory() { const lightbox = document.getElementById('storyLightbox'); lightbox.classList.remove('active'); document.body.style.overflow = 'auto'; }
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeStory(); });
   </script>
 </body>
 </html>
