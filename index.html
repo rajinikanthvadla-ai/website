@@ -239,24 +239,22 @@
     <!-- Animated Stars/Particles Background -->
     <div class="particles-bg"></div>
     
-    <!-- Multiple Spotlight Beams -->
-    <div class="spotlight-beam spotlight-1"></div>
-    <div class="spotlight-beam spotlight-2"></div>
-    <div class="spotlight-beam spotlight-3"></div>
+    <!-- 🔦 Person with Torch Reveal Animation -->
+    <div class="torch-person-container">
+      <div class="torch-person">
+        <span class="person-emoji">🧑‍💼</span>
+        <span class="torch-emoji">🔦</span>
+      </div>
+      <div class="torch-beam-crisp"></div>
+      <div class="torch-light-source"></div>
+    </div>
     
-    <!-- Scanning Light Effect -->
-    <div class="scanning-light"></div>
-    
-    <!-- Pulsing Rings -->
-    <div class="pulse-ring ring-1"></div>
-    <div class="pulse-ring ring-2"></div>
-    <div class="pulse-ring ring-3"></div>
     
     <!-- Animated Border Glow -->
     <div class="border-glow-top"></div>
     <div class="border-glow-bottom"></div>
 
-    <div class="container" style="position: relative; z-index: 10; padding: 3rem 1rem;">
+    <div class="container reveal-content" style="position: relative; z-index: 10; padding: 3rem 1rem;">
       
 <!-- LIVE Badge with Urgency -->
       <div style="text-align: center; margin-bottom: 1rem;">
@@ -296,7 +294,7 @@
           border: 2px solid rgba(255,255,255,0.3);
         ">
           <span style="font-size: 1.5rem;">⚡</span> 
-          NEW BATCH - JAN 3rd 2025 
+          NEW BATCH - JAN 3rd 2026 
           <span style="font-size: 1.5rem;">⚡</span>
         </span>
       </div>
@@ -310,11 +308,11 @@
         margin-bottom: 0.5rem;
       line-height: 1.1;
       ">
-        <span class="glow-text" style="color: #f97316; display: inline-block;">MLOps</span> 
-        <span style="color: #64748b;">&</span> 
-        <span class="glow-text" style="color: #10b981; display: inline-block;">AIOps</span> 
-        <span style="color: #64748b;">&</span> 
-        <span class="glow-text" style="color: #8b5cf6; display: inline-block;">AI Agents</span>
+        <span class="glow-text" style="color: #FF6B35; display: inline-block;">MLOps</span> 
+        <span style="color: #94a3b8; font-weight: 700;">&</span> 
+        <span class="glow-text" style="color: #00E676; display: inline-block;">AIOps</span> 
+        <span style="color: #94a3b8; font-weight: 700;">&</span> 
+        <span class="glow-text" style="color: #BB86FC; display: inline-block;">AI Agents</span>
       </h2>
       
       <h3 style="
@@ -350,52 +348,56 @@
         max-width: 900px;
         margin: 0 auto 2rem;
       ">
-        <div style="
-          background: rgba(239, 68, 68, 0.1);
-          border: 2px solid #ef4444;
+        <div class="info-card" style="
+          background: rgba(255, 82, 82, 0.15);
+          border: 3px solid #FF5252;
           border-radius: 16px;
           padding: 1.25rem;
           text-align: center;
+          box-shadow: 0 0 20px rgba(255, 82, 82, 0.3);
         ">
           <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">📅</div>
-          <div style="color: #ef4444; font-weight: 800; font-size: 1.1rem;">JAN 3, 2025</div>
-          <div style="color: #94a3b8; font-size: 0.8rem;">Start Date</div>
+          <div style="color: #FF5252; font-weight: 900; font-size: 1.2rem; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">JAN 3, 2026</div>
+          <div style="color: #e2e8f0; font-size: 0.85rem; font-weight: 600;">Start Date</div>
         </div>
         
-        <div style="
-          background: rgba(16, 185, 129, 0.1);
-          border: 2px solid #10b981;
+        <div class="info-card" style="
+          background: rgba(0, 230, 118, 0.15);
+          border: 3px solid #00E676;
           border-radius: 16px;
           padding: 1.25rem;
           text-align: center;
+          box-shadow: 0 0 20px rgba(0, 230, 118, 0.3);
         ">
           <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">🕗</div>
-          <div style="color: #10b981; font-weight: 800; font-size: 1.1rem;">8 PM IST</div>
-          <div style="color: #94a3b8; font-size: 0.8rem;">Daily Class</div>
+          <div style="color: #00E676; font-weight: 900; font-size: 1.2rem; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">8 PM IST</div>
+          <div style="color: #e2e8f0; font-size: 0.85rem; font-weight: 600;">Daily Class</div>
         </div>
         
-        <div style="
-          background: rgba(59, 130, 246, 0.1);
-          border: 2px solid #3b82f6;
+        <div class="info-card" style="
+          background: rgba(68, 138, 255, 0.15);
+          border: 3px solid #448AFF;
           border-radius: 16px;
           padding: 1.25rem;
           text-align: center;
+          box-shadow: 0 0 20px rgba(68, 138, 255, 0.3);
         ">
           <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">⏱️</div>
-          <div style="color: #3b82f6; font-weight: 800; font-size: 1.1rem;">8-12 WEEKS</div>
-          <div style="color: #94a3b8; font-size: 0.8rem;">Duration</div>
+          <div style="color: #448AFF; font-weight: 900; font-size: 1.2rem; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">8-12 WEEKS</div>
+          <div style="color: #e2e8f0; font-size: 0.85rem; font-weight: 600;">Duration</div>
         </div>
         
-        <div style="
-          background: rgba(139, 92, 246, 0.1);
-          border: 2px solid #8b5cf6;
+        <div class="info-card" style="
+          background: rgba(187, 134, 252, 0.15);
+          border: 3px solid #BB86FC;
           border-radius: 16px;
           padding: 1.25rem;
           text-align: center;
+          box-shadow: 0 0 20px rgba(187, 134, 252, 0.3);
         ">
           <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">📚</div>
-          <div style="color: #8b5cf6; font-weight: 800; font-size: 1.1rem;">1:45 HRS</div>
-          <div style="color: #94a3b8; font-size: 0.8rem;">Each Session</div>
+          <div style="color: #BB86FC; font-weight: 900; font-size: 1.2rem; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">1:45 HRS</div>
+          <div style="color: #e2e8f0; font-size: 0.85rem; font-weight: 600;">Each Session</div>
         </div>
       </div>
 
@@ -635,93 +637,187 @@
       50% { opacity: 0.8; }
     }
 
-    /* Spotlight Beams */
-    .spotlight-beam {
-      position: absolute;
-      width: 300px;
-      height: 600px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.3) 0%, transparent 100%);
-      clip-path: polygon(40% 0%, 60% 0%, 100% 100%, 0% 100%);
-      filter: blur(10px);
-    }
-    .spotlight-1 {
-      left: 10%;
-      top: -100px;
-      animation: spotlight1 6s ease-in-out infinite;
-      background: linear-gradient(180deg, rgba(239,68,68,0.4) 0%, transparent 100%);
-    }
-    .spotlight-2 {
-      left: 45%;
-      top: -100px;
-      animation: spotlight2 5s ease-in-out infinite;
-      background: linear-gradient(180deg, rgba(16,185,129,0.4) 0%, transparent 100%);
-    }
-    .spotlight-3 {
-      right: 10%;
-      top: -100px;
-      animation: spotlight3 7s ease-in-out infinite;
-      background: linear-gradient(180deg, rgba(139,92,246,0.4) 0%, transparent 100%);
-    }
-    @keyframes spotlight1 {
-      0%, 100% { transform: rotate(-20deg) translateX(0); opacity: 0.6; }
-      50% { transform: rotate(10deg) translateX(50px); opacity: 1; }
-    }
-    @keyframes spotlight2 {
-      0%, 100% { transform: rotate(5deg) translateX(0); opacity: 0.8; }
-      50% { transform: rotate(-5deg) translateX(-30px); opacity: 1; }
-    }
-    @keyframes spotlight3 {
-      0%, 100% { transform: rotate(20deg) translateX(0); opacity: 0.6; }
-      50% { transform: rotate(-10deg) translateX(-50px); opacity: 1; }
-    }
-
-    /* Scanning Light */
-    .scanning-light {
+    /* 🔦 Person with Torch - HD Crisp Effect */
+    .torch-person-container {
       position: absolute;
       top: 0;
-      left: -100%;
+      right: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%);
-      animation: scan 4s linear infinite;
+      z-index: 5;
+      pointer-events: none;
+      overflow: hidden;
     }
-    @keyframes scan {
-      0% { left: -100%; }
-      100% { left: 100%; }
-    }
-
-    /* Pulsing Rings */
-    .pulse-ring {
+    
+    .torch-person {
       position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      border-radius: 50%;
-      border: 2px solid rgba(255,255,255,0.3);
+      top: 20px;
+      right: 50px;
+      z-index: 20;
+      animation: personEnter 2s ease-out forwards;
+      opacity: 0;
+      transform: translateX(100px);
+    }
+    
+    @keyframes personEnter {
+      0% { 
+        opacity: 0; 
+        transform: translateX(100px) scale(0.8);
+      }
+      60% { 
+        opacity: 1; 
+        transform: translateX(0) scale(1.05);
+      }
+      100% { 
+        opacity: 1; 
+        transform: translateX(0) scale(1);
+      }
+    }
+    
+    .person-emoji {
+      font-size: 3rem;
+      display: inline-block;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
+      animation: personBob 2s ease-in-out infinite;
+      animation-delay: 2s;
+    }
+    
+    @keyframes personBob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+    
+    .torch-emoji {
+      font-size: 2.5rem;
+      display: inline-block;
+      margin-left: -15px;
+      transform: rotate(-30deg);
+      filter: drop-shadow(0 0 15px #FFD700) drop-shadow(0 0 30px #FFA500);
+      animation: torchOn 2s ease-out forwards, torchGlow 1.5s ease-in-out infinite;
+      animation-delay: 1s, 2.5s;
       opacity: 0;
     }
-    .ring-1 {
-      width: 200px;
-      height: 200px;
-      animation: pulseRing 3s ease-out infinite;
-      border-color: rgba(239,68,68,0.5);
+    
+    @keyframes torchOn {
+      0% { opacity: 0; transform: rotate(-30deg) scale(0.5); }
+      50% { opacity: 1; transform: rotate(-35deg) scale(1.1); }
+      100% { opacity: 1; transform: rotate(-30deg) scale(1); }
     }
-    .ring-2 {
-      width: 400px;
-      height: 400px;
-      animation: pulseRing 3s ease-out infinite 1s;
-      border-color: rgba(16,185,129,0.5);
+    
+    @keyframes torchGlow {
+      0%, 100% { filter: drop-shadow(0 0 15px #FFD700) drop-shadow(0 0 30px #FFA500); }
+      50% { filter: drop-shadow(0 0 25px #FFD700) drop-shadow(0 0 50px #FFA500) drop-shadow(0 0 70px #FF8C00); }
     }
-    .ring-3 {
-      width: 600px;
+    
+    .torch-beam-crisp {
+      position: absolute;
+      top: 60px;
+      right: 80px;
+      width: 500px;
       height: 600px;
-      animation: pulseRing 3s ease-out infinite 2s;
-      border-color: rgba(139,92,246,0.5);
+      background: 
+        linear-gradient(210deg, 
+          rgba(255, 215, 0, 0.4) 0%,
+          rgba(255, 180, 0, 0.25) 15%,
+          rgba(255, 165, 0, 0.15) 30%,
+          rgba(255, 140, 0, 0.08) 50%,
+          transparent 70%
+        );
+      clip-path: polygon(95% 0%, 100% 0%, 35% 100%, 15% 100%);
+      transform-origin: top right;
+      animation: beamReveal 2.5s ease-out forwards;
+      opacity: 0;
     }
-    @keyframes pulseRing {
-      0% { transform: translate(-50%, -50%) scale(0.5); opacity: 1; }
-      100% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
+    
+    @keyframes beamReveal {
+      0% { 
+        opacity: 0; 
+        clip-path: polygon(98% 0%, 100% 0%, 98% 0%, 98% 0%);
+      }
+      40% { 
+        opacity: 0.3;
+      }
+      100% { 
+        opacity: 1; 
+        clip-path: polygon(95% 0%, 100% 0%, 35% 100%, 15% 100%);
+      }
     }
+    
+    .torch-light-source {
+      position: absolute;
+      top: 55px;
+      right: 95px;
+      width: 50px;
+      height: 50px;
+      background: radial-gradient(circle, 
+        rgba(255, 255, 200, 1) 0%, 
+        rgba(255, 215, 0, 0.9) 30%,
+        rgba(255, 180, 0, 0.5) 60%,
+        transparent 80%
+      );
+      border-radius: 50%;
+      animation: lightSourceOn 2s ease-out forwards, lightPulse 1s ease-in-out infinite;
+      animation-delay: 1.5s, 3s;
+      opacity: 0;
+    }
+    
+    @keyframes lightSourceOn {
+      0% { opacity: 0; transform: scale(0); }
+      70% { opacity: 1; transform: scale(1.3); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+    
+    @keyframes lightPulse {
+      0%, 100% { transform: scale(1); opacity: 0.9; }
+      50% { transform: scale(1.15); opacity: 1; }
+    }
+    
+    /* Content Reveal Animation */
+    .container.reveal-content {
+      animation: contentReveal 3s ease-out forwards;
+    }
+    
+    @keyframes contentReveal {
+      0% { opacity: 0.3; }
+      50% { opacity: 0.6; }
+      100% { opacity: 1; }
+    }
+    
+    /* Info Cards Reveal Animation */
+    .info-card {
+      animation: cardReveal 0.8s ease-out forwards;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    
+    .info-card:nth-child(1) { animation-delay: 2s; }
+    .info-card:nth-child(2) { animation-delay: 2.2s; }
+    .info-card:nth-child(3) { animation-delay: 2.4s; }
+    .info-card:nth-child(4) { animation-delay: 2.6s; }
+    
+    @keyframes cardReveal {
+      0% { 
+        opacity: 0; 
+        transform: translateY(30px) scale(0.9);
+      }
+      100% { 
+        opacity: 1; 
+        transform: translateY(0) scale(1);
+      }
+    }
+    
+    /* Hide torch on smaller screens */
+    @media (max-width: 768px) {
+      .torch-person-container {
+        display: none;
+      }
+      .info-card {
+        animation: none;
+        opacity: 1;
+        transform: none;
+      }
+    }
+
 
     /* Border Glow Effects */
     .border-glow-top {
@@ -749,13 +845,11 @@
       100% { background-position: 200% 50%; }
     }
 
-    /* Glowing Text Animation */
+    /* HD Sharp Text - High Contrast */
     .glow-text {
-      animation: textGlow 2s ease-in-out infinite alternate;
-    }
-    @keyframes textGlow {
-      from { text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor; }
-      to { text-shadow: 0 0 20px currentColor, 0 0 40px currentColor, 0 0 60px currentColor; }
+      text-shadow: 2px 2px 0px rgba(0,0,0,0.8), -1px -1px 0px rgba(0,0,0,0.5);
+      font-weight: 900;
+      letter-spacing: 2px;
     }
 
     /* Mega Pulse Glow for Badge */
@@ -1336,7 +1430,7 @@
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; 2025 Rajinikanth Vadla - Best AIOps MLOps DevOps Training | Multi-Cloud Kubernetes AI Agents GenAI Expert</p>
+        <p>&copy; 2026 Rajinikanth Vadla - Best AIOps MLOps DevOps Training | Multi-Cloud Kubernetes AI Agents GenAI Expert</p>
       </div>
     </div>
   </footer>
