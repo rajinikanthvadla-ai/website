@@ -1,11 +1,46 @@
 export const SITE = {
   name: "Rajinikanth Vadla",
-  title: "Best DevOps, MLOps, AIOps & AI Agents Training | Rajinikanth Vadla",
+  title:
+    "Rajinikanth Vadla | #1 MLOps, AIOps, GenAI, AI Agents, LLMOps Trainer & Mentor in India",
   description:
-    "Master Real-Time DevOps, MLOps, AIOps, and AI Agents. Hands-on projects with AWS, Azure, GCP, Kubernetes. 500+ engineers trained. Join the best training program with placement assistance.",
+    "Rajinikanth Vadla — India's top MLOps, AIOps, GenAI, AI Agents, LLMOps expert & trainer. 10+ years experience, 500+ engineers trained. Master Docker, Kubernetes, LangChain, RAG, AWS, Azure, GCP. Live training with 95% placement rate. Join the #1 rated AI/ML Ops program.",
   url: "https://www.rajinikanthvadla.com",
   image: "https://www.rajinikanthvadla.com/assets/pic-1.png",
   phone: "+91-9100028801",
+  keywords: [
+    "Rajinikanth Vadla",
+    "MLOps training",
+    "AIOps course",
+    "GenAI training",
+    "AI Agents course",
+    "LLMOps training",
+    "DevOps training India",
+    "best MLOps course",
+    "best AIOps training",
+    "AI ML Ops mentor",
+    "Kubernetes training",
+    "Docker training",
+    "LangChain course",
+    "RAG system training",
+    "cloud DevOps training",
+    "multi-cloud training AWS Azure GCP",
+    "MLflow training",
+    "Kubeflow course",
+    "production ML deployment",
+    "AI agent development course",
+    "LLM deployment training",
+    "machine learning operations",
+    "DevOps for AI ML",
+    "Terraform Ansible training",
+    "CI CD for machine learning",
+    "model deployment training",
+    "AI automation training",
+    "self-healing infrastructure",
+    "anomaly detection training",
+    "ML pipeline training",
+    "best DevOps course India",
+    "real-time DevOps training",
+  ],
 };
 
 export const LINKS = {
@@ -14,8 +49,7 @@ export const LINKS = {
   whatsapp: "https://wa.me/919100028801",
   whatsappSyllabus:
     "https://wa.me/919100028801?text=Hi%20Rajinikanth,%20I%20want%20to%20know%20batch%20details%20and%20syllabus",
-  whatsappChannel:
-    "https://whatsapp.com/channel/0029VbBxmp7Fy7262q1Ti72e",
+  whatsappChannel: "https://whatsapp.com/channel/0029VbBxmp7Fy7262q1Ti72e",
   linkedin: "https://www.linkedin.com/in/rajinikanth-vadla-4221281a4/",
   youtube: "https://www.youtube.com/@IamRajinikanthvadla",
   instagram: "https://www.instagram.com/rajinikanth_vadla_/",
@@ -26,15 +60,16 @@ export const LINKS = {
 export const NAV_ITEMS = [
   { label: "About", href: "/about" },
   { label: "Courses", href: "/courses" },
+  { label: "Masterclass", href: "/mlops-aiops-masterclass" },
   { label: "Mentorship", href: "/mentorship" },
   { label: "Contact", href: "/contact" },
-  { label: "Success Stories", href: "/#success-stories" },
 ];
 
 export const STATS = [
   { value: "500+", label: "Engineers Trained" },
   { value: "50+", label: "Enterprise Projects" },
-  { value: "4.9\u2605", label: "Average Rating" },
+  { value: "4.9★", label: "Average Rating" },
+  { value: "95%", label: "Placement Rate" },
 ];
 
 export const SUCCESS_STORIES = [
@@ -54,7 +89,7 @@ export const COURSES = [
   {
     title: "MLOps & AIOps Masterclass",
     description:
-      "Complete 12-16 week program: DevOps to MLOps to LLMOps to AIOps to AI Agents. Build production-ready AI systems!",
+      "Complete 12-16 week program: DevOps → MLOps → LLMOps → AIOps → AI Agents. Build production-ready AI systems!",
     features: [
       "6 Comprehensive Modules",
       "200+ Hours Hands-on Training",
@@ -62,7 +97,6 @@ export const COURSES = [
       "LangChain, RAG, AI Agents",
     ],
     badge: "FLAGSHIP",
-    color: "accent" as const,
     href: "/mlops-aiops-masterclass",
     ctaText: "View Syllabus",
     featured: true,
@@ -77,7 +111,6 @@ export const COURSES = [
       "Jenkins, GitLab, GitHub Actions",
     ],
     badge: "Popular",
-    color: "primary" as const,
     href: LINKS.topmate,
     ctaText: "Enroll Now",
     featured: false,
@@ -85,14 +118,13 @@ export const COURSES = [
   {
     title: "Kubernetes & Cloud Native",
     description:
-      "From zero to Kubernetes hero - EKS, AKS, GKE in production environments.",
+      "From zero to Kubernetes hero — EKS, AKS, GKE in production environments.",
     features: [
       "EKS, AKS, GKE management",
       "Helm Charts & Operators",
       "Istio Service Mesh",
     ],
     badge: "Best Seller",
-    color: "primary" as const,
     href: LINKS.topmate,
     ctaText: "Enroll Now",
     featured: false,
@@ -107,7 +139,6 @@ export const COURSES = [
       "Production AI Applications",
     ],
     badge: "Advanced",
-    color: "primary" as const,
     href: LINKS.topmate,
     ctaText: "Enroll Now",
     featured: false,
@@ -117,16 +148,16 @@ export const COURSES = [
 export const SERVICES = [
   {
     icon: "robot",
-    title: "AI Agents & GenAI",
+    title: "AI Agents & GenAI Training",
     description:
       "Build autonomous AI agents with LangChain, RAG systems, LLMs, and production AI applications.",
     href: "/genai-training",
   },
   {
     icon: "brain",
-    title: "MLOps Engineering",
+    title: "MLOps Engineering Training",
     description:
-      "Deploy ML models to production, MLflow, Kubeflow, SageMaker, model monitoring & pipelines.",
+      "Deploy ML models to production with MLflow, Kubeflow, SageMaker, model monitoring & pipelines.",
     href: "/mlops-training",
   },
   {
@@ -140,7 +171,7 @@ export const SERVICES = [
     icon: "cloud",
     title: "Multi-Cloud & Kubernetes",
     description:
-      "AWS, Azure, GCP, EKS, AKS, GKE - infrastructure for AI/ML workloads at scale.",
+      "AWS, Azure, GCP, EKS, AKS, GKE — infrastructure for AI/ML workloads at scale.",
     href: "/courses",
   },
 ];
@@ -148,20 +179,163 @@ export const SERVICES = [
 export const VIDEOS = [
   {
     id: "jNQXAC9IVRw",
-    title: "MLOps Zero to Hero",
+    title: "MLOps Zero to Hero — Complete Guide",
     description:
       "Fundamental concepts of MLOps and how to separate it from traditional Data Science.",
   },
   {
     id: "2uYu2W7W88E",
-    title: "Real Company Production Pipeline",
+    title: "Real Company Production ML Pipeline",
     description:
       "End-to-end walkthrough of a real-world machine learning pipeline in production.",
   },
   {
     id: "s_O8o2G7gK0",
-    title: "Kubernetes for DevOps",
+    title: "Kubernetes for DevOps Engineers",
     description:
       "How to manage and orchestrate containers at scale using Kubernetes.",
   },
 ];
+
+export const STRUCTURED_DATA = {
+  person: {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Rajinikanth Vadla",
+    jobTitle: "MLOps, AIOps, GenAI, AI Agents Expert & Trainer",
+    description:
+      "India's #1 MLOps, AIOps, GenAI, AI Agents, LLMOps Trainer. 10+ years enterprise experience. 500+ engineers trained with 95% placement rate.",
+    url: "https://www.rajinikanthvadla.com/",
+    image: "https://www.rajinikanthvadla.com/assets/pic-1.png",
+    sameAs: [
+      "https://www.linkedin.com/in/rajinikanth-vadla-4221281a4/",
+      "https://www.youtube.com/@IamRajinikanthvadla",
+      "https://www.instagram.com/rajinikanth_vadla_/",
+      "https://topmate.io/rajinikanthvadla",
+    ],
+    knowsAbout: [
+      "MLOps", "AIOps", "DevOps", "GenAI", "Generative AI", "AI Agents",
+      "LLMOps", "LangChain", "RAG", "LLM", "Large Language Models",
+      "AWS", "Azure", "GCP", "Kubernetes", "Docker", "Terraform",
+      "Jenkins", "CI/CD", "MLflow", "Kubeflow", "Machine Learning Operations",
+      "Cloud Computing", "Infrastructure as Code", "Model Context Protocol",
+      "Vector Databases", "Prompt Engineering", "Fine-tuning LLMs",
+    ],
+    alumniOf: { "@type": "Organization", name: "Enterprise IT" },
+    award: "Top-rated AI/ML Ops Trainer — 4.9/5 with 500+ reviews",
+  },
+  organization: {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Rajinikanth Vadla — MLOps AIOps GenAI Training",
+    alternateName: "RV Tech Training",
+    url: "https://www.rajinikanthvadla.com/",
+    logo: "https://www.rajinikanthvadla.com/assets/pic-1.png",
+    description:
+      "Best MLOps, AIOps, GenAI, AI Agents, LLMOps training with hands-on enterprise projects. Master AWS, Azure, GCP, Kubernetes, LangChain, RAG.",
+    founder: {
+      "@type": "Person",
+      name: "Rajinikanth Vadla",
+    },
+    sameAs: [
+      "https://www.linkedin.com/in/rajinikanth-vadla-4221281a4/",
+      "https://www.youtube.com/@IamRajinikanthvadla",
+      "https://www.instagram.com/rajinikanth_vadla_/",
+    ],
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: "+91-9100028801",
+      contactType: "customer service",
+      availableLanguage: ["English", "Hindi", "Telugu"],
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      reviewCount: "500",
+      bestRating: "5",
+    },
+  },
+  course: {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    name: "MLOps & AIOps Masterclass — DevOps to Production AI Systems",
+    description:
+      "Comprehensive 12-16 week training on MLOps, AIOps, LLMOps, GenAI, AI Agent development. Master Docker, Kubernetes, MLflow, Kubeflow, LangChain with hands-on projects.",
+    provider: {
+      "@type": "Organization",
+      name: "Rajinikanth Vadla Training",
+      sameAs: "https://www.rajinikanthvadla.com/",
+    },
+    instructor: {
+      "@type": "Person",
+      name: "Rajinikanth Vadla",
+    },
+    teaches: [
+      "MLOps", "AIOps", "LLMOps", "GenAI", "AI Agents", "Kubernetes",
+      "Docker", "MLflow", "Kubeflow", "LangChain", "RAG", "AWS", "Azure", "GCP",
+    ],
+    hasCourseInstance: {
+      "@type": "CourseInstance",
+      courseMode: "online",
+      instructor: { "@type": "Person", name: "Rajinikanth Vadla" },
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      reviewCount: "500",
+      bestRating: "5",
+    },
+    offers: {
+      "@type": "Offer",
+      price: "35000",
+      priceCurrency: "INR",
+      availability: "https://schema.org/InStock",
+    },
+  },
+  faq: {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "Who is Rajinikanth Vadla?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Rajinikanth Vadla is India's top-rated MLOps, AIOps, GenAI, and AI Agents trainer with 10+ years enterprise experience. He has trained 500+ engineers with a 95% placement rate and 4.9/5 average rating.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What is the best MLOps training in India?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Rajinikanth Vadla's MLOps & AIOps Masterclass is rated the best MLOps training in India. It covers DevOps, MLOps, LLMOps, AIOps, and AI Agents with 200+ hours of hands-on training, real enterprise projects, and 95% job placement rate.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What is AIOps and MLOps training?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "AIOps (AI for IT Operations) and MLOps (Machine Learning Operations) training teaches you to build production ML pipelines, deploy AI models at scale, and automate IT operations using AI. Includes hands-on with Kubeflow, MLflow, Docker, Kubernetes.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How to learn AI Agents, GenAI, and LangChain?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Learn AI Agents and GenAI through Rajinikanth Vadla's hands-on training with LangChain, Model Context Protocol (MCP), RAG systems, vector databases, and LLM integration. Build production AI applications and autonomous agent systems.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What salary can I expect after MLOps training?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "MLOps Engineers earn ₹12-50 LPA in India, $120K-$200K+ in USA, €70K-€120K+ in Europe. Students of Rajinikanth Vadla see 60% average salary increase after completing the training.",
+        },
+      },
+    ],
+  },
+};
