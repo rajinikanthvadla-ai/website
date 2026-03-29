@@ -291,13 +291,13 @@ function CourseBanner() {
 function VideoSection() {
   return (
     <section className="py-28 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-5xl mx-auto px-6">
         <SectionHeader
           tag="Watch &amp; Learn"
           title="See Real Training in Action"
           subtitle="No basic tutorials — we build real production systems. Judge the quality yourself."
         />
-        <div className="grid md:grid-cols-3 gap-6 mb-10">
+        <div className="max-w-3xl mx-auto mb-10">
           {VIDEOS.map((v) => (
             <div key={v.id} className="group bg-white rounded-2xl overflow-hidden border border-gray-100 card-hover">
               <div className="relative pb-[56.25%] bg-gray-900">
@@ -311,15 +311,15 @@ function VideoSection() {
                 />
               </div>
               <div className="p-6">
-                <h3 className="font-bold text-gray-900 mb-2 group-hover:text-indigo-600 transition-colors">{v.title}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed">{v.description}</p>
+                <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">{v.title}</h3>
+                <p className="text-gray-500 leading-relaxed">{v.description}</p>
               </div>
             </div>
           ))}
         </div>
         <div className="text-center">
-          <a href={LINKS.youtube} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border-2 border-gray-200 text-gray-700 px-8 py-3.5 rounded-full font-bold hover:border-gray-900 hover:text-gray-900 transition-all">
-            View All Videos on YouTube
+          <a href={LINKS.youtube} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-gray-900 text-white px-8 py-4 rounded-full font-bold hover:bg-gray-800 transition-all hover:-translate-y-0.5">
+            Watch More on My YouTube Channel &rarr;
           </a>
         </div>
       </div>

@@ -178,22 +178,10 @@ export const SERVICES = [
 
 export const VIDEOS = [
   {
-    id: "jNQXAC9IVRw",
-    title: "MLOps Zero to Hero — Complete Guide",
+    id: "eXsltT8baj0",
+    title: "AIOps Lab Day-01: Detect CPU Anomalies",
     description:
-      "Fundamental concepts of MLOps and how to separate it from traditional Data Science.",
-  },
-  {
-    id: "2uYu2W7W88E",
-    title: "Real Company Production ML Pipeline",
-    description:
-      "End-to-end walkthrough of a real-world machine learning pipeline in production.",
-  },
-  {
-    id: "s_O8o2G7gK0",
-    title: "Kubernetes for DevOps Engineers",
-    description:
-      "How to manage and orchestrate containers at scale using Kubernetes.",
+      "Hands-on lab using Prometheus, Grafana & ML to detect CPU anomalies in real-time.",
   },
 ];
 
