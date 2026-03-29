@@ -16,5 +16,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/genai-training`, lastModified: now, changeFrequency: "weekly", priority: 0.85 },
     { url: `${base}/aiops-training`, lastModified: now, changeFrequency: "weekly", priority: 0.85 },
     { url: `${base}/mlops-training`, lastModified: now, changeFrequency: "weekly", priority: 0.85 },
+    { url: `${base}/ai-tools-productivity`, lastModified: now, changeFrequency: "weekly", priority: 0.85 },
   ];
 }

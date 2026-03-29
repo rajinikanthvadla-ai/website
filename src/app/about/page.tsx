@@ -6,7 +6,7 @@ import SuccessStories from "@/components/SuccessStories";
 export const metadata: Metadata = {
   title: "About Rajinikanth Vadla",
   description:
-    "Learn about Rajinikanth Vadla - AIOps, MLOps, DevOps Expert with 10+ years experience. Passionate mentor who has trained 500+ engineers.",
+    "Learn about Rajinikanth Vadla - AIOps, MLOps, DevOps Expert with 7+ years experience. Passionate mentor who has trained 500+ engineers.",
 };
 
 export default function AboutPage() {
@@ -44,7 +44,7 @@ export default function AboutPage() {
               <h2 className="text-2xl font-extrabold gradient-text mb-5">Who I Am</h2>
               <p className="text-gray-600 leading-relaxed text-lg mb-4">
                 I&apos;m Rajinikanth Vadla &mdash; an AI/ML Operations Engineer, Cloud Architect, and passionate mentor with over
-                10 years of hands-on experience in enterprise technology.
+                7+ years of hands-on experience in enterprise technology.
               </p>
               <p className="text-gray-600 leading-relaxed text-lg mb-10">
                 My real passion? Teaching. I believe everyone deserves access to quality, real-world training. That&apos;s

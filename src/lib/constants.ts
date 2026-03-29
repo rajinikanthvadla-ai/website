@@ -3,7 +3,7 @@ export const SITE = {
   title:
     "Rajinikanth Vadla | #1 MLOps, AIOps, GenAI, AI Agents, LLMOps Trainer & Mentor in India",
   description:
-    "Rajinikanth Vadla — India's top MLOps, AIOps, GenAI, AI Agents, LLMOps expert & trainer. 10+ years experience, 500+ engineers trained. Master Docker, Kubernetes, LangChain, RAG, AWS, Azure, GCP. Live training with 95% placement rate. Join the #1 rated AI/ML Ops program.",
+    "Rajinikanth Vadla — India's top MLOps, AIOps, GenAI, AI Agents, LLMOps expert & trainer. 7+ years experience, 500+ engineers trained. Master Docker, Kubernetes, LangChain, RAG, AWS, Azure, GCP. Live training with 95% placement rate. Join the #1 rated AI/ML Ops program.",
   url: "https://www.rajinikanthvadla.com",
   image: "https://www.rajinikanthvadla.com/assets/pic-1.png",
   phone: "+91-9100028801",
@@ -143,6 +143,21 @@ export const COURSES = [
     ctaText: "Enroll Now",
     featured: false,
   },
+  {
+    title: "AI Tools for 10x Productivity",
+    description:
+      "Master Cursor, Claude, ChatGPT, Gemini, Grok, Vercel AI SDK, AWS Bedrock — 10x your work with AI.",
+    features: [
+      "Cursor, Copilot & AI IDEs",
+      "ChatGPT, Claude, Gemini, Grok",
+      "Vercel AI SDK & AWS Bedrock",
+      "Agentic Workflows & Automation",
+    ],
+    badge: "NEW",
+    href: "/ai-tools-productivity",
+    ctaText: "View Details",
+    featured: false,
+  },
 ];
 
 export const SERVICES = [
@@ -174,6 +189,13 @@ export const SERVICES = [
       "AWS, Azure, GCP, EKS, AKS, GKE — infrastructure for AI/ML workloads at scale.",
     href: "/courses",
   },
+  {
+    icon: "spark",
+    title: "AI Tools for 10x Productivity",
+    description:
+      "Master Cursor, Claude, ChatGPT, Gemini, Grok, Vercel AI SDK — work 10x faster with AI.",
+    href: "/ai-tools-productivity",
+  },
 ];
 
 export const VIDEOS = [
@@ -192,7 +214,7 @@ export const STRUCTURED_DATA = {
     name: "Rajinikanth Vadla",
     jobTitle: "MLOps, AIOps, GenAI, AI Agents Expert & Trainer",
     description:
-      "India's #1 MLOps, AIOps, GenAI, AI Agents, LLMOps Trainer. 10+ years enterprise experience. 500+ engineers trained with 95% placement rate.",
+      "India's #1 MLOps, AIOps, GenAI, AI Agents, LLMOps Trainer. 7+ years enterprise experience. 500+ engineers trained with 95% placement rate.",
     url: "https://www.rajinikanthvadla.com/",
     image: "https://www.rajinikanthvadla.com/assets/pic-1.png",
     sameAs: [
@@ -289,7 +311,7 @@ export const STRUCTURED_DATA = {
         name: "Who is Rajinikanth Vadla?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Rajinikanth Vadla is India's top-rated MLOps, AIOps, GenAI, and AI Agents trainer with 10+ years enterprise experience. He has trained 500+ engineers with a 95% placement rate and 4.9/5 average rating.",
+          text: "Rajinikanth Vadla is India's top-rated MLOps, AIOps, GenAI, and AI Agents trainer with 7+ years enterprise experience. He has trained 500+ engineers with a 95% placement rate and 4.9/5 average rating.",
         },
       },
       {

@@ -57,7 +57,7 @@ function HeroSection() {
           </p>
           <p className="text-gray-500 text-lg max-w-xl mb-10 leading-relaxed">
             I transform engineers into <strong className="text-white">production AI/ML experts</strong>.
-            10+ years in enterprise. 500+ careers transformed. Your success is my mission.
+            7+ years in enterprise. 500+ careers transformed. Your success is my mission.
           </p>
 
           <div className="flex flex-wrap gap-4 mb-12">
@@ -164,7 +164,7 @@ function AboutPreview() {
               </span>
             </h2>
             <p className="text-lg text-gray-600 leading-relaxed mb-6">
-              After 10+ years building production AI/ML systems at enterprise scale, I found my true calling:
+              After 7+ years building production AI/ML systems at enterprise scale, I found my true calling:
               helping engineers master the skills that actually matter in the industry. Every concept I teach comes
               from real-world experience, not textbooks.
             </p>
@@ -187,7 +187,7 @@ function AboutPreview() {
 
           <div className="grid grid-cols-2 gap-4">
             {[
-              { value: "10+", label: "Years Experience", color: "bg-indigo-50 border-indigo-100" },
+              { value: "7+", label: "Years Experience", color: "bg-indigo-50 border-indigo-100" },
               { value: "500+", label: "Engineers Trained", color: "bg-blue-50 border-blue-100" },
               { value: "95%", label: "Placement Rate", color: "bg-emerald-50 border-emerald-100" },
               { value: "60%", label: "Avg Salary Hike", color: "bg-amber-50 border-amber-100" },
@@ -210,13 +210,14 @@ function ServicesSection() {
     { icon: "🧠", title: "MLOps Engineering", desc: "Deploy ML models to production with MLflow, Kubeflow, SageMaker, model monitoring & pipelines.", href: "/mlops-training", color: "from-blue-500 to-indigo-600" },
     { icon: "⚡", title: "AIOps & Automation", desc: "AI-powered IT Operations, predictive analytics, self-healing infrastructure.", href: "/aiops-training", color: "from-emerald-500 to-teal-600" },
     { icon: "☁️", title: "Multi-Cloud & K8s", desc: "AWS, Azure, GCP, EKS, AKS, GKE — infrastructure for AI/ML at scale.", href: "/courses", color: "from-violet-500 to-purple-600" },
+    { icon: "✨", title: "AI Tools for 10x Productivity", desc: "Master Cursor, Claude, ChatGPT, Gemini, Grok, Vercel AI SDK — work 10x faster.", href: "/ai-tools-productivity", color: "from-amber-500 to-orange-600" },
   ];
 
   return (
     <section className="py-28 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeader tag="Expertise" title="What I Can Help You With" subtitle="Production-grade skills across the full AI/ML stack" />
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
           {data.map((s) => (
             <Link key={s.title} href={s.href} className="group bg-white rounded-2xl p-8 border border-gray-100 card-hover">
               <div className={`w-14 h-14 bg-gradient-to-br ${s.color} rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-lg group-hover:scale-110 transition-transform`}>
@@ -334,7 +335,7 @@ function CoursesSection() {
         <SectionHeader
           tag="Training Programs"
           title="Choose Your Learning Path"
-          subtitle="Production-ready skills taught by an industry expert with 10+ years experience"
+          subtitle="Production-ready skills taught by an industry expert with 7+ years experience"
         />
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {COURSES.map((c) => (

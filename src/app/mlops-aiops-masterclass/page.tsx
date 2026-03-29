@@ -238,13 +238,13 @@ export default function MasterclassPage() {
               <h2 className="text-3xl font-extrabold text-gray-900 mb-4">Rajinikanth Vadla</h2>
               <p className="text-gray-600 leading-relaxed mb-6">
                 AI/ML Operations Engineer, Cloud Architect, and India&apos;s #1 rated MLOps &amp; AIOps trainer.
-                10+ years of enterprise experience building production AI systems. 500+ engineers trained with
+                7+ years of enterprise experience building production AI systems. 500+ engineers trained with
                 95% placement rate and 60% average salary increase. Known for hands-on, real-world training
                 that bridges the gap between theory and production.
               </p>
               <div className="grid grid-cols-3 gap-4">
                 {[
-                  { value: "10+", label: "Years Experience" },
+                  { value: "7+", label: "Years Experience" },
                   { value: "500+", label: "Engineers Trained" },
                   { value: "4.9★", label: "Average Rating" },
                 ].map((s) => (
