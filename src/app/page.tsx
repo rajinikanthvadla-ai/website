@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { LINKS, STATS, SERVICES, COURSES, VIDEOS } from "@/lib/constants";
+import { LINKS, STATS, SERVICES, COURSES } from "@/lib/constants";
 import { LinkedInIcon, InstagramIcon, YouTubeIcon } from "@/components/Icons";
 import SectionHeader from "@/components/SectionHeader";
 import CTASection from "@/components/CTASection";
@@ -295,32 +295,44 @@ function VideoSection() {
       <div className="max-w-5xl mx-auto px-6">
         <SectionHeader
           tag="Watch &amp; Learn"
-          title="See Real Training in Action"
-          subtitle="No basic tutorials — we build real production systems. Judge the quality yourself."
+          title="Latest from My YouTube Channel"
+          subtitle="Real training content — no basic tutorials. Subscribe for daily AI/ML content."
         />
         <div className="max-w-3xl mx-auto mb-10">
-          {VIDEOS.map((v) => (
-            <div key={v.id} className="group bg-white rounded-2xl overflow-hidden border border-gray-100 card-hover">
-              <div className="relative pb-[56.25%] bg-gray-900">
-                <iframe
-                  src={`https://www.youtube.com/embed/${v.id}?rel=0`}
-                  title={v.title}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                  loading="lazy"
-                  className="absolute inset-0 w-full h-full"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">{v.title}</h3>
-                <p className="text-gray-500 leading-relaxed">{v.description}</p>
-              </div>
+          {/* Auto-loads latest videos from channel */}
+          <div className="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+            <div className="relative pb-[56.25%] bg-gray-900">
+              <iframe
+                src="https://www.youtube.com/embed/videoseries?list=UULFxxxxxxxxxxx&rel=0"
+                title="Latest videos from Rajinikanth Vadla"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                loading="lazy"
+                className="absolute inset-0 w-full h-full"
+              />
             </div>
-          ))}
+          </div>
+          {/* Featured video */}
+          <div className="mt-6 bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+            <div className="relative pb-[56.25%] bg-gray-900">
+              <iframe
+                src="https://www.youtube.com/embed/eXsltT8baj0?rel=0"
+                title="AIOps Lab Day-01: Detect CPU Anomalies"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                loading="lazy"
+                className="absolute inset-0 w-full h-full"
+              />
+            </div>
+            <div className="p-6">
+              <h3 className="font-bold text-gray-900 text-lg mb-2">AIOps Lab Day-01: Detect CPU Anomalies</h3>
+              <p className="text-gray-500">Hands-on lab using Prometheus, Grafana &amp; ML to detect CPU anomalies in real-time.</p>
+            </div>
+          </div>
         </div>
         <div className="text-center">
           <a href={LINKS.youtube} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-gray-900 text-white px-8 py-4 rounded-full font-bold hover:bg-gray-800 transition-all hover:-translate-y-0.5">
-            Watch More on My YouTube Channel &rarr;
+            Subscribe to My YouTube Channel &rarr;
           </a>
         </div>
       </div>

@@ -62,6 +62,7 @@ export const NAV_ITEMS = [
   { label: "Courses", href: "/courses" },
   { label: "Masterclass", href: "/mlops-aiops-masterclass" },
   { label: "Mentorship", href: "/mentorship" },
+  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
 

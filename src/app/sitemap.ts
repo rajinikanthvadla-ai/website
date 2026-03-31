@@ -17,5 +17,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/aiops-training`, lastModified: now, changeFrequency: "weekly", priority: 0.85 },
     { url: `${base}/mlops-training`, lastModified: now, changeFrequency: "weekly", priority: 0.85 },
     { url: `${base}/ai-tools-productivity`, lastModified: now, changeFrequency: "weekly", priority: 0.85 },
+    { url: `${base}/blog`, lastModified: now, changeFrequency: "daily", priority: 0.9 },
+    { url: `${base}/blog/what-is-mlops-complete-guide-2026`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${base}/blog/ai-agents-explained-langchain-crewai-2026`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${base}/blog/top-ai-tools-developers-2026`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${base}/blog/aiops-vs-traditional-monitoring-2026`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
   ];
 }
