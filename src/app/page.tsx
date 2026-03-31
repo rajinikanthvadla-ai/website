@@ -299,21 +299,7 @@ function VideoSection() {
           subtitle="Real training content — no basic tutorials. Subscribe for daily AI/ML content."
         />
         <div className="max-w-3xl mx-auto mb-10">
-          {/* Auto-loads latest videos from channel */}
           <div className="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
-            <div className="relative pb-[56.25%] bg-gray-900">
-              <iframe
-                src="https://www.youtube.com/embed/videoseries?list=UULFxxxxxxxxxxx&rel=0"
-                title="Latest videos from Rajinikanth Vadla"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-                loading="lazy"
-                className="absolute inset-0 w-full h-full"
-              />
-            </div>
-          </div>
-          {/* Featured video */}
-          <div className="mt-6 bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
             <div className="relative pb-[56.25%] bg-gray-900">
               <iframe
                 src="https://www.youtube.com/embed/eXsltT8baj0?rel=0"
