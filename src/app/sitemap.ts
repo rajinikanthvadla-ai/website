@@ -22,5 +22,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/blog/ai-agents-explained-langchain-crewai-2026`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: `${base}/blog/top-ai-tools-developers-2026`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: `${base}/blog/aiops-vs-traditional-monitoring-2026`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${base}/blog/mastering-multi-cloud-ai-ml-deployment-strategies-2026`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.8 },
   ];
 }
