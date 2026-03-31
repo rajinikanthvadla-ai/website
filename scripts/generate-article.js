@@ -23,10 +23,10 @@ const TOPICS = [
 ];
 
 async function generateArticle(topic) {
-  const apiKey = process.env.OPENAI_API_KEY;
+  const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
-    console.error("OPENAI_API_KEY not set. Skipping article generation.");
-    console.log("To enable auto-generation, add OPENAI_API_KEY to your GitHub repo secrets.");
+    console.error("GEMINI_API_KEY not set. Skipping article generation.");
+    console.log("To enable auto-generation, add GEMINI_API_KEY to your GitHub repo secrets.");
     process.exit(0);
   }
 
@@ -43,12 +43,12 @@ Requirements:
 - Content should be 800-1200 words in markdown format
 - Use ## for main headings, ### for subheadings
 - Include practical insights, tool recommendations, and industry trends
-- End with a call-to-action linking to relevant training pages
+- End with a call-to-action linking to relevant training pages (use paths like /mlops-aiops-masterclass, /genai-training, /aiops-training, /mlops-training, /ai-tools-productivity)
 - Category should be one of: MLOps, AIOps, GenAI, AI Agents, AI Tools, DevOps, Kubernetes, LLMOps
 - Tags should be 4-6 relevant keywords
 - Slug should be URL-friendly (lowercase, hyphens, include 2026)
 
-Respond ONLY with valid JSON in this exact format:
+Respond ONLY with valid JSON (no markdown code fences, no extra text) in this exact format:
 {
   "slug": "url-friendly-slug-2026",
   "title": "Article Title Here",
@@ -60,27 +60,29 @@ Respond ONLY with valid JSON in this exact format:
 }`;
 
   try {
-    const res = await fetch("https://api.openai.com/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${apiKey}`,
-      },
-      body: JSON.stringify({
-        model: "gpt-4o-mini",
-        messages: [{ role: "user", content: prompt }],
-        temperature: 0.7,
-        max_tokens: 2000,
-      }),
-    });
+    const res = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          contents: [{ parts: [{ text: prompt }] }],
+          generationConfig: {
+            temperature: 0.7,
+            maxOutputTokens: 4096,
+            responseMimeType: "application/json",
+          },
+        }),
+      }
+    );
 
     if (!res.ok) {
-      console.error("OpenAI API error:", res.status, await res.text());
+      console.error("Gemini API error:", res.status, await res.text());
       process.exit(1);
     }
 
     const data = await res.json();
-    let content = data.choices[0].message.content.trim();
+    let content = data.candidates[0].content.parts[0].text.trim();
 
     if (content.startsWith("```")) {
       content = content.replace(/^```json?\n?/, "").replace(/\n?```$/, "");
