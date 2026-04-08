@@ -29,5 +29,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/blog/breakthroughs-ai-agents-autonomous-systems-2026`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.8 },
     { url: `${base}/blog/master-fine-tuning-llms-2026-techniques-models`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.8 },
     { url: `${base}/blog/autonomous-ai-agents-breakthroughs-2026`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.8 },
+    { url: `${base}/blog/genai-llm-updates-2026-comprehensive-guide`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.8 },
   ];
 }
