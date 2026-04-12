@@ -33,5 +33,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/blog/langchain-rag-advancements-guide-2026`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.8 },
     { url: `${base}/blog/vector-databases-embedding-technologies-guide-2026`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.8 },
     { url: `${base}/blog/mlops-tools-practices-production-2026`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.8 },
+    { url: `${base}/blog/mlops-tools-practices-production-2026-mnvfd6dy`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.8 },
   ];
 }
