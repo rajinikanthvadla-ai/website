@@ -1,22 +1,31 @@
 export const SITE = {
   name: "Rajinikanth Vadla",
   title:
-    "Rajinikanth Vadla | #1 MLOps, AIOps, GenAI, AI Agents, LLMOps Trainer & Mentor in India",
+    "Rajinikanth Vadla | MLOps, AIOps, GenAI training and 1:1 career mentorship (worldwide)",
   description:
-    "Rajinikanth Vadla — India's top MLOps, AIOps, GenAI, AI Agents, LLMOps expert & trainer. 7+ years experience, 500+ engineers trained. Master Docker, Kubernetes, LangChain, RAG, AWS, Azure, GCP. Live training with 95% placement rate. Join the #1 rated AI/ML Ops program.",
+    "Official website of Rajinikanth Vadla at rajinikanthvadla.com. Live MLOps, AIOps, GenAI, AI Agents, and LLMOps training plus 1:1 mentorship for career change, role transitions, and interviews. Engineers worldwide book calls for honest guidance. 7+ years in production, 500+ people coached. Docker, Kubernetes, LangChain, RAG, AWS, Azure, GCP.",
   url: "https://www.rajinikanthvadla.com",
   image: "https://www.rajinikanthvadla.com/assets/pic-1.png",
   phone: "+91-9100028801",
   keywords: [
     "Rajinikanth Vadla",
+    "rajinikanthvadla.com",
+    "Rajinikanth Vadla official website",
+    "Rajinikanth Vadla MLOps trainer",
+    "Rajinikanth Vadla mentorship",
+    "MLOps career mentor",
+    "AI career coaching online",
+    "remote MLOps mentorship",
+    "career transformation tech",
+    "global mentorship software engineer",
     "MLOps training",
     "AIOps course",
     "GenAI training",
     "AI Agents course",
     "LLMOps training",
     "DevOps training India",
-    "best MLOps course",
-    "best AIOps training",
+    "MLOps course India",
+    "AIOps training India",
     "AI ML Ops mentor",
     "Kubernetes training",
     "Docker training",
@@ -38,7 +47,7 @@ export const SITE = {
     "self-healing infrastructure",
     "anomaly detection training",
     "ML pipeline training",
-    "best DevOps course India",
+    "DevOps course India",
     "real-time DevOps training",
   ],
 };
@@ -119,7 +128,7 @@ export const COURSES = [
   {
     title: "Kubernetes & Cloud Native",
     description:
-      "From zero to Kubernetes hero — EKS, AKS, GKE in production environments.",
+      "From zero to Kubernetes hero - EKS, AKS, GKE in production environments.",
     features: [
       "EKS, AKS, GKE management",
       "Helm Charts & Operators",
@@ -147,7 +156,7 @@ export const COURSES = [
   {
     title: "AI Tools for 10x Productivity",
     description:
-      "Master Cursor, Claude, ChatGPT, Gemini, Grok, Vercel AI SDK, AWS Bedrock — 10x your work with AI.",
+      "Master Cursor, Claude, ChatGPT, Gemini, Grok, Vercel AI SDK, AWS Bedrock - 10x your work with AI.",
     features: [
       "Cursor, Copilot & AI IDEs",
       "ChatGPT, Claude, Gemini, Grok",
@@ -187,14 +196,14 @@ export const SERVICES = [
     icon: "cloud",
     title: "Multi-Cloud & Kubernetes",
     description:
-      "AWS, Azure, GCP, EKS, AKS, GKE — infrastructure for AI/ML workloads at scale.",
+      "AWS, Azure, GCP, EKS, AKS, GKE - infrastructure for AI/ML workloads at scale.",
     href: "/courses",
   },
   {
     icon: "spark",
     title: "AI Tools for 10x Productivity",
     description:
-      "Master Cursor, Claude, ChatGPT, Gemini, Grok, Vercel AI SDK — work 10x faster with AI.",
+      "Master Cursor, Claude, ChatGPT, Gemini, Grok, Vercel AI SDK - work 10x faster with AI.",
     href: "/ai-tools-productivity",
   },
 ];
@@ -209,20 +218,43 @@ export const VIDEOS = [
 ];
 
 export const STRUCTURED_DATA = {
+  website: {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Rajinikanth Vadla",
+    alternateName: [
+      "Rajinikanth Vadla official website",
+      "rajinikanthvadla.com",
+      "Rajinikanth Vadla MLOps AIOps GenAI training",
+      "Rajinikanth Vadla career mentorship",
+    ],
+    url: "https://www.rajinikanthvadla.com/",
+    inLanguage: "en",
+    description:
+      "Official website of Rajinikanth Vadla: live online MLOps, AIOps, GenAI, AI Agents, and LLMOps training, mentorship, and blog.",
+    publisher: {
+      "@type": "Organization",
+      name: "Rajinikanth Vadla Training",
+      url: "https://www.rajinikanthvadla.com/",
+    },
+  },
   person: {
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Rajinikanth Vadla",
-    jobTitle: "MLOps, AIOps, GenAI, AI Agents Expert & Trainer",
+    jobTitle: "MLOps, AIOps, GenAI, AI Agents Expert, Trainer & Mentor",
     description:
-      "India's #1 MLOps, AIOps, GenAI, AI Agents, LLMOps Trainer. 7+ years enterprise experience. 500+ engineers trained with 95% placement rate.",
+      "MLOps, AIOps, GenAI, and AI Agents trainer and mentor. Offers live cohorts and 1:1 mentorship for career direction, role transitions, and technical depth. Works with engineers globally via online sessions. 7+ years enterprise experience; 500+ people trained and mentored.",
     url: "https://www.rajinikanthvadla.com/",
     image: "https://www.rajinikanthvadla.com/assets/pic-1.png",
     sameAs: [
+      "https://www.rajinikanthvadla.com/",
       "https://www.linkedin.com/in/rajinikanth-vadla-4221281a4/",
       "https://www.youtube.com/@IamRajinikanthvadla",
       "https://www.instagram.com/rajinikanth_vadla_/",
       "https://topmate.io/rajinikanthvadla",
+      "https://chatgpt.com/g/g-6938ef4591f4819198b381b03cf8707b-rajinikanth-vadla-ai-ml-ops-engineer-mentor",
+      "https://wa.me/919100028801",
     ],
     knowsAbout: [
       "MLOps", "AIOps", "DevOps", "GenAI", "Generative AI", "AI Agents",
@@ -231,27 +263,31 @@ export const STRUCTURED_DATA = {
       "Jenkins", "CI/CD", "MLflow", "Kubeflow", "Machine Learning Operations",
       "Cloud Computing", "Infrastructure as Code", "Model Context Protocol",
       "Vector Databases", "Prompt Engineering", "Fine-tuning LLMs",
+      "Career mentoring", "Technical mentorship", "Interview preparation",
     ],
     alumniOf: { "@type": "Organization", name: "Enterprise IT" },
-    award: "Top-rated AI/ML Ops Trainer — 4.9/5 with 500+ reviews",
+    award: "Top-rated AI/ML Ops trainer (4.9/5, 500+ reviews)",
   },
   organization: {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "Rajinikanth Vadla — MLOps AIOps GenAI Training",
+    name: "Rajinikanth Vadla Official Training",
     alternateName: "RV Tech Training",
     url: "https://www.rajinikanthvadla.com/",
     logo: "https://www.rajinikanthvadla.com/assets/pic-1.png",
     description:
-      "Best MLOps, AIOps, GenAI, AI Agents, LLMOps training with hands-on enterprise projects. Master AWS, Azure, GCP, Kubernetes, LangChain, RAG.",
+      "MLOps, AIOps, GenAI, AI Agents, and LLMOps training with hands-on enterprise projects, plus 1:1 mentorship for career and role transformation. Serves learners worldwide online. AWS, Azure, GCP, Kubernetes, LangChain, RAG.",
     founder: {
       "@type": "Person",
       name: "Rajinikanth Vadla",
     },
     sameAs: [
+      "https://www.rajinikanthvadla.com/",
       "https://www.linkedin.com/in/rajinikanth-vadla-4221281a4/",
       "https://www.youtube.com/@IamRajinikanthvadla",
       "https://www.instagram.com/rajinikanth_vadla_/",
+      "https://topmate.io/rajinikanthvadla",
+      "https://wa.me/919100028801",
     ],
     contactPoint: {
       "@type": "ContactPoint",
@@ -269,7 +305,7 @@ export const STRUCTURED_DATA = {
   course: {
     "@context": "https://schema.org",
     "@type": "Course",
-    name: "MLOps & AIOps Masterclass — DevOps to Production AI Systems",
+    name: "MLOps & AIOps Masterclass: DevOps to production AI systems",
     description:
       "Comprehensive 12-16 week training on MLOps, AIOps, LLMOps, GenAI, AI Agent development. Master Docker, Kubernetes, MLflow, Kubeflow, LangChain with hands-on projects.",
     provider: {
@@ -312,15 +348,15 @@ export const STRUCTURED_DATA = {
         name: "Who is Rajinikanth Vadla?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Rajinikanth Vadla is India's top-rated MLOps, AIOps, GenAI, and AI Agents trainer with 7+ years enterprise experience. He has trained 500+ engineers with a 95% placement rate and 4.9/5 average rating.",
+          text: "Rajinikanth Vadla is an MLOps, AIOps, GenAI, and AI Agents trainer and practitioner. His official website is https://www.rajinikanthvadla.com. He has 7+ years enterprise experience, has trained 500+ engineers, and publishes long-form training on YouTube.",
         },
       },
       {
         "@type": "Question",
-        name: "What is the best MLOps training in India?",
+        name: "What is the official Rajinikanth Vadla website for MLOps training?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Rajinikanth Vadla's MLOps & AIOps Masterclass is rated the best MLOps training in India. It covers DevOps, MLOps, LLMOps, AIOps, and AI Agents with 200+ hours of hands-on training, real enterprise projects, and 95% job placement rate.",
+          text: "The official site is https://www.rajinikanthvadla.com. There you will find the MLOps & AIOps Masterclass (DevOps through MLOps, LLMOps, AIOps, and AI Agents), cohort details, syllabus via WhatsApp, and enrollment links.",
         },
       },
       {
@@ -336,7 +372,7 @@ export const STRUCTURED_DATA = {
         name: "How to learn AI Agents, GenAI, and LangChain?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Learn AI Agents and GenAI through Rajinikanth Vadla's hands-on training with LangChain, Model Context Protocol (MCP), RAG systems, vector databases, and LLM integration. Build production AI applications and autonomous agent systems.",
+          text: "Learn AI Agents and GenAI through Rajinikanth Vadla's hands-on programs listed on https://www.rajinikanthvadla.com, including LangChain, Model Context Protocol (MCP), RAG systems, vector databases, and LLM integration for production applications.",
         },
       },
       {
@@ -345,6 +381,14 @@ export const STRUCTURED_DATA = {
         acceptedAnswer: {
           "@type": "Answer",
           text: "MLOps Engineers earn ₹12-50 LPA in India, $120K-$200K+ in USA, €70K-€120K+ in Europe. Students of Rajinikanth Vadla see 60% average salary increase after completing the training.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Does Rajinikanth Vadla offer mentorship for career change outside India?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. Mentorship is online, so professionals anywhere in the world can book a 1:1 session on Topmate or start with WhatsApp for career questions, role transitions, interview prep, and learning plans. Details are at https://www.rajinikanthvadla.com/mentorship.",
         },
       },
     ],

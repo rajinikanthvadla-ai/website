@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 export default function MLOpsTrainingPage() {
   return (
     <TrainingPageLayout
-      title="MLOps Training — Machine Learning Operations"
+      title="MLOps Training: Machine Learning Operations"
       subtitle="Master the complete MLOps lifecycle: from experiment tracking to production deployment, model monitoring, and automated retraining. The most hands-on MLOps training in India."
       intro="MLOps (Machine Learning Operations) is the discipline of deploying, managing, and monitoring machine learning models in production environments. As companies move from experimental ML to production AI, MLOps Engineers are in massive demand. This comprehensive training by Rajinikanth Vadla teaches you everything from ML pipeline design to production model serving, monitoring for data drift, automated retraining, and multi-cloud ML deployment. You'll work with industry-standard tools like MLflow, Kubeflow, DVC, Feast, Apache Airflow, and cloud-native ML services (AWS SageMaker, Azure ML, GCP Vertex AI). Every concept is backed by hands-on labs using real enterprise patterns."
       whatYouLearn={[

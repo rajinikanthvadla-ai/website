@@ -8,19 +8,18 @@ import SuccessStories from "@/components/SuccessStories";
 export const metadata: Metadata = {
   title: "Training Courses",
   description:
-    "Explore elite DevOps, MLOps, AIOps, Kubernetes, and AI Agents training programs. Production-ready skills with hands-on projects.",
+    "Explore DevOps, MLOps, AIOps, Kubernetes, and AI Agents training programs, plus mentorship for career and transformation. Production-ready skills with hands-on projects. Open to learners worldwide online.",
 };
 
 export default function CoursesPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-gradient-to-b from-gray-50 to-gray-100 py-20">
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(148,163,184,0.2)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.2)_1px,transparent_1px)] bg-[size:50px_50px]" />
+      <section className="relative border-b border-stone-200 bg-stone-100 surface-paper py-20 md:py-24">
         <div className="relative text-center max-w-3xl mx-auto px-6">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">Elite Training Programs</h1>
-          <p className="text-lg text-gray-600">
-            Choose your path to mastering AI/ML Operations with production-grade training
+          <h1 className="font-display text-4xl md:text-5xl font-bold text-stone-900 mb-4">Training programs</h1>
+          <p className="text-lg text-stone-600">
+            Cohorts built around what teams actually ship - not slide-only certifications.
           </p>
         </div>
       </section>
@@ -33,33 +32,33 @@ export default function CoursesPage() {
             {COURSES.map((c) => (
               <div
                 key={c.title}
-                className={`bg-white rounded-2xl p-6 flex flex-col border transition-all hover:-translate-y-1 hover:shadow-lg ${
-                  c.featured ? "border-accent-500 shadow-md shadow-accent-500/10" : "border-gray-100 shadow-sm"
+                className={`panel p-6 flex flex-col card-hover ${
+                  c.featured ? "border-l-4 border-l-accent-600" : ""
                 }`}
               >
-                <span className={`self-start text-xs font-bold px-3 py-1 rounded-full uppercase mb-4 ${
-                  c.featured ? "bg-accent-500 text-white" : "bg-gray-100 text-gray-600"
+                <span className={`self-start text-[11px] font-semibold uppercase tracking-wide mb-3 ${
+                  c.featured ? "text-accent-600" : "text-stone-500"
                 }`}>
                   {c.badge}
                 </span>
-                <h3 className={`font-bold text-lg mb-2 ${c.featured ? "text-accent-600" : "text-gray-900"}`}>{c.title}</h3>
-                <p className="text-sm text-gray-500 mb-4">{c.description}</p>
+                <h3 className={`font-display font-bold text-lg mb-2 ${c.featured ? "text-stone-900" : "text-stone-900"}`}>{c.title}</h3>
+                <p className="text-sm text-stone-600 mb-4">{c.description}</p>
                 <ul className="space-y-2 mb-6 flex-1">
                   {c.features.map((f) => (
-                    <li key={f} className="text-sm text-gray-600 flex items-start gap-2">
+                    <li key={f} className="text-sm text-stone-600 flex items-start gap-2">
                       <svg className="w-4 h-4 text-accent-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/></svg>
                       {f}
                     </li>
                   ))}
                 </ul>
                 {c.href.startsWith("/") ? (
-                  <Link href={c.href} className={`w-full text-center py-3 rounded-xl font-bold transition-all ${
-                    c.featured ? "bg-accent-500 text-white hover:shadow-lg" : "bg-primary-600 text-white hover:shadow-lg"
+                  <Link href={c.href} className={`w-full text-center py-3 text-sm font-semibold transition-colors ${
+                    c.featured ? "bg-accent-600 text-white hover:bg-accent-700" : "bg-stone-900 text-white hover:bg-stone-800"
                   }`}>
                     {c.ctaText}
                   </Link>
                 ) : (
-                  <a href={c.href} target="_blank" rel="noopener noreferrer" className="w-full text-center py-3 rounded-xl font-bold bg-primary-600 text-white hover:shadow-lg transition-all">
+                  <a href={c.href} target="_blank" rel="noopener noreferrer" className="w-full text-center py-3 text-sm font-semibold bg-stone-900 text-white hover:bg-stone-800 transition-colors">
                     {c.ctaText}
                   </a>
                 )}
@@ -70,7 +69,7 @@ export default function CoursesPage() {
       </section>
 
       {/* What's Included */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-stone-50 border-y border-stone-200">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeader tag="What You Get" title="What's Included" subtitle="Everything you need for a complete learning experience" />
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -80,10 +79,10 @@ export default function CoursesPage() {
               { icon: "💻", title: "Code Reviews", desc: "Personal code review sessions" },
               { icon: "🎯", title: "Career Support", desc: "Resume, interview & placement" },
             ].map((item) => (
-              <div key={item.title} className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm text-center hover:shadow-md hover:-translate-y-1 transition-all">
+              <div key={item.title} className="panel p-6 text-center card-hover">
                 <div className="text-3xl mb-3">{item.icon}</div>
-                <h3 className="font-bold text-gray-900 mb-1">{item.title}</h3>
-                <p className="text-sm text-gray-500">{item.desc}</p>
+                <h3 className="font-display font-bold text-stone-900 mb-1">{item.title}</h3>
+                <p className="text-sm text-stone-600">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -103,9 +102,9 @@ export default function CoursesPage() {
               { q: "Can I pay in installments?", a: "Yes, EMI options are available. Contact us on WhatsApp for details." },
               { q: "What if I miss a session?", a: "All sessions are recorded and shared. You get lifetime access to materials." },
             ].map((faq) => (
-              <div key={faq.q} className="bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:border-primary-600 transition-colors">
-                <h3 className="font-bold text-gray-900 mb-2">{faq.q}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed">{faq.a}</p>
+              <div key={faq.q} className="panel p-6 hover:border-stone-400 transition-colors">
+                <h3 className="font-display font-bold text-stone-900 mb-2">{faq.q}</h3>
+                <p className="text-sm text-stone-600 leading-relaxed">{faq.a}</p>
               </div>
             ))}
           </div>

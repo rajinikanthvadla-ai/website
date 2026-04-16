@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { LINKS, STATS, SERVICES, COURSES } from "@/lib/constants";
+import { LINKS, STATS, COURSES } from "@/lib/constants";
 import { LinkedInIcon, InstagramIcon, YouTubeIcon } from "@/components/Icons";
 import SectionHeader from "@/components/SectionHeader";
 import CTASection from "@/components/CTASection";
@@ -17,9 +17,10 @@ export default function HomePage() {
       <VideoSection />
       <CoursesSection />
       <TrustSection />
+      <MentorshipSection />
       <CTASection
-        title="Let's Build Your Future Together"
-        subtitle="I'm here to help you succeed. Whether you're starting fresh or leveling up, I'll guide you personally."
+        title="Training and mentorship, in one place"
+        subtitle="Join a cohort when you want structure, or book mentorship when you need your career story, transition, or interviews sharpened. People from many countries reach out; online sessions make that simple."
       />
       <SuccessStories />
     </>
@@ -28,96 +29,97 @@ export default function HomePage() {
 
 function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Dark premium background */}
-      <div className="absolute inset-0 bg-[#0a0a1a]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(99,102,241,0.25),transparent)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_80%_at_80%_50%,rgba(59,130,246,0.1),transparent)]" />
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-indigo-500/50 to-transparent" />
-
-      <div className="relative max-w-7xl mx-auto grid lg:grid-cols-[1fr_480px] gap-12 lg:gap-20 items-center px-6 py-20 lg:py-0 w-full">
+    <section className="relative min-h-[90vh] flex items-center border-b border-stone-200 bg-stone-100 surface-paper overflow-hidden">
+      <div className="relative max-w-7xl mx-auto grid lg:grid-cols-[1fr_420px] gap-14 lg:gap-16 items-center px-6 py-24 lg:py-28 w-full">
         <div>
-          <div className="flex items-center gap-3 mb-8">
-            <span className="h-px w-12 bg-indigo-500" />
-            <span className="text-indigo-400 font-semibold text-sm uppercase tracking-[0.2em]">
-              India&apos;s #1 AI/ML Ops Trainer
-            </span>
-          </div>
+          <p className="text-sm font-semibold uppercase tracking-[0.12em] text-stone-500 mb-6">
+            Hands-on training, mentorship, production focus
+          </p>
 
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.05] tracking-tight mb-6">
-            Rajinikanth
-            <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-blue-400 to-cyan-400">
-              Vadla
-            </span>
+          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[3.25rem] xl:text-7xl font-bold text-stone-900 leading-[1.08] tracking-tight mb-6">
+            Rajinikanth{" "}
+            <span className="text-accent-600">Vadla</span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-gray-400 font-medium mb-3 leading-relaxed">
-            MLOps &middot; AIOps &middot; GenAI &middot; AI Agents &middot; LLMOps
+          <p className="text-lg md:text-xl text-stone-600 font-medium mb-4 leading-relaxed max-w-xl">
+            MLOps, AIOps, GenAI, AI agents, and LLMOps - taught from real enterprise delivery, not slide decks.
           </p>
-          <p className="text-gray-500 text-lg max-w-xl mb-10 leading-relaxed">
-            I transform engineers into <strong className="text-white">production AI/ML experts</strong>.
-            7+ years in enterprise. 500+ careers transformed. Your success is my mission.
+          <p className="text-stone-600 text-base max-w-xl mb-10 leading-relaxed border-l-2 border-accent-500 pl-5">
+            I help engineers ship models and AI systems that survive production. Seven-plus years on the job;
+            hundreds of people have moved into roles they wanted with clearer confidence. If you are deciding on a
+            move, a pivot, or how to tell your story in interviews, mentorship is open to you from anywhere in the world.
           </p>
 
-          <div className="flex flex-wrap gap-4 mb-12">
-            <a href={LINKS.enroll} target="_blank" rel="noopener noreferrer" className="group relative bg-white text-gray-900 px-8 py-4 rounded-full font-bold text-base hover:bg-gray-100 transition-all">
-              Enroll Now
-              <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform">&rarr;</span>
+          <div className="flex flex-wrap gap-3 mb-12">
+            <a
+              href={LINKS.enroll}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center bg-stone-900 text-stone-50 px-7 py-3.5 text-sm font-semibold tracking-wide hover:bg-stone-800 transition-colors"
+            >
+              Enroll in a cohort
+              <span className="inline-block ml-2">&rarr;</span>
             </a>
-            <a href={LINKS.youtube} target="_blank" rel="noopener noreferrer" className="border border-white/20 text-white px-8 py-4 rounded-full font-bold text-base hover:bg-white/5 hover:border-white/40 transition-all">
-              Watch Free Content
+            <Link
+              href="/mentorship"
+              className="inline-flex items-center border border-accent-600 text-accent-700 px-7 py-3.5 text-sm font-semibold hover:bg-accent-50 transition-colors"
+            >
+              Career mentorship
+            </Link>
+            <a
+              href={LINKS.youtube}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center border border-stone-400 text-stone-800 px-7 py-3.5 text-sm font-semibold hover:border-stone-900 hover:bg-white/80 transition-colors"
+            >
+              YouTube
             </a>
           </div>
 
-          <div className="grid grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-8 border-t border-stone-300/80">
             {STATS.map((s) => (
               <div key={s.label}>
-                <div className="text-2xl md:text-3xl font-black text-white stat-number">{s.value}</div>
-                <div className="text-xs text-gray-500 font-medium mt-1">{s.label}</div>
+                <div className="font-display text-2xl md:text-3xl font-bold text-stone-900 stat-number">{s.value}</div>
+                <div className="text-xs text-stone-500 font-medium mt-1 uppercase tracking-wide">{s.label}</div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Profile Image */}
-        <div className="relative">
-          <div className="absolute -inset-1 bg-gradient-to-br from-indigo-500/30 via-blue-500/20 to-cyan-500/30 rounded-[2rem] blur-3xl" />
-          <div className="relative">
+        <div className="relative flex flex-col items-stretch gap-6">
+          <div className="panel p-2 lg:p-3">
             <Image
               src="/assets/pic-1.png"
-              alt="Rajinikanth Vadla — MLOps AIOps GenAI AI Agents Expert and Trainer"
+              alt="Rajinikanth Vadla - MLOps AIOps GenAI AI Agents Expert and Trainer"
               width={480}
               height={580}
-              className="rounded-3xl w-full object-cover object-[center_15%] h-[520px] lg:h-[580px]"
+              className="w-full object-cover object-[center_15%] h-[420px] lg:h-[520px]"
               priority
             />
-            <div className="absolute inset-0 rounded-3xl ring-1 ring-white/10" />
           </div>
-
-          {/* Floating badges */}
-          <div className="absolute -left-4 top-12 bg-white/10 backdrop-blur-xl border border-white/10 rounded-2xl px-5 py-3 animate-float">
-            <div className="text-white font-bold text-sm">500+ Engineers</div>
-            <div className="text-gray-400 text-xs">Careers Transformed</div>
+          <div className="grid sm:grid-cols-2 gap-3 text-sm text-stone-600">
+            <div className="panel px-4 py-3">
+              <p className="font-semibold text-stone-900">500+ engineers</p>
+              <p className="text-stone-500 mt-0.5">Through live programs and mentorship.</p>
+            </div>
+            <div className="panel px-4 py-3">
+              <p className="font-semibold text-stone-900">4.9 average rating</p>
+              <p className="text-stone-500 mt-0.5">From people who needed outcomes, not certificates.</p>
+            </div>
           </div>
-          <div className="absolute -right-4 bottom-20 bg-white/10 backdrop-blur-xl border border-white/10 rounded-2xl px-5 py-3 animate-float" style={{ animationDelay: "1s" }}>
-            <div className="text-white font-bold text-sm">4.9 ★ Rating</div>
-            <div className="text-gray-400 text-xs">Student Reviews</div>
-          </div>
-
-          {/* Social links */}
-          <div className="absolute -left-4 bottom-8 flex flex-col gap-2">
+          <div className="flex gap-2">
             {[
-              { href: LINKS.linkedin, icon: <LinkedInIcon size={16} /> },
-              { href: LINKS.youtube, icon: <YouTubeIcon size={16} /> },
-              { href: LINKS.instagram, icon: <InstagramIcon size={16} /> },
+              { href: LINKS.linkedin, icon: <LinkedInIcon size={18} /> },
+              { href: LINKS.youtube, icon: <YouTubeIcon size={18} /> },
+              { href: LINKS.instagram, icon: <InstagramIcon size={18} /> },
             ].map((s) => (
               <a
                 key={s.href}
                 href={s.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-gray-500 hover:bg-white/10 hover:text-white transition-all"
+                className="w-11 h-11 border border-stone-300 bg-white flex items-center justify-center text-stone-500 hover:text-stone-900 hover:border-stone-900 transition-colors"
+                aria-label="Social link"
               >
                 {s.icon}
               </a>
@@ -136,11 +138,11 @@ function LogoBar() {
     "MLflow", "Kubeflow", "RAG", "CI/CD",
   ];
   return (
-    <section className="py-6 border-y border-gray-100 bg-gray-50/80">
+    <section className="py-5 border-y border-stone-200 bg-white">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="flex flex-wrap justify-center gap-x-8 gap-y-2">
+        <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
           {techs.map((t) => (
-            <span key={t} className="text-sm font-semibold text-gray-400 uppercase tracking-wider hover:text-gray-900 transition-colors cursor-default">
+            <span key={t} className="text-sm text-stone-500 tracking-wide hover:text-stone-900 transition-colors cursor-default">
               {t}
             </span>
           ))}
@@ -152,51 +154,48 @@ function LogoBar() {
 
 function AboutPreview() {
   return (
-    <section className="py-28 bg-white">
+    <section className="py-24 md:py-28 bg-white border-b border-stone-200">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-20 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-start">
           <div>
-            <span className="text-sm font-bold uppercase tracking-[0.2em] text-indigo-600 mb-4 block">About Me</span>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-6">
-              I don&apos;t just teach &mdash;<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-cyan-600">
-                I transform careers
-              </span>
+            <span className="text-sm font-semibold uppercase tracking-[0.12em] text-accent-600 mb-4 block">About</span>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-stone-900 leading-tight mb-6">
+              I don&apos;t just teach. I stay close until the work makes sense on your machine.
             </h2>
-            <p className="text-lg text-gray-600 leading-relaxed mb-6">
-              After 7+ years building production AI/ML systems at enterprise scale, I found my true calling:
-              helping engineers master the skills that actually matter in the industry. Every concept I teach comes
-              from real-world experience, not textbooks.
+            <p className="text-lg text-stone-600 leading-relaxed mb-6">
+              After seven-plus years shipping AI/ML systems in real environments, I focus on what hiring managers
+              and teams actually expect: reproducible pipelines, observability, and honest tradeoffs.
             </p>
-            <p className="text-gray-500 leading-relaxed mb-8">
-              &ldquo;When you succeed, I succeed. That&apos;s my philosophy.&rdquo;
+            <p className="text-stone-500 italic leading-relaxed mb-8">
+              When you succeed, I succeed. That has stayed constant across every cohort.
             </p>
 
-            <div className="flex flex-wrap gap-3 mb-8">
+            <div className="flex flex-wrap gap-2 mb-8">
               {["Docker", "Kubernetes", "MLflow", "LangChain", "AI Agents", "AWS", "Azure", "GCP"].map((s) => (
-                <span key={s} className="px-4 py-2 rounded-full bg-gray-100 text-gray-700 text-sm font-semibold hover:bg-indigo-50 hover:text-indigo-700 transition-colors">
+                <span key={s} className="px-3 py-1.5 border border-stone-200 bg-stone-50 text-stone-700 text-sm font-medium hover:border-stone-400 transition-colors">
                   {s}
                 </span>
               ))}
             </div>
 
-            <Link href="/about" className="inline-flex items-center gap-2 text-indigo-600 font-bold hover:gap-3 transition-all">
-              Read my full story <span>&rarr;</span>
+            <Link href="/about" className="inline-flex items-center gap-2 text-accent-600 font-semibold underline decoration-accent-500/40 underline-offset-4 hover:decoration-accent-600">
+              Read the longer version <span>&rarr;</span>
             </Link>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-3">
             {[
-              { value: "7+", label: "Years Experience", color: "bg-indigo-50 border-indigo-100" },
-              { value: "500+", label: "Engineers Trained", color: "bg-blue-50 border-blue-100" },
-              { value: "95%", label: "Placement Rate", color: "bg-emerald-50 border-emerald-100" },
-              { value: "60%", label: "Avg Salary Hike", color: "bg-amber-50 border-amber-100" },
+              { value: "7+", label: "Years in production roles" },
+              { value: "500+", label: "People trained across programs" },
+              { value: "95%", label: "Reported role / growth outcomes*" },
+              { value: "60%", label: "Typical comp movement (cohort data)*" },
             ].map((s) => (
-              <div key={s.label} className={`${s.color} border rounded-2xl p-8 text-center`}>
-                <div className="text-4xl font-black text-gray-900 stat-number">{s.value}</div>
-                <div className="text-sm text-gray-600 font-medium mt-2">{s.label}</div>
+              <div key={s.label} className="panel p-6 text-left">
+                <div className="font-display text-3xl md:text-4xl font-bold text-stone-900 stat-number">{s.value}</div>
+                <div className="text-sm text-stone-600 mt-2 leading-snug">{s.label}</div>
               </div>
             ))}
+            <p className="col-span-2 text-xs text-stone-400 mt-1">* Self-reported; not a guarantee of future results.</p>
           </div>
         </div>
       </div>
@@ -206,27 +205,27 @@ function AboutPreview() {
 
 function ServicesSection() {
   const data = [
-    { icon: "🤖", title: "AI Agents & GenAI", desc: "Build autonomous AI agents with LangChain, RAG systems, LLMs, and production AI applications.", href: "/genai-training", color: "from-rose-500 to-pink-600" },
-    { icon: "🧠", title: "MLOps Engineering", desc: "Deploy ML models to production with MLflow, Kubeflow, SageMaker, model monitoring & pipelines.", href: "/mlops-training", color: "from-blue-500 to-indigo-600" },
-    { icon: "⚡", title: "AIOps & Automation", desc: "AI-powered IT Operations, predictive analytics, self-healing infrastructure.", href: "/aiops-training", color: "from-emerald-500 to-teal-600" },
-    { icon: "☁️", title: "Multi-Cloud & K8s", desc: "AWS, Azure, GCP, EKS, AKS, GKE — infrastructure for AI/ML at scale.", href: "/courses", color: "from-violet-500 to-purple-600" },
-    { icon: "✨", title: "AI Tools for 10x Productivity", desc: "Master Cursor, Claude, ChatGPT, Gemini, Grok, Vercel AI SDK — work 10x faster.", href: "/ai-tools-productivity", color: "from-amber-500 to-orange-600" },
+    { icon: "🤖", title: "AI Agents & GenAI", desc: "Agents, RAG, and LLM apps with an eye on evaluation and cost.", href: "/genai-training" },
+    { icon: "🧠", title: "MLOps Engineering", desc: "Pipelines, registries, deployment patterns, and monitoring that teams run daily.", href: "/mlops-training" },
+    { icon: "⚡", title: "AIOps & Automation", desc: "Signals, baselines, and automation when systems misbehave at scale.", href: "/aiops-training" },
+    { icon: "☁️", title: "Multi-Cloud & K8s", desc: "AWS, Azure, GCP - the boring, important parts that keep models online.", href: "/courses" },
+    { icon: "✨", title: "AI Tools for Productivity", desc: "Practical use of modern assistants without losing engineering judgment.", href: "/ai-tools-productivity" },
   ];
 
   return (
-    <section className="py-28 bg-gray-50">
+    <section className="py-24 md:py-28 bg-stone-100 border-b border-stone-200">
       <div className="max-w-7xl mx-auto px-6">
-        <SectionHeader tag="Expertise" title="What I Can Help You With" subtitle="Production-grade skills across the full AI/ML stack" />
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+        <SectionHeader tag="Expertise" title="Where I spend my time with students" subtitle="Narrow topics, deep reps - the kind of depth you get from someone still shipping." />
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
           {data.map((s) => (
-            <Link key={s.title} href={s.href} className="group bg-white rounded-2xl p-8 border border-gray-100 card-hover">
-              <div className={`w-14 h-14 bg-gradient-to-br ${s.color} rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-lg group-hover:scale-110 transition-transform`}>
+            <Link key={s.title} href={s.href} className="group bg-white p-7 border border-stone-200 card-hover">
+              <div className="w-12 h-12 border border-stone-200 bg-stone-50 flex items-center justify-center text-xl mb-5 group-hover:border-accent-500/50 transition-colors">
                 {s.icon}
               </div>
-              <h3 className="font-bold text-gray-900 text-lg mb-3 group-hover:text-indigo-600 transition-colors">{s.title}</h3>
-              <p className="text-gray-500 text-sm leading-relaxed mb-4">{s.desc}</p>
-              <span className="text-indigo-600 font-semibold text-sm inline-flex items-center gap-1 group-hover:gap-2 transition-all">
-                Learn More &rarr;
+              <h3 className="font-display font-bold text-stone-900 text-lg mb-2 group-hover:text-accent-600 transition-colors">{s.title}</h3>
+              <p className="text-stone-600 text-sm leading-relaxed mb-4">{s.desc}</p>
+              <span className="text-accent-600 font-semibold text-sm inline-flex items-center gap-1">
+                Details <span className="translate-x-0 group-hover:translate-x-0.5 transition-transform">&rarr;</span>
               </span>
             </Link>
           ))}
@@ -238,50 +237,38 @@ function ServicesSection() {
 
 function CourseBanner() {
   return (
-    <section className="relative overflow-hidden">
-      <div className="absolute inset-0 bg-[#0a0a1a]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(99,102,241,0.15),transparent_60%)]" />
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-indigo-500/30 to-transparent" />
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-indigo-500/30 to-transparent" />
+    <section className="relative bg-stone-900 text-stone-100 border-y border-stone-800">
+      <div className="max-w-3xl mx-auto px-6 py-20 md:py-24 text-center">
+        <p className="text-xs font-semibold uppercase tracking-[0.15em] text-stone-400 mb-5">Live cohort, limited seats</p>
 
-      <div className="relative max-w-4xl mx-auto px-6 py-24 text-center">
-        <div className="inline-flex items-center gap-2 border border-red-500/30 text-red-400 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-6">
-          <span className="w-2 h-2 bg-red-400 rounded-full animate-pulse-dot" />
-          Live Batch &mdash; Admissions Open
-        </div>
-
-        <h2 className="text-4xl md:text-6xl font-black text-white mb-4 leading-tight tracking-tight">
-          MLOps &amp; AIOps
-          <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">
-            Masterclass
-          </span>
+        <h2 className="font-display text-3xl md:text-5xl font-bold text-white mb-5 leading-tight">
+          MLOps &amp; AIOps Masterclass
         </h2>
-        <p className="text-gray-400 text-lg mb-10 max-w-2xl mx-auto">
-          12-16 weeks of intensive training. DevOps to MLOps to LLMOps to AIOps to AI Agents.
-          Build production-ready AI systems with real enterprise projects.
+        <p className="text-stone-400 text-lg mb-10 max-w-xl mx-auto leading-relaxed">
+          A full arc from solid DevOps habits through MLOps, LLMOps, AIOps, and agents - with labs that mirror how teams
+          actually review and ship work.
         </p>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-2xl mx-auto mb-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 max-w-2xl mx-auto mb-10 text-left">
           {[
-            { label: "Duration", value: "8-12 Weeks" },
-            { label: "Format", value: "Live Online" },
+            { label: "Duration", value: "8–12 weeks" },
+            { label: "Format", value: "Live online" },
             { label: "Time", value: "8 PM IST" },
             { label: "Fee", value: "₹35,000" },
           ].map((item) => (
-            <div key={item.label} className="border border-white/10 rounded-xl p-4 bg-white/5">
-              <div className="text-white font-bold">{item.value}</div>
-              <div className="text-gray-500 text-xs mt-1">{item.label}</div>
+            <div key={item.label} className="border border-stone-700 bg-stone-950/50 px-4 py-3">
+              <div className="text-white font-semibold text-sm">{item.value}</div>
+              <div className="text-stone-500 text-xs mt-1 uppercase tracking-wide">{item.label}</div>
             </div>
           ))}
         </div>
 
-        <div className="flex flex-col sm:flex-row justify-center gap-4">
-          <a href={LINKS.enroll} target="_blank" rel="noopener noreferrer" className="bg-white text-gray-900 px-10 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all">
-            Join Now &mdash; ₹35,000 &rarr;
+        <div className="flex flex-col sm:flex-row justify-center gap-3">
+          <a href={LINKS.enroll} target="_blank" rel="noopener noreferrer" className="inline-flex justify-center bg-white text-stone-900 px-8 py-3.5 text-sm font-semibold hover:bg-stone-100 transition-colors">
+            Join this batch for ₹35,000
           </a>
-          <a href={LINKS.whatsappSyllabus} target="_blank" rel="noopener noreferrer" className="border border-white/20 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-white/5 transition-all">
-            Get Syllabus
+          <a href={LINKS.whatsappSyllabus} target="_blank" rel="noopener noreferrer" className="inline-flex justify-center border border-stone-500 text-stone-100 px-8 py-3.5 text-sm font-semibold hover:bg-stone-800 transition-colors">
+            WhatsApp for syllabus
           </a>
         </div>
       </div>
@@ -291,16 +278,16 @@ function CourseBanner() {
 
 function VideoSection() {
   return (
-    <section className="py-28 bg-white">
+    <section className="py-24 md:py-28 bg-white border-b border-stone-200">
       <div className="max-w-5xl mx-auto px-6">
         <SectionHeader
-          tag="Watch &amp; Learn"
-          title="Latest from My YouTube Channel"
-          subtitle="Real training content — no basic tutorials. Subscribe for daily AI/ML content."
+          tag="Watch &amp; learn"
+          title="Recent lab on the channel"
+          subtitle="Long-form walkthroughs - the same tone as class, just on the open web."
         />
         <div className="max-w-3xl mx-auto mb-10">
-          <div className="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
-            <div className="relative pb-[56.25%] bg-gray-900">
+          <div className="panel overflow-hidden">
+            <div className="relative pb-[56.25%] bg-stone-900">
               <iframe
                 src="https://www.youtube.com/embed/eXsltT8baj0?rel=0"
                 title="AIOps Lab Day-01: Detect CPU Anomalies"
@@ -310,15 +297,15 @@ function VideoSection() {
                 className="absolute inset-0 w-full h-full"
               />
             </div>
-            <div className="p-6">
-              <h3 className="font-bold text-gray-900 text-lg mb-2">AIOps Lab Day-01: Detect CPU Anomalies</h3>
-              <p className="text-gray-500">Hands-on lab using Prometheus, Grafana &amp; ML to detect CPU anomalies in real-time.</p>
+            <div className="p-6 border-t border-stone-200">
+              <h3 className="font-display font-bold text-stone-900 text-lg mb-2">AIOps Lab Day-01: Detect CPU Anomalies</h3>
+              <p className="text-stone-600 text-sm leading-relaxed">Prometheus, Grafana, and a pragmatic ML pass on CPU behavior.</p>
             </div>
           </div>
         </div>
         <div className="text-center">
-          <a href={LINKS.youtube} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-gray-900 text-white px-8 py-4 rounded-full font-bold hover:bg-gray-800 transition-all hover:-translate-y-0.5">
-            Subscribe to My YouTube Channel &rarr;
+          <a href={LINKS.youtube} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-stone-900 text-white px-8 py-3.5 text-sm font-semibold hover:bg-stone-800 transition-colors">
+            Open the channel &rarr;
           </a>
         </div>
       </div>
@@ -328,53 +315,51 @@ function VideoSection() {
 
 function CoursesSection() {
   return (
-    <section className="py-28 bg-gray-50">
+    <section className="py-24 md:py-28 bg-stone-100 border-b border-stone-200">
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeader
-          tag="Training Programs"
-          title="Choose Your Learning Path"
-          subtitle="Production-ready skills taught by an industry expert with 7+ years experience"
+          tag="Programs"
+          title="Pick the lane that matches your next role"
+          subtitle="Each path is built around deliverables you can explain in an interview."
         />
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
           {COURSES.map((c) => (
             <article
               key={c.title}
-              className={`relative bg-white rounded-2xl p-7 flex flex-col border-2 card-hover ${
-                c.featured ? "border-indigo-500" : "border-transparent"
+              className={`relative bg-white p-7 flex flex-col border card-hover ${
+                c.featured ? "border-accent-500 border-l-4 border-l-accent-600" : "border-stone-200"
               }`}
             >
               {c.featured && (
-                <div className="absolute -top-3.5 left-6">
-                  <span className="bg-indigo-600 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wide shadow-lg shadow-indigo-600/30">
-                    {c.badge}
-                  </span>
+                <div className="mb-3">
+                  <span className="text-[11px] font-semibold uppercase tracking-widest text-accent-600">{c.badge}</span>
                 </div>
               )}
               {!c.featured && (
-                <span className="self-start text-xs font-bold px-3 py-1 rounded-full uppercase bg-gray-100 text-gray-600 mb-3">
+                <span className="self-start text-[11px] font-semibold uppercase tracking-widest text-stone-500 mb-3">
                   {c.badge}
                 </span>
               )}
-              <h3 className={`font-bold text-lg mb-2 ${c.featured ? "text-indigo-600 mt-3" : "text-gray-900"}`}>
+              <h3 className={`font-display font-bold text-lg mb-2 ${c.featured ? "text-stone-900" : "text-stone-900"}`}>
                 {c.title}
               </h3>
-              <p className="text-sm text-gray-500 mb-5 leading-relaxed">{c.description}</p>
+              <p className="text-sm text-stone-600 mb-5 leading-relaxed">{c.description}</p>
               <ul className="space-y-2 mb-7 flex-1">
                 {c.features.map((f) => (
-                  <li key={f} className="text-sm text-gray-600 flex items-start gap-2">
-                    <svg className="w-4 h-4 text-emerald-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/></svg>
+                  <li key={f} className="text-sm text-stone-600 flex items-start gap-2">
+                    <span className="text-accent-600 mt-0.5 shrink-0" aria-hidden>✓</span>
                     {f}
                   </li>
                 ))}
               </ul>
               {c.href.startsWith("/") ? (
-                <Link href={c.href} className={`w-full text-center py-3.5 rounded-full font-bold transition-all hover:-translate-y-0.5 ${
-                  c.featured ? "bg-indigo-600 text-white shadow-lg shadow-indigo-600/25 hover:shadow-indigo-600/40" : "bg-gray-900 text-white hover:bg-gray-800"
+                <Link href={c.href} className={`w-full text-center py-3 text-sm font-semibold transition-colors ${
+                  c.featured ? "bg-accent-600 text-white hover:bg-accent-700" : "bg-stone-900 text-white hover:bg-stone-800"
                 }`}>
                   {c.ctaText}
                 </Link>
               ) : (
-                <a href={c.href} target="_blank" rel="noopener noreferrer" className="w-full text-center py-3.5 rounded-full font-bold bg-gray-900 text-white hover:bg-gray-800 transition-all hover:-translate-y-0.5">
+                <a href={c.href} target="_blank" rel="noopener noreferrer" className="w-full text-center py-3 text-sm font-semibold bg-stone-900 text-white hover:bg-stone-800 transition-colors">
                   {c.ctaText}
                 </a>
               )}
@@ -386,51 +371,90 @@ function CoursesSection() {
   );
 }
 
+function MentorshipSection() {
+  return (
+    <section className="py-20 md:py-24 bg-stone-50 border-y border-stone-200">
+      <div className="max-w-3xl mx-auto px-6 text-center">
+        <span className="text-xs font-semibold uppercase tracking-[0.14em] text-accent-600 mb-3 block">Mentorship</span>
+        <h2 className="font-display text-2xl md:text-4xl font-bold text-stone-900 mb-4 leading-tight">
+          Ask about your career or transformation, from anywhere
+        </h2>
+        <p className="text-stone-600 text-base md:text-lg leading-relaxed mb-8">
+          Not every question needs a full course first. If you are in another country or time zone and want a straight
+          conversation about moving toward MLOps, AIOps, cloud, or AI engineering, you can book a private session or
+          write on WhatsApp with context. I reply when I can and keep advice practical.
+        </p>
+        <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3">
+          <Link
+            href="/mentorship"
+            className="inline-flex justify-center bg-stone-900 text-white px-7 py-3 text-sm font-semibold hover:bg-stone-800 transition-colors"
+          >
+            Read how mentorship works
+          </Link>
+          <a
+            href={LINKS.topmate}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex justify-center border border-stone-400 text-stone-900 px-7 py-3 text-sm font-semibold hover:border-stone-900 transition-colors"
+          >
+            Book on Topmate (worldwide)
+          </a>
+          <a
+            href={LINKS.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex justify-center bg-emerald-700 text-white px-7 py-3 text-sm font-semibold hover:bg-emerald-800 transition-colors"
+          >
+            WhatsApp: career questions
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function TrustSection() {
   return (
-    <section className="py-28 bg-white">
+    <section className="py-24 md:py-28 bg-white">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-20 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
           <div>
-            <span className="text-sm font-bold uppercase tracking-[0.2em] text-indigo-600 mb-4 block">My Promise</span>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-6">
-              I&apos;ll be with you
-              <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-cyan-600">
-                every step
-              </span>
+            <span className="text-sm font-semibold uppercase tracking-[0.12em] text-accent-600 mb-4 block">How I work with you</span>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-stone-900 leading-tight mb-6">
+              Clear expectations, direct feedback, and room to be stuck without shame.
             </h2>
-            <p className="text-lg text-gray-600 leading-relaxed mb-10">
-              I&apos;m not just a trainer — I&apos;m your mentor and friend. I genuinely care about your growth.
-              When you&apos;re stuck debugging code at 2 AM, I&apos;ve been there.
-              When you&apos;re nervous before an interview, I understand.
+            <p className="text-lg text-stone-600 leading-relaxed mb-10">
+              Teaching is only part of it. The rest is judgment under uncertainty - the same thing you need on the job.
+              I stay in the weeds with you until the concepts feel obvious in hindsight.
             </p>
-            <div className="grid grid-cols-3 gap-6">
+            <div className="grid grid-cols-3 gap-4 border-t border-stone-200 pt-8">
               {[
-                { value: "60%", label: "Avg Salary Hike" },
-                { value: "500+", label: "Engineers Trained" },
-                { value: "95%", label: "Job Success Rate" },
+                { value: "60%", label: "Avg. reported hike*" },
+                { value: "500+", label: "Alumni network" },
+                { value: "95%", label: "Positive outcomes*" },
               ].map((s) => (
                 <div key={s.label}>
-                  <div className="text-3xl font-black text-gray-900 stat-number">{s.value}</div>
-                  <div className="text-sm text-gray-500 mt-1">{s.label}</div>
+                  <div className="font-display text-2xl md:text-3xl font-bold text-stone-900 stat-number">{s.value}</div>
+                  <div className="text-xs text-stone-500 mt-1 leading-snug">{s.label}</div>
                 </div>
               ))}
             </div>
+            <p className="text-xs text-stone-400 mt-4">* Aggregated from cohort surveys; individual results vary.</p>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-3">
             {[
-              { icon: "🤖", title: "Real AI/ML Engineer", desc: "I build & deploy ML models, AI agents in production — not just theory." },
-              { icon: "🚀", title: "Hands-On Projects", desc: "Deploy your own ML model, build AI agents, create production systems." },
-              { icon: "💰", title: "60% Salary Increase", desc: "Students land AI/ML roles at top companies with significant salary hikes." },
-              { icon: "🎯", title: "Interview & Placement", desc: "Resume review, mock interviews, and job assistance until you succeed." },
+              { icon: "🤖", title: "Still shipping", desc: "Lessons track what is defensible in production today, not last year’s hype cycle." },
+              { icon: "🚀", title: "Projects you can defend", desc: "Artifacts you can walk through line by line in a technical screen." },
+              { icon: "💰", title: "Career context", desc: "We talk about scope, titles, and negotiation with the same honesty as we talk about YAML." },
+              { icon: "🎯", title: "Interview prep", desc: "Resume passes, mock rounds, and blunt feedback where it helps." },
+              { icon: "🌍", title: "Open to the world", desc: "Mentorship is online, so students and professionals from many regions book time for career and transformation questions, not only India." },
             ].map((card) => (
-              <div key={card.title} className="flex items-start gap-5 bg-gray-50 rounded-2xl p-6 border border-gray-100 card-hover">
-                <span className="text-3xl shrink-0">{card.icon}</span>
+              <div key={card.title} className="flex items-start gap-4 panel p-5 card-hover">
+                <span className="text-2xl shrink-0" aria-hidden>{card.icon}</span>
                 <div>
-                  <h4 className="font-bold text-gray-900 mb-1">{card.title}</h4>
-                  <p className="text-gray-500 text-sm leading-relaxed">{card.desc}</p>
+                  <h4 className="font-display font-bold text-stone-900 mb-1">{card.title}</h4>
+                  <p className="text-stone-600 text-sm leading-relaxed">{card.desc}</p>
                 </div>
               </div>
             ))}

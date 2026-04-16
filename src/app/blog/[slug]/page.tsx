@@ -38,23 +38,23 @@ function renderMarkdown(content: string) {
     const line = lines[i];
 
     if (line.startsWith("## ")) {
-      elements.push(<h2 key={i} className="text-2xl font-extrabold text-gray-900 mt-10 mb-4">{line.slice(3)}</h2>);
+      elements.push(<h2 key={i} className="font-display text-2xl font-bold text-stone-900 mt-10 mb-4">{line.slice(3)}</h2>);
     } else if (line.startsWith("### ")) {
-      elements.push(<h3 key={i} className="text-xl font-bold text-gray-900 mt-8 mb-3">{line.slice(4)}</h3>);
+      elements.push(<h3 key={i} className="font-display text-xl font-bold text-stone-900 mt-8 mb-3">{line.slice(4)}</h3>);
     } else if (line.startsWith("- **")) {
       const match = line.match(/^- \*\*(.+?)\*\*(.*)$/);
       if (match) {
         elements.push(
-          <li key={i} className="flex items-start gap-2 text-gray-600 mb-2">
-            <span className="text-emerald-500 mt-1">&rarr;</span>
-            <span><strong className="text-gray-900">{match[1]}</strong>{match[2]}</span>
+          <li key={i} className="flex items-start gap-2 text-stone-600 mb-2">
+            <span className="text-accent-600 mt-1">&rarr;</span>
+            <span><strong className="text-stone-900">{match[1]}</strong>{match[2]}</span>
           </li>
         );
       }
     } else if (line.startsWith("- ")) {
       elements.push(
-        <li key={i} className="flex items-start gap-2 text-gray-600 mb-2">
-          <span className="text-emerald-500 mt-1">&rarr;</span>
+        <li key={i} className="flex items-start gap-2 text-stone-600 mb-2">
+          <span className="text-accent-600 mt-1">&rarr;</span>
           <span>{line.slice(2)}</span>
         </li>
       );
@@ -62,7 +62,7 @@ function renderMarkdown(content: string) {
       const cells = line.split("|").filter(Boolean).map((c) => c.trim());
       const isHeader = i + 1 < lines.length && lines[i + 1]?.includes("---");
       elements.push(
-        <div key={i} className={`grid gap-4 py-2 border-b border-gray-100 ${isHeader ? "font-bold text-gray-900" : "text-gray-600"}`} style={{ gridTemplateColumns: `repeat(${cells.length}, 1fr)` }}>
+        <div key={i} className={`grid gap-4 py-2 border-b border-stone-200 ${isHeader ? "font-bold text-stone-900" : "text-stone-600"}`} style={{ gridTemplateColumns: `repeat(${cells.length}, 1fr)` }}>
           {cells.map((cell, j) => <div key={j}>{cell}</div>)}
         </div>
       );
@@ -71,7 +71,7 @@ function renderMarkdown(content: string) {
       if (match) {
         elements.push(
           <p key={i} className="mt-6">
-            <Link href={match[2]} className="inline-flex items-center gap-2 bg-indigo-600 text-white px-6 py-3 rounded-full font-bold hover:bg-indigo-700 transition-all">
+            <Link href={match[2]} className="inline-flex items-center gap-2 bg-stone-900 text-white px-6 py-3 text-sm font-semibold hover:bg-stone-800 transition-colors">
               {match[1]}
             </Link>
           </p>
@@ -80,7 +80,7 @@ function renderMarkdown(content: string) {
     } else if (line.trim() === "") {
       continue;
     } else {
-      elements.push(<p key={i} className="text-gray-600 leading-relaxed mb-4">{line}</p>);
+      elements.push(<p key={i} className="text-stone-600 leading-relaxed mb-4">{line}</p>);
     }
   }
 
@@ -93,9 +93,9 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
 
   if (!article) {
     return (
-      <section className="py-28 text-center">
-        <h1 className="text-3xl font-bold text-gray-900">Article not found</h1>
-        <Link href="/blog" className="text-indigo-600 font-semibold mt-4 inline-block">Back to Blog &rarr;</Link>
+      <section className="py-28 text-center px-6">
+        <h1 className="font-display text-3xl font-bold text-stone-900">Article not found</h1>
+        <Link href="/blog" className="text-accent-600 font-semibold mt-4 inline-block underline underline-offset-4">Back to blog &rarr;</Link>
       </section>
     );
   }
@@ -116,42 +116,41 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <article>
-        <section className="relative bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/40 py-20 overflow-hidden">
-          <div className="absolute inset-0 grid-bg" />
+        <section className="relative border-b border-stone-200 bg-stone-100 surface-paper py-16 md:py-20">
           <div className="relative max-w-3xl mx-auto px-6">
-            <Link href="/blog" className="text-indigo-600 font-semibold text-sm mb-6 inline-block hover:underline">&larr; Back to Blog</Link>
+            <Link href="/blog" className="text-accent-600 font-semibold text-sm mb-6 inline-block hover:underline underline-offset-4">&larr; Back to blog</Link>
             <div className="flex flex-wrap items-center gap-3 mb-4">
-              <span className="bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full text-xs font-bold">{article.category}</span>
-              <span className="text-gray-500 text-sm">{article.date}</span>
-              <span className="text-gray-500 text-sm">{article.readTime} read</span>
+              <span className="border border-stone-300 bg-white text-stone-700 px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-wide">{article.category}</span>
+              <span className="text-stone-500 text-sm">{article.date}</span>
+              <span className="text-stone-500 text-sm">{article.readTime} read</span>
             </div>
-            <h1 className="text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-4">{article.title}</h1>
-            <p className="text-lg text-gray-600 leading-relaxed">{article.description}</p>
+            <h1 className="font-display text-3xl md:text-5xl font-bold text-stone-900 leading-tight mb-4">{article.title}</h1>
+            <p className="text-lg text-stone-600 leading-relaxed">{article.description}</p>
             <div className="flex items-center gap-3 mt-6">
-              <div className="w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold text-sm">RV</div>
+              <div className="w-10 h-10 border border-stone-900 bg-stone-900 text-[#fffefc] flex items-center justify-center font-bold text-xs">RV</div>
               <div>
-                <div className="font-bold text-gray-900 text-sm">Rajinikanth Vadla</div>
-                <div className="text-gray-500 text-xs">MLOps, AIOps, GenAI Expert</div>
+                <div className="font-semibold text-stone-900 text-sm">Rajinikanth Vadla</div>
+                <div className="text-stone-500 text-xs">MLOps, AIOps, GenAI</div>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="py-16 bg-white">
-          <div className="max-w-3xl mx-auto px-6 text-lg">
+        <section className="py-14 md:py-16 bg-white border-b border-stone-200">
+          <div className="max-w-3xl mx-auto px-6 text-base md:text-lg">
             {renderMarkdown(article.content)}
           </div>
         </section>
 
-        <section className="py-16 bg-gray-50">
+        <section className="py-14 md:py-16 bg-stone-50 border-b border-stone-200">
           <div className="max-w-3xl mx-auto px-6 text-center">
-            <h3 className="text-2xl font-extrabold text-gray-900 mb-4">Want to Learn This Hands-on?</h3>
-            <p className="text-gray-500 mb-6">Join Rajinikanth Vadla&apos;s training programs and master these skills with real projects.</p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/mlops-aiops-masterclass" className="bg-gray-900 text-white px-8 py-3.5 rounded-full font-bold hover:bg-gray-800 transition-all">
-                View Masterclass
+            <h3 className="font-display text-xl md:text-2xl font-bold text-stone-900 mb-3">Want this as guided work?</h3>
+            <p className="text-stone-600 mb-6 text-sm md:text-base">The masterclass is where these threads get tied into a coherent story for interviews and delivery.</p>
+            <div className="flex flex-wrap justify-center gap-3">
+              <Link href="/mlops-aiops-masterclass" className="bg-stone-900 text-white px-7 py-3 text-sm font-semibold hover:bg-stone-800 transition-colors">
+                View masterclass
               </Link>
-              <a href={LINKS.whatsapp} target="_blank" rel="noopener noreferrer" className="bg-emerald-600 text-white px-8 py-3.5 rounded-full font-bold hover:bg-emerald-700 transition-all">
+              <a href={LINKS.whatsapp} target="_blank" rel="noopener noreferrer" className="bg-emerald-700 text-white px-7 py-3 text-sm font-semibold hover:bg-emerald-800 transition-colors">
                 WhatsApp
               </a>
             </div>

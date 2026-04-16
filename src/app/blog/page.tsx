@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import articles from "../../../content/articles.json";
-import SectionHeader from "@/components/SectionHeader";
 
 export const metadata: Metadata = {
   title: "AI Blog & News | MLOps, AIOps, GenAI, AI Agents Articles",
@@ -20,45 +19,43 @@ const sorted = [...articles].sort((a, b) => new Date(b.date).getTime() - new Dat
 export default function BlogPage() {
   return (
     <>
-      <section className="relative bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/40 py-24 overflow-hidden">
-        <div className="orb orb-1" style={{ opacity: 0.12 }} />
-        <div className="absolute inset-0 grid-bg" />
+      <section className="relative border-b border-stone-200 bg-stone-100 surface-paper py-20 md:py-24">
         <div className="relative text-center max-w-3xl mx-auto px-6">
-          <span className="inline-block text-sm font-bold uppercase tracking-[0.15em] text-primary-600 mb-3">Insights &amp; Tutorials</span>
-          <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 mb-5">AI Blog &amp; News</h1>
-          <p className="text-lg text-gray-600">
-            Latest articles on MLOps, AIOps, GenAI, AI Agents, and everything AI/ML
+          <span className="inline-block text-xs font-semibold uppercase tracking-[0.14em] text-accent-600 mb-3">Writing</span>
+          <h1 className="font-display text-4xl md:text-5xl font-bold text-stone-900 mb-4">Blog</h1>
+          <p className="text-lg text-stone-600">
+            Notes on MLOps, AIOps, GenAI, and agents - updated when there is something worth your time.
           </p>
         </div>
       </section>
 
-      <section className="py-28 bg-white">
+      <section className="py-20 md:py-24 bg-white border-b border-stone-200">
         <div className="max-w-5xl mx-auto px-6">
-          <div className="grid gap-8">
-            {sorted.map((article, i) => (
+          <div className="grid gap-4">
+            {sorted.map((article) => (
               <Link
                 key={article.slug}
                 href={`/blog/${article.slug}`}
-                className="group grid md:grid-cols-[1fr_auto] gap-6 bg-white rounded-2xl p-8 border border-gray-100 card-hover"
+                className="group grid md:grid-cols-[1fr_auto] gap-6 panel p-7 md:p-8 card-hover"
               >
                 <div>
                   <div className="flex flex-wrap items-center gap-3 mb-3">
-                    <span className="bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full text-xs font-bold">{article.category}</span>
-                    <span className="text-gray-400 text-sm">{article.date}</span>
-                    <span className="text-gray-400 text-sm">{article.readTime} read</span>
+                    <span className="border border-stone-300 bg-stone-50 text-stone-700 px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-wide">{article.category}</span>
+                    <span className="text-stone-500 text-sm">{article.date}</span>
+                    <span className="text-stone-500 text-sm">{article.readTime} read</span>
                   </div>
-                  <h2 className="text-xl md:text-2xl font-extrabold text-gray-900 mb-3 group-hover:text-indigo-600 transition-colors leading-tight">
+                  <h2 className="font-display text-xl md:text-2xl font-bold text-stone-900 mb-2 group-hover:text-accent-700 transition-colors leading-tight">
                     {article.title}
                   </h2>
-                  <p className="text-gray-500 leading-relaxed line-clamp-2">{article.description}</p>
-                  <div className="flex flex-wrap gap-2 mt-4">
+                  <p className="text-stone-600 leading-relaxed line-clamp-2 text-sm md:text-base">{article.description}</p>
+                  <div className="flex flex-wrap gap-2 mt-3">
                     {article.tags.slice(0, 4).map((tag) => (
-                      <span key={tag} className="text-xs font-medium text-gray-500 bg-gray-100 px-2.5 py-1 rounded-full">{tag}</span>
+                      <span key={tag} className="text-[11px] font-medium text-stone-500 border border-stone-200 px-2 py-0.5">{tag}</span>
                     ))}
                   </div>
                 </div>
                 <div className="flex items-center">
-                  <span className="text-indigo-600 font-semibold whitespace-nowrap group-hover:translate-x-1 transition-transform">
+                  <span className="text-accent-600 font-semibold text-sm whitespace-nowrap group-hover:underline underline-offset-4">
                     Read &rarr;
                   </span>
                 </div>

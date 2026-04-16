@@ -4,89 +4,106 @@ import CTASection from "@/components/CTASection";
 import SuccessStories from "@/components/SuccessStories";
 
 export const metadata: Metadata = {
-  title: "1:1 Mentorship",
-  description: "Get personal mentorship from Rajinikanth Vadla. Career guidance, interview prep, resume review, and hands-on project help.",
+  title: "1:1 Mentorship & Career Guidance (Worldwide)",
+  description:
+    "Book Rajinikanth Vadla for online mentorship: career change into MLOps, AIOps, DevOps, or AI engineering, role transitions, interview prep, and learning plans. Open to professionals globally via Topmate and WhatsApp.",
+  keywords: [
+    "Rajinikanth Vadla mentorship",
+    "MLOps career mentor online",
+    "AI engineering career coaching",
+    "remote tech mentorship",
+    "career transformation mentor",
+    "DevOps to MLOps career change",
+    "international students MLOps",
+  ],
 };
 
 export default function MentorshipPage() {
   return (
     <>
-      <section className="relative bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/40 py-24 overflow-hidden">
-        <div className="orb orb-1" style={{ opacity: 0.15 }} />
-        <div className="absolute inset-0 grid-bg" />
+      <section className="relative border-b border-stone-200 bg-stone-100 surface-paper py-20 md:py-24">
         <div className="relative text-center max-w-3xl mx-auto px-6">
-          <span className="inline-block text-sm font-bold uppercase tracking-[0.15em] text-primary-600 mb-3">Personal Guidance</span>
-          <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 mb-5">1:1 Mentorship</h1>
-          <p className="text-lg text-gray-600">Accelerate your career with personal guidance from an industry expert</p>
+          <span className="inline-block text-xs font-semibold uppercase tracking-[0.14em] text-accent-600 mb-3">Personal guidance</span>
+          <h1 className="font-display text-4xl md:text-5xl font-bold text-stone-900 mb-4">1:1 mentorship</h1>
+          <p className="text-lg text-stone-600 mb-4">
+            Direct time on your problems - not a generic playbook. I work with people who want honest help on
+            career direction, skill gaps, and how to describe the work they have already done.
+          </p>
+          <p className="text-stone-600 text-base leading-relaxed">
+            You can be in India, the Middle East, Europe, the Americas, or anywhere else: sessions are online. Bring
+            questions about transformation into MLOps, AIOps, cloud, or AI roles, or about the next step from where you
+            are today.
+          </p>
         </div>
       </section>
 
-      <section className="py-24 bg-white">
+      <section className="py-20 md:py-24 bg-white border-b border-stone-200">
         <div className="max-w-5xl mx-auto px-6">
-          <div className="glass rounded-3xl p-10 mb-16 border border-primary-100">
-            <h2 className="text-2xl font-extrabold text-gray-900 mb-5">Accelerate Your Career</h2>
-            <p className="text-gray-600 text-lg leading-relaxed mb-6">
-              Whether you&apos;re trying to break into AI/ML, level up your DevOps skills, or transition to a new role,
-              personalized mentorship can save you months of trial and error.
+          <div className="panel p-8 md:p-10 mb-14">
+            <h2 className="font-display text-2xl font-bold text-stone-900 mb-4">When private sessions help most</h2>
+            <p className="text-stone-600 text-lg leading-relaxed mb-6">
+              Whether you&apos;re breaking into AI/ML, tightening your DevOps story, preparing for a hiring loop, or
+              planning a multi-year move into platform or AI teams, one-to-one work can save months of guessing. Many
+              people message first with a short career summary and what feels stuck; that is enough to start.
             </p>
-            <h3 className="font-bold text-gray-900 mb-4">What&apos;s Included:</h3>
-            <ul className="grid sm:grid-cols-2 gap-3 mb-6">
+            <h3 className="font-semibold text-stone-900 mb-3">What we can cover</h3>
+            <ul className="grid sm:grid-cols-2 gap-3 mb-2">
               {[
-                "Career roadmap planning",
-                "Resume & LinkedIn optimization",
-                "Mock interview sessions",
-                "Technical project guidance",
-                "Salary negotiation tips",
-                "Industry networking advice",
+                "Career roadmap and role targets (including cross-country moves)",
+                "Resume and LinkedIn passes for MLOps, DevOps, and AI roles",
+                "Mock interviews and story-telling for senior IC or lead tracks",
+                "Technical project guidance when you are blocked in the lab",
+                "Salary and offer framing (without empty hype)",
+                "How to describe messy real delivery clearly to hiring managers",
+                "Learning plan: what to study next if you are self-driven between cohorts",
+                "Confidence after a layoff, break, or long gap - practical next steps",
               ].map((item) => (
-                <li key={item} className="flex items-center gap-3 text-gray-600">
-                  <span className="w-6 h-6 rounded-full bg-accent-500/10 flex items-center justify-center shrink-0">
-                    <svg className="w-3.5 h-3.5 text-accent-500" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/></svg>
-                  </span>
+                <li key={item} className="flex items-center gap-3 text-stone-600 text-sm md:text-base">
+                  <span className="w-5 h-5 border border-accent-200 bg-accent-50 flex items-center justify-center shrink-0 text-accent-700 text-xs font-bold">✓</span>
                   {item}
                 </li>
               ))}
             </ul>
           </div>
 
-          <h2 className="text-2xl font-extrabold text-gray-900 mb-8 text-center">Your Mentorship Journey</h2>
-          <div className="grid sm:grid-cols-2 gap-6 mb-16">
+          <h2 className="font-display text-2xl font-bold text-stone-900 mb-8 text-center">Typical arc</h2>
+          <div className="grid sm:grid-cols-2 gap-4 mb-14">
             {[
-              { step: "01", title: "Discovery Call", desc: "We discuss your current situation, goals, and create a personalized roadmap.", color: "from-primary-600 to-indigo-600" },
-              { step: "02", title: "Skill Assessment", desc: "I evaluate your technical skills and identify gaps to focus on.", color: "from-purple-600 to-violet-600" },
-              { step: "03", title: "Focused Training", desc: "Hands-on sessions tailored to your learning pace and career goals.", color: "from-accent-500 to-teal-600" },
-              { step: "04", title: "Career Launch", desc: "Interview prep, resume optimization, and placement support until you succeed.", color: "from-amber-500 to-orange-600" },
+              { step: "01", title: "Discovery", desc: "Current role, target role, and constraints - time, money, geography, visa or family context if relevant." },
+              { step: "02", title: "Assessment", desc: "Honest read on gaps: systems thinking, depth in one stack, communication, and what recruiters will probe." },
+              { step: "03", title: "Focused work", desc: "Sessions built around artifacts: repos, design docs, interview stories, and repeated practice where it helps." },
+              { step: "04", title: "Launch", desc: "Interview prep and iteration until you sound like the engineer you already are - wherever you plan to apply." },
             ].map((item) => (
-              <div key={item.step} className="bg-white rounded-2xl p-7 border border-gray-100 card-hover">
-                <span className={`inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-br ${item.color} text-white font-black text-sm mb-4 shadow-lg`}>
+              <div key={item.step} className="panel p-7 card-hover">
+                <span className="inline-flex items-center justify-center w-10 h-10 border border-stone-900 bg-stone-900 text-[#fffefc] font-bold text-xs mb-4">
                   {item.step}
                 </span>
-                <h3 className="font-bold text-gray-900 text-lg mb-2">{item.title}</h3>
-                <p className="text-gray-500 leading-relaxed">{item.desc}</p>
+                <h3 className="font-display font-bold text-stone-900 text-lg mb-2">{item.title}</h3>
+                <p className="text-stone-600 text-sm leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
 
-          <h2 className="text-2xl font-extrabold text-gray-900 mb-8 text-center">Choose Your Option</h2>
-          <div className="grid sm:grid-cols-3 gap-6">
+          <h2 className="font-display text-2xl font-bold text-stone-900 mb-8 text-center">Choose an entry point</h2>
+          <div className="grid sm:grid-cols-3 gap-4">
             {[
-              { icon: "🤖", title: "AI Mentor Chat", desc: "Chat with my AI assistant for quick answers", href: LINKS.myGPT, btn: "Chat Now", color: "from-purple-600 to-violet-600", shadow: "shadow-purple-600/20" },
-              { icon: "📞", title: "Book 1:1 Session", desc: "Personal mentorship call with me", href: LINKS.topmate, btn: "Book Session", color: "from-primary-600 to-indigo-600", shadow: "shadow-primary-600/20" },
-              { icon: "💬", title: "Free Enquiry", desc: "Ask questions on WhatsApp first", href: LINKS.whatsapp, btn: "Ask Free", color: "from-green-500 to-emerald-600", shadow: "shadow-green-500/20" },
+              { icon: "🤖", title: "AI mentor chat", desc: "Quick answers when you already know the direction but want wording or next steps.", href: LINKS.myGPT, btn: "Open chat" },
+              { icon: "📞", title: "Book 1:1", desc: "Deep dive on your CV, system design, career change, or a stuck project. Calendars are online for global time zones.", href: LINKS.topmate, btn: "Book on Topmate" },
+              { icon: "💬", title: "WhatsApp first", desc: "Short questions about mentorship, courses, or transformation before you book a paid slot.", href: LINKS.whatsapp, btn: "Message" },
             ].map((opt) => (
               <a
                 key={opt.title}
                 href={opt.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group bg-white rounded-2xl p-8 border border-gray-100 text-center card-hover"
+                className="group panel p-8 text-center card-hover"
               >
-                <div className={`w-16 h-16 bg-gradient-to-br ${opt.color} rounded-2xl flex items-center justify-center text-3xl mx-auto mb-5 shadow-lg ${opt.shadow} group-hover:scale-110 transition-transform`}>
+                <div className="w-14 h-14 border border-stone-200 bg-stone-50 flex items-center justify-center text-2xl mx-auto mb-5 group-hover:border-accent-400 transition-colors">
                   {opt.icon}
                 </div>
-                <h3 className="font-bold text-gray-900 text-lg mb-1">{opt.title}</h3>
-                <p className="text-sm text-gray-500 mb-4">{opt.desc}</p>
-                <span className={`inline-block bg-gradient-to-r ${opt.color} text-white px-6 py-2.5 rounded-xl font-bold text-sm shadow-lg ${opt.shadow}`}>
+                <h3 className="font-display font-bold text-stone-900 text-lg mb-1">{opt.title}</h3>
+                <p className="text-sm text-stone-600 mb-4">{opt.desc}</p>
+                <span className="inline-block bg-stone-900 text-white px-5 py-2 text-xs font-semibold uppercase tracking-wide group-hover:bg-accent-600 transition-colors">
                   {opt.btn}
                 </span>
               </a>
@@ -95,7 +112,10 @@ export default function MentorshipPage() {
         </div>
       </section>
 
-      <CTASection title="Ready to Accelerate Your Career?" subtitle="Book a free discovery call. Let's discuss your goals and create a plan." />
+      <CTASection
+        title="If you are unsure which option fits, start small"
+        subtitle="A short WhatsApp note with your background, country or time zone, and what you want to change is enough - I will suggest mentorship, a course, or self-study in plain language."
+      />
       <SuccessStories />
     </>
   );

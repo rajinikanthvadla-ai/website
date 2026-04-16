@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 export default function AIOpsTrainingPage() {
   return (
     <TrainingPageLayout
-      title="AIOps Training — AI for IT Operations"
+      title="AIOps Training: AI for IT Operations"
       subtitle="Master AI-powered IT Operations: anomaly detection, predictive analytics, root cause analysis, and self-healing infrastructure. The most practical AIOps training in India."
       intro="AIOps (Artificial Intelligence for IT Operations) is transforming how companies manage their infrastructure and applications. Instead of reactive firefighting, AIOps uses machine learning to predict failures, detect anomalies, identify root causes, and automatically remediate issues. This comprehensive training by Rajinikanth Vadla teaches you to build production AIOps systems using real enterprise tools. You'll work with Prometheus, Grafana, ELK Stack, and custom ML models to build intelligent monitoring, alerting, and automation systems. From telemetry collection to self-healing infrastructure, you'll master every aspect of AIOps that companies need."
       whatYouLearn={[
@@ -51,7 +51,7 @@ export default function AIOpsTrainingPage() {
       ]}
       faqs={[
         { q: "What is the best AIOps training in India?", a: "Rajinikanth Vadla's AIOps training is the most comprehensive in India with 4.9/5 rating. It covers anomaly detection, predictive analytics, root cause analysis, and self-healing infrastructure with hands-on labs. 500+ engineers trained." },
-        { q: "What is AIOps?", a: "AIOps (AI for IT Operations) uses machine learning and AI to enhance IT operations. It automates anomaly detection, event correlation, root cause analysis, and remediation — transforming reactive monitoring into proactive, intelligent operations." },
+        { q: "What is AIOps?", a: "AIOps (AI for IT Operations) uses machine learning and AI to enhance IT operations. It automates anomaly detection, event correlation, root cause analysis, and remediation - transforming reactive monitoring into proactive, intelligent operations." },
         { q: "Who should learn AIOps?", a: "DevOps engineers, SREs, IT Operations professionals, Cloud engineers, and anyone managing infrastructure at scale. AIOps skills are increasingly required for senior DevOps and SRE roles." },
         { q: "What is the salary for AIOps Engineers?", a: "AIOps Engineers earn ₹12-35 LPA in India, $110K-$180K+ in USA. As companies adopt AI-driven operations, demand for AIOps expertise is growing 40%+ year-over-year." },
         { q: "What tools will I learn?", a: "Prometheus, Grafana, ELK Stack, OpenTelemetry, Python (scikit-learn, Prophet), Kubernetes, Docker, Litmus (chaos engineering), and cloud-native monitoring tools." },
