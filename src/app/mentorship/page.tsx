@@ -4,9 +4,9 @@ import CTASection from "@/components/CTASection";
 import SuccessStories from "@/components/SuccessStories";
 
 export const metadata: Metadata = {
-  title: "1:1 Mentorship & Career Guidance (Worldwide)",
+  title: "1:1 Mentorship & Career Guidance",
   description:
-    "Book Rajinikanth Vadla for online mentorship: career change into MLOps, AIOps, DevOps, or AI engineering, role transitions, interview prep, and learning plans. Open to professionals globally via Topmate and WhatsApp.",
+    "Online 1:1 mentorship for MLOps, AIOps and AI engineering careers — role transitions, interview prep and learning plans. Open worldwide.",
   keywords: [
     "Rajinikanth Vadla mentorship",
     "MLOps career mentor online",
@@ -16,6 +16,7 @@ export const metadata: Metadata = {
     "DevOps to MLOps career change",
     "international students MLOps",
   ],
+  alternates: { canonical: "https://www.rajinikanthvadla.com/mentorship" },
 };
 
 export default function MentorshipPage() {

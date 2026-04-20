@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import TrainingPageLayout from "@/components/TrainingPageLayout";
 
 export const metadata: Metadata = {
-  title: "Best MLOps Training India | Machine Learning Operations Course | MLflow Kubeflow",
+  title: "MLOps Training India — MLflow, Kubeflow, Production ML",
   description:
-    "Best MLOps training in India by Rajinikanth Vadla. Master ML pipelines, MLflow, Kubeflow, model deployment, monitoring, CI/CD for ML, feature stores, A/B testing. Hands-on enterprise projects. 500+ trained, 95% placement. ₹35,000.",
+    "Hands-on MLOps training in India: ML pipelines, MLflow, Kubeflow, model deployment & monitoring. 500+ trained, 95% placement. ₹35,000.",
   keywords: [
     "MLOps training", "MLOps course", "machine learning operations", "best MLOps training India",
     "MLflow training", "Kubeflow course", "model deployment training", "ML pipeline course",

@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import TrainingPageLayout from "@/components/TrainingPageLayout";
 
 export const metadata: Metadata = {
-  title: "Best AIOps Training India | AI for IT Operations Course | Anomaly Detection",
+  title: "AIOps Training — AI for IT Ops & Anomaly Detection",
   description:
-    "Best AIOps training in India by Rajinikanth Vadla. Master AI-powered IT Operations, anomaly detection, predictive analytics, root cause analysis, self-healing infrastructure. Hands-on with Prometheus, Grafana, ML. 500+ trained, 95% placement.",
+    "Hands-on AIOps training: anomaly detection, predictive analytics, self-healing infra with Prometheus, Grafana, ML. 500+ trained, 95% placement.",
   keywords: [
     "AIOps training", "AIOps course", "AI for IT Operations", "best AIOps training India",
     "anomaly detection training", "predictive analytics course", "self-healing infrastructure",

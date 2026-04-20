@@ -4,9 +4,10 @@ import CTASection from "@/components/CTASection";
 import SuccessStories from "@/components/SuccessStories";
 
 export const metadata: Metadata = {
-  title: "About Rajinikanth Vadla",
+  title: "About",
   description:
-    "About Rajinikanth Vadla: MLOps, AIOps, DevOps, and GenAI practitioner and mentor. 7+ years experience, 500+ engineers trained. Offers online mentorship for career and transformation questions from professionals worldwide.",
+    "MLOps, AIOps and GenAI practitioner and mentor. 7+ years in production, 500+ engineers trained. Online mentorship open worldwide.",
+  alternates: { canonical: "https://www.rajinikanthvadla.com/about" },
 };
 
 export default function AboutPage() {

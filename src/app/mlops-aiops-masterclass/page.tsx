@@ -5,9 +5,9 @@ import SectionHeader from "@/components/SectionHeader";
 import SuccessStories from "@/components/SuccessStories";
 
 export const metadata: Metadata = {
-  title: "MLOps & AIOps Masterclass | Best DevOps MLOps AIOps GenAI AI Agents Course India | ₹35,000",
+  title: "MLOps + AIOps Masterclass — 12-Week Live Cohort",
   description:
-    "India's #1 MLOps & AIOps Masterclass by Rajinikanth Vadla. 12-16 weeks, 200+ hours hands-on training. DevOps → MLOps → LLMOps → AIOps → AI Agents. Docker, Kubernetes, MLflow, Kubeflow, LangChain, RAG, AWS, Azure, GCP. 500+ engineers trained, 95% placement rate, 60% avg salary hike. ₹35,000 INR. Live online. Admissions open.",
+    "12-16 week live cohort: DevOps → MLOps → LLMOps → AIOps → AI Agents. 200+ hours hands-on, 500+ trained, 95% placement. ₹35,000.",
   keywords: [
     "MLOps AIOps Masterclass", "best DevOps course", "best MLOps course India",
     "best AIOps training", "AI Agents course", "GenAI training India",

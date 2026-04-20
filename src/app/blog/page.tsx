@@ -3,9 +3,9 @@ import Link from "next/link";
 import articles from "../../../content/articles.json";
 
 export const metadata: Metadata = {
-  title: "AI Blog & News | MLOps, AIOps, GenAI, AI Agents Articles",
+  title: "MLOps, AIOps & GenAI Blog",
   description:
-    "Latest AI news, tutorials, and insights on MLOps, AIOps, GenAI, AI Agents, LangChain, Kubernetes, and more by Rajinikanth Vadla. Stay updated with the AI/ML industry.",
+    "Tutorials and notes on MLOps, AIOps, GenAI, AI Agents, LangChain, RAG and Kubernetes by Rajinikanth Vadla.",
   keywords: [
     "AI blog", "MLOps blog", "AIOps news", "GenAI articles", "AI Agents tutorials",
     "AI news 2026", "machine learning blog", "DevOps blog", "AI tools news",

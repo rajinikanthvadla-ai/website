@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import TrainingPageLayout from "@/components/TrainingPageLayout";
 
 export const metadata: Metadata = {
-  title: "Best GenAI Training | AI Agents Course | LangChain LLM RAG Training India",
+  title: "GenAI & AI Agents Training — LangChain, RAG, LLMs",
   description:
-    "Best Generative AI training in India by Rajinikanth Vadla. Learn AI Agents, LangChain, RAG systems, LLM deployment, prompt engineering, vector databases, MCP. Hands-on with GPT, Claude, LLaMA. 500+ engineers trained, 95% placement. ₹35,000.",
+    "Build AI Agents & production GenAI apps — LangChain, RAG, LLM deployment, vector DBs, MCP. Hands-on with GPT, Claude, LLaMA. ₹35,000.",
   keywords: [
     "GenAI training", "Generative AI course", "AI Agents training", "LangChain course",
     "RAG training", "LLM training", "LLM deployment course", "prompt engineering course",

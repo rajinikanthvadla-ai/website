@@ -6,9 +6,9 @@ import CTASection from "@/components/CTASection";
 import SuccessStories from "@/components/SuccessStories";
 
 export const metadata: Metadata = {
-  title: "AI Tools for 10x Productivity | Cursor, Claude, ChatGPT, Gemini, Grok, Vercel AI SDK Course",
+  title: "AI Tools for 10x Productivity — Cursor, Claude, Copilot",
   description:
-    "Master AI tools to 10x your professional productivity. Learn Cursor IDE, Claude, ChatGPT, Gemini, Grok, GitHub Copilot, Vercel AI SDK, AWS Bedrock, agentic workflows. For developers, professionals & teams. By Rajinikanth Vadla.",
+    "Master Cursor, Claude, ChatGPT, Gemini, Copilot & AWS Bedrock for 10x productivity. Agentic workflows for developers and teams.",
   keywords: [
     "AI tools course", "AI productivity training", "Cursor IDE course", "Claude AI training",
     "ChatGPT for professionals", "Gemini AI course", "Grok AI training",

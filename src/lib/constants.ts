@@ -1,9 +1,9 @@
 export const SITE = {
   name: "Rajinikanth Vadla",
   title:
-    "Rajinikanth Vadla | MLOps, AIOps, GenAI training and 1:1 career mentorship (worldwide)",
+    "Rajinikanth Vadla — MLOps, AIOps & GenAI Training",
   description:
-    "Official website of Rajinikanth Vadla at rajinikanthvadla.com. Live MLOps, AIOps, GenAI, AI Agents, and LLMOps training plus 1:1 mentorship for career change, role transitions, and interviews. Engineers worldwide book calls for honest guidance. 7+ years in production, 500+ people coached. Docker, Kubernetes, LangChain, RAG, AWS, Azure, GCP.",
+    "Live MLOps, AIOps & GenAI training from Rajinikanth Vadla — 500+ engineers trained, hands-on labs, 1:1 career mentorship worldwide. Join the next cohort.",
   url: "https://www.rajinikanthvadla.com",
   image: "https://www.rajinikanthvadla.com/assets/pic-1.png",
   phone: "+91-9100028801",

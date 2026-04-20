@@ -5,7 +5,8 @@ import SuccessStories from "@/components/SuccessStories";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Get in touch with Rajinikanth Vadla. Book a session, ask questions, or connect on social media.",
+  description: "Reach Rajinikanth Vadla on WhatsApp, Topmate, LinkedIn or YouTube — fastest replies for batch timing, fees and mentorship booking.",
+  alternates: { canonical: "https://www.rajinikanthvadla.com/contact" },
 };
 
 export default function ContactPage() {

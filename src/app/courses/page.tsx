@@ -8,7 +8,8 @@ import SuccessStories from "@/components/SuccessStories";
 export const metadata: Metadata = {
   title: "Training Courses",
   description:
-    "Explore DevOps, MLOps, AIOps, Kubernetes, and AI Agents training programs, plus mentorship for career and transformation. Production-ready skills with hands-on projects. Open to learners worldwide online.",
+    "DevOps, MLOps, AIOps, Kubernetes and AI Agents training cohorts with hands-on labs and 1:1 mentorship. Open worldwide online.",
+  alternates: { canonical: "https://www.rajinikanthvadla.com/courses" },
 };
 
 export default function CoursesPage() {
