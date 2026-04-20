@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "Training Courses",
   description:
     "DevOps, MLOps, AIOps, Kubernetes and AI Agents training cohorts with hands-on labs and 1:1 mentorship. Open worldwide online.",
-  alternates: { canonical: "https://www.rajinikanthvadla.com/courses" },
+  alternates: { canonical: "https://www.rajinikanthvadla.com/courses/" },
 };
 
 export default function CoursesPage() {

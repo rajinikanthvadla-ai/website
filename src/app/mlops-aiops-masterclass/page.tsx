@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { LINKS } from "@/lib/constants";
+import { LINKS, STRUCTURED_DATA } from "@/lib/constants";
 import SectionHeader from "@/components/SectionHeader";
 import SuccessStories from "@/components/SuccessStories";
 
@@ -8,19 +8,7 @@ export const metadata: Metadata = {
   title: "MLOps + AIOps Masterclass — 12-Week Live Cohort",
   description:
     "12-16 week live cohort: DevOps → MLOps → LLMOps → AIOps → AI Agents. 200+ hours hands-on, 500+ trained, 95% placement. ₹35,000.",
-  keywords: [
-    "MLOps AIOps Masterclass", "best DevOps course", "best MLOps course India",
-    "best AIOps training", "AI Agents course", "GenAI training India",
-    "LLMOps course", "DevOps training", "cloud DevOps course",
-    "real-time DevOps training", "Kubernetes training India",
-    "Docker training", "MLflow course", "Kubeflow training",
-    "LangChain course India", "RAG training", "production ML course",
-    "DevOps to MLOps", "AI ML Ops training", "Rajinikanth Vadla course",
-    "best DevOps training India", "multi-cloud training AWS Azure GCP",
-    "MLOps certification", "AIOps certification", "AI engineer training",
-    "ML engineer course India", "DevOps MLOps AIOps GenAI AI Agents",
-  ],
-  alternates: { canonical: "https://www.rajinikanthvadla.com/mlops-aiops-masterclass" },
+  alternates: { canonical: "https://www.rajinikanthvadla.com/mlops-aiops-masterclass/" },
 };
 
 const MODULES = [
@@ -53,6 +41,7 @@ const ROLES = [
 export default function MasterclassPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(STRUCTURED_DATA.course) }} />
       {/* Hero */}
       <section className="relative bg-stone-900 text-stone-100 border-b border-stone-800">
         <div className="relative max-w-5xl mx-auto px-6 py-20 md:py-24 text-center">

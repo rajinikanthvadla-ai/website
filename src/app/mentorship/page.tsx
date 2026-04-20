@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     "DevOps to MLOps career change",
     "international students MLOps",
   ],
-  alternates: { canonical: "https://www.rajinikanthvadla.com/mentorship" },
+  alternates: { canonical: "https://www.rajinikanthvadla.com/mentorship/" },
 };
 
 export default function MentorshipPage() {
@@ -25,7 +25,7 @@ export default function MentorshipPage() {
       <section className="relative border-b border-stone-200 bg-stone-100 surface-paper py-20 md:py-24">
         <div className="relative text-center max-w-3xl mx-auto px-6">
           <span className="inline-block text-xs font-semibold uppercase tracking-[0.14em] text-accent-600 mb-3">Personal guidance</span>
-          <h1 className="font-display text-4xl md:text-5xl font-bold text-stone-900 mb-4">1:1 mentorship</h1>
+          <h1 className="font-display text-4xl md:text-5xl font-bold text-stone-900 mb-4">1:1 Mentorship</h1>
           <p className="text-lg text-stone-600 mb-4">
             Direct time on your problems - not a generic playbook. I work with people who want honest help on
             career direction, skill gaps, and how to describe the work they have already done.
@@ -97,14 +97,14 @@ export default function MentorshipPage() {
                 href={opt.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group panel p-8 text-center card-hover"
+                className="group panel p-8 text-center card-hover flex flex-col items-center h-full min-h-[260px] sm:min-h-[280px]"
               >
-                <div className="w-14 h-14 border border-stone-200 bg-stone-50 flex items-center justify-center text-2xl mx-auto mb-5 group-hover:border-accent-400 transition-colors">
+                <div className="w-14 h-14 shrink-0 border border-stone-200 bg-stone-50 flex items-center justify-center text-2xl mx-auto mb-4 group-hover:border-accent-400 transition-colors">
                   {opt.icon}
                 </div>
-                <h3 className="font-display font-bold text-stone-900 text-lg mb-1">{opt.title}</h3>
-                <p className="text-sm text-stone-600 mb-4">{opt.desc}</p>
-                <span className="inline-block bg-stone-900 text-white px-5 py-2 text-xs font-semibold uppercase tracking-wide group-hover:bg-accent-600 transition-colors">
+                <h3 className="font-display font-bold text-stone-900 text-lg mb-2">{opt.title}</h3>
+                <p className="text-sm text-stone-600 mb-5 flex-1 leading-relaxed">{opt.desc}</p>
+                <span className="mt-auto inline-block bg-stone-900 text-white px-5 py-2 text-xs font-semibold uppercase tracking-wide group-hover:bg-accent-600 transition-colors">
                   {opt.btn}
                 </span>
               </a>
@@ -114,6 +114,7 @@ export default function MentorshipPage() {
       </section>
 
       <CTASection
+        ctaPreset="mentorship"
         title="If you are unsure which option fits, start small"
         subtitle="A short WhatsApp note with your background, country or time zone, and what you want to change is enough - I will suggest mentorship, a course, or self-study in plain language."
       />

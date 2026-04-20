@@ -9,18 +9,7 @@ export const metadata: Metadata = {
   title: "AI Tools for 10x Productivity — Cursor, Claude, Copilot",
   description:
     "Master Cursor, Claude, ChatGPT, Gemini, Copilot & AWS Bedrock for 10x productivity. Agentic workflows for developers and teams.",
-  keywords: [
-    "AI tools course", "AI productivity training", "Cursor IDE course", "Claude AI training",
-    "ChatGPT for professionals", "Gemini AI course", "Grok AI training",
-    "GitHub Copilot training", "Vercel AI SDK course", "AWS Bedrock training",
-    "AI for developers", "10x productivity AI", "AI coding tools",
-    "agentic workflows course", "AI IDE tools training", "best AI tools course India",
-    "AI automation for professionals", "AI assisted development",
-    "prompt engineering for developers", "AI pair programming",
-    "Windsurf IDE", "Bolt AI", "v0 dev", "Lovable AI",
-    "Rajinikanth Vadla AI tools",
-  ],
-  alternates: { canonical: "https://www.rajinikanthvadla.com/ai-tools-productivity" },
+  alternates: { canonical: "https://www.rajinikanthvadla.com/ai-tools-productivity/" },
 };
 
 const TOOLS = [

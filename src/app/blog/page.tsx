@@ -6,12 +6,7 @@ export const metadata: Metadata = {
   title: "MLOps, AIOps & GenAI Blog",
   description:
     "Tutorials and notes on MLOps, AIOps, GenAI, AI Agents, LangChain, RAG and Kubernetes by Rajinikanth Vadla.",
-  keywords: [
-    "AI blog", "MLOps blog", "AIOps news", "GenAI articles", "AI Agents tutorials",
-    "AI news 2026", "machine learning blog", "DevOps blog", "AI tools news",
-    "Rajinikanth Vadla blog",
-  ],
-  alternates: { canonical: "https://www.rajinikanthvadla.com/blog" },
+  alternates: { canonical: "https://www.rajinikanthvadla.com/blog/" },
 };
 
 const sorted = [...articles].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
@@ -35,7 +30,7 @@ export default function BlogPage() {
             {sorted.map((article) => (
               <Link
                 key={article.slug}
-                href={`/blog/${article.slug}`}
+                href={`/blog/${article.slug}/`}
                 className="group grid md:grid-cols-[1fr_auto] gap-6 panel p-7 md:p-8 card-hover"
               >
                 <div>

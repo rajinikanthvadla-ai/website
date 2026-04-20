@@ -5,17 +5,7 @@ export const metadata: Metadata = {
   title: "MLOps Training India — MLflow, Kubeflow, Production ML",
   description:
     "Hands-on MLOps training in India: ML pipelines, MLflow, Kubeflow, model deployment & monitoring. 500+ trained, 95% placement. ₹35,000.",
-  keywords: [
-    "MLOps training", "MLOps course", "machine learning operations", "best MLOps training India",
-    "MLflow training", "Kubeflow course", "model deployment training", "ML pipeline course",
-    "CI/CD for machine learning", "model monitoring", "data drift detection",
-    "feature store training", "ML engineering course", "production ML",
-    "deploy ML models", "MLOps certification", "MLOps bootcamp",
-    "ML model serving", "experiment tracking", "model versioning",
-    "automated ML pipeline", "MLOps best practices", "Rajinikanth Vadla MLOps",
-    "SageMaker training", "Azure ML course", "Vertex AI training",
-  ],
-  alternates: { canonical: "https://www.rajinikanthvadla.com/mlops-training" },
+  alternates: { canonical: "https://www.rajinikanthvadla.com/mlops-training/" },
 };
 
 export default function MLOpsTrainingPage() {

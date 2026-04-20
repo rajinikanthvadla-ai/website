@@ -1,20 +1,12 @@
 import type { Metadata } from "next";
 import TrainingPageLayout from "@/components/TrainingPageLayout";
+import { LINKS } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "AIOps Training — AI for IT Ops & Anomaly Detection",
   description:
     "Hands-on AIOps training: anomaly detection, predictive analytics, self-healing infra with Prometheus, Grafana, ML. 500+ trained, 95% placement.",
-  keywords: [
-    "AIOps training", "AIOps course", "AI for IT Operations", "best AIOps training India",
-    "anomaly detection training", "predictive analytics course", "self-healing infrastructure",
-    "root cause analysis AI", "IT operations automation", "intelligent automation training",
-    "Prometheus Grafana ML", "AIOps certification", "AIOps engineer training",
-    "cloud-native AIOps", "Kubernetes observability", "SRE training",
-    "site reliability engineering", "AIOps best practices", "Rajinikanth Vadla AIOps",
-    "incident management AI", "capacity planning ML", "log analytics training",
-  ],
-  alternates: { canonical: "https://www.rajinikanthvadla.com/aiops-training" },
+  alternates: { canonical: "https://www.rajinikanthvadla.com/aiops-training/" },
 };
 
 export default function AIOpsTrainingPage() {
@@ -22,6 +14,22 @@ export default function AIOpsTrainingPage() {
     <TrainingPageLayout
       title="AIOps Training: AI for IT Operations"
       subtitle="Master AI-powered IT Operations: anomaly detection, predictive analytics, root cause analysis, and self-healing infrastructure. The most practical AIOps training in India."
+      enrollHref={LINKS.aiopsMasteryEnroll}
+      programPageHref={LINKS.aiopsMastery}
+      programPageLabel="AIOps Mastery — open on Topmate"
+      programSpotlight={{
+        eyebrow: "Live on Topmate",
+        title: "AIOps Mastery — production-grade AI operations",
+        description:
+          "Structured, hands-on path from real signals to automation. If you want the full Topmate program with curriculum, pricing, and enrollment in one place, start here.",
+        perks: [
+          "Production-focused labs — not slide-only theory",
+          "Built for IT ops, DevOps, and SREs moving into AI-driven operations",
+          "Enroll on Topmate when you are ready — same program, clear checkout",
+        ],
+        primaryCta: "View program & curriculum",
+        secondaryCta: "Enroll now on Topmate",
+      }}
       intro="AIOps (Artificial Intelligence for IT Operations) is transforming how companies manage their infrastructure and applications. Instead of reactive firefighting, AIOps uses machine learning to predict failures, detect anomalies, identify root causes, and automatically remediate issues. This comprehensive training by Rajinikanth Vadla teaches you to build production AIOps systems using real enterprise tools. You'll work with Prometheus, Grafana, ELK Stack, and custom ML models to build intelligent monitoring, alerting, and automation systems. From telemetry collection to self-healing infrastructure, you'll master every aspect of AIOps that companies need."
       whatYouLearn={[
         "Build AI-powered anomaly detection systems for IT metrics",

@@ -2,8 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import articles from "../../../../content/articles.json";
 import { LINKS } from "@/lib/constants";
+import BlogMarkdown from "@/components/BlogMarkdown";
 
 type Article = (typeof articles)[number];
+
+const SITE_ORIGIN = "https://www.rajinikanthvadla.com";
 
 export function generateStaticParams() {
   return articles.map((a) => ({ slug: a.slug }));
@@ -17,8 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: article.title,
     description: article.description,
-    keywords: article.tags,
-    alternates: { canonical: `https://www.rajinikanthvadla.com/blog/${article.slug}` },
+    alternates: { canonical: `${SITE_ORIGIN}/blog/${article.slug}/` },
     openGraph: {
       type: "article",
       title: article.title,
@@ -28,63 +30,6 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       tags: article.tags,
     },
   };
-}
-
-function renderMarkdown(content: string) {
-  const lines = content.split("\n");
-  const elements: React.ReactNode[] = [];
-
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i];
-
-    if (line.startsWith("## ")) {
-      elements.push(<h2 key={i} className="font-display text-2xl font-bold text-stone-900 mt-10 mb-4">{line.slice(3)}</h2>);
-    } else if (line.startsWith("### ")) {
-      elements.push(<h3 key={i} className="font-display text-xl font-bold text-stone-900 mt-8 mb-3">{line.slice(4)}</h3>);
-    } else if (line.startsWith("- **")) {
-      const match = line.match(/^- \*\*(.+?)\*\*(.*)$/);
-      if (match) {
-        elements.push(
-          <li key={i} className="flex items-start gap-2 text-stone-600 mb-2">
-            <span className="text-accent-600 mt-1">&rarr;</span>
-            <span><strong className="text-stone-900">{match[1]}</strong>{match[2]}</span>
-          </li>
-        );
-      }
-    } else if (line.startsWith("- ")) {
-      elements.push(
-        <li key={i} className="flex items-start gap-2 text-stone-600 mb-2">
-          <span className="text-accent-600 mt-1">&rarr;</span>
-          <span>{line.slice(2)}</span>
-        </li>
-      );
-    } else if (line.startsWith("| ") && !line.includes("---")) {
-      const cells = line.split("|").filter(Boolean).map((c) => c.trim());
-      const isHeader = i + 1 < lines.length && lines[i + 1]?.includes("---");
-      elements.push(
-        <div key={i} className={`grid gap-4 py-2 border-b border-stone-200 ${isHeader ? "font-bold text-stone-900" : "text-stone-600"}`} style={{ gridTemplateColumns: `repeat(${cells.length}, 1fr)` }}>
-          {cells.map((cell, j) => <div key={j}>{cell}</div>)}
-        </div>
-      );
-    } else if (line.startsWith("[") && line.includes("→")) {
-      const match = line.match(/\[(.+?)\]\((.+?)\)/);
-      if (match) {
-        elements.push(
-          <p key={i} className="mt-6">
-            <Link href={match[2]} className="inline-flex items-center gap-2 bg-stone-900 text-white px-6 py-3 text-sm font-semibold hover:bg-stone-800 transition-colors">
-              {match[1]}
-            </Link>
-          </p>
-        );
-      }
-    } else if (line.trim() === "") {
-      continue;
-    } else {
-      elements.push(<p key={i} className="text-stone-600 leading-relaxed mb-4">{line}</p>);
-    }
-  }
-
-  return elements;
 }
 
 export default async function ArticlePage({ params }: { params: Promise<{ slug: string }> }) {
@@ -100,14 +45,25 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
     );
   }
 
+  const articlePath = `/blog/${article.slug}/`;
+  const articleUrl = `${SITE_ORIGIN}${articlePath}`;
+  const updatedAt = "updatedAt" in article && typeof (article as { updatedAt?: string }).updatedAt === "string" ? (article as { updatedAt: string }).updatedAt : article.date;
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: article.title,
     description: article.description,
+    image: [`${SITE_ORIGIN}/assets/pic-1.png`],
     datePublished: article.date,
-    author: { "@type": "Person", name: "Rajinikanth Vadla" },
-    publisher: { "@type": "Organization", name: "Rajinikanth Vadla" },
+    dateModified: updatedAt,
+    mainEntityOfPage: { "@type": "WebPage", "@id": articleUrl },
+    author: { "@type": "Person", name: "Rajinikanth Vadla", url: `${SITE_ORIGIN}/` },
+    publisher: {
+      "@type": "Organization",
+      name: "Rajinikanth Vadla",
+      logo: { "@type": "ImageObject", url: `${SITE_ORIGIN}/assets/pic-1.png` },
+    },
     keywords: article.tags.join(", "),
   };
 
@@ -138,7 +94,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
 
         <section className="py-14 md:py-16 bg-white border-b border-stone-200">
           <div className="max-w-3xl mx-auto px-6 text-base md:text-lg">
-            {renderMarkdown(article.content)}
+            <BlogMarkdown content={article.content} />
           </div>
         </section>
 

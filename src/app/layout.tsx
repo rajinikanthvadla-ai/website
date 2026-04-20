@@ -24,7 +24,6 @@ export const metadata: Metadata = {
     template: `%s | ${SITE.name}`,
   },
   description: SITE.description,
-  keywords: SITE.keywords,
   metadataBase: new URL(SITE.url),
   authors: [{ name: "Rajinikanth Vadla", url: SITE.url }],
   creator: "Rajinikanth Vadla",
@@ -57,7 +56,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: SITE.url,
+    canonical: `${SITE.url}/`,
   },
   verification: {},
 };
@@ -89,14 +88,6 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(STRUCTURED_DATA.organization) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(STRUCTURED_DATA.course) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(STRUCTURED_DATA.faq) }}
         />
       </head>
       <body className={`${sans.className} bg-stone-50 text-stone-800 antialiased`}>

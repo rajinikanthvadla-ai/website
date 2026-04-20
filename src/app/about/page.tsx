@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "About",
   description:
     "MLOps, AIOps and GenAI practitioner and mentor. 7+ years in production, 500+ engineers trained. Online mentorship open worldwide.",
-  alternates: { canonical: "https://www.rajinikanthvadla.com/about" },
+  alternates: { canonical: "https://www.rajinikanthvadla.com/about/" },
 };
 
 export default function AboutPage() {

@@ -23,6 +23,20 @@ interface TrainingPageLayoutProps {
   modules: Module[];
   faqs: FAQ[];
   relatedCourses?: { title: string; href: string }[];
+  /** Override default masterclass checkout (e.g. AIOps Mastery on Topmate). */
+  enrollHref?: string;
+  /** Optional program page on Topmate (opens in new tab). */
+  programPageHref?: string;
+  programPageLabel?: string;
+  /** Large hero-style promo (e.g. ongoing Topmate program). Shown when set with programPageHref. */
+  programSpotlight?: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    perks: string[];
+    primaryCta: string;
+    secondaryCta: string;
+  };
 }
 
 export default function TrainingPageLayout({
@@ -33,7 +47,12 @@ export default function TrainingPageLayout({
   modules,
   faqs,
   relatedCourses,
+  enrollHref,
+  programPageHref,
+  programPageLabel,
+  programSpotlight,
 }: TrainingPageLayoutProps) {
+  const checkoutHref = enrollHref ?? LINKS.enroll;
   return (
     <>
       <section className="relative border-b border-stone-200 bg-stone-100 surface-paper py-20 md:py-24">
@@ -59,7 +78,17 @@ export default function TrainingPageLayout({
             <div className="panel p-5 lg:sticky lg:top-28">
               <Image src="/assets/pic-1.png" alt="Rajinikanth Vadla" width={300} height={200} className="w-full h-44 object-cover object-[center_20%] mb-4 border border-stone-200" />
               <div className="space-y-2">
-                <a href={LINKS.enroll} target="_blank" rel="noopener noreferrer" className="block w-full bg-stone-900 text-white py-3 text-sm font-semibold text-center hover:bg-stone-800 transition-colors">
+                {programPageHref ? (
+                  <a
+                    href={programPageHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full bg-accent-600 text-white py-3 text-sm font-semibold text-center hover:bg-accent-700 transition-colors"
+                  >
+                    {programPageLabel ?? "Program on Topmate"}
+                  </a>
+                ) : null}
+                <a href={checkoutHref} target="_blank" rel="noopener noreferrer" className="block w-full bg-stone-900 text-white py-3 text-sm font-semibold text-center hover:bg-stone-800 transition-colors">
                   Enroll &rarr;
                 </a>
                 <a href={LINKS.topmate} target="_blank" rel="noopener noreferrer" className="block w-full border border-stone-400 text-stone-900 py-3 text-sm font-semibold text-center hover:bg-stone-50 transition-colors">
@@ -80,6 +109,57 @@ export default function TrainingPageLayout({
           </div>
         </div>
       </section>
+
+      {programSpotlight && programPageHref ? (
+        <section className="relative border-b border-stone-900 bg-stone-950 py-12 md:py-16">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgb(234_88_12/0.22),transparent)] pointer-events-none" aria-hidden />
+          <div className="relative max-w-5xl mx-auto px-6">
+            <div className="flex flex-col lg:flex-row lg:items-stretch lg:justify-between gap-10 lg:gap-14">
+              <div className="max-w-xl">
+                <span className="inline-block text-[11px] font-bold uppercase tracking-[0.2em] text-amber-400/95 mb-3">
+                  {programSpotlight.eyebrow}
+                </span>
+                <h2 className="font-display text-2xl md:text-4xl font-bold text-white leading-tight mb-4">
+                  {programSpotlight.title}
+                </h2>
+                <p className="text-stone-300 text-base md:text-lg leading-relaxed mb-6">{programSpotlight.description}</p>
+                <ul className="space-y-2.5">
+                  {programSpotlight.perks.map((p) => (
+                    <li key={p} className="flex items-start gap-3 text-sm md:text-base text-stone-200">
+                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent-600 text-white text-[10px] font-bold" aria-hidden>
+                        ✓
+                      </span>
+                      {p}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="flex flex-col justify-center gap-3 lg:w-[min(100%,20rem)] shrink-0">
+                <a
+                  href={programPageHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative flex w-full items-center justify-center gap-2 rounded-sm bg-accent-500 px-6 py-4 text-center text-base font-bold text-white shadow-lg shadow-orange-950/40 ring-2 ring-white/10 transition hover:bg-accent-400 hover:ring-white/20 hover:shadow-orange-900/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-300 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-950"
+                >
+                  <span>{programSpotlight.primaryCta}</span>
+                  <span className="text-lg transition group-hover:translate-x-0.5" aria-hidden>
+                    →
+                  </span>
+                </a>
+                <a
+                  href={checkoutHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex w-full items-center justify-center rounded-sm border-2 border-stone-500 bg-stone-900/80 px-6 py-3.5 text-center text-sm font-semibold text-stone-100 backdrop-blur-sm transition hover:border-stone-400 hover:bg-stone-800"
+                >
+                  {programSpotlight.secondaryCta}
+                </a>
+                <p className="text-center text-[11px] text-stone-500 leading-snug px-1">Opens Topmate in a new tab. Secure checkout on their site.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       <section className="py-20 md:py-24 bg-white border-b border-stone-200">
         <div className="max-w-4xl mx-auto px-6">

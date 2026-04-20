@@ -5,16 +5,7 @@ export const metadata: Metadata = {
   title: "GenAI & AI Agents Training — LangChain, RAG, LLMs",
   description:
     "Build AI Agents & production GenAI apps — LangChain, RAG, LLM deployment, vector DBs, MCP. Hands-on with GPT, Claude, LLaMA. ₹35,000.",
-  keywords: [
-    "GenAI training", "Generative AI course", "AI Agents training", "LangChain course",
-    "RAG training", "LLM training", "LLM deployment course", "prompt engineering course",
-    "vector database training", "AI agent development", "best GenAI course India",
-    "LangChain tutorial", "RAG system course", "fine-tuning LLM", "GPT training",
-    "Claude AI training", "LLaMA training", "multi-agent systems", "CrewAI course",
-    "Model Context Protocol MCP", "AI automation training", "GenAI certification",
-    "production AI applications", "Rajinikanth Vadla GenAI",
-  ],
-  alternates: { canonical: "https://www.rajinikanthvadla.com/genai-training" },
+  alternates: { canonical: "https://www.rajinikanthvadla.com/genai-training/" },
 };
 
 export default function GenAITrainingPage() {

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { LINKS, STATS, COURSES } from "@/lib/constants";
+import { LINKS, STATS, COURSES, STRUCTURED_DATA } from "@/lib/constants";
 import { LinkedInIcon, InstagramIcon, YouTubeIcon } from "@/components/Icons";
 import SectionHeader from "@/components/SectionHeader";
 import CTASection from "@/components/CTASection";
@@ -9,6 +9,7 @@ import SuccessStories from "@/components/SuccessStories";
 export default function HomePage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(STRUCTURED_DATA.faq) }} />
       <HeroSection />
       <LogoBar />
       <AboutPreview />

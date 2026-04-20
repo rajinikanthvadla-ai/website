@@ -6,7 +6,7 @@ import SuccessStories from "@/components/SuccessStories";
 export const metadata: Metadata = {
   title: "Contact",
   description: "Reach Rajinikanth Vadla on WhatsApp, Topmate, LinkedIn or YouTube — fastest replies for batch timing, fees and mentorship booking.",
-  alternates: { canonical: "https://www.rajinikanthvadla.com/contact" },
+  alternates: { canonical: "https://www.rajinikanthvadla.com/contact/" },
 };
 
 export default function ContactPage() {
@@ -37,13 +37,13 @@ export default function ContactPage() {
                 href={ch.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group panel p-8 text-center card-hover"
+                className="group panel p-8 text-center card-hover flex flex-col items-center h-full min-h-[200px]"
               >
-                <div className="w-14 h-14 border border-stone-200 bg-stone-50 flex items-center justify-center text-2xl mx-auto mb-4 group-hover:border-accent-400 transition-colors">
+                <div className="w-14 h-14 shrink-0 border border-stone-200 bg-stone-50 flex items-center justify-center text-2xl mx-auto mb-4 group-hover:border-accent-400 transition-colors">
                   {ch.icon}
                 </div>
-                <h3 className="font-display font-bold text-stone-900 text-lg mb-1">{ch.title}</h3>
-                <p className="text-sm text-stone-600">{ch.desc}</p>
+                <h3 className="font-display font-bold text-stone-900 text-lg mb-2">{ch.title}</h3>
+                <p className="text-sm text-stone-600 leading-relaxed flex-1">{ch.desc}</p>
               </a>
             ))}
           </div>
@@ -60,14 +60,14 @@ export default function ContactPage() {
                 href={action.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group panel p-8 text-center card-hover"
+                className="group panel p-8 text-center card-hover flex flex-col items-center h-full min-h-[240px]"
               >
-                <div className="w-14 h-14 border border-stone-200 bg-stone-50 flex items-center justify-center text-2xl mx-auto mb-4 group-hover:border-accent-400 transition-colors">
+                <div className="w-14 h-14 shrink-0 border border-stone-200 bg-stone-50 flex items-center justify-center text-2xl mx-auto mb-4 group-hover:border-accent-400 transition-colors">
                   {action.icon}
                 </div>
-                <h3 className="font-display font-bold text-stone-900 text-lg mb-1">{action.title}</h3>
-                <p className="text-sm text-stone-600 mb-3">{action.desc}</p>
-                <span className="text-accent-600 font-semibold text-sm">Continue &rarr;</span>
+                <h3 className="font-display font-bold text-stone-900 text-lg mb-2">{action.title}</h3>
+                <p className="text-sm text-stone-600 mb-4 flex-1 leading-relaxed">{action.desc}</p>
+                <span className="mt-auto text-accent-600 font-semibold text-sm">Continue &rarr;</span>
               </a>
             ))}
           </div>
@@ -83,7 +83,11 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <CTASection title="Prefer to talk instead of typing?" subtitle="Book a short Topmate slot - even fifteen minutes can clear a big decision." />
+      <CTASection
+        ctaPreset="contact"
+        title="Prefer to talk instead of typing?"
+        subtitle="Book a short Topmate slot - even fifteen minutes can clear a big decision."
+      />
       <SuccessStories />
     </>
   );
