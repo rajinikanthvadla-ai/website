@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import articles from "../../content/articles.json";
 
 export const dynamic = "force-static";
 
@@ -6,7 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://www.rajinikanthvadla.com";
   const now = new Date().toISOString();
 
-  return [
+  const staticRoutes: MetadataRoute.Sitemap = [
     { url: base, lastModified: now, changeFrequency: "daily", priority: 1.0 },
     { url: `${base}/about`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: `${base}/courses`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
@@ -18,22 +19,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/mlops-training`, lastModified: now, changeFrequency: "weekly", priority: 0.85 },
     { url: `${base}/ai-tools-productivity`, lastModified: now, changeFrequency: "weekly", priority: 0.85 },
     { url: `${base}/blog`, lastModified: now, changeFrequency: "daily", priority: 0.9 },
-    { url: `${base}/blog/what-is-mlops-complete-guide-2026`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${base}/blog/ai-agents-explained-langchain-crewai-2026`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${base}/blog/top-ai-tools-developers-2026`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${base}/blog/aiops-vs-traditional-monitoring-2026`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${base}/blog/mastering-multi-cloud-ai-ml-deployment-strategies-2026`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.8 },
-    { url: `${base}/blog/kubernetes-cloud-native-ai-ml-trends-2026`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.8 },
-    { url: `${base}/blog/10x-developer-productivity-cursor-copilot-2026`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.8 },
-    { url: `${base}/blog/mastering-aiops-infrastructure-management-2026`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.8 },
-    { url: `${base}/blog/breakthroughs-ai-agents-autonomous-systems-2026`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.8 },
-    { url: `${base}/blog/master-fine-tuning-llms-2026-techniques-models`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.8 },
-    { url: `${base}/blog/autonomous-ai-agents-breakthroughs-2026`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.8 },
-    { url: `${base}/blog/genai-llm-updates-2026-comprehensive-guide`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.8 },
-    { url: `${base}/blog/langchain-rag-advancements-guide-2026`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.8 },
-    { url: `${base}/blog/vector-databases-embedding-technologies-guide-2026`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.8 },
-    { url: `${base}/blog/mlops-tools-practices-production-2026`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.8 },
-    { url: `${base}/blog/enterprise-ai-adoption-trends-challenges-2026`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.8 },
-    { url: `${base}/blog/aiops-innovations-infrastructure-management-2026`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.8 },
   ];
+
+  const blogRoutes: MetadataRoute.Sitemap = articles.map((a) => ({
+    url: `${base}/blog/${a.slug}`,
+    lastModified: new Date(a.date).toISOString(),
+    changeFrequency: "weekly" as const,
+    priority: 0.8,
+  }));
+
+  return [...staticRoutes, ...blogRoutes];
 }
