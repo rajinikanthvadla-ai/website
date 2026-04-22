@@ -20,6 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/ai-tools-productivity/`, lastModified: now, changeFrequency: "weekly", priority: 0.85 },
     { url: `${base}/blog/`, lastModified: now, changeFrequency: "daily", priority: 0.9 },
     { url: `${base}/blog/vector-databases-embedding-technologies-guide-2026-mo8bl0g5`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.8 },
+    { url: `${base}/blog/kubernetes-cloud-native-ai-ml-deployment-trends-2026`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.8 },
   ];
 
   const blogRoutes: MetadataRoute.Sitemap = articles.map((a) => ({
