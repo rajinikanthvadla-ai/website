@@ -2,9 +2,19 @@ import type { Metadata } from "next";
 import TrainingPageLayout from "@/components/TrainingPageLayout";
 
 export const metadata: Metadata = {
-  title: "GenAI & AI Agents Training — LangChain, RAG, LLMs",
+  title:
+    "GenAI, Agentic AI & AI Agents Course — LangChain, RAG, LLMOps, MCP",
   description:
-    "Build AI Agents & production GenAI apps — LangChain, RAG, LLM deployment, vector DBs, MCP. Hands-on with GPT, Claude, LLaMA. ₹35,000.",
+    "Practice-first GenAI and agentic AI course by Rajinikanth Vadla. Build production AI Agents with LangChain, LangGraph, CrewAI; RAG with Pinecone/ChromaDB/Weaviate; LoRA/QLoRA fine-tuning; Model Context Protocol (MCP); LLMOps deployment and monitoring. Hands-on with GPT, Claude, Gemini, LLaMA.",
+  keywords: [
+    "GenAI course", "best GenAI course", "generative AI course",
+    "agentic AI course", "AI agentic course", "AI Agents course",
+    "LangChain course", "LangGraph course", "CrewAI course",
+    "RAG course", "vector database course",
+    "LLMOps training", "fine-tuning LLM course",
+    "MCP training", "Model Context Protocol course",
+    "Rajinikanth Vadla GenAI",
+  ],
   alternates: { canonical: "https://www.rajinikanthvadla.com/genai-training/" },
 };
 

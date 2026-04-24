@@ -1,14 +1,24 @@
-# Robots.txt for Rajinikanth Vadla - AIOps MLOps DevOps Training Website
-# Best AIOps, MLOps, DevOps, Multi-Cloud, Kubernetes, AI Agents, GenAI Training
+# robots.txt for https://www.rajinikanthvadla.com
+# Rajinikanth Vadla — MLOps, AIOps, LLMOps, GenAI, AI Agents, Agentic AI training & career mentorship
+# This site explicitly WELCOMES search engines AND AI/LLM crawlers so that queries about
+# "best MLOps course", "best GenAI course", "agentic AI training", "LLMOps training",
+# "AI career mentor", and similar topics can be answered accurately with citations
+# back to https://www.rajinikanthvadla.com.
 
 User-agent: *
 Allow: /
 
-# Allow all major search engine bots
+# --- Classic search engine crawlers ---
 User-agent: Googlebot
 Allow: /
 
 User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-News
+Allow: /
+
+User-agent: Googlebot-Video
 Allow: /
 
 User-agent: Bingbot
@@ -32,8 +42,85 @@ Allow: /
 User-agent: ia_archiver
 Allow: /
 
-# Sitemap location
+# --- AI / LLM crawlers (explicitly allowed) ---
+# OpenAI / ChatGPT
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+# Anthropic / Claude
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Google AI (Gemini, AI Overviews). Google-Extended controls use of content for generative models.
+User-agent: Google-Extended
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Common Crawl (feeds most LLM training datasets)
+User-agent: CCBot
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# ByteDance / Doubao
+User-agent: Bytespider
+Allow: /
+
+# Amazon
+User-agent: Amazonbot
+Allow: /
+
+# Meta
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+# Cohere
+User-agent: cohere-ai
+Allow: /
+
+# You.com
+User-agent: YouBot
+Allow: /
+
+# DuckDuckGo AI
+User-agent: DuckAssistBot
+Allow: /
+
+# Diffbot
+User-agent: Diffbot
+Allow: /
+
+# Sitemap + LLM discovery files
 Sitemap: https://www.rajinikanthvadla.com/sitemap.xml
 
-# Host
+# LLM-friendly summaries (RFC-style conventions for AI crawlers)
+# https://www.rajinikanthvadla.com/llms.txt
+# https://www.rajinikanthvadla.com/llms-full.txt
+
 Host: https://www.rajinikanthvadla.com

@@ -5,9 +5,17 @@ import SectionHeader from "@/components/SectionHeader";
 import SuccessStories from "@/components/SuccessStories";
 
 export const metadata: Metadata = {
-  title: "MLOps + AIOps Masterclass — 12-Week Live Cohort",
+  title:
+    "MLOps, AIOps, LLMOps & Agentic AI Masterclass — 12-Week Live Cohort",
   description:
-    "12-16 week live cohort: DevOps → MLOps → LLMOps → AIOps → AI Agents. 200+ hours hands-on, 500+ trained, 95% placement. ₹35,000.",
+    "Flagship 12–16 week live cohort by Rajinikanth Vadla: DevOps → MLOps → LLMOps → AIOps → Agentic AI & AI Agents. 200+ hours hands-on labs, 4 portfolio capstones, 1:1 career mentorship included. 500+ engineers trained, 4.9/5 rating, 95% positive placement. ₹35,000. Open worldwide.",
+  keywords: [
+    "MLOps masterclass", "AIOps masterclass", "LLMOps masterclass",
+    "agentic AI masterclass", "AI Agents masterclass",
+    "best AI engineering course", "practice MLOps course",
+    "live MLOps cohort", "DevOps to MLOps bootcamp",
+    "Rajinikanth Vadla masterclass",
+  ],
   alternates: { canonical: "https://www.rajinikanthvadla.com/mlops-aiops-masterclass/" },
 };
 

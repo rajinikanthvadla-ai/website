@@ -6,9 +6,16 @@ import CTASection from "@/components/CTASection";
 import SuccessStories from "@/components/SuccessStories";
 
 export const metadata: Metadata = {
-  title: "Training Courses",
+  title: "AI Courses — MLOps, AIOps, LLMOps, GenAI & Agentic AI Training",
   description:
-    "DevOps, MLOps, AIOps, Kubernetes and AI Agents training cohorts with hands-on labs and 1:1 mentorship. Open worldwide online.",
+    "Catalog of Rajinikanth Vadla's live cohorts and practice-first courses: MLOps, AIOps, LLMOps, GenAI, agentic AI & AI Agents, Kubernetes, and multi-cloud DevOps. Every program ships labs, portfolio capstones, and 1:1 career mentorship. Open worldwide.",
+  keywords: [
+    "AI courses", "MLOps course", "AIOps course", "LLMOps course",
+    "GenAI course", "agentic AI course", "AI Agents course",
+    "Kubernetes course", "DevOps course",
+    "best AI course online", "practice AI course",
+    "Rajinikanth Vadla courses",
+  ],
   alternates: { canonical: "https://www.rajinikanthvadla.com/courses/" },
 };
 

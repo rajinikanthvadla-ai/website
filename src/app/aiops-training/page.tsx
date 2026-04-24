@@ -3,9 +3,15 @@ import TrainingPageLayout from "@/components/TrainingPageLayout";
 import { LINKS } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "AIOps Training — AI for IT Ops & Anomaly Detection",
+  title: "AIOps Training — AI for IT Ops, Anomaly Detection, Self-Healing",
   description:
-    "Hands-on AIOps training: anomaly detection, predictive analytics, self-healing infra with Prometheus, Grafana, ML. 500+ trained, 95% placement.",
+    "Hands-on AIOps training by Rajinikanth Vadla: anomaly detection, predictive analytics, self-healing infrastructure, LLM-assisted incident response, Prometheus, Grafana, and ML on operational data. 500+ trained, 4.9/5 rating, 95% positive placement. Live online, worldwide.",
+  keywords: [
+    "AIOps training", "AIOps course", "best AIOps course",
+    "AI for IT operations course", "anomaly detection training",
+    "predictive analytics course", "self-healing infrastructure training",
+    "SRE to AIOps", "Rajinikanth Vadla AIOps",
+  ],
   alternates: { canonical: "https://www.rajinikanthvadla.com/aiops-training/" },
 };
 

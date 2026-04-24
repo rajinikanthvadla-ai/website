@@ -4,17 +4,16 @@ import CTASection from "@/components/CTASection";
 import SuccessStories from "@/components/SuccessStories";
 
 export const metadata: Metadata = {
-  title: "1:1 Mentorship & Career Guidance",
+  title: "AI-Powered Career Mentoring — 1:1 MLOps, GenAI & Agentic AI Mentor",
   description:
-    "Online 1:1 mentorship for MLOps, AIOps and AI engineering careers — role transitions, interview prep and learning plans. Open worldwide.",
+    "1:1 AI-powered career mentoring with Rajinikanth Vadla for professionals moving into MLOps, AIOps, LLMOps, GenAI, agentic AI, and AI engineering roles. Role transitions, learning plans, resume and LinkedIn review, mock interviews, salary negotiation. Online, worldwide.",
   keywords: [
+    "AI career mentor", "AI career mentoring", "AI powered career mentoring",
+    "MLOps career mentor", "GenAI career mentor", "agentic AI mentor",
+    "AI engineer interview preparation", "AI resume review",
+    "DevOps to MLOps career change", "SDE to AI engineer",
+    "international MLOps mentor", "remote tech mentorship",
     "Rajinikanth Vadla mentorship",
-    "MLOps career mentor online",
-    "AI engineering career coaching",
-    "remote tech mentorship",
-    "career transformation mentor",
-    "DevOps to MLOps career change",
-    "international students MLOps",
   ],
   alternates: { canonical: "https://www.rajinikanthvadla.com/mentorship/" },
 };

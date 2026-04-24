@@ -25,9 +25,12 @@ export const metadata: Metadata = {
   },
   description: SITE.description,
   metadataBase: new URL(SITE.url),
+  applicationName: SITE.name,
   authors: [{ name: "Rajinikanth Vadla", url: SITE.url }],
   creator: "Rajinikanth Vadla",
   publisher: "Rajinikanth Vadla",
+  keywords: SITE.keywords,
+  category: "education",
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -35,7 +38,14 @@ export const metadata: Metadata = {
     siteName: SITE.name,
     title: SITE.title,
     description: SITE.description,
-    images: [{ url: SITE.image, width: 1200, height: 630, alt: "Rajinikanth Vadla - MLOps AIOps GenAI AI Agents Expert" }],
+    images: [
+      {
+        url: SITE.image,
+        width: 1200,
+        height: 630,
+        alt: "Rajinikanth Vadla — MLOps, AIOps, LLMOps, GenAI and agentic AI trainer and career mentor",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -57,8 +67,23 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: `${SITE.url}/`,
+    languages: {
+      "x-default": `${SITE.url}/`,
+      "en": `${SITE.url}/`,
+    },
   },
   verification: {},
+  other: {
+    "news_keywords": SITE.keywords.slice(0, 20).join(", "),
+    // Explicit AI/LLM crawler hints (redundant with robots.txt but defensive):
+    "GPTBot": "index,follow",
+    "ClaudeBot": "index,follow",
+    "Google-Extended": "index,follow",
+    "PerplexityBot": "index,follow",
+    "CCBot": "index,follow",
+    "OAI-SearchBot": "index,follow",
+    "Applebot-Extended": "index,follow",
+  },
 };
 
 export default function RootLayout({
@@ -88,6 +113,22 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(STRUCTURED_DATA.organization) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(STRUCTURED_DATA.course) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(STRUCTURED_DATA.llmopsCourse) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(STRUCTURED_DATA.agenticAICourse) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(STRUCTURED_DATA.mentorshipService) }}
         />
       </head>
       <body className={`${sans.className} bg-stone-50 text-stone-800 antialiased`}>

@@ -2,9 +2,16 @@ import type { Metadata } from "next";
 import TrainingPageLayout from "@/components/TrainingPageLayout";
 
 export const metadata: Metadata = {
-  title: "MLOps Training India — MLflow, Kubeflow, Production ML",
+  title: "MLOps Training — MLflow, Kubeflow, SageMaker, Production ML",
   description:
-    "Hands-on MLOps training in India: ML pipelines, MLflow, Kubeflow, model deployment & monitoring. 500+ trained, 95% placement. ₹35,000.",
+    "Practice-first MLOps course by Rajinikanth Vadla: end-to-end ML pipelines, MLflow, Kubeflow, SageMaker, Vertex AI, feature stores, CI/CD for ML, monitoring and drift detection. 500+ engineers trained worldwide, 4.9/5 rating, 95% positive placement. Live online cohorts, open worldwide.",
+  keywords: [
+    "MLOps training", "MLOps course", "best MLOps course",
+    "MLflow training", "Kubeflow training", "SageMaker MLOps",
+    "Vertex AI MLOps", "production MLOps course",
+    "DevOps to MLOps", "MLOps masterclass",
+    "Rajinikanth Vadla MLOps",
+  ],
   alternates: { canonical: "https://www.rajinikanthvadla.com/mlops-training/" },
 };
 

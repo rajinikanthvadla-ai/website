@@ -6,9 +6,17 @@ import CTASection from "@/components/CTASection";
 import SuccessStories from "@/components/SuccessStories";
 
 export const metadata: Metadata = {
-  title: "AI Tools for 10x Productivity — Cursor, Claude, Copilot",
+  title:
+    "AI Tools for 10x Productivity — Cursor, Claude, ChatGPT, Gemini, Copilot",
   description:
-    "Master Cursor, Claude, ChatGPT, Gemini, Copilot & AWS Bedrock for 10x productivity. Agentic workflows for developers and teams.",
+    "Practice-first training to 10x your work with AI: Cursor, GitHub Copilot, Claude, ChatGPT, Gemini, Grok, Vercel AI SDK, and AWS Bedrock. Agentic workflows and automation for engineers, teams, and managers — by Rajinikanth Vadla.",
+  keywords: [
+    "AI tools training", "AI productivity course",
+    "Cursor course", "Claude for developers", "Copilot training",
+    "Gemini for engineers", "ChatGPT for productivity",
+    "AI agentic workflows", "AWS Bedrock training",
+    "Rajinikanth Vadla AI tools",
+  ],
   alternates: { canonical: "https://www.rajinikanthvadla.com/ai-tools-productivity/" },
 };
 
