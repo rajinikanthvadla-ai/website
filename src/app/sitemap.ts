@@ -22,6 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/blog/vector-databases-embedding-technologies-guide-2026-mo8bl0g5`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.8 },
     { url: `${base}/blog/kubernetes-cloud-native-ai-ml-deployment-trends-2026`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.8 },
     { url: `${base}/blog/ai-safety-governance-responsible-practices-2026`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.8 },
+    { url: `${base}/blog/kubernetes-cloud-native-ai-ml-deployment-trends-2026-mocmdoxh`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.8 },
   ];
 
   const blogRoutes: MetadataRoute.Sitemap = articles.map((a) => ({
