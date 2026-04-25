@@ -5,6 +5,12 @@ import { LinkedInIcon, InstagramIcon, YouTubeIcon } from "@/components/Icons";
 import SectionHeader from "@/components/SectionHeader";
 import CTASection from "@/components/CTASection";
 import SuccessStories from "@/components/SuccessStories";
+import GlobalPricingBadge from "@/components/GlobalPricingBadge";
+import articles from "../../content/articles.json";
+
+const latestArticles = [...articles]
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+  .slice(0, 3);
 
 export default function HomePage() {
   return (
@@ -18,6 +24,7 @@ export default function HomePage() {
       <VideoSection />
       <CoursesSection />
       <TrustSection />
+      <FeaturedResourcesSection />
       <MentorshipSection />
       <CTASection
         title="Training and mentorship, in one place"
@@ -251,22 +258,22 @@ function CourseBanner() {
         </p>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2 max-w-2xl mx-auto mb-10 text-left">
-          {[
-            { label: "Duration", value: "8–12 weeks" },
-            { label: "Format", value: "Live online" },
-            { label: "Time", value: "8 PM IST" },
-            { label: "Fee", value: "₹35,000" },
-          ].map((item) => (
-            <div key={item.label} className="border border-stone-700 bg-stone-950/50 px-4 py-3">
-              <div className="text-white font-semibold text-sm">{item.value}</div>
-              <div className="text-stone-500 text-xs mt-1 uppercase tracking-wide">{item.label}</div>
-            </div>
-          ))}
+          <div className="border border-stone-700 bg-stone-950/50 px-4 py-3">
+            <div className="text-white font-semibold text-sm">8–12 weeks</div>
+            <div className="text-stone-500 text-xs mt-1 uppercase tracking-wide">Duration</div>
+          </div>
+          <div className="border border-stone-700 bg-stone-950/50 px-4 py-3">
+            <div className="text-white font-semibold text-sm">Live online</div>
+            <div className="text-stone-500 text-xs mt-1 uppercase tracking-wide">Format</div>
+          </div>
+          <div className="border border-stone-700 bg-stone-950/50 px-4 py-3 md:col-span-2">
+            <GlobalPricingBadge />
+          </div>
         </div>
 
         <div className="flex flex-col sm:flex-row justify-center gap-3">
           <a href={LINKS.enroll} target="_blank" rel="noopener noreferrer" className="inline-flex justify-center bg-white text-stone-900 px-8 py-3.5 text-sm font-semibold hover:bg-stone-100 transition-colors">
-            Join this batch for ₹35,000
+            Join this batch (localized pricing available)
           </a>
           <a href={LINKS.whatsappSyllabus} target="_blank" rel="noopener noreferrer" className="inline-flex justify-center border border-stone-500 text-stone-100 px-8 py-3.5 text-sm font-semibold hover:bg-stone-800 transition-colors">
             WhatsApp for syllabus
@@ -365,6 +372,30 @@ function CoursesSection() {
                 </a>
               )}
             </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function FeaturedResourcesSection() {
+  return (
+    <section className="py-20 md:py-24 bg-white border-y border-stone-200">
+      <div className="max-w-7xl mx-auto px-6">
+        <SectionHeader
+          tag="Non-branded SEO"
+          title="Latest technical deep dives"
+          subtitle="Long-form guides designed to rank for practical MLOps, AIOps, and GenAI problem statements."
+        />
+        <div className="grid md:grid-cols-3 gap-4">
+          {latestArticles.map((article) => (
+            <Link key={article.slug} href={`/blog/${article.slug}/`} className="panel p-6 card-hover">
+              <p className="text-xs uppercase tracking-wide text-accent-600 font-semibold mb-2">{article.category}</p>
+              <h3 className="font-display text-xl font-bold text-stone-900 mb-3 leading-tight">{article.title}</h3>
+              <p className="text-sm text-stone-600 mb-4 line-clamp-3">{article.description}</p>
+              <span className="text-sm font-semibold text-accent-700">Read tutorial →</span>
+            </Link>
           ))}
         </div>
       </div>
