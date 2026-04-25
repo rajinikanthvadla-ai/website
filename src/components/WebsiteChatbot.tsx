@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 
 type Message = {
@@ -9,14 +10,28 @@ type Message = {
 
 const seedMessage: Message = {
   role: "assistant",
-  text: "Hi — I can answer questions about MLOps, AIOps, GenAI, and career roadmap in Rajinikanth's mentoring style.",
+  text: "Hi. I can answer questions about MLOps, AIOps, GenAI, and career roadmap in Rajinikanth's mentoring style.",
 };
 
 export default function WebsiteChatbot() {
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
+  const [hasUnread, setHasUnread] = useState(true);
   const [messages, setMessages] = useState<Message[]>([seedMessage]);
+
+  async function streamAssistantReply(fullText: string) {
+    setMessages((prev) => [...prev, { role: "assistant", text: "" }]);
+    for (let i = 1; i <= fullText.length; i += 1) {
+      await new Promise((resolve) => setTimeout(resolve, 8));
+      setMessages((prev) => {
+        const next = [...prev];
+        const idx = next.length - 1;
+        next[idx] = { role: "assistant", text: fullText.slice(0, i) };
+        return next;
+      });
+    }
+  }
 
   async function sendMessage() {
     const text = input.trim();
@@ -33,14 +48,20 @@ export default function WebsiteChatbot() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: text, history: nextMessages.slice(-8) }),
       });
-      const data = await res.json();
+      const raw = await res.text();
+      let data: { reply?: string; error?: string } = {};
+      try {
+        data = JSON.parse(raw);
+      } catch {
+        throw new Error("Chat API returned non-JSON response");
+      }
       if (!res.ok) {
         throw new Error(data?.error || "Chat failed");
       }
-      setMessages((prev) => [...prev, { role: "assistant", text: data.reply }]);
+      await streamAssistantReply(data.reply || "I could not generate a response. Please retry.");
     } catch (err) {
       const msg = err instanceof Error ? err.message : "Unexpected error";
-      setMessages((prev) => [...prev, { role: "assistant", text: `Sorry — ${msg}. Please retry.` }]);
+      setMessages((prev) => [...prev, { role: "assistant", text: `Sorry, ${msg}. Please retry.` }]);
     } finally {
       setLoading(false);
     }
@@ -51,9 +72,12 @@ export default function WebsiteChatbot() {
       {open && (
         <div className="w-[340px] max-w-[92vw] h-[460px] bg-white border border-stone-300 shadow-xl flex flex-col mb-3">
           <div className="px-4 py-3 border-b border-stone-200 bg-stone-900 text-white flex items-center justify-between">
-            <div>
-              <p className="font-semibold text-sm">Ask Rajinikanth AI</p>
-              <p className="text-[11px] text-stone-300">MLOps • AIOps • GenAI • Careers</p>
+            <div className="flex items-center gap-2">
+              <Image src="/assets/pic-1.png" alt="RaGenie bot avatar" width={30} height={30} className="rounded-full border border-stone-600" />
+              <div>
+                <p className="font-semibold text-sm">RaGenie Bot</p>
+                <p className="text-[11px] text-stone-300">MLOps | AIOps | GenAI | Careers</p>
+              </div>
             </div>
             <button onClick={() => setOpen(false)} className="text-stone-300 hover:text-white text-sm" aria-label="Close chat">✕</button>
           </div>
@@ -94,7 +118,7 @@ export default function WebsiteChatbot() {
                 disabled={loading}
                 className="bg-stone-900 text-white px-3 py-2 text-sm font-semibold disabled:opacity-60"
               >
-                Send
+                {loading ? "Typing..." : "Send"}
               </button>
             </form>
             <p className="text-[11px] text-stone-500 mt-2">For best results, ask one specific question per message.</p>
