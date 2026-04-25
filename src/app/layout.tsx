@@ -72,8 +72,8 @@ export default function RootLayout({
         <link rel="icon" type="image/png" href="/assets/pic-1.png" />
         <link rel="apple-touch-icon" href="/assets/pic-1.png" />
         <meta name="theme-color" content="#1c1917" />
-        <meta name="geo.region" content="IN" />
-        <meta name="geo.placename" content="India" />
+        <meta name="geo.region" content="GLOBAL" />
+        <meta name="geo.placename" content="Worldwide" />
         <meta name="distribution" content="global" />
         <meta name="rating" content="General" />
         <meta name="revisit-after" content="1 days" />

@@ -3,11 +3,12 @@ import Image from "next/image";
 import { LINKS, STRUCTURED_DATA } from "@/lib/constants";
 import SectionHeader from "@/components/SectionHeader";
 import SuccessStories from "@/components/SuccessStories";
+import GlobalPricingBadge from "@/components/GlobalPricingBadge";
 
 export const metadata: Metadata = {
   title: "MLOps + AIOps Masterclass — 12-Week Live Cohort",
   description:
-    "12-16 week live cohort: DevOps → MLOps → LLMOps → AIOps → AI Agents. 200+ hours hands-on, 500+ trained, 95% placement. ₹35,000.",
+    "12-16 week live cohort: DevOps → MLOps → LLMOps → AIOps → AI Agents. 200+ hours hands-on, 500+ trained, 95% placement. Global pricing support (INR / USD / EUR).",
   alternates: { canonical: "https://www.rajinikanthvadla.com/mlops-aiops-masterclass/" },
 };
 
@@ -65,23 +66,26 @@ export default function MasterclassPage() {
           </p>
 
           <div className="grid grid-cols-2 md:grid-cols-5 gap-2 max-w-3xl mx-auto mb-10 text-left">
-            {[
-              { label: "Duration", value: "12–16 weeks" },
-              { label: "Hours", value: "200+" },
-              { label: "Projects", value: "4 capstones" },
-              { label: "Time", value: "8 PM IST" },
-              { label: "Fee", value: "₹35,000" },
-            ].map((s) => (
-              <div key={s.label} className="border border-stone-700 bg-stone-950/40 px-3 py-3">
-                <div className="text-white font-semibold text-sm">{s.value}</div>
-                <div className="text-stone-500 text-[10px] mt-1 uppercase tracking-wide">{s.label}</div>
-              </div>
-            ))}
+            <div className="border border-stone-700 bg-stone-950/40 px-3 py-3">
+              <div className="text-white font-semibold text-sm">12–16 weeks</div>
+              <div className="text-stone-500 text-[10px] mt-1 uppercase tracking-wide">Duration</div>
+            </div>
+            <div className="border border-stone-700 bg-stone-950/40 px-3 py-3">
+              <div className="text-white font-semibold text-sm">200+</div>
+              <div className="text-stone-500 text-[10px] mt-1 uppercase tracking-wide">Hours</div>
+            </div>
+            <div className="border border-stone-700 bg-stone-950/40 px-3 py-3">
+              <div className="text-white font-semibold text-sm">4 capstones</div>
+              <div className="text-stone-500 text-[10px] mt-1 uppercase tracking-wide">Projects</div>
+            </div>
+            <div className="border border-stone-700 bg-stone-950/40 px-3 py-3 md:col-span-2">
+              <GlobalPricingBadge />
+            </div>
           </div>
 
           <div className="flex flex-col sm:flex-row justify-center gap-3 mb-6">
             <a href={LINKS.enroll} target="_blank" rel="noopener noreferrer" className="inline-flex justify-center bg-white text-stone-900 px-8 py-3.5 text-sm font-semibold hover:bg-stone-100 transition-colors">
-              Join for ₹35,000
+              Join with global pricing
             </a>
             <a href={LINKS.whatsappSyllabus} target="_blank" rel="noopener noreferrer" className="inline-flex justify-center border border-stone-500 text-stone-100 px-8 py-3.5 text-sm font-semibold hover:bg-stone-800 transition-colors">
               Syllabus on WhatsApp
@@ -170,7 +174,8 @@ export default function MasterclassPage() {
           <SectionHeader tag="Investment" title="Course Fee" subtitle="One investment that pays for itself many times over" />
           <div className="panel border-l-4 border-l-accent-600 p-10 max-w-md mx-auto mb-8">
             <div className="text-stone-500 text-xs font-semibold uppercase tracking-widest mb-2">Full program</div>
-            <div className="font-display text-5xl md:text-6xl font-bold text-stone-900 mb-6">₹35,000</div>
+            <div className="font-display text-5xl md:text-6xl font-bold text-stone-900 mb-2">₹35,000</div>
+            <p className="text-sm text-stone-500 mb-4">Localized checkout guidance available for USD and EUR visitors.</p>
             <ul className="text-left space-y-3 mb-8">
               {["200+ hours live training", "4 capstone projects", "1-on-1 mentorship", "Job assistance & placement", "Lifetime access to materials", "Daily notes & recordings"].map((f) => (
                 <li key={f} className="flex items-center gap-3 text-stone-600 text-sm">
