@@ -92,8 +92,8 @@ export const COURSES = [
       "Jenkins, GitLab, GitHub Actions",
     ],
     badge: "Popular",
-    href: LINKS.topmate,
-    ctaText: "Enroll Now",
+    href: "/courses/mlops-masterclass",
+    ctaText: "View Enterprise Track",
     featured: false,
   },
   {
@@ -120,8 +120,8 @@ export const COURSES = [
       "Production AI Applications",
     ],
     badge: "Advanced",
-    href: LINKS.topmate,
-    ctaText: "Enroll Now",
+    href: "/courses/ai-agents-genai",
+    ctaText: "View GenAI Track",
     featured: false,
   },
   {
@@ -304,10 +304,17 @@ export const STRUCTURED_DATA = {
       bestRating: "5",
     },
     offers: {
-      "@type": "Offer",
-      price: "35000",
-      priceCurrency: "INR",
+      "@type": "AggregateOffer",
       availability: "https://schema.org/InStock",
+      lowPrice: "420",
+      highPrice: "35000",
+      offerCount: "3",
+      priceCurrency: "INR",
+      offers: [
+        { "@type": "Offer", price: "35000", priceCurrency: "INR" },
+        { "@type": "Offer", price: "450", priceCurrency: "USD" },
+        { "@type": "Offer", price: "420", priceCurrency: "EUR" },
+      ],
     },
   },
   faq: {
