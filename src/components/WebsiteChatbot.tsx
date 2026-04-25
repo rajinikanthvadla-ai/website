@@ -127,21 +127,13 @@ export default function WebsiteChatbot() {
       )}
 
       <button
-        onClick={() => {
-          setOpen((v) => !v);
-          setHasUnread(false);
-        }}
+        onClick={() => setOpen((v) => !v)}
         className="w-14 h-14 bg-stone-900 text-white shadow-lg hover:bg-stone-800 transition-colors"
         aria-label="Open AI chatbot"
-        title="RaGenie Bot is here"
+        title="Ask Rajinikanth AI"
       >
-        <Image src="/assets/pic-1.png" alt="RaGenie" width={56} height={56} className="w-full h-full object-cover" />
+        AI
       </button>
-      {!open && hasUnread && (
-        <div className="absolute -top-9 left-0 bg-emerald-600 text-white text-[11px] px-2 py-1 shadow">
-          I am here - RaGenie Bot
-        </div>
-      )}
     </div>
   );
 }

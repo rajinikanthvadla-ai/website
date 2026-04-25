@@ -13,8 +13,7 @@ Guidelines:
 - Prefer actionable checklists and clear next steps.
 - Do not invent claims about outcomes, salaries, or guarantees.
 - If asked about paid programs, suggest visiting /mlops-aiops-masterclass, /genai-training, /mentorship.
-- If unsure, say what is uncertain.
-- Do not use em dash punctuation.`;
+- If unsure, say what is uncertain.`;
 
 const RATE_WINDOW_MS = 60_000;
 const RATE_MAX_REQ = 12;
@@ -48,72 +47,68 @@ function checkRateLimit(ip: string) {
 }
 
 export async function POST(req: NextRequest) {
-  try {
-    const apiKey = process.env.GEMINI_API_KEY;
-    if (!apiKey) {
-      return NextResponse.json({ error: "Chat service is not configured." }, { status: 503 });
-    }
-
-    const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
-    if (!checkRateLimit(ip)) {
-      return NextResponse.json({ error: "Rate limit exceeded. Please try again shortly." }, { status: 429 });
-    }
-
-    const body = (await req.json()) as { message?: string; history?: ChatTurn[] };
-    const message = (body.message || "").trim();
-    const history = Array.isArray(body.history) ? body.history.slice(-MAX_HISTORY_TURNS) : [];
-
-    if (!message) {
-      return NextResponse.json({ error: "Message is required." }, { status: 400 });
-    }
-    if (message.length > MAX_MESSAGE_CHARS) {
-      return NextResponse.json({ error: `Message too long (max ${MAX_MESSAGE_CHARS} characters).` }, { status: 400 });
-    }
-
-    const contents = [
-      ...history.map((h) => ({ role: h.role === "assistant" ? "model" : "user", parts: [{ text: h.text }] })),
-      { role: "user", parts: [{ text: message }] },
-    ];
-
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), GEMINI_TIMEOUT_MS);
-
-    let resp: Response;
-    try {
-      resp = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${apiKey}`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          signal: controller.signal,
-          body: JSON.stringify({
-            systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
-            contents,
-            generationConfig: {
-              temperature: 0.4,
-              maxOutputTokens: 700,
-            },
-          }),
-        }
-      );
-    } catch {
-      return NextResponse.json({ error: "Chat model timeout or network issue. Please retry." }, { status: 504 });
-    } finally {
-      clearTimeout(timeout);
-    }
-
-    if (!resp.ok) {
-      return NextResponse.json({ error: "Model request failed. Please retry shortly." }, { status: 502 });
-    }
-
-    const data = await resp.json();
-    const text = data?.candidates?.[0]?.content?.parts?.[0]?.text?.trim();
-    if (!text) {
-      return NextResponse.json({ error: "Empty response from model." }, { status: 502 });
-    }
-
-    return NextResponse.json({ reply: text });
-  } catch {
-    return NextResponse.json({ error: "Unexpected server error in chat route." }, { status: 500 });
+  const apiKey = process.env.GEMINI_API_KEY;
+  if (!apiKey) {
+    return NextResponse.json({ error: "Chat service is not configured." }, { status: 503 });
   }
+
+  const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
+  if (!checkRateLimit(ip)) {
+    return NextResponse.json({ error: "Rate limit exceeded. Please try again shortly." }, { status: 429 });
+  }
+
+  const body = (await req.json()) as { message?: string; history?: ChatTurn[] };
+  const message = (body.message || "").trim();
+  const history = Array.isArray(body.history) ? body.history.slice(-MAX_HISTORY_TURNS) : [];
+
+  if (!message) {
+    return NextResponse.json({ error: "Message is required." }, { status: 400 });
+  }
+  if (message.length > MAX_MESSAGE_CHARS) {
+    return NextResponse.json({ error: `Message too long (max ${MAX_MESSAGE_CHARS} characters).` }, { status: 400 });
+  }
+
+  const contents = [
+    ...history.map((h) => ({ role: h.role === "assistant" ? "model" : "user", parts: [{ text: h.text }] })),
+    { role: "user", parts: [{ text: message }] },
+  ];
+
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), GEMINI_TIMEOUT_MS);
+
+  let resp: Response;
+  try {
+    resp = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${apiKey}`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        signal: controller.signal,
+        body: JSON.stringify({
+          systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
+          contents,
+          generationConfig: {
+            temperature: 0.4,
+            maxOutputTokens: 700,
+          },
+        }),
+      }
+    );
+  } catch {
+    return NextResponse.json({ error: "Chat model timeout or network issue. Please retry." }, { status: 504 });
+  } finally {
+    clearTimeout(timeout);
+  }
+
+  if (!resp.ok) {
+    return NextResponse.json({ error: "Model request failed. Please retry shortly." }, { status: 502 });
+  }
+
+  const data = await resp.json();
+  const text = data?.candidates?.[0]?.content?.parts?.[0]?.text?.trim();
+  if (!text) {
+    return NextResponse.json({ error: "Empty response from model." }, { status: 502 });
+  }
+
+  return NextResponse.json({ reply: text });
 }
