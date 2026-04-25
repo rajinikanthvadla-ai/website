@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
+import WebsiteChatbot from "@/components/WebsiteChatbot";
 import { SITE, STRUCTURED_DATA } from "@/lib/constants";
 
 const display = Libre_Baskerville({
@@ -72,8 +73,8 @@ export default function RootLayout({
         <link rel="icon" type="image/png" href="/assets/pic-1.png" />
         <link rel="apple-touch-icon" href="/assets/pic-1.png" />
         <meta name="theme-color" content="#1c1917" />
-        <meta name="geo.region" content="IN" />
-        <meta name="geo.placename" content="India" />
+        <meta name="geo.region" content="GLOBAL" />
+        <meta name="geo.placename" content="Worldwide" />
         <meta name="distribution" content="global" />
         <meta name="rating" content="General" />
         <meta name="revisit-after" content="1 days" />
@@ -94,6 +95,7 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <Footer />
+        <WebsiteChatbot />
         <WhatsAppFloat />
       </body>
     </html>

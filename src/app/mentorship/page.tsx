@@ -113,6 +113,25 @@ export default function MentorshipPage() {
         </div>
       </section>
 
+
+      <section className="py-16 bg-stone-50 border-b border-stone-200">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="panel p-4 md:p-6">
+            <h2 className="font-display text-2xl font-bold text-stone-900 mb-2">Book without leaving this website</h2>
+            <p className="text-sm text-stone-600 mb-5">Topmate is embedded here for availability and booking, so visitors can stay on rajinikanthvadla.com while selecting a slot.</p>
+            <div className="relative w-full overflow-hidden border border-stone-200 bg-white" style={{ minHeight: 700 }}>
+              <iframe
+                src="https://topmate.io/rajinikanthvadla"
+                title="Topmate mentorship booking"
+                loading="lazy"
+                className="w-full h-[700px]"
+                referrerPolicy="strict-origin-when-cross-origin"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       <CTASection
         ctaPreset="mentorship"
         title="If you are unsure which option fits, start small"
