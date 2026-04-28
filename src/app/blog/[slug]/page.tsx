@@ -20,6 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: article.title,
     description: article.description,
+    keywords: article.tags,
     alternates: { canonical: `${SITE_ORIGIN}/blog/${article.slug}/` },
     openGraph: {
       type: "article",
@@ -35,6 +36,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function ArticlePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const article = articles.find((a) => a.slug === slug) as Article | undefined;
+  const relatedArticles = articles
+    .filter((a) => a.slug !== slug)
+    .slice(0, 3);
 
   if (!article) {
     return (
@@ -109,6 +113,33 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
               <a href={LINKS.whatsapp} target="_blank" rel="noopener noreferrer" className="bg-emerald-700 text-white px-7 py-3 text-sm font-semibold hover:bg-emerald-800 transition-colors">
                 WhatsApp
               </a>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-14 md:py-16 bg-white border-b border-stone-200">
+          <div className="max-w-5xl mx-auto px-6">
+            <h3 className="font-display text-2xl font-bold text-stone-900 mb-6">Related reads for MLOps, LLMOps, and AI Agents</h3>
+            <div className="grid gap-4 md:grid-cols-3">
+              {relatedArticles.map((item) => (
+                <Link
+                  key={item.slug}
+                  href={`/blog/${item.slug}/`}
+                  className="panel p-5 hover:border-stone-400 transition-colors"
+                >
+                  <div className="text-xs font-semibold uppercase tracking-wide text-accent-600 mb-2">{item.category}</div>
+                  <h4 className="font-semibold text-stone-900 leading-snug mb-2">{item.title}</h4>
+                  <p className="text-sm text-stone-600 line-clamp-3">{item.description}</p>
+                </Link>
+              ))}
+            </div>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Link href="/mlops-course-india/" className="text-sm font-semibold text-accent-700 hover:underline underline-offset-4">
+                MLOps Course in India
+              </Link>
+              <Link href="/mlops-aiops-masterclass/" className="text-sm font-semibold text-accent-700 hover:underline underline-offset-4">
+                MLOps & AIOps Masterclass
+              </Link>
             </div>
           </div>
         </section>

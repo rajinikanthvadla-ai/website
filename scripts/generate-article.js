@@ -2,7 +2,6 @@ const fs = require("fs");
 const path = require("path");
 
 const ARTICLES_PATH = path.join(__dirname, "..", "content", "articles.json");
-const SITEMAP_PATH = path.join(__dirname, "..", "src", "app", "sitemap.ts");
 
 const TOPICS = [
   "Latest breakthroughs in AI Agents and autonomous systems",
@@ -260,9 +259,11 @@ Requirements:
 - Include one section: "How this helps your AI/ML career in 2026"
 - Include one section: "Implementation checklist"
 - Include one FAQ section with 4-6 Q&A bullets
+- Include one comparison section of your approach vs common competitor approaches (without naming brands negatively)
+- Include "India" and "global" search intent naturally in headings or body
 - End with a call-to-action linking to relevant training pages (use paths like /mlops-aiops-masterclass, /genai-training, /aiops-training, /mlops-training, /ai-tools-productivity)
 - Category should be one of: MLOps, AIOps, GenAI, AI Agents, AI Tools, DevOps, Kubernetes, LLMOps
-- Tags should be 6-10 relevant keywords with search intent
+- Tags should be 6-10 relevant keywords focused on high-intent search phrases
 - Slug should be URL-friendly (lowercase, hyphens, include 2026)
 - Ensure claims are realistic; avoid fake "India's #1" unverifiable lines
 - Keep tone clear, practical, and "human mentor" style
@@ -280,10 +281,13 @@ Respond ONLY with valid JSON (no markdown code fences, no extra text) in this ex
 
   try {
     const res = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${apiKey}`,
+      "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent",
       {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          "X-goog-api-key": apiKey,
+        },
         body: JSON.stringify({
           contents: [{ parts: [{ text: prompt }] }],
           generationConfig: {
@@ -301,9 +305,15 @@ Respond ONLY with valid JSON (no markdown code fences, no extra text) in this ex
     }
 
     const data = await res.json();
-    const content = data?.candidates?.[0]?.content?.parts?.[0]?.text || "";
+    let content =
+      data?.candidates?.[0]?.content?.parts?.[0]?.text?.trim() || "";
+
     if (!content) {
-      throw new Error("Empty response from Gemini API.");
+      throw new Error("Gemini returned empty content.");
+    }
+
+    if (content.startsWith("```")) {
+      content = content.replace(/^```json?\n?/, "").replace(/\n?```$/, "");
     }
 
     const rawArticle = parseGeneratedArticle(content);
@@ -323,17 +333,6 @@ Respond ONLY with valid JSON (no markdown code fences, no extra text) in this ex
     }
 
     fs.writeFileSync(ARTICLES_PATH, JSON.stringify(articles, null, 2));
-
-    let sitemap = fs.readFileSync(SITEMAP_PATH, "utf-8");
-    const newEntry = `    { url: \`\${base}/blog/${article.slug}\`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.8 },`;
-
-    if (!sitemap.includes(article.slug)) {
-      sitemap = sitemap.replace(
-        /(\s*\];)/,
-        `\n${newEntry}$1`
-      );
-      fs.writeFileSync(SITEMAP_PATH, sitemap);
-    }
 
     console.log(`Generated article: "${article.title}"`);
     console.log(`Slug: ${article.slug}`);

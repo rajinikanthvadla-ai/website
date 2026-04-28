@@ -4,7 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
-import WebsiteChatbot from "@/components/WebsiteChatbot";
+import AIAssistantFloat from "@/components/AIAssistantFloat";
 import { SITE, STRUCTURED_DATA } from "@/lib/constants";
 
 const display = Libre_Baskerville({
@@ -25,6 +25,18 @@ export const metadata: Metadata = {
     template: `%s | ${SITE.name}`,
   },
   description: SITE.description,
+  keywords: [
+    "MLOps course",
+    "LLMOps training",
+    "AIOps training India",
+    "AI Agents course",
+    "Generative AI mentorship",
+    "LangChain training",
+    "RAG systems course",
+    "Kubernetes for AI",
+    "MLOps mentor India",
+    "AI career mentorship",
+  ],
   metadataBase: new URL(SITE.url),
   authors: [{ name: "Rajinikanth Vadla", url: SITE.url }],
   creator: "Rajinikanth Vadla",
@@ -95,7 +107,7 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <Footer />
-        <WebsiteChatbot />
+        <AIAssistantFloat />
         <WhatsAppFloat />
       </body>
     </html>

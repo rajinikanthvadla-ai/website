@@ -6,6 +6,15 @@ export const metadata: Metadata = {
   title: "MLOps, AIOps & GenAI Blog",
   description:
     "Tutorials and notes on MLOps, AIOps, GenAI, AI Agents, LangChain, RAG and Kubernetes by Rajinikanth Vadla.",
+  keywords: [
+    "MLOps blog India",
+    "LLMOps best practices",
+    "AI Agents tutorial",
+    "Generative AI training blog",
+    "AIOps use cases",
+    "LangChain RAG guide",
+    "MLOps career roadmap",
+  ],
   alternates: { canonical: "https://www.rajinikanthvadla.com/blog/" },
 };
 

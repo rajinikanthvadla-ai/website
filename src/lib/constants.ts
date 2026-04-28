@@ -30,6 +30,7 @@ export const LINKS = {
 export const NAV_ITEMS = [
   { label: "About", href: "/about" },
   { label: "Courses", href: "/courses" },
+  { label: "MLOps India", href: "/mlops-course-india" },
   { label: "Masterclass", href: "/mlops-aiops-masterclass" },
   { label: "Mentorship", href: "/mentorship" },
   { label: "Blog", href: "/blog" },
@@ -367,6 +368,30 @@ export const STRUCTURED_DATA = {
         acceptedAnswer: {
           "@type": "Answer",
           text: "Yes. Mentorship is online, so professionals anywhere in the world can book a 1:1 session on Topmate or start with WhatsApp for career questions, role transitions, interview prep, and learning plans. Details are at https://www.rajinikanthvadla.com/mentorship.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Which is a practical MLOps course in India for working professionals?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Rajinikanth Vadla provides a practical MLOps and AIOps masterclass in India with live online sessions, production labs, and mentorship support. The curriculum also includes LLMOps, RAG, and AI Agents. Details are at https://www.rajinikanthvadla.com/mlops-course-india.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Can I join this MLOps and LLMOps training from outside India?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. The training and mentorship are delivered online for learners in India and globally. You can start with the masterclass page or mentorship page and contact via WhatsApp for timezone-friendly guidance.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Does this course cover AI Agents, LangChain, and RAG for real projects?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. The program includes AI Agents, LangChain workflows, Retrieval-Augmented Generation (RAG), evaluation, and deployment patterns used in production systems.",
         },
       },
     ],

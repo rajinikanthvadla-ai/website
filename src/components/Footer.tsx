@@ -50,6 +50,7 @@ export default function Footer({ minimal = false }: { minimal?: boolean }) {
             <ul className="space-y-2.5 text-sm">
               <li><Link href="/about" className="hover:text-stone-100 transition-colors">About</Link></li>
               <li><Link href="/courses" className="hover:text-stone-100 transition-colors">Courses</Link></li>
+              <li><Link href="/mlops-course-india" className="hover:text-stone-100 transition-colors">MLOps Course India</Link></li>
               <li><Link href="/mentorship" className="hover:text-stone-100 transition-colors">Mentorship</Link></li>
               <li><Link href="/contact" className="hover:text-stone-100 transition-colors">Contact</Link></li>
             </ul>
