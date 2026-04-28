@@ -46,6 +46,7 @@ export const STATS = [
 
 export const SUCCESS_STORIES = [
   { src: "/assets/students success story -1.jpg", badge: "Verified Success" },
+  { src: "/assets/success-story-mani-rathnam.png", badge: "200% Hike" },
   { src: "/assets/stoty-2.jpg", badge: "Career Growth" },
   { src: "/assets/stoty-3.jpg", badge: "Job Placed" },
   { src: "/assets/stoty-4.jpg", badge: "Skills Upgraded" },

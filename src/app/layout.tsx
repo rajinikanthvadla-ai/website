@@ -4,7 +4,6 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
-import AIAssistantFloat from "@/components/AIAssistantFloat";
 import { SITE, STRUCTURED_DATA } from "@/lib/constants";
 
 const display = Libre_Baskerville({
@@ -107,7 +106,6 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <Footer />
-        <AIAssistantFloat />
         <WhatsAppFloat />
       </body>
     </html>

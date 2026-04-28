@@ -115,16 +115,29 @@ export default function MentorshipPage() {
 
 
       <section className="py-16 bg-stone-50 border-b border-stone-200">
-        <div className="max-w-5xl mx-auto px-6">
+        <div className="w-full px-0 md:px-0">
           <div className="panel p-4 md:p-6">
-            <h2 className="font-display text-2xl font-bold text-stone-900 mb-2">Book without leaving this website</h2>
-            <p className="text-sm text-stone-600 mb-5">Topmate is embedded here for availability and booking, so visitors can stay on rajinikanthvadla.com while selecting a slot.</p>
-            <div className="relative w-full overflow-hidden border border-stone-200 bg-white" style={{ minHeight: 700 }}>
+            <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
+              <h2 className="font-display text-2xl font-bold text-stone-900">Book without leaving this website</h2>
+              <a
+                href={LINKS.topmate}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center border border-stone-300 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-wide text-stone-700 hover:border-stone-900 transition-colors"
+              >
+                Open full page
+              </a>
+            </div>
+            <p className="text-sm text-stone-600 mb-5">
+              Topmate is embedded here for availability and booking. If your device clips the embed, use
+              "Open full page" for the complete view.
+            </p>
+            <div className="relative w-full border border-stone-200 bg-white">
               <iframe
                 src="https://topmate.io/rajinikanthvadla"
                 title="Topmate mentorship booking"
                 loading="lazy"
-                className="w-full h-[700px]"
+                className="w-full min-h-[88vh] md:min-h-[1100px] lg:min-h-[1250px]"
                 referrerPolicy="strict-origin-when-cross-origin"
               />
             </div>
