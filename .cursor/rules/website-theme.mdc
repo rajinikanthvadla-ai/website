@@ -1,0 +1,45 @@
+---
+description: Locked website design theme — plain HD blue + orange + white. Apply to all UI changes.
+globs: src/**/*.tsx, src/**/*.css
+alwaysApply: false
+---
+
+# Website Theme — LOCKED
+
+This theme is final. All future changes MUST follow it exactly. Do NOT deviate.
+
+## Color Palette (solid colors only, NO gradients)
+
+- **Primary blue**: `#1d4ed8` / `blue-700` (buttons, headers, links, stats)
+- **Accent orange**: `#ea580c` / `orange-500`–`orange-600` (highlights, NEW badges, featured CTAs)
+- **White**: `#ffffff` (main section backgrounds)
+- **Light gray**: `slate-50` (alternate section backgrounds)
+- **Dark**: `slate-900` (hero, dark sections, footer)
+- **Text**: `slate-900` headings, `slate-600` body, `slate-400`/`slate-500` secondary
+- **Emerald** `emerald-600` WhatsApp buttons only
+
+## Design Rules
+
+- NO gradients on backgrounds, buttons, or text — use solid flat colors
+- NO glassmorphism, shimmer, glow, blur, or animated color effects
+- NO fancy AI-looking effects — keep it looking human-made and professional
+- Borders: `border-slate-200` (light sections), `border-slate-700` (dark sections)
+- Border radius: `rounded-lg` (10px) on cards, panels, buttons
+- Card hover: `translateY(-2px)` + subtle `box-shadow` only
+- Panels: white bg, `1px solid #e2e8f0`, `rounded-lg`
+- Buttons: solid bg color, `rounded-lg`, `font-semibold`, simple `hover:` darken
+
+## Typography
+
+- Display font: `Libre Baskerville` via `font-display` (headings)
+- Body font: `Source Sans 3` via `font-sans`
+- Headings: `font-bold text-slate-900`
+- Tags/labels: `text-xs font-bold uppercase tracking-wide text-blue-700` or `text-orange-600`
+
+## Component Patterns
+
+- Section spacing: `py-24 md:py-28`
+- Max width: `max-w-7xl mx-auto px-6`
+- Badges: solid bg (`bg-orange-500`, `bg-red-600`), white text, `rounded`, `uppercase`, `font-bold`
+- CTA buttons: `bg-blue-700 hover:bg-blue-800` primary, `bg-orange-500 hover:bg-orange-600` accent
+- Outline buttons: `border-2 border-slate-300 text-slate-700 hover:border-slate-500`

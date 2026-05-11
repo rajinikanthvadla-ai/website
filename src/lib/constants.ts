@@ -1,9 +1,9 @@
 export const SITE = {
   name: "Rajinikanth Vadla",
   title:
-    "Rajinikanth Vadla — MLOps, AIOps & GenAI Training",
+    "Rajinikanth Vadla — MLOps, AIOps, GenAI & AI-Powered Automation Training",
   description:
-    "Live MLOps, AIOps & GenAI training — 500+ engineers trained, hands-on labs, 1:1 mentorship worldwide. WhatsApp for the next cohort.",
+    "Live MLOps, AIOps, GenAI & AI-Powered Automation training — 500+ engineers trained, hands-on labs, enterprise projects, 1:1 mentorship worldwide. New: AI-Powered Automation Efficiency course starting soon.",
   url: "https://www.rajinikanthvadla.com",
   image: "https://www.rajinikanthvadla.com/assets/pic-1.png",
   phone: "+91-9100028801",
@@ -12,13 +12,13 @@ export const SITE = {
 export const LINKS = {
   topmate: "https://topmate.io/rajinikanthvadla",
   enroll: "https://topmate.io/rajinikanthvadla/1838028/pay",
-  /** AIOps Mastery — ongoing Topmate program (product page). */
   aiopsMastery: "https://topmate.io/rajinikanthvadla/new/EjSiaf7TdI",
-  /** Checkout for AIOps Mastery on Topmate. */
   aiopsMasteryEnroll: "https://topmate.io/rajinikanthvadla/2056044/pay",
   whatsapp: "https://wa.me/919100028801",
   whatsappSyllabus:
     "https://wa.me/919100028801?text=Hi%20Rajinikanth,%20I%20want%20to%20know%20batch%20details%20and%20syllabus",
+  whatsappAutomation:
+    "https://wa.me/919100028801?text=Hi%20Rajinikanth,%20I%20am%20interested%20in%20the%20AI-Powered%20Automation%20Efficiency%20course.%20Please%20share%20details.",
   whatsappChannel: "https://whatsapp.com/channel/0029VbBxmp7Fy7262q1Ti72e",
   linkedin: "https://www.linkedin.com/in/rajinikanth-vadla-4221281a4/",
   youtube: "https://www.youtube.com/@IamRajinikanthvadla",
@@ -27,10 +27,10 @@ export const LINKS = {
     "https://chatgpt.com/g/g-6938ef4591f4819198b381b03cf8707b-rajinikanth-vadla-ai-ml-ops-engineer-mentor",
 };
 
-export const NAV_ITEMS = [
+export const NAV_ITEMS: { label: string; href: string; highlight?: boolean }[] = [
   { label: "About", href: "/about" },
   { label: "Courses", href: "/courses" },
-  { label: "MLOps India", href: "/mlops-course-india" },
+  { label: "AI Automation", href: "/courses/ai-automation", highlight: true },
   { label: "Masterclass", href: "/mlops-aiops-masterclass" },
   { label: "Mentorship", href: "/mentorship" },
   { label: "Blog", href: "/blog" },
@@ -58,7 +58,105 @@ export const SUCCESS_STORIES = [
   { src: "/assets/stoty-10.png", badge: "Tech Lead" },
 ];
 
+export const AI_AUTOMATION_SYLLABUS = [
+  {
+    module: 1,
+    title: "AI-Assisted Development with Cursor, Copilot & Codex",
+    duration: "Day 1–7",
+    topics: [
+      "Cursor IDE: agentic coding, multi-file edits, codebase-aware prompts",
+      "GitHub Copilot: inline completions, chat, workspace agents",
+      "OpenAI Codex CLI: autonomous multi-step task execution",
+      "Writing production-quality code 5x faster with AI pair programming",
+      "Enterprise coding standards & AI guardrails",
+      "Hands-on: Build a full-stack feature using only AI-assisted tools",
+    ],
+  },
+  {
+    module: 2,
+    title: "ChatGPT, Claude & Gemini for Enterprise Workflows",
+    duration: "Day 8–12",
+    topics: [
+      "ChatGPT (GPT-4o, o3): API integration, custom GPTs, enterprise use cases",
+      "Claude AI: long-context analysis, document processing, system prompts",
+      "Gemini: multimodal inputs, Google Workspace integration",
+      "Prompt engineering patterns enterprises actually use",
+      "Building internal tools & SOPs with LLM APIs",
+      "Hands-on: Automate a real enterprise workflow end-to-end",
+    ],
+  },
+  {
+    module: 3,
+    title: "AWS Bedrock Agents & Cloud AI Services",
+    duration: "Day 13–18",
+    topics: [
+      "AWS Bedrock: foundation models, agents, knowledge bases, guardrails",
+      "Building production Bedrock agents with action groups & APIs",
+      "Amazon Q: AI assistant for enterprise developer productivity",
+      "Azure AI Services & Azure OpenAI for enterprise",
+      "GCP Vertex AI agents & Gemini integration",
+      "Hands-on: Deploy a Bedrock agent that automates a business process",
+    ],
+  },
+  {
+    module: 4,
+    title: "Open-Source AI Agents for Enterprise",
+    duration: "Day 19–24",
+    topics: [
+      "LangChain agents: tool use, chains, memory, and retrieval",
+      "CrewAI: multi-agent role-based automation",
+      "AutoGen: conversational multi-agent frameworks",
+      "n8n & Activepieces: open-source workflow automation with AI nodes",
+      "Self-hosted vs managed agents: cost, security, compliance trade-offs",
+      "Hands-on: Build a multi-agent system for an enterprise use case",
+    ],
+  },
+  {
+    module: 5,
+    title: "Rapid Prototyping & Low-Code AI Tools",
+    duration: "Day 25–28",
+    topics: [
+      "Lovable & Bolt: AI-powered full-stack app generation",
+      "v0 by Vercel: UI generation from natural language",
+      "Replit Agent: end-to-end app building with AI",
+      "When to use low-code AI vs custom development in enterprises",
+      "Prototyping → production pipeline with AI tools",
+      "Hands-on: Prototype an internal tool in under 2 hours with AI",
+    ],
+  },
+  {
+    module: 6,
+    title: "Enterprise AI Automation, Governance & Career Readiness",
+    duration: "Day 29–35",
+    topics: [
+      "Enterprise AI automation strategy & ROI measurement",
+      "AI security: prompt injection, data leakage, access control",
+      "Compliance & governance for AI in regulated industries",
+      "Building your portfolio of enterprise AI automation projects",
+      "Interview prep: system design for AI automation roles",
+      "Resume & LinkedIn optimization for AI automation engineer JDs",
+    ],
+  },
+];
+
 export const COURSES = [
+  {
+    title: "AI-Powered Automation Efficiency",
+    description:
+      "30–35 day intensive (extendable to 45 days): Master Cursor, Claude, Codex, ChatGPT, AWS Bedrock Agents, open-source agents, and enterprise AI tools that top companies hire for.",
+    features: [
+      "6 Focused Modules, 30–35 Days",
+      "Cursor, Copilot, Codex hands-on",
+      "AWS Bedrock Agents & Cloud AI",
+      "Open-source agents (LangChain, CrewAI)",
+      "Enterprise governance & security",
+      "Interview & career preparation",
+    ],
+    badge: "NEW — STARTING SOON",
+    href: "/courses/ai-automation",
+    ctaText: "View Full Syllabus",
+    featured: true,
+  },
   {
     title: "MLOps & AIOps Masterclass",
     description:
@@ -72,7 +170,7 @@ export const COURSES = [
     badge: "FLAGSHIP",
     href: "/mlops-aiops-masterclass",
     ctaText: "View Syllabus",
-    featured: true,
+    featured: false,
   },
   {
     title: "AIOps Mastery",
@@ -96,20 +194,6 @@ export const COURSES = [
     badge: "Popular",
     href: "/courses/mlops-masterclass",
     ctaText: "View Enterprise Track",
-    featured: false,
-  },
-  {
-    title: "Kubernetes & Cloud Native",
-    description:
-      "From zero to Kubernetes hero - EKS, AKS, GKE in production environments.",
-    features: [
-      "EKS, AKS, GKE management",
-      "Helm Charts & Operators",
-      "Istio Service Mesh",
-    ],
-    badge: "Best Seller",
-    href: LINKS.topmate,
-    ctaText: "Enroll Now",
     featured: false,
   },
   {
@@ -199,12 +283,13 @@ export const STRUCTURED_DATA = {
       "Rajinikanth Vadla official website",
       "rajinikanthvadla.com",
       "Rajinikanth Vadla MLOps AIOps GenAI training",
+      "Rajinikanth Vadla AI-Powered Automation training",
       "Rajinikanth Vadla career mentorship",
     ],
     url: "https://www.rajinikanthvadla.com/",
     inLanguage: "en",
     description:
-      "Official website of Rajinikanth Vadla: live online MLOps, AIOps, GenAI, AI Agents, and LLMOps training, mentorship, and blog.",
+      "Official website of Rajinikanth Vadla: live online MLOps, AIOps, GenAI, AI Agents, AI-Powered Automation, and LLMOps training, mentorship, and blog.",
     publisher: {
       "@type": "Organization",
       name: "Rajinikanth Vadla Training",
@@ -215,9 +300,9 @@ export const STRUCTURED_DATA = {
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Rajinikanth Vadla",
-    jobTitle: "MLOps, AIOps, GenAI, AI Agents Expert, Trainer & Mentor",
+    jobTitle: "MLOps, AIOps, GenAI, AI Agents, AI Automation Expert, Trainer & Mentor",
     description:
-      "MLOps, AIOps, GenAI, and AI Agents trainer and mentor. Offers live cohorts and 1:1 mentorship for career direction, role transitions, and technical depth. Works with engineers globally via online sessions. 7+ years enterprise experience; 500+ people trained and mentored.",
+      "MLOps, AIOps, GenAI, AI Agents, and AI-Powered Automation trainer and mentor. Offers live cohorts and 1:1 mentorship for career direction, role transitions, and technical depth. Works with engineers globally via online sessions. 7+ years enterprise experience; 500+ people trained and mentored.",
     url: "https://www.rajinikanthvadla.com/",
     image: "https://www.rajinikanthvadla.com/assets/pic-1.png",
     sameAs: [
@@ -232,6 +317,8 @@ export const STRUCTURED_DATA = {
     knowsAbout: [
       "MLOps", "AIOps", "DevOps", "GenAI", "Generative AI", "AI Agents",
       "LLMOps", "LangChain", "RAG", "LLM", "Large Language Models",
+      "AI-Powered Automation", "Enterprise AI", "Cursor IDE", "GitHub Copilot",
+      "AWS Bedrock", "AWS Bedrock Agents", "OpenAI Codex",
       "AWS", "Azure", "GCP", "Kubernetes", "Docker", "Terraform",
       "Jenkins", "CI/CD", "MLflow", "Kubeflow", "Machine Learning Operations",
       "Cloud Computing", "Infrastructure as Code", "Model Context Protocol",
@@ -249,7 +336,7 @@ export const STRUCTURED_DATA = {
     url: "https://www.rajinikanthvadla.com/",
     logo: "https://www.rajinikanthvadla.com/assets/pic-1.png",
     description:
-      "MLOps, AIOps, GenAI, AI Agents, and LLMOps training with hands-on enterprise projects, plus 1:1 mentorship for career and role transformation. Serves learners worldwide online. AWS, Azure, GCP, Kubernetes, LangChain, RAG.",
+      "MLOps, AIOps, GenAI, AI Agents, AI-Powered Automation, and LLMOps training with hands-on enterprise projects, plus 1:1 mentorship for career and role transformation. Serves learners worldwide online.",
     founder: {
       "@type": "Person",
       name: "Rajinikanth Vadla",
@@ -319,6 +406,32 @@ export const STRUCTURED_DATA = {
       ],
     },
   },
+  aiAutomationCourse: {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    name: "AI-Powered Automation Efficiency: Enterprise-Grade Training",
+    description:
+      "30–35 day intensive (extendable to 45 days) enterprise AI automation course. Master Cursor, Claude AI, OpenAI Codex, ChatGPT, AWS Bedrock Agents, open-source AI agents (LangChain, CrewAI), and rapid prototyping tools (Lovable, Bolt). Skills enterprises hire for.",
+    provider: {
+      "@type": "Organization",
+      name: "Rajinikanth Vadla Training",
+      sameAs: "https://www.rajinikanthvadla.com/",
+    },
+    instructor: {
+      "@type": "Person",
+      name: "Rajinikanth Vadla",
+    },
+    teaches: [
+      "Cursor IDE", "GitHub Copilot", "OpenAI Codex", "ChatGPT", "Claude AI",
+      "AWS Bedrock Agents", "LangChain", "CrewAI", "Enterprise AI Automation",
+      "AI Governance", "Prompt Engineering", "Lovable", "Bolt",
+    ],
+    hasCourseInstance: {
+      "@type": "CourseInstance",
+      courseMode: "online",
+      instructor: { "@type": "Person", name: "Rajinikanth Vadla" },
+    },
+  },
   faq: {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -328,7 +441,15 @@ export const STRUCTURED_DATA = {
         name: "Who is Rajinikanth Vadla?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Rajinikanth Vadla is an MLOps, AIOps, GenAI, and AI Agents trainer and practitioner. His official website is https://www.rajinikanthvadla.com. He has 7+ years enterprise experience, has trained 500+ engineers, and publishes long-form training on YouTube.",
+          text: "Rajinikanth Vadla is an MLOps, AIOps, GenAI, AI Agents, and AI-Powered Automation trainer and practitioner. His official website is https://www.rajinikanthvadla.com. He has 7+ years enterprise experience, has trained 500+ engineers, and publishes long-form training on YouTube.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What is the AI-Powered Automation Efficiency course?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "A 30–35 day intensive (extendable to 45 days) enterprise-level course covering Cursor, Claude AI, OpenAI Codex, ChatGPT, AWS Bedrock Agents, open-source AI agents (LangChain, CrewAI), rapid prototyping tools (Lovable, Bolt), and enterprise AI governance. It teaches the exact skills that appear in enterprise job descriptions for AI automation roles.",
         },
       },
       {
@@ -336,7 +457,7 @@ export const STRUCTURED_DATA = {
         name: "What is the official Rajinikanth Vadla website for MLOps training?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "The official site is https://www.rajinikanthvadla.com. There you will find the MLOps & AIOps Masterclass (DevOps through MLOps, LLMOps, AIOps, and AI Agents), cohort details, syllabus via WhatsApp, and enrollment links.",
+          text: "The official site is https://www.rajinikanthvadla.com. There you will find the MLOps & AIOps Masterclass, the new AI-Powered Automation Efficiency course, cohort details, syllabus via WhatsApp, and enrollment links.",
         },
       },
       {
@@ -373,10 +494,10 @@ export const STRUCTURED_DATA = {
       },
       {
         "@type": "Question",
-        name: "Which is a practical MLOps course in India for working professionals?",
+        name: "Which AI tools do enterprises require engineers to know?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Rajinikanth Vadla provides a practical MLOps and AIOps masterclass in India with live online sessions, production labs, and mentorship support. The curriculum also includes LLMOps, RAG, and AI Agents. Details are at https://www.rajinikanthvadla.com/mlops-course-india.",
+          text: "Enterprise JDs increasingly require Cursor, GitHub Copilot, ChatGPT/Claude API integration, AWS Bedrock Agents, and familiarity with AI agent frameworks like LangChain and CrewAI. Rajinikanth Vadla's AI-Powered Automation Efficiency course covers all of these.",
         },
       },
       {
@@ -385,14 +506,6 @@ export const STRUCTURED_DATA = {
         acceptedAnswer: {
           "@type": "Answer",
           text: "Yes. The training and mentorship are delivered online for learners in India and globally. You can start with the masterclass page or mentorship page and contact via WhatsApp for timezone-friendly guidance.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Does this course cover AI Agents, LangChain, and RAG for real projects?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Yes. The program includes AI Agents, LangChain workflows, Retrieval-Augmented Generation (RAG), evaluation, and deployment patterns used in production systems.",
         },
       },
     ],

@@ -29,12 +29,22 @@ export const metadata: Metadata = {
     "LLMOps training",
     "AIOps training India",
     "AI Agents course",
+    "AI-Powered Automation course",
+    "AI automation training",
+    "enterprise AI automation",
+    "intelligent process automation course",
+    "AI automation efficiency",
     "Generative AI mentorship",
     "LangChain training",
     "RAG systems course",
     "Kubernetes for AI",
     "MLOps mentor India",
     "AI career mentorship",
+    "multi-agent systems training",
+    "LLM agents course",
+    "AI workflow automation",
+    "production AI pipelines",
+    "AI governance training",
   ],
   metadataBase: new URL(SITE.url),
   authors: [{ name: "Rajinikanth Vadla", url: SITE.url }],
@@ -47,7 +57,7 @@ export const metadata: Metadata = {
     siteName: SITE.name,
     title: SITE.title,
     description: SITE.description,
-    images: [{ url: SITE.image, width: 1200, height: 630, alt: "Rajinikanth Vadla - MLOps AIOps GenAI AI Agents Expert" }],
+    images: [{ url: SITE.image, width: 1200, height: 630, alt: "Rajinikanth Vadla - MLOps AIOps GenAI AI Automation Expert" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -83,7 +93,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" type="image/png" href="/assets/pic-1.png" />
         <link rel="apple-touch-icon" href="/assets/pic-1.png" />
-        <meta name="theme-color" content="#1c1917" />
+        <meta name="theme-color" content="#1d4ed8" />
         <meta name="geo.region" content="GLOBAL" />
         <meta name="geo.placename" content="Worldwide" />
         <meta name="distribution" content="global" />
@@ -102,7 +112,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(STRUCTURED_DATA.organization) }}
         />
       </head>
-      <body className={`${sans.className} bg-stone-50 text-stone-800 antialiased`}>
+      <body className={`${sans.className} bg-white text-slate-800 antialiased`}>
         <Header />
         <main>{children}</main>
         <Footer />
