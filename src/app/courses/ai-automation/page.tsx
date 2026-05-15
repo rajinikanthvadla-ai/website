@@ -42,6 +42,7 @@ export default function AIAutomationCoursePage() {
       <WhoIsThisFor />
       <FullSyllabus />
       <ToolsYouWillUse />
+      <CourseFAQ />
       <CTASection
         title="Ready to master AI-Powered Automation?"
         subtitle="Join the next batch. 30–35 days of focused training on the exact tools enterprises hire for. Limited seats, live online, localized pricing."
@@ -291,6 +292,67 @@ function ToolsYouWillUse() {
               <p className="font-semibold text-slate-900 text-sm">{t.name}</p>
               <p className="text-xs text-slate-500 mt-0.5">{t.category}</p>
             </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function CourseFAQ() {
+  const faqs = [
+    {
+      q: "What is the AI-Powered Automation Efficiency course?",
+      a: "A 30–35 day intensive (extendable to 45 days) enterprise-level course by Rajinikanth Vadla covering Cursor, Claude AI, OpenAI Codex, ChatGPT, AWS Bedrock Agents, open-source AI agents (LangChain, CrewAI), and rapid prototyping tools (Lovable, Bolt). It teaches the exact skills from enterprise job descriptions for AI automation roles.",
+    },
+    {
+      q: "Who should take this course?",
+      a: "Software engineers, DevOps/MLOps engineers, enterprise developers, tech leads, QA/automation engineers, and career changers who want to add enterprise AI automation skills. You should already know how to code — this course teaches you to leverage AI tools the way enterprises expect.",
+    },
+    {
+      q: "What AI tools will I learn?",
+      a: "Cursor, GitHub Copilot, OpenAI Codex, ChatGPT/GPT-4o, Claude AI, Gemini, AWS Bedrock Agents, Amazon Q, Azure OpenAI, LangChain, CrewAI, AutoGen, n8n, Lovable, Bolt, and v0 by Vercel. Only tools that appear in enterprise JDs.",
+    },
+    {
+      q: "What makes this different from other AI courses?",
+      a: "This course focuses on practical enterprise tools — not theory. Every module maps directly to skills listed in real job descriptions. You'll build production-ready projects, not toy demos. Taught by Rajinikanth Vadla who has 7+ years of enterprise experience.",
+    },
+    {
+      q: "Is the course live or recorded?",
+      a: "Live online sessions. You interact directly with Rajinikanth Vadla, ask questions in real time, and get your hands-on work reviewed. Recordings are available if you miss a session.",
+    },
+    {
+      q: "Can I extend the duration?",
+      a: "Yes. The base program is 30–35 days, but it's extendable to 45 days if you need more time to complete projects or review material.",
+    },
+    {
+      q: "How do I enroll?",
+      a: "Contact Rajinikanth Vadla directly on WhatsApp (+91-9100028801) or book through Topmate (topmate.io/rajinikanthvadla). Seats are limited per batch.",
+    },
+    {
+      q: "Will this help me get a job in AI automation?",
+      a: "Yes. Module 6 covers interview prep (system design for AI automation roles), resume optimization for enterprise JDs, and LinkedIn branding. 95% of Rajinikanth Vadla's students report positive career outcomes.",
+    },
+  ];
+
+  return (
+    <section className="py-20 md:py-24 bg-white border-t border-slate-200">
+      <div className="max-w-4xl mx-auto px-6">
+        <SectionHeader
+          tag="FAQ"
+          title="Common questions about this course"
+        />
+        <div className="space-y-3">
+          {faqs.map((faq) => (
+            <details key={faq.q} className="panel group">
+              <summary className="flex items-start justify-between gap-4 p-5 cursor-pointer list-none font-display font-bold text-slate-900 text-base leading-snug hover:text-blue-700 transition-colors">
+                {faq.q}
+                <span className="text-slate-400 text-xl shrink-0 group-open:rotate-45 transition-transform">+</span>
+              </summary>
+              <div className="px-5 pb-5 -mt-1">
+                <p className="text-slate-600 text-sm leading-relaxed">{faq.a}</p>
+              </div>
+            </details>
           ))}
         </div>
       </div>

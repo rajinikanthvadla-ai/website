@@ -93,6 +93,8 @@ export default function RootLayout({
       <head>
         <link rel="icon" type="image/png" href="/assets/pic-1.png" />
         <link rel="apple-touch-icon" href="/assets/pic-1.png" />
+        <link rel="alternate" type="text/plain" href="https://www.rajinikanthvadla.com/llms.txt" title="LLM site index" />
+        <link rel="alternate" type="text/plain" href="https://www.rajinikanthvadla.com/llms-full.txt" title="LLM detailed site index" />
         <meta name="theme-color" content="#1d4ed8" />
         <meta name="geo.region" content="GLOBAL" />
         <meta name="geo.placename" content="Worldwide" />

@@ -34,6 +34,7 @@ export default function HomePage() {
         title="Training and mentorship, in one place"
         subtitle="Join a cohort when you want structure, or book mentorship when you need your career story, transition, or interviews sharpened. People from many countries reach out; online sessions make that simple."
       />
+      <FAQSection />
       <SuccessStories />
     </>
   );
@@ -327,7 +328,7 @@ function AIAutomationCourseBanner() {
             WhatsApp for Details
           </a>
         </div>
-        <p className="text-blue-300 text-sm">Live online · Localized pricing · Limited seats per batch</p>
+        <p className="text-blue-300 text-sm">Live online · Limited seats per batch</p>
       </div>
     </section>
   );
@@ -414,9 +415,14 @@ function CourseBanner() {
           </div>
         </div>
 
+        <div className="bg-slate-800 border border-slate-700 rounded-lg p-4 max-w-md mx-auto mb-8 text-center">
+          <p className="text-white font-bold text-lg">₹35,000 <span className="text-slate-400 font-normal text-sm">India</span> · $450 <span className="text-slate-400 font-normal text-sm">USD</span> · €420 <span className="text-slate-400 font-normal text-sm">EUR</span></p>
+          <p className="text-slate-500 text-xs mt-1">Localized pricing based on your region</p>
+        </div>
+
         <div className="flex flex-col sm:flex-row justify-center gap-3">
           <a href={LINKS.enroll} target="_blank" rel="noopener noreferrer" className="inline-flex justify-center bg-white text-slate-900 px-8 py-3.5 rounded-lg text-sm font-semibold hover:bg-slate-100 transition-colors">
-            Join this batch (localized pricing)
+            Join this batch &rarr;
           </a>
           <a href={LINKS.whatsappSyllabus} target="_blank" rel="noopener noreferrer" className="inline-flex justify-center border-2 border-slate-600 text-slate-300 px-8 py-3.5 rounded-lg text-sm font-semibold hover:border-slate-400 hover:text-white transition-colors">
             WhatsApp for syllabus
@@ -639,6 +645,68 @@ function TrustSection() {
               </div>
             ))}
           </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function FAQSection() {
+  const faqs = [
+    {
+      q: "Who is Rajinikanth Vadla?",
+      a: "Rajinikanth Vadla is an MLOps, AIOps, GenAI, AI Agents, and AI-Powered Automation trainer and practitioner with 7+ years of enterprise experience. He has trained 500+ engineers through live cohort programs and offers 1:1 mentorship worldwide. His official website is rajinikanthvadla.com.",
+    },
+    {
+      q: "Which is the best MLOps course in India?",
+      a: "Rajinikanth Vadla's MLOps & AIOps Masterclass is a 12–16 week live program covering DevOps through MLOps, LLMOps, AIOps, and AI Agents. Priced at ₹35,000 with 200+ hours of hands-on training, 4 capstone projects, and a 4.9/5 rating from 500+ students.",
+    },
+    {
+      q: "What is the AI-Powered Automation Efficiency course?",
+      a: "A 30–35 day intensive (extendable to 45 days) enterprise-level course covering Cursor, Claude AI, OpenAI Codex, ChatGPT, AWS Bedrock Agents, open-source AI agents (LangChain, CrewAI), and rapid prototyping tools (Lovable, Bolt). It teaches the exact skills that appear in enterprise job descriptions.",
+    },
+    {
+      q: "Should I learn MLOps or AIOps first?",
+      a: "Start with MLOps if you want to deploy ML models to production. AIOps builds on those skills to automate IT operations with AI. Rajinikanth Vadla's Masterclass covers both in sequence so you build a solid foundation first.",
+    },
+    {
+      q: "Which AI tools do enterprises require engineers to know?",
+      a: "Enterprise JDs increasingly require Cursor, GitHub Copilot, ChatGPT/Claude API integration, AWS Bedrock Agents, and AI agent frameworks like LangChain and CrewAI. The AI-Powered Automation Efficiency course covers all of these.",
+    },
+    {
+      q: "What salary can I expect after MLOps training?",
+      a: "MLOps Engineers earn ₹12–50 LPA in India, $120K–$200K+ in USA, and €70K–€120K+ in Europe. Students of Rajinikanth Vadla report a 60% average salary increase after completing the training.",
+    },
+    {
+      q: "Can I join from outside India?",
+      a: "Yes. All training and mentorship is delivered live online. Students from USA, Europe, Middle East, and other regions regularly enroll. Pricing is localized: ₹35,000 (India), $450 (USD), €420 (EUR). Mentorship is available worldwide on Topmate.",
+    },
+    {
+      q: "How is live training different from Udemy or Coursera?",
+      a: "Live training with Rajinikanth Vadla offers real-time interaction, hands-on labs reviewed by the instructor, career mentorship, and interview prep — things self-paced courses cannot provide. The 60% average salary increase and 95% positive outcomes reflect this difference.",
+    },
+  ];
+
+  return (
+    <section className="py-20 md:py-24 bg-white border-t border-slate-200">
+      <div className="max-w-4xl mx-auto px-6">
+        <SectionHeader
+          tag="FAQ"
+          title="Frequently asked questions"
+          subtitle="Common questions from students before they enroll."
+        />
+        <div className="space-y-3">
+          {faqs.map((faq) => (
+            <details key={faq.q} className="panel group">
+              <summary className="flex items-start justify-between gap-4 p-5 cursor-pointer list-none font-display font-bold text-slate-900 text-base leading-snug hover:text-blue-700 transition-colors">
+                {faq.q}
+                <span className="text-slate-400 text-xl shrink-0 group-open:rotate-45 transition-transform">+</span>
+              </summary>
+              <div className="px-5 pb-5 -mt-1">
+                <p className="text-slate-600 text-sm leading-relaxed">{faq.a}</p>
+              </div>
+            </details>
+          ))}
         </div>
       </div>
     </section>
