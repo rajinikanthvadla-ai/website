@@ -1,290 +1,417 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { LINKS, STRUCTURED_DATA } from "@/lib/constants";
+import {
+  LINKS,
+  STRUCTURED_DATA,
+  MLOPS_MASTERCLASS_SYLLABUS,
+  MLOPS_CAPSTONE_PROJECTS,
+  MLOPS_CAREER_ROLES,
+  MLOPS_MASTERCLASS_DURATION,
+} from "@/lib/constants";
 import SectionHeader from "@/components/SectionHeader";
 import SuccessStories from "@/components/SuccessStories";
-import GlobalPricingBadge from "@/components/GlobalPricingBadge";
 
 export const metadata: Metadata = {
-  title: "MLOps + AIOps Masterclass — 12-Week Live Cohort",
+  title: "MLOps AIOps LLMOps AI Agents Job Ready Course India | 4-5 Month Live Program",
   description:
-    "12-16 week live cohort: DevOps → MLOps → LLMOps → AIOps → AI Agents. 200+ hours hands-on, 500+ trained, 95% placement. Global pricing support (INR / USD / EUR).",
+    "Complete 4-5 month job-ready MLOps, AIOps, LLMOps and AI Agentic Operations course by Rajinikanth Vadla. Live online, 200+ hours hands-on, 4 capstone projects, interview prep and placement support. Best MLOps course India. ₹40,000 | $450 USD.",
+  keywords: [
+    "MLOps course India",
+    "best MLOps course India",
+    "job ready MLOps course",
+    "MLOps AIOps LLMOps course",
+    "AI Agents course India",
+    "LLMOps training India",
+    "AIOps training live",
+    "MLOps course with placement",
+    "Rajinikanth Vadla MLOps",
+    "MLOps masterclass",
+    "AI Agentic Operations course",
+    "MLOps interview preparation",
+  ],
   alternates: { canonical: "https://www.rajinikanthvadla.com/mlops-aiops-masterclass/" },
 };
-
-const MODULES = [
-  { num: "01", title: "DevOps Fundamentals for AI/ML", topics: ["Linux, Shell Scripting, Git workflows", "Docker containerization for ML models", "Kubernetes orchestration (EKS, AKS, GKE)", "Terraform & Ansible IaC", "CI/CD with Jenkins, GitHub Actions", "AWS, Azure, GCP cloud computing", "Prometheus & Grafana monitoring"] },
-  { num: "02", title: "MLOps: Machine Learning Operations", topics: ["ML lifecycle & MLOps maturity model", "Data engineering & feature stores (Feast)", "Experiment tracking with MLflow", "Model versioning with DVC", "Model deployment with FastAPI", "ML CI/CD pipelines", "Model monitoring & drift detection", "Kubeflow & SageMaker pipelines"] },
-  { num: "03", title: "LLMOps: Large Language Model Operations", topics: ["LLM lifecycle management", "Prompt engineering mastery", "Fine-tuning with LoRA/QLoRA", "RAG systems & vector databases", "LLM deployment & optimization", "Cost & performance monitoring", "Responsible AI & guardrails"] },
-  { num: "04", title: "AIOps: AI for IT Operations", topics: ["Anomaly detection systems", "Predictive analytics for IT", "Root cause analysis with AI", "Self-healing infrastructure", "Cloud-native AIOps", "Chaos engineering", "Intelligent alerting"] },
-  { num: "05", title: "AI Agents & Autonomous Systems", topics: ["LangChain agent framework", "Tool use & function calling", "Agent memory systems", "Multi-agent with CrewAI", "Model Context Protocol (MCP)", "Enterprise agent deployment", "Agent testing & evaluation"] },
-  { num: "06", title: "Capstone Projects", topics: ["End-to-end MLOps pipeline", "Production LLM app with RAG", "AIOps monitoring system", "Enterprise AI Agent"] },
-];
-
-const PROJECTS = [
-  { title: "End-to-End MLOps Pipeline", desc: "Automated ML pipeline with CI/CD, Kubernetes deployment, monitoring, and drift detection.", stack: ["Python", "MLflow", "Docker", "Kubernetes", "Jenkins"] },
-  { title: "Production LLM Application", desc: "Fine-tuned LLM with RAG system, vector database, prompt management, and monitoring.", stack: ["LangChain", "ChromaDB", "FastAPI", "Docker", "HuggingFace"] },
-  { title: "AIOps Monitoring Platform", desc: "Anomaly detection, predictive maintenance, automated remediation workflows.", stack: ["Prometheus", "Grafana", "Python", "Kubernetes", "Scikit-learn"] },
-  { title: "Enterprise AI Agent", desc: "Multi-agent system with tool integration, human-in-the-loop, and production deployment.", stack: ["LangChain", "CrewAI", "FastAPI", "PostgreSQL", "Docker"] },
-];
-
-const ROLES = [
-  { title: "MLOps Engineer", salary: "₹12-40 LPA" },
-  { title: "ML Engineer", salary: "₹15-45 LPA" },
-  { title: "AIOps Engineer", salary: "₹12-35 LPA" },
-  { title: "LLM/GenAI Engineer", salary: "₹20-50+ LPA" },
-  { title: "AI Agent Developer", salary: "₹18-45 LPA" },
-  { title: "ML Platform Engineer", salary: "₹18-40 LPA" },
-  { title: "SRE (ML Focus)", salary: "₹15-35 LPA" },
-  { title: "DevOps (AI/ML)", salary: "₹12-30 LPA" },
-];
 
 export default function MasterclassPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(STRUCTURED_DATA.course) }} />
-      {/* Hero */}
-      <section className="relative bg-stone-900 text-stone-100 border-b border-stone-800">
-        <div className="relative max-w-5xl mx-auto px-6 py-20 md:py-24 text-center">
-          <div className="flex justify-center gap-2 flex-wrap mb-6">
-            <span className="border border-stone-600 text-stone-300 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide">
-              Admissions open
-            </span>
-            <span className="border border-amber-700/50 text-amber-200/90 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide">
-              Limited seats
-            </span>
-          </div>
+      <HeroBanner />
+      <WhatYouMaster />
+      <FullSyllabus />
+      <CapstoneProjects />
+      <PricingSection />
+      <CareerRoles />
+      <InstructorSection />
+      <FAQSection />
+      <FinalCTA />
+      <SuccessStories />
+    </>
+  );
+}
 
-          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">
-            MLOps &amp; AIOps Masterclass
-          </h1>
-          <p className="text-lg md:text-xl text-stone-400 mb-4 max-w-3xl mx-auto">
-            DevOps &rarr; MLOps &rarr; LLMOps &rarr; AIOps &rarr; AI Agents
-          </p>
-          <p className="text-stone-500 mb-10 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
-            One continuous arc with heavy lab time - built for people who want production judgment, not buzzwords.
-          </p>
-
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-2 max-w-3xl mx-auto mb-10 text-left">
-            <div className="border border-stone-700 bg-stone-950/40 px-3 py-3">
-              <div className="text-white font-semibold text-sm">12–16 weeks</div>
-              <div className="text-stone-500 text-[10px] mt-1 uppercase tracking-wide">Duration</div>
-            </div>
-            <div className="border border-stone-700 bg-stone-950/40 px-3 py-3">
-              <div className="text-white font-semibold text-sm">200+</div>
-              <div className="text-stone-500 text-[10px] mt-1 uppercase tracking-wide">Hours</div>
-            </div>
-            <div className="border border-stone-700 bg-stone-950/40 px-3 py-3">
-              <div className="text-white font-semibold text-sm">4 capstones</div>
-              <div className="text-stone-500 text-[10px] mt-1 uppercase tracking-wide">Projects</div>
-            </div>
-            <div className="border border-stone-700 bg-stone-950/40 px-3 py-3 md:col-span-2">
-              <GlobalPricingBadge />
-            </div>
-          </div>
-
-          <div className="flex flex-col sm:flex-row justify-center gap-3 mb-6">
-            <a href={LINKS.enroll} target="_blank" rel="noopener noreferrer" className="inline-flex justify-center bg-white text-stone-900 px-8 py-3.5 text-sm font-semibold hover:bg-stone-100 transition-colors">
-              Join with global pricing
-            </a>
-            <a href={LINKS.whatsappSyllabus} target="_blank" rel="noopener noreferrer" className="inline-flex justify-center border border-stone-500 text-stone-100 px-8 py-3.5 text-sm font-semibold hover:bg-stone-800 transition-colors">
-              Syllabus on WhatsApp
-            </a>
-          </div>
-          <p className="text-stone-500 text-xs md:text-sm">
-            Live online, notes and recordings, mentorship, job support
-          </p>
+function HeroBanner() {
+  return (
+    <section className="bg-slate-900 text-white py-24 md:py-32">
+      <div className="max-w-4xl mx-auto px-6 text-center">
+        <div className="flex items-center justify-center gap-3 mb-6 flex-wrap">
+          <span className="inline-flex items-center gap-1.5 bg-red-600 text-white text-xs font-bold py-1.5 px-4 rounded uppercase tracking-wide">
+            <span className="w-2 h-2 bg-white rounded-full" style={{ animation: "pulse-dot 1.5s ease-in-out infinite" }} />
+            Admissions Open
+          </span>
+          <span className="bg-orange-500 text-white text-xs font-bold py-1.5 px-4 rounded uppercase tracking-wide">
+            Job Ready Course
+          </span>
         </div>
-      </section>
 
-      {/* What You'll Master */}
-      <section className="py-28 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <SectionHeader tag="Course Overview" title="What You'll Master" subtitle="Complete lifecycle from experimentation to production AI systems" />
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { icon: "🐳", title: "DevOps for AI/ML", desc: "Docker, Kubernetes, CI/CD, Terraform - infrastructure for AI workloads." },
-              { icon: "🔄", title: "MLOps Pipelines", desc: "End-to-end ML pipelines, MLflow, Kubeflow, model versioning, deployment." },
-              { icon: "🧠", title: "LLMOps & RAG", desc: "Deploy LLMs, fine-tuning, RAG systems, vector databases, prompt engineering." },
-              { icon: "⚡", title: "AIOps Automation", desc: "Anomaly detection, predictive analytics, self-healing infrastructure." },
-              { icon: "🤖", title: "AI Agents", desc: "LangChain, autonomous agents, tool use, multi-agent systems, MCP." },
-              { icon: "☁️", title: "Multi-Cloud", desc: "AWS SageMaker, Azure ML, GCP Vertex AI - production deployment." },
-            ].map((m) => (
-              <div key={m.title} className="bg-stone-50 rounded-2xl p-7 border border-stone-200 card-hover">
-                <div className="text-3xl mb-4">{m.icon}</div>
-                <h3 className="font-bold text-stone-900 text-lg mb-2">{m.title}</h3>
-                <p className="text-stone-500 text-sm leading-relaxed">{m.desc}</p>
+        <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 leading-tight">
+          MLOps · AIOps · LLMOps<br />
+          <span className="text-orange-400">AI Agentic Operations</span>
+        </h1>
+        <p className="text-slate-400 text-lg md:text-xl mb-2">Complete Job Ready Masterclass</p>
+        <p className="text-slate-400 text-base md:text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
+          A complete {MLOPS_MASTERCLASS_DURATION} live program from DevOps through production AI agents.
+          Built to make you job ready with real projects, interview prep and placement support.
+        </p>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mx-auto mb-8">
+          {[
+            { value: "4-5 Months", label: "Duration" },
+            { value: "200+ Hours", label: "Hands-on" },
+            { value: "6 Modules", label: "Curriculum" },
+            { value: "Job Ready", label: "Outcome" },
+          ].map((item) => (
+            <div key={item.label} className="bg-slate-800 border border-slate-700 rounded-lg px-4 py-5 text-center">
+              <div className="text-white font-bold text-xl">{item.value}</div>
+              <div className="text-slate-500 text-xs mt-1 uppercase tracking-wide">{item.label}</div>
+            </div>
+          ))}
+        </div>
+
+        <div className="bg-slate-800 border border-slate-700 rounded-lg p-4 max-w-md mx-auto mb-8">
+          <p className="text-white font-bold text-lg">
+            ₹40,000 <span className="text-slate-400 font-normal text-sm">India</span>
+            {" · "}
+            $450 <span className="text-slate-400 font-normal text-sm">USD</span>
+            {" · "}
+            €420 <span className="text-slate-400 font-normal text-sm">EUR</span>
+          </p>
+          <p className="text-slate-500 text-xs mt-1">Mon-Fri, 8:00-9:45 PM IST, Live online</p>
+        </div>
+
+        <div className="flex flex-col sm:flex-row justify-center gap-3 mb-4">
+          <a href={LINKS.enroll} target="_blank" rel="noopener noreferrer" className="inline-flex justify-center items-center bg-blue-700 text-white px-10 py-4 rounded-lg text-base font-semibold hover:bg-blue-800 transition-colors">
+            Enroll Now &rarr;
+          </a>
+          <a href="#full-syllabus" className="inline-flex justify-center items-center border-2 border-slate-600 text-slate-300 px-10 py-4 rounded-lg text-base font-semibold hover:border-slate-400 hover:text-white transition-colors">
+            View Full Syllabus
+          </a>
+        </div>
+        <p className="text-slate-500 text-sm">Live sessions, recordings, mentorship, job support</p>
+      </div>
+    </section>
+  );
+}
+
+function WhatYouMaster() {
+  const items = [
+    { icon: "🐳", title: "DevOps for AI/ML", desc: "Docker, Kubernetes, CI/CD, Terraform. Infrastructure for AI workloads." },
+    { icon: "🔄", title: "MLOps Pipelines", desc: "MLflow, Kubeflow, model versioning, deployment, monitoring, drift detection." },
+    { icon: "🧠", title: "LLMOps and RAG", desc: "Deploy LLMs, fine-tuning, RAG systems, vector databases, prompt engineering." },
+    { icon: "⚡", title: "AIOps Automation", desc: "Anomaly detection, predictive analytics, self-healing infrastructure." },
+    { icon: "🤖", title: "AI Agentic Ops", desc: "LangChain, CrewAI, MCP, multi-agent systems, enterprise agent deployment." },
+    { icon: "☁️", title: "Multi-Cloud", desc: "AWS SageMaker, Azure ML, GCP Vertex AI. Production deployment patterns." },
+  ];
+
+  return (
+    <section className="py-24 md:py-28 bg-white border-b border-slate-200">
+      <div className="max-w-7xl mx-auto px-6">
+        <SectionHeader
+          tag="Course Overview"
+          title="What you will master"
+          subtitle="Complete lifecycle from experimentation to production AI systems. MLOps, LLMOps, AIOps and agentic operations in one job ready path."
+        />
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {items.map((m) => (
+            <div key={m.title} className="panel p-7 card-hover group">
+              <div className="w-12 h-12 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center text-2xl mb-5">
+                {m.icon}
               </div>
-            ))}
-          </div>
+              <h3 className="font-display font-bold text-slate-900 text-lg mb-2 group-hover:text-blue-700 transition-colors">{m.title}</h3>
+              <p className="text-slate-600 text-sm leading-relaxed">{m.desc}</p>
+            </div>
+          ))}
         </div>
-      </section>
+      </div>
+    </section>
+  );
+}
 
-      {/* Detailed Modules */}
-      <section className="py-28 bg-stone-50">
-        <div className="max-w-5xl mx-auto px-6">
-          <SectionHeader tag="Curriculum" title="6 Comprehensive Modules" subtitle="Every module builds on the previous - a complete learning journey" />
-          <div className="space-y-6">
-            {MODULES.map((m) => (
-              <div key={m.num} className="panel p-8 card-hover">
-                <div className="flex items-center gap-4 mb-5">
-                  <span className="w-12 h-12 border border-stone-900 bg-stone-900 text-[#fffefc] flex items-center justify-center font-bold text-sm shrink-0">
-                    {m.num}
-                  </span>
-                  <h3 className="font-display font-bold text-stone-900 text-xl">{m.title}</h3>
-                </div>
-                <div className="grid sm:grid-cols-2 gap-2">
-                  {m.topics.map((t) => (
-                    <div key={t} className="flex items-center gap-2 text-stone-600 text-sm">
-                      <span className="text-accent-600">&rarr;</span> {t}
+function FullSyllabus() {
+  return (
+    <section className="py-24 md:py-28 bg-slate-50 border-b border-slate-200" id="full-syllabus">
+      <div className="max-w-7xl mx-auto px-6">
+        <SectionHeader
+          tag="Complete Syllabus"
+          title={`6 Modules · ${MLOPS_MASTERCLASS_DURATION} · 200+ Hours · Job Ready`}
+          subtitle="Every module builds on the previous. DevOps to MLOps, LLMOps, AIOps, AI Agents, then capstones and job prep."
+        />
+
+        <div className="space-y-5">
+          {MLOPS_MASTERCLASS_SYLLABUS.map((mod) => (
+            <div key={mod.module} className="panel overflow-hidden card-hover group bg-white">
+              <div className="flex flex-col md:flex-row">
+                <div className="md:w-72 lg:w-80 shrink-0 p-6 bg-slate-50 border-b md:border-b-0 md:border-r border-slate-200">
+                  <div className="flex items-center gap-4 mb-3">
+                    <div className="w-12 h-12 rounded-lg bg-blue-700 text-white flex items-center justify-center text-lg font-bold">
+                      {mod.module}
                     </div>
-                  ))}
+                    <span className="text-sm text-orange-600 font-bold">{mod.duration}</span>
+                  </div>
+                  <h3 className="font-display font-bold text-slate-900 text-xl leading-snug group-hover:text-blue-700 transition-colors">
+                    {mod.title}
+                  </h3>
+                </div>
+                <div className="flex-1 p-6">
+                  <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2.5">
+                    {mod.topics.map((topic) => (
+                      <li key={topic} className="text-sm text-slate-600 flex items-start gap-2 leading-relaxed">
+                        <span className="text-blue-600 mt-0.5 shrink-0 font-bold">&#10003;</span>
+                        {topic}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
-      </section>
 
-      {/* Capstone Projects */}
-      <section className="py-24 md:py-28 bg-stone-900 text-stone-100 border-y border-stone-800">
-        <div className="max-w-5xl mx-auto px-6">
-          <SectionHeader tag="Hands-on" title="Four capstone projects" subtitle="Pieces you can narrate in a technical interview without exaggerating." light />
-          <div className="grid md:grid-cols-2 gap-4">
-            {PROJECTS.map((p) => (
-              <div key={p.title} className="border border-stone-700 bg-stone-950/40 p-7">
-                <h3 className="font-display font-bold text-white text-lg mb-3">{p.title}</h3>
-                <p className="text-stone-400 text-sm leading-relaxed mb-4">{p.desc}</p>
-                <div className="flex flex-wrap gap-2">
-                  {p.stack.map((s) => (
-                    <span key={s} className="border border-stone-600 text-stone-300 px-2.5 py-0.5 text-[11px] font-medium uppercase tracking-wide">
-                      {s}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
+        <div className="text-center mt-14">
+          <div className="bg-blue-50 border border-blue-200 rounded-lg inline-block px-8 py-6 mb-8">
+            <p className="text-slate-800 text-lg font-semibold mb-1">Want the detailed PDF syllabus?</p>
+            <p className="text-slate-600 text-sm">Message on WhatsApp and I will share batch dates, timings, and payment options.</p>
           </div>
-        </div>
-      </section>
-
-      {/* Pricing */}
-      <section className="py-28 bg-white">
-        <div className="max-w-3xl mx-auto px-6 text-center">
-          <SectionHeader tag="Investment" title="Course Fee" subtitle="One investment that pays for itself many times over" />
-          <div className="panel border-l-4 border-l-accent-600 p-10 max-w-md mx-auto mb-8">
-            <div className="text-stone-500 text-xs font-semibold uppercase tracking-widest mb-2">Full program</div>
-            <div className="font-display text-5xl md:text-6xl font-bold text-stone-900 mb-2">₹35,000</div>
-            <p className="text-sm text-stone-500 mb-4">Localized checkout guidance available for USD and EUR visitors.</p>
-            <ul className="text-left space-y-3 mb-8">
-              {["200+ hours live training", "4 capstone projects", "1-on-1 mentorship", "Job assistance & placement", "Lifetime access to materials", "Daily notes & recordings"].map((f) => (
-                <li key={f} className="flex items-center gap-3 text-stone-600 text-sm">
-                  <span className="text-accent-600 font-bold shrink-0">✓</span>
-                  {f}
-                </li>
-              ))}
-            </ul>
-            <a href={LINKS.enroll} target="_blank" rel="noopener noreferrer" className="block w-full bg-stone-900 text-white py-3.5 text-sm font-semibold hover:bg-stone-800 transition-colors text-center">
-              Enroll &rarr;
+          <div className="flex flex-col sm:flex-row justify-center gap-3">
+            <a href={LINKS.whatsappSyllabus} target="_blank" rel="noopener noreferrer" className="inline-flex justify-center items-center bg-emerald-600 text-white px-8 py-3 rounded-lg text-sm font-semibold hover:bg-emerald-700 transition-colors">
+              WhatsApp for Syllabus &rarr;
+            </a>
+            <a href={LINKS.enroll} target="_blank" rel="noopener noreferrer" className="inline-flex justify-center items-center bg-blue-700 text-white px-8 py-3 rounded-lg text-sm font-semibold hover:bg-blue-800 transition-colors">
+              Enroll at ₹40,000
             </a>
           </div>
-          <p className="text-stone-500 text-sm">EMI options available. <a href={LINKS.whatsapp} target="_blank" className="text-accent-600 font-semibold hover:underline">WhatsApp for payment plans</a></p>
         </div>
-      </section>
+      </div>
+    </section>
+  );
+}
 
-      {/* Career Roles */}
-      <section className="py-28 bg-stone-50">
-        <div className="max-w-5xl mx-auto px-6">
-          <SectionHeader tag="Career" title="Roles You'll Be Ready For" subtitle="High-demand roles with competitive salaries" />
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-            {ROLES.map((r) => (
-              <div key={r.title} className="bg-white rounded-2xl p-5 border border-stone-200 text-center card-hover">
-                <h4 className="font-bold text-stone-900 mb-2">{r.title}</h4>
-                <p className="text-accent-600 font-bold text-sm">{r.salary}</p>
-              </div>
-            ))}
-          </div>
-          <div className="panel p-6 text-center border-stone-300">
-            <p className="text-stone-800 text-sm font-medium">Reference ranges only - markets move; always verify for your geography and level.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Instructor */}
-      <section className="py-28 bg-white">
-        <div className="max-w-5xl mx-auto px-6">
-          <div className="grid md:grid-cols-[300px_1fr] gap-12 items-center">
-            <div className="panel p-2">
-              <Image src="/assets/pic-1.png" alt="Rajinikanth Vadla - MLOps AIOps GenAI Trainer" width={300} height={380} className="w-full object-cover" />
-            </div>
-            <div>
-              <span className="text-xs font-semibold uppercase tracking-[0.14em] text-accent-600 mb-3 block">Instructor</span>
-              <h2 className="font-display text-3xl font-bold text-stone-900 mb-4">Rajinikanth Vadla</h2>
-              <p className="text-stone-600 leading-relaxed mb-6">
-                AI/ML Operations Engineer, Cloud Architect, and India&apos;s #1 rated MLOps &amp; AIOps trainer.
-                7+ years of enterprise experience building production AI systems. 500+ engineers trained with
-                95% placement rate and 60% average salary increase. Known for hands-on, real-world training
-                that bridges the gap between theory and production.
-              </p>
-              <div className="grid grid-cols-3 gap-4">
-                {[
-                  { value: "7+", label: "Years Experience" },
-                  { value: "500+", label: "Engineers Trained" },
-                  { value: "4.9★", label: "Average Rating" },
-                ].map((s) => (
-                  <div key={s.label}>
-                    <div className="text-2xl font-black text-stone-900">{s.value}</div>
-                    <div className="text-xs text-stone-500 font-medium mt-1">{s.label}</div>
-                  </div>
+function CapstoneProjects() {
+  return (
+    <section className="py-24 md:py-28 bg-slate-900 text-white border-y border-slate-800">
+      <div className="max-w-5xl mx-auto px-6">
+        <SectionHeader
+          tag="Hands-on"
+          title="Four capstone projects"
+          subtitle="Portfolio pieces you can walk through line by line in a technical interview."
+          light
+        />
+        <div className="grid md:grid-cols-2 gap-5">
+          {MLOPS_CAPSTONE_PROJECTS.map((p) => (
+            <div key={p.title} className="border border-slate-700 bg-slate-800 rounded-lg p-7 card-hover">
+              <h3 className="font-display font-bold text-white text-lg mb-3">{p.title}</h3>
+              <p className="text-slate-400 text-sm leading-relaxed mb-4">{p.desc}</p>
+              <div className="flex flex-wrap gap-2">
+                {p.stack.map((s) => (
+                  <span key={s} className="border border-slate-600 text-slate-300 px-2.5 py-1 rounded text-[11px] font-medium uppercase tracking-wide">
+                    {s}
+                  </span>
                 ))}
               </div>
             </div>
-          </div>
+          ))}
         </div>
-      </section>
+      </div>
+    </section>
+  );
+}
 
-      {/* FAQ */}
-      <section className="py-28 bg-stone-50">
-        <div className="max-w-5xl mx-auto px-6">
-          <SectionHeader tag="FAQ" title="Frequently Asked Questions" />
-          <div className="grid md:grid-cols-2 gap-6">
+function PricingSection() {
+  return (
+    <section className="py-24 md:py-28 bg-white border-b border-slate-200">
+      <div className="max-w-3xl mx-auto px-6 text-center">
+        <SectionHeader tag="Investment" title="Course fee" subtitle="One investment that pays for itself many times over" />
+        <div className="panel border-l-4 border-l-blue-700 p-10 max-w-md mx-auto mb-8 text-left">
+          <div className="text-slate-500 text-xs font-bold uppercase tracking-widest mb-2">Full program</div>
+          <div className="font-display text-5xl md:text-6xl font-bold text-slate-900 mb-1">₹40,000</div>
+          <p className="text-sm text-slate-500 mb-6">$450 USD · €420 EUR for international students</p>
+          <ul className="space-y-3 mb-8">
             {[
-              { q: "Who is this masterclass for?", a: "Software engineers, DevOps engineers, data scientists, ML engineers, cloud engineers, and anyone wanting to master AI/ML Operations for production systems." },
-              { q: "What are the prerequisites?", a: "Basic programming (Python preferred) and Linux familiarity. We teach everything else from scratch, including Docker, Kubernetes, and ML fundamentals." },
-              { q: "Is this live or recorded?", a: "All sessions are live with interactive Q&A. Recordings and daily notes are provided for review. You get lifetime access to all materials." },
-              { q: "What makes this different from other courses?", a: "Real production experience (not just theory), hands-on enterprise projects, personal mentorship from Rajinikanth, small batch sizes, and 95% job placement rate." },
-              { q: "Do you provide job/placement assistance?", a: "Yes! Resume optimization, LinkedIn review, mock interviews, salary negotiation guidance, and active placement support until you land your target role." },
-              { q: "Can I pay in installments?", a: "Yes, EMI and installment options are available. Contact us on WhatsApp for flexible payment plans." },
-            ].map((faq) => (
-              <div key={faq.q} className="bg-white rounded-2xl p-7 border border-stone-200 card-hover">
-                <h3 className="font-bold text-stone-900 text-lg mb-2">{faq.q}</h3>
-                <p className="text-stone-500 leading-relaxed">{faq.a}</p>
-              </div>
+              "4-5 month complete program",
+              "200+ hours live training",
+              "6 comprehensive modules",
+              "4 capstone portfolio projects",
+              "1-on-1 mentorship",
+              "Job assistance, interview prep and placement support",
+              "Lifetime access to recordings and notes",
+            ].map((f) => (
+              <li key={f} className="flex items-center gap-3 text-slate-600 text-sm">
+                <span className="text-blue-600 font-bold shrink-0">&#10003;</span>
+                {f}
+              </li>
             ))}
+          </ul>
+          <a href={LINKS.enroll} target="_blank" rel="noopener noreferrer" className="block w-full bg-blue-700 text-white py-3.5 rounded-lg text-sm font-semibold hover:bg-blue-800 transition-colors text-center">
+            Enroll Now &rarr;
+          </a>
+        </div>
+        <p className="text-slate-500 text-sm">
+          EMI options available.{" "}
+          <a href={LINKS.whatsapp} target="_blank" rel="noopener noreferrer" className="text-blue-700 font-semibold hover:underline">
+            WhatsApp for payment plans
+          </a>
+        </p>
+      </div>
+    </section>
+  );
+}
+
+function CareerRoles() {
+  return (
+    <section className="py-24 md:py-28 bg-slate-50 border-b border-slate-200">
+      <div className="max-w-5xl mx-auto px-6">
+        <SectionHeader tag="Career" title="Roles you will be ready for" subtitle="High-demand roles with competitive salaries in India" />
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+          {MLOPS_CAREER_ROLES.map((r) => (
+            <div key={r.title} className="panel p-5 text-center card-hover">
+              <h4 className="font-display font-bold text-slate-900 mb-2 text-sm leading-snug">{r.title}</h4>
+              <p className="text-orange-600 font-bold text-sm">{r.salary}</p>
+            </div>
+          ))}
+        </div>
+        <p className="text-center text-xs text-slate-400">Reference ranges only. Markets vary by geography and experience level.</p>
+      </div>
+    </section>
+  );
+}
+
+function InstructorSection() {
+  return (
+    <section className="py-24 md:py-28 bg-white border-b border-slate-200">
+      <div className="max-w-5xl mx-auto px-6">
+        <div className="grid md:grid-cols-[300px_1fr] gap-12 items-center">
+          <div className="panel p-2">
+            <Image src="/assets/pic-1.png" alt="Rajinikanth Vadla - MLOps AIOps LLMOps Trainer" width={300} height={380} className="w-full object-cover rounded-lg" />
+          </div>
+          <div>
+            <span className="text-xs font-bold uppercase tracking-[0.14em] text-blue-700 mb-3 block">Instructor</span>
+            <h2 className="font-display text-3xl font-bold text-slate-900 mb-4">Rajinikanth Vadla</h2>
+            <p className="text-slate-600 leading-relaxed mb-6">
+              MLOps, AIOps, LLMOps, and AI Agents trainer with 7+ years of enterprise experience building production AI systems.
+              500+ engineers trained with 95% positive outcomes and 60% average salary increase reported by alumni.
+              Known for hands-on, real-world training that bridges the gap between theory and production.
+            </p>
+            <div className="grid grid-cols-3 gap-4">
+              {[
+                { value: "7+", label: "Years Experience" },
+                { value: "500+", label: "Engineers Trained" },
+                { value: "4.9★", label: "Average Rating" },
+              ].map((s) => (
+                <div key={s.label}>
+                  <div className="font-display text-2xl font-bold text-blue-700 stat-number">{s.value}</div>
+                  <div className="text-xs text-slate-500 font-medium mt-1">{s.label}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
+  );
+}
 
-      {/* Final CTA */}
-      <section className="py-28 bg-white">
-        <div className="max-w-3xl mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-5xl font-extrabold text-stone-900 mb-5">Transform Your Career in AI/ML</h2>
-          <p className="text-lg text-stone-500 mb-10">
-            Join 500+ engineers who accelerated their careers. Limited seats per batch for personal attention.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4 mb-6">
-            <a href={LINKS.enroll} target="_blank" rel="noopener noreferrer" className="bg-stone-900 text-white px-8 py-3.5 text-sm font-semibold hover:bg-stone-800 transition-colors">
-              Enroll for ₹35,000
-            </a>
-            <a href={LINKS.whatsapp} target="_blank" rel="noopener noreferrer" className="bg-emerald-700 text-white px-8 py-3.5 text-sm font-semibold hover:bg-emerald-800 transition-colors">
-              WhatsApp
-            </a>
-          </div>
-          <p className="text-stone-400 text-sm">Free demo class. Reply in 24 hours. No obligation. EMI available.</p>
+function FAQSection() {
+  const faqs = [
+    {
+      q: "Who is this masterclass for?",
+      a: "Software engineers, DevOps engineers, data scientists, ML engineers, cloud engineers, and anyone wanting to master MLOps, LLMOps, AIOps, and AI agentic operations for production systems.",
+    },
+    {
+      q: "What are the prerequisites?",
+      a: "Basic programming (Python preferred) and Linux familiarity. We teach Docker, Kubernetes, and ML fundamentals from scratch inside the program.",
+    },
+    {
+      q: "Is this live or recorded?",
+      a: "All sessions are live with interactive Q&A. Recordings and daily notes are provided. You get lifetime access to all materials.",
+    },
+    {
+      q: "What makes this different from Udemy or Coursera?",
+      a: "Real production experience, hands-on enterprise projects, personal mentorship from Rajinikanth Vadla, small batch sizes, and active job support. Not pre-recorded videos alone.",
+    },
+    {
+      q: "Do you provide job and placement assistance?",
+      a: "Yes. Resume optimization, LinkedIn review, mock interviews, salary negotiation guidance, and placement support until you land your target role.",
+    },
+    {
+      q: "How long is the complete job ready program?",
+      a: "The full program runs 4-5 months with live sessions Monday to Friday, 8:00 to 9:45 PM IST. You get 200+ hours of hands-on labs, 6 modules, 4 capstone projects, and a dedicated job ready track with interview prep.",
+    },
+    {
+      q: "Can I pay in installments?",
+      a: "Yes, EMI and installment options are available. Contact on WhatsApp for flexible payment plans.",
+    },
+    {
+      q: "Does the syllabus cover LLMOps and AI Agents?",
+      a: "Yes. Modules 3 and 5 are dedicated to LLMOps (RAG, fine-tuning, LLM deployment) and AI Agentic Operations (LangChain, CrewAI, MCP, multi-agent systems).",
+    },
+    {
+      q: "Can I join from outside India?",
+      a: "Yes. Training is live online. Students from USA, Europe, Middle East, and other regions regularly enroll. Pricing: ₹40,000 (India), $450 (USD), €420 (EUR).",
+    },
+  ];
+
+  return (
+    <section className="py-20 md:py-24 bg-slate-50 border-b border-slate-200">
+      <div className="max-w-4xl mx-auto px-6">
+        <SectionHeader tag="FAQ" title="Frequently asked questions" />
+        <div className="space-y-3">
+          {faqs.map((faq) => (
+            <details key={faq.q} className="panel group bg-white">
+              <summary className="flex items-start justify-between gap-4 p-5 cursor-pointer list-none font-display font-bold text-slate-900 text-base leading-snug hover:text-blue-700 transition-colors">
+                {faq.q}
+                <span className="text-slate-400 text-xl shrink-0 group-open:rotate-45 transition-transform">+</span>
+              </summary>
+              <div className="px-5 pb-5 -mt-1">
+                <p className="text-slate-600 text-sm leading-relaxed">{faq.a}</p>
+              </div>
+            </details>
+          ))}
         </div>
-      </section>
+      </div>
+    </section>
+  );
+}
 
-      <SuccessStories />
-    </>
+function FinalCTA() {
+  return (
+    <section className="py-20 md:py-24 bg-blue-700 text-white">
+      <div className="max-w-3xl mx-auto px-6 text-center">
+        <h2 className="font-display text-3xl md:text-4xl font-bold mb-4 leading-tight">
+          Ready to master MLOps, LLMOps, AIOps &amp; AI Agents?
+        </h2>
+        <p className="text-blue-100 text-lg mb-8 leading-relaxed">
+          Join 500+ engineers who accelerated their careers. Limited seats per batch for personal attention.
+        </p>
+        <div className="flex flex-col sm:flex-row justify-center gap-3 mb-4">
+          <a href={LINKS.enroll} target="_blank" rel="noopener noreferrer" className="inline-flex justify-center bg-orange-500 text-white px-10 py-4 rounded-lg text-base font-bold hover:bg-orange-600 transition-colors">
+            Enroll at ₹40,000 &rarr;
+          </a>
+          <a href={LINKS.whatsapp} target="_blank" rel="noopener noreferrer" className="inline-flex justify-center bg-emerald-600 text-white px-10 py-4 rounded-lg text-base font-semibold hover:bg-emerald-700 transition-colors">
+            WhatsApp
+          </a>
+        </div>
+        <p className="text-blue-300 text-sm">Free demo class · Reply within 24 hours · EMI available</p>
+      </div>
+    </section>
   );
 }

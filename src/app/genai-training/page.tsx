@@ -4,7 +4,7 @@ import TrainingPageLayout from "@/components/TrainingPageLayout";
 export const metadata: Metadata = {
   title: "GenAI & AI Agents Training — LangChain, RAG, LLMs",
   description:
-    "Build AI Agents & production GenAI apps — LangChain, RAG, LLM deployment, vector DBs, MCP. Hands-on with GPT, Claude, LLaMA. ₹35,000.",
+    "Build AI Agents & production GenAI apps — LangChain, RAG, LLM deployment, vector DBs, MCP. Hands-on with GPT, Claude, LLaMA. ₹40,000.",
   alternates: { canonical: "https://www.rajinikanthvadla.com/genai-training/" },
 };
 

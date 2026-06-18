@@ -4,7 +4,7 @@ import TrainingPageLayout from "@/components/TrainingPageLayout";
 export const metadata: Metadata = {
   title: "MLOps Training India — MLflow, Kubeflow, Production ML",
   description:
-    "Hands-on MLOps training in India: ML pipelines, MLflow, Kubeflow, model deployment & monitoring. 500+ trained, 95% placement. ₹35,000.",
+    "Hands-on MLOps training in India: ML pipelines, MLflow, Kubeflow, model deployment & monitoring. 500+ trained, 95% placement. ₹40,000.",
   alternates: { canonical: "https://www.rajinikanthvadla.com/mlops-training/" },
 };
 

@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
+import NewCoursesPopup from "@/components/NewCoursesPopup";
 import { SITE, STRUCTURED_DATA } from "@/lib/constants";
 
 const display = Libre_Baskerville({
@@ -25,16 +26,22 @@ export const metadata: Metadata = {
   },
   description: SITE.description,
   keywords: [
-    "MLOps course",
+    "MLOps course India",
+    "best MLOps course India",
+    "job ready MLOps course",
+    "MLOps AIOps LLMOps course",
+    "AI Agents course India",
     "LLMOps training",
     "AIOps training India",
-    "AI Agents course",
+    "MLOps course with placement",
+    "live MLOps training",
+    "Rajinikanth Vadla MLOps course",
+    "MLOps masterclass India",
+    "AI Agentic Operations course",
+    "MLOps interview preparation",
     "AI-Powered Automation course",
     "AI automation training",
     "enterprise AI automation",
-    "intelligent process automation course",
-    "AI automation efficiency",
-    "Generative AI mentorship",
     "LangChain training",
     "RAG systems course",
     "Kubernetes for AI",
@@ -42,9 +49,7 @@ export const metadata: Metadata = {
     "AI career mentorship",
     "multi-agent systems training",
     "LLM agents course",
-    "AI workflow automation",
     "production AI pipelines",
-    "AI governance training",
   ],
   metadataBase: new URL(SITE.url),
   authors: [{ name: "Rajinikanth Vadla", url: SITE.url }],
@@ -118,6 +123,7 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <Footer />
+        <NewCoursesPopup />
         <WhatsAppFloat />
       </body>
     </html>

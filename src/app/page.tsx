@@ -1,11 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
-import { LINKS, STATS, COURSES, STRUCTURED_DATA, AI_AUTOMATION_SYLLABUS } from "@/lib/constants";
+import { LINKS, STATS, COURSES, STRUCTURED_DATA, AI_AUTOMATION_SYLLABUS, MLOPS_MASTERCLASS_SYLLABUS, MLOPS_MASTERCLASS_DURATION } from "@/lib/constants";
 import { LinkedInIcon, InstagramIcon, YouTubeIcon } from "@/components/Icons";
 import SectionHeader from "@/components/SectionHeader";
 import CTASection from "@/components/CTASection";
 import SuccessStories from "@/components/SuccessStories";
-import GlobalPricingBadge from "@/components/GlobalPricingBadge";
 import articles from "../../content/articles.json";
 
 const latestArticles = [...articles]
@@ -25,6 +24,7 @@ export default function HomePage() {
       <AIAutomationCourseBanner />
       <AIAutomationSyllabusSection />
       <CourseBanner />
+      <MasterclassSyllabusSection />
       <VideoSection />
       <CoursesSection />
       <TrustSection />
@@ -49,7 +49,7 @@ function AIAutomationTopBanner() {
           Starting Soon
         </span>
         <p className="font-medium">
-          <span className="font-bold">AI-Powered Automation Efficiency</span> — 30–35 day enterprise course
+          <span className="font-bold">AI-Powered Automation Efficiency</span>: 30-35 day enterprise course
         </p>
         <Link
           href="/courses/ai-automation"
@@ -83,7 +83,7 @@ function HeroSection() {
           </h1>
 
           <p className="text-lg md:text-xl text-slate-300 font-medium mb-4 leading-relaxed max-w-xl">
-            MLOps, AIOps, GenAI, AI Agents, and <span className="text-orange-400 font-semibold">AI-Powered Automation</span> — taught from real enterprise delivery, not slide decks.
+            MLOps, AIOps, GenAI, AI Agents, and <span className="text-orange-400 font-semibold">AI-Powered Automation</span>. Taught from real enterprise delivery, not slide decks.
           </p>
           <p className="text-slate-400 text-base max-w-xl mb-10 leading-relaxed border-l-2 border-blue-500 pl-5">
             I help engineers ship models and AI systems that survive production. Seven-plus years on the job;
@@ -254,7 +254,7 @@ function ServicesSection() {
   const data = [
     { icon: "🤖", title: "AI Agents & GenAI", desc: "Agents, RAG, and LLM apps with an eye on evaluation and cost.", href: "/genai-training" },
     { icon: "🧠", title: "MLOps Engineering", desc: "Pipelines, registries, deployment patterns, and monitoring that teams run daily.", href: "/mlops-training" },
-    { icon: "⚡", title: "AI-Powered Automation", desc: "Cursor, Claude, Codex, AWS Bedrock agents — enterprise AI tools that JDs demand.", href: "/courses/ai-automation" },
+    { icon: "⚡", title: "AI-Powered Automation", desc: "Cursor, Claude, Codex, AWS Bedrock agents. Enterprise AI tools that JDs demand.", href: "/courses/ai-automation" },
     { icon: "☁️", title: "Multi-Cloud & K8s", desc: "AWS, Azure, GCP - the boring, important parts that keep models online.", href: "/courses" },
     { icon: "✨", title: "AI Tools for Productivity", desc: "Practical use of modern assistants without losing engineering judgment.", href: "/ai-tools-productivity" },
   ];
@@ -301,14 +301,14 @@ function AIAutomationCourseBanner() {
         </h2>
 
         <p className="text-blue-100 text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed">
-          Master the AI tools enterprises actually hire for — Cursor, Claude, Codex, ChatGPT, AWS Bedrock Agents,
+          Master the AI tools enterprises actually hire for: Cursor, Claude, Codex, ChatGPT, AWS Bedrock Agents,
           open-source agents, and rapid prototyping tools.{" "}
           <span className="text-orange-300 font-semibold">Skills straight from enterprise JDs.</span>
         </p>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mx-auto mb-10">
           {[
-            { value: "30–35 Days", label: "Duration" },
+            { value: "30-35 Days", label: "Duration" },
             { value: "45 Days", label: "Extendable To" },
             { value: "6 Modules", label: "Focused Training" },
             { value: "Live Online", label: "Format" },
@@ -340,8 +340,8 @@ function AIAutomationSyllabusSection() {
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeader
           tag="Full Syllabus"
-          title="AI-Powered Automation Efficiency — What You Will Master"
-          subtitle="6 focused modules in 30–35 days. Every topic maps to what enterprise JDs ask for. Extendable to 45 days."
+          title="AI-Powered Automation Efficiency: What You Will Master"
+          subtitle="6 focused modules in 30-35 days. Every topic maps to what enterprise JDs ask for. Extendable to 45 days."
         />
 
         <div className="grid md:grid-cols-2 gap-5">
@@ -391,32 +391,38 @@ function CourseBanner() {
   return (
     <section className="bg-slate-900 text-white">
       <div className="max-w-3xl mx-auto px-6 py-20 md:py-24 text-center">
-        <p className="text-xs font-semibold uppercase tracking-[0.15em] text-slate-400 mb-5">Live cohort, limited seats</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.15em] text-slate-400 mb-5">Complete job ready program, limited seats</p>
 
         <h2 className="font-display text-3xl md:text-5xl font-bold text-white mb-5 leading-tight">
-          MLOps &amp; AIOps Masterclass
+          MLOps · AIOps · LLMOps · AI Agents
         </h2>
+        <p className="text-orange-400 font-semibold text-base md:text-lg mb-3">Job Ready Masterclass</p>
         <p className="text-slate-400 text-lg mb-10 max-w-xl mx-auto leading-relaxed">
-          A full arc from solid DevOps habits through MLOps, LLMOps, AIOps, and agents - with labs that mirror how teams
-          actually review and ship work.
+          A complete {MLOPS_MASTERCLASS_DURATION} live program from DevOps through production AI agents.
+          Built to make you job ready with real projects, interview prep and placement support.
         </p>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-2xl mx-auto mb-10 text-left">
           <div className="border border-slate-700 bg-slate-800 px-4 py-3 rounded-lg">
-            <div className="text-white font-semibold text-sm">8–12 weeks</div>
+            <div className="text-white font-semibold text-sm">4-5 months</div>
             <div className="text-slate-500 text-xs mt-1 uppercase tracking-wide">Duration</div>
           </div>
           <div className="border border-slate-700 bg-slate-800 px-4 py-3 rounded-lg">
-            <div className="text-white font-semibold text-sm">Live online</div>
-            <div className="text-slate-500 text-xs mt-1 uppercase tracking-wide">Format</div>
+            <div className="text-white font-semibold text-sm">200+ hrs</div>
+            <div className="text-slate-500 text-xs mt-1 uppercase tracking-wide">Hands-on</div>
           </div>
-          <div className="border border-slate-700 bg-slate-800 px-4 py-3 rounded-lg md:col-span-2">
-            <GlobalPricingBadge />
+          <div className="border border-slate-700 bg-slate-800 px-4 py-3 rounded-lg">
+            <div className="text-white font-semibold text-sm">6 modules</div>
+            <div className="text-slate-500 text-xs mt-1 uppercase tracking-wide">Curriculum</div>
+          </div>
+          <div className="border border-slate-700 bg-slate-800 px-4 py-3 rounded-lg">
+            <div className="text-white font-semibold text-sm">Job ready</div>
+            <div className="text-slate-500 text-xs mt-1 uppercase tracking-wide">Outcome</div>
           </div>
         </div>
 
         <div className="bg-slate-800 border border-slate-700 rounded-lg p-4 max-w-md mx-auto mb-8 text-center">
-          <p className="text-white font-bold text-lg">₹35,000 <span className="text-slate-400 font-normal text-sm">India</span> · $450 <span className="text-slate-400 font-normal text-sm">USD</span> · €420 <span className="text-slate-400 font-normal text-sm">EUR</span></p>
+          <p className="text-white font-bold text-lg">₹40,000 <span className="text-slate-400 font-normal text-sm">India</span> · $450 <span className="text-slate-400 font-normal text-sm">USD</span> · €420 <span className="text-slate-400 font-normal text-sm">EUR</span></p>
           <p className="text-slate-500 text-xs mt-1">Localized pricing based on your region</p>
         </div>
 
@@ -427,6 +433,60 @@ function CourseBanner() {
           <a href={LINKS.whatsappSyllabus} target="_blank" rel="noopener noreferrer" className="inline-flex justify-center border-2 border-slate-600 text-slate-300 px-8 py-3.5 rounded-lg text-sm font-semibold hover:border-slate-400 hover:text-white transition-colors">
             WhatsApp for syllabus
           </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function MasterclassSyllabusSection() {
+  return (
+    <section className="py-24 md:py-28 bg-slate-50 border-b border-slate-200" id="masterclass-syllabus">
+      <div className="max-w-7xl mx-auto px-6">
+        <SectionHeader
+          tag="Job Ready Program"
+          title="MLOps · AIOps · LLMOps · AI Agentic Operations: Full Syllabus"
+          subtitle={`6 modules over ${MLOPS_MASTERCLASS_DURATION}. DevOps foundations through production AI agents. Every topic maps to what hiring managers expect.`}
+        />
+
+        <div className="grid md:grid-cols-2 gap-5 mb-12">
+          {MLOPS_MASTERCLASS_SYLLABUS.map((mod) => (
+            <div key={mod.module} className="panel p-6 card-hover group bg-white">
+              <div className="flex items-start gap-4 mb-4">
+                <div className="w-10 h-10 rounded-lg bg-blue-700 text-white flex items-center justify-center text-sm font-bold shrink-0">
+                  {mod.module}
+                </div>
+                <div className="flex-1">
+                  <span className="text-xs font-bold text-orange-600">{mod.duration}</span>
+                  <h3 className="font-display font-bold text-slate-900 text-lg leading-snug mt-1 group-hover:text-blue-700 transition-colors">
+                    {mod.title}
+                  </h3>
+                </div>
+              </div>
+              <ul className="space-y-2 pl-14">
+                {mod.topics.map((topic) => (
+                  <li key={topic} className="text-sm text-slate-600 flex items-start gap-2 leading-relaxed">
+                    <span className="text-blue-600 mt-0.5 shrink-0 font-bold">&#10003;</span>
+                    {topic}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <div className="text-center">
+          <div className="inline-flex flex-col sm:flex-row gap-3">
+            <Link href="/mlops-aiops-masterclass" className="inline-flex justify-center items-center bg-blue-700 text-white px-8 py-3 rounded-lg text-sm font-semibold hover:bg-blue-800 transition-colors">
+              View Full Course Page &rarr;
+            </Link>
+            <a href={LINKS.enroll} target="_blank" rel="noopener noreferrer" className="inline-flex justify-center items-center bg-orange-500 text-white px-8 py-3 rounded-lg text-sm font-semibold hover:bg-orange-600 transition-colors">
+              Enroll at ₹40,000
+            </a>
+            <a href={LINKS.whatsappSyllabus} target="_blank" rel="noopener noreferrer" className="inline-flex justify-center items-center bg-emerald-600 text-white px-8 py-3 rounded-lg text-sm font-semibold hover:bg-emerald-700 transition-colors">
+              WhatsApp for Syllabus
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -659,11 +719,15 @@ function FAQSection() {
     },
     {
       q: "Which is the best MLOps course in India?",
-      a: "Rajinikanth Vadla's MLOps & AIOps Masterclass is a 12–16 week live program covering DevOps through MLOps, LLMOps, AIOps, and AI Agents. Priced at ₹35,000 with 200+ hours of hands-on training, 4 capstone projects, and a 4.9/5 rating from 500+ students.",
+      a: "Rajinikanth Vadla's MLOps and AIOps Masterclass is a complete 4-5 month job-ready live program covering DevOps through MLOps, LLMOps, AIOps, and AI Agents. Priced at ₹40,000 with 200+ hours of hands-on training, 4 capstone projects, interview prep, placement support, and a 4.9/5 rating from 500+ students.",
+    },
+    {
+      q: "Which MLOps course is best for job ready training in 2026?",
+      a: "The 4-5 month MLOps, AIOps, LLMOps and AI Agents Masterclass by Rajinikanth Vadla is built for job readiness. It includes 200+ hours of live labs, 4 portfolio capstones, mock interviews, resume review, and placement support until you land your target role.",
     },
     {
       q: "What is the AI-Powered Automation Efficiency course?",
-      a: "A 30–35 day intensive (extendable to 45 days) enterprise-level course covering Cursor, Claude AI, OpenAI Codex, ChatGPT, AWS Bedrock Agents, open-source AI agents (LangChain, CrewAI), and rapid prototyping tools (Lovable, Bolt). It teaches the exact skills that appear in enterprise job descriptions.",
+      a: "A 30-35 day intensive (extendable to 45 days) enterprise-level course covering Cursor, Claude AI, OpenAI Codex, ChatGPT, AWS Bedrock Agents, open-source AI agents (LangChain, CrewAI), and rapid prototyping tools (Lovable, Bolt). It teaches the exact skills that appear in enterprise job descriptions.",
     },
     {
       q: "Should I learn MLOps or AIOps first?",
@@ -675,15 +739,15 @@ function FAQSection() {
     },
     {
       q: "What salary can I expect after MLOps training?",
-      a: "MLOps Engineers earn ₹12–50 LPA in India, $120K–$200K+ in USA, and €70K–€120K+ in Europe. Students of Rajinikanth Vadla report a 60% average salary increase after completing the training.",
+      a: "MLOps Engineers earn ₹12-50 LPA in India, $120K-$200K+ in USA, and €70K-€120K+ in Europe. Students of Rajinikanth Vadla report a 60% average salary increase after completing the training.",
     },
     {
       q: "Can I join from outside India?",
-      a: "Yes. All training and mentorship is delivered live online. Students from USA, Europe, Middle East, and other regions regularly enroll. Pricing is localized: ₹35,000 (India), $450 (USD), €420 (EUR). Mentorship is available worldwide on Topmate.",
+      a: "Yes. All training and mentorship is delivered live online. Students from USA, Europe, Middle East, and other regions regularly enroll. Pricing is localized: ₹40,000 (India), $450 (USD), €420 (EUR). Mentorship is available worldwide on Topmate.",
     },
     {
       q: "How is live training different from Udemy or Coursera?",
-      a: "Live training with Rajinikanth Vadla offers real-time interaction, hands-on labs reviewed by the instructor, career mentorship, and interview prep — things self-paced courses cannot provide. The 60% average salary increase and 95% positive outcomes reflect this difference.",
+      a: "Live training with Rajinikanth Vadla offers real-time interaction, hands-on labs reviewed by the instructor, career mentorship, and interview prep. Things self-paced courses cannot provide. The 60% average salary increase and 95% positive outcomes reflect this difference.",
     },
   ];
 

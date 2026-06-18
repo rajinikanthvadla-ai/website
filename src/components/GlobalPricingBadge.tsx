@@ -10,7 +10,7 @@ type RegionPricing = {
 };
 
 const PRICING: Record<string, RegionPricing> = {
-  IN: { currency: "INR", amount: 35000, timezoneLabel: "IST", timezoneIana: "Asia/Kolkata" },
+  IN: { currency: "INR", amount: 40000, timezoneLabel: "IST", timezoneIana: "Asia/Kolkata" },
   US: { currency: "USD", amount: 450, timezoneLabel: "ET", timezoneIana: "America/New_York" },
   EU: { currency: "EUR", amount: 420, timezoneLabel: "CET", timezoneIana: "Europe/Berlin" },
 };

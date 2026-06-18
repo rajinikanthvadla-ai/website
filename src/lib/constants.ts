@@ -1,9 +1,11 @@
+export const MLOPS_MASTERCLASS_DURATION = "4-5 months";
+
 export const SITE = {
   name: "Rajinikanth Vadla",
   title:
-    "Rajinikanth Vadla — MLOps, AIOps, GenAI & AI-Powered Automation Training",
+    "Rajinikanth Vadla | MLOps, AIOps, LLMOps, AI Agents Job Ready Course India",
   description:
-    "Live MLOps, AIOps, GenAI & AI-Powered Automation training — 500+ engineers trained, hands-on labs, enterprise projects, 1:1 mentorship worldwide. New: AI-Powered Automation Efficiency course starting soon.",
+    "Complete 4-5 month job-ready MLOps, AIOps, LLMOps and AI Agentic Operations course. Live training, 500+ engineers trained, hands-on labs, capstone projects, placement support. Best MLOps course India by Rajinikanth Vadla.",
   url: "https://www.rajinikanthvadla.com",
   image: "https://www.rajinikanthvadla.com/assets/pic-1.png",
   phone: "+91-9100028801",
@@ -62,7 +64,7 @@ export const AI_AUTOMATION_SYLLABUS = [
   {
     module: 1,
     title: "AI-Assisted Development with Cursor, Copilot & Codex",
-    duration: "Day 1–7",
+    duration: "Day 1-7",
     topics: [
       "Cursor IDE: agentic coding, multi-file edits, codebase-aware prompts",
       "GitHub Copilot: inline completions, chat, workspace agents",
@@ -75,7 +77,7 @@ export const AI_AUTOMATION_SYLLABUS = [
   {
     module: 2,
     title: "ChatGPT, Claude & Gemini for Enterprise Workflows",
-    duration: "Day 8–12",
+    duration: "Day 8-12",
     topics: [
       "ChatGPT (GPT-4o, o3): API integration, custom GPTs, enterprise use cases",
       "Claude AI: long-context analysis, document processing, system prompts",
@@ -88,7 +90,7 @@ export const AI_AUTOMATION_SYLLABUS = [
   {
     module: 3,
     title: "AWS Bedrock Agents & Cloud AI Services",
-    duration: "Day 13–18",
+    duration: "Day 13-18",
     topics: [
       "AWS Bedrock: foundation models, agents, knowledge bases, guardrails",
       "Building production Bedrock agents with action groups & APIs",
@@ -101,7 +103,7 @@ export const AI_AUTOMATION_SYLLABUS = [
   {
     module: 4,
     title: "Open-Source AI Agents for Enterprise",
-    duration: "Day 19–24",
+    duration: "Day 19-24",
     topics: [
       "LangChain agents: tool use, chains, memory, and retrieval",
       "CrewAI: multi-agent role-based automation",
@@ -114,7 +116,7 @@ export const AI_AUTOMATION_SYLLABUS = [
   {
     module: 5,
     title: "Rapid Prototyping & Low-Code AI Tools",
-    duration: "Day 25–28",
+    duration: "Day 25-28",
     topics: [
       "Lovable & Bolt: AI-powered full-stack app generation",
       "v0 by Vercel: UI generation from natural language",
@@ -127,7 +129,7 @@ export const AI_AUTOMATION_SYLLABUS = [
   {
     module: 6,
     title: "Enterprise AI Automation, Governance & Career Readiness",
-    duration: "Day 29–35",
+    duration: "Day 29-35",
     topics: [
       "Enterprise AI automation strategy & ROI measurement",
       "AI security: prompt injection, data leakage, access control",
@@ -139,32 +141,162 @@ export const AI_AUTOMATION_SYLLABUS = [
   },
 ];
 
+export const MLOPS_MASTERCLASS_SYLLABUS = [
+  {
+    module: 1,
+    title: "DevOps Fundamentals for AI/ML",
+    duration: "Month 1",
+    topics: [
+      "Linux, shell scripting and Git workflows for ML teams",
+      "Docker containerization for ML models and services",
+      "Kubernetes orchestration on EKS, AKS, GKE",
+      "Terraform and Ansible infrastructure as code",
+      "CI/CD with Jenkins, GitHub Actions, GitLab CI",
+      "AWS, Azure, GCP cloud foundations for AI workloads",
+      "Prometheus and Grafana monitoring and alerting",
+      "Hands-on: Containerize and deploy an ML service on Kubernetes",
+    ],
+  },
+  {
+    module: 2,
+    title: "MLOps: Machine Learning Operations",
+    duration: "Month 2",
+    topics: [
+      "ML lifecycle and MLOps maturity model",
+      "Data engineering and feature stores (Feast)",
+      "Experiment tracking with MLflow",
+      "Model versioning with DVC",
+      "Model deployment with FastAPI and REST APIs",
+      "ML CI/CD pipelines: build, test, deploy",
+      "Model monitoring, drift detection and retraining triggers",
+      "Kubeflow and SageMaker pipelines in production",
+      "Hands-on: End-to-end MLOps pipeline with MLflow and Kubernetes",
+    ],
+  },
+  {
+    module: 3,
+    title: "LLMOps: Large Language Model Operations",
+    duration: "Month 3",
+    topics: [
+      "LLM lifecycle management from prototype to production",
+      "Prompt engineering patterns for production systems",
+      "Fine-tuning with LoRA and QLoRA",
+      "RAG systems and vector databases (Pinecone, Chroma, pgvector)",
+      "LLM deployment, optimization and cost control",
+      "LLM evaluation, guardrails and responsible AI",
+      "vLLM, TGI and model serving on Kubernetes",
+      "Hands-on: Production RAG application with monitoring",
+    ],
+  },
+  {
+    module: 4,
+    title: "AIOps: AI for IT Operations",
+    duration: "Month 4",
+    topics: [
+      "Anomaly detection with Prometheus, Grafana and ML",
+      "Predictive analytics for infrastructure health",
+      "Root cause analysis with AI-assisted workflows",
+      "Self-healing infrastructure and automated remediation",
+      "Cloud-native AIOps patterns on AWS, Azure, GCP",
+      "Chaos engineering and resilience testing",
+      "Intelligent alerting: reduce noise, act on signal",
+      "Hands-on: AIOps lab to detect CPU anomalies in real time",
+    ],
+  },
+  {
+    module: 5,
+    title: "AI Agents and Agentic Operations",
+    duration: "Month 4-5",
+    topics: [
+      "LangChain agent framework: tools, chains, memory",
+      "Tool use, function calling and structured outputs",
+      "Agent memory systems and state management",
+      "Multi-agent orchestration with CrewAI and AutoGen",
+      "Model Context Protocol (MCP) in enterprise workflows",
+      "Enterprise agent deployment and scaling patterns",
+      "Agent testing, evaluation and observability",
+      "Hands-on: Build and deploy a production AI agent",
+    ],
+  },
+  {
+    module: 6,
+    title: "Capstone Projects and Job Ready Track",
+    duration: "Month 5",
+    topics: [
+      "Capstone 1: End-to-end MLOps pipeline with CI/CD",
+      "Capstone 2: Production LLM application with RAG",
+      "Capstone 3: AIOps monitoring and anomaly detection platform",
+      "Capstone 4: Enterprise multi-agent AI system",
+      "Architecture reviews and production readiness checks",
+      "Resume, LinkedIn and portfolio preparation for MLOps roles",
+      "MLOps, AIOps, LLMOps system design interview prep",
+      "Mock interviews, job applications and salary negotiation",
+    ],
+  },
+];
+
+export const MLOPS_CAPSTONE_PROJECTS = [
+  {
+    title: "End-to-End MLOps Pipeline",
+    desc: "Automated ML pipeline with CI/CD, Kubernetes deployment, monitoring, and drift detection.",
+    stack: ["Python", "MLflow", "Docker", "Kubernetes", "Jenkins"],
+  },
+  {
+    title: "Production LLM Application",
+    desc: "Fine-tuned LLM with RAG system, vector database, prompt management, and monitoring.",
+    stack: ["LangChain", "ChromaDB", "FastAPI", "Docker", "HuggingFace"],
+  },
+  {
+    title: "AIOps Monitoring Platform",
+    desc: "Anomaly detection, predictive maintenance, and automated remediation workflows.",
+    stack: ["Prometheus", "Grafana", "Python", "Kubernetes", "Scikit-learn"],
+  },
+  {
+    title: "Enterprise AI Agent",
+    desc: "Multi-agent system with tool integration, human-in-the-loop, and production deployment.",
+    stack: ["LangChain", "CrewAI", "FastAPI", "PostgreSQL", "Docker"],
+  },
+];
+
+export const MLOPS_CAREER_ROLES = [
+  { title: "MLOps Engineer", salary: "₹12-40 LPA" },
+  { title: "ML Engineer", salary: "₹15-45 LPA" },
+  { title: "AIOps Engineer", salary: "₹12-35 LPA" },
+  { title: "LLM / GenAI Engineer", salary: "₹20-50+ LPA" },
+  { title: "AI Agent Developer", salary: "₹18-45 LPA" },
+  { title: "ML Platform Engineer", salary: "₹18-40 LPA" },
+  { title: "SRE (ML Focus)", salary: "₹15-35 LPA" },
+  { title: "DevOps (AI/ML)", salary: "₹12-30 LPA" },
+];
+
 export const COURSES = [
   {
     title: "AI-Powered Automation Efficiency",
     description:
-      "30–35 day intensive (extendable to 45 days): Master Cursor, Claude, Codex, ChatGPT, AWS Bedrock Agents, open-source agents, and enterprise AI tools that top companies hire for.",
+      "30-35 day intensive (extendable to 45 days): Master Cursor, Claude, Codex, ChatGPT, AWS Bedrock Agents, open-source agents, and enterprise AI tools that top companies hire for.",
     features: [
-      "6 Focused Modules, 30–35 Days",
+      "6 Focused Modules, 30-35 Days",
       "Cursor, Copilot, Codex hands-on",
       "AWS Bedrock Agents & Cloud AI",
       "Open-source agents (LangChain, CrewAI)",
       "Enterprise governance & security",
       "Interview & career preparation",
     ],
-    badge: "NEW — STARTING SOON",
+    badge: "NEW | STARTING SOON",
     href: "/courses/ai-automation",
     ctaText: "View Full Syllabus",
     featured: true,
   },
   {
-    title: "MLOps & AIOps Masterclass",
+    title: "MLOps, AIOps, LLMOps and AI Agents Masterclass",
     description:
-      "Complete 12-16 week program: DevOps → MLOps → LLMOps → AIOps → AI Agents. Build production-ready AI systems!",
+      "Complete 4-5 month job-ready program: DevOps to MLOps, LLMOps, AIOps and AI Agentic Operations. Live training with placement support.",
     features: [
+      "4-5 Months | Job Ready Program",
       "6 Comprehensive Modules",
       "200+ Hours Hands-on Training",
       "4 Portfolio Capstone Projects",
+      "Interview Prep and Placement Support",
       "LangChain, RAG, AI Agents",
     ],
     badge: "FLAGSHIP",
@@ -175,7 +307,7 @@ export const COURSES = [
   {
     title: "AIOps Mastery",
     description:
-      "Production-grade AIOps on Topmate — hands-on labs and a practical path from signals to automation.",
+      "Production-grade AIOps on Topmate. Hands-on labs and a practical path from signals to automation.",
     features: ["Production AIOps patterns", "Hands-on labs", "Structured curriculum"],
     badge: "Ongoing",
     href: LINKS.aiopsMastery,
@@ -365,9 +497,9 @@ export const STRUCTURED_DATA = {
   course: {
     "@context": "https://schema.org",
     "@type": "Course",
-    name: "MLOps & AIOps Masterclass: DevOps to production AI systems",
+    name: "MLOps AIOps LLMOps AI Agents Job Ready Course India | 4-5 Month Live Program",
     description:
-      "Comprehensive 12-16 week training on MLOps, AIOps, LLMOps, GenAI, AI Agent development. Master Docker, Kubernetes, MLflow, Kubeflow, LangChain with hands-on projects.",
+      "Complete 4-5 month job-ready MLOps, AIOps, LLMOps and AI Agentic Operations course by Rajinikanth Vadla. Live online training with 200+ hours hands-on labs, 4 capstone projects, interview prep and placement support. Best MLOps course India.",
     provider: {
       "@type": "Organization",
       name: "Rajinikanth Vadla Training",
@@ -378,13 +510,15 @@ export const STRUCTURED_DATA = {
       name: "Rajinikanth Vadla",
     },
     teaches: [
-      "MLOps", "AIOps", "LLMOps", "GenAI", "AI Agents", "Kubernetes",
-      "Docker", "MLflow", "Kubeflow", "LangChain", "RAG", "AWS", "Azure", "GCP",
+      "MLOps", "AIOps", "LLMOps", "GenAI", "AI Agents", "AI Agentic Operations",
+      "Kubernetes", "Docker", "MLflow", "Kubeflow", "LangChain", "RAG",
+      "AWS", "Azure", "GCP", "Job Interview Preparation", "Career Placement",
     ],
     hasCourseInstance: {
       "@type": "CourseInstance",
       courseMode: "online",
       instructor: { "@type": "Person", name: "Rajinikanth Vadla" },
+      duration: "P4M",
     },
     aggregateRating: {
       "@type": "AggregateRating",
@@ -396,11 +530,11 @@ export const STRUCTURED_DATA = {
       "@type": "AggregateOffer",
       availability: "https://schema.org/InStock",
       lowPrice: "420",
-      highPrice: "35000",
+      highPrice: "40000",
       offerCount: "3",
       priceCurrency: "INR",
       offers: [
-        { "@type": "Offer", price: "35000", priceCurrency: "INR" },
+        { "@type": "Offer", price: "40000", priceCurrency: "INR" },
         { "@type": "Offer", price: "450", priceCurrency: "USD" },
         { "@type": "Offer", price: "420", priceCurrency: "EUR" },
       ],
@@ -411,7 +545,7 @@ export const STRUCTURED_DATA = {
     "@type": "Course",
     name: "AI-Powered Automation Efficiency: Enterprise-Grade Training",
     description:
-      "30–35 day intensive (extendable to 45 days) enterprise AI automation course. Master Cursor, Claude AI, OpenAI Codex, ChatGPT, AWS Bedrock Agents, open-source AI agents (LangChain, CrewAI), and rapid prototyping tools (Lovable, Bolt). Skills enterprises hire for.",
+      "30-35 day intensive (extendable to 45 days) enterprise AI automation course. Master Cursor, Claude AI, OpenAI Codex, ChatGPT, AWS Bedrock Agents, open-source AI agents (LangChain, CrewAI), and rapid prototyping tools (Lovable, Bolt). Skills enterprises hire for.",
     provider: {
       "@type": "Organization",
       name: "Rajinikanth Vadla Training",
@@ -446,10 +580,26 @@ export const STRUCTURED_DATA = {
       },
       {
         "@type": "Question",
+        name: "What is the best MLOps course in India for job ready training?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Rajinikanth Vadla's MLOps, AIOps, LLMOps and AI Agents Masterclass is a complete 4-5 month job-ready live program covering DevOps through production AI agents. It includes 200+ hours hands-on training, 4 capstone projects, interview prep and placement support. Details at https://www.rajinikanthvadla.com/mlops-aiops-masterclass/",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Which MLOps course should I take in 2026?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "For a complete job-ready path, Rajinikanth Vadla's 4-5 month live MLOps, AIOps, LLMOps and AI Agentic Operations course covers MLOps pipelines, LLM deployment, AIOps automation and AI agents with real projects. Priced at ₹40,000 with 4.9/5 rating from 500+ students.",
+        },
+      },
+      {
+        "@type": "Question",
         name: "What is the AI-Powered Automation Efficiency course?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "A 30–35 day intensive (extendable to 45 days) enterprise-level course covering Cursor, Claude AI, OpenAI Codex, ChatGPT, AWS Bedrock Agents, open-source AI agents (LangChain, CrewAI), rapid prototyping tools (Lovable, Bolt), and enterprise AI governance. It teaches the exact skills that appear in enterprise job descriptions for AI automation roles.",
+          text: "A 30-35 day intensive (extendable to 45 days) enterprise-level course covering Cursor, Claude AI, OpenAI Codex, ChatGPT, AWS Bedrock Agents, open-source AI agents (LangChain, CrewAI), rapid prototyping tools (Lovable, Bolt), and enterprise AI governance. It teaches the exact skills that appear in enterprise job descriptions for AI automation roles.",
         },
       },
       {
