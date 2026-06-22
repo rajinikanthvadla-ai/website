@@ -3,18 +3,22 @@ import Image from "next/image";
 import {
   LINKS,
   STRUCTURED_DATA,
-  MLOPS_MASTERCLASS_SYLLABUS,
   MLOPS_CAPSTONE_PROJECTS,
   MLOPS_CAREER_ROLES,
   MLOPS_MASTERCLASS_DURATION,
+  MLOPS_PROGRAM_OVERVIEW,
+  MLOPS_PROGRAM_INCLUDES,
+  MLOPS_PREREQUISITES,
+  MLOPS_TARGET_AUDIENCE,
 } from "@/lib/constants";
+import MasterclassSyllabus from "@/components/masterclass/MasterclassSyllabus";
 import SectionHeader from "@/components/SectionHeader";
 import SuccessStories from "@/components/SuccessStories";
 
 export const metadata: Metadata = {
   title: "MLOps AIOps LLMOps AI Agents Job Ready Course India | 4-5 Month Live Program",
   description:
-    "Complete 4-5 month job-ready MLOps, AIOps, LLMOps and AI Agentic Operations course by Rajinikanth Vadla. Live online, 200+ hours hands-on, 4 capstone projects, interview prep and placement support. Best MLOps course India. ₹40,000 | $450 USD.",
+    "Complete 4-5 month job-ready MLOps, AIOps, LLMOps and AI Agentic Operations course by Rajinikanth Vadla. Live online, 150+ hours hands-on, 4 capstone projects, interview prep and placement support. Best MLOps course India. ₹40,000 | $450 USD.",
   keywords: [
     "MLOps course India",
     "best MLOps course India",
@@ -38,6 +42,7 @@ export default function MasterclassPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(STRUCTURED_DATA.course) }} />
       <HeroBanner />
       <WhatYouMaster />
+      <ProgramOverview />
       <FullSyllabus />
       <CapstoneProjects />
       <PricingSection />
@@ -77,7 +82,7 @@ function HeroBanner() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mx-auto mb-8">
           {[
             { value: "4-5 Months", label: "Duration" },
-            { value: "200+ Hours", label: "Hands-on" },
+            { value: "150+ Hours", label: "Hands-on" },
             { value: "6 Modules", label: "Curriculum" },
             { value: "Job Ready", label: "Outcome" },
           ].map((item) => (
@@ -147,45 +152,64 @@ function WhatYouMaster() {
   );
 }
 
-function FullSyllabus() {
+function ProgramOverview() {
   return (
-    <section className="py-24 md:py-28 bg-slate-50 border-b border-slate-200" id="full-syllabus">
-      <div className="max-w-7xl mx-auto px-6">
-        <SectionHeader
-          tag="Complete Syllabus"
-          title={`6 Modules · ${MLOPS_MASTERCLASS_DURATION} · 200+ Hours · Job Ready`}
-          subtitle="Every module builds on the previous. DevOps to MLOps, LLMOps, AIOps, AI Agents, then capstones and job prep."
-        />
+    <section className="py-16 md:py-20 bg-slate-50 border-b border-slate-200">
+      <div className="max-w-4xl mx-auto px-6 text-center">
+        <p className="text-xs font-medium uppercase tracking-widest text-slate-400 mb-3">Program overview</p>
+        <p className="text-slate-600 text-base md:text-lg leading-relaxed">{MLOPS_PROGRAM_OVERVIEW}</p>
+      </div>
 
-        <div className="space-y-5">
-          {MLOPS_MASTERCLASS_SYLLABUS.map((mod) => (
-            <div key={mod.module} className="panel overflow-hidden card-hover group bg-white">
-              <div className="flex flex-col md:flex-row">
-                <div className="md:w-72 lg:w-80 shrink-0 p-6 bg-slate-50 border-b md:border-b-0 md:border-r border-slate-200">
-                  <div className="flex items-center gap-4 mb-3">
-                    <div className="w-12 h-12 rounded-lg bg-blue-700 text-white flex items-center justify-center text-lg font-bold">
-                      {mod.module}
-                    </div>
-                    <span className="text-sm text-orange-600 font-bold">{mod.duration}</span>
-                  </div>
-                  <h3 className="font-display font-bold text-slate-900 text-xl leading-snug group-hover:text-blue-700 transition-colors">
-                    {mod.title}
-                  </h3>
-                </div>
-                <div className="flex-1 p-6">
-                  <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2.5">
-                    {mod.topics.map((topic) => (
-                      <li key={topic} className="text-sm text-slate-600 flex items-start gap-2 leading-relaxed">
-                        <span className="text-blue-600 mt-0.5 shrink-0 font-bold">&#10003;</span>
-                        {topic}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
+      <div className="max-w-5xl mx-auto px-6 mt-12">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+          {MLOPS_PROGRAM_INCLUDES.map((item) => (
+            <div key={item.label} className="panel p-4 text-center bg-white">
+              <p className="text-xs font-bold uppercase tracking-wide text-blue-700 mb-1">{item.label}</p>
+              <p className="text-sm text-slate-600 leading-snug">{item.value}</p>
             </div>
           ))}
         </div>
+      </div>
+
+      <div className="max-w-5xl mx-auto px-6 mt-10 grid md:grid-cols-2 gap-8">
+        <div>
+          <h3 className="text-sm font-semibold text-slate-900 mb-3">Prerequisites</h3>
+          <ul className="space-y-2">
+            {MLOPS_PREREQUISITES.map((item) => (
+              <li key={item} className="text-sm text-slate-600 flex gap-2">
+                <span className="text-blue-600 shrink-0">·</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h3 className="text-sm font-semibold text-slate-900 mb-3">Who this is for</h3>
+          <ul className="space-y-2">
+            {MLOPS_TARGET_AUDIENCE.map((item) => (
+              <li key={item} className="text-sm text-slate-600 flex gap-2">
+                <span className="text-blue-600 shrink-0">·</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function FullSyllabus() {
+  return (
+    <section className="py-24 md:py-28 bg-white border-b border-slate-200" id="full-syllabus">
+      <div className="max-w-7xl mx-auto px-6">
+        <SectionHeader
+          tag="Complete Syllabus"
+          title={`6 Modules · ${MLOPS_MASTERCLASS_DURATION} · 150+ Hours`}
+          subtitle="Tap each module to expand. Every major topic includes hands-on labs."
+        />
+
+        <MasterclassSyllabus variant="accordion" />
 
         <div className="text-center mt-14">
           <div className="bg-blue-50 border border-blue-200 rounded-lg inline-block px-8 py-6 mb-8">
@@ -248,7 +272,7 @@ function PricingSection() {
           <ul className="space-y-3 mb-8">
             {[
               "4-5 month complete program",
-              "200+ hours live training",
+              "150+ hours live training",
               "6 comprehensive modules",
               "4 capstone portfolio projects",
               "1-on-1 mentorship",
@@ -354,7 +378,7 @@ function FAQSection() {
     },
     {
       q: "How long is the complete job ready program?",
-      a: "The full program runs 4-5 months with live sessions Monday to Friday, 8:00 to 9:45 PM IST. You get 200+ hours of hands-on labs, 6 modules, 4 capstone projects, and a dedicated job ready track with interview prep.",
+      a: "The full program runs 4-5 months with live sessions Monday to Friday, 8:00 to 9:45 PM IST. You get 150+ hours of hands-on labs, 6 modules, 4 capstone projects, and a dedicated job ready track with interview prep.",
     },
     {
       q: "Can I pay in installments?",

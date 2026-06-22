@@ -141,99 +141,13 @@ export const AI_AUTOMATION_SYLLABUS = [
   },
 ];
 
-export const MLOPS_MASTERCLASS_SYLLABUS = [
-  {
-    module: 1,
-    title: "DevOps Fundamentals for AI/ML",
-    duration: "Month 1",
-    topics: [
-      "Linux, shell scripting and Git workflows for ML teams",
-      "Docker containerization for ML models and services",
-      "Kubernetes orchestration on EKS, AKS, GKE",
-      "Terraform and Ansible infrastructure as code",
-      "CI/CD with Jenkins, GitHub Actions, GitLab CI",
-      "AWS, Azure, GCP cloud foundations for AI workloads",
-      "Prometheus and Grafana monitoring and alerting",
-      "Hands-on: Containerize and deploy an ML service on Kubernetes",
-    ],
-  },
-  {
-    module: 2,
-    title: "MLOps: Machine Learning Operations",
-    duration: "Month 2",
-    topics: [
-      "ML lifecycle and MLOps maturity model",
-      "Data engineering and feature stores (Feast)",
-      "Experiment tracking with MLflow",
-      "Model versioning with DVC",
-      "Model deployment with FastAPI and REST APIs",
-      "ML CI/CD pipelines: build, test, deploy",
-      "Model monitoring, drift detection and retraining triggers",
-      "Kubeflow and SageMaker pipelines in production",
-      "Hands-on: End-to-end MLOps pipeline with MLflow and Kubernetes",
-    ],
-  },
-  {
-    module: 3,
-    title: "LLMOps: Large Language Model Operations",
-    duration: "Month 3",
-    topics: [
-      "LLM lifecycle management from prototype to production",
-      "Prompt engineering patterns for production systems",
-      "Fine-tuning with LoRA and QLoRA",
-      "RAG systems and vector databases (Pinecone, Chroma, pgvector)",
-      "LLM deployment, optimization and cost control",
-      "LLM evaluation, guardrails and responsible AI",
-      "vLLM, TGI and model serving on Kubernetes",
-      "Hands-on: Production RAG application with monitoring",
-    ],
-  },
-  {
-    module: 4,
-    title: "AIOps: AI for IT Operations",
-    duration: "Month 4",
-    topics: [
-      "Anomaly detection with Prometheus, Grafana and ML",
-      "Predictive analytics for infrastructure health",
-      "Root cause analysis with AI-assisted workflows",
-      "Self-healing infrastructure and automated remediation",
-      "Cloud-native AIOps patterns on AWS, Azure, GCP",
-      "Chaos engineering and resilience testing",
-      "Intelligent alerting: reduce noise, act on signal",
-      "Hands-on: AIOps lab to detect CPU anomalies in real time",
-    ],
-  },
-  {
-    module: 5,
-    title: "AI Agents and Agentic Operations",
-    duration: "Month 4-5",
-    topics: [
-      "LangChain agent framework: tools, chains, memory",
-      "Tool use, function calling and structured outputs",
-      "Agent memory systems and state management",
-      "Multi-agent orchestration with CrewAI and AutoGen",
-      "Model Context Protocol (MCP) in enterprise workflows",
-      "Enterprise agent deployment and scaling patterns",
-      "Agent testing, evaluation and observability",
-      "Hands-on: Build and deploy a production AI agent",
-    ],
-  },
-  {
-    module: 6,
-    title: "Capstone Projects and Job Ready Track",
-    duration: "Month 5",
-    topics: [
-      "Capstone 1: End-to-end MLOps pipeline with CI/CD",
-      "Capstone 2: Production LLM application with RAG",
-      "Capstone 3: AIOps monitoring and anomaly detection platform",
-      "Capstone 4: Enterprise multi-agent AI system",
-      "Architecture reviews and production readiness checks",
-      "Resume, LinkedIn and portfolio preparation for MLOps roles",
-      "MLOps, AIOps, LLMOps system design interview prep",
-      "Mock interviews, job applications and salary negotiation",
-    ],
-  },
-];
+export {
+  MLOPS_PROGRAM_OVERVIEW,
+  MLOPS_MASTERCLASS_SYLLABUS,
+  MLOPS_PROGRAM_INCLUDES,
+  MLOPS_PREREQUISITES,
+  MLOPS_TARGET_AUDIENCE,
+} from "./masterclass-syllabus";
 
 export const MLOPS_CAPSTONE_PROJECTS = [
   {
@@ -252,9 +166,9 @@ export const MLOPS_CAPSTONE_PROJECTS = [
     stack: ["Prometheus", "Grafana", "Python", "Kubernetes", "Scikit-learn"],
   },
   {
-    title: "Enterprise AI Agent",
-    desc: "Multi-agent system with tool integration, human-in-the-loop, and production deployment.",
-    stack: ["LangChain", "CrewAI", "FastAPI", "PostgreSQL", "Docker"],
+    title: "Enterprise AI Agent with MCP",
+    desc: "Multi-agent system with MCP, GitHub and Slack integrations, human-in-the-loop and enterprise security.",
+    stack: ["LangChain", "CrewAI", "MCP", "FastAPI", "PostgreSQL", "Docker"],
   },
 ];
 
@@ -294,7 +208,8 @@ export const COURSES = [
     features: [
       "4-5 Months | Job Ready Program",
       "6 Comprehensive Modules",
-      "200+ Hours Hands-on Training",
+      "150+ Hours Hands-on Training",
+      "50+ Lab Exercises",
       "4 Portfolio Capstone Projects",
       "Interview Prep and Placement Support",
       "LangChain, RAG, AI Agents",
@@ -499,7 +414,7 @@ export const STRUCTURED_DATA = {
     "@type": "Course",
     name: "MLOps AIOps LLMOps AI Agents Job Ready Course India | 4-5 Month Live Program",
     description:
-      "Complete 4-5 month job-ready MLOps, AIOps, LLMOps and AI Agentic Operations course by Rajinikanth Vadla. Live online training with 200+ hours hands-on labs, 4 capstone projects, interview prep and placement support. Best MLOps course India.",
+      "Complete 4-5 month job-ready MLOps, AIOps, LLMOps and AI Agentic Operations course by Rajinikanth Vadla. Live online training with 150+ hours hands-on labs, 4 capstone projects, interview prep and placement support. Best MLOps course India.",
     provider: {
       "@type": "Organization",
       name: "Rajinikanth Vadla Training",
@@ -583,7 +498,7 @@ export const STRUCTURED_DATA = {
         name: "What is the best MLOps course in India for job ready training?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Rajinikanth Vadla's MLOps, AIOps, LLMOps and AI Agents Masterclass is a complete 4-5 month job-ready live program covering DevOps through production AI agents. It includes 200+ hours hands-on training, 4 capstone projects, interview prep and placement support. Details at https://www.rajinikanthvadla.com/mlops-aiops-masterclass/",
+          text: "Rajinikanth Vadla's MLOps, AIOps, LLMOps and AI Agents Masterclass is a complete 4-5 month job-ready live program covering DevOps through production AI agents. It includes 150+ hours hands-on training, 4 capstone projects, interview prep and placement support. Details at https://www.rajinikanthvadla.com/mlops-aiops-masterclass/",
         },
       },
       {

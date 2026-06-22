@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { LINKS, STATS, COURSES, STRUCTURED_DATA, AI_AUTOMATION_SYLLABUS, MLOPS_MASTERCLASS_SYLLABUS, MLOPS_MASTERCLASS_DURATION } from "@/lib/constants";
+import { LINKS, STATS, COURSES, STRUCTURED_DATA, AI_AUTOMATION_SYLLABUS, MLOPS_MASTERCLASS_DURATION } from "@/lib/constants";
+import MasterclassSyllabus from "@/components/masterclass/MasterclassSyllabus";
 import { LinkedInIcon, InstagramIcon, YouTubeIcon } from "@/components/Icons";
 import SectionHeader from "@/components/SectionHeader";
 import CTASection from "@/components/CTASection";
@@ -445,37 +446,13 @@ function MasterclassSyllabusSection() {
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeader
           tag="Job Ready Program"
-          title="MLOps · AIOps · LLMOps · AI Agentic Operations: Full Syllabus"
-          subtitle={`6 modules over ${MLOPS_MASTERCLASS_DURATION}. DevOps foundations through production AI agents. Every topic maps to what hiring managers expect.`}
+          title="MLOps · AIOps · LLMOps · AI Agents"
+          subtitle={`Complete ${MLOPS_MASTERCLASS_DURATION} program. Tap any module on the course page for the full breakdown.`}
         />
 
-        <div className="grid md:grid-cols-2 gap-5 mb-12">
-          {MLOPS_MASTERCLASS_SYLLABUS.map((mod) => (
-            <div key={mod.module} className="panel p-6 card-hover group bg-white">
-              <div className="flex items-start gap-4 mb-4">
-                <div className="w-10 h-10 rounded-lg bg-blue-700 text-white flex items-center justify-center text-sm font-bold shrink-0">
-                  {mod.module}
-                </div>
-                <div className="flex-1">
-                  <span className="text-xs font-bold text-orange-600">{mod.duration}</span>
-                  <h3 className="font-display font-bold text-slate-900 text-lg leading-snug mt-1 group-hover:text-blue-700 transition-colors">
-                    {mod.title}
-                  </h3>
-                </div>
-              </div>
-              <ul className="space-y-2 pl-14">
-                {mod.topics.map((topic) => (
-                  <li key={topic} className="text-sm text-slate-600 flex items-start gap-2 leading-relaxed">
-                    <span className="text-blue-600 mt-0.5 shrink-0 font-bold">&#10003;</span>
-                    {topic}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
+        <MasterclassSyllabus variant="compact" />
 
-        <div className="text-center">
+        <div className="text-center mt-12">
           <div className="inline-flex flex-col sm:flex-row gap-3">
             <Link href="/mlops-aiops-masterclass" className="inline-flex justify-center items-center bg-blue-700 text-white px-8 py-3 rounded-lg text-sm font-semibold hover:bg-blue-800 transition-colors">
               View Full Course Page &rarr;
@@ -719,11 +696,11 @@ function FAQSection() {
     },
     {
       q: "Which is the best MLOps course in India?",
-      a: "Rajinikanth Vadla's MLOps and AIOps Masterclass is a complete 4-5 month job-ready live program covering DevOps through MLOps, LLMOps, AIOps, and AI Agents. Priced at ₹40,000 with 200+ hours of hands-on training, 4 capstone projects, interview prep, placement support, and a 4.9/5 rating from 500+ students.",
+      a: "Rajinikanth Vadla's MLOps and AIOps Masterclass is a complete 4-5 month job-ready live program covering DevOps through MLOps, LLMOps, AIOps, and AI Agents. Priced at ₹40,000 with 150+ hours of hands-on training, 4 capstone projects, interview prep, placement support, and a 4.9/5 rating from 500+ students.",
     },
     {
       q: "Which MLOps course is best for job ready training in 2026?",
-      a: "The 4-5 month MLOps, AIOps, LLMOps and AI Agents Masterclass by Rajinikanth Vadla is built for job readiness. It includes 200+ hours of live labs, 4 portfolio capstones, mock interviews, resume review, and placement support until you land your target role.",
+      a: "The 4-5 month MLOps, AIOps, LLMOps and AI Agents Masterclass by Rajinikanth Vadla is built for job readiness. It includes 150+ hours of live labs, 4 portfolio capstones, mock interviews, resume review, and placement support until you land your target role.",
     },
     {
       q: "What is the AI-Powered Automation Efficiency course?",

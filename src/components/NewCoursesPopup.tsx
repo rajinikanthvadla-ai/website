@@ -22,7 +22,7 @@ const COURSES = [
     badgeClass: "bg-blue-700",
     title: "MLOps · AIOps · LLMOps · AI Agents",
     duration: MLOPS_MASTERCLASS_DURATION,
-    desc: "Complete live program from DevOps to production AI agents. 200+ hours hands-on, capstones, interview prep and placement support.",
+    desc: "Complete live program from DevOps to production AI agents. 150+ hours hands-on, capstones, interview prep and placement support.",
     href: "/mlops-aiops-masterclass",
     cta: "View Masterclass",
     accent: "border-l-blue-700",
