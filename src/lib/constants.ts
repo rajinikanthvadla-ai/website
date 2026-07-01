@@ -187,90 +187,74 @@ export const COURSES = [
   {
     title: "AI-Powered Automation Efficiency",
     description:
-      "30-35 day intensive (extendable to 45 days): Master Cursor, Claude, Codex, ChatGPT, AWS Bedrock Agents, open-source agents, and enterprise AI tools that top companies hire for.",
+      "30-35 day live program. Cursor, Claude, Codex, Bedrock agents, and enterprise AI tools from real JDs.",
     features: [
-      "6 Focused Modules, 30-35 Days",
+      "6 modules · 30-35 days",
       "Cursor, Copilot, Codex hands-on",
-      "AWS Bedrock Agents & Cloud AI",
-      "Open-source agents (LangChain, CrewAI)",
-      "Enterprise governance & security",
-      "Interview & career preparation",
+      "AWS Bedrock and open-source agents",
+      "Extendable to 45 days",
     ],
-    badge: "NEW | STARTING SOON",
+    badge: "NEW",
     href: "/courses/ai-automation",
-    ctaText: "View Full Syllabus",
+    ctaText: "View course",
     featured: true,
   },
   {
-    title: "MLOps, AIOps, LLMOps and AI Agents Masterclass",
+    title: "MLOps, AIOps, LLMOps and AI Agents",
     description:
-      "Complete 4-5 month job-ready program: DevOps to MLOps, LLMOps, AIOps and AI Agentic Operations. Live training with placement support.",
+      "4-5 month job-ready masterclass. DevOps through production AI agents with capstones and placement support.",
     features: [
-      "4-5 Months | Job Ready Program",
-      "6 Comprehensive Modules",
-      "150+ Hours Hands-on Training",
-      "50+ Lab Exercises",
-      "4 Portfolio Capstone Projects",
-      "Interview Prep and Placement Support",
-      "LangChain, RAG, AI Agents",
+      "6 modules · 150+ hours",
+      "50+ labs · 4 capstone projects",
+      "Interview prep and job support",
+      "₹40,000 India · $450 USD",
     ],
     badge: "FLAGSHIP",
     href: "/mlops-aiops-masterclass",
-    ctaText: "View Syllabus",
+    ctaText: "View course",
     featured: false,
   },
   {
-    title: "AIOps Mastery",
+    title: "1:1 Career Mentorship",
     description:
-      "Production-grade AIOps on Topmate. Hands-on labs and a practical path from signals to automation.",
-    features: ["Production AIOps patterns", "Hands-on labs", "Structured curriculum"],
-    badge: "Ongoing",
-    href: LINKS.aiopsMastery,
-    ctaText: "View on Topmate",
-    featured: false,
-  },
-  {
-    title: "Multi-Cloud DevOps Mastery",
-    description:
-      "Master AWS, Azure, GCP with production-grade DevOps, Terraform, Ansible, and CI/CD.",
+      "Private sessions for career direction, interview prep, and role transitions. Available worldwide online.",
     features: [
-      "AWS, Azure, GCP deep dive",
-      "Terraform & Ansible IaC",
-      "Jenkins, GitLab, GitHub Actions",
+      "Resume and LinkedIn review",
+      "Mock interviews",
+      "Learning path guidance",
+      "Book on Topmate or WhatsApp",
     ],
-    badge: "Popular",
-    href: "/courses/mlops-masterclass",
-    ctaText: "View Enterprise Track",
+    badge: "MENTORSHIP",
+    href: "/mentorship",
+    ctaText: "Learn more",
     featured: false,
   },
+];
+
+export const HOME_PAGE_FAQS = [
   {
-    title: "AI Agents & GenAI",
-    description:
-      "Build production AI Agents, LangChain, RAG systems, and LLM applications.",
-    features: [
-      "LangChain & AI Frameworks",
-      "Model Context Protocol (MCP)",
-      "Production AI Applications",
-    ],
-    badge: "Advanced",
-    href: "/courses/ai-agents-genai",
-    ctaText: "View GenAI Track",
-    featured: false,
+    q: "Which course should I pick?",
+    a: "Choose AI Automation for a 30-35 day focus on enterprise AI tools (Cursor, Claude, Bedrock agents). Choose the MLOps Masterclass for a complete 4-5 month job-ready path from DevOps through AI agents. Not sure? Message on WhatsApp.",
   },
   {
-    title: "AI Tools for 10x Productivity",
-    description:
-      "Master Cursor, Claude, ChatGPT, Gemini, Grok, Vercel AI SDK, AWS Bedrock - 10x your work with AI.",
-    features: [
-      "Cursor, Copilot & AI IDEs",
-      "ChatGPT, Claude, Gemini, Grok",
-      "Vercel AI SDK & AWS Bedrock",
-      "Agentic Workflows & Automation",
-    ],
-    badge: "NEW",
-    href: "/ai-tools-productivity",
-    ctaText: "View Details",
-    featured: false,
+    q: "What is the best MLOps course in India?",
+    a: "Rajinikanth Vadla's MLOps Masterclass is a 4-5 month live job-ready program covering MLOps, LLMOps, AIOps and AI Agents. ₹40,000, 150+ hours hands-on, 4 capstone projects, placement support. Details at https://www.rajinikanthvadla.com/mlops-aiops-masterclass/",
+  },
+  {
+    q: "What is the AI Automation course?",
+    a: "A 30-35 day intensive on Cursor, Claude, Codex, ChatGPT, AWS Bedrock Agents, and open-source agents. Skills from enterprise job descriptions. https://www.rajinikanthvadla.com/courses/ai-automation/",
+  },
+  {
+    q: "Is training live or recorded?",
+    a: "All cohort sessions are live with Q&A. Recordings are shared. Mentorship is 1:1 on Topmate or WhatsApp, available worldwide.",
+  },
+  {
+    q: "Can I join from outside India?",
+    a: "Yes. All programs are online. Masterclass pricing: ₹40,000 (India), $450 (USD), €420 (EUR).",
+  },
+  {
+    q: "Do you help with jobs?",
+    a: "Yes. Resume review, mock interviews, and placement support are included in the masterclass.",
   },
 ];
 
@@ -480,6 +464,25 @@ export const STRUCTURED_DATA = {
       courseMode: "online",
       instructor: { "@type": "Person", name: "Rajinikanth Vadla" },
     },
+    offers: {
+      "@type": "Offer",
+      availability: "https://schema.org/InStock",
+      url: "https://www.rajinikanthvadla.com/courses/ai-automation/",
+    },
+  },
+  courseList: {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Rajinikanth Vadla Training Programs",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "AI-Powered Automation Course", url: "https://www.rajinikanthvadla.com/courses/ai-automation/" },
+      { "@type": "ListItem", position: 2, name: "MLOps AIOps LLMOps Masterclass", url: "https://www.rajinikanthvadla.com/mlops-aiops-masterclass/" },
+      { "@type": "ListItem", position: 3, name: "MLOps Course India", url: "https://www.rajinikanthvadla.com/mlops-course-india/" },
+      { "@type": "ListItem", position: 4, name: "MLOps Training", url: "https://www.rajinikanthvadla.com/mlops-training/" },
+      { "@type": "ListItem", position: 5, name: "GenAI Training", url: "https://www.rajinikanthvadla.com/genai-training/" },
+      { "@type": "ListItem", position: 6, name: "AIOps Training", url: "https://www.rajinikanthvadla.com/aiops-training/" },
+      { "@type": "ListItem", position: 7, name: "Mentorship", url: "https://www.rajinikanthvadla.com/mentorship/" },
+    ],
   },
   faq: {
     "@context": "https://schema.org",

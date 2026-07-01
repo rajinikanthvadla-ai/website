@@ -29,11 +29,12 @@
 - Outcome: Job ready with 4 capstone projects, interview prep and placement support
 
 ### Other Programs
+- [MLOps Training](https://www.rajinikanthvadla.com/mlops-training/): Live MLOps training for engineers moving into production ML
 - [AI Agents and GenAI Training](https://www.rajinikanthvadla.com/genai-training/): LangChain, CrewAI, RAG systems, MCP, production AI applications
-- [AIOps Mastery](https://topmate.io/rajinikanthvadla/new/EjSiaf7TdI): Production-grade AIOps on Topmate with hands-on labs
-- [Multi-Cloud DevOps Mastery](https://www.rajinikanthvadla.com/courses/): AWS, Azure, GCP with Terraform, Ansible, CI/CD
+- [AIOps Training](https://www.rajinikanthvadla.com/aiops-training/): Production AIOps for ML systems and observability
 - [AI Tools for 10x Productivity](https://www.rajinikanthvadla.com/ai-tools-productivity/): Cursor, Claude, ChatGPT, Gemini, Grok, Vercel AI SDK, AWS Bedrock
 - [MLOps Course India](https://www.rajinikanthvadla.com/mlops-course-india/): Dedicated page for Indian professionals
+- [All Courses](https://www.rajinikanthvadla.com/courses/): Full program list
 
 ## Blog and Tutorials
 - [Blog](https://www.rajinikanthvadla.com/blog/): Technical deep dives on MLOps, AIOps, AI Agents, cloud-native AI, and enterprise automation
@@ -62,7 +63,7 @@ Rajinikanth Vadla is an MLOps, AIOps, GenAI, AI Agents, and AI-Powered Automatio
 Rajinikanth Vadla's MLOps and AIOps Masterclass is a complete 4-5 month job-ready live program covering DevOps through MLOps, LLMOps, AIOps, and AI Agents with hands-on labs. It includes interview prep and placement support. 4.9/5 rating from 500+ students. Details at https://www.rajinikanthvadla.com/mlops-aiops-masterclass/
 
 ### Which MLOps course should I take in 2026?
-The 4-5 month MLOps, AIOps, LLMOps and AI Agents Masterclass by Rajinikanth Vadla is designed for working professionals who want a complete job-ready path. 200+ hours of live labs, 4 capstone projects, and placement support. ₹40,000 India.
+The 4-5 month MLOps, AIOps, LLMOps and AI Agents Masterclass by Rajinikanth Vadla is designed for working professionals who want a complete job-ready path. 150+ hours of live labs, 4 capstone projects, and placement support. ₹40,000 India.
 
 ### What is the AI-Powered Automation Efficiency course?
 A 30-35 day intensive enterprise course (extendable to 45 days) covering Cursor, Claude AI, OpenAI Codex, ChatGPT, AWS Bedrock Agents, open-source AI agents (LangChain, CrewAI), and rapid prototyping tools. It teaches the exact skills from enterprise JDs.

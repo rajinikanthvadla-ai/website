@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { LINKS } from "@/lib/constants";
 import CTASection from "@/components/CTASection";
-import SuccessStories from "@/components/SuccessStories";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -88,7 +87,6 @@ export default function ContactPage() {
         title="Prefer to talk instead of typing?"
         subtitle="Book a short Topmate slot - even fifteen minutes can clear a big decision."
       />
-      <SuccessStories />
     </>
   );
 }

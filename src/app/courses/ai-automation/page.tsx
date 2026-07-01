@@ -6,9 +6,9 @@ import CTASection from "@/components/CTASection";
 import SuccessStories from "@/components/SuccessStories";
 
 export const metadata: Metadata = {
-  title: "AI-Powered Automation Efficiency Course — Enterprise AI Tools Training",
+  title: "AI-Powered Automation Efficiency Course | Enterprise AI Tools Training India",
   description:
-    "30–35 day intensive (extendable to 45 days) enterprise AI automation course. Master Cursor, Claude AI, OpenAI Codex, ChatGPT, AWS Bedrock Agents, open-source AI agents, Lovable, Bolt. Skills enterprises hire for in JDs.",
+    "30-35 day live AI automation course: Cursor, Claude AI, OpenAI Codex, ChatGPT, AWS Bedrock Agents, LangChain, CrewAI. Enterprise skills from job descriptions. By Rajinikanth Vadla.",
   keywords: [
     "AI-powered automation course",
     "Cursor IDE training",

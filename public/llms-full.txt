@@ -109,7 +109,7 @@ Cursor, GitHub Copilot, OpenAI Codex, ChatGPT/GPT-4o, Claude AI, Gemini, AWS Bed
 - AWS, Azure, GCP
 - CI/CD for ML pipelines
 - 4 portfolio capstone projects
-- 200+ hours of hands-on training
+- 150+ hours of hands-on training
 - Interview prep, resume review and job placement support
 
 ---

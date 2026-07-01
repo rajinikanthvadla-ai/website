@@ -39,10 +39,9 @@ export default function Footer({ minimal = false }: { minimal?: boolean }) {
           <div>
             <h4 className="text-slate-200 font-semibold mb-4 text-xs uppercase tracking-[0.12em]">Training</h4>
             <ul className="space-y-2.5 text-sm">
-              <li><Link href="/courses/ai-automation" className="hover:text-orange-400 transition-colors">AI-Powered Automation <span className="bg-orange-500 text-white text-[8px] font-bold py-0 px-1.5 rounded uppercase ml-1">NEW</span></Link></li>
-              <li><Link href="/mlops-aiops-masterclass" className="hover:text-blue-400 transition-colors">MLOps &amp; AIOps Masterclass</Link></li>
-              <li><Link href="/courses" className="hover:text-slate-100 transition-colors">Multi-cloud &amp; DevOps</Link></li>
-              <li><Link href="/genai-training" className="hover:text-slate-100 transition-colors">AI Agents &amp; GenAI</Link></li>
+              <li><Link href="/courses/ai-automation" className="hover:text-orange-400 transition-colors">AI Automation <span className="bg-orange-500 text-white text-[8px] font-bold py-0 px-1.5 rounded uppercase ml-1">NEW</span></Link></li>
+              <li><Link href="/mlops-aiops-masterclass" className="hover:text-blue-400 transition-colors">MLOps Masterclass</Link></li>
+              <li><Link href="/mentorship" className="hover:text-slate-100 transition-colors">Mentorship</Link></li>
             </ul>
           </div>
 
@@ -50,9 +49,9 @@ export default function Footer({ minimal = false }: { minimal?: boolean }) {
             <h4 className="text-slate-200 font-semibold mb-4 text-xs uppercase tracking-[0.12em]">Site</h4>
             <ul className="space-y-2.5 text-sm">
               <li><Link href="/about" className="hover:text-slate-100 transition-colors">About</Link></li>
-              <li><Link href="/courses" className="hover:text-slate-100 transition-colors">Courses</Link></li>
-              <li><Link href="/mlops-course-india" className="hover:text-slate-100 transition-colors">MLOps Course India</Link></li>
+              <li><Link href="/courses" className="hover:text-slate-100 transition-colors">All courses</Link></li>
               <li><Link href="/mentorship" className="hover:text-slate-100 transition-colors">Mentorship</Link></li>
+              <li><Link href="/blog" className="hover:text-slate-100 transition-colors">Blog</Link></li>
               <li><Link href="/contact" className="hover:text-slate-100 transition-colors">Contact</Link></li>
             </ul>
           </div>
