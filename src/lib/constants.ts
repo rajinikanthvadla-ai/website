@@ -1,4 +1,5 @@
 export const MLOPS_MASTERCLASS_DURATION = "4-5 months";
+export const AI_AUTOMATION_DURATION = "2 months";
 
 export const SITE = {
   name: "Rajinikanth Vadla",
@@ -63,11 +64,10 @@ export const SUCCESS_STORIES = [
 export const AI_AUTOMATION_SYLLABUS = [
   {
     module: 1,
-    title: "AI-Assisted Development with Cursor, Copilot & Codex",
-    duration: "Day 1-7",
+    title: "AI-Assisted Development with Cursor & Codex",
+    duration: "Week 1-2",
     topics: [
       "Cursor IDE: agentic coding, multi-file edits, codebase-aware prompts",
-      "GitHub Copilot: inline completions, chat, workspace agents",
       "OpenAI Codex CLI: autonomous multi-step task execution",
       "Writing production-quality code 5x faster with AI pair programming",
       "Enterprise coding standards & AI guardrails",
@@ -77,7 +77,7 @@ export const AI_AUTOMATION_SYLLABUS = [
   {
     module: 2,
     title: "ChatGPT, Claude & Gemini for Enterprise Workflows",
-    duration: "Day 8-12",
+    duration: "Week 2-3",
     topics: [
       "ChatGPT (GPT-4o, o3): API integration, custom GPTs, enterprise use cases",
       "Claude AI: long-context analysis, document processing, system prompts",
@@ -90,7 +90,7 @@ export const AI_AUTOMATION_SYLLABUS = [
   {
     module: 3,
     title: "AWS Bedrock Agents & Cloud AI Services",
-    duration: "Day 13-18",
+    duration: "Week 3-4",
     topics: [
       "AWS Bedrock: foundation models, agents, knowledge bases, guardrails",
       "Building production Bedrock agents with action groups & APIs",
@@ -103,7 +103,7 @@ export const AI_AUTOMATION_SYLLABUS = [
   {
     module: 4,
     title: "Open-Source AI Agents for Enterprise",
-    duration: "Day 19-24",
+    duration: "Week 4-5",
     topics: [
       "LangChain agents: tool use, chains, memory, and retrieval",
       "CrewAI: multi-agent role-based automation",
@@ -116,7 +116,7 @@ export const AI_AUTOMATION_SYLLABUS = [
   {
     module: 5,
     title: "Rapid Prototyping & Low-Code AI Tools",
-    duration: "Day 25-28",
+    duration: "Week 5-6",
     topics: [
       "Lovable & Bolt: AI-powered full-stack app generation",
       "v0 by Vercel: UI generation from natural language",
@@ -129,7 +129,7 @@ export const AI_AUTOMATION_SYLLABUS = [
   {
     module: 6,
     title: "Enterprise AI Automation, Governance & Career Readiness",
-    duration: "Day 29-35",
+    duration: "Week 7-8",
     topics: [
       "Enterprise AI automation strategy & ROI measurement",
       "AI security: prompt injection, data leakage, access control",
@@ -187,12 +187,12 @@ export const COURSES = [
   {
     title: "AI-Powered Automation Efficiency",
     description:
-      "30-35 day live program. Cursor, Claude, Codex, Bedrock agents, and enterprise AI tools from real JDs.",
+      "2 month live program. Cursor, Claude, Codex, Bedrock agents, and enterprise AI tools from real JDs.",
     features: [
-      "6 modules · 30-35 days",
-      "Cursor, Copilot, Codex hands-on",
+      "6 modules · 2 months",
+      "Cursor and Codex hands-on",
       "AWS Bedrock and open-source agents",
-      "Extendable to 45 days",
+      "Live online cohort",
     ],
     badge: "NEW",
     href: "/courses/ai-automation",
@@ -234,7 +234,7 @@ export const COURSES = [
 export const HOME_PAGE_FAQS = [
   {
     q: "Which course should I pick?",
-    a: "Choose AI Automation for a 30-35 day focus on enterprise AI tools (Cursor, Claude, Bedrock agents). Choose the MLOps Masterclass for a complete 4-5 month job-ready path from DevOps through AI agents. Not sure? Message on WhatsApp.",
+    a: "Choose AI Automation for a 2 month focus on enterprise AI tools (Cursor, Claude, Bedrock agents). Choose the MLOps Masterclass for a complete 4-5 month job-ready path from DevOps through AI agents. Not sure? Message on WhatsApp.",
   },
   {
     q: "What is the best MLOps course in India?",
@@ -242,7 +242,7 @@ export const HOME_PAGE_FAQS = [
   },
   {
     q: "What is the AI Automation course?",
-    a: "A 30-35 day intensive on Cursor, Claude, Codex, ChatGPT, AWS Bedrock Agents, and open-source agents. Skills from enterprise job descriptions. https://www.rajinikanthvadla.com/courses/ai-automation/",
+    a: "A 2 month intensive on Cursor, Claude, Codex, ChatGPT, AWS Bedrock Agents, and open-source agents. Skills from enterprise job descriptions. https://www.rajinikanthvadla.com/courses/ai-automation/",
   },
   {
     q: "Is training live or recorded?",
@@ -348,7 +348,7 @@ export const STRUCTURED_DATA = {
     knowsAbout: [
       "MLOps", "AIOps", "DevOps", "GenAI", "Generative AI", "AI Agents",
       "LLMOps", "LangChain", "RAG", "LLM", "Large Language Models",
-      "AI-Powered Automation", "Enterprise AI", "Cursor IDE", "GitHub Copilot",
+      "AI-Powered Automation", "Enterprise AI", "Cursor IDE",
       "AWS Bedrock", "AWS Bedrock Agents", "OpenAI Codex",
       "AWS", "Azure", "GCP", "Kubernetes", "Docker", "Terraform",
       "Jenkins", "CI/CD", "MLflow", "Kubeflow", "Machine Learning Operations",
@@ -444,7 +444,7 @@ export const STRUCTURED_DATA = {
     "@type": "Course",
     name: "AI-Powered Automation Efficiency: Enterprise-Grade Training",
     description:
-      "30-35 day intensive (extendable to 45 days) enterprise AI automation course. Master Cursor, Claude AI, OpenAI Codex, ChatGPT, AWS Bedrock Agents, open-source AI agents (LangChain, CrewAI), and rapid prototyping tools (Lovable, Bolt). Skills enterprises hire for.",
+      "2 month enterprise AI automation course. Master Cursor, Claude AI, OpenAI Codex, ChatGPT, AWS Bedrock Agents, open-source AI agents (LangChain, CrewAI), and rapid prototyping tools (Lovable, Bolt). Skills enterprises hire for.",
     provider: {
       "@type": "Organization",
       name: "Rajinikanth Vadla Training",
@@ -455,7 +455,7 @@ export const STRUCTURED_DATA = {
       name: "Rajinikanth Vadla",
     },
     teaches: [
-      "Cursor IDE", "GitHub Copilot", "OpenAI Codex", "ChatGPT", "Claude AI",
+      "Cursor IDE", "OpenAI Codex", "ChatGPT", "Claude AI",
       "AWS Bedrock Agents", "LangChain", "CrewAI", "Enterprise AI Automation",
       "AI Governance", "Prompt Engineering", "Lovable", "Bolt",
     ],
@@ -463,6 +463,7 @@ export const STRUCTURED_DATA = {
       "@type": "CourseInstance",
       courseMode: "online",
       instructor: { "@type": "Person", name: "Rajinikanth Vadla" },
+      duration: "P2M",
     },
     offers: {
       "@type": "Offer",
@@ -517,7 +518,7 @@ export const STRUCTURED_DATA = {
         name: "What is the AI-Powered Automation Efficiency course?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "A 30-35 day intensive (extendable to 45 days) enterprise-level course covering Cursor, Claude AI, OpenAI Codex, ChatGPT, AWS Bedrock Agents, open-source AI agents (LangChain, CrewAI), rapid prototyping tools (Lovable, Bolt), and enterprise AI governance. It teaches the exact skills that appear in enterprise job descriptions for AI automation roles.",
+          text: "A 2 month enterprise-level course covering Cursor, Claude AI, OpenAI Codex, ChatGPT, AWS Bedrock Agents, open-source AI agents (LangChain, CrewAI), rapid prototyping tools (Lovable, Bolt), and enterprise AI governance. It teaches the exact skills that appear in enterprise job descriptions for AI automation roles.",
         },
       },
       {
@@ -565,7 +566,7 @@ export const STRUCTURED_DATA = {
         name: "Which AI tools do enterprises require engineers to know?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Enterprise JDs increasingly require Cursor, GitHub Copilot, ChatGPT/Claude API integration, AWS Bedrock Agents, and familiarity with AI agent frameworks like LangChain and CrewAI. Rajinikanth Vadla's AI-Powered Automation Efficiency course covers all of these.",
+          text: "Enterprise JDs increasingly require Cursor, ChatGPT/Claude API integration, AWS Bedrock Agents, and familiarity with AI agent frameworks like LangChain and CrewAI. Rajinikanth Vadla's AI-Powered Automation Efficiency course covers all of these.",
         },
       },
       {

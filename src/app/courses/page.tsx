@@ -7,7 +7,7 @@ import CTASection from "@/components/CTASection";
 export const metadata: Metadata = {
   title: "MLOps, AI Automation and AI Agents Training Courses",
   description:
-    "Live online training by Rajinikanth Vadla: AI-Powered Automation course (30-35 days) and MLOps AIOps LLMOps masterclass (4-5 months, job ready). Hands-on labs, placement support.",
+    "Live online training by Rajinikanth Vadla: AI-Powered Automation course (2 months) and MLOps AIOps LLMOps masterclass (4-5 months, job ready). Hands-on labs, placement support.",
   keywords: [
     "MLOps course",
     "AI automation course",

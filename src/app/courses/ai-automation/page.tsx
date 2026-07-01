@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { LINKS, AI_AUTOMATION_SYLLABUS, STRUCTURED_DATA } from "@/lib/constants";
+import { LINKS, AI_AUTOMATION_SYLLABUS, AI_AUTOMATION_DURATION, STRUCTURED_DATA } from "@/lib/constants";
 import SectionHeader from "@/components/SectionHeader";
 import CTASection from "@/components/CTASection";
 import SuccessStories from "@/components/SuccessStories";
@@ -8,7 +8,7 @@ import SuccessStories from "@/components/SuccessStories";
 export const metadata: Metadata = {
   title: "AI-Powered Automation Efficiency Course | Enterprise AI Tools Training India",
   description:
-    "30-35 day live AI automation course: Cursor, Claude AI, OpenAI Codex, ChatGPT, AWS Bedrock Agents, LangChain, CrewAI. Enterprise skills from job descriptions. By Rajinikanth Vadla.",
+    "2 month live AI automation course: Cursor, Claude AI, OpenAI Codex, ChatGPT, AWS Bedrock Agents, LangChain, CrewAI. Enterprise skills from job descriptions. By Rajinikanth Vadla.",
   keywords: [
     "AI-powered automation course",
     "Cursor IDE training",
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     "AWS Bedrock agents training",
     "enterprise AI automation",
     "AI coding tools course",
-    "GitHub Copilot training",
+    "AI-assisted development course",
     "LangChain agents course",
     "AI automation engineer JD skills",
     "enterprise AI tools training",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "AI-Powered Automation Efficiency — Enterprise AI Tools Training by Rajinikanth Vadla",
     description:
-      "30–35 day intensive. Cursor, Claude, Codex, ChatGPT, AWS Bedrock Agents, open-source agents. Skills from enterprise JDs. Starting soon.",
+      "2 month live program. Cursor, Claude, Codex, ChatGPT, AWS Bedrock Agents, open-source agents. Skills from enterprise JDs. Starting soon.",
   },
   alternates: {
     canonical: "https://www.rajinikanthvadla.com/courses/ai-automation/",
@@ -45,7 +45,7 @@ export default function AIAutomationCoursePage() {
       <CourseFAQ />
       <CTASection
         title="Ready to master AI-Powered Automation?"
-        subtitle="Join the next batch. 30–35 days of focused training on the exact tools enterprises hire for. Limited seats, live online, localized pricing."
+        subtitle={`Join the next batch. ${AI_AUTOMATION_DURATION} of focused training on the exact tools enterprises hire for. Limited seats, live online, localized pricing.`}
       />
       <SuccessStories />
     </>
@@ -80,10 +80,10 @@ function HeroBanner() {
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mx-auto mb-10">
           {[
-            { value: "30–35 Days", label: "Duration" },
-            { value: "45 Days", label: "Extendable To" },
+            { value: "2 Months", label: "Duration" },
             { value: "6 Modules", label: "Focused Training" },
             { value: "Live Online", label: "Format" },
+            { value: "Enterprise", label: "Level" },
           ].map((item) => (
             <div key={item.label} className="bg-blue-800 border border-blue-600 rounded-lg px-4 py-5 text-center">
               <div className="text-white font-bold text-xl">{item.value}</div>
@@ -111,7 +111,7 @@ function CourseHighlights() {
     {
       icon: "💻",
       title: "AI-Assisted Development",
-      desc: "Cursor, GitHub Copilot, OpenAI Codex — write production code 5x faster. The skill every enterprise now expects in JDs.",
+      desc: "Cursor and OpenAI Codex — write production code 5x faster. The skill every enterprise now expects in JDs.",
     },
     {
       icon: "🤖",
@@ -204,7 +204,7 @@ function FullSyllabus() {
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeader
           tag="Complete Syllabus"
-          title="6 Modules · 30–35 Days · Extendable to 45"
+          title="6 Modules · 2 Months"
           subtitle="Every topic maps to enterprise JD requirements. Hands-on projects with every module."
         />
 
@@ -260,7 +260,6 @@ function FullSyllabus() {
 function ToolsYouWillUse() {
   const tools = [
     { name: "Cursor", category: "AI IDE" },
-    { name: "GitHub Copilot", category: "AI IDE" },
     { name: "OpenAI Codex", category: "AI CLI" },
     { name: "ChatGPT / GPT-4o", category: "LLM" },
     { name: "Claude AI", category: "LLM" },
@@ -303,7 +302,7 @@ function CourseFAQ() {
   const faqs = [
     {
       q: "What is the AI-Powered Automation Efficiency course?",
-      a: "A 30–35 day intensive (extendable to 45 days) enterprise-level course by Rajinikanth Vadla covering Cursor, Claude AI, OpenAI Codex, ChatGPT, AWS Bedrock Agents, open-source AI agents (LangChain, CrewAI), and rapid prototyping tools (Lovable, Bolt). It teaches the exact skills from enterprise job descriptions for AI automation roles.",
+      a: "A 2 month enterprise-level course by Rajinikanth Vadla covering Cursor, Claude AI, OpenAI Codex, ChatGPT, AWS Bedrock Agents, open-source AI agents (LangChain, CrewAI), and rapid prototyping tools (Lovable, Bolt). It teaches the exact skills from enterprise job descriptions for AI automation roles.",
     },
     {
       q: "Who should take this course?",
@@ -311,7 +310,7 @@ function CourseFAQ() {
     },
     {
       q: "What AI tools will I learn?",
-      a: "Cursor, GitHub Copilot, OpenAI Codex, ChatGPT/GPT-4o, Claude AI, Gemini, AWS Bedrock Agents, Amazon Q, Azure OpenAI, LangChain, CrewAI, AutoGen, n8n, Lovable, Bolt, and v0 by Vercel. Only tools that appear in enterprise JDs.",
+      a: "Cursor, OpenAI Codex, ChatGPT/GPT-4o, Claude AI, Gemini, AWS Bedrock Agents, Amazon Q, Azure OpenAI, LangChain, CrewAI, AutoGen, n8n, Lovable, Bolt, and v0 by Vercel. Only tools that appear in enterprise JDs.",
     },
     {
       q: "What makes this different from other AI courses?",
@@ -322,8 +321,8 @@ function CourseFAQ() {
       a: "Live online sessions. You interact directly with Rajinikanth Vadla, ask questions in real time, and get your hands-on work reviewed. Recordings are available if you miss a session.",
     },
     {
-      q: "Can I extend the duration?",
-      a: "Yes. The base program is 30–35 days, but it's extendable to 45 days if you need more time to complete projects or review material.",
+      q: "How long is the program?",
+      a: "The AI-Powered Automation Efficiency course runs for 2 months with live online sessions, hands-on projects each module, and recordings if you miss a session.",
     },
     {
       q: "How do I enroll?",

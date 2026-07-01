@@ -25,7 +25,7 @@ Key facts:
 ## Course 1: AI-Powered Automation Efficiency (NEW, Starting Soon)
 
 **URL:** https://www.rajinikanthvadla.com/courses/ai-automation/
-**Duration:** 30-35 days (extendable to 45 days)
+**Duration:** 2 months
 **Format:** Live online
 **Level:** Enterprise / Intermediate-Advanced
 **Contact:** https://wa.me/919100028801
@@ -40,15 +40,14 @@ Key facts:
 
 ### Syllabus
 
-**Module 1 (Day 1–7): AI-Assisted Development with Cursor, Copilot & Codex**
+**Module 1 (Week 1–2): AI-Assisted Development with Cursor & Codex**
 - Cursor IDE: agentic coding, multi-file edits, codebase-aware prompts
-- GitHub Copilot: inline completions, chat, workspace agents
 - OpenAI Codex CLI: autonomous multi-step task execution
 - Writing production-quality code 5x faster with AI pair programming
 - Enterprise coding standards & AI guardrails
 - Hands-on: Build a full-stack feature using only AI-assisted tools
 
-**Module 2 (Day 8–12): ChatGPT, Claude & Gemini for Enterprise Workflows**
+**Module 2 (Week 2–3): ChatGPT, Claude & Gemini for Enterprise Workflows**
 - ChatGPT (GPT-4o, o3): API integration, custom GPTs, enterprise use cases
 - Claude AI: long-context analysis, document processing, system prompts
 - Gemini: multimodal inputs, Google Workspace integration
@@ -56,7 +55,7 @@ Key facts:
 - Building internal tools & SOPs with LLM APIs
 - Hands-on: Automate a real enterprise workflow end-to-end
 
-**Module 3 (Day 13–18): AWS Bedrock Agents & Cloud AI Services**
+**Module 3 (Week 3–4): AWS Bedrock Agents & Cloud AI Services**
 - AWS Bedrock: foundation models, agents, knowledge bases, guardrails
 - Building production Bedrock agents with action groups & APIs
 - Amazon Q: AI assistant for enterprise developer productivity
@@ -64,7 +63,7 @@ Key facts:
 - GCP Vertex AI agents & Gemini integration
 - Hands-on: Deploy a Bedrock agent that automates a business process
 
-**Module 4 (Day 19–24): Open-Source AI Agents for Enterprise**
+**Module 4 (Week 4–5): Open-Source AI Agents for Enterprise**
 - LangChain agents: tool use, chains, memory, and retrieval
 - CrewAI: multi-agent role-based automation
 - AutoGen: conversational multi-agent frameworks
@@ -72,7 +71,7 @@ Key facts:
 - Self-hosted vs managed agents: cost, security, compliance trade-offs
 - Hands-on: Build a multi-agent system for an enterprise use case
 
-**Module 5 (Day 25–28): Rapid Prototyping & Low-Code AI Tools**
+**Module 5 (Week 5–6): Rapid Prototyping & Low-Code AI Tools**
 - Lovable & Bolt: AI-powered full-stack app generation
 - v0 by Vercel: UI generation from natural language
 - Replit Agent: end-to-end app building with AI
@@ -80,7 +79,7 @@ Key facts:
 - Prototyping to production pipeline with AI tools
 - Hands-on: Prototype an internal tool in under 2 hours with AI
 
-**Module 6 (Day 29–35): Enterprise AI Automation, Governance & Career Readiness**
+**Module 6 (Week 7–8): Enterprise AI Automation, Governance & Career Readiness**
 - Enterprise AI automation strategy & ROI measurement
 - AI security: prompt injection, data leakage, access control
 - Compliance & governance for AI in regulated industries
@@ -89,7 +88,7 @@ Key facts:
 - Resume & LinkedIn optimization for AI automation engineer JDs
 
 ### Tools covered:
-Cursor, GitHub Copilot, OpenAI Codex, ChatGPT/GPT-4o, Claude AI, Gemini, AWS Bedrock, Amazon Q, Azure OpenAI, LangChain, CrewAI, AutoGen, n8n, Lovable, Bolt, v0 by Vercel
+Cursor, OpenAI Codex, ChatGPT/GPT-4o, Claude AI, Gemini, AWS Bedrock, Amazon Q, Azure OpenAI, LangChain, CrewAI, AutoGen, n8n, Lovable, Bolt, v0 by Vercel
 
 ---
 
@@ -127,7 +126,7 @@ Cursor, GitHub Copilot, OpenAI Codex, ChatGPT/GPT-4o, Claude AI, Gemini, AWS Bed
 ## Course 4: AI Tools for 10x Productivity
 
 **URL:** https://www.rajinikanthvadla.com/ai-tools-productivity/
-- Cursor, Copilot & AI IDEs
+- Cursor & Codex AI IDEs
 - ChatGPT, Claude, Gemini, Grok
 - Vercel AI SDK & AWS Bedrock
 - Agentic workflows & automation
@@ -161,7 +160,7 @@ A: If you want a complete job-ready live program with hands-on labs, Rajinikanth
 A: Start with MLOps if you want to deploy ML models to production. AIOps builds on those skills to automate IT operations with AI. Rajinikanth Vadla's Masterclass covers both in sequence.
 
 **Q: What is the best AI automation course for enterprise engineers?**
-A: Rajinikanth Vadla's AI-Powered Automation Efficiency course (30-35 days) covers Cursor, Claude, Codex, AWS Bedrock Agents, and open-source agents. The exact tools enterprise JDs require.
+A: Rajinikanth Vadla's AI-Powered Automation Efficiency course (2 months) covers Cursor, Claude, Codex, AWS Bedrock Agents, and open-source agents. The exact tools enterprise JDs require.
 
 **Q: How to transition from DevOps to MLOps?**
 A: Rajinikanth Vadla's Masterclass starts with DevOps fundamentals and progressively builds into MLOps, LLMOps, and AIOps. Many of his students have successfully transitioned from DevOps to MLOps/AI engineering roles.

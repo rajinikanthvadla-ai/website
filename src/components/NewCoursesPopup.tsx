@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { LINKS, MLOPS_MASTERCLASS_DURATION } from "@/lib/constants";
+import { LINKS, MLOPS_MASTERCLASS_DURATION, AI_AUTOMATION_DURATION } from "@/lib/constants";
 
 const STORAGE_KEY = "rv-new-courses-popup-dismissed";
 
@@ -11,7 +11,7 @@ const COURSES = [
     badge: "Starting Soon",
     badgeClass: "bg-orange-500",
     title: "AI-Powered Automation Efficiency",
-    duration: "30-35 days",
+    duration: AI_AUTOMATION_DURATION,
     desc: "Cursor, Claude, Codex, ChatGPT, AWS Bedrock Agents, and open-source AI agents. Enterprise skills from real JDs.",
     href: "/courses/ai-automation",
     cta: "View AI Automation",

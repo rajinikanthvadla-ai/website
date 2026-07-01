@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { LINKS, STATS, COURSES, STRUCTURED_DATA, HOME_PAGE_FAQS } from "@/lib/constants";
+import { LINKS, STATS, COURSES, STRUCTURED_DATA, HOME_PAGE_FAQS, AI_AUTOMATION_DURATION } from "@/lib/constants";
 import { LinkedInIcon, InstagramIcon, YouTubeIcon } from "@/components/Icons";
 import SectionHeader from "@/components/SectionHeader";
 import CTASection from "@/components/CTASection";
@@ -45,7 +45,7 @@ function AIAutomationTopBanner() {
           Starting Soon
         </span>
         <p className="font-medium">
-          <span className="font-bold">AI-Powered Automation Efficiency</span>: 30-35 day enterprise course
+          <span className="font-bold">AI-Powered Automation Efficiency</span>: {AI_AUTOMATION_DURATION} enterprise course
         </p>
         <Link
           href="/courses/ai-automation"
@@ -203,7 +203,7 @@ function SeoDiscoverSection() {
           <Link href="/courses/ai-automation/" className="text-blue-700 font-semibold hover:underline">
             AI-Powered Automation course
           </Link>{" "}
-          covers Cursor, Claude, Codex and AWS Bedrock Agents in 30-35 days.
+          covers Cursor, Claude, Codex and AWS Bedrock Agents over {AI_AUTOMATION_DURATION}.
         </p>
         <p className="text-slate-500 text-sm leading-relaxed">
           Also see:{" "}

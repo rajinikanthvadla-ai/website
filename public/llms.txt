@@ -14,8 +14,8 @@
 ## Courses
 
 ### AI-Powered Automation Efficiency (NEW, Starting Soon)
-- [Course Page](https://www.rajinikanthvadla.com/courses/ai-automation/): 30-35 day intensive (extendable to 45 days) enterprise AI automation course
-- Covers: Cursor IDE, GitHub Copilot, OpenAI Codex, ChatGPT, Claude AI, AWS Bedrock Agents, LangChain, CrewAI, AutoGen, Lovable, Bolt, n8n
+- [Course Page](https://www.rajinikanthvadla.com/courses/ai-automation/): 2 month live enterprise AI automation course
+- Covers: Cursor IDE, OpenAI Codex, ChatGPT, Claude AI, AWS Bedrock Agents, LangChain, CrewAI, AutoGen, Lovable, Bolt, n8n
 - Focus: Skills that appear in enterprise job descriptions for AI automation roles
 - Format: Live online, localized pricing
 - Contact: https://wa.me/919100028801
@@ -66,10 +66,10 @@ Rajinikanth Vadla's MLOps and AIOps Masterclass is a complete 4-5 month job-read
 The 4-5 month MLOps, AIOps, LLMOps and AI Agents Masterclass by Rajinikanth Vadla is designed for working professionals who want a complete job-ready path. 150+ hours of live labs, 4 capstone projects, and placement support. ₹40,000 India.
 
 ### What is the AI-Powered Automation Efficiency course?
-A 30-35 day intensive enterprise course (extendable to 45 days) covering Cursor, Claude AI, OpenAI Codex, ChatGPT, AWS Bedrock Agents, open-source AI agents (LangChain, CrewAI), and rapid prototyping tools. It teaches the exact skills from enterprise JDs.
+A 2 month intensive enterprise course covering Cursor, Claude AI, OpenAI Codex, ChatGPT, AWS Bedrock Agents, open-source AI agents (LangChain, CrewAI), and rapid prototyping tools. It teaches the exact skills from enterprise JDs.
 
 ### Which AI tools do enterprises require engineers to know?
-Enterprise JDs increasingly require Cursor, GitHub Copilot, ChatGPT/Claude API integration, AWS Bedrock Agents, and AI agent frameworks like LangChain and CrewAI. Rajinikanth Vadla's AI-Powered Automation Efficiency course covers all of these.
+Enterprise JDs increasingly require Cursor, ChatGPT/Claude API integration, AWS Bedrock Agents, and AI agent frameworks like LangChain and CrewAI. Rajinikanth Vadla's AI-Powered Automation Efficiency course covers all of these.
 
 ### What salary can I expect after MLOps training?
 MLOps Engineers earn ₹12-50 LPA in India, $120K-$200K+ in USA, €70K-€120K+ in Europe. Students of Rajinikanth Vadla report a 60% average salary increase after completing the training.

@@ -110,16 +110,16 @@ export const SEO_LANDINGS: Record<string, SeoLanding> = {
     title: "AI Tools Training",
     metaTitle: "AI Tools Training | Cursor, Claude, Codex, Bedrock Agents Course",
     metaDescription:
-      "Enterprise AI tools training: Cursor, Claude, Codex, ChatGPT, AWS Bedrock Agents. 30-35 day AI Automation course by Rajinikanth Vadla.",
+      "Enterprise AI tools training: Cursor, Claude, Codex, ChatGPT, AWS Bedrock Agents. 2 month AI Automation course by Rajinikanth Vadla.",
     keywords: ["AI tools training", "Cursor training", "Claude AI course", "enterprise AI automation", "AI coding tools course"],
     h1: "AI tools training for enterprise engineers",
     intro:
-      "Enterprise teams now expect engineers to use Cursor, Claude, Codex and cloud AI agents daily. This training teaches those tools in a structured 30-35 day program.",
+      "Enterprise teams now expect engineers to use Cursor, Claude, Codex and cloud AI agents daily. This training teaches those tools in a structured 2 month program.",
     paragraphs: [
       "The AI-Powered Automation Efficiency course covers AI-assisted development, LLM APIs, AWS Bedrock Agents, open-source agents and rapid prototyping with tools enterprises actually hire for.",
       "Every module maps to skills listed in real job descriptions for AI automation and platform engineering roles.",
     ],
-    highlights: ["Cursor and Copilot", "Claude and ChatGPT APIs", "AWS Bedrock Agents", "LangChain and CrewAI", "30-35 day live cohort"],
+    highlights: ["Cursor and Codex", "Claude and ChatGPT APIs", "AWS Bedrock Agents", "LangChain and CrewAI", "2 month live cohort"],
     courseHref: "/courses/ai-automation/",
     cta: "View AI Automation course",
     canonical: "https://www.rajinikanthvadla.com/ai-tools-productivity/",
