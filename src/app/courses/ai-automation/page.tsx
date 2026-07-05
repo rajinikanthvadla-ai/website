@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import "./automation.css";
-import { LINKS, AI_AUTOMATION_DURATION, STRUCTURED_DATA } from "@/lib/constants";
+import { LINKS, AI_AUTOMATION_DURATION, STRUCTURED_DATA, COURSE_ZOOM_DEMOS } from "@/lib/constants";
 import {
   AI_AUTOMATION_TAGLINE,
   AI_AUTOMATION_HERO_SUB,
@@ -30,6 +30,7 @@ import CourseSectionNav from "@/components/automation/CourseSectionNav";
 import StickyEnrollBar from "@/components/automation/StickyEnrollBar";
 import { GfxCard, GfxGrid } from "@/components/automation/GfxCard";
 import AgentFlow from "@/components/automation/AgentFlow";
+import LiveZoomDemo from "@/components/LiveZoomDemo";
 
 export const metadata: Metadata = {
   title: "AI Automation Course | Build Company Agents | ₹20,000 Lifetime Access",
@@ -71,6 +72,9 @@ export default function AIAutomationCoursePage() {
             <a href="#enroll" className="auto-hero-cta hidden lg:inline-flex">
               Enroll {AI_AUTOMATION_PRICE} &rarr;
             </a>
+            <a href={LINKS.zoomAiAutomation} target="_blank" rel="noopener noreferrer" className="auto-hero-cta-outline hidden lg:inline-flex ml-3">
+              Join Live Demo
+            </a>
             <a href="#curriculum" className="auto-hero-cta-outline hidden lg:inline-flex ml-3">
               View Syllabus
             </a>
@@ -109,6 +113,8 @@ export default function AIAutomationCoursePage() {
           </div>
         ))}
       </div>
+
+      <LiveZoomDemo demo={COURSE_ZOOM_DEMOS.aiAutomation} />
 
       <div className="auto-marquee-wrap" aria-hidden>
         <div className="auto-marquee">

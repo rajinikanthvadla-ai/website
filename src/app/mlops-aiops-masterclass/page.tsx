@@ -10,10 +10,12 @@ import {
   MLOPS_PROGRAM_INCLUDES,
   MLOPS_PREREQUISITES,
   MLOPS_TARGET_AUDIENCE,
+  COURSE_ZOOM_DEMOS,
 } from "@/lib/constants";
 import MasterclassSyllabus from "@/components/masterclass/MasterclassSyllabus";
 import SectionHeader from "@/components/SectionHeader";
 import SuccessStories from "@/components/SuccessStories";
+import LiveZoomDemo from "@/components/LiveZoomDemo";
 
 export const metadata: Metadata = {
   title: "MLOps AIOps LLMOps AI Agents Job Ready Course India | 4-5 Month Live Program",
@@ -41,6 +43,7 @@ export default function MasterclassPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(STRUCTURED_DATA.course) }} />
       <HeroBanner />
+      <LiveZoomDemo demo={COURSE_ZOOM_DEMOS.mlopsMasterclass} variant="dark" />
       <WhatYouMaster />
       <ProgramOverview />
       <FullSyllabus />
@@ -107,6 +110,9 @@ function HeroBanner() {
         <div className="flex flex-col sm:flex-row justify-center gap-3 mb-4">
           <a href={LINKS.enroll} target="_blank" rel="noopener noreferrer" className="inline-flex justify-center items-center bg-blue-700 text-white px-10 py-4 rounded-lg text-base font-semibold hover:bg-blue-800 transition-colors">
             Enroll Now &rarr;
+          </a>
+          <a href={LINKS.zoomMasterclass} target="_blank" rel="noopener noreferrer" className="inline-flex justify-center items-center bg-orange-500 text-white px-10 py-4 rounded-lg text-base font-semibold hover:bg-orange-600 transition-colors">
+            Join Live Demo &rarr;
           </a>
           <a href="#full-syllabus" className="inline-flex justify-center items-center border-2 border-slate-600 text-slate-300 px-10 py-4 rounded-lg text-base font-semibold hover:border-slate-400 hover:text-white transition-colors">
             View Full Syllabus

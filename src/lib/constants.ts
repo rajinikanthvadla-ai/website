@@ -25,6 +25,10 @@ export const LINKS = {
   whatsappAutomation:
     "https://wa.me/919100028801?text=Hi%20Rajinikanth,%20I%20am%20interested%20in%20the%20AI-Powered%20Automation%20Efficiency%20course.%20Please%20share%20details.",
   whatsappChannel: "https://whatsapp.com/channel/0029VbBxmp7Fy7262q1Ti72e",
+  zoomAiAutomation:
+    "https://us06web.zoom.us/j/87218406889?pwd=aapAaoxbKd9cK6rQioFHVMlIHxedRO.1",
+  zoomMasterclass:
+    "https://us06web.zoom.us/j/87999982120?pwd=bfqVQtQ9th5aeybBQD3QP9TdAaDd0a.1",
   linkedin: "https://www.linkedin.com/in/rajinikanth-vadla-4221281a4/",
   youtube: "https://www.youtube.com/@IamRajinikanthvadla",
   instagram: "https://www.instagram.com/rajinikanth_vadla_/",
@@ -184,6 +188,37 @@ export const MLOPS_CAREER_ROLES = [
   { title: "SRE (ML Focus)", salary: "₹15-35 LPA" },
   { title: "DevOps (AI/ML)", salary: "₹12-30 LPA" },
 ];
+
+export const COURSE_ZOOM_DEMOS = {
+  aiAutomation: {
+    courseName: "AI-Powered Automation Engineer Course",
+    sessionLabel: "Live Demo Session",
+    schedule: "Daily · 6:30 PM IST",
+    startsOn: "Jul 11, 2026",
+    joinUrl: LINKS.zoomAiAutomation,
+    agendaUrl:
+      "https://docs.zoom.us/agenda/doc/ada53d77-4de5-4d27-83f3-437edc3535cf",
+    chatUrl: "https://us06web.zoom.us/launch/jc/87218406889",
+    calendarUrl:
+      "https://us06web.zoom.us/meeting/tZMvduGsrj0iEt0TPNq64_RVssNoDhsDvr8h/ics?icsToken=DBabz5hOk6xHg6vBdAAALAAAANL6XfRiDTiQUkP_jvJ0-c7EuIkzET9Ui0PINVJxdYTLhcB1eRacXtVF7v2YJmCU9Td3kfMcnuZ9tH6xKTAwMDAwMQ&meetingMasterEventId=0ZCY3sayTVyC9dwYLf0PFw",
+    meetingId: "872 1840 6889",
+    passcode: "1111",
+  },
+  mlopsMasterclass: {
+    courseName: "MLOps + LLMOps + AIOps + Agentic AI Course",
+    sessionLabel: "Live Demo Session",
+    schedule: "Daily · 9:30 PM IST",
+    startsOn: "Jul 11, 2026",
+    joinUrl: LINKS.zoomMasterclass,
+    agendaUrl:
+      "https://docs.zoom.us/agenda/doc/e70b1ca0-8872-4403-93e9-84871706b0d8",
+    chatUrl: "https://us06web.zoom.us/launch/jc/87999982120",
+    calendarUrl:
+      "https://us06web.zoom.us/meeting/tZMkfuChpjkrGNTn8tvCE_88_70rd4kciCn7/ics?icsToken=DDx6daWm7DgqqHrBKQAALAAAAOIX1_OvK3qWcgwzsu7cdKwbxW1Z0oK2YDEIhuEhEZfCvNggz5XTD6xc5QOgw70kV7sbxGtzrL5pjaZNsTAwMDAwMQ&meetingMasterEventId=nt4z7kvyRsmxf8t3jL4hZw",
+    meetingId: "879 9998 2120",
+    passcode: "1111",
+  },
+} as const;
 
 export const COURSES = [
   {
