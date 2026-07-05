@@ -12,7 +12,7 @@ const COURSES = [
     badgeClass: "bg-orange-500",
     title: "AI-Powered Automation Efficiency",
     duration: AI_AUTOMATION_DURATION,
-    desc: "Cursor, Claude, Codex, ChatGPT, AWS Bedrock Agents, and open-source AI agents. Enterprise skills from real JDs.",
+    desc: "Complete 2-month program: Cursor, Bedrock, MCP, agents, prototyping, governance. For teams and engineers.",
     href: "/courses/ai-automation",
     cta: "View AI Automation",
     accent: "border-l-orange-500",

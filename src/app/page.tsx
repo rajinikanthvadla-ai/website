@@ -203,7 +203,7 @@ function SeoDiscoverSection() {
           <Link href="/courses/ai-automation/" className="text-blue-700 font-semibold hover:underline">
             AI-Powered Automation course
           </Link>{" "}
-          covers Cursor, Claude, Codex and AWS Bedrock Agents over {AI_AUTOMATION_DURATION}.
+          is a complete {AI_AUTOMATION_DURATION} enterprise AI automation program (6 modules, full stack including MCP).
         </p>
         <p className="text-slate-500 text-sm leading-relaxed">
           Also see:{" "}

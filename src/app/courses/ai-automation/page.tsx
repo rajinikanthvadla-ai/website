@@ -1,360 +1,401 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { LINKS, AI_AUTOMATION_SYLLABUS, AI_AUTOMATION_DURATION, STRUCTURED_DATA } from "@/lib/constants";
-import SectionHeader from "@/components/SectionHeader";
-import CTASection from "@/components/CTASection";
-import SuccessStories from "@/components/SuccessStories";
+import Image from "next/image";
+import "./automation.css";
+import { LINKS, AI_AUTOMATION_DURATION, STRUCTURED_DATA } from "@/lib/constants";
+import {
+  AI_AUTOMATION_TAGLINE,
+  AI_AUTOMATION_HERO_SUB,
+  AI_AUTOMATION_HOOK,
+  AI_AUTOMATION_PRICE,
+  AI_AUTOMATION_PRICE_NOTE,
+  AI_AUTOMATION_INCLUDES,
+  AI_AUTOMATION_SHIP_MODE,
+  AI_AUTOMATION_TOOLS,
+  AI_AUTOMATION_AGENTS,
+  AI_AUTOMATION_CAPSTONE_STEPS,
+  AI_AUTOMATION_PRODUCTION,
+  AI_AUTOMATION_PORTFOLIO_DELIVERABLES,
+  AI_AUTOMATION_RUNBOOKS,
+  AI_AUTOMATION_BUSINESS_METRICS,
+  AI_AUTOMATION_OPEN_PLATFORM,
+  AI_AUTOMATION_MENTORSHIP,
+  AI_AUTOMATION_FOR_YOU,
+  AI_AUTOMATION_ENTERPRISE,
+  AI_AUTOMATION_EVOLVING_SYLLABUS,
+  AI_AUTOMATION_PREREQUISITES,
+  AI_AUTOMATION_FAQS,
+} from "@/lib/ai-automation-content";
+import AutomationSyllabus from "@/components/automation/AutomationSyllabus";
+import CourseSectionNav from "@/components/automation/CourseSectionNav";
+import StickyEnrollBar from "@/components/automation/StickyEnrollBar";
+import { GfxCard, GfxGrid } from "@/components/automation/GfxCard";
+import AgentFlow from "@/components/automation/AgentFlow";
 
 export const metadata: Metadata = {
-  title: "AI-Powered Automation Efficiency Course | Enterprise AI Tools Training India",
+  title: "AI Automation Course | Build Company Agents | ₹20,000 Lifetime Access",
   description:
-    "2 month live AI automation course: Cursor, Claude AI, OpenAI Codex, ChatGPT, AWS Bedrock Agents, LangChain, CrewAI. Enterprise skills from job descriptions. By Rajinikanth Vadla.",
-  keywords: [
-    "AI-powered automation course",
-    "Cursor IDE training",
-    "Claude AI enterprise training",
-    "OpenAI Codex course",
-    "AWS Bedrock agents training",
-    "enterprise AI automation",
-    "AI coding tools course",
-    "AI-assisted development course",
-    "LangChain agents course",
-    "AI automation engineer JD skills",
-    "enterprise AI tools training",
-    "AI-assisted development course",
-  ],
+    "2-month live course: incident, RAG, MCP, HR agents. ₹20,000 with lifetime recordings, 1-on-1 mentorship, org runbooks, business metrics. Rajinikanth Vadla.",
   openGraph: {
-    title: "AI-Powered Automation Efficiency — Enterprise AI Tools Training by Rajinikanth Vadla",
-    description:
-      "2 month live program. Cursor, Claude, Codex, ChatGPT, AWS Bedrock Agents, open-source agents. Skills from enterprise JDs. Starting soon.",
+    title: "AI Automation Course | ₹20,000 | Lifetime Recordings | Mentorship",
+    description: "Build company AI agents. Org runbooks. Business metrics. Evolving syllabus.",
   },
-  alternates: {
-    canonical: "https://www.rajinikanthvadla.com/courses/ai-automation/",
-  },
+  alternates: { canonical: "https://www.rajinikanthvadla.com/courses/ai-automation/" },
 };
 
 export default function AIAutomationCoursePage() {
+  const buildAgents = AI_AUTOMATION_AGENTS.filter((a) => a.buildInCourse);
+  const templateAgents = AI_AUTOMATION_AGENTS.filter((a) => !a.buildInCourse);
+
   return (
-    <>
+    <div className="automation-course pb-20 md:pb-0">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(STRUCTURED_DATA.aiAutomationCourse) }} />
-      <HeroBanner />
-      <CourseHighlights />
-      <WhoIsThisFor />
-      <FullSyllabus />
-      <ToolsYouWillUse />
-      <CourseFAQ />
-      <CTASection
-        title="Ready to master AI-Powered Automation?"
-        subtitle={`Join the next batch. ${AI_AUTOMATION_DURATION} of focused training on the exact tools enterprises hire for. Limited seats, live online, localized pricing.`}
-      />
-      <SuccessStories />
-    </>
-  );
-}
 
-function HeroBanner() {
-  return (
-    <section className="bg-blue-700 text-white py-24 md:py-32">
-      <div className="max-w-4xl mx-auto px-6 text-center">
-        <div className="flex items-center justify-center gap-3 mb-6 flex-wrap">
-          <span className="inline-flex items-center gap-1.5 bg-red-600 text-white text-xs font-bold py-1.5 px-4 rounded uppercase tracking-wide">
-            <span className="w-2 h-2 bg-white rounded-full" style={{ animation: "pulse-dot 1.5s ease-in-out infinite" }} />
-            Starting Soon
-          </span>
-          <span className="bg-orange-500 text-white text-xs font-bold py-1.5 px-4 rounded uppercase tracking-wide">
-            Enterprise Level
-          </span>
-        </div>
-
-        <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-          AI-Powered Automation<br />Efficiency
-        </h1>
-
-        <p className="text-blue-100 text-lg md:text-xl mb-4 max-w-2xl mx-auto leading-relaxed">
-          Master the AI tools that enterprise JDs demand — Cursor, Claude, Codex, ChatGPT, AWS Bedrock Agents,
-          open-source agents, and rapid prototyping tools like Lovable and Bolt.
-        </p>
-        <p className="text-blue-200 text-base mb-10 max-w-xl mx-auto">
-          Not theory. Not hype. The actual skills hiring managers screen for.
-        </p>
-
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mx-auto mb-10">
-          {[
-            { value: "2 Months", label: "Duration" },
-            { value: "6 Modules", label: "Focused Training" },
-            { value: "Live Online", label: "Format" },
-            { value: "Enterprise", label: "Level" },
-          ].map((item) => (
-            <div key={item.label} className="bg-blue-800 border border-blue-600 rounded-lg px-4 py-5 text-center">
-              <div className="text-white font-bold text-xl">{item.value}</div>
-              <div className="text-blue-300 text-xs mt-1 uppercase tracking-wide">{item.label}</div>
+      {/* HERO */}
+      <section className="auto-hero">
+        <div className="auto-hero-grid-bg" aria-hidden />
+        <div className="auto-hero-watermark" aria-hidden>AGENTS</div>
+        <div className="auto-hero-inner">
+          <div className="auto-hero-copy">
+            <span className="auto-label text-orange-400 mb-5 block">AI-Powered Automation Efficiency</span>
+            <div className="flex flex-wrap gap-2 mb-8 justify-center lg:justify-start">
+              <span className="auto-pill auto-pill--hot">Cohort Open</span>
+              <span className="auto-pill">{AI_AUTOMATION_DURATION} Live</span>
             </div>
-          ))}
-        </div>
+            <h1 className="auto-display font-bold">{AI_AUTOMATION_TAGLINE}</h1>
+            <p className="auto-hero-lead">{AI_AUTOMATION_HERO_SUB}</p>
+            <div className="auto-hero-pillars">
+              {["12 Agents", "Org Runbooks", "Business Metrics", "Vibe Coding", "MCP", "Demo Day"].map((t) => (
+                <span key={t} className="auto-pill">{t}</span>
+              ))}
+            </div>
+            <a href="#enroll" className="auto-hero-cta hidden lg:inline-flex">
+              Enroll {AI_AUTOMATION_PRICE} &rarr;
+            </a>
+            <a href="#curriculum" className="auto-hero-cta-outline hidden lg:inline-flex ml-3">
+              View Syllabus
+            </a>
+          </div>
 
-        <div className="flex flex-col sm:flex-row justify-center gap-3 mb-4">
-          <a href={LINKS.whatsappAutomation} target="_blank" rel="noopener noreferrer" className="inline-flex justify-center items-center bg-orange-500 text-white px-10 py-4 rounded-lg text-base font-bold hover:bg-orange-600 transition-colors">
-            Enroll via WhatsApp &rarr;
-          </a>
-          <a href="#full-syllabus" className="inline-flex justify-center items-center border-2 border-blue-400 text-white px-10 py-4 rounded-lg text-base font-semibold hover:bg-blue-600 transition-colors">
-            View Full Syllabus
-          </a>
-        </div>
-        <p className="text-blue-300 text-sm">Localized pricing · Limited seats per batch</p>
-      </div>
-    </section>
-  );
-}
-
-function CourseHighlights() {
-  const highlights = [
-    {
-      icon: "💻",
-      title: "AI-Assisted Development",
-      desc: "Cursor and OpenAI Codex — write production code 5x faster. The skill every enterprise now expects in JDs.",
-    },
-    {
-      icon: "🤖",
-      title: "LLM APIs for Enterprise",
-      desc: "ChatGPT, Claude, Gemini APIs — build internal tools, automate SOPs, and integrate LLMs into enterprise workflows.",
-    },
-    {
-      icon: "☁️",
-      title: "AWS Bedrock Agents",
-      desc: "Production Bedrock agents with action groups, knowledge bases, and guardrails. The cloud AI service enterprises adopt first.",
-    },
-    {
-      icon: "🔗",
-      title: "Open-Source AI Agents",
-      desc: "LangChain, CrewAI, AutoGen, n8n — multi-agent automation with full control. Self-hosted, compliant, enterprise-ready.",
-    },
-    {
-      icon: "⚡",
-      title: "Rapid Prototyping Tools",
-      desc: "Lovable, Bolt, v0, Replit Agent — prototype internal tools in hours instead of weeks. Know when to use them vs custom code.",
-    },
-    {
-      icon: "🛡️",
-      title: "Governance & Career Prep",
-      desc: "AI security, compliance, interview prep, and resume optimization — everything to land the AI automation role.",
-    },
-  ];
-
-  return (
-    <section className="py-24 md:py-28 bg-white border-b border-slate-200">
-      <div className="max-w-7xl mx-auto px-6">
-        <SectionHeader
-          tag="What You Will Learn"
-          title="Skills straight from enterprise job descriptions"
-          subtitle="Every module maps to what hiring managers and technical leads actually screen for in AI automation roles."
-        />
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {highlights.map((h) => (
-            <div key={h.title} className="panel p-7 card-hover group">
-              <div className="w-12 h-12 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center text-2xl mb-5">
-                {h.icon}
+          <div className="auto-price-tower">
+            <p className="auto-label text-orange-400 mb-3">Investment</p>
+            <p className="auto-price-tower-amount">{AI_AUTOMATION_PRICE}</p>
+            <p className="text-slate-400 text-sm mt-2 mb-6">{AI_AUTOMATION_PRICE_NOTE}</p>
+            {[
+              "Lifetime recording access",
+              "1-on-1 mentorship from Rajinikanth",
+              "Org-specific runbook training",
+              "Business metrics and ROI one-pagers",
+              "Syllabus evolves with your ideas",
+              "5 to 6 portfolio agent builds",
+            ].map((text) => (
+              <div key={text} className="auto-price-tower-row">
+                <span className="text-green-400 shrink-0 text-lg">✓</span>
+                {text}
               </div>
-              <h3 className="font-display font-bold text-slate-900 text-xl mb-3 group-hover:text-blue-700 transition-colors">{h.title}</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">{h.desc}</p>
-            </div>
+            ))}
+            <a href={LINKS.whatsappAutomation} target="_blank" rel="noopener noreferrer" className="auto-price-tower-btn">
+              Enroll on WhatsApp
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <div className="auto-value-strip">
+        {AI_AUTOMATION_INCLUDES.map((item) => (
+          <div key={item.label} className="auto-value-strip-cell">
+            <div className="text-lg mb-1">{item.icon}</div>
+            <div className="text-xs font-bold">{item.value}</div>
+            <div className="text-[10px] opacity-75 uppercase tracking-wide mt-0.5">{item.label}</div>
+          </div>
+        ))}
+      </div>
+
+      <div className="auto-marquee-wrap" aria-hidden>
+        <div className="auto-marquee">
+          {[...AI_AUTOMATION_TOOLS, ...AI_AUTOMATION_TOOLS].map((t, i) => (
+            <span key={`${t}-${i}`} className="text-slate-500 font-bold text-xs uppercase tracking-widest px-8">{t}</span>
           ))}
         </div>
       </div>
-    </section>
-  );
-}
 
-function WhoIsThisFor() {
-  const personas = [
-    { icon: "👨‍💻", title: "Software Engineers", desc: "Who want to add AI automation skills to their toolkit and land better roles" },
-    { icon: "🔧", title: "DevOps / MLOps Engineers", desc: "Looking to automate pipelines and infrastructure with AI tools" },
-    { icon: "🏢", title: "Enterprise Developers", desc: "Building internal tools and automations for their organizations" },
-    { icon: "🎓", title: "Tech Leads", desc: "Evaluating and adopting AI tools for their engineering teams" },
-    { icon: "📊", title: "QA / Automation Engineers", desc: "Who want to bring AI into testing and quality workflows" },
-    { icon: "🌍", title: "Career Changers", desc: "Experienced professionals pivoting to AI-first engineering roles" },
-  ];
+      <CourseSectionNav />
 
-  return (
-    <section className="py-20 md:py-24 bg-slate-50 border-b border-slate-200">
-      <div className="max-w-7xl mx-auto px-6">
-        <SectionHeader
-          tag="Who Is This For"
-          title="Built for working professionals"
-          subtitle="You already know how to code. This course teaches you to leverage AI tools the way enterprises expect."
-        />
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {personas.map((p) => (
-            <div key={p.title} className="panel p-6 flex items-start gap-4 card-hover">
-              <span className="text-3xl shrink-0">{p.icon}</span>
-              <div>
-                <h3 className="font-display font-bold text-slate-900 text-lg mb-1">{p.title}</h3>
-                <p className="text-slate-600 text-sm leading-relaxed">{p.desc}</p>
-              </div>
-            </div>
-          ))}
+      {/* FOR YOU — graphical cards */}
+      <section className="auto-section bg-white" id="for-you">
+        <div className="auto-page-col">
+          <div className="auto-section-head">
+            <span className="auto-section-tag">This course is for you</span>
+            <h2>{AI_AUTOMATION_FOR_YOU.title}</h2>
+            <p className="font-bold text-blue-700 !text-base mb-2">{AI_AUTOMATION_FOR_YOU.subtitle}</p>
+            <p>{AI_AUTOMATION_FOR_YOU.desc}</p>
+          </div>
+          <GfxGrid>
+            {AI_AUTOMATION_FOR_YOU.roles.map((r) => (
+              <GfxCard key={r.role} icon={r.icon} title={r.role} sub="You gain" items={[r.gain]} />
+            ))}
+          </GfxGrid>
         </div>
-      </div>
-    </section>
-  );
-}
+      </section>
 
-function FullSyllabus() {
-  return (
-    <section className="py-24 md:py-28 bg-white" id="full-syllabus">
-      <div className="max-w-7xl mx-auto px-6">
-        <SectionHeader
-          tag="Complete Syllabus"
-          title="6 Modules · 2 Months"
-          subtitle="Every topic maps to enterprise JD requirements. Hands-on projects with every module."
-        />
+      {/* AGENTS — bento graphical cards */}
+      <section className="auto-section auto-section--agents" id="agents">
+        <div className="auto-page-col">
+          <div className="auto-section-head">
+            <span className="auto-section-tag">Company agents</span>
+            <h2>What you build standing up in your org</h2>
+            <p>{AI_AUTOMATION_HOOK}</p>
+          </div>
+          <p className="auto-gfx-section-label">You build in the course</p>
+          <GfxGrid bento>
+            {buildAgents.map((a, i) => (
+              <GfxCard
+                key={a.id}
+                icon={a.icon}
+                title={a.name}
+                sub={a.tagline}
+                items={a.automations}
+                tags={a.tools}
+                variant={i === 0 ? "featured" : "light"}
+                size={a.bento ?? "normal"}
+              />
+            ))}
+          </GfxGrid>
+          <p className="auto-gfx-section-label auto-gfx-section-label--muted">Templates you take home</p>
+          <GfxGrid>
+            {templateAgents.map((a) => (
+              <GfxCard
+                key={a.id}
+                icon={a.icon}
+                title={a.name}
+                sub={a.tagline}
+                items={a.automations.slice(0, 3)}
+                tags={a.tools}
+                variant="ghost"
+              />
+            ))}
+          </GfxGrid>
+        </div>
+      </section>
 
-        <div className="space-y-5">
-          {AI_AUTOMATION_SYLLABUS.map((mod) => (
-            <div key={mod.module} className="panel overflow-hidden card-hover group">
-              <div className="flex flex-col md:flex-row">
-                <div className="md:w-72 lg:w-80 shrink-0 p-6 bg-slate-50 border-b md:border-b-0 md:border-r border-slate-200">
-                  <div className="flex items-center gap-4 mb-3">
-                    <div className="w-12 h-12 rounded-lg bg-blue-700 text-white flex items-center justify-center text-lg font-bold">
-                      {mod.module}
-                    </div>
-                    <span className="text-sm text-orange-600 font-bold">{mod.duration}</span>
+      {/* RUNBOOKS + METRICS */}
+      <section className="auto-section auto-section--glow" id="runbooks">
+        <div className="auto-page-col">
+          <div className="auto-section-head">
+            <span className="auto-section-tag">Org ready</span>
+            <h2>Runbooks and ROI your manager signs off on</h2>
+          </div>
+          <div className="auto-split-flow">
+            <GfxCard variant="blue" title={AI_AUTOMATION_RUNBOOKS.title} sub="Runbooks">
+              <p className="text-blue-100 text-sm mb-4">{AI_AUTOMATION_RUNBOOKS.desc}</p>
+              <ul className="text-sm text-blue-50 space-y-2">
+                {AI_AUTOMATION_RUNBOOKS.points.map((p) => (
+                  <li key={p} className="flex gap-2"><span className="text-orange-300">+</span>{p}</li>
+                ))}
+              </ul>
+            </GfxCard>
+            <GfxCard variant="warm" title={AI_AUTOMATION_BUSINESS_METRICS.title} sub="Metrics">
+              <p className="text-slate-600 text-sm mb-4">{AI_AUTOMATION_BUSINESS_METRICS.desc}</p>
+              <div className="grid grid-cols-2 gap-2">
+                {AI_AUTOMATION_BUSINESS_METRICS.metrics.map((m) => (
+                  <div key={m.label} className="bg-white border border-orange-200 rounded-xl p-3">
+                    <span className="text-lg">{m.icon}</span>
+                    <p className="text-[10px] font-bold text-orange-600 uppercase mt-1">{m.label}</p>
+                    <p className="text-xs text-slate-600 mt-0.5">{m.example}</p>
                   </div>
-                  <h3 className="font-display font-bold text-slate-900 text-xl leading-snug group-hover:text-blue-700 transition-colors">
-                    {mod.title}
-                  </h3>
-                </div>
-                <div className="flex-1 p-6">
-                  <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2.5">
-                    {mod.topics.map((topic) => (
-                      <li key={topic} className="text-sm text-slate-600 flex items-start gap-2 leading-relaxed">
-                        <span className="text-blue-600 mt-0.5 shrink-0 font-bold">&#10003;</span>
-                        {topic}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                ))}
               </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="text-center mt-14">
-          <div className="bg-blue-50 border border-blue-200 rounded-lg inline-block px-8 py-6 mb-8">
-            <p className="text-slate-800 text-lg font-semibold mb-1">Ready to start?</p>
-            <p className="text-slate-600 text-sm">Limited seats per batch. Contact via WhatsApp for pricing and schedule.</p>
-          </div>
-          <div className="flex flex-col sm:flex-row justify-center gap-3">
-            <a href={LINKS.whatsappAutomation} target="_blank" rel="noopener noreferrer" className="inline-flex justify-center items-center bg-blue-700 text-white px-8 py-3 rounded-lg text-sm font-semibold hover:bg-blue-800 transition-colors">
-              WhatsApp to Enroll &rarr;
-            </a>
-            <a href={LINKS.topmate} target="_blank" rel="noopener noreferrer" className="inline-flex justify-center items-center border-2 border-slate-300 text-slate-700 px-8 py-3 rounded-lg text-sm font-semibold hover:border-slate-500 transition-colors">
-              Book on Topmate
-            </a>
+            </GfxCard>
           </div>
         </div>
-      </div>
-    </section>
-  );
-}
+      </section>
 
-function ToolsYouWillUse() {
-  const tools = [
-    { name: "Cursor", category: "AI IDE" },
-    { name: "OpenAI Codex", category: "AI CLI" },
-    { name: "ChatGPT / GPT-4o", category: "LLM" },
-    { name: "Claude AI", category: "LLM" },
-    { name: "Gemini", category: "LLM" },
-    { name: "AWS Bedrock", category: "Cloud AI" },
-    { name: "Amazon Q", category: "Cloud AI" },
-    { name: "Azure OpenAI", category: "Cloud AI" },
-    { name: "LangChain", category: "Agents" },
-    { name: "CrewAI", category: "Agents" },
-    { name: "AutoGen", category: "Agents" },
-    { name: "n8n", category: "Automation" },
-    { name: "Lovable", category: "Prototyping" },
-    { name: "Bolt", category: "Prototyping" },
-    { name: "v0 by Vercel", category: "Prototyping" },
-  ];
+      {/* ENTERPRISE — dark cards */}
+      <section className="auto-section auto-enterprise-bg" id="enterprise">
+        <div className="auto-page-col relative z-10">
+          <div className="auto-section-head auto-section-head--light">
+            <span className="auto-section-tag !border-orange-300 !text-orange-600 !bg-orange-50">Enterprise</span>
+            <h2>{AI_AUTOMATION_ENTERPRISE.title}</h2>
+            <p>{AI_AUTOMATION_ENTERPRISE.subtitle}</p>
+          </div>
+          <GfxGrid>
+            {AI_AUTOMATION_ENTERPRISE.items.map((item) => (
+              <GfxCard key={item.title} icon={item.icon} title={item.title} items={[item.desc]} variant="dark" />
+            ))}
+          </GfxGrid>
+          <div className="flex flex-wrap justify-center gap-2 mt-10">
+            {AI_AUTOMATION_ENTERPRISE.companies.map((c) => (
+              <span key={c} className="auto-pill border-slate-600 text-slate-300">{c}</span>
+            ))}
+          </div>
+        </div>
+      </section>
 
-  return (
-    <section className="py-20 md:py-24 bg-slate-50 border-y border-slate-200">
-      <div className="max-w-5xl mx-auto px-6">
-        <SectionHeader
-          tag="Tech Stack"
-          title="Tools you will master"
-          subtitle="Only the tools that appear in enterprise JDs. No filler."
-          tagColor="text-orange-600"
-        />
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-          {tools.map((t) => (
-            <div key={t.name} className="panel px-4 py-3.5 text-center card-hover">
-              <p className="font-semibold text-slate-900 text-sm">{t.name}</p>
-              <p className="text-xs text-slate-500 mt-0.5">{t.category}</p>
+      {/* CAPSTONE — agent flow only */}
+      <section className="auto-section bg-slate-950" id="capstone">
+        <div className="auto-page-col">
+          <div className="auto-section-head auto-section-head--light">
+            <span className="auto-section-tag !border-orange-400/50 !text-orange-400 !bg-slate-800">Agent flow</span>
+            <h2>One incident. Six agents. Full ROI.</h2>
+            <p>The capstone you demo on graduation day, wired like real companies deploy.</p>
+          </div>
+          <div className="auto-capstone-layout">
+            <AgentFlow steps={AI_AUTOMATION_CAPSTONE_STEPS} title="Connected agent flow" />
+            <div className="auto-capstone-side">
+              <GfxCard variant="blue" title="Production ready">
+                <ul className="text-sm text-blue-100 space-y-2 mt-2">
+                  {AI_AUTOMATION_PRODUCTION.map((p) => <li key={p}>+ {p}</li>)}
+                </ul>
+              </GfxCard>
+              <GfxCard variant="warm" title="Portfolio pack">
+                <ul className="text-sm text-slate-600 space-y-2 mt-2">
+                  {AI_AUTOMATION_PORTFOLIO_DELIVERABLES.map((p) => <li key={p}>+ {p}</li>)}
+                </ul>
+              </GfxCard>
             </div>
-          ))}
+          </div>
         </div>
-      </div>
-    </section>
-  );
-}
+      </section>
 
-function CourseFAQ() {
-  const faqs = [
-    {
-      q: "What is the AI-Powered Automation Efficiency course?",
-      a: "A 2 month enterprise-level course by Rajinikanth Vadla covering Cursor, Claude AI, OpenAI Codex, ChatGPT, AWS Bedrock Agents, open-source AI agents (LangChain, CrewAI), and rapid prototyping tools (Lovable, Bolt). It teaches the exact skills from enterprise job descriptions for AI automation roles.",
-    },
-    {
-      q: "Who should take this course?",
-      a: "Software engineers, DevOps/MLOps engineers, enterprise developers, tech leads, QA/automation engineers, and career changers who want to add enterprise AI automation skills. You should already know how to code — this course teaches you to leverage AI tools the way enterprises expect.",
-    },
-    {
-      q: "What AI tools will I learn?",
-      a: "Cursor, OpenAI Codex, ChatGPT/GPT-4o, Claude AI, Gemini, AWS Bedrock Agents, Amazon Q, Azure OpenAI, LangChain, CrewAI, AutoGen, n8n, Lovable, Bolt, and v0 by Vercel. Only tools that appear in enterprise JDs.",
-    },
-    {
-      q: "What makes this different from other AI courses?",
-      a: "This course focuses on practical enterprise tools — not theory. Every module maps directly to skills listed in real job descriptions. You'll build production-ready projects, not toy demos. Taught by Rajinikanth Vadla who has 7+ years of enterprise experience.",
-    },
-    {
-      q: "Is the course live or recorded?",
-      a: "Live online sessions. You interact directly with Rajinikanth Vadla, ask questions in real time, and get your hands-on work reviewed. Recordings are available if you miss a session.",
-    },
-    {
-      q: "How long is the program?",
-      a: "The AI-Powered Automation Efficiency course runs for 2 months with live online sessions, hands-on projects each module, and recordings if you miss a session.",
-    },
-    {
-      q: "How do I enroll?",
-      a: "Contact Rajinikanth Vadla directly on WhatsApp (+91-9100028801) or book through Topmate (topmate.io/rajinikanthvadla). Seats are limited per batch.",
-    },
-    {
-      q: "Will this help me get a job in AI automation?",
-      a: "Yes. Module 6 covers interview prep (system design for AI automation roles), resume optimization for enterprise JDs, and LinkedIn branding. 95% of Rajinikanth Vadla's students report positive career outcomes.",
-    },
-  ];
-
-  return (
-    <section className="py-20 md:py-24 bg-white border-t border-slate-200">
-      <div className="max-w-4xl mx-auto px-6">
-        <SectionHeader
-          tag="FAQ"
-          title="Common questions about this course"
-        />
-        <div className="space-y-3">
-          {faqs.map((faq) => (
-            <details key={faq.q} className="panel group">
-              <summary className="flex items-start justify-between gap-4 p-5 cursor-pointer list-none font-display font-bold text-slate-900 text-base leading-snug hover:text-blue-700 transition-colors">
-                {faq.q}
-                <span className="text-slate-400 text-xl shrink-0 group-open:rotate-45 transition-transform">+</span>
-              </summary>
-              <div className="px-5 pb-5 -mt-1">
-                <p className="text-slate-600 text-sm leading-relaxed">{faq.a}</p>
-              </div>
-            </details>
-          ))}
+      {/* OPEN PLATFORM — 3 cards */}
+      <section className="auto-section auto-section--platform">
+        <div className="auto-page-col">
+          <div className="auto-section-head">
+            <span className="auto-section-tag">Open platform</span>
+            <h2>{AI_AUTOMATION_OPEN_PLATFORM.title}</h2>
+            <p>{AI_AUTOMATION_OPEN_PLATFORM.desc}</p>
+            <p className="font-bold text-orange-600 mt-3">{AI_AUTOMATION_OPEN_PLATFORM.cta}</p>
+          </div>
+          <GfxGrid className="auto-gfx-grid--three">
+            {AI_AUTOMATION_OPEN_PLATFORM.steps.map((s) => (
+              <GfxCard key={s.num} icon={s.num} title={s.label} items={[s.desc]} variant="featured" />
+            ))}
+          </GfxGrid>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* SYLLABUS — flow layout only here */}
+      <section className="auto-section auto-section--syllabus" id="curriculum">
+        <div className="auto-page-col">
+          <div className="auto-syllabus-hero">
+            <span className="auto-section-tag auto-section-tag--syllabus">Course syllabus</span>
+            <h2 className="auto-syllabus-title">Full {AI_AUTOMATION_DURATION} Syllabus</h2>
+            <p className="auto-syllabus-sub">
+              6 modules. Every topic, lab, and build outcome. Tap any module to see the full breakdown.
+            </p>
+          </div>
+
+          <div className="auto-syllabus-evolving">
+            <h3 className="font-bold text-slate-900 mb-2">{AI_AUTOMATION_EVOLVING_SYLLABUS.title}</h3>
+            <p className="text-sm text-slate-600 mb-3">{AI_AUTOMATION_EVOLVING_SYLLABUS.desc}</p>
+            <ul className="text-sm text-slate-700 space-y-1.5">
+              {AI_AUTOMATION_EVOLVING_SYLLABUS.examples.map((ex) => (
+                <li key={ex} className="flex gap-2"><span className="text-orange-500 font-bold">+</span>{ex}</li>
+              ))}
+            </ul>
+          </div>
+
+          <AutomationSyllabus />
+        </div>
+      </section>
+
+      {/* SHIP MODE — cards */}
+      <section className="auto-section auto-section--ship">
+        <div className="auto-page-col">
+          <div className="auto-section-head">
+            <span className="auto-section-tag">How you work</span>
+            <h2>Ship mode</h2>
+          </div>
+          <GfxGrid className="auto-gfx-grid--three">
+            {AI_AUTOMATION_SHIP_MODE.map((item) => (
+              <GfxCard key={item.term} icon="⚡" title={item.term} items={[item.desc]} />
+            ))}
+          </GfxGrid>
+        </div>
+      </section>
+
+      {/* MENTORSHIP */}
+      <section className="auto-section auto-section--mentor">
+        <div className="auto-page-col">
+          <div className="auto-mentor-flow">
+            <div className="auto-photo-stand shrink-0">
+              <Image src="/assets/pic-1.png" alt="Rajinikanth Vadla" width={280} height={350} priority />
+              <span className="auto-photo-stand-badge">1-on-1 Mentor</span>
+            </div>
+            <GfxCard variant="featured" title={AI_AUTOMATION_MENTORSHIP.title}>
+              <span className="auto-section-tag mb-4 inline-block mt-1">Included in {AI_AUTOMATION_PRICE}</span>
+              <p className="text-slate-600 leading-relaxed mb-4">{AI_AUTOMATION_MENTORSHIP.desc}</p>
+              <ul className="text-sm text-slate-700 space-y-2">
+                {AI_AUTOMATION_MENTORSHIP.perks.map((p) => (
+                  <li key={p} className="flex gap-2"><span className="text-blue-700 font-bold">✓</span>{p}</li>
+                ))}
+              </ul>
+              <a href={LINKS.whatsappAutomation} target="_blank" rel="noopener noreferrer" className="inline-flex mt-6 bg-slate-900 text-white px-6 py-3 rounded-xl font-bold text-sm hover:bg-slate-800">
+                Talk before you enroll
+              </a>
+            </GfxCard>
+          </div>
+        </div>
+      </section>
+
+      {/* ENROLL */}
+      <section className="auto-section auto-section--enroll" id="enroll">
+        <div className="auto-page-col">
+          <div className="auto-enroll-tower">
+            <span className="auto-section-tag mb-4 inline-block">Join the next cohort</span>
+            <p className="auto-enroll-amount">{AI_AUTOMATION_PRICE}</p>
+            <p className="text-slate-500 text-sm mt-2 mb-6">{AI_AUTOMATION_PRICE_NOTE}</p>
+            <ul className="text-left text-sm text-slate-600 space-y-2 mb-8">
+              {AI_AUTOMATION_PREREQUISITES.map((item) => (
+                <li key={item} className="flex gap-2"><span className="text-blue-700 font-bold">✓</span>{item}</li>
+              ))}
+            </ul>
+            <div className="flex flex-col gap-3">
+              <a href={LINKS.whatsappAutomation} target="_blank" rel="noopener noreferrer" className="bg-orange-500 text-white py-4 rounded-xl font-bold hover:bg-orange-600">
+                WhatsApp Enroll
+              </a>
+              <a href={LINKS.topmate} target="_blank" rel="noopener noreferrer" className="bg-blue-700 text-white py-4 rounded-xl font-bold hover:bg-blue-800">
+                Book on Topmate
+              </a>
+            </div>
+            <p className="text-slate-400 text-xs mt-5">Team batches | Company invoices | Reply within 24h</p>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="auto-section auto-section--faq" id="faq">
+        <div className="auto-page-col max-w-3xl">
+          <div className="auto-section-head !mb-10">
+            <span className="auto-section-tag">Questions</span>
+            <h2>FAQ</h2>
+          </div>
+          <div className="space-y-3">
+            {AI_AUTOMATION_FAQS.map((faq) => (
+              <details key={faq.q} className="auto-faq group">
+                <summary className="flex justify-between gap-4 p-5 cursor-pointer list-none font-bold text-slate-900 hover:text-blue-700 text-sm">
+                  {faq.q}
+                  <span className="text-slate-400 group-open:rotate-45 transition-transform text-xl font-light">+</span>
+                </summary>
+                <div className="px-5 pb-5"><p className="text-slate-600 text-sm leading-relaxed">{faq.a}</p></div>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="auto-final-cta">
+        <div className="auto-page-col relative z-10">
+          <h2 className="auto-display">{AI_AUTOMATION_PRICE}. Lifetime access. Real agents.</h2>
+          <p className="text-blue-100 text-lg md:text-xl mb-10 max-w-xl mx-auto">
+            Whatever you are today, you leave as an AI Automation Engineer. Your ideas shape the program.
+          </p>
+          <a href={LINKS.whatsappAutomation} target="_blank" rel="noopener noreferrer" className="auto-final-btn">
+            Enroll Now &rarr;
+          </a>
+        </div>
+      </section>
+
+      <StickyEnrollBar />
+    </div>
   );
 }
