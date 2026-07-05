@@ -110,7 +110,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/assets/pic-1.png" />
         <link rel="alternate" type="text/plain" href="https://www.rajinikanthvadla.com/llms.txt" title="LLM site index" />
         <link rel="alternate" type="text/plain" href="https://www.rajinikanthvadla.com/llms-full.txt" title="LLM detailed site index" />
-        <meta name="theme-color" content="#1d4ed8" />
+        <meta name="theme-color" content="#0f172a" />
         <meta name="geo.region" content="GLOBAL" />
         <meta name="geo.placename" content="Worldwide" />
         <meta name="distribution" content="global" />
@@ -129,7 +129,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(STRUCTURED_DATA.organization) }}
         />
       </head>
-      <body className={`${sans.className} bg-white text-slate-800 antialiased`}>
+      <body className={`${sans.className} notion-theme antialiased`}>
         <Header />
         <main>{children}</main>
         <Footer />

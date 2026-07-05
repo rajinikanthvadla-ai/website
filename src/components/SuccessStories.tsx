@@ -30,11 +30,14 @@ export default function SuccessStories() {
   }, [lightboxSrc, closeLightbox]);
 
   return (
-    <section id="success-stories" className="relative py-20 md:py-24 overflow-hidden bg-slate-50 border-t border-slate-200">
+    <section id="success-stories" className="notion-section notion-section--paper overflow-hidden">
       <div className="relative max-w-7xl mx-auto px-6">
         <div className="text-center mb-12">
-          <span className="text-xs font-bold uppercase tracking-[0.14em] text-orange-600 mb-3 block">Outcomes</span>
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-slate-900 mb-3 leading-tight">
+          <span className="notion-eyebrow justify-center">
+            <span className="notion-eyebrow-dot" />
+            Outcomes
+          </span>
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-[#0f172a] mb-3 leading-tight">
             Notes from people who sat in the same calls
           </h2>
           <p className="text-slate-600 max-w-xl mx-auto text-sm md:text-base leading-relaxed">
@@ -48,7 +51,7 @@ export default function SuccessStories() {
               key={i}
               type="button"
               onClick={() => openLightbox(story.src)}
-              className="group relative overflow-hidden h-[240px] md:h-[280px] rounded-lg border border-slate-200 bg-white text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+              className="group relative overflow-hidden h-[240px] md:h-[280px] rounded-sm border-2 border-[#0f172a] bg-white text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0f172a] focus-visible:ring-offset-2 shadow-[4px_4px_0_#0f172a] hover:shadow-[6px_6px_0_#0f172a] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all"
             >
               <Image
                 src={encodePublicPath(story.src)}

@@ -16,6 +16,7 @@ import MasterclassSyllabus from "@/components/masterclass/MasterclassSyllabus";
 import SectionHeader from "@/components/SectionHeader";
 import SuccessStories from "@/components/SuccessStories";
 import LiveZoomDemo from "@/components/LiveZoomDemo";
+import { MLOPS_SKETCH, sketch } from "@/lib/sketch-assets";
 
 export const metadata: Metadata = {
   title: "MLOps AIOps LLMOps AI Agents Job Ready Course India | 4-5 Month Live Program",
@@ -60,65 +61,71 @@ export default function MasterclassPage() {
 
 function HeroBanner() {
   return (
-    <section className="bg-slate-900 text-white py-24 md:py-32">
-      <div className="max-w-4xl mx-auto px-6 text-center">
-        <div className="flex items-center justify-center gap-3 mb-6 flex-wrap">
-          <span className="inline-flex items-center gap-1.5 bg-red-600 text-white text-xs font-bold py-1.5 px-4 rounded uppercase tracking-wide">
-            <span className="w-2 h-2 bg-white rounded-full" style={{ animation: "pulse-dot 1.5s ease-in-out infinite" }} />
-            Admissions Open
+    <section className="notion-hero">
+      <div className="notion-hero-inner !max-w-4xl !grid-cols-1 text-center">
+        <div>
+          <span className="notion-eyebrow justify-center">
+            <span className="notion-eyebrow-dot" />
+            Admissions Open · Job Ready Course
           </span>
-          <span className="bg-orange-500 text-white text-xs font-bold py-1.5 px-4 rounded uppercase tracking-wide">
-            Job Ready Course
-          </span>
-        </div>
 
-        <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 leading-tight">
-          MLOps · AIOps · LLMOps<br />
-          <span className="text-orange-400">AI Agentic Operations</span>
-        </h1>
-        <p className="text-slate-400 text-lg md:text-xl mb-2">Complete Job Ready Masterclass</p>
-        <p className="text-slate-400 text-base md:text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
-          A complete {MLOPS_MASTERCLASS_DURATION} live program from DevOps through production AI agents.
-          Built to make you job ready with real projects, interview prep and placement support.
-        </p>
+          <div className="notion-sketch-frame notion-sketch-frame--blue max-w-[240px] mx-auto mb-8">
+            <Image
+              src={sketch(MLOPS_SKETCH.hero)}
+              alt="Enterprise MLOps team illustration"
+              width={220}
+              height={140}
+            />
+          </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mx-auto mb-8">
-          {[
-            { value: "4-5 Months", label: "Duration" },
-            { value: "150+ Hours", label: "Hands-on" },
-            { value: "6 Modules", label: "Curriculum" },
-            { value: "Job Ready", label: "Outcome" },
-          ].map((item) => (
-            <div key={item.label} className="bg-slate-800 border border-slate-700 rounded-lg px-4 py-5 text-center">
-              <div className="text-white font-bold text-xl">{item.value}</div>
-              <div className="text-slate-500 text-xs mt-1 uppercase tracking-wide">{item.label}</div>
-            </div>
-          ))}
-        </div>
-
-        <div className="bg-slate-800 border border-slate-700 rounded-lg p-4 max-w-md mx-auto mb-8">
-          <p className="text-white font-bold text-lg">
-            ₹40,000 <span className="text-slate-400 font-normal text-sm">India</span>
-            {" · "}
-            $450 <span className="text-slate-400 font-normal text-sm">USD</span>
-            {" · "}
-            €420 <span className="text-slate-400 font-normal text-sm">EUR</span>
+          <h1 className="notion-hero-title !text-center">
+            MLOps · AIOps · LLMOps<br />
+            <span className="notion-hero-accent">AI Agentic Operations</span>
+          </h1>
+          <p className="text-slate-500 text-lg md:text-xl mb-2 text-center">Complete Job Ready Masterclass</p>
+          <p className="notion-hero-lead !mx-auto text-center">
+            A complete {MLOPS_MASTERCLASS_DURATION} live program from DevOps through production AI agents.
+            Built to make you job ready with real projects, interview prep and placement support.
           </p>
-          <p className="text-slate-500 text-xs mt-1">Mon-Fri, 8:00-9:45 PM IST, Live online</p>
-        </div>
 
-        <div className="flex flex-col sm:flex-row justify-center gap-3 mb-4">
-          <a href={LINKS.enroll} target="_blank" rel="noopener noreferrer" className="inline-flex justify-center items-center bg-blue-700 text-white px-10 py-4 rounded-lg text-base font-semibold hover:bg-blue-800 transition-colors">
-            Enroll Now &rarr;
-          </a>
-          <a href={LINKS.zoomMasterclass} target="_blank" rel="noopener noreferrer" className="inline-flex justify-center items-center bg-orange-500 text-white px-10 py-4 rounded-lg text-base font-semibold hover:bg-orange-600 transition-colors">
-            Join Live Demo &rarr;
-          </a>
-          <a href="#full-syllabus" className="inline-flex justify-center items-center border-2 border-slate-600 text-slate-300 px-10 py-4 rounded-lg text-base font-semibold hover:border-slate-400 hover:text-white transition-colors">
-            View Full Syllabus
-          </a>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mx-auto mb-8 mt-8">
+            {[
+              { value: "4-5 Months", label: "Duration" },
+              { value: "150+ Hours", label: "Hands-on" },
+              { value: "6 Modules", label: "Curriculum" },
+              { value: "Job Ready", label: "Outcome" },
+            ].map((item) => (
+              <div key={item.label} className="panel px-4 py-5 text-center !shadow-[4px_4px_0_#0f172a]">
+                <div className="notion-stat-value text-xl">{item.value}</div>
+                <div className="notion-stat-label">{item.label}</div>
+              </div>
+            ))}
+          </div>
+
+          <div className="panel p-4 max-w-md mx-auto mb-8">
+            <p className="text-[#0f172a] font-bold text-lg">
+              ₹40,000 <span className="text-slate-500 font-normal text-sm">India</span>
+              {" · "}
+              $450 <span className="text-slate-500 font-normal text-sm">USD</span>
+              {" · "}
+              €420 <span className="text-slate-500 font-normal text-sm">EUR</span>
+            </p>
+            <p className="text-slate-500 text-xs mt-1">Mon-Fri, 8:00-9:45 PM IST, Live online</p>
+          </div>
+
+          <div className="flex flex-col sm:flex-row justify-center gap-3 mb-4">
+            <a href={LINKS.enroll} target="_blank" rel="noopener noreferrer" className="notion-btn notion-btn--ink">
+              Enroll Now &rarr;
+            </a>
+            <a href={LINKS.zoomMasterclass} target="_blank" rel="noopener noreferrer" className="notion-btn notion-btn--accent">
+              Join Live Demo &rarr;
+            </a>
+            <a href="#full-syllabus" className="notion-btn notion-btn--ghost">
+              View Full Syllabus
+            </a>
+          </div>
+          <p className="text-slate-500 text-sm">Live sessions, recordings, mentorship, job support</p>
         </div>
-        <p className="text-slate-500 text-sm">Live sessions, recordings, mentorship, job support</p>
       </div>
     </section>
   );
@@ -126,16 +133,16 @@ function HeroBanner() {
 
 function WhatYouMaster() {
   const items = [
-    { icon: "🐳", title: "DevOps for AI/ML", desc: "Docker, Kubernetes, CI/CD, Terraform. Infrastructure for AI workloads." },
-    { icon: "🔄", title: "MLOps Pipelines", desc: "MLflow, Kubeflow, model versioning, deployment, monitoring, drift detection." },
-    { icon: "🧠", title: "LLMOps and RAG", desc: "Deploy LLMs, fine-tuning, RAG systems, vector databases, prompt engineering." },
-    { icon: "⚡", title: "AIOps Automation", desc: "Anomaly detection, predictive analytics, self-healing infrastructure." },
-    { icon: "🤖", title: "AI Agentic Ops", desc: "LangChain, CrewAI, MCP, multi-agent systems, enterprise agent deployment." },
-    { icon: "☁️", title: "Multi-Cloud", desc: "AWS SageMaker, Azure ML, GCP Vertex AI. Production deployment patterns." },
+    { icon: "🐳", title: "DevOps for AI/ML", desc: "Docker, Kubernetes, CI/CD, Terraform. Infrastructure for AI workloads.", sketch: "workflowDocs" as const },
+    { icon: "🔄", title: "MLOps Pipelines", desc: "MLflow, Kubeflow, model versioning, deployment, monitoring, drift detection.", sketch: "productivityFlow" as const },
+    { icon: "🧠", title: "LLMOps and RAG", desc: "Deploy LLMs, fine-tuning, RAG systems, vector databases, prompt engineering.", sketch: "reader" as const },
+    { icon: "⚡", title: "AIOps Automation", desc: "Anomaly detection, predictive analytics, self-healing infrastructure.", sketch: "incidentResponse" as const },
+    { icon: "🤖", title: "AI Agentic Ops", desc: "LangChain, CrewAI, MCP, multi-agent systems, enterprise agent deployment.", sketch: "teamCollab" as const },
+    { icon: "☁️", title: "Multi-Cloud", desc: "AWS SageMaker, Azure ML, GCP Vertex AI. Production deployment patterns.", sketch: "enterpriseTeam" as const },
   ];
 
   return (
-    <section className="py-24 md:py-28 bg-white border-b border-slate-200">
+    <section className="notion-section notion-section--white">
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeader
           tag="Course Overview"
@@ -144,12 +151,15 @@ function WhatYouMaster() {
         />
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {items.map((m) => (
-            <div key={m.title} className="panel p-7 card-hover group">
-              <div className="w-12 h-12 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center text-2xl mb-5">
-                {m.icon}
+            <div key={m.title} className="notion-program-card card-hover group">
+              <div className="notion-program-sketch !min-h-[110px]">
+                <Image src={sketch(m.sketch)} alt="" width={180} height={90} aria-hidden />
               </div>
-              <h3 className="font-display font-bold text-slate-900 text-lg mb-2 group-hover:text-blue-700 transition-colors">{m.title}</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">{m.desc}</p>
+              <div className="notion-program-body">
+                <div className="text-2xl mb-3">{m.icon}</div>
+                <h3 className="font-display font-bold text-[#0f172a] text-lg mb-2 group-hover:text-blue-700 transition-colors">{m.title}</h3>
+                <p className="text-slate-600 text-sm leading-relaxed">{m.desc}</p>
+              </div>
             </div>
           ))}
         </div>

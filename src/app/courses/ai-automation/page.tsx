@@ -31,6 +31,15 @@ import StickyEnrollBar from "@/components/automation/StickyEnrollBar";
 import { GfxCard, GfxGrid } from "@/components/automation/GfxCard";
 import AgentFlow from "@/components/automation/AgentFlow";
 import LiveZoomDemo from "@/components/LiveZoomDemo";
+import {
+  OPEN_PLATFORM_SKETCH,
+  SECTION_SKETCH,
+  SHIP_MODE_SKETCH,
+  sketch,
+  sketchForAgent,
+  sketchForEnterprise,
+  sketchForRole,
+} from "@/lib/sketch-assets";
 
 export const metadata: Metadata = {
   title: "AI Automation Course | Build Company Agents | ₹20,000 Lifetime Access",
@@ -48,7 +57,7 @@ export default function AIAutomationCoursePage() {
   const templateAgents = AI_AUTOMATION_AGENTS.filter((a) => !a.buildInCourse);
 
   return (
-    <div className="automation-course pb-20 md:pb-0">
+    <div className="automation-course notion-sketch-theme pb-20 md:pb-0">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(STRUCTURED_DATA.aiAutomationCourse) }} />
 
       {/* HERO */}
@@ -127,31 +136,39 @@ export default function AIAutomationCoursePage() {
       <CourseSectionNav />
 
       {/* FOR YOU — graphical cards */}
-      <section className="auto-section bg-white" id="for-you">
+      <section className="auto-section bg-[#fafafa]" id="for-you">
         <div className="auto-page-col">
-          <div className="auto-section-head">
-            <span className="auto-section-tag">This course is for you</span>
+          <div className="notion-section-head">
+            <span className="notion-section-eyebrow">This course is for you</span>
             <h2>{AI_AUTOMATION_FOR_YOU.title}</h2>
-            <p className="font-bold text-blue-700 !text-base mb-2">{AI_AUTOMATION_FOR_YOU.subtitle}</p>
+            <p className="font-bold text-slate-900 !text-base mb-2">{AI_AUTOMATION_FOR_YOU.subtitle}</p>
             <p>{AI_AUTOMATION_FOR_YOU.desc}</p>
           </div>
           <GfxGrid>
-            {AI_AUTOMATION_FOR_YOU.roles.map((r) => (
-              <GfxCard key={r.role} icon={r.icon} title={r.role} sub="You gain" items={[r.gain]} />
+            {AI_AUTOMATION_FOR_YOU.roles.map((r, i) => (
+              <GfxCard
+                key={r.role}
+                icon={r.icon}
+                title={r.role}
+                sub="You gain"
+                items={[r.gain]}
+                sketch={sketchForRole(r.role)}
+                sketchAlt={`${r.role} role illustration`}
+              />
             ))}
           </GfxGrid>
         </div>
       </section>
 
       {/* AGENTS — bento graphical cards */}
-      <section className="auto-section auto-section--agents" id="agents">
+      <section className="auto-section auto-section--agents bg-white" id="agents">
         <div className="auto-page-col">
-          <div className="auto-section-head">
-            <span className="auto-section-tag">Company agents</span>
+          <div className="notion-section-head">
+            <span className="notion-section-eyebrow">Company agents</span>
             <h2>What you build standing up in your org</h2>
             <p>{AI_AUTOMATION_HOOK}</p>
           </div>
-          <p className="auto-gfx-section-label">You build in the course</p>
+          <p className="notion-board-section-label">You build in the course</p>
           <GfxGrid bento>
             {buildAgents.map((a, i) => (
               <GfxCard
@@ -163,12 +180,14 @@ export default function AIAutomationCoursePage() {
                 tags={a.tools}
                 variant={i === 0 ? "featured" : "light"}
                 size={a.bento ?? "normal"}
+                sketch={sketchForAgent(a.id)}
+                sketchAlt={`${a.name} agent illustration`}
               />
             ))}
           </GfxGrid>
-          <p className="auto-gfx-section-label auto-gfx-section-label--muted">Templates you take home</p>
+          <p className="notion-board-section-label mt-10">Templates you take home</p>
           <GfxGrid>
-            {templateAgents.map((a) => (
+            {templateAgents.map((a, i) => (
               <GfxCard
                 key={a.id}
                 icon={a.icon}
@@ -177,6 +196,8 @@ export default function AIAutomationCoursePage() {
                 items={a.automations.slice(0, 3)}
                 tags={a.tools}
                 variant="ghost"
+                sketch={sketchForAgent(a.id)}
+                sketchAlt={`${a.name} agent template`}
               />
             ))}
           </GfxGrid>
@@ -186,20 +207,32 @@ export default function AIAutomationCoursePage() {
       {/* RUNBOOKS + METRICS */}
       <section className="auto-section auto-section--glow" id="runbooks">
         <div className="auto-page-col">
-          <div className="auto-section-head">
-            <span className="auto-section-tag">Org ready</span>
+          <div className="notion-section-head">
+            <span className="notion-section-eyebrow">Org ready</span>
             <h2>Runbooks and ROI your manager signs off on</h2>
           </div>
           <div className="auto-split-flow">
-            <GfxCard variant="blue" title={AI_AUTOMATION_RUNBOOKS.title} sub="Runbooks">
-              <p className="text-blue-100 text-sm mb-4">{AI_AUTOMATION_RUNBOOKS.desc}</p>
-              <ul className="text-sm text-blue-50 space-y-2">
+            <GfxCard
+              variant="blue"
+              title={AI_AUTOMATION_RUNBOOKS.title}
+              sub="Runbooks"
+              sketch={sketch(SECTION_SKETCH.runbooks)}
+              sketchAlt="Planning team illustration"
+            >
+              <p className="text-slate-600 text-sm mb-4">{AI_AUTOMATION_RUNBOOKS.desc}</p>
+              <ul className="notion-board-list">
                 {AI_AUTOMATION_RUNBOOKS.points.map((p) => (
-                  <li key={p} className="flex gap-2"><span className="text-orange-300">+</span>{p}</li>
+                  <li key={p}>{p}</li>
                 ))}
               </ul>
             </GfxCard>
-            <GfxCard variant="warm" title={AI_AUTOMATION_BUSINESS_METRICS.title} sub="Metrics">
+            <GfxCard
+              variant="warm"
+              title={AI_AUTOMATION_BUSINESS_METRICS.title}
+              sub="Metrics"
+              sketch={sketch(SECTION_SKETCH.metrics)}
+              sketchAlt="Focused work illustration"
+            >
               <p className="text-slate-600 text-sm mb-4">{AI_AUTOMATION_BUSINESS_METRICS.desc}</p>
               <div className="grid grid-cols-2 gap-2">
                 {AI_AUTOMATION_BUSINESS_METRICS.metrics.map((m) => (
@@ -218,14 +251,22 @@ export default function AIAutomationCoursePage() {
       {/* ENTERPRISE — dark cards */}
       <section className="auto-section auto-enterprise-bg" id="enterprise">
         <div className="auto-page-col relative z-10">
-          <div className="auto-section-head auto-section-head--light">
-            <span className="auto-section-tag !border-orange-300 !text-orange-600 !bg-orange-50">Enterprise</span>
+          <div className="notion-section-head notion-section-head--light">
+            <span className="notion-section-eyebrow">Enterprise</span>
             <h2>{AI_AUTOMATION_ENTERPRISE.title}</h2>
             <p>{AI_AUTOMATION_ENTERPRISE.subtitle}</p>
           </div>
           <GfxGrid>
-            {AI_AUTOMATION_ENTERPRISE.items.map((item) => (
-              <GfxCard key={item.title} icon={item.icon} title={item.title} items={[item.desc]} variant="dark" />
+            {AI_AUTOMATION_ENTERPRISE.items.map((item, i) => (
+              <GfxCard
+                key={item.title}
+                icon={item.icon}
+                title={item.title}
+                items={[item.desc]}
+                variant="dark"
+                sketch={sketchForEnterprise(item.title)}
+                sketchAlt={item.title}
+              />
             ))}
           </GfxGrid>
           <div className="flex flex-wrap justify-center gap-2 mt-10">
@@ -237,24 +278,24 @@ export default function AIAutomationCoursePage() {
       </section>
 
       {/* CAPSTONE — agent flow only */}
-      <section className="auto-section bg-slate-950" id="capstone">
+      <section className="auto-section bg-[#fafafa]" id="capstone">
         <div className="auto-page-col">
-          <div className="auto-section-head auto-section-head--light">
-            <span className="auto-section-tag !border-orange-400/50 !text-orange-400 !bg-slate-800">Agent flow</span>
+          <div className="notion-section-head">
+            <span className="notion-section-eyebrow">Agent flow</span>
             <h2>One incident. Six agents. Full ROI.</h2>
             <p>The capstone you demo on graduation day, wired like real companies deploy.</p>
           </div>
           <div className="auto-capstone-layout">
             <AgentFlow steps={AI_AUTOMATION_CAPSTONE_STEPS} title="Connected agent flow" />
             <div className="auto-capstone-side">
-              <GfxCard variant="blue" title="Production ready">
-                <ul className="text-sm text-blue-100 space-y-2 mt-2">
-                  {AI_AUTOMATION_PRODUCTION.map((p) => <li key={p}>+ {p}</li>)}
+              <GfxCard variant="blue" title="Production ready" sketch={sketch(SECTION_SKETCH.productionReady)} sketchAlt="Production">
+                <ul className="notion-board-list mt-2">
+                  {AI_AUTOMATION_PRODUCTION.map((p) => <li key={p}>{p}</li>)}
                 </ul>
               </GfxCard>
-              <GfxCard variant="warm" title="Portfolio pack">
-                <ul className="text-sm text-slate-600 space-y-2 mt-2">
-                  {AI_AUTOMATION_PORTFOLIO_DELIVERABLES.map((p) => <li key={p}>+ {p}</li>)}
+              <GfxCard variant="warm" title="Portfolio pack" sketch={sketch(SECTION_SKETCH.portfolio)} sketchAlt="Portfolio">
+                <ul className="notion-board-list mt-2">
+                  {AI_AUTOMATION_PORTFOLIO_DELIVERABLES.map((p) => <li key={p}>{p}</li>)}
                 </ul>
               </GfxCard>
             </div>
@@ -265,15 +306,23 @@ export default function AIAutomationCoursePage() {
       {/* OPEN PLATFORM — 3 cards */}
       <section className="auto-section auto-section--platform">
         <div className="auto-page-col">
-          <div className="auto-section-head">
-            <span className="auto-section-tag">Open platform</span>
+          <div className="notion-section-head">
+            <span className="notion-section-eyebrow">Open platform</span>
             <h2>{AI_AUTOMATION_OPEN_PLATFORM.title}</h2>
             <p>{AI_AUTOMATION_OPEN_PLATFORM.desc}</p>
             <p className="font-bold text-orange-600 mt-3">{AI_AUTOMATION_OPEN_PLATFORM.cta}</p>
           </div>
-          <GfxGrid className="auto-gfx-grid--three">
-            {AI_AUTOMATION_OPEN_PLATFORM.steps.map((s) => (
-              <GfxCard key={s.num} icon={s.num} title={s.label} items={[s.desc]} variant="featured" />
+          <GfxGrid className="notion-board-grid--three">
+            {AI_AUTOMATION_OPEN_PLATFORM.steps.map((s, i) => (
+              <GfxCard
+                key={s.num}
+                icon={s.num}
+                title={s.label}
+                items={[s.desc]}
+                variant="featured"
+                sketch={sketch(OPEN_PLATFORM_SKETCH[s.num])}
+                sketchAlt={s.label}
+              />
             ))}
           </GfxGrid>
         </div>
@@ -282,22 +331,31 @@ export default function AIAutomationCoursePage() {
       {/* SYLLABUS — flow layout only here */}
       <section className="auto-section auto-section--syllabus" id="curriculum">
         <div className="auto-page-col">
-          <div className="auto-syllabus-hero">
-            <span className="auto-section-tag auto-section-tag--syllabus">Course syllabus</span>
+          <div className="notion-section-head">
+            <span className="notion-section-eyebrow notion-section-eyebrow--syllabus">Course syllabus</span>
             <h2 className="auto-syllabus-title">Full {AI_AUTOMATION_DURATION} Syllabus</h2>
             <p className="auto-syllabus-sub">
               6 modules. Every topic, lab, and build outcome. Tap any module to see the full breakdown.
             </p>
           </div>
 
-          <div className="auto-syllabus-evolving">
-            <h3 className="font-bold text-slate-900 mb-2">{AI_AUTOMATION_EVOLVING_SYLLABUS.title}</h3>
-            <p className="text-sm text-slate-600 mb-3">{AI_AUTOMATION_EVOLVING_SYLLABUS.desc}</p>
-            <ul className="text-sm text-slate-700 space-y-1.5">
-              {AI_AUTOMATION_EVOLVING_SYLLABUS.examples.map((ex) => (
-                <li key={ex} className="flex gap-2"><span className="text-orange-500 font-bold">+</span>{ex}</li>
-              ))}
-            </ul>
+          <div className="notion-syllabus-evolving-box">
+            <Image
+              src={sketch(SECTION_SKETCH.evolvingSyllabus)}
+              alt="Team learning illustration"
+              width={180}
+              height={120}
+              className="mx-auto"
+            />
+            <div>
+              <h3 className="font-bold text-slate-900 mb-2">{AI_AUTOMATION_EVOLVING_SYLLABUS.title}</h3>
+              <p className="text-sm text-slate-600 mb-3">{AI_AUTOMATION_EVOLVING_SYLLABUS.desc}</p>
+              <ul className="notion-board-list">
+                {AI_AUTOMATION_EVOLVING_SYLLABUS.examples.map((ex) => (
+                  <li key={ex}>{ex}</li>
+                ))}
+              </ul>
+            </div>
           </div>
 
           <AutomationSyllabus />
@@ -307,13 +365,20 @@ export default function AIAutomationCoursePage() {
       {/* SHIP MODE — cards */}
       <section className="auto-section auto-section--ship">
         <div className="auto-page-col">
-          <div className="auto-section-head">
-            <span className="auto-section-tag">How you work</span>
+          <div className="notion-section-head">
+            <span className="notion-section-eyebrow">How you work</span>
             <h2>Ship mode</h2>
           </div>
-          <GfxGrid className="auto-gfx-grid--three">
-            {AI_AUTOMATION_SHIP_MODE.map((item) => (
-              <GfxCard key={item.term} icon="⚡" title={item.term} items={[item.desc]} />
+          <GfxGrid className="notion-board-grid--three">
+            {AI_AUTOMATION_SHIP_MODE.map((item, i) => (
+              <GfxCard
+                key={item.term}
+                icon="⚡"
+                title={item.term}
+                items={[item.desc]}
+                sketch={sketch(SHIP_MODE_SKETCH[item.term])}
+                sketchAlt={item.term}
+              />
             ))}
           </GfxGrid>
         </div>
@@ -327,7 +392,12 @@ export default function AIAutomationCoursePage() {
               <Image src="/assets/pic-1.png" alt="Rajinikanth Vadla" width={280} height={350} priority />
               <span className="auto-photo-stand-badge">1-on-1 Mentor</span>
             </div>
-            <GfxCard variant="featured" title={AI_AUTOMATION_MENTORSHIP.title}>
+            <GfxCard
+              variant="featured"
+              title={AI_AUTOMATION_MENTORSHIP.title}
+              sketch={sketch(SECTION_SKETCH.mentorship)}
+              sketchAlt="Mentorship conversation"
+            >
               <span className="auto-section-tag mb-4 inline-block mt-1">Included in {AI_AUTOMATION_PRICE}</span>
               <p className="text-slate-600 leading-relaxed mb-4">{AI_AUTOMATION_MENTORSHIP.desc}</p>
               <ul className="text-sm text-slate-700 space-y-2">

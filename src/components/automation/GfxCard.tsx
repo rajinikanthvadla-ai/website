@@ -1,6 +1,8 @@
 import type { ReactNode } from "react";
+import Image from "next/image";
 
 type GfxVariant = "light" | "dark" | "ghost" | "featured" | "warm" | "blue";
+type GfxAccent = "yellow" | "blue" | "warm" | "none";
 
 export function GfxGrid({
   children,
@@ -11,11 +13,15 @@ export function GfxGrid({
   className?: string;
   bento?: boolean;
 }) {
-  return (
-    <div className={`auto-gfx-grid ${bento ? "auto-gfx-grid--bento" : ""} ${className}`.trim()}>
-      {children}
-    </div>
-  );
+  const gridCls = [
+    "notion-board-grid",
+    bento && "notion-board-grid--bento",
+    className,
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  return <div className={gridCls}>{children}</div>;
 }
 
 export function GfxCard({
@@ -26,6 +32,8 @@ export function GfxCard({
   tags,
   variant = "light",
   size = "normal",
+  sketch,
+  sketchAlt,
   children,
 }: {
   icon?: string;
@@ -35,37 +43,58 @@ export function GfxCard({
   tags?: string[];
   variant?: GfxVariant;
   size?: "normal" | "wide" | "tall" | "hero";
+  sketch?: string;
+  sketchAlt?: string;
   children?: ReactNode;
 }) {
+  const accent: GfxAccent =
+    variant === "featured"
+      ? "yellow"
+      : variant === "blue"
+        ? "blue"
+        : variant === "warm"
+          ? "warm"
+          : "none";
+
   const cls = [
-    "auto-gfx-card",
-    `auto-gfx-card--${variant}`,
-    size !== "normal" && `auto-gfx-card--${size}`,
+    "notion-board-card",
+    accent !== "none" && `notion-board-card--${accent}`,
+    variant === "dark" && "notion-board-card--dark",
+    variant === "ghost" && "notion-board-card--ghost",
+    size !== "normal" && `notion-board-card--${size}`,
   ]
     .filter(Boolean)
     .join(" ");
 
   return (
     <article className={cls}>
-      <div className="auto-gfx-sketch" aria-hidden />
-      <div className="auto-gfx-inner">
-        {icon && <div className="auto-gfx-icon">{icon}</div>}
-        <h3 className="auto-gfx-title">{title}</h3>
-        {sub && <p className="auto-gfx-sub">{sub}</p>}
+      {sketch && (
+        <div className="notion-board-sketch-wrap">
+          <Image
+            src={sketch}
+            alt={sketchAlt ?? ""}
+            width={260}
+            height={160}
+            className="notion-board-sketch"
+          />
+        </div>
+      )}
+      <div className="notion-board-body">
+        {icon && !sketch && <div className="notion-board-icon">{icon}</div>}
+        {sub && <p className="notion-board-sub">{sub}</p>}
+        <h3 className="notion-board-title">{title}</h3>
         {items && items.length > 0 && (
-          <ul className="auto-gfx-list list-none p-0 m-0">
+          <ul className="notion-board-list">
             {items.map((item) => (
-              <li key={item}>
-                <span>+</span> {item}
-              </li>
+              <li key={item}>{item}</li>
             ))}
           </ul>
         )}
         {children}
         {tags && tags.length > 0 && (
-          <div className="auto-gfx-tags">
+          <div className="notion-board-tags">
             {tags.map((t) => (
-              <span key={t} className="auto-tag">
+              <span key={t} className="notion-board-tag">
                 {t}
               </span>
             ))}

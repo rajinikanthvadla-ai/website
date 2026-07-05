@@ -39,10 +39,10 @@ export function FlowFrame({
   children?: ReactNode;
 }) {
   const frameCls = [
-    "auto-frame",
-    dark && "auto-frame--dark",
-    ghost && "auto-frame--ghost",
-    featured && "auto-frame--featured",
+    "notion-flow-frame",
+    dark && "notion-flow-frame--dark",
+    ghost && "opacity-80 border-dashed",
+    featured && "ring-2 ring-orange-400 ring-offset-2",
   ]
     .filter(Boolean)
     .join(" ");
@@ -53,31 +53,26 @@ export function FlowFrame({
         <span className="auto-flow-num">{step}</span>
       </div>
       <article className={frameCls}>
-        <div className="auto-frame-back" aria-hidden />
-        <div className="auto-frame-front">
-          {icon && <div className="auto-frame-icon">{icon}</div>}
-          <h3 className="auto-frame-title">{title}</h3>
-          {sub && <p className="auto-frame-sub">{sub}</p>}
-          {items && items.length > 0 && (
-            <ul className="auto-frame-list list-none p-0 m-0">
-              {items.map((item) => (
-                <li key={item}>
-                  <span>+</span> {item}
-                </li>
-              ))}
-            </ul>
-          )}
-          {children}
-          {tags && tags.length > 0 && (
-            <div className="auto-frame-tags">
-              {tags.map((t) => (
-                <span key={t} className="auto-tag">
-                  {t}
-                </span>
-              ))}
-            </div>
-          )}
-        </div>
+        {icon && <div className="notion-board-icon">{icon}</div>}
+        <h3 className="notion-board-title">{title}</h3>
+        {sub && <p className="notion-board-sub">{sub}</p>}
+        {items && items.length > 0 && (
+          <ul className="notion-board-list">
+            {items.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        )}
+        {children}
+        {tags && tags.length > 0 && (
+          <div className="notion-board-tags">
+            {tags.map((t) => (
+              <span key={t} className="notion-board-tag">
+                {t}
+              </span>
+            ))}
+          </div>
+        )}
       </article>
     </div>
   );

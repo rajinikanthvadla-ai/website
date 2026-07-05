@@ -1,5 +1,68 @@
 /* AI Automation: vertical flow layout with framed panels */
 
+.automation-course.notion-sketch-theme {
+  background: #fafafa;
+}
+
+.automation-course.notion-sketch-theme .auto-section--syllabus {
+  background: #f5f5f5;
+  border-top: 2px solid #0f172a;
+}
+
+.automation-course.notion-sketch-theme .auto-section--agents,
+.automation-course.notion-sketch-theme .auto-section--platform,
+.automation-course.notion-sketch-theme .auto-section--ship {
+  background: #fafafa;
+}
+
+.automation-course.notion-sketch-theme .auto-flow-path--capstone .auto-flow-num,
+.automation-course.notion-sketch-theme .auto-flow-path--agent .auto-flow-num {
+  background: #fff;
+  color: #0f172a;
+  border: 2px solid #0f172a;
+  box-shadow: 3px 3px 0 #0f172a;
+}
+
+.automation-course.notion-sketch-theme .auto-flow-path--capstone::before,
+.automation-course.notion-sketch-theme .auto-flow-path--agent::before {
+  background: #0f172a;
+}
+
+.automation-course.notion-sketch-theme .notion-flow-frame--dark {
+  background: #fff;
+  color: #0f172a;
+  border-color: #0f172a;
+  box-shadow: 5px 5px 0 #0f172a;
+}
+
+.automation-course.notion-sketch-theme .notion-flow-frame--dark .notion-board-title {
+  color: #0f172a;
+}
+
+.automation-course.notion-sketch-theme .notion-flow-frame--dark .notion-board-sub {
+  color: #ea580c;
+}
+
+.automation-course.notion-sketch-theme .notion-flow-frame--dark .notion-board-list {
+  color: #475569;
+}
+
+.automation-course.notion-sketch-theme .auto-faq {
+  border: 2px solid #0f172a;
+  border-radius: 4px;
+  box-shadow: 4px 4px 0 #0f172a;
+}
+
+.automation-course.notion-sketch-theme .auto-enroll-tower {
+  border: 2px solid #0f172a;
+  border-radius: 4px;
+  box-shadow: 8px 8px 0 #0f172a;
+}
+
+.automation-course.notion-sketch-theme .auto-enroll-tower::before {
+  display: none;
+}
+
 .automation-course {
   --auto-ink: #04060d;
   --auto-blue: #1d4ed8;
