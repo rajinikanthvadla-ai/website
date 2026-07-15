@@ -43,6 +43,7 @@ export const NAV_ITEMS: { label: string; href: string; highlight?: boolean }[] =
   { label: "Masterclass", href: "/mlops-aiops-masterclass" },
   { label: "Mentorship", href: "/mentorship" },
   { label: "Blog", href: "/blog" },
+  { label: "Downloads", href: "/downloads" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -301,14 +302,14 @@ export const SERVICES = [
     title: "AI Agents & GenAI Training",
     description:
       "Build autonomous AI agents with LangChain, RAG systems, LLMs, and production AI applications.",
-    href: "/genai-training",
+    href: "/ai-agents-course",
   },
   {
     icon: "brain",
     title: "MLOps Engineering Training",
     description:
       "Deploy ML models to production with MLflow, Kubeflow, SageMaker, model monitoring & pipelines.",
-    href: "/mlops-training",
+    href: "/mlops-course",
   },
   {
     icon: "zap",
@@ -334,6 +335,21 @@ export const SERVICES = [
 ];
 
 export const VIDEOS = [
+  {
+    id: "eWDa3NyUM94",
+    title: "MLOps, LLMOps, AIOps & AI Agents Course",
+    description: "Job-ready masterclass overview — build real enterprise AI systems.",
+  },
+  {
+    id: "Ua_C-8PQVH4",
+    title: "AI-Powered Automation Engineering Course | Live Demo",
+    description: "Live demo of the AI Automation course for enterprise engineers.",
+  },
+  {
+    id: "i7PYe5fSJl8",
+    title: "Build AI Agents with LangChain + LangGraph",
+    description: "Agentic AI course lab — LangChain and LangGraph hands-on.",
+  },
   {
     id: "eXsltT8baj0",
     title: "AIOps Lab Day-01: Detect CPU Anomalies",
@@ -517,11 +533,13 @@ export const STRUCTURED_DATA = {
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "AI-Powered Automation Course", url: "https://www.rajinikanthvadla.com/courses/ai-automation/" },
       { "@type": "ListItem", position: 2, name: "MLOps AIOps LLMOps Masterclass", url: "https://www.rajinikanthvadla.com/mlops-aiops-masterclass/" },
-      { "@type": "ListItem", position: 3, name: "MLOps Course India", url: "https://www.rajinikanthvadla.com/mlops-course-india/" },
-      { "@type": "ListItem", position: 4, name: "MLOps Training", url: "https://www.rajinikanthvadla.com/mlops-training/" },
-      { "@type": "ListItem", position: 5, name: "GenAI Training", url: "https://www.rajinikanthvadla.com/genai-training/" },
-      { "@type": "ListItem", position: 6, name: "AIOps Training", url: "https://www.rajinikanthvadla.com/aiops-training/" },
-      { "@type": "ListItem", position: 7, name: "Mentorship", url: "https://www.rajinikanthvadla.com/mentorship/" },
+      { "@type": "ListItem", position: 3, name: "MLOps Course", url: "https://www.rajinikanthvadla.com/mlops-course/" },
+      { "@type": "ListItem", position: 4, name: "MLOps Course India", url: "https://www.rajinikanthvadla.com/mlops-course-india/" },
+      { "@type": "ListItem", position: 5, name: "GenAI Course", url: "https://www.rajinikanthvadla.com/genai-course/" },
+      { "@type": "ListItem", position: 6, name: "AI Agents Course", url: "https://www.rajinikanthvadla.com/ai-agents-course/" },
+      { "@type": "ListItem", position: 7, name: "GenAI Training", url: "https://www.rajinikanthvadla.com/genai-training/" },
+      { "@type": "ListItem", position: 8, name: "AIOps Training", url: "https://www.rajinikanthvadla.com/aiops-training/" },
+      { "@type": "ListItem", position: 9, name: "Mentorship", url: "https://www.rajinikanthvadla.com/mentorship/" },
     ],
   },
   faq: {
@@ -541,7 +559,15 @@ export const STRUCTURED_DATA = {
         name: "What is the best MLOps course in India for job ready training?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Rajinikanth Vadla's MLOps, AIOps, LLMOps and AI Agents Masterclass is a complete 4-5 month job-ready live program covering DevOps through production AI agents. It includes 150+ hours hands-on training, 4 capstone projects, interview prep and placement support. Details at https://www.rajinikanthvadla.com/mlops-aiops-masterclass/",
+          text: "Rajinikanth Vadla's MLOps, AIOps, LLMOps and AI Agents Masterclass is a complete 4-5 month job-ready live program covering DevOps through production AI agents. It includes 150+ hours hands-on training, 4 capstone projects, interview prep and placement support. Details at https://www.rajinikanthvadla.com/mlops-course/ and https://www.rajinikanthvadla.com/mlops-aiops-masterclass/",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Where can I find a GenAI course and AI Agents course by Rajinikanth Vadla?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "The official GenAI course page is https://www.rajinikanthvadla.com/genai-course/ and the AI Agents / AI Agentic course page is https://www.rajinikanthvadla.com/ai-agents-course/. Both are part of the live masterclass with free YouTube class videos embedded on each page.",
         },
       },
       {

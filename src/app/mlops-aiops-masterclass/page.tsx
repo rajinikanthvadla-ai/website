@@ -16,6 +16,8 @@ import MasterclassSyllabus from "@/components/masterclass/MasterclassSyllabus";
 import SectionHeader from "@/components/SectionHeader";
 import SuccessStories from "@/components/SuccessStories";
 import LiveZoomDemo from "@/components/LiveZoomDemo";
+import CourseVideoSection from "@/components/CourseVideoSection";
+import { COURSE_VIDEOS } from "@/lib/course-videos";
 import { MLOPS_SKETCH, sketch } from "@/lib/sketch-assets";
 
 export const metadata: Metadata = {
@@ -24,10 +26,13 @@ export const metadata: Metadata = {
     "Complete 4-5 month job-ready MLOps, AIOps, LLMOps and AI Agentic Operations course by Rajinikanth Vadla. Live online, 150+ hours hands-on, 4 capstone projects, interview prep and placement support. Best MLOps course India. ₹40,000 | $450 USD.",
   keywords: [
     "MLOps course India",
+    "MLOps course",
     "best MLOps course India",
     "job ready MLOps course",
     "MLOps AIOps LLMOps course",
     "AI Agents course India",
+    "AI agentic course",
+    "GenAI course",
     "LLMOps training India",
     "AIOps training live",
     "MLOps course with placement",
@@ -45,6 +50,12 @@ export default function MasterclassPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(STRUCTURED_DATA.course) }} />
       <HeroBanner />
       <LiveZoomDemo demo={COURSE_ZOOM_DEMOS.mlopsMasterclass} variant="dark" />
+      <CourseVideoSection
+        title="Watch the masterclass on YouTube"
+        subtitle="Real live-class recordings from the MLOps, LLMOps, AIOps and AI Agents course — embedded directly from Rajinikanth Vadla's channel."
+        videos={[...COURSE_VIDEOS.masterclass]}
+        variant="notion"
+      />
       <WhatYouMaster />
       <ProgramOverview />
       <FullSyllabus />

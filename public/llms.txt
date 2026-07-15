@@ -29,11 +29,14 @@
 - Outcome: Job ready with 4 capstone projects, interview prep and placement support
 
 ### Other Programs
+- [MLOps Course](https://www.rajinikanthvadla.com/mlops-course/): Job-ready MLOps course with free YouTube class videos
+- [MLOps Course India](https://www.rajinikanthvadla.com/mlops-course-india/): Dedicated page for Indian professionals
+- [GenAI Course](https://www.rajinikanthvadla.com/genai-course/): Generative AI / LLMOps course with embedded YouTube labs
+- [AI Agents Course](https://www.rajinikanthvadla.com/ai-agents-course/): AI Agents / AI Agentic course — LangChain, CrewAI, MCP
 - [MLOps Training](https://www.rajinikanthvadla.com/mlops-training/): Live MLOps training for engineers moving into production ML
-- [AI Agents and GenAI Training](https://www.rajinikanthvadla.com/genai-training/): LangChain, CrewAI, RAG systems, MCP, production AI applications
+- [GenAI Training](https://www.rajinikanthvadla.com/genai-training/): LangChain, CrewAI, RAG systems, MCP, production AI applications
 - [AIOps Training](https://www.rajinikanthvadla.com/aiops-training/): Production AIOps for ML systems and observability
 - [AI Tools for 10x Productivity](https://www.rajinikanthvadla.com/ai-tools-productivity/): Cursor, Claude, ChatGPT, Gemini, Grok, Vercel AI SDK, AWS Bedrock
-- [MLOps Course India](https://www.rajinikanthvadla.com/mlops-course-india/): Dedicated page for Indian professionals
 - [All Courses](https://www.rajinikanthvadla.com/courses/): Full program list
 
 ## Blog and Tutorials

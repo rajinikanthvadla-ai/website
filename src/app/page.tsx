@@ -6,6 +6,8 @@ import SectionHeader from "@/components/SectionHeader";
 import CTASection from "@/components/CTASection";
 import SuccessStories from "@/components/SuccessStories";
 import WelcomeLiveDashboard from "@/components/WelcomeLiveDashboard";
+import CourseVideoSection from "@/components/CourseVideoSection";
+import { COURSE_VIDEOS } from "@/lib/course-videos";
 import { HOME_SKETCH, sketch } from "@/lib/sketch-assets";
 import articles from "../../content/articles.json";
 
@@ -206,11 +208,13 @@ function SeoDiscoverSection() {
         </p>
         <p className="text-slate-500 text-sm leading-relaxed">
           Also see:{" "}
+          <Link href="/mlops-course/" className="text-[#0f172a] font-semibold hover:underline">MLOps course</Link>
+          {" · "}
           <Link href="/mlops-course-india/" className="text-[#0f172a] font-semibold hover:underline">MLOps course India</Link>
           {" · "}
-          <Link href="/mlops-training/" className="text-[#0f172a] font-semibold hover:underline">MLOps training</Link>
+          <Link href="/genai-course/" className="text-[#0f172a] font-semibold hover:underline">GenAI course</Link>
           {" · "}
-          <Link href="/genai-training/" className="text-[#0f172a] font-semibold hover:underline">GenAI training</Link>
+          <Link href="/ai-agents-course/" className="text-[#0f172a] font-semibold hover:underline">AI Agents course</Link>
           {" · "}
           <Link href="/aiops-training/" className="text-[#0f172a] font-semibold hover:underline">AIOps training</Link>
           {" · "}
@@ -314,41 +318,12 @@ function FeaturedProgramsSection() {
 
 function VideoSection() {
   return (
-    <section className="notion-section notion-section--white">
-      <div className="max-w-5xl mx-auto px-6">
-        <SectionHeader
-          tag="Watch &amp; Learn"
-          title="Recent lab on the channel"
-          subtitle="Long-form walkthroughs. The same tone as class, just on the open web."
-        />
-        <div className="max-w-3xl mx-auto mb-10">
-          <div className="panel overflow-hidden">
-            <div className="notion-program-sketch !min-h-[100px]">
-              <Image src={sketch(HOME_SKETCH.video)} alt="" width={200} height={100} aria-hidden />
-            </div>
-            <div className="relative pb-[56.25%] bg-[#0f172a] border-t-2 border-[#0f172a]">
-              <iframe
-                src="https://www.youtube.com/embed/eXsltT8baj0?rel=0"
-                title="AIOps Lab Day-01: Detect CPU Anomalies"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-                loading="lazy"
-                className="absolute inset-0 w-full h-full"
-              />
-            </div>
-            <div className="p-6 border-t-2 border-dashed border-slate-200">
-              <h3 className="font-display font-bold text-[#0f172a] text-lg mb-2">AIOps Lab Day-01: Detect CPU Anomalies</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">Prometheus, Grafana, and a pragmatic ML pass on CPU behavior.</p>
-            </div>
-          </div>
-        </div>
-        <div className="text-center">
-          <a href={LINKS.youtube} target="_blank" rel="noopener noreferrer" className="notion-btn notion-btn--ink">
-            Open the channel &rarr;
-          </a>
-        </div>
-      </div>
-    </section>
+    <CourseVideoSection
+      title="Course videos from YouTube"
+      subtitle="MLOps, GenAI, AI Agents and AI Automation class recordings — embedded directly from the channel."
+      videos={[...COURSE_VIDEOS.home]}
+      variant="notion"
+    />
   );
 }
 
