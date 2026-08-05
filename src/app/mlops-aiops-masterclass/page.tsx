@@ -21,25 +21,30 @@ import { COURSE_VIDEOS } from "@/lib/course-videos";
 import { MLOPS_SKETCH, sketch } from "@/lib/sketch-assets";
 
 export const metadata: Metadata = {
-  title: "MLOps AIOps LLMOps AI Agents Job Ready Course India | 4-5 Month Live Program",
+  title: "MLOps AIOps LLMOps AI Agents Live Course | ₹40K with Installments | Rajinikanth Vadla",
   description:
-    "Complete 4-5 month job-ready MLOps, AIOps, LLMOps and AI Agentic Operations course by Rajinikanth Vadla. Live online, 150+ hours hands-on, 4 capstone projects, interview prep and placement support. Best MLOps course India. ₹40,000 | $450 USD.",
+    "Live MLOps, AIOps, LLMOps and AI Agentic course in India: 4-5 months, ₹40,000 with 2 installments OR ₹30,000 recordings-only self-learning. 150+ hours hands-on, 4 capstone projects, interview prep, placement support. Cohort started.",
   keywords: [
-    "MLOps course India",
     "MLOps course",
+    "MLOps course India",
+    "MLOps live course",
     "best MLOps course India",
+    "MLOps course ₹40000",
+    "MLOps course with installments",
     "job ready MLOps course",
     "MLOps AIOps LLMOps course",
-    "AI Agents course India",
-    "AI agentic course",
+    "AI Agents course",
+    "AI agentic course India",
     "GenAI course",
-    "LLMOps training India",
+    "LLMOps training",
     "AIOps training live",
     "MLOps course with placement",
-    "Rajinikanth Vadla MLOps",
     "MLOps masterclass",
     "AI Agentic Operations course",
     "MLOps interview preparation",
+    "MLOps recordings course",
+    "Rajinikanth Vadla MLOps live",
+    "MLOps course with WhatsApp support",
   ],
   alternates: { canonical: "https://www.rajinikanthvadla.com/mlops-aiops-masterclass/" },
 };
@@ -77,7 +82,7 @@ function HeroBanner() {
         <div>
           <span className="notion-eyebrow justify-center">
             <span className="notion-eyebrow-dot" />
-            Admissions Open · Job Ready Course
+            Cohort Started · Live Classes Running
           </span>
 
           <div className="notion-sketch-frame notion-sketch-frame--blue max-w-[240px] mx-auto mb-8">
@@ -113,29 +118,32 @@ function HeroBanner() {
             ))}
           </div>
 
-          <div className="panel p-4 max-w-md mx-auto mb-8">
-            <p className="text-[#0f172a] font-bold text-lg">
-              ₹40,000 <span className="text-slate-500 font-normal text-sm">India</span>
-              {" · "}
-              $450 <span className="text-slate-500 font-normal text-sm">USD</span>
-              {" · "}
-              €420 <span className="text-slate-500 font-normal text-sm">EUR</span>
-            </p>
-            <p className="text-slate-500 text-xs mt-1">Mon-Fri, 8:00-9:45 PM IST, Live online</p>
+          <div className="panel p-5 max-w-md mx-auto mb-8 border-l-4 border-l-blue-700">
+            <div className="mb-4">
+              <div className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-1">Live Course Option</div>
+              <p className="text-[#0f172a] font-bold text-2xl">₹40,000 <span className="text-slate-500 font-normal text-sm">with 2 installments</span></p>
+              <p className="text-slate-600 text-xs mt-2">Live 4–5 months · 150+ hours · 1-on-1 support · job assistance</p>
+            </div>
+            <div className="border-t border-slate-300 pt-4">
+              <div className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-1">Recordings Only (Self-Learning)</div>
+              <p className="text-[#0f172a] font-bold text-2xl">₹30,000 <span className="text-slate-500 font-normal text-sm">with 2 installments</span></p>
+              <p className="text-slate-600 text-xs mt-2">Lifetime access · no live class · no support</p>
+            </div>
+            <p className="text-slate-500 text-xs mt-4">Mon-Fri, 8:00-9:45 PM IST (live cohort). International: $450 / €420</p>
           </div>
 
           <div className="flex flex-col sm:flex-row justify-center gap-3 mb-4">
-            <a href={LINKS.enroll} target="_blank" rel="noopener noreferrer" className="notion-btn notion-btn--ink">
-              Enroll Now &rarr;
+            <a href={LINKS.whatsapp} target="_blank" rel="noopener noreferrer" className="notion-btn notion-btn--accent">
+              WhatsApp to Join &rarr;
             </a>
-            <a href={LINKS.zoomMasterclass} target="_blank" rel="noopener noreferrer" className="notion-btn notion-btn--accent">
-              Join Live Demo &rarr;
+            <a href={LINKS.zoomMasterclass} target="_blank" rel="noopener noreferrer" className="notion-btn notion-btn--ink">
+              Watch Live Demo &rarr;
             </a>
             <a href="#full-syllabus" className="notion-btn notion-btn--ghost">
-              View Full Syllabus
+              View Syllabus
             </a>
           </div>
-          <p className="text-slate-500 text-sm">Live sessions, recordings, mentorship, job support</p>
+          <p className="text-slate-500 text-sm">Cohort already started. Next intake: check WhatsApp or Zoom demo.</p>
         </div>
       </div>
     </section>
@@ -289,39 +297,92 @@ function CapstoneProjects() {
 
 function PricingSection() {
   return (
-    <section className="py-24 md:py-28 bg-white border-b border-slate-200">
-      <div className="max-w-3xl mx-auto px-6 text-center">
-        <SectionHeader tag="Investment" title="Course fee" subtitle="One investment that pays for itself many times over" />
-        <div className="panel border-l-4 border-l-blue-700 p-10 max-w-md mx-auto mb-8 text-left">
-          <div className="text-slate-500 text-xs font-bold uppercase tracking-widest mb-2">Full program</div>
-          <div className="font-display text-5xl md:text-6xl font-bold text-slate-900 mb-1">₹40,000</div>
-          <p className="text-sm text-slate-500 mb-6">$450 USD · €420 EUR for international students</p>
-          <ul className="space-y-3 mb-8">
-            {[
-              "4-5 month complete program",
-              "150+ hours live training",
-              "6 comprehensive modules",
-              "4 capstone portfolio projects",
-              "1-on-1 mentorship",
-              "Job assistance, interview prep and placement support",
-              "Lifetime access to recordings and notes",
-            ].map((f) => (
-              <li key={f} className="flex items-center gap-3 text-slate-600 text-sm">
-                <span className="text-blue-600 font-bold shrink-0">&#10003;</span>
-                {f}
-              </li>
-            ))}
-          </ul>
-          <a href={LINKS.enroll} target="_blank" rel="noopener noreferrer" className="block w-full bg-blue-700 text-white py-3.5 rounded-lg text-sm font-semibold hover:bg-blue-800 transition-colors text-center">
-            Enroll Now &rarr;
+    <section className="py-24 md:py-28 bg-slate-50 border-b border-slate-200">
+      <div className="max-w-5xl mx-auto px-6 text-center">
+        <SectionHeader
+          tag="Pricing"
+          title="Choose your learning path"
+          subtitle="Live cohort with mentorship OR recordings-only self-study. Both with 2-installment payment plans."
+        />
+        <div className="grid md:grid-cols-2 gap-8 mb-12">
+          {/* Live Course */}
+          <div className="panel border-l-4 border-l-blue-700 p-10 text-left">
+            <div className="mb-6">
+              <div className="inline-block bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-bold mb-3">Recommended</div>
+              <h3 className="font-display text-2xl font-bold text-slate-900 mb-2">Live Cohort Course</h3>
+              <p className="text-slate-600 text-sm mb-4">Full support, mentorship, and job assistance</p>
+            </div>
+            <div className="mb-6">
+              <p className="text-5xl font-bold text-slate-900">₹40,000</p>
+              <p className="text-slate-600 text-sm mt-1">2 installments of ₹20,000 each</p>
+              <p className="text-slate-500 text-xs mt-2">$450 USD or €420 EUR (international)</p>
+            </div>
+            <ul className="space-y-2.5 mb-8">
+              {[
+                "4–5 months live online cohort",
+                "150+ hours hands-on training",
+                "6 comprehensive modules",
+                "4 capstone portfolio projects",
+                "1-on-1 mentorship from Rajinikanth",
+                "Job assistance & interview prep",
+                "Placement support",
+                "Lifetime access to recordings",
+              ].map((f) => (
+                <li key={f} className="flex items-start gap-2 text-slate-700 text-sm">
+                  <span className="text-blue-600 font-bold shrink-0 mt-0.5">✓</span>
+                  {f}
+                </li>
+              ))}
+            </ul>
+            <a href={LINKS.whatsapp} target="_blank" rel="noopener noreferrer" className="block w-full bg-blue-700 text-white py-3.5 rounded-lg text-sm font-semibold hover:bg-blue-800 transition-colors text-center">
+              Enroll on WhatsApp &rarr;
+            </a>
+          </div>
+
+          {/* Recordings Only */}
+          <div className="panel border-l-4 border-l-slate-400 p-10 text-left">
+            <div className="mb-6">
+              <div className="inline-block bg-slate-200 text-slate-700 px-3 py-1 rounded-full text-xs font-bold mb-3">Self-Learning</div>
+              <h3 className="font-display text-2xl font-bold text-slate-900 mb-2">Recordings Only</h3>
+              <p className="text-slate-600 text-sm mb-4">Learn at your own pace, no live classes</p>
+            </div>
+            <div className="mb-6">
+              <p className="text-5xl font-bold text-slate-900">₹30,000</p>
+              <p className="text-slate-600 text-sm mt-1">2 installments of ₹15,000 each</p>
+              <p className="text-slate-500 text-xs mt-2">$375 USD or €350 EUR (international)</p>
+            </div>
+            <ul className="space-y-2.5 mb-8">
+              {[
+                "4–5 months of recorded sessions",
+                "150+ hours of content",
+                "6 comprehensive modules",
+                "4 capstone projects + solutions",
+                "Lifetime access (no expiry)",
+                "No live classes or mentorship",
+                "No job assistance",
+                "Community (optional, unprioritized)",
+              ].map((f) => (
+                <li key={f} className="flex items-start gap-2 text-slate-700 text-sm">
+                  <span className="text-slate-500 font-bold shrink-0 mt-0.5">–</span>
+                  {f}
+                </li>
+              ))}
+            </ul>
+            <a href={LINKS.whatsapp} target="_blank" rel="noopener noreferrer" className="block w-full bg-slate-600 text-white py-3.5 rounded-lg text-sm font-semibold hover:bg-slate-700 transition-colors text-center">
+              WhatsApp for recordings &rarr;
+            </a>
+          </div>
+        </div>
+
+        <div className="bg-white panel p-6 rounded-lg border border-slate-200 max-w-2xl mx-auto">
+          <h3 className="font-display text-lg font-bold text-slate-900 mb-3">Payment Plans & Questions?</h3>
+          <p className="text-slate-600 text-sm mb-4">
+            Both options support 2-installment payment plans. For batch timing, demo access, or enrollment details:
+          </p>
+          <a href={LINKS.whatsapp} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2.5 rounded-lg text-sm font-semibold transition-colors">
+            Message on WhatsApp
           </a>
         </div>
-        <p className="text-slate-500 text-sm">
-          EMI options available.{" "}
-          <a href={LINKS.whatsapp} target="_blank" rel="noopener noreferrer" className="text-blue-700 font-semibold hover:underline">
-            WhatsApp for payment plans
-          </a>
-        </p>
       </div>
     </section>
   );
