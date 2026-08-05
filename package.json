@@ -9,7 +9,8 @@
     "dev:clean": "node ./scripts/dev.mjs",
     "build:clean": "npm run clean && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "generate-ads": "node ./scripts/generate-social-ads.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.108.2",
@@ -24,6 +25,7 @@
     "@types/node": "^22.15.3",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
+    "puppeteer": "^25.3.0",
     "tailwindcss": "^4.1.4",
     "typescript": "^5.8.3"
   }

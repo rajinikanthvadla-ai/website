@@ -1,0 +1,68 @@
+[
+  {
+    "id": "ai-automation-story",
+    "title": "AI Automation Engineer",
+    "file": "/ads/story/ai-automation-story-1080x1920.png",
+    "width": 1080,
+    "height": 1920,
+    "aspect": "9:16",
+    "folder": "story",
+    "platform": "WhatsApp Status · Instagram Story",
+    "recommended": true
+  },
+  {
+    "id": "ai-automation-story",
+    "title": "AI Automation Engineer",
+    "file": "/ads/story/ai-automation-story-1440x2560.png",
+    "width": 1440,
+    "height": 2560,
+    "aspect": "9:16",
+    "folder": "story",
+    "platform": "High-res Story (retina)",
+    "recommended": false
+  },
+  {
+    "id": "mlops-masterclass-story",
+    "title": "MLOps + Agentic AI Masterclass",
+    "file": "/ads/story/mlops-masterclass-story-1080x1920.png",
+    "width": 1080,
+    "height": 1920,
+    "aspect": "9:16",
+    "folder": "story",
+    "platform": "WhatsApp Status · Instagram Story",
+    "recommended": true
+  },
+  {
+    "id": "mlops-masterclass-story",
+    "title": "MLOps + Agentic AI Masterclass",
+    "file": "/ads/story/mlops-masterclass-story-1440x2560.png",
+    "width": 1440,
+    "height": 2560,
+    "aspect": "9:16",
+    "folder": "story",
+    "platform": "High-res Story (retina)",
+    "recommended": false
+  },
+  {
+    "id": "live-demo-both-story",
+    "title": "Both courses · Live demo",
+    "file": "/ads/story/live-demo-both-story-1080x1920.png",
+    "width": 1080,
+    "height": 1920,
+    "aspect": "9:16",
+    "folder": "story",
+    "platform": "WhatsApp Status · Instagram Story",
+    "recommended": true
+  },
+  {
+    "id": "live-demo-both-story",
+    "title": "Both courses · Live demo",
+    "file": "/ads/story/live-demo-both-story-1440x2560.png",
+    "width": 1440,
+    "height": 2560,
+    "aspect": "9:16",
+    "folder": "story",
+    "platform": "High-res Story (retina)",
+    "recommended": false
+  }
+]
