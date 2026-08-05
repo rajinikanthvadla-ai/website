@@ -30,7 +30,6 @@ export default function HomePage() {
       <HeroSection />
       <PricingHero />
       <YoutubePlaylist />
-      <WelcomeLiveDashboard />
       <LogoBar />
       <FeaturedProgramsSection />
       <SeoDiscoverSection />

@@ -21,30 +21,34 @@ import { COURSE_VIDEOS } from "@/lib/course-videos";
 import { MLOPS_SKETCH, sketch } from "@/lib/sketch-assets";
 
 export const metadata: Metadata = {
-  title: "MLOps AIOps LLMOps AI Agents Live Course | ₹40K with Installments | Rajinikanth Vadla",
+  title: "MLOps Course India ₹40K | Live Classes Running | Learn MLOps, AIOps, AI Agents",
   description:
-    "Live MLOps, AIOps, LLMOps and AI Agentic course in India: 4-5 months, ₹40,000 with 2 installments OR ₹30,000 recordings-only self-learning. 150+ hours hands-on, 4 capstone projects, interview prep, placement support. Cohort started.",
+    "MLOps, AIOps, LLMOps, AI Agents live course: ₹40,000 (2 installments) with mentorship OR ₹30,000 recordings. 4-5 months, 150+ hours, 4 capstone projects. Classes already started—join now via WhatsApp.",
   keywords: [
     "MLOps course",
     "MLOps course India",
+    "best MLOps course",
     "MLOps live course",
-    "best MLOps course India",
+    "MLOps course price",
     "MLOps course ₹40000",
     "MLOps course with installments",
-    "job ready MLOps course",
-    "MLOps AIOps LLMOps course",
+    "AIOps course",
     "AI Agents course",
-    "AI agentic course India",
     "GenAI course",
-    "LLMOps training",
-    "AIOps training live",
-    "MLOps course with placement",
+    "LLMOps course",
+    "MLOps for students",
+    "learn MLOps online",
+    "MLOps training online",
+    "hands-on MLOps course",
+    "production ML course",
+    "MLOps capstone projects",
     "MLOps masterclass",
-    "AI Agentic Operations course",
-    "MLOps interview preparation",
-    "MLOps recordings course",
-    "Rajinikanth Vadla MLOps live",
-    "MLOps course with WhatsApp support",
+    "Rajinikanth Vadla MLOps",
+    "MLOps engineer course",
+    "DevOps to MLOps course",
+    "AI Agents training",
+    "agentic AI course",
+    "LangChain course",
   ],
   alternates: { canonical: "https://www.rajinikanthvadla.com/mlops-aiops-masterclass/" },
 };
@@ -82,7 +86,7 @@ function HeroBanner() {
         <div>
           <span className="notion-eyebrow justify-center">
             <span className="notion-eyebrow-dot" />
-            Cohort Started · Live Classes Running
+            🔴 Classes Already Started · Enroll Now
           </span>
 
           <div className="notion-sketch-frame notion-sketch-frame--blue max-w-[240px] mx-auto mb-8">
@@ -136,14 +140,14 @@ function HeroBanner() {
             <a href="/enroll" className="notion-btn notion-btn--accent">
               View Pricing & Enroll &rarr;
             </a>
-            <a href={LINKS.zoomMasterclass} target="_blank" rel="noopener noreferrer" className="notion-btn notion-btn--ink">
-              Watch Live Demo &rarr;
+            <a href="#course-videos" className="notion-btn notion-btn--ink">
+              Watch Course Videos &rarr;
             </a>
             <a href="#full-syllabus" className="notion-btn notion-btn--ghost">
               View Syllabus
             </a>
           </div>
-          <p className="text-slate-500 text-sm">Cohort already started. Next intake: check WhatsApp or Zoom demo.</p>
+          <p className="text-slate-500 text-sm">Classes running now. Next batch: discuss timing on WhatsApp.</p>
         </div>
       </div>
     </section>
@@ -324,9 +328,9 @@ function PricingSection() {
                 "6 comprehensive modules",
                 "4 capstone portfolio projects",
                 "1-on-1 mentorship from Rajinikanth",
-                "Job assistance & interview prep",
-                "Placement support",
+                "Mock interviews & interview prep",
                 "Lifetime access to recordings",
+                "Real enterprise projects",
               ].map((f) => (
                 <li key={f} className="flex items-start gap-2 text-slate-700 text-sm">
                   <span className="text-blue-600 font-bold shrink-0 mt-0.5">✓</span>

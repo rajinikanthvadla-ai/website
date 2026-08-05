@@ -37,7 +37,8 @@ export default function PricingHero() {
                 <span className="text-5xl font-bold text-blue-700">₹40,000</span>
                 <span className="text-slate-600 text-lg">or 2 × ₹20,000</span>
               </div>
-              <p className="text-slate-600 text-sm mt-3">No interest • No hidden charges</p>
+              <p className="text-slate-700 text-sm font-semibold mt-2 text-center">🔴 Classes Already Started</p>
+              <p className="text-slate-600 text-sm mt-2">No interest • No hidden charges</p>
             </div>
 
             <ul className="space-y-3 mb-8">
