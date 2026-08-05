@@ -6,8 +6,8 @@ import SectionHeader from "@/components/SectionHeader";
 import CTASection from "@/components/CTASection";
 import SuccessStories from "@/components/SuccessStories";
 import WelcomeLiveDashboard from "@/components/WelcomeLiveDashboard";
-import CourseVideoSection from "@/components/CourseVideoSection";
-import { COURSE_VIDEOS } from "@/lib/course-videos";
+import PricingHero from "@/components/PricingHero";
+import YoutubePlaylist from "@/components/YoutubePlaylist";
 import { HOME_SKETCH, sketch } from "@/lib/sketch-assets";
 import articles from "../../content/articles.json";
 
@@ -27,14 +27,14 @@ export default function HomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(STRUCTURED_DATA.course) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(STRUCTURED_DATA.aiAutomationCourse) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(STRUCTURED_DATA.courseList) }} />
-      <AIAutomationTopBanner />
       <HeroSection />
+      <PricingHero />
+      <YoutubePlaylist />
       <WelcomeLiveDashboard />
       <LogoBar />
       <FeaturedProgramsSection />
       <SeoDiscoverSection />
       <AboutPreview />
-      <VideoSection />
       <FeaturedResourcesSection />
       <FAQSection />
       <CTASection
@@ -46,24 +46,6 @@ export default function HomePage() {
   );
 }
 
-function AIAutomationTopBanner() {
-  return (
-    <div className="notion-top-banner">
-      <div className="max-w-7xl mx-auto px-6 py-2.5 flex items-center justify-center gap-3 flex-wrap text-sm">
-        <span className="inline-flex items-center gap-1.5 bg-orange-500 text-white text-[11px] font-extrabold py-1 px-3 rounded-sm uppercase tracking-wide border border-black">
-          <span className="notion-eyebrow-dot !bg-white" />
-          Starting Soon
-        </span>
-        <p className="font-medium">
-          <span className="font-bold text-white">AI-Powered Automation Efficiency</span>: {AI_AUTOMATION_DURATION} enterprise course
-        </p>
-        <Link href="#live-dashboard" className="font-extrabold underline underline-offset-2">
-          Live demo dashboard &rarr;
-        </Link>
-      </div>
-    </div>
-  );
-}
 
 function HeroSection() {
   return (
@@ -316,16 +298,6 @@ function FeaturedProgramsSection() {
   );
 }
 
-function VideoSection() {
-  return (
-    <CourseVideoSection
-      title="Course videos from YouTube"
-      subtitle="MLOps, GenAI, AI Agents and AI Automation class recordings — embedded directly from the channel."
-      videos={[...COURSE_VIDEOS.home]}
-      variant="notion"
-    />
-  );
-}
 
 function FeaturedResourcesSection() {
   return (
