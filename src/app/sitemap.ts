@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: `${base}/`, lastModified: now, changeFrequency: "daily", priority: 1.0 },
     { url: `${base}/courses/`, lastModified: now, changeFrequency: "weekly", priority: 0.95 },
+    { url: `${base}/enroll/`, lastModified: now, changeFrequency: "daily", priority: 0.99 },
     { url: `${base}/courses/ai-automation/`, lastModified: now, changeFrequency: "daily", priority: 0.99 },
     { url: `${base}/mlops-aiops-masterclass/`, lastModified: now, changeFrequency: "daily", priority: 0.99 },
     { url: `${base}/mlops-course-india/`, lastModified: now, changeFrequency: "daily", priority: 0.97 },

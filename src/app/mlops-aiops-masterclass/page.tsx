@@ -133,8 +133,8 @@ function HeroBanner() {
           </div>
 
           <div className="flex flex-col sm:flex-row justify-center gap-3 mb-4">
-            <a href={LINKS.whatsapp} target="_blank" rel="noopener noreferrer" className="notion-btn notion-btn--accent">
-              WhatsApp to Join &rarr;
+            <a href="/enroll" className="notion-btn notion-btn--accent">
+              View Pricing & Enroll &rarr;
             </a>
             <a href={LINKS.zoomMasterclass} target="_blank" rel="noopener noreferrer" className="notion-btn notion-btn--ink">
               Watch Live Demo &rarr;
