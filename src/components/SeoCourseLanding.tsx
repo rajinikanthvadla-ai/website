@@ -1,12 +1,15 @@
 import Link from "next/link";
 import type { SeoLanding } from "@/lib/seo-landings";
 import { LINKS, STRUCTURED_DATA } from "@/lib/constants";
+import CourseVideoSection from "@/components/CourseVideoSection";
 
 type Props = {
   landing: SeoLanding;
 };
 
 export default function SeoCourseLanding({ landing }: Props) {
+  const videos = landing.videos ?? [];
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(STRUCTURED_DATA.course) }} />
@@ -15,6 +18,11 @@ export default function SeoCourseLanding({ landing }: Props) {
           <p className="text-xs font-bold uppercase tracking-widest text-blue-700 mb-3">Rajinikanth Vadla Training</p>
           <h1 className="font-display text-3xl md:text-4xl font-bold text-slate-900 leading-tight mb-5">{landing.h1}</h1>
           <p className="text-lg text-slate-600 leading-relaxed">{landing.intro}</p>
+          {videos.length > 0 ? (
+            <a href="#course-videos" className="mt-6 inline-flex text-sm font-semibold text-blue-700 hover:underline">
+              Watch free course videos &darr;
+            </a>
+          ) : null}
         </div>
       </section>
 
@@ -53,6 +61,18 @@ export default function SeoCourseLanding({ landing }: Props) {
           </div>
         </div>
       </section>
+
+      {videos.length > 0 ? (
+        <CourseVideoSection
+          title={landing.videoSectionTitle ?? "Watch course videos"}
+          subtitle={
+            landing.videoSectionSubtitle ??
+            "Real class recordings from Rajinikanth Vadla — embedded directly from YouTube."
+          }
+          videos={videos}
+          variant="paper"
+        />
+      ) : null}
     </>
   );
 }

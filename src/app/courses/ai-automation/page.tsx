@@ -31,6 +31,8 @@ import StickyEnrollBar from "@/components/automation/StickyEnrollBar";
 import { GfxCard, GfxGrid } from "@/components/automation/GfxCard";
 import AgentFlow from "@/components/automation/AgentFlow";
 import LiveZoomDemo from "@/components/LiveZoomDemo";
+import CourseVideoSection from "@/components/CourseVideoSection";
+import { COURSE_VIDEOS } from "@/lib/course-videos";
 import {
   OPEN_PLATFORM_SKETCH,
   SECTION_SKETCH,
@@ -44,7 +46,16 @@ import {
 export const metadata: Metadata = {
   title: "AI Automation Course | Build Company Agents | ₹20,000 Lifetime Access",
   description:
-    "2-month live course: incident, RAG, MCP, HR agents. ₹20,000 with lifetime recordings, 1-on-1 mentorship, org runbooks, business metrics. Rajinikanth Vadla.",
+    "2-month live AI Automation course: incident, RAG, MCP, HR agents. ₹20,000 with lifetime recordings, 1-on-1 mentorship. Watch free course videos on this page. Rajinikanth Vadla.",
+  keywords: [
+    "AI automation course",
+    "AI agents course",
+    "AI agentic course",
+    "MCP course",
+    "company AI agents training",
+    "AWS Bedrock agents course",
+    "Rajinikanth Vadla AI Automation",
+  ],
   openGraph: {
     title: "AI Automation Course | ₹20,000 | Lifetime Recordings | Mentorship",
     description: "Build company AI agents. Org runbooks. Business metrics. Evolving syllabus.",
@@ -124,6 +135,13 @@ export default function AIAutomationCoursePage() {
       </div>
 
       <LiveZoomDemo demo={COURSE_ZOOM_DEMOS.aiAutomation} />
+
+      <CourseVideoSection
+        title="Watch the AI Automation course on YouTube"
+        subtitle="Live demos and labs from the AI-Powered Automation Engineering course — MCP, Bedrock agents and company AI agents."
+        videos={[...COURSE_VIDEOS.aiAutomation]}
+        variant="white"
+      />
 
       <div className="auto-marquee-wrap" aria-hidden>
         <div className="auto-marquee">

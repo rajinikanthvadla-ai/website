@@ -43,6 +43,7 @@ export const NAV_ITEMS: { label: string; href: string; highlight?: boolean }[] =
   { label: "Masterclass", href: "/mlops-aiops-masterclass" },
   { label: "Mentorship", href: "/mentorship" },
   { label: "Blog", href: "/blog" },
+  { label: "Downloads", href: "/downloads" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -239,12 +240,12 @@ export const COURSES = [
   {
     title: "MLOps, AIOps, LLMOps and AI Agents",
     description:
-      "4-5 month job-ready masterclass. DevOps through production AI agents with capstones and placement support.",
+      "Cohort running now. Live 4-5 months with mentorship (₹40K with 2 installments) or recordings self-learning (₹30K). FDE, AIOps, AI Agentic with capstones & job support.",
     features: [
-      "6 modules · 150+ hours",
-      "50+ labs · 4 capstone projects",
-      "Interview prep and job support",
-      "₹40,000 India · $450 USD",
+      "₹40,000 live with 2 installments",
+      "₹30,000 recordings + 2 installments",
+      "150+ hours · 50+ labs · 4 capstone projects",
+      "1-on-1 mentorship · job support",
     ],
     badge: "FLAGSHIP",
     href: "/mlops-aiops-masterclass",
@@ -275,7 +276,7 @@ export const HOME_PAGE_FAQS = [
   },
   {
     q: "What is the best MLOps course in India?",
-    a: "Rajinikanth Vadla's MLOps Masterclass is a 4-5 month live job-ready program covering MLOps, LLMOps, AIOps and AI Agents. ₹40,000, 150+ hours hands-on, 4 capstone projects, placement support. Details at https://www.rajinikanthvadla.com/mlops-aiops-masterclass/",
+    a: "Rajinikanth Vadla's MLOps Masterclass is a 4-5 month live job-ready program: ₹40,000 with 2 installments + mentorship & job support. OR ₹30,000 recordings-only with self-learning. Covers MLOps, LLMOps, AIOps, AI Agents, FDE. 150+ hours, 4 capstone projects. Cohort running now. Enroll: https://www.rajinikanthvadla.com/mlops-aiops-masterclass/",
   },
   {
     q: "What is the AI Automation course?",
@@ -301,14 +302,14 @@ export const SERVICES = [
     title: "AI Agents & GenAI Training",
     description:
       "Build autonomous AI agents with LangChain, RAG systems, LLMs, and production AI applications.",
-    href: "/genai-training",
+    href: "/ai-agents-course",
   },
   {
     icon: "brain",
     title: "MLOps Engineering Training",
     description:
       "Deploy ML models to production with MLflow, Kubeflow, SageMaker, model monitoring & pipelines.",
-    href: "/mlops-training",
+    href: "/mlops-course",
   },
   {
     icon: "zap",
@@ -334,6 +335,21 @@ export const SERVICES = [
 ];
 
 export const VIDEOS = [
+  {
+    id: "eWDa3NyUM94",
+    title: "MLOps, LLMOps, AIOps & AI Agents Course",
+    description: "Job-ready masterclass overview — build real enterprise AI systems.",
+  },
+  {
+    id: "Ua_C-8PQVH4",
+    title: "AI-Powered Automation Engineering Course | Live Demo",
+    description: "Live demo of the AI Automation course for enterprise engineers.",
+  },
+  {
+    id: "i7PYe5fSJl8",
+    title: "Build AI Agents with LangChain + LangGraph",
+    description: "Agentic AI course lab — LangChain and LangGraph hands-on.",
+  },
   {
     id: "eXsltT8baj0",
     title: "AIOps Lab Day-01: Detect CPU Anomalies",
@@ -433,47 +449,74 @@ export const STRUCTURED_DATA = {
   course: {
     "@context": "https://schema.org",
     "@type": "Course",
-    name: "MLOps AIOps LLMOps AI Agents Job Ready Course India | 4-5 Month Live Program",
+    name: "MLOps AIOps LLMOps AI Agents Live Course | ₹40K or ₹30K Recordings",
     description:
-      "Complete 4-5 month job-ready MLOps, AIOps, LLMOps and AI Agentic Operations course by Rajinikanth Vadla. Live online training with 150+ hours hands-on labs, 4 capstone projects, interview prep and placement support. Best MLOps course India.",
+      "MLOps, AIOps, LLMOps and AI Agentic Operations live cohort course by Rajinikanth Vadla. 4-5 months, 150+ hours, 4 capstone projects, FDE. Live option: ₹40,000 with 2 installments + 1-on-1 mentorship & job support. Recordings-only: ₹30,000 with 2 installments, self-learning. Cohort started.",
+    url: "https://www.rajinikanthvadla.com/mlops-aiops-masterclass/",
     provider: {
       "@type": "Organization",
       name: "Rajinikanth Vadla Training",
-      sameAs: "https://www.rajinikanthvadla.com/",
+      url: "https://www.rajinikanthvadla.com/",
+      sameAs: "https://www.youtube.com/@IamRajinikanthvadla",
     },
     instructor: {
       "@type": "Person",
       name: "Rajinikanth Vadla",
+      url: "https://www.rajinikanthvadla.com/",
     },
     teaches: [
-      "MLOps", "AIOps", "LLMOps", "GenAI", "AI Agents", "AI Agentic Operations",
+      "MLOps", "AIOps", "LLMOps", "GenAI", "AI Agents", "AI Agentic Operations", "FDE",
       "Kubernetes", "Docker", "MLflow", "Kubeflow", "LangChain", "RAG",
       "AWS", "Azure", "GCP", "Job Interview Preparation", "Career Placement",
     ],
-    hasCourseInstance: {
-      "@type": "CourseInstance",
-      courseMode: "online",
-      instructor: { "@type": "Person", name: "Rajinikanth Vadla" },
-      duration: "P4M",
-    },
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: "4.9",
       reviewCount: "500",
       bestRating: "5",
     },
+    hasCourseInstance: [
+      {
+        "@type": "CourseInstance",
+        name: "Live Cohort with Mentorship & Job Support",
+        courseMode: "online",
+        inLanguage: "en",
+        startDate: "2026-07-15",
+        duration: "P4M",
+        instructor: { "@type": "Person", name: "Rajinikanth Vadla" },
+        offers: {
+          "@type": "Offer",
+          availability: "https://schema.org/InStock",
+          price: "40000",
+          priceCurrency: "INR",
+          url: "https://www.rajinikanthvadla.com/mlops-aiops-masterclass/",
+          description: "₹40,000 with 2 installments of ₹20,000. Includes 1-on-1 mentorship, job assistance, interview prep.",
+        },
+      },
+      {
+        "@type": "CourseInstance",
+        name: "Recordings Only (Self-Learning)",
+        courseMode: "online",
+        inLanguage: "en",
+        duration: "P4M",
+        instructor: { "@type": "Person", name: "Rajinikanth Vadla" },
+        offers: {
+          "@type": "Offer",
+          availability: "https://schema.org/InStock",
+          price: "30000",
+          priceCurrency: "INR",
+          url: "https://www.rajinikanthvadla.com/mlops-aiops-masterclass/",
+          description: "₹30,000 with 2 installments of ₹15,000. Lifetime access to recordings, no live classes or support.",
+        },
+      },
+    ],
     offers: {
       "@type": "AggregateOffer",
       availability: "https://schema.org/InStock",
-      lowPrice: "420",
+      lowPrice: "30000",
       highPrice: "40000",
-      offerCount: "3",
       priceCurrency: "INR",
-      offers: [
-        { "@type": "Offer", price: "40000", priceCurrency: "INR" },
-        { "@type": "Offer", price: "450", priceCurrency: "USD" },
-        { "@type": "Offer", price: "420", priceCurrency: "EUR" },
-      ],
+      offerCount: "2",
     },
   },
   aiAutomationCourse: {
@@ -517,11 +560,13 @@ export const STRUCTURED_DATA = {
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "AI-Powered Automation Course", url: "https://www.rajinikanthvadla.com/courses/ai-automation/" },
       { "@type": "ListItem", position: 2, name: "MLOps AIOps LLMOps Masterclass", url: "https://www.rajinikanthvadla.com/mlops-aiops-masterclass/" },
-      { "@type": "ListItem", position: 3, name: "MLOps Course India", url: "https://www.rajinikanthvadla.com/mlops-course-india/" },
-      { "@type": "ListItem", position: 4, name: "MLOps Training", url: "https://www.rajinikanthvadla.com/mlops-training/" },
-      { "@type": "ListItem", position: 5, name: "GenAI Training", url: "https://www.rajinikanthvadla.com/genai-training/" },
-      { "@type": "ListItem", position: 6, name: "AIOps Training", url: "https://www.rajinikanthvadla.com/aiops-training/" },
-      { "@type": "ListItem", position: 7, name: "Mentorship", url: "https://www.rajinikanthvadla.com/mentorship/" },
+      { "@type": "ListItem", position: 3, name: "MLOps Course", url: "https://www.rajinikanthvadla.com/mlops-course/" },
+      { "@type": "ListItem", position: 4, name: "MLOps Course India", url: "https://www.rajinikanthvadla.com/mlops-course-india/" },
+      { "@type": "ListItem", position: 5, name: "GenAI Course", url: "https://www.rajinikanthvadla.com/genai-course/" },
+      { "@type": "ListItem", position: 6, name: "AI Agents Course", url: "https://www.rajinikanthvadla.com/ai-agents-course/" },
+      { "@type": "ListItem", position: 7, name: "GenAI Training", url: "https://www.rajinikanthvadla.com/genai-training/" },
+      { "@type": "ListItem", position: 8, name: "AIOps Training", url: "https://www.rajinikanthvadla.com/aiops-training/" },
+      { "@type": "ListItem", position: 9, name: "Mentorship", url: "https://www.rajinikanthvadla.com/mentorship/" },
     ],
   },
   faq: {
@@ -541,7 +586,15 @@ export const STRUCTURED_DATA = {
         name: "What is the best MLOps course in India for job ready training?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Rajinikanth Vadla's MLOps, AIOps, LLMOps and AI Agents Masterclass is a complete 4-5 month job-ready live program covering DevOps through production AI agents. It includes 150+ hours hands-on training, 4 capstone projects, interview prep and placement support. Details at https://www.rajinikanthvadla.com/mlops-aiops-masterclass/",
+          text: "Rajinikanth Vadla's MLOps Masterclass cohort is running now. Two options: (1) Live course ₹40,000 with 2 installments + 1-on-1 mentorship, job assistance, interview prep; (2) Recordings-only ₹30,000 with 2 installments, self-learning, lifetime access. Both: 4-5 months, 150+ hours, 4 capstone projects, FDE, AIOps, LLMOps, AI Agents. Enroll via WhatsApp: https://www.rajinikanthvadla.com/mlops-aiops-masterclass/",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Where can I find a GenAI course and AI Agents course by Rajinikanth Vadla?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "The official GenAI course page is https://www.rajinikanthvadla.com/genai-course/ and the AI Agents / AI Agentic course page is https://www.rajinikanthvadla.com/ai-agents-course/. Both are part of the live masterclass with free YouTube class videos embedded on each page.",
         },
       },
       {
@@ -549,7 +602,7 @@ export const STRUCTURED_DATA = {
         name: "Which MLOps course should I take in 2026?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "For a complete job-ready path, Rajinikanth Vadla's 4-5 month live MLOps, AIOps, LLMOps and AI Agentic Operations course covers MLOps pipelines, LLM deployment, AIOps automation and AI agents with real projects. Priced at ₹40,000 with 4.9/5 rating from 500+ students.",
+          text: "Rajinikanth Vadla's MLOps Masterclass (live cohort starting now): ₹40,000 with 2 installments + 1-on-1 mentorship, job support, interview prep. OR ₹30,000 recordings-only for self-learning. Covers MLOps, LLMOps, AIOps, AI Agents, FDE. 4-5 months, 150+ hours, 4 capstone projects, 4.9/5 rating from 500+ students. Message WhatsApp to enroll.",
         },
       },
       {
