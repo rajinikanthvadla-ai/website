@@ -33,3 +33,6 @@ next-env.d.ts
 
 # old site backup
 /old_site/
+
+# local ad generation output (not deployed)
+/scripts/output/

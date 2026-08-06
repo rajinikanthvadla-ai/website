@@ -9,7 +9,7 @@ import puppeteer from "puppeteer";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, "..");
-const OUT_DIR = path.join(ROOT, "public", "downloads", "social");
+const OUT_DIR = path.join(ROOT, "scripts", "output", "social");
 const ASSETS = path.join(ROOT, "public", "assets");
 
 const SITE = "rajinikanthvadla.com";
@@ -398,7 +398,7 @@ async function main() {
       const jpg = path.join(OUT_DIR, `${base}.jpg`);
       await shot(browser, html, f.w, f.h, png, "png");
       await shot(browser, html, f.w, f.h, jpg, "jpeg");
-      files[f.fmt] = { png: `/downloads/social/${base}.png`, jpg: `/downloads/social/${base}.jpg` };
+      files[f.fmt] = { png: path.join(OUT_DIR, `${base}.png`), jpg: path.join(OUT_DIR, `${base}.jpg`) };
       console.log(`✓ ${base}.png + .jpg (${f.w}×${f.h})`);
     }
 
@@ -413,9 +413,10 @@ async function main() {
     });
   }
 
-  fs.writeFileSync(path.join(ROOT, "public", "downloads", "manifest.json"), JSON.stringify(manifest, null, 2));
+  const manifestPath = path.join(ROOT, "scripts", "output", "manifest.json");
+  fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
   await browser.close();
-  console.log("\nDone → public/downloads/social/");
+  console.log("\nDone → scripts/output/social/");
 }
 
 main().catch((e) => { console.error(e); process.exit(1); });
