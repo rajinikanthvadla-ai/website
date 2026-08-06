@@ -47,7 +47,6 @@ export const NAV_ITEMS: { label: string; href: string; highlight?: boolean }[] =
   { label: "Mentorship", href: "/mentorship" },
   { label: "Blog", href: "/blog" },
   { label: "Roadmaps", href: "/roadmap" },
-  { label: "Downloads", href: "/downloads" },
   { label: "Contact", href: "/contact" },
 ];
 
