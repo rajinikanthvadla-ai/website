@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { LINKS } from "@/lib/constants";
+import { LINKS, PRICING_LAST_UPDATED } from "@/lib/constants";
 
 export default function PricingHero() {
   return (
@@ -14,6 +14,10 @@ export default function PricingHero() {
           </h1>
           <p className="text-xl text-blue-100 max-w-2xl mx-auto leading-relaxed">
             4–5 month live masterclass from DevOps through production AI systems. 150+ hours of hands-on training. Choose your learning style.
+          </p>
+          <p className="text-blue-200 text-sm mt-4">
+            Pricing updated {new Date(PRICING_LAST_UPDATED).toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" })}
+            {" · "}Live ₹40,000 · Recordings ₹30,000 · AI Automation ₹20,000
           </p>
         </div>
 

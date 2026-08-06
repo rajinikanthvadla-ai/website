@@ -33,6 +33,7 @@ export default function HomePage() {
       <LogoBar />
       <FeaturedProgramsSection />
       <SeoDiscoverSection />
+      <RoadmapsPreviewSection />
       <AboutPreview />
       <FeaturedResourcesSection />
       <FAQSection />
@@ -100,6 +101,7 @@ function HeroSection() {
               </div>
             ))}
           </div>
+          <p className="text-[11px] text-slate-400 mt-2">* Hike figures self-reported by alumni; not a guarantee.</p>
         </div>
 
         <div className="flex flex-col items-stretch gap-5">
@@ -199,8 +201,48 @@ function SeoDiscoverSection() {
           {" · "}
           <Link href="/aiops-training/" className="text-[#0f172a] font-semibold hover:underline">AIOps training</Link>
           {" · "}
+          <Link href="/roadmap/" className="text-[#0f172a] font-semibold hover:underline">Career roadmaps</Link>
+          {" · "}
           <Link href="/mentorship/" className="text-[#0f172a] font-semibold hover:underline">Mentorship</Link>
         </p>
+      </div>
+    </section>
+  );
+}
+
+function RoadmapsPreviewSection() {
+  const previews = [
+    { href: "/roadmap/mlops-engineer/", title: "MLOps Engineer", salary: "₹12–40 LPA" },
+    { href: "/roadmap/llmops-engineer/", title: "LLMOps Engineer", salary: "₹18–50 LPA" },
+    { href: "/roadmap/ai-engineer/", title: "AI Engineer", salary: "₹15–50 LPA" },
+    { href: "/roadmap/fde-engineer/", title: "FDE Engineer", salary: "₹18–45 LPA" },
+  ];
+
+  return (
+    <section className="notion-section notion-section--cream border-y border-slate-200">
+      <div className="max-w-6xl mx-auto px-6">
+        <SectionHeader
+          tag="Career Guides"
+          title="AI career roadmaps for 2026"
+          subtitle="Free step-by-step paths — skills, salary ranges, projects, and tools for each role."
+        />
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+          {previews.map((r) => (
+            <Link
+              key={r.href}
+              href={r.href}
+              className="panel p-5 card-hover group block border-2 border-slate-900 shadow-[3px_3px_0_#0f172a]"
+            >
+              <h3 className="font-display font-bold text-[#0f172a] mb-1 group-hover:text-blue-700 transition-colors">{r.title}</h3>
+              <p className="text-xs font-bold text-blue-700">{r.salary}</p>
+            </Link>
+          ))}
+        </div>
+        <div className="text-center">
+          <Link href="/roadmap/" className="notion-btn notion-btn--ink">
+            View all 8 roadmaps &rarr;
+          </Link>
+        </div>
       </div>
     </section>
   );

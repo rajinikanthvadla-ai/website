@@ -3,6 +3,9 @@ export const AI_AUTOMATION_DURATION = "2 months";
 export const AI_AUTOMATION_PRICE = "₹20,000";
 export const AI_AUTOMATION_PRICE_NOTE = "One-time · Lifetime recording access included";
 
+/** ISO date for pricing freshness signals — update when fees change. */
+export const PRICING_LAST_UPDATED = "2026-08-06";
+
 export const SITE = {
   name: "Rajinikanth Vadla",
   title:
@@ -43,6 +46,7 @@ export const NAV_ITEMS: { label: string; href: string; highlight?: boolean }[] =
   { label: "Masterclass", href: "/mlops-aiops-masterclass" },
   { label: "Mentorship", href: "/mentorship" },
   { label: "Blog", href: "/blog" },
+  { label: "Roadmaps", href: "/roadmap" },
   { label: "Downloads", href: "/downloads" },
   { label: "Contact", href: "/contact" },
 ];
@@ -50,8 +54,53 @@ export const NAV_ITEMS: { label: string; href: string; highlight?: boolean }[] =
 export const STATS = [
   { value: "500+", label: "Engineers Trained" },
   { value: "50+", label: "Enterprise Projects" },
-  { value: "4.9★", label: "Average Rating" },
-  { value: "95%", label: "Placement Rate" },
+  { value: "4.9★", label: "Session Feedback" },
+  { value: "60%", label: "Avg. Reported Hike*" },
+];
+
+export const TEXT_TESTIMONIALS = [
+  {
+    quote:
+      "The live labs made the difference — I moved from deploying scripts to owning an ML pipeline on Kubernetes. Interviewers asked about exactly what we built in capstone.",
+    role: "MLOps Engineer · Hyderabad",
+    badge: "Career Growth",
+    image: "/assets/stoty-2.jpg",
+  },
+  {
+    quote:
+      "Rajinikanth breaks down LangChain and agent patterns the way enterprise teams actually use them. I shipped an internal RAG tool within two months of finishing the cohort.",
+    role: "AI Engineer · Bangalore",
+    badge: "AI Engineer",
+    image: "/assets/stoty-9.png",
+  },
+  {
+    quote:
+      "Worth every rupee for the 1-on-1 mentorship alone. Resume rewrite + mock interviews helped me land a 200% hike moving into an ML platform role.",
+    role: "ML Platform Engineer · Pune",
+    badge: "200% Hike",
+    image: "/assets/success-story-mani-rathnam.png",
+  },
+  {
+    quote:
+      "The automation course covered Cursor, Bedrock agents, and MCP integrations — skills that showed up word-for-word in my new job description.",
+    role: "Automation Engineer · Chennai",
+    badge: "Job Placed",
+    image: "/assets/stoty-4.jpg",
+  },
+  {
+    quote:
+      "Clear syllabus, real Zoom sessions, and recordings I still revisit. The AIOps monitoring capstone became my portfolio centerpiece.",
+    role: "SRE → AIOps · Remote (India)",
+    badge: "MLOps Expert",
+    image: "/assets/stoty-7.jpg",
+  },
+  {
+    quote:
+      "As a DevOps engineer transitioning to AI, the structured path from Docker through Kubeflow to LLM serving saved me months of random tutorials.",
+    role: "DevOps → MLOps · Mumbai",
+    badge: "DevOps Role",
+    image: "/assets/stoty-6.png",
+  },
 ];
 
 export const SUCCESS_STORIES = [
@@ -489,8 +538,10 @@ export const STRUCTURED_DATA = {
           availability: "https://schema.org/InStock",
           price: "40000",
           priceCurrency: "INR",
+          priceValidUntil: "2027-12-31",
+          validFrom: "2026-01-01",
           url: "https://www.rajinikanthvadla.com/mlops-aiops-masterclass/",
-          description: "₹40,000 with 2 installments of ₹20,000. Includes 1-on-1 mentorship, job assistance, interview prep.",
+          description: "₹40,000 with 2 installments of ₹20,000. Includes 1-on-1 mentorship, job assistance, interview prep. Updated Aug 2026.",
         },
       },
       {
@@ -505,8 +556,10 @@ export const STRUCTURED_DATA = {
           availability: "https://schema.org/InStock",
           price: "30000",
           priceCurrency: "INR",
+          priceValidUntil: "2027-12-31",
+          validFrom: "2026-01-01",
           url: "https://www.rajinikanthvadla.com/mlops-aiops-masterclass/",
-          description: "₹30,000 with 2 installments of ₹15,000. Lifetime access to recordings, no live classes or support.",
+          description: "₹30,000 with 2 installments of ₹15,000. Lifetime access to recordings, no live classes or support. Updated Aug 2026.",
         },
       },
     ],
@@ -567,6 +620,7 @@ export const STRUCTURED_DATA = {
       { "@type": "ListItem", position: 7, name: "GenAI Training", url: "https://www.rajinikanthvadla.com/genai-training/" },
       { "@type": "ListItem", position: 8, name: "AIOps Training", url: "https://www.rajinikanthvadla.com/aiops-training/" },
       { "@type": "ListItem", position: 9, name: "Mentorship", url: "https://www.rajinikanthvadla.com/mentorship/" },
+      { "@type": "ListItem", position: 10, name: "AI Career Roadmaps", url: "https://www.rajinikanthvadla.com/roadmap/" },
     ],
   },
   faq: {

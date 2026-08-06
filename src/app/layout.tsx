@@ -28,38 +28,12 @@ export const metadata: Metadata = {
   keywords: [
     "MLOps course India",
     "best MLOps course India",
-    "job ready MLOps course",
-    "MLOps AIOps LLMOps course",
     "AI Agents course India",
     "LLMOps training",
-    "AIOps training India",
-    "MLOps course with placement",
-    "live MLOps training",
     "Rajinikanth Vadla MLOps course",
-    "MLOps masterclass India",
-    "AI Agentic Operations course",
-    "MLOps interview preparation",
-    "AI-Powered Automation course",
-    "AI automation training",
-    "enterprise AI automation",
-    "LangChain training",
-    "RAG systems course",
-    "Kubernetes for AI",
-    "MLOps mentor India",
-    "AI career mentorship",
-    "multi-agent systems training",
-    "LLM agents course",
-    "AI automation course India",
-    "Cursor training course",
-    "Claude AI training",
-    "AWS Bedrock agents course",
-    "MLOps course Bangalore",
-    "MLOps course Hyderabad",
-    "LLMOps course India",
-    "AI agents course 2026",
-    "MLOps training online",
+    "AI career roadmap",
+    "MLOps engineer roadmap",
     "Rajinikanth Vadla",
-    "rajinikanthvadla.com",
   ],
   metadataBase: new URL(SITE.url),
   authors: [{ name: "Rajinikanth Vadla", url: SITE.url }],
@@ -116,6 +90,7 @@ export default function RootLayout({
         <meta name="distribution" content="global" />
         <meta name="rating" content="General" />
         <meta name="revisit-after" content="1 days" />
+        <meta name="last-modified" content="2026-08-06" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(STRUCTURED_DATA.website) }}
