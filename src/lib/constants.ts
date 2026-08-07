@@ -46,6 +46,7 @@ export const NAV_ITEMS: { label: string; href: string; highlight?: boolean }[] =
   { label: "Masterclass", href: "/mlops-aiops-masterclass" },
   { label: "Mentorship", href: "/mentorship" },
   { label: "Blog", href: "/blog" },
+  { label: "Universe", href: "/universe", highlight: true },
   { label: "Roadmaps", href: "/roadmap" },
   { label: "Contact", href: "/contact" },
 ];

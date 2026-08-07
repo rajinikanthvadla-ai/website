@@ -48,7 +48,10 @@ export default function Footer({ minimal = false }: { minimal?: boolean }) {
           <div>
             <h4 className="text-white font-bold mb-4 text-xs uppercase tracking-[0.12em]">Career Guides</h4>
             <ul className="space-y-2.5 text-sm">
-              <li><Link href="/roadmap/" className="hover:text-orange-400 transition-colors">All Roadmaps</Link></li>
+              <li><Link href="/universe/" className="hover:text-orange-400 transition-colors">AI Universe <span className="bg-orange-500 text-white text-[8px] font-bold py-0 px-1.5 rounded-sm uppercase ml-1">NEW</span></Link></li>
+              <li><Link href="/path/" className="hover:text-white transition-colors">Find My Path</Link></li>
+              <li><Link href="/compare/" className="hover:text-white transition-colors">Compare Careers</Link></li>
+              <li><Link href="/roadmap/" className="hover:text-white transition-colors">All Roadmaps</Link></li>
               <li><Link href="/roadmap/mlops-engineer/" className="hover:text-white transition-colors">MLOps Engineer</Link></li>
               <li><Link href="/roadmap/llmops-engineer/" className="hover:text-white transition-colors">LLMOps Engineer</Link></li>
               <li><Link href="/roadmap/ai-engineer/" className="hover:text-white transition-colors">AI Engineer</Link></li>

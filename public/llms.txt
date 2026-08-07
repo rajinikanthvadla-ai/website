@@ -18,6 +18,12 @@
 - [About Rajinikanth Vadla](https://www.rajinikanthvadla.com/about/): Background, 7+ years enterprise experience, training philosophy, and credentials
 - [Mentorship](https://www.rajinikanthvadla.com/mentorship/): 1:1 career mentorship for MLOps, AIOps, AI engineering roles. Available worldwide via online sessions
 
+## Career Intelligence Platform (NEW)
+- [AI Engineering Universe](https://www.rajinikanthvadla.com/universe/): Interactive zoomable skill map — MLOps, LLMOps, RAG, agents, GPU infra
+- [Find My AI Path](https://www.rajinikanthvadla.com/path/): Career path simulator from DevOps/Software/ML into AI roles
+- [Compare Careers](https://www.rajinikanthvadla.com/compare/): MLOps vs LLMOps, DevOps vs MLOps, and more
+- Skill guides: /skills/kubernetes/, /skills/rag/, /skills/mlflow/, /skills/langchain/, /skills/mcp/, /skills/vllm/
+
 ## Career Roadmaps (free guides)
 - [All AI Career Roadmaps](https://www.rajinikanthvadla.com/roadmap/): Hub page for all role roadmaps
 - [AI Engineer Roadmap](https://www.rajinikanthvadla.com/roadmap/ai-engineer/): Skills, salary, learning path for AI Engineers

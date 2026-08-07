@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import articles from "../../content/articles.json";
 import { ROADMAP_SLUGS } from "@/lib/roadmaps";
+import { getSkillSlugs, COMPARE_SLUGS } from "@/lib/knowledge-graph";
 
 export const dynamic = "force-static";
 
@@ -14,6 +15,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/enroll/`, lastModified: now, changeFrequency: "daily", priority: 0.99 },
     { url: `${base}/student-guide/`, lastModified: now, changeFrequency: "weekly", priority: 0.94 },
     { url: `${base}/roadmap/`, lastModified: now, changeFrequency: "weekly", priority: 0.92 },
+    { url: `${base}/universe/`, lastModified: now, changeFrequency: "weekly", priority: 0.98 },
+    { url: `${base}/path/`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${base}/compare/`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: `${base}/courses/ai-automation/`, lastModified: now, changeFrequency: "daily", priority: 0.99 },
     { url: `${base}/mlops-aiops-masterclass/`, lastModified: now, changeFrequency: "daily", priority: 0.99 },
     { url: `${base}/mlops-course-india/`, lastModified: now, changeFrequency: "daily", priority: 0.97 },
@@ -37,6 +41,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.88,
   }));
 
+  const skillRoutes: MetadataRoute.Sitemap = getSkillSlugs().map((slug) => ({
+    url: `${base}/skills/${slug}/`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.87,
+  }));
+
+  const compareRoutes: MetadataRoute.Sitemap = COMPARE_SLUGS.map((slug) => ({
+    url: `${base}/compare/${slug}/`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.86,
+  }));
+
   const blogRoutes: MetadataRoute.Sitemap = articles.map((a) => ({
     url: `${base}/blog/${a.slug}/`,
     lastModified: new Date(a.date).toISOString(),
@@ -44,5 +62,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.75,
   }));
 
-  return [...staticRoutes, ...roadmapRoutes, ...blogRoutes];
+  return [...staticRoutes, ...roadmapRoutes, ...skillRoutes, ...compareRoutes, ...blogRoutes];
 }
