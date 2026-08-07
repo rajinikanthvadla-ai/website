@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { LINKS } from "@/lib/constants";
 import { sketch, HOME_SKETCH } from "@/lib/sketch-assets";
+import YouTubeMembershipSection from "@/components/YouTubeMembershipSection";
 
 export const metadata: Metadata = {
   title: "Enroll Now | MLOps Course ₹40K Live or ₹30K Recordings | 2 Payment Plans",
@@ -312,6 +313,8 @@ export default function EnrollPage() {
           </div>
         </div>
       </section>
+
+      <YouTubeMembershipSection compact />
 
       {/* Final CTA */}
       <section className="py-16 md:py-24 bg-gradient-to-r from-blue-700 to-blue-800">

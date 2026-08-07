@@ -8,6 +8,7 @@ import SuccessStories from "@/components/SuccessStories";
 import WelcomeLiveDashboard from "@/components/WelcomeLiveDashboard";
 import PricingHero from "@/components/PricingHero";
 import YoutubePlaylist from "@/components/YoutubePlaylist";
+import YouTubeMembershipSection from "@/components/YouTubeMembershipSection";
 import { HOME_SKETCH, sketch } from "@/lib/sketch-assets";
 import articles from "../../content/articles.json";
 
@@ -30,6 +31,7 @@ export default function HomePage() {
       <HeroSection />
       <PricingHero />
       <YoutubePlaylist />
+      <YouTubeMembershipSection />
       <LogoBar />
       <FeaturedProgramsSection />
       <SeoDiscoverSection />

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { LINKS } from "@/lib/constants";
 import CTASection from "@/components/CTASection";
 import SuccessStories from "@/components/SuccessStories";
+import YouTubeMembershipSection from "@/components/YouTubeMembershipSection";
 
 export const metadata: Metadata = {
   title: "1:1 Mentorship & Career Guidance",
@@ -113,6 +114,7 @@ export default function MentorshipPage() {
         </div>
       </section>
 
+      <YouTubeMembershipSection compact />
 
       <section className="py-16 bg-stone-50 border-b border-stone-200">
         <div className="w-full px-0 md:px-0">

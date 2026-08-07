@@ -1,5 +1,6 @@
 import { COURSE_VIDEOS } from "@/lib/course-videos";
 import { LINKS } from "@/lib/constants";
+import { YOUTUBE_MEMBERSHIP_JOIN_URL } from "@/lib/youtube-membership";
 
 export default function YoutubePlaylist() {
   const videos = [...COURSE_VIDEOS.masterclass, ...COURSE_VIDEOS.aiAgents].slice(0, 6);
@@ -59,17 +60,33 @@ export default function YoutubePlaylist() {
 
         {/* Browse All */}
         <div className="text-center">
-          <a
-            href={LINKS.youtube}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg font-bold transition-colors"
-          >
-            <span className="text-xl">🎥</span>
-            Browse All Videos on YouTube
-          </a>
-          <p className="text-slate-600 text-sm mt-4">
-            60+ videos • MLOps • GenAI • AI Agents • AIOps • Production ML
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center max-w-2xl mx-auto mb-5">
+            <a
+              href={YOUTUBE_MEMBERSHIP_JOIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="yt-cta-pro group flex-1 !justify-center !text-center sm:!text-left"
+            >
+              <span className="text-2xl shrink-0" aria-hidden>▶</span>
+              <span>
+                Unlock ALL private videos
+                <span className="block text-[0.65rem] font-semibold opacity-90 mt-0.5">
+                  Agentic Pro · ₹1,199/mo + mentorship
+                </span>
+              </span>
+              <span className="yt-cta-arrow hidden sm:inline" aria-hidden>→</span>
+            </a>
+            <a
+              href={LINKS.youtube}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 bg-white text-[#0f172a] border-2 border-[#0f172a] px-6 py-4 rounded-sm font-bold shadow-[3px_3px_0_#0f172a] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0_#0f172a] transition-all text-sm"
+            >
+              Free public videos
+            </a>
+          </div>
+          <p className="text-slate-500 text-sm">
+            60+ members-only videos · live streams · share Member ID for 1:1 help
           </p>
         </div>
       </div>

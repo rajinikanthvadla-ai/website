@@ -34,6 +34,7 @@ export const LINKS = {
     "https://us06web.zoom.us/j/87999982120?pwd=bfqVQtQ9th5aeybBQD3QP9TdAaDd0a.1",
   linkedin: "https://www.linkedin.com/in/rajinikanth-vadla-4221281a4/",
   youtube: "https://www.youtube.com/@IamRajinikanthvadla",
+  youtubeMembershipJoin: "https://www.youtube.com/@IamRajinikanthvadla/join",
   instagram: "https://www.instagram.com/rajinikanth_vadla_/",
   myGPT:
     "https://chatgpt.com/g/g-6938ef4591f4819198b381b03cf8707b-rajinikanth-vadla-ai-ml-ops-engineer-mentor",
@@ -342,6 +343,10 @@ export const HOME_PAGE_FAQS = [
   {
     q: "Do you help with jobs?",
     a: "Yes. Resume review, mock interviews, and placement support are included in the masterclass.",
+  },
+  {
+    q: "Is there a cheaper way to access all your course videos?",
+    a: "Yes — join YouTube AI & ML AI Agentic Pro membership at ₹1,199/month. You get every members-only video (private courses, old sessions, new uploads), live streams, and 1:1 mentorship when you share your Member ID on WhatsApp. Lower tiers (₹179 or ₹419) do not include the full library or mentorship.",
   },
 ];
 

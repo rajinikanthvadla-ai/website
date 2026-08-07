@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { LINKS } from "@/lib/constants";
+import YouTubeMembershipSection from "@/components/YouTubeMembershipSection";
 
 export const metadata: Metadata = {
   title: "Student Guide | MLOps Course for Beginners | Learn Production ML",
@@ -177,8 +178,13 @@ export default function StudentGuidePage() {
               ))}
             </div>
           </div>
+        </div>
+      </section>
 
-          {/* Final CTA */}
+      <YouTubeMembershipSection compact />
+
+      <section className="py-16 md:py-24 bg-white border-b border-slate-200">
+        <div className="max-w-4xl mx-auto px-6">
           <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl p-10 text-white text-center">
             <h2 className="font-display text-3xl font-bold mb-4">Ready to Start Your MLOps Journey?</h2>
             <p className="text-lg mb-6 leading-relaxed">
