@@ -6,12 +6,12 @@ import { Lane, NodeBox, FlowArrow, FlowPath } from "./DiagramPrimitives";
  */
 export default function LlmopsDiagram() {
   return (
-    <svg viewBox="0 0 1100 480" className="min-w-[980px] w-full" role="img" aria-label="LLMOps RAG production architecture diagram">
+    <svg viewBox="0 0 1100 500" className="min-w-[980px] w-full" role="img" aria-label="LLMOps RAG production architecture diagram">
       <defs>
-        <marker id="llm-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <marker id="llm-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
           <path d="M0 0 L10 5 L0 10 z" fill="#64748b" />
         </marker>
-        <marker id="llm-arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <marker id="llm-arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
           <path d="M0 0 L10 5 L0 10 z" fill="#059669" />
         </marker>
       </defs>
@@ -49,44 +49,89 @@ export default function LlmopsDiagram() {
       <NodeBox x={865} y={224} w={190} h={54} title="Feedback" subtitle="thumbs · corrections" icons={[{ fallback: "FB", color: "#334155" }]} />
       <NodeBox x={865} y={300} w={190} h={78} title="Fine-tuning Loop" subtitle="PEFT/LoRA on GPUs" icons={[{ slug: "huggingface" }, { slug: "nvidia" }]} />
 
-      {/* Flows */}
+      {/* Flows — endpoints snap to node box edges */}
       {/* 1-3: indexing chain */}
       <FlowArrow x1={110} y1={114} x2={110} y2={132} marker="llm-arrow" step={1} />
       <FlowArrow x1={110} y1={198} x2={110} y2={216} marker="llm-arrow" step={2} />
       <FlowArrow x1={110} y1={282} x2={110} y2={300} marker="llm-arrow" step={3} />
-      {/* 4: user query */}
-      <FlowArrow x1={745} y1={160} x2={745} y2={138} marker="llm-arrow" step={4} />
-      {/* 5: app -> retriever */}
-      <FlowArrow x1={675} y1={98} x2={372} y2={92} marker="llm-arrow" step={5} label="embed query" labelDy={-8} />
-      {/* 6: retriever -> vector DB */}
-      <FlowPath d="M240 92 H218 V340 H197" marker="llm-arrow" step={6} stepX={218} stepY={215} label="ANN top-k" labelX={252} labelY={334} />
-      {/* 7: retrieve -> rerank */}
+
+      {/* 4: user query → app */}
+      <FlowArrow x1={745} y1={160} x2={745} y2={136} marker="llm-arrow" step={4} />
+
+      {/* 5: app → retriever */}
+      <FlowArrow
+        x1={675}
+        y1={98}
+        x2={372}
+        y2={92}
+        marker="llm-arrow"
+        step={5}
+        stepX={530}
+        stepY={84}
+        label="embed query"
+        labelDx={0}
+        labelDy={-10}
+      />
+
+      {/* 6: retriever → vector DB (ANN lookup) */}
+      <FlowPath
+        d="M240 92 H208 V340 H197"
+        marker="llm-arrow"
+        step={6}
+        stepX={208}
+        stepY={220}
+        label="ANN top-k"
+        labelX={228}
+        labelY={332}
+      />
+
+      {/* 7: retrieve → rerank */}
       <FlowArrow x1={305} y1={124} x2={305} y2={148} marker="llm-arrow" step={7} />
-      {/* 8: reranker -> gateway (context + prompt) */}
-      <FlowPath d="M370 180 H392 V95 H413" marker="llm-arrow" step={8} stepX={392} stepY={137} />
-      {/* 9: gateway -> providers */}
+
+      {/* 8: reranker → gateway */}
+      <FlowPath d="M370 180 H398 V95 H415" marker="llm-arrow" step={8} stepX={398} stepY={140} />
+
+      {/* 9: gateway → providers */}
       <FlowArrow x1={520} y1={130} x2={520} y2={148} marker="llm-arrow" step={9} />
+
+      {/* providers → guardrails */}
       <FlowArrow x1={520} y1={214} x2={520} y2={238} marker="llm-arrow" />
-      <FlowArrow x1={455} y1={322} x2={455} y2={302} marker="llm-arrow" dashed label="prompts" labelDx={32} labelDy={-2} />
-      {/* 10: guardrails -> app */}
-      <FlowPath d="M625 270 H745 V140" marker="llm-arrow" step={10} stepX={745} stepY={205} label="grounded answer" labelX={685} labelY={262} />
-      {/* 11: telemetry */}
+
+      {/* prompt registry → guardrails */}
+      <FlowArrow x1={520} y1={322} x2={520} y2={300} marker="llm-arrow" dashed label="prompts" labelDx={36} labelDy={4} />
+
+      {/* 10: guardrails → app */}
+      <FlowPath
+        d="M625 270 H655 V98 H675"
+        marker="llm-arrow"
+        step={10}
+        stepX={655}
+        stepY={184}
+        label="grounded answer"
+        labelX={668}
+        labelY={188}
+      />
+
+      {/* 11: telemetry → tracing */}
       <FlowArrow x1={815} y1={98} x2={863} y2={92} marker="llm-arrow" step={11} />
+
+      {/* observability chain */}
       <FlowArrow x1={960} y1={124} x2={960} y2={142} marker="llm-arrow" />
       <FlowArrow x1={960} y1={204} x2={960} y2={222} marker="llm-arrow" />
       <FlowArrow x1={960} y1={278} x2={960} y2={298} marker="llm-arrow" />
-      {/* 12: fine-tuning loop back to gateway */}
+
+      {/* 12: fine-tuning loop → LLM providers */}
       <FlowPath
-        d="M960 378 V450 H520 V432"
+        d="M960 378 V458 H380 V182 H415"
         marker="llm-arrow-green"
         dashed
         color="#059669"
         step={12}
-        stepX={740}
-        stepY={450}
+        stepX={700}
+        stepY={458}
         label="adapter → registry → serve"
-        labelX={740}
-        labelY={438}
+        labelX={700}
+        labelY={446}
       />
     </svg>
   );

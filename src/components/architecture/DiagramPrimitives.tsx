@@ -173,6 +173,8 @@ export function FlowArrow({
   label,
   labelDx = 0,
   labelDy = -6,
+  stepX,
+  stepY,
 }: {
   x1: number;
   y1: number;
@@ -186,9 +188,14 @@ export function FlowArrow({
   label?: string;
   labelDx?: number;
   labelDy?: number;
+  /** Override step badge position (defaults to line midpoint). */
+  stepX?: number;
+  stepY?: number;
 }) {
   const mx = (x1 + x2) / 2;
   const my = (y1 + y2) / 2;
+  const badgeX = stepX ?? mx;
+  const badgeY = stepY ?? my;
   return (
     <g>
       <line
@@ -198,6 +205,7 @@ export function FlowArrow({
         y2={y2}
         stroke={color}
         strokeWidth={1.8}
+        strokeLinecap="round"
         strokeDasharray={dashed ? "5 4" : undefined}
         markerEnd={`url(#${marker})`}
       />
@@ -206,7 +214,7 @@ export function FlowArrow({
           {label}
         </text>
       )}
-      {step != null && <StepBadge x={mx} y={my} n={step} fill={color === "#64748b" ? "#1d4ed8" : color} />}
+      {step != null && <StepBadge x={badgeX} y={badgeY} n={step} fill={color === "#64748b" ? "#1d4ed8" : color} />}
     </g>
   );
 }
@@ -242,6 +250,8 @@ export function FlowPath({
         fill="none"
         stroke={color}
         strokeWidth={1.8}
+        strokeLinecap="round"
+        strokeLinejoin="round"
         strokeDasharray={dashed ? "5 4" : undefined}
         markerEnd={`url(#${marker})`}
       />
