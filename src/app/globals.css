@@ -1129,3 +1129,133 @@ h1, h2, h3, h4, .font-display {
 .notion-flow-frame--dark .notion-board-title {
   color: #fff;
 }
+
+/* ── 404 Lost-in-Training page — unique interactive visuals ── */
+@keyframes nf-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-18px) rotate(2deg); }
+}
+
+@keyframes nf-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.15); opacity: 1; }
+}
+
+@keyframes nf-train {
+  0% { stroke-dashoffset: 283; }
+  100% { stroke-dashoffset: 0; }
+}
+
+@keyframes nf-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes nf-wiggle {
+  0%, 100% { transform: rotate(-1deg); }
+  50% { transform: rotate(1deg); }
+}
+
+@keyframes nf-drift {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(8px, -12px); }
+  50% { transform: translate(-6px, 6px); }
+  75% { transform: translate(10px, 8px); }
+  100% { transform: translate(0, 0); }
+}
+
+.nf-float { animation: nf-float 5s ease-in-out infinite; }
+.nf-float-delay-1 { animation-delay: 0.8s; }
+.nf-float-delay-2 { animation-delay: 1.6s; }
+.nf-float-delay-3 { animation-delay: 2.4s; }
+
+.nf-pulse { animation: nf-pulse 2.2s ease-in-out infinite; }
+.nf-blink { animation: nf-blink 1s step-end infinite; }
+.nf-wiggle { animation: nf-wiggle 3s ease-in-out infinite; }
+.nf-drift { animation: nf-drift 12s ease-in-out infinite; }
+
+.nf-train-circle {
+  stroke-dasharray: 283;
+  stroke-dashoffset: 283;
+  animation: nf-train 2.5s ease-out forwards;
+}
+
+.nf-node:hover {
+  transform: scale(1.25);
+  transition: transform 0.2s ease;
+}
+
+/* ── Global error page — dark reboot theme ── */
+@keyframes nf-glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+.nf-glitch { animation: nf-glitch 0.4s ease-in-out infinite; }
+
+/* ── 404 v2 — "lost pod in the cluster" graphics ── */
+@keyframes nf-spin { to { transform: rotate(360deg); } }
+@keyframes nf-spin-rev { to { transform: rotate(-360deg); } }
+@keyframes nf-twinkle { 0%, 100% { opacity: 0.12; } 50% { opacity: 0.9; } }
+@keyframes nf-scan {
+  0% { top: -8%; opacity: 0; }
+  8% { opacity: 0.6; }
+  92% { opacity: 0.6; }
+  100% { top: 104%; opacity: 0; }
+}
+@keyframes nf-ring {
+  0% { transform: scale(0.55); opacity: 0.65; }
+  100% { transform: scale(1.55); opacity: 0; }
+}
+@keyframes nf-blob {
+  0%, 100% { border-radius: 58% 42% 32% 68% / 60% 32% 68% 40%; transform: translate(0, 0) scale(1); }
+  50% { border-radius: 32% 68% 70% 30% / 50% 62% 38% 50%; transform: translate(14px, -18px) scale(1.06); }
+}
+@keyframes nf-glitch-a {
+  0%, 92%, 100% { clip-path: inset(0 0 100% 0); transform: none; }
+  93% { clip-path: inset(8% 0 58% 0); transform: translate(-5px, -2px); }
+  95% { clip-path: inset(62% 0 8% 0); transform: translate(5px, 2px); }
+  97% { clip-path: inset(28% 0 44% 0); transform: translate(-3px, 1px); }
+}
+@keyframes nf-glitch-b {
+  0%, 93%, 100% { clip-path: inset(0 0 100% 0); transform: none; }
+  94% { clip-path: inset(52% 0 18% 0); transform: translate(5px, 2px); }
+  96% { clip-path: inset(12% 0 68% 0); transform: translate(-5px, -1px); }
+}
+@keyframes nf-dash-flow { to { stroke-dashoffset: -24; } }
+
+.nf-spin { animation: nf-spin linear infinite; }
+.nf-spin-rev { animation: nf-spin-rev linear infinite; }
+.nf-twinkle { animation: nf-twinkle 3.2s ease-in-out infinite; }
+.nf-scanline { animation: nf-scan 5.5s linear infinite; }
+.nf-ring { animation: nf-ring 2.4s ease-out infinite; }
+.nf-blob { animation: nf-blob 9s ease-in-out infinite; }
+.nf-dash-flow { animation: nf-dash-flow 1.2s linear infinite; }
+
+.nf-orbit { --orbit-r: 118px; }
+@media (min-width: 640px) { .nf-orbit { --orbit-r: 150px; } }
+
+.nf-orbit-logo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(var(--a)) translateY(calc(-1 * var(--orbit-r))) rotate(calc(-1 * var(--a)));
+}
+
+.nf-glitch404 { position: relative; display: inline-block; }
+.nf-glitch404::before,
+.nf-glitch404::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  clip-path: inset(0 0 100% 0);
+  pointer-events: none;
+}
+.nf-glitch404::before { color: #f97316; animation: nf-glitch-a 3.4s linear infinite; }
+.nf-glitch404::after { color: #38bdf8; animation: nf-glitch-b 2.9s linear infinite; }

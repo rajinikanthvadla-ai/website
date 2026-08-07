@@ -7,7 +7,7 @@ export default function Footer({ minimal = false }: { minimal?: boolean }) {
     return (
       <footer className="notion-footer py-8">
         <div className="max-w-7xl mx-auto px-6 text-center text-sm">
-          <p>&copy; {new Date().getFullYear()} {SITE.name}. MLOps, AIOps, AI Automation training.</p>
+          <p>&copy; <span suppressHydrationWarning>{new Date().getFullYear()}</span> {SITE.name}. MLOps, AIOps, AI Automation training.</p>
         </div>
       </footer>
     );
@@ -82,7 +82,7 @@ export default function Footer({ minimal = false }: { minimal?: boolean }) {
         </div>
 
         <div className="border-t border-slate-700 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-600">
-          <p>&copy; {new Date().getFullYear()} {SITE.name}. All rights reserved.</p>
+          <p>&copy; <span suppressHydrationWarning>{new Date().getFullYear()}</span> {SITE.name}. All rights reserved.</p>
           <p className="text-xs text-slate-600">MLOps · AIOps · GenAI · AI Automation · Enterprise Training</p>
         </div>
       </div>

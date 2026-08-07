@@ -22,7 +22,11 @@ type Progress = { completed: string[]; bookmarked: string[] };
 function loadProgress(): Progress {
   if (typeof window === "undefined") return { completed: [], bookmarked: [] };
   try {
-    return JSON.parse(localStorage.getItem(STORAGE_KEY) ?? "{}") as Progress;
+    const raw = JSON.parse(localStorage.getItem(STORAGE_KEY) ?? "{}") as Partial<Progress>;
+    return {
+      completed: Array.isArray(raw.completed) ? raw.completed : [],
+      bookmarked: Array.isArray(raw.bookmarked) ? raw.bookmarked : [],
+    };
   } catch {
     return { completed: [], bookmarked: [] };
   }
