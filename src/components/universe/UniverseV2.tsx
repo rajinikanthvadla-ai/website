@@ -273,28 +273,32 @@ export default function UniverseV2() {
                           {icon}
                         </div>
                         <div className="flex gap-1">
-                          <motion.button
+                          <motion.div
                             onClick={(e) => {
                               e.stopPropagation();
                               toggleComplete(skill.id);
                             }}
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
-                            className={`p-1 rounded transition ${isDone ? "text-emerald-400" : "text-slate-500 hover:text-emerald-400"}`}
+                            className={`p-1 rounded transition cursor-pointer ${isDone ? "text-emerald-400" : "text-slate-500 hover:text-emerald-400"}`}
+                            role="button"
+                            tabIndex={0}
                           >
                             <CheckCircle2 className="w-4 h-4" />
-                          </motion.button>
-                          <motion.button
+                          </motion.div>
+                          <motion.div
                             onClick={(e) => {
                               e.stopPropagation();
                               toggleBookmark(skill.id);
                             }}
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
-                            className={`p-1 rounded transition ${isBookmarked ? "text-orange-400" : "text-slate-500 hover:text-orange-400"}`}
+                            className={`p-1 rounded transition cursor-pointer ${isBookmarked ? "text-orange-400" : "text-slate-500 hover:text-orange-400"}`}
+                            role="button"
+                            tabIndex={0}
                           >
                             <Bookmark className="w-4 h-4" fill={isBookmarked ? "currentColor" : "none"} />
-                          </motion.button>
+                          </motion.div>
                         </div>
                       </div>
                       <h3 className="font-bold text-white text-sm mb-1">{skill.name}</h3>
