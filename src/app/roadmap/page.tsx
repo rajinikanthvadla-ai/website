@@ -37,7 +37,7 @@ const ROADMAP_STYLE: Record<string, { logo: string; accent: string }> = {
   "ai-infrastructure-engineer": { logo: "gpu", accent: "bg-[#ffedd5]" },
 };
 
-const HERO_LOGOS = ["linux", "python", "docker", "kubernetes", "mlflow", "rag", "vllm", "gpu"];
+const HERO_LOGOS = ["linux", "git", "python", "docker", "kubernetes", "cloud", "pytorch", "mlflow", "fastapi", "rag", "prometheus", "gpu"];
 
 export default function RoadmapHubPage() {
   const roadmaps = getAllRoadmaps();

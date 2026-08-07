@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 };
 
 /** Logos shown in the hero strip, in learning order. */
-const HERO_LOGOS = ["linux", "python", "docker", "kubernetes", "terraform", "mlflow", "rag", "gpu"];
+const HERO_LOGOS = ["linux", "git", "python", "docker", "kubernetes", "cloud", "mlflow", "pytorch", "rag", "fastapi", "prometheus", "gpu"];
 
 export default function UniversePage() {
   const skillList = SKILLS.filter((s) => s.level === "technology");
@@ -61,9 +61,9 @@ export default function UniversePage() {
             From DevOps to <span className="notion-hero-accent">Production AI</span>
           </h1>
           <p className="notion-hero-lead">
-            One clear path — not a wall of boxes. Start at Linux and Python, follow six stages to
-            Kubernetes, MLOps, RAG, agents, and GPU infrastructure. Pick a target role and the map
-            greys out everything you do not need.
+            One clear path — not a wall of boxes. Twenty-three market-critical skills in six stages:
+            Git, SQL, Cloud, Helm, Grafana, PyTorch, FastAPI, and everything in between. Pick a target
+            role and the map greys out skills you do not need.
           </p>
           <p className="notion-hero-note">
             Every skill answers the same four questions: what it is, why it exists, what to build with

@@ -22,7 +22,7 @@
 - [AI Engineering Universe](https://www.rajinikanthvadla.com/universe/): Interactive zoomable skill map — MLOps, LLMOps, RAG, agents, GPU infra
 - [Find My AI Path](https://www.rajinikanthvadla.com/path/): Career path simulator from DevOps/Software/ML into AI roles
 - [Compare Careers](https://www.rajinikanthvadla.com/compare/): MLOps vs LLMOps, DevOps vs MLOps, and more
-- Skill guides: /skills/kubernetes/, /skills/rag/, /skills/mlflow/, /skills/langchain/, /skills/mcp/, /skills/vllm/
+- Skill guides: /skills/kubernetes/, /skills/git/, /skills/cloud/, /skills/helm/, /skills/grafana/, /skills/pytorch/, /skills/fastapi/, /skills/rag/, /skills/mlflow/, /skills/langchain/, /skills/mcp/, /skills/vllm/
 
 ## Career Roadmaps (free guides)
 - [All AI Career Roadmaps](https://www.rajinikanthvadla.com/roadmap/): Hub page for all role roadmaps

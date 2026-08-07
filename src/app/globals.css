@@ -1278,6 +1278,8 @@ h1, h2, h3, h4, .font-display {
 .lf-stage.is-visible .lf-node:nth-child(2) { transition-delay: 0.12s; }
 .lf-stage.is-visible .lf-node:nth-child(3) { transition-delay: 0.2s; }
 .lf-stage.is-visible .lf-node:nth-child(4) { transition-delay: 0.28s; }
+.lf-stage.is-visible .lf-node:nth-child(5) { transition-delay: 0.36s; }
+.lf-stage.is-visible .lf-node:nth-child(6) { transition-delay: 0.44s; }
 
 .lf-card {
   background: #fff;

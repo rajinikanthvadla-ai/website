@@ -12,36 +12,36 @@ type Stage = {
   skillIds: string[];
 };
 
-/** Ordered stages give the graph a single, obvious direction to follow. */
+/** Ordered stages — every skill here appears in analyzed job postings and cohort roadmaps. */
 const STAGES: Stage[] = [
   {
     title: "Foundation",
-    caption: "The ground everything else stands on. Skip this and nothing later makes sense.",
-    skillIds: ["linux", "python"],
+    caption: "Linux, Git, Python, and SQL — the four skills every posting assumes you already have.",
+    skillIds: ["linux", "git", "python", "sql"],
   },
   {
     title: "Package & Automate",
-    caption: "Make your work reproducible so a machine can build and ship it for you.",
-    skillIds: ["docker", "cicd", "terraform"],
+    caption: "Containers, pipelines, infrastructure-as-code, and a real cloud account.",
+    skillIds: ["docker", "cicd", "terraform", "cloud"],
   },
   {
     title: "Run & Observe",
-    caption: "Operate workloads at scale and know what they are doing in production.",
-    skillIds: ["kubernetes", "prometheus"],
+    caption: "Kubernetes in production, Helm releases, and the Prometheus + Grafana observability stack.",
+    skillIds: ["kubernetes", "helm", "prometheus", "grafana"],
   },
   {
-    title: "ML Lifecycle",
-    caption: "Track experiments, register models, and serve predictions behind an API.",
-    skillIds: ["mlflow", "kserve"],
+    title: "ML & APIs",
+    caption: "Train models with PyTorch, track them in MLflow, expose them via FastAPI, serve with KServe.",
+    skillIds: ["pytorch", "mlflow", "fastapi", "kserve"],
   },
   {
     title: "LLMs & Retrieval",
-    caption: "Ground language models in your own data instead of hoping they guess right.",
+    caption: "LLM APIs, RAG pipelines, and vector databases — the core GenAI production stack.",
     skillIds: ["llms", "rag", "vector-databases"],
   },
   {
     title: "Agents & Scale",
-    caption: "Give models tools, then serve them fast and cheap on real GPUs.",
+    caption: "Agent frameworks, MCP tool protocols, GPU inference with vLLM, and cluster-scale GPU ops.",
     skillIds: ["langchain", "mcp", "vllm", "gpu"],
   },
 ];
