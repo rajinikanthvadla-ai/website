@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
+import CareerGuideBot from "@/components/CareerGuideBot";
 import NewCoursesPopup from "@/components/NewCoursesPopup";
 import { SITE, STRUCTURED_DATA } from "@/lib/constants";
 
@@ -109,6 +110,7 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <NewCoursesPopup />
+        <CareerGuideBot />
         <WhatsAppFloat />
       </body>
     </html>

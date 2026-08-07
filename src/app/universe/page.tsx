@@ -3,6 +3,7 @@ import Link from "next/link";
 import LearningFlow from "@/components/universe/LearningFlow";
 import TechLogo from "@/components/universe/TechLogo";
 import { SKILLS, ROLES } from "@/lib/knowledge-graph";
+import { ALL_PATH_SKILL_IDS } from "@/lib/learning-stages";
 import { SITE, LINKS } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -61,9 +62,8 @@ export default function UniversePage() {
             From DevOps to <span className="notion-hero-accent">Production AI</span>
           </h1>
           <p className="notion-hero-lead">
-            One clear path — not a wall of boxes. Twenty-three market-critical skills in six stages:
-            Git, SQL, Cloud, Helm, Grafana, PyTorch, FastAPI, and everything in between. Pick a target
-            role and the map greys out skills you do not need.
+            Eight stages, {ALL_PATH_SKILL_IDS.length} market-critical skills — from Linux and Git through Kubeflow,
+            Spark, LangGraph, and GPU inference. Pick a target role and grey out what you do not need.
           </p>
           <p className="notion-hero-note">
             Every skill answers the same four questions: what it is, why it exists, what to build with
@@ -102,7 +102,7 @@ export default function UniversePage() {
         <div className="max-w-6xl mx-auto px-6 mb-10">
           <div className="notion-section-head !mb-0 !mx-0 !text-left !max-w-2xl">
             <span className="notion-section-eyebrow">The path</span>
-            <h2>Six stages, in order</h2>
+            <h2>Eight stages, in order</h2>
             <p>
               Tap any skill to open it. Tick the box to track what you have finished — your progress
               stays in this browser.

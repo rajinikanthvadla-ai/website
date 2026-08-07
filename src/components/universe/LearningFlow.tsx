@@ -4,47 +4,10 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import TechLogo from "./TechLogo";
 import { ROLES, SKILLS, MATURITY_LABELS } from "@/lib/knowledge-graph";
+import { LEARNING_STAGES } from "@/lib/learning-stages";
 import type { SkillNode } from "@/lib/knowledge-graph/types";
 
-type Stage = {
-  title: string;
-  caption: string;
-  skillIds: string[];
-};
-
-/** Ordered stages — every skill here appears in analyzed job postings and cohort roadmaps. */
-const STAGES: Stage[] = [
-  {
-    title: "Foundation",
-    caption: "Linux, Git, Python, and SQL — the four skills every posting assumes you already have.",
-    skillIds: ["linux", "git", "python", "sql"],
-  },
-  {
-    title: "Package & Automate",
-    caption: "Containers, pipelines, infrastructure-as-code, and a real cloud account.",
-    skillIds: ["docker", "cicd", "terraform", "cloud"],
-  },
-  {
-    title: "Run & Observe",
-    caption: "Kubernetes in production, Helm releases, and the Prometheus + Grafana observability stack.",
-    skillIds: ["kubernetes", "helm", "prometheus", "grafana"],
-  },
-  {
-    title: "ML & APIs",
-    caption: "Train models with PyTorch, track them in MLflow, expose them via FastAPI, serve with KServe.",
-    skillIds: ["pytorch", "mlflow", "fastapi", "kserve"],
-  },
-  {
-    title: "LLMs & Retrieval",
-    caption: "LLM APIs, RAG pipelines, and vector databases — the core GenAI production stack.",
-    skillIds: ["llms", "rag", "vector-databases"],
-  },
-  {
-    title: "Agents & Scale",
-    caption: "Agent frameworks, MCP tool protocols, GPU inference with vLLM, and cluster-scale GPU ops.",
-    skillIds: ["langchain", "mcp", "vllm", "gpu"],
-  },
-];
+const STAGES = LEARNING_STAGES;
 
 const STORAGE_KEY = "rv-learning-progress";
 
@@ -236,7 +199,7 @@ export default function LearningFlow() {
             </div>
 
             {/* Skill cards */}
-            <ul className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 list-none p-0 m-0">
+            <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 list-none p-0 m-0">
               {skills.map((skill) => {
                 const isDone = completed.includes(skill.id);
                 const offRoute = routeSkillIds ? !routeSkillIds.has(skill.id) : false;

@@ -100,6 +100,58 @@ const PATHS: Record<string, { d: string; label: string }> = {
     label: "PyTorch",
     d: "M12 2C8.5 2 6 4.5 6 8c0 2.2 1.2 4.1 3 5.2V22h6V13.2c1.8-1.1 3-3 3-5.2 0-3.5-2.5-6-6-6Zm0 2c2.2 0 4 1.8 4 4 0 1.5-.8 2.8-2 3.5l-1 .6V20h-2v-7.9l-1-.6c-1.2-.7-2-2-2-3.5 0-2.2 1.8-4 4-4Z",
   },
+  networking: {
+    label: "Networking",
+    d: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2Zm-1 15v-2h2v2h-2Zm0-4V7h2v6h-2Z",
+  },
+  "rest-apis": {
+    label: "REST APIs",
+    d: "M4 6h16v2H4V6Zm0 5h10v2H4v-2Zm0 5h16v2H4v-2Z",
+  },
+  huggingface: {
+    label: "HuggingFace",
+    d: "M12 2C8 2 5 5 5 9c0 2.5 1.2 4.7 3 6.1V22h8v-6.9c1.8-1.4 3-3.6 3-6.1 0-4-3-7-7-7Zm0 2c2.8 0 5 2.2 5 5s-2.2 5-5 5-5-2.2-5-5 2.2-5 5-5Z",
+  },
+  dvc: {
+    label: "DVC",
+    d: "M12 2 4 6v12l8 4 8-4V6l-8-4Zm0 2.3 5.5 2.75L12 10l-5.5-2.75L12 4.3ZM6 9.2l5 2.5v5.6l-5-2.5V9.2Zm12 0v5.6l-5 2.5v-5.6l5-2.5Z",
+  },
+  "feature-stores": {
+    label: "Feature Stores",
+    d: "M12 2C7.58 2 4 3.34 4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5c0-1.66-3.58-3-8-3Zm0 2c3.87 0 6 1.01 6 1s-2.13 1-6 1-6-1.01-6-1 2.13-1 6-1Z",
+  },
+  "drift-detection": {
+    label: "Drift Detection",
+    d: "M3 17h2v-4H3v4Zm4 0h2V7H7v10Zm4 0h2v-6h-2v6Zm4 0h2v-9h-2v9Zm4 0h2V4h-2v13Z",
+  },
+  "llm-evaluation": {
+    label: "LLM Evaluation",
+    d: "M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17Z",
+  },
+  guardrails: {
+    label: "Guardrails",
+    d: "M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4Zm0 2.2 7 3.11V11c0 4.52-3.07 8.79-7 9.93-3.93-1.14-7-5.41-7-9.93V6.31l7-3.11Z",
+  },
+  "ai-security": {
+    label: "AI Security",
+    d: "M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2Zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2Zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1s3.1 1.39 3.1 3.1v2Z",
+  },
+  langgraph: {
+    label: "LangGraph",
+    d: "M12 2 2 7v10l10 5 10-5V7L12 2Zm0 2.3 6.5 3.2L12 10.7 5.5 7.5 12 4.3ZM4 9.2l7 3.4v6.6l-7-3.5V9.2Zm16 0v6.5l-7 3.5v-6.6l7-3.4Z",
+  },
+  kubeflow: {
+    label: "Kubeflow",
+    d: "M12 1 2 6.5v11L12 23l10-5.5v-11L12 1Zm0 2.3 7.7 4.2-7.7 4.2-7.7-4.2L12 3.3ZM4 9.4l7 3.8v6.9l-7-3.8V9.4Zm16 0v6.9l-7 3.8v-6.9l7-3.8Z",
+  },
+  spark: {
+    label: "Apache Spark",
+    d: "M13 2 3 14h7l-1 8 10-12h-7l1-8Z",
+  },
+  redis: {
+    label: "Redis",
+    d: "M12 2 2 7.5v9L12 22l10-5.5v-9L12 2Zm0 2.4 6.8 3.4L12 11.2 5.2 7.8 12 4.4ZM4 9.5l7 3.5v5.6l-7-3.5V9.5Zm16 0v5.6l-7 3.5v-5.6l7-3.5Z",
+  },
 };
 
 const FALLBACK = {
