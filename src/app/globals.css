@@ -1842,3 +1842,52 @@ h1, h2, h3, h4, .font-display {
     font-size: 0.6rem;
   }
 }
+
+/* ══ International SEO landing pages ══ */
+.intl-salary-pill {
+  display: inline-flex;
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #0f172a;
+  background: #fff;
+  border: 2px solid #0f172a;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  box-shadow: 2px 2px 0 #0f172a;
+}
+
+.intl-market-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #475569;
+  background: #fff;
+  border: 2px solid #e2e8f0;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  transition: border-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.intl-market-chip:hover {
+  border-color: #0f172a;
+  color: #0f172a;
+  box-shadow: 2px 2px 0 #0f172a;
+}
+
+.intl-hub-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 2px solid #0f172a;
+  border-radius: 6px;
+  padding: 1.5rem;
+  box-shadow: 4px 4px 0 #0f172a;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.intl-hub-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 #0f172a;
+}

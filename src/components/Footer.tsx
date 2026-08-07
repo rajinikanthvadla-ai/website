@@ -16,7 +16,7 @@ export default function Footer({ minimal = false }: { minimal?: boolean }) {
   return (
     <footer className="notion-footer pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 mb-14">
           <div>
             <Link href="/" className="flex items-center gap-3 mb-5 group">
               <span className="w-10 h-10 rounded-sm bg-white text-[#0f172a] flex items-center justify-center text-xs font-extrabold border-2 border-white">
@@ -56,6 +56,19 @@ export default function Footer({ minimal = false }: { minimal?: boolean }) {
               <li><Link href="/roadmap/llmops-engineer/" className="hover:text-white transition-colors">LLMOps Engineer</Link></li>
               <li><Link href="/roadmap/ai-engineer/" className="hover:text-white transition-colors">AI Engineer</Link></li>
               <li><Link href="/roadmap/fde-engineer/" className="hover:text-white transition-colors">FDE Engineer</Link></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-white font-bold mb-4 text-xs uppercase tracking-[0.12em]">Global Training</h4>
+            <ul className="space-y-2.5 text-sm">
+              <li><Link href="/global-training/" className="hover:text-orange-400 transition-colors">All regions</Link></li>
+              <li><Link href="/global-training/usa/" className="hover:text-white transition-colors">MLOps USA</Link></li>
+              <li><Link href="/global-training/uk/" className="hover:text-white transition-colors">MLOps UK</Link></li>
+              <li><Link href="/global-training/ireland/" className="hover:text-white transition-colors">MLOps Ireland</Link></li>
+              <li><Link href="/global-training/netherlands/" className="hover:text-white transition-colors">MLOps Netherlands</Link></li>
+              <li><Link href="/global-training/luxembourg/" className="hover:text-white transition-colors">MLOps Luxembourg</Link></li>
+              <li><Link href="/mlops-course-india/" className="hover:text-white transition-colors">MLOps India</Link></li>
             </ul>
           </div>
 

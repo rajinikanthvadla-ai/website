@@ -7,6 +7,7 @@ import WhatsAppFloat from "@/components/WhatsAppFloat";
 import CareerGuideBot from "@/components/CareerGuideBot";
 import NewCoursesPopup from "@/components/NewCoursesPopup";
 import { SITE, STRUCTURED_DATA } from "@/lib/constants";
+import { HREFLANG_LANGUAGES } from "@/lib/hreflang";
 
 const display = Libre_Baskerville({
   subsets: ["latin"],
@@ -27,14 +28,18 @@ export const metadata: Metadata = {
   },
   description: SITE.description,
   keywords: [
+    "MLOps course USA",
+    "MLOps course UK",
+    "MLOps training Ireland",
+    "MLOps course Netherlands",
+    "MLOps course Luxembourg",
+    "MLOps course Europe",
     "MLOps course India",
-    "best MLOps course India",
-    "AI Agents course India",
     "LLMOps training",
-    "Rajinikanth Vadla MLOps course",
-    "AI career roadmap",
-    "MLOps engineer roadmap",
-    "Rajinikanth Vadla",
+    "AI Agents course",
+    "Rajinikanth Vadla MLOps",
+    "remote MLOps training",
+    "global AI engineering course",
   ],
   metadataBase: new URL(SITE.url),
   authors: [{ name: "Rajinikanth Vadla", url: SITE.url }],
@@ -69,6 +74,7 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: `${SITE.url}/`,
+    languages: HREFLANG_LANGUAGES,
   },
   verification: {},
 };

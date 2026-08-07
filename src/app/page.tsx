@@ -197,6 +197,12 @@ function SeoDiscoverSection() {
           {" · "}
           <Link href="/mlops-course-india/" className="text-[#0f172a] font-semibold hover:underline">MLOps course India</Link>
           {" · "}
+          <Link href="/global-training/" className="text-[#0f172a] font-semibold hover:underline">Global training (USA, UK, EU)</Link>
+          {" · "}
+          <Link href="/global-training/usa/" className="text-[#0f172a] font-semibold hover:underline">MLOps USA</Link>
+          {" · "}
+          <Link href="/global-training/uk/" className="text-[#0f172a] font-semibold hover:underline">MLOps UK</Link>
+          {" · "}
           <Link href="/genai-course/" className="text-[#0f172a] font-semibold hover:underline">GenAI course</Link>
           {" · "}
           <Link href="/ai-agents-course/" className="text-[#0f172a] font-semibold hover:underline">AI Agents course</Link>

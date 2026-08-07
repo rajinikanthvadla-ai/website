@@ -12,7 +12,17 @@
 - MLOps Masterclass LIVE: ₹40,000 (2 × ₹20,000 installments) · 4-5 months · 150+ hours · mentorship & job support
 - MLOps Masterclass RECORDINGS: ₹30,000 (2 × ₹15,000 installments) · self-learning · lifetime access
 - AI-Powered Automation: ₹20,000 · 2 months · lifetime recordings · 1-on-1 mentorship
-- International: $450 USD / €420 EUR for live masterclass
+- International: $450 USD / €420 EUR / £360 GBP for live masterclass
+
+## Global Training (USA, UK, Europe, APAC)
+- [Global training hub](https://www.rajinikanthvadla.com/global-training/): All regional landing pages
+- [MLOps course USA](https://www.rajinikanthvadla.com/global-training/usa/): $120K–$220K roles · $450 live
+- [MLOps course UK](https://www.rajinikanthvadla.com/global-training/uk/): £55K–£110K · London, Manchester
+- [MLOps course Ireland](https://www.rajinikanthvadla.com/global-training/ireland/): Dublin, Cork · €420 live
+- [MLOps course Netherlands](https://www.rajinikanthvadla.com/global-training/netherlands/): Amsterdam, Eindhoven
+- [MLOps course Luxembourg](https://www.rajinikanthvadla.com/global-training/luxembourg/): EU finance/tech hub
+- Also: Germany, Canada, Australia, Singapore, UAE — see /global-training/
+- [MLOps course India](https://www.rajinikanthvadla.com/mlops-course-india/): ₹40,000 live · India placement support
 
 ## About
 - [About Rajinikanth Vadla](https://www.rajinikanthvadla.com/about/): Background, 7+ years enterprise experience, training philosophy, and credentials

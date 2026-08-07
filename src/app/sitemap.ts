@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import articles from "../../content/articles.json";
 import { ROADMAP_SLUGS } from "@/lib/roadmaps";
 import { getSkillSlugs, COMPARE_SLUGS } from "@/lib/knowledge-graph";
+import { INTL_MARKETS } from "@/lib/international-markets";
 
 export const dynamic = "force-static";
 
@@ -21,6 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/courses/ai-automation/`, lastModified: now, changeFrequency: "daily", priority: 0.99 },
     { url: `${base}/mlops-aiops-masterclass/`, lastModified: now, changeFrequency: "daily", priority: 0.99 },
     { url: `${base}/mlops-course-india/`, lastModified: now, changeFrequency: "daily", priority: 0.97 },
+    { url: `${base}/global-training/`, lastModified: now, changeFrequency: "weekly", priority: 0.96 },
     { url: `${base}/mlops-course/`, lastModified: now, changeFrequency: "daily", priority: 0.97 },
     { url: `${base}/mlops-training/`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: `${base}/genai-training/`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
@@ -62,5 +64,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.75,
   }));
 
-  return [...staticRoutes, ...roadmapRoutes, ...skillRoutes, ...compareRoutes, ...blogRoutes];
+  const intlRoutes: MetadataRoute.Sitemap = INTL_MARKETS.map((m) => ({
+    url: `${base}/global-training/${m.slug}/`,
+    lastModified: now,
+    changeFrequency: "weekly" as const,
+    priority: m.slug === "usa" || m.slug === "uk" ? 0.95 : 0.93,
+  }));
+
+  return [...staticRoutes, ...intlRoutes, ...roadmapRoutes, ...skillRoutes, ...compareRoutes, ...blogRoutes];
 }

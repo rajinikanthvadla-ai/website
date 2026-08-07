@@ -9,9 +9,9 @@ export const PRICING_LAST_UPDATED = "2026-08-06";
 export const SITE = {
   name: "Rajinikanth Vadla",
   title:
-    "Rajinikanth Vadla | MLOps, AIOps, LLMOps, AI Agents Job Ready Course India",
+    "Rajinikanth Vadla | MLOps, LLMOps, AI Agents Training — USA, UK, Europe & India",
   description:
-    "Complete 4-5 month job-ready MLOps, AIOps, LLMOps and AI Agentic Operations course. Live training, 500+ engineers trained, hands-on labs, capstone projects, placement support. Best MLOps course India by Rajinikanth Vadla.",
+    "Job-ready MLOps, LLMOps, AIOps and AI Agentic Operations live course for engineers worldwide. USA, UK, Ireland, Netherlands, Luxembourg, Germany, Canada, Australia. 4-5 months, 500+ trained, hands-on labs, placement support.",
   url: "https://www.rajinikanthvadla.com",
   image: "https://www.rajinikanthvadla.com/assets/pic-1.png",
   phone: "+91-9100028801",
@@ -348,6 +348,10 @@ export const HOME_PAGE_FAQS = [
     q: "Is there a cheaper way to access all your course videos?",
     a: "Yes — join YouTube AI & ML AI Agentic Pro membership at ₹1,199/month. You get every members-only video (private courses, old sessions, new uploads), live streams, and 1:1 mentorship when you share your Member ID on WhatsApp. Lower tiers (₹179 or ₹419) do not include the full library or mentorship.",
   },
+  {
+    q: "Can I join from USA, UK, Ireland, or Europe?",
+    a: "Yes. Training is 100% online. Engineers from USA ($450), UK (£360), Ireland, Netherlands, Luxembourg, Germany, Canada, Australia, Singapore and UAE join the same live cohort. See https://www.rajinikanthvadla.com/global-training/ for your country's landing page with local salary data and pricing.",
+  },
 ];
 
 export const SERVICES = [
@@ -492,7 +496,19 @@ export const STRUCTURED_DATA = {
       telephone: "+91-9100028801",
       contactType: "customer service",
       availableLanguage: ["English", "Hindi", "Telugu"],
+      areaServed: ["US", "GB", "IE", "NL", "LU", "DE", "CA", "AU", "SG", "AE", "IN"],
     },
+    areaServed: [
+      { "@type": "Country", name: "United States" },
+      { "@type": "Country", name: "United Kingdom" },
+      { "@type": "Country", name: "Ireland" },
+      { "@type": "Country", name: "Netherlands" },
+      { "@type": "Country", name: "Luxembourg" },
+      { "@type": "Country", name: "Germany" },
+      { "@type": "Country", name: "Canada" },
+      { "@type": "Country", name: "Australia" },
+      { "@type": "Country", name: "India" },
+    ],
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: "4.9",
