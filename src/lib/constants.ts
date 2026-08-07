@@ -49,6 +49,7 @@ export const NAV_ITEMS: { label: string; href: string; highlight?: boolean }[] =
   { label: "Blog", href: "/blog" },
   { label: "Universe", href: "/universe", highlight: true },
   { label: "Roadmaps", href: "/roadmap" },
+  { label: "Architectures", href: "/architecture" },
   { label: "Contact", href: "/contact" },
 ];
 
