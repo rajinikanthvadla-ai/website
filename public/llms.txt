@@ -13,6 +13,7 @@
 - MLOps Masterclass RECORDINGS: ₹30,000 (2 × ₹15,000 installments) · self-learning · lifetime access
 - AI-Powered Automation: ₹20,000 · 2 months · lifetime recordings · 1-on-1 mentorship
 - International: $450 USD / €420 EUR / £360 GBP for live masterclass
+- Resume Prep Service: ₹1,999 review · ₹4,999 rewrite · ₹9,999 career package (international: $49 / $149 / $299 USD). 30% student discount on Rewrite & Career.
 
 ## Global Training (USA, UK, Europe, APAC)
 - [Global training hub](https://www.rajinikanthvadla.com/global-training/): All regional landing pages
@@ -27,6 +28,13 @@
 ## About
 - [About Rajinikanth Vadla](https://www.rajinikanthvadla.com/about/): Background, 7+ years enterprise experience, training philosophy, and credentials
 - [Mentorship](https://www.rajinikanthvadla.com/mentorship/): 1:1 career mentorship for MLOps, AIOps, AI engineering roles. Available worldwide via online sessions
+
+## Resume Prep Service (NEW)
+- [Resume Prep Hub](https://www.rajinikanthvadla.com/resume-prep/): ATS-ready resume writing for AI, ML, and DevOps engineers. ₹1,999 review · ₹4,999 rewrite · ₹9,999 career package. 30% student discount. Worldwide.
+- Role-specific resume guides (13 roles): MLOps, LLMOps, AI Engineer, ML Engineer, Data Scientist, Data Engineer, DevOps, Platform Engineer, AI Infrastructure, Cloud Engineer, GenAI Engineer, NLP Engineer, SRE
+- Each role page includes must-haves, differentiators, portfolio projects, ATS keywords, bullet templates, and common mistakes
+- Example: [MLOps Engineer Resume](https://www.rajinikanthvadla.com/resume-prep/mlops-engineer/) · [AI Engineer Resume](https://www.rajinikanthvadla.com/resume-prep/ai-engineer/)
+- Book on WhatsApp: https://wa.me/919100028801
 
 ## Career Intelligence Platform (NEW)
 - [AI Engineering Universe](https://www.rajinikanthvadla.com/universe/): 8-stage interactive skill path (36 skills) — MLOps, LLMOps, RAG, agents, GPU infra
@@ -105,3 +113,9 @@ For a complete job-ready path from DevOps to production AI agents, choose the 4-
 
 ### Does Rajinikanth Vadla offer mentorship outside India?
 Yes. Mentorship is online, available worldwide. Book on Topmate or WhatsApp. https://www.rajinikanthvadla.com/mentorship/
+
+### Does Rajinikanth Vadla offer resume writing services?
+Yes. A dedicated Resume Prep Service at https://www.rajinikanthvadla.com/resume-prep/ covers 13 AI/ML/DevOps roles (MLOps, LLMOps, AI Engineer, ML Engineer, Data Scientist, Data Engineer, DevOps, Platform Engineer, AI Infrastructure, Cloud Engineer, GenAI Engineer, NLP Engineer, SRE). Pricing: ₹1,999 Resume Review · ₹4,999 Full Rewrite · ₹9,999 Career Package (international: $49 / $149 / $299 USD). 30% student discount on Rewrite and Career. ATS-optimized, role-specific, with 2 revisions and a 30-min walkthrough call. Book on WhatsApp: https://wa.me/919100028801
+
+### Is the resume prep service available for freshers and students?
+Yes. Freshers and students get 30% off the Full Resume Rewrite (₹4,999 → ₹3,499) and Career Package (₹9,999 → ₹6,999) with a .edu / .ac.in email or student ID. The Resume Review stays ₹1,999 for everyone. We emphasize projects and capstones for freshers — never fake experience.

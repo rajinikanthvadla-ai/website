@@ -48,9 +48,44 @@ export default async function ResumeRolePage({ params }: Props) {
     ],
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${SITE.url}/` },
+      { "@type": "ListItem", position: 2, name: "Resume Prep", item: `${SITE.url}/resume-prep/` },
+      { "@type": "ListItem", position: 3, name: `${role.shortTitle} Resume`, item: `${SITE.url}/resume-prep/${role.slug}/` },
+    ],
+  };
+
+  const roleServiceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    serviceType: `${role.shortTitle} resume writing and ATS optimization`,
+    name: `${role.shortTitle} Resume Writing Service`,
+    description: role.metaDescription,
+    url: `${SITE.url}/resume-prep/${role.slug}/`,
+    areaServed: ["India", "United States", "United Kingdom", "Ireland", "Netherlands", "Luxembourg", "Germany", "Canada", "Australia", "Singapore", "United Arab Emirates"],
+    provider: {
+      "@type": "Person",
+      name: "Rajinikanth Vadla",
+      url: SITE.url,
+      jobTitle: "MLOps, AIOps, GenAI, AI Automation Expert, Trainer & Mentor",
+    },
+    offers: {
+      "@type": "Offer",
+      name: "Full Resume Rewrite",
+      price: "4999",
+      priceCurrency: "INR",
+      url: `${SITE.url}/resume-prep/`,
+    },
+  };
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(roleServiceSchema) }} />
 
       {/* Hero */}
       <section className="border-b-2 border-[#0f172a] bg-[#fef9c3] py-14 md:py-16">
@@ -156,7 +191,7 @@ export default async function ResumeRolePage({ params }: Props) {
             Get your {role.shortTitle} resume rewritten
           </h2>
           <p className="text-slate-300 text-base leading-relaxed mb-6">
-            {recommendedTier.name} at {recommendedTier.price} — {recommendedTier.turnaround} turnaround, 2 revisions, role-specific ATS optimization.
+            {recommendedTier.name} at {recommendedTier.price} (India) or {recommendedTier.priceUsd} USD (international) — {recommendedTier.turnaround} turnaround, 2 revisions, role-specific ATS optimization. 🎓 Students save 30%.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a href={LINKS.whatsapp} target="_blank" rel="noopener noreferrer" className="notion-btn notion-btn--accent !text-sm">

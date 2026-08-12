@@ -1,7 +1,12 @@
 export type ResumeServiceTier = {
   id: string;
   name: string;
+  /** INR price shown to India visitors */
   price: string;
+  /** USD price shown to international visitors */
+  priceUsd: string;
+  /** Discounted INR price for verified students/freshers */
+  studentPrice: string;
   priceNote: string;
   turnaround: string;
   features: string[];
@@ -13,7 +18,9 @@ export const RESUME_SERVICE_TIERS: ResumeServiceTier[] = [
     id: "review",
     name: "Resume Review",
     price: "₹1,999",
-    priceNote: "one-time · $29 USD",
+    priceUsd: "$49",
+    studentPrice: "₹1,999",
+    priceNote: "one-time",
     turnaround: "3 days",
     features: [
       "Detailed review of your current resume",
@@ -27,7 +34,9 @@ export const RESUME_SERVICE_TIERS: ResumeServiceTier[] = [
     id: "rewrite",
     name: "Full Resume Rewrite",
     price: "₹4,999",
-    priceNote: "one-time · $79 USD",
+    priceUsd: "$149",
+    studentPrice: "₹3,499",
+    priceNote: "one-time",
     turnaround: "5 days",
     recommended: true,
     features: [
@@ -44,7 +53,9 @@ export const RESUME_SERVICE_TIERS: ResumeServiceTier[] = [
     id: "career",
     name: "Career Package",
     price: "₹9,999",
-    priceNote: "one-time · $159 USD",
+    priceUsd: "$299",
+    studentPrice: "₹6,999",
+    priceNote: "one-time",
     turnaround: "10 days",
     features: [
       "Everything in Full Rewrite",
@@ -61,7 +72,7 @@ export const RESUME_SERVICE_TIERS: ResumeServiceTier[] = [
 export const RESUME_SERVICE_FAQS = [
   {
     q: "Do you write resumes for freshers?",
-    a: "Yes. We rewrite resumes for freshers, career changers, and senior engineers. For freshers we emphasize projects, capstones, and transferable skills — not fake experience.",
+    a: "Yes. We rewrite resumes for freshers, career changers, and senior engineers. For freshers we emphasize projects, capstones, and transferable skills — not fake experience. Verified students (with a .edu / .ac.in email or student ID) get 30% off the Full Rewrite and Career Package.",
   },
   {
     q: "Which roles do you cover?",
@@ -86,5 +97,9 @@ export const RESUME_SERVICE_FAQS = [
   {
     q: "How do I share my current resume?",
     a: "After booking on WhatsApp, send your current resume (PDF or DOCX) and 2-3 target job descriptions. We start within 24 hours.",
+  },
+  {
+    q: "What is the student discount?",
+    a: "Verified students and freshers get 30% off the Full Resume Rewrite (₹4,999 → ₹3,499) and the Career Package (₹9,999 → ₹6,999). Verify with a .edu / .ac.in email address or a student ID on WhatsApp. The Resume Review tier stays ₹1,999 for everyone.",
   },
 ];

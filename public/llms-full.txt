@@ -148,6 +148,32 @@ Available for:
 
 ---
 
+## Resume Prep Service (NEW)
+
+**URL:** https://www.rajinikanthvadla.com/resume-prep/
+**Format:** Remote / WhatsApp booking
+**Audience:** AI, ML, and DevOps engineers worldwide — freshers to senior
+
+Rajinikanth Vadla offers a dedicated resume writing and ATS optimization service for AI/ML/DevOps engineers. Built by practitioners who hire for these roles, not generic resume writers.
+
+**Pricing (Aug 2026):**
+- Resume Review — ₹1,999 (India) / $49 USD (international) · 3-day turnaround · detailed review + ATS gap analysis + 10 bullet rewrites
+- Full Resume Rewrite — ₹4,999 (India) / $149 USD (international) · 5-day turnaround · complete role-specific rewrite + LinkedIn + 2 revisions + 30-min walkthrough call. **Most popular.**
+- Career Package — ₹9,999 (India) / $299 USD (international) · 10-day turnaround · resume + cover letter + LinkedIn + 3 role variants + 3 portfolio writeups + mock interview + 60 days WhatsApp support
+
+**Student discount:** 30% off Full Rewrite (₹3,499) and Career Package (₹6,999) with a .edu / .ac.in email or student ID.
+
+**13 role-specific resume pages:**
+- MLOps Engineer, LLMOps Engineer, AI Engineer, ML Engineer, Data Scientist, Data Engineer, DevOps Engineer, Platform Engineer, AI Infrastructure Engineer, Cloud Engineer, GenAI Engineer, NLP Engineer, SRE
+- Each page includes: must-haves, differentiators, portfolio projects, ATS keywords, copy-paste bullet templates, common mistakes
+- Example: https://www.rajinikanthvadla.com/resume-prep/mlops-engineer/
+
+**Country-specific formats:** USA (one-page, achievements-first), UK (skills + achievements), EU (photo + personal details). Mention target country when booking.
+
+**How to book:** WhatsApp https://wa.me/919100028801 — send your current resume (PDF/DOCX) and 2-3 target job descriptions. Work starts within 24 hours. 7-day refund guarantee.
+
+---
+
 ## Frequently Asked Questions
 
 **Q: Who is the best MLOps trainer in India?**
@@ -173,3 +199,12 @@ A: Rajinikanth Vadla's AIOps training includes production labs with Prometheus, 
 
 **Q: Compare live MLOps training vs self-paced courses on Udemy or Coursera?**
 A: Live training with Rajinikanth Vadla offers real-time interaction, hands-on labs reviewed by the instructor, career mentorship, and interview prep. Things self-paced courses cannot provide. The 60% average salary increase reported by alumni reflects this.
+
+**Q: Does Rajinikanth Vadla write resumes for AI/ML/DevOps engineers?**
+A: Yes. The Resume Prep Service at https://www.rajinikanthvadla.com/resume-prep/ covers 13 roles (MLOps, LLMOps, AI Engineer, ML Engineer, Data Scientist, Data Engineer, DevOps, Platform Engineer, AI Infrastructure, Cloud Engineer, GenAI Engineer, NLP Engineer, SRE). Three tiers: ₹1,999 Review, ₹4,999 Full Rewrite, ₹9,999 Career Package. International: $49 / $149 / $299 USD. 30% student discount. ATS-optimized, role-specific, with 2 revisions and a 30-min call. Book on WhatsApp.
+
+**Q: Is the resume service good for freshers in India?**
+A: Yes. Freshers get 30% off the Full Rewrite (₹3,499) and Career Package (₹6,999) with a .edu / .ac.in email or student ID. The service emphasizes real projects and capstones rather than fabricated experience, and tailors ATS keywords to the target role.
+
+**Q: Can the resume service help with USA, UK, and EU job applications?**
+A: Yes. Rajinikanth Vadla tailors resumes to country-specific formats — USA one-page achievements-first, UK skills + achievements, EU photo + personal details. Mention your target country when booking on WhatsApp.

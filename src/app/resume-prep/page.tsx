@@ -7,7 +7,7 @@ import { RESUME_SERVICE_TIERS, RESUME_SERVICE_FAQS } from "@/lib/resume-service"
 export const metadata: Metadata = {
   title: "AI / ML / DevOps Resume Writing Service 2026 | ATS-Ready | Rajinikanth Vadla",
   description:
-    "Resume writing service for AI Engineers, MLOps, LLMOps, ML Engineers, Data Scientists, DevOps, Platform, Cloud, GenAI, NLP, and SRE roles. ATS-optimized, role-specific bullets, portfolio projects. ₹1,999 review to ₹9,999 career package.",
+    "Resume writing service for AI Engineers, MLOps, LLMOps, ML Engineers, Data Scientists, DevOps, Platform, Cloud, GenAI, NLP, and SRE roles. ATS-optimized, role-specific bullets, portfolio projects. ₹1,999 review to ₹9,999 career package. 30% student discount. Worldwide.",
   keywords: [
     "AI engineer resume writing",
     "MLOps resume service",
@@ -19,11 +19,24 @@ export const metadata: Metadata = {
     "resume writing India",
     "resume writing USA",
     "resume writing UK",
+    "resume writing Ireland",
+    "resume writing Netherlands",
+    "resume writing Luxembourg",
+    "resume writing Germany",
+    "resume writing Canada",
+    "resume writing Australia",
+    "AI ML resume writer",
+    "DevOps resume writer",
+    "SRE resume writer",
+    "GenAI resume writer",
+    "fresher resume writing India",
+    "ATS resume optimization",
+    "LinkedIn rewrite service",
   ],
   alternates: { canonical: `${SITE.url}/resume-prep/` },
   openGraph: {
-    title: "AI / ML / DevOps Resume Writing Service",
-    description: "ATS-ready resumes for AI, ML, MLOps, LLMOps, DevOps, and Data roles. Built by practitioners.",
+    title: "AI / ML / DevOps Resume Writing Service — ATS-Ready",
+    description: "ATS-ready resumes for AI, ML, MLOps, LLMOps, DevOps, and Data roles. Built by practitioners who hire for these roles. ₹1,999 review · ₹4,999 rewrite · ₹9,999 career package.",
     url: `${SITE.url}/resume-prep/`,
     locale: "en_US",
     type: "website",
@@ -38,12 +51,63 @@ const CATEGORY_LABELS: Record<string, string> = {
   Cloud: "Cloud / Infra",
 };
 
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: "Resume writing and ATS optimization for AI, ML, and DevOps engineers",
+  name: "AI / ML / DevOps Resume Writing Service",
+  description:
+    "Role-specific resume writing for AI Engineers, MLOps, LLMOps, ML Engineers, Data Scientists, DevOps, Platform, Cloud, GenAI, NLP, and SRE. ATS-optimized bullets, portfolio projects, and measurable impact. Serves India, USA, UK, Ireland, Netherlands, Luxembourg, Germany, Canada, Australia, Singapore, UAE.",
+  url: `${SITE.url}/resume-prep/`,
+  areaServed: [
+    "India", "United States", "United Kingdom", "Ireland", "Netherlands",
+    "Luxembourg", "Germany", "Canada", "Australia", "Singapore", "United Arab Emirates",
+  ],
+  provider: {
+    "@type": "Person",
+    name: "Rajinikanth Vadla",
+    url: SITE.url,
+    jobTitle: "MLOps, AIOps, GenAI, AI Automation Expert, Trainer & Mentor",
+  },
+  offers: RESUME_SERVICE_TIERS.map((t) => ({
+    "@type": "Offer",
+    name: t.name,
+    price: t.price.replace(/[^\d]/g, ""),
+    priceCurrency: "INR",
+    description: t.features.join(". "),
+    url: `${SITE.url}/resume-prep/`,
+  })),
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: RESUME_SERVICE_FAQS.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: `${SITE.url}/` },
+    { "@type": "ListItem", position: 2, name: "Resume Prep", item: `${SITE.url}/resume-prep/` },
+  ],
+};
+
 export default function ResumePrepHubPage() {
   const ultra = RESUME_ROLES.filter((r) => r.traffic === "ultra");
   const high = RESUME_ROLES.filter((r) => r.traffic === "high");
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+
       {/* Hero */}
       <section className="border-b-2 border-[#0f172a] bg-[#fef9c3] py-16 md:py-20">
         <div className="max-w-4xl mx-auto px-6 text-center">
@@ -67,6 +131,9 @@ export default function ResumePrepHubPage() {
               View pricing
             </a>
           </div>
+          <p className="mt-4 text-xs text-slate-500 font-semibold">
+            🎓 Students &amp; freshers get 30% off · 🌍 Worldwide · ⚡ 3-day turnaround
+          </p>
         </div>
       </section>
 
@@ -135,8 +202,11 @@ export default function ResumePrepHubPage() {
           <h2 className="font-display text-2xl md:text-3xl font-bold text-[#0f172a] mb-2 text-center">
             Pricing
           </h2>
-          <p className="text-sm text-slate-500 text-center mb-10">
+          <p className="text-sm text-slate-500 text-center mb-2">
             One-time payment · WhatsApp to book · revisions included
+          </p>
+          <p className="text-xs text-slate-500 text-center mb-10">
+            India: INR shown · International: USD shown on each card · 🎓 Students &amp; freshers save 30% on Rewrite &amp; Career
           </p>
           <div className="grid md:grid-cols-3 gap-5 items-stretch">
             {RESUME_SERVICE_TIERS.map((tier) => (
@@ -148,8 +218,13 @@ export default function ResumePrepHubPage() {
                   <h3 className="font-display font-bold text-[#0f172a] text-lg">{tier.name}</h3>
                   <p className="mt-3">
                     <span className="font-display text-3xl font-bold text-[#0f172a]">{tier.price}</span>
-                    <span className="text-xs text-slate-500 font-semibold ml-1">{tier.priceNote}</span>
+                    <span className="text-xs text-slate-500 font-semibold ml-2">or {tier.priceUsd} USD</span>
                   </p>
+                  {tier.studentPrice !== tier.price && (
+                    <p className="text-xs text-orange-700 font-bold mt-1">
+                      🎓 Student price: {tier.studentPrice}
+                    </p>
+                  )}
                   <p className="text-xs text-slate-500 mt-1">Turnaround: {tier.turnaround}</p>
                 </div>
                 <ul className="px-5 pb-5 flex-1 space-y-2 text-sm text-slate-600">
@@ -168,6 +243,9 @@ export default function ResumePrepHubPage() {
               </div>
             ))}
           </div>
+          <p className="text-center text-xs text-slate-500 mt-6">
+            International clients pay in USD via the WhatsApp booking link. Indian clients pay in INR via UPI / bank transfer.
+          </p>
         </div>
       </section>
 
