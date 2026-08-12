@@ -46,6 +46,7 @@ export const NAV_ITEMS: { label: string; href: string; highlight?: boolean }[] =
   { label: "AI Automation", href: "/courses/ai-automation", highlight: true },
   { label: "Masterclass", href: "/mlops-aiops-masterclass" },
   { label: "Mentorship", href: "/mentorship" },
+  { label: "Resume Prep", href: "/resume-prep", highlight: true },
   { label: "Blog", href: "/blog" },
   { label: "Universe", href: "/universe", highlight: true },
   { label: "Roadmaps", href: "/roadmap" },

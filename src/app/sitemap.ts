@@ -3,6 +3,7 @@ import articles from "../../content/articles.json";
 import { ROADMAP_SLUGS } from "@/lib/roadmaps";
 import { getSkillSlugs, COMPARE_SLUGS } from "@/lib/knowledge-graph";
 import { INTL_MARKETS } from "@/lib/international-markets";
+import { RESUME_ROLES } from "@/lib/resume-roles";
 
 export const dynamic = "force-static";
 
@@ -24,6 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/mlops-aiops-masterclass/`, lastModified: now, changeFrequency: "daily", priority: 0.99 },
     { url: `${base}/mlops-course-india/`, lastModified: now, changeFrequency: "daily", priority: 0.97 },
     { url: `${base}/global-training/`, lastModified: now, changeFrequency: "weekly", priority: 0.96 },
+    { url: `${base}/resume-prep/`, lastModified: now, changeFrequency: "weekly", priority: 0.95 },
     { url: `${base}/mlops-course/`, lastModified: now, changeFrequency: "daily", priority: 0.97 },
     { url: `${base}/mlops-training/`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: `${base}/genai-training/`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
@@ -72,5 +74,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: m.slug === "usa" || m.slug === "uk" ? 0.95 : 0.93,
   }));
 
-  return [...staticRoutes, ...intlRoutes, ...roadmapRoutes, ...skillRoutes, ...compareRoutes, ...blogRoutes];
+  const resumeRoutes: MetadataRoute.Sitemap = RESUME_ROLES.map((r) => ({
+    url: `${base}/resume-prep/${r.slug}/`,
+    lastModified: now,
+    changeFrequency: "weekly" as const,
+    priority: r.traffic === "ultra" ? 0.93 : 0.9,
+  }));
+
+  return [...staticRoutes, ...intlRoutes, ...resumeRoutes, ...roadmapRoutes, ...skillRoutes, ...compareRoutes, ...blogRoutes];
 }

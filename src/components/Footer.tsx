@@ -60,6 +60,16 @@ export default function Footer({ minimal = false }: { minimal?: boolean }) {
           </div>
 
           <div>
+            <h4 className="text-white font-bold mb-4 text-xs uppercase tracking-[0.12em]">Services</h4>
+            <ul className="space-y-2.5 text-sm">
+              <li><Link href="/resume-prep/" className="hover:text-orange-400 transition-colors">Resume Prep <span className="bg-orange-500 text-white text-[8px] font-bold py-0 px-1.5 rounded-sm uppercase ml-1">NEW</span></Link></li>
+              <li><Link href="/mentorship/" className="hover:text-white transition-colors">Mentorship</Link></li>
+              <li><Link href="/mlops-aiops-masterclass" className="hover:text-white transition-colors">MLOps Masterclass</Link></li>
+              <li><Link href="/courses/ai-automation" className="hover:text-white transition-colors">AI Automation</Link></li>
+            </ul>
+          </div>
+
+          <div>
             <h4 className="text-white font-bold mb-4 text-xs uppercase tracking-[0.12em]">Global Training</h4>
             <ul className="space-y-2.5 text-sm">
               <li><Link href="/global-training/" className="hover:text-orange-400 transition-colors">All regions</Link></li>
