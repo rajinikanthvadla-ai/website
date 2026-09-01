@@ -9,6 +9,7 @@ import WelcomeLiveDashboard from "@/components/WelcomeLiveDashboard";
 import PricingHero from "@/components/PricingHero";
 import YoutubePlaylist from "@/components/YoutubePlaylist";
 import YouTubeMembershipSection from "@/components/YouTubeMembershipSection";
+import LatestArticlesSection from "@/components/LatestArticlesSection";
 import { HOME_SKETCH, sketch } from "@/lib/sketch-assets";
 import articles from "../../content/articles.json";
 
@@ -34,14 +35,14 @@ export default function HomePage() {
       <YouTubeMembershipSection />
       <LogoBar />
       <FeaturedProgramsSection />
+      <LatestArticlesSection />
       <SeoDiscoverSection />
       <RoadmapsPreviewSection />
       <AboutPreview />
-      <FeaturedResourcesSection />
       <FAQSection />
       <CTASection
-        title="Ready to start?"
-        subtitle="Pick a cohort for structured learning, or book mentorship if you need career guidance first."
+        title="Ready to master AI & MLOps?"
+        subtitle="Join a live cohort for structured learning, or book 1:1 mentorship for career guidance. Both come with lifetime access to all materials."
       />
       <SuccessStories />
     </>
@@ -64,34 +65,32 @@ function HeroSection() {
         <div>
           <span className="notion-eyebrow">
             <span className="notion-eyebrow-dot" />
-            Live Training
+            AI Learning for Engineers
           </span>
 
           <h1 className="notion-hero-title">
-            Rajinikanth{" "}
-            <span className="notion-hero-accent">Vadla</span>
+            Master{" "}
+            <span className="notion-hero-accent">AI & MLOps</span>
           </h1>
 
           <p className="notion-hero-lead">
-            MLOps, AIOps, GenAI, AI Agents, and{" "}
-            <span className="text-orange-600 font-bold">AI-Powered Automation</span>.
-            Taught from real enterprise delivery, not slide decks.
+            Learn <span className="text-blue-700 font-bold">MLOps, AIOps, GenAI, AI Agents & Automation</span> from someone who ships production systems daily.
+            Structured courses + mentorship for engineers worldwide.
           </p>
           <p className="notion-hero-note">
-            I help engineers ship models and AI systems that survive production. Seven-plus years on the job;
-            hundreds of people have moved into roles they wanted with clearer confidence.
+            Join 500+ engineers who increased their salary and landed dream roles. Seven-plus years of real enterprise experience. Not slide decks—real code, real problems, real solutions.
           </p>
 
           <div className="flex flex-wrap gap-3 mb-10">
-            <a href={LINKS.enroll} target="_blank" rel="noopener noreferrer" className="notion-btn notion-btn--ink">
-              Enroll in a cohort &rarr;
+            <a href={LINKS.enroll} target="_blank" rel="noopener noreferrer" className="notion-btn notion-btn--accent text-lg font-bold">
+              🚀 Enroll Now &rarr;
             </a>
-            <Link href="#live-dashboard" className="notion-btn notion-btn--accent">
-              Live demo dashboard
-              <span className="bg-white text-orange-600 text-[9px] font-extrabold py-0.5 px-1.5 rounded-sm uppercase">NEW</span>
+            <Link href="#live-dashboard" className="notion-btn notion-btn--ink">
+              Live demo &rarr;
+              <span className="bg-orange-500 text-white text-[9px] font-extrabold py-0.5 px-1.5 rounded-sm uppercase ml-1">NEW</span>
             </Link>
             <Link href="/mentorship" className="notion-btn notion-btn--ghost">
-              Career Mentorship
+              1:1 Mentorship
             </Link>
           </div>
 
@@ -173,23 +172,23 @@ function SeoDiscoverSection() {
       <div className="max-w-3xl mx-auto px-6 text-center">
         <span className="notion-eyebrow justify-center">
           <span className="notion-eyebrow-dot" />
-          Training by Rajinikanth Vadla
+          For Engineers by Engineers
         </span>
         <h2 className="font-display text-2xl md:text-3xl font-bold text-[#0f172a] mb-5">
-          MLOps, AI Automation and AI Agents training
+          Learn AI & MLOps the way companies actually use it
         </h2>
         <p className="text-slate-600 leading-relaxed mb-4">
-          Live online courses for engineers in India and worldwide.
-          The{" "}
+          Live online courses taught by a production ML engineer with 7+ years in top tech companies.
+          {" "}
           <Link href="/mlops-aiops-masterclass/" className="text-[#0f172a] font-bold underline underline-offset-2">
-            MLOps AIOps LLMOps masterclass
+            The MLOps AIOps Masterclass
           </Link>{" "}
-          is a 4-5 month job-ready program with placement support.
-          The{" "}
+          is a 4-5 month intensive with real projects and job placement support.
+          {" "}
           <Link href="/courses/ai-automation/" className="text-[#0f172a] font-bold underline underline-offset-2">
             AI-Powered Automation course
           </Link>{" "}
-          is a complete {AI_AUTOMATION_DURATION} enterprise AI automation program.
+          teaches enterprise automation in {AI_AUTOMATION_DURATION}.
         </p>
         <p className="text-slate-500 text-sm leading-relaxed">
           Also see:{" "}
@@ -294,8 +293,8 @@ function FeaturedProgramsSection() {
       <div className="max-w-5xl mx-auto px-6">
         <SectionHeader
           tag="Live Programs"
-          title="Choose your path"
-          subtitle="Two live cohorts plus mentorship. Full syllabus on each course page."
+          title="Structured courses for AI career growth"
+          subtitle="Cohort-based learning with hands-on projects, mentorship, and career support. Get hired or level up in 4-6 months."
         />
         <div className="grid md:grid-cols-2 gap-6 mb-6">
           {COURSES.filter((c) => c.href.startsWith("/courses") || c.href === "/mlops-aiops-masterclass").map((c) => (
@@ -347,30 +346,6 @@ function FeaturedProgramsSection() {
   );
 }
 
-
-function FeaturedResourcesSection() {
-  return (
-    <section className="notion-section notion-section--paper">
-      <div className="max-w-7xl mx-auto px-6">
-        <SectionHeader
-          tag="Resources"
-          title="Latest technical deep dives"
-          subtitle="Long-form guides for practical MLOps, AIOps, and GenAI problem statements."
-        />
-        <div className="grid md:grid-cols-3 gap-5">
-          {latestArticles.map((article) => (
-            <Link key={article.slug} href={`/blog/${article.slug}/`} className="panel p-6 card-hover group block">
-              <p className="notion-dash-tag mb-3 !text-orange-600 !border-orange-300">{article.category}</p>
-              <h3 className="font-display text-xl font-bold text-[#0f172a] mb-3 leading-tight group-hover:text-blue-700 transition-colors">{article.title}</h3>
-              <p className="text-sm text-slate-600 mb-4 line-clamp-3">{article.description}</p>
-              <span className="notion-dash-link text-sm">Read tutorial &rarr;</span>
-            </Link>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 function FAQSection() {
   const faqs = HOME_PAGE_FAQS;

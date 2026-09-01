@@ -9,9 +9,9 @@ export const PRICING_LAST_UPDATED = "2026-08-06";
 export const SITE = {
   name: "Rajinikanth Vadla",
   title:
-    "Rajinikanth Vadla | MLOps, LLMOps, AI Agents Training — USA, UK, Europe & India",
+    "AI Courses & Mentorship | MLOps, AI Agents, GenAI Training for Engineers",
   description:
-    "Job-ready MLOps, LLMOps, AIOps and AI Agentic Operations live course for engineers worldwide. USA, UK, Ireland, Netherlands, Luxembourg, Germany, Canada, Australia. 4-5 months, 500+ trained, hands-on labs, placement support.",
+    "Master AI & MLOps with structured courses + 1:1 mentorship. Learn AI Agents, Kubernetes, GenAI, AIOps from a production engineer. 4-5 month bootcamp with job placement. Fresh AI news daily. USA, UK, Europe, India.",
   url: "https://www.rajinikanthvadla.com",
   image: "https://www.rajinikanthvadla.com/assets/pic-1.png",
   phone: "+91-9100028801",
