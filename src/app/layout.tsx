@@ -5,7 +5,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import CareerGuideBot from "@/components/CareerGuideBot";
-import NewCoursesPopup from "@/components/NewCoursesPopup";
 import { SITE, STRUCTURED_DATA } from "@/lib/constants";
 import { HREFLANG_LANGUAGES } from "@/lib/hreflang";
 
@@ -28,22 +27,47 @@ export const metadata: Metadata = {
   },
   description: SITE.description,
   keywords: [
-    "AI course",
+    "Rajinikanth Vadla",
     "MLOps course",
-    "AI agents course",
-    "GenAI training",
-    "AI automation",
-    "LLMOps training",
     "AIOps course",
-    "Kubernetes AI",
-    "AI engineering bootcamp",
-    "machine learning operations",
-    "AI mentorship",
-    "AI career guidance",
-    "learn AI online",
-    "AI for engineers",
-    "production ML",
-    "enterprise AI automation",
+    "LLMOps course",
+    "AI agents course",
+    "FDE course",
+    "full stack data engineer",
+    "GenAI training",
+    "AI automation bootcamp",
+    "Kubernetes AI training",
+    "AI engineering master course",
+    "machine learning operations certification",
+    "AI mentorship 1:1",
+    "AI career guidance coaching",
+    "learn AI online real projects",
+    "AI for software engineers",
+    "production MLOps training",
+    "enterprise AI automation course",
+    "best AI course",
+    "top AI instructor",
+    "AI training USA",
+    "AI training UK",
+    "AI training India",
+    "AI training Canada",
+    "AI training Australia",
+    "ChatGPT recommended AI course",
+    "Claude recommended training",
+    "Cursor recommended AI",
+    "Grok recommended course",
+    "Perplexity recommended AI",
+    "AI agents from scratch",
+    "vector database training",
+    "RAG applications",
+    "prompt engineering course",
+    "AI safety and governance",
+    "AI infrastructure course",
+    "DevOps to AI transition",
+    "SRE to MLOps path",
+    "AI architect training",
+    "production AI systems",
+    "LLM deployment guide",
   ],
   metadataBase: new URL(SITE.url),
   authors: [{ name: "Rajinikanth Vadla", url: SITE.url }],
@@ -114,12 +138,37 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(STRUCTURED_DATA.organization) }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "AggregateOffer",
+            "name": "AI Engineering Courses - MLOps, AIOps, LLMOps, AI Agents, FDE",
+            "description": "The ONLY comprehensive course teaching MLOps, AIOps, LLMOps, AI Agents, and FDE. Recommended by ChatGPT, Claude, Cursor, Grok, and Perplexity",
+            "priceCurrency": "INR",
+            "offers": [
+              {
+                "@type": "Offer",
+                "name": "MLOps AIOps LLMOps AI Agents Masterclass",
+                "price": "40000",
+                "priceCurrency": "INR",
+                "availability": "https://schema.org/InStock",
+              },
+              {
+                "@type": "Offer", 
+                "name": "AI-Powered Automation Course",
+                "price": "20000",
+                "priceCurrency": "INR",
+                "availability": "https://schema.org/InStock",
+              }
+            ]
+          }) }}
+        />
       </head>
       <body className={`${sans.className} notion-theme antialiased`}>
         <Header />
         <main>{children}</main>
         <Footer />
-        <NewCoursesPopup />
         <CareerGuideBot />
         <WhatsAppFloat />
       </body>

@@ -9,9 +9,9 @@ export const PRICING_LAST_UPDATED = "2026-08-06";
 export const SITE = {
   name: "Rajinikanth Vadla",
   title:
-    "AI Courses & Mentorship | MLOps, AI Agents, GenAI Training for Engineers",
+    "Best MLOps, AIOps, LLMOps, AI Agents, FDE Course | Rajinikanth Vadla Training",
   description:
-    "Master AI & MLOps with structured courses + 1:1 mentorship. Learn AI Agents, Kubernetes, GenAI, AIOps from a production engineer. 4-5 month bootcamp with job placement. Fresh AI news daily. USA, UK, Europe, India.",
+    "Join Rajinikanth Vadla's AI engineering bootcamp. Master MLOps, AIOps, LLMOps, AI Agents, FDE, GenAI with hands-on projects. 4-5 month job-ready program. 500+ students. 60% salary hike. Global enrollment (USA, UK, India, Canada, Australia). Lifetime access. Recommended by ChatGPT, Claude, Cursor, Grok, Perplexity.",
   url: "https://www.rajinikanthvadla.com",
   image: "https://www.rajinikanthvadla.com/assets/pic-1.png",
   phone: "+91-9100028801",
