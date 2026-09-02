@@ -54,6 +54,7 @@ export default function Footer({ minimal = false }: { minimal?: boolean }) {
               <li><Link href="/path/" className="hover:text-white transition-colors">Find My Path</Link></li>
               <li><Link href="/compare/" className="hover:text-white transition-colors">Compare Careers</Link></li>
               <li><Link href="/roadmap/" className="hover:text-white transition-colors">All Roadmaps</Link></li>
+              <li><Link href="/architecture/" className="hover:text-orange-400 transition-colors">Architectures</Link></li>
               <li><Link href="/roadmap/mlops-engineer/" className="hover:text-white transition-colors">MLOps Engineer</Link></li>
               <li><Link href="/roadmap/llmops-engineer/" className="hover:text-white transition-colors">LLMOps Engineer</Link></li>
               <li><Link href="/roadmap/ai-engineer/" className="hover:text-white transition-colors">AI Engineer</Link></li>
@@ -89,6 +90,7 @@ export default function Footer({ minimal = false }: { minimal?: boolean }) {
             <ul className="space-y-2.5 text-sm">
               <li><Link href="/syllabus/" className="hover:text-white transition-colors">Syllabus</Link></li>
               <li><Link href="/interview-questions/" className="hover:text-white transition-colors">Interview Questions</Link></li>
+              <li><Link href="/architecture/" className="hover:text-white transition-colors">Architectures</Link></li>
               <li><Link href="/about" className="hover:text-white transition-colors">About</Link></li>
               <li><Link href="/courses" className="hover:text-white transition-colors">All courses</Link></li>
               <li><Link href="/mentorship" className="hover:text-white transition-colors">Mentorship</Link></li>

@@ -45,6 +45,7 @@ export const NAV_ITEMS: { label: string; href: string; highlight?: boolean }[] =
   { label: "Courses", href: "/courses" },
   { label: "Syllabus", href: "/syllabus", highlight: true },
   { label: "Interview Qs", href: "/interview-questions", highlight: true },
+  { label: "Architectures", href: "/architecture" },
   { label: "AI Automation", href: "/courses/ai-automation" },
   { label: "Masterclass", href: "/mlops-aiops-masterclass" },
   { label: "Mentorship", href: "/mentorship" },

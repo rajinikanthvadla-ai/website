@@ -148,6 +148,9 @@ export default function InterviewQuestionsPage() {
               <Link href="/mentorship/" className="notion-btn notion-btn--ink">
                 Book mentorship
               </Link>
+              <Link href="/architecture/" className="notion-btn notion-btn--ghost">
+                Architecture diagrams
+              </Link>
               <Link href="/syllabus/" className="notion-btn notion-btn--ghost">
                 See full syllabus
               </Link>

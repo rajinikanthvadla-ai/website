@@ -418,6 +418,7 @@ function WhyJoinSection() {
           <div className="flex flex-wrap justify-center gap-4 mt-4 text-sm">
             <Link href="/syllabus/" className="notion-dash-link font-bold">Full syllabus</Link>
             <Link href="/interview-questions/" className="notion-dash-link font-bold">Interview questions</Link>
+            <Link href="/architecture/" className="notion-dash-link font-bold">Architectures</Link>
             <Link href="/mentorship/" className="notion-dash-link font-bold">1:1 mentorship</Link>
           </div>
         </div>

@@ -247,10 +247,16 @@ export default function SyllabusPage() {
           </h2>
           <p className="text-slate-600 mb-6">
             Free AI/ML interview questions covering MLOps, LLMOps, AI Agents, FDE, and system design — written for the same roles this syllabus trains.
+            Also review production architecture diagrams used in interviews.
           </p>
-          <Link href="/interview-questions/" className="notion-btn notion-btn--ghost">
-            Open interview questions &rarr;
-          </Link>
+          <div className="flex flex-wrap justify-center gap-3">
+            <Link href="/interview-questions/" className="notion-btn notion-btn--ghost">
+              Open interview questions &rarr;
+            </Link>
+            <Link href="/architecture/" className="notion-btn notion-btn--ink">
+              Architecture diagrams &rarr;
+            </Link>
+          </div>
         </div>
       </section>
 
