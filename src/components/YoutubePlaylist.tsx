@@ -1,22 +1,30 @@
-import { COURSE_VIDEOS } from "@/lib/course-videos";
 import { LINKS } from "@/lib/constants";
 import { YOUTUBE_MEMBERSHIP_JOIN_URL } from "@/lib/youtube-membership";
+import { getLatestYoutubeVideos, getYoutubeLastSyncedLabel } from "@/lib/youtube-videos";
+
+function formatPublishedDate(isoDate: string) {
+  const date = new Date(isoDate);
+  if (Number.isNaN(date.getTime())) return "";
+  return date.toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" });
+}
 
 export default function YoutubePlaylist() {
-  const videos = [...COURSE_VIDEOS.masterclass, ...COURSE_VIDEOS.aiAgents].slice(0, 6);
+  const videos = getLatestYoutubeVideos(6);
+  const lastSynced = getYoutubeLastSyncedLabel();
 
   return (
     <section className="py-20 md:py-28 bg-white border-b border-slate-200">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <span className="inline-block bg-blue-100 text-blue-700 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4">
-            Watch Free
+            Latest on YouTube
           </span>
           <h2 className="font-display text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-            Recent Course Videos
+            Recent course videos
           </h2>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-            Watch real class recordings from Rajinikanth Vadla's YouTube channel. See the teaching style and course content before you enroll.
+            Fresh uploads from Rajinikanth Vadla&apos;s channel — MLOps, AIOps, LLMOps, AI Agents, FDE, and GenAI.
+            {lastSynced ? ` Updated ${lastSynced}.` : ""}
           </p>
         </div>
 
@@ -28,7 +36,7 @@ export default function YoutubePlaylist() {
               href={`https://www.youtube.com/watch?v=${video.id}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="group block rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow"
+              className="group block rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow border border-slate-200"
             >
               {/* Thumbnail */}
               <div className="relative aspect-video bg-slate-900 overflow-hidden">
@@ -52,7 +60,12 @@ export default function YoutubePlaylist() {
                 <h3 className="font-display font-bold text-slate-900 text-base leading-snug line-clamp-2 group-hover:text-blue-700 transition-colors mb-2">
                   {video.title}
                 </h3>
-                <p className="text-sm text-slate-600 line-clamp-2">{video.description}</p>
+                {video.description ? (
+                  <p className="text-sm text-slate-600 line-clamp-2 mb-2">{video.description}</p>
+                ) : null}
+                {video.uploadDate ? (
+                  <p className="text-xs text-slate-400">{formatPublishedDate(video.uploadDate)}</p>
+                ) : null}
               </div>
             </a>
           ))}

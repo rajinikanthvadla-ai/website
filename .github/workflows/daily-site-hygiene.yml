@@ -1,8 +1,8 @@
-name: Auto-Generate AI News Article
+name: Daily site hygiene
 
 on:
   schedule:
-    # Runs every day at 6:00 AM IST (00:30 UTC)
+    # 6:00 AM IST (00:30 UTC) — sync YouTube + publish AI article
     - cron: "30 0 * * *"
   workflow_dispatch:
     inputs:
@@ -10,12 +10,17 @@ on:
         description: "Topic for the article (leave empty for auto-pick)"
         required: false
         type: string
+      skip_article:
+        description: "Skip article generation (YouTube sync only)"
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: write
 
 jobs:
-  generate:
+  hygiene:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -24,19 +29,23 @@ jobs:
         with:
           node-version: 20
 
-      - name: Generate article
+      - name: Sync latest YouTube videos
+        run: node scripts/sync-youtube-videos.mjs
+
+      - name: Generate daily AI article
+        if: ${{ inputs.skip_article != 'true' }}
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: node scripts/generate-article.js "${{ github.event.inputs.topic || '' }}"
 
-      - name: Commit and push
+      - name: Commit and push updates
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add content/articles.json
+          git add content/youtube-videos.json content/articles.json
           if git diff --staged --quiet; then
-            echo "No changes to commit"
+            echo "No content changes to commit"
           else
-            git commit -m "Auto-generate daily AI news article"
+            git commit -m "Daily site hygiene: sync YouTube videos and AI article"
             git push
           fi

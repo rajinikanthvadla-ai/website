@@ -10,6 +10,7 @@ import PricingHero from "@/components/PricingHero";
 import YoutubePlaylist from "@/components/YoutubePlaylist";
 import YouTubeMembershipSection from "@/components/YouTubeMembershipSection";
 import LatestArticlesSection from "@/components/LatestArticlesSection";
+import CourseSyllabusQuickAccess from "@/components/CourseSyllabusQuickAccess";
 import { HOME_SKETCH, sketch } from "@/lib/sketch-assets";
 import articles from "../../content/articles.json";
 
@@ -35,6 +36,7 @@ export default function HomePage() {
       <YouTubeMembershipSection />
       <LogoBar />
       <FeaturedProgramsSection />
+      <CourseSyllabusQuickAccess />
       <LatestArticlesSection />
       <SeoDiscoverSection />
       <RoadmapsPreviewSection />

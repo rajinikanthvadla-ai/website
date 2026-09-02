@@ -10,7 +10,8 @@
     "build:clean": "npm run clean && next build",
     "start": "next start",
     "lint": "next lint",
-    "generate-ads": "node ./scripts/generate-social-ads.mjs"
+    "generate-ads": "node ./scripts/generate-social-ads.mjs",
+    "sync:youtube": "node ./scripts/sync-youtube-videos.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.108.2",

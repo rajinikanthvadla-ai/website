@@ -1,0 +1,92 @@
+{
+  "channelId": "UCeFXgm7rc9WzmRF1UZ7B4PA",
+  "channelUrl": "https://www.youtube.com/@IamRajinikanthvadla",
+  "channelTitle": "I'am Rajinikanth Vadla",
+  "lastSyncedAt": "2026-09-02T09:02:25.488Z",
+  "videos": [
+    {
+      "id": "pQRWbhurANc",
+      "title": "Python Basics for MLOps, AIOps, LLMOps, Agentic AI & GenAI Engineers | Python for AI Engineers",
+      "description": "Learn Python Basics for MLOps, AIOps, LLMOps, Agentic AI, GenAI and Forward Deployed Engineers (FDE) with practical, real-world examples. This session is designed for engineers moving from DevOps, Cloud, SRE or Platform…",
+      "publishedAt": "2026-09-01T15:43:48+00:00",
+      "url": "https://www.youtube.com/watch?v=pQRWbhurANc"
+    },
+    {
+      "id": "waM-kIldBp4",
+      "title": "AWS Networking: VPC Peering vs. Transit Gateway",
+      "description": "",
+      "publishedAt": "2026-08-12T11:31:23+00:00",
+      "url": "https://www.youtube.com/watch?v=waM-kIldBp4"
+    },
+    {
+      "id": "mgKgoAUog1g",
+      "title": "Google Gemini Spark Is INSANE 🚀",
+      "description": "Google just launched Gemini Spark — an always-on AI agent that works in the cloud even when your phone is locked or your laptop is closed! 🤖⚡ Unlike standard chatbots, Gemini Spark automates background tasks, manages y…",
+      "publishedAt": "2026-08-04T13:49:55+00:00",
+      "url": "https://www.youtube.com/watch?v=mgKgoAUog1g"
+    },
+    {
+      "id": "tDPB9LbCslk",
+      "title": "Stop Surprise AWS Bills with This Free Cleanup Tool! 🚀 #shorts",
+      "description": "Forgotten AWS resources can continue generating charges even after your lab or project ends. Orphanaut is a free, open-source desktop tool that scans every AWS region, detects 18+ resource types, estimates monthly costs…",
+      "publishedAt": "2026-08-04T06:03:02+00:00",
+      "url": "https://www.youtube.com/watch?v=tDPB9LbCslk"
+    },
+    {
+      "id": "RnQe-WV0E0s",
+      "title": "Topmate Featured My Teaching Journey! 🎉",
+      "description": "A proud milestone in my teaching journey. Topmate featured my work and recognized my contribution to helping learners grow in Cloud, DevOps, AI, MLOps, and Agentic AI. This achievement belongs to every student who trust…",
+      "publishedAt": "2026-07-29T18:36:00+00:00",
+      "url": "https://www.youtube.com/watch?v=RnQe-WV0E0s"
+    },
+    {
+      "id": "hmYeGn5f8h8",
+      "title": "I Was Teaching AWS... But It Turned Into an EPIC Tech Discussion | AWS Networking | MLOps AI",
+      "description": "Have you ever attended a class that suddenly became a real engineering discussion instead of a lecture? That is exactly what happened in this session. Instead of following slides, students started asking real-world AWS…",
+      "publishedAt": "2026-07-22T20:44:39+00:00",
+      "url": "https://www.youtube.com/watch?v=hmYeGn5f8h8"
+    },
+    {
+      "id": "oJTkfNV5x_s",
+      "title": "The OSI Model and Network Load Balancing",
+      "description": "",
+      "publishedAt": "2026-07-17T17:29:45+00:00",
+      "url": "https://www.youtube.com/watch?v=oJTkfNV5x_s"
+    },
+    {
+      "id": "8iKoTVvqvJ4",
+      "title": "AWS Cloud Fundamentals for MLOps, LLMOps, AIOps & AI Agents | Day 05",
+      "description": "Learn AWS Cloud Fundamentals for MLOps, LLMOps, AIOps, AI Agents and Agentic AI workloads. In Day 05 of our job-ready AI and MLOps course, we explain the essential AWS cloud concepts every AI, DevOps, Cloud and MLOps en…",
+      "publishedAt": "2026-07-17T07:43:30+00:00",
+      "url": "https://www.youtube.com/watch?v=8iKoTVvqvJ4"
+    },
+    {
+      "id": "qEaDZ0KW7Ww",
+      "title": "DAY 03 | Network Fundamentals for MLOps, LLMOps, AIOps & AI Agents | Complete Beginner to Enterprise",
+      "description": "Welcome to Day 03 of the MLOps, LLMOps, AIOps & AI Agents complete job-ready course. In this session, we cover the Network Fundamentals every AI Engineer, DevOps Engineer, Cloud Engineer, Platform Engineer and MLOps Eng…",
+      "publishedAt": "2026-07-14T20:42:37+00:00",
+      "url": "https://www.youtube.com/watch?v=qEaDZ0KW7Ww"
+    },
+    {
+      "id": "3bCsWPQE3YU",
+      "title": "DAY-02 | MLOPS, LLMOPS, AIOPS AI AGENTS COURSE | JOB READY | Rajinikanth Vadla",
+      "description": "Day 02 of the Job-Ready MLOps, LLMOps, AIOps and AI Agents Course by Rajinikanth Vadla. In this live class, learn the foundations of Artificial Intelligence, Machine Learning, Deep Learning, NLP and the complete enterpr…",
+      "publishedAt": "2026-07-13T18:48:13+00:00",
+      "url": "https://www.youtube.com/watch?v=3bCsWPQE3YU"
+    },
+    {
+      "id": "Ua_C-8PQVH4",
+      "title": "AI-Powered Automation Engineering Course | Live Demo for Real Enterprise Engineers",
+      "description": "Join this live demo of the AI-Powered Automation Engineering Course designed for DevOps, Cloud, Platform, SRE, Software, Data and AI engineers. In this session, you will learn how modern companies combine: AI Agents LLM…",
+      "publishedAt": "2026-07-12T03:21:57+00:00",
+      "url": "https://www.youtube.com/watch?v=Ua_C-8PQVH4"
+    },
+    {
+      "id": "eWDa3NyUM94",
+      "title": "MLOps, LLMOps, AIOps & AI Agents Course | Build Real Enterprise AI Systems",
+      "description": "Learn how real companies build, deploy, monitor and automate production AI systems. This course covers MLOps, LLMOps, AIOps and AI Agents in one practical program designed for DevOps, Cloud, Platform, SRE, Data, ML and…",
+      "publishedAt": "2026-07-11T18:11:43+00:00",
+      "url": "https://www.youtube.com/watch?v=eWDa3NyUM94"
+    }
+  ]
+}
