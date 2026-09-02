@@ -13,6 +13,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: `${base}/`, lastModified: now, changeFrequency: "daily", priority: 1.0 },
+    { url: `${base}/syllabus/`, lastModified: now, changeFrequency: "weekly", priority: 0.98 },
+    { url: `${base}/interview-questions/`, lastModified: now, changeFrequency: "weekly", priority: 0.96 },
     { url: `${base}/courses/`, lastModified: now, changeFrequency: "weekly", priority: 0.95 },
     { url: `${base}/enroll/`, lastModified: now, changeFrequency: "daily", priority: 0.99 },
     { url: `${base}/student-guide/`, lastModified: now, changeFrequency: "weekly", priority: 0.94 },

@@ -43,14 +43,15 @@ export const LINKS = {
 export const NAV_ITEMS: { label: string; href: string; highlight?: boolean }[] = [
   { label: "About", href: "/about" },
   { label: "Courses", href: "/courses" },
-  { label: "AI Automation", href: "/courses/ai-automation", highlight: true },
+  { label: "Syllabus", href: "/syllabus", highlight: true },
+  { label: "Interview Qs", href: "/interview-questions", highlight: true },
+  { label: "AI Automation", href: "/courses/ai-automation" },
   { label: "Masterclass", href: "/mlops-aiops-masterclass" },
   { label: "Mentorship", href: "/mentorship" },
-  { label: "Resume Prep", href: "/resume-prep", highlight: true },
+  { label: "Resume Prep", href: "/resume-prep" },
   { label: "Blog", href: "/blog" },
-  { label: "Universe", href: "/universe", highlight: true },
+  { label: "Universe", href: "/universe" },
   { label: "Roadmaps", href: "/roadmap" },
-  { label: "Architectures", href: "/architecture" },
   { label: "Contact", href: "/contact" },
 ];
 

@@ -56,6 +56,10 @@
 
 ## Courses
 
+### Handy Syllabus (start here)
+- [Full Course Syllabus](https://www.rajinikanthvadla.com/syllabus/): Module-by-module syllabus for MLOps, AIOps, LLMOps, AI Agents, FDE masterclass and AI Automation
+- [AI / ML Interview Questions](https://www.rajinikanthvadla.com/interview-questions/): Free interview Q&A for MLOps, LLMOps, AI Agents, FDE, GenAI, RAG, and AI system design
+
 ### AI-Powered Automation Efficiency
 - [Course Page](https://www.rajinikanthvadla.com/courses/ai-automation/): 2 month live enterprise AI automation course · ₹20,000
 - Covers: Cursor IDE, OpenAI Codex, ChatGPT, Claude AI, AWS Bedrock Agents, LangChain, CrewAI, AutoGen, MCP

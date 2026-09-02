@@ -115,12 +115,12 @@ function HeroSection() {
             <a href={LINKS.enroll} target="_blank" rel="noopener noreferrer" className="notion-btn notion-btn--accent">
               Enroll in a cohort &rarr;
             </a>
-            <a href={LINKS.whatsappSyllabus} target="_blank" rel="noopener noreferrer" className="notion-btn notion-btn--ink">
-              WhatsApp for syllabus
-            </a>
-            <Link href="/mentorship" className="notion-btn notion-btn--ghost">
-              1:1 Mentorship
+            <Link href="/syllabus/" className="notion-btn notion-btn--ink">
+              View syllabus
             </Link>
+            <a href={LINKS.whatsappSyllabus} target="_blank" rel="noopener noreferrer" className="notion-btn notion-btn--ghost">
+              WhatsApp for details
+            </a>
           </div>
 
           <div className="notion-stat-grid">
@@ -415,6 +415,11 @@ function WhyJoinSection() {
           <a href={LINKS.enroll} target="_blank" rel="noopener noreferrer" className="notion-btn notion-btn--accent">
             Enroll in the next cohort &rarr;
           </a>
+          <div className="flex flex-wrap justify-center gap-4 mt-4 text-sm">
+            <Link href="/syllabus/" className="notion-dash-link font-bold">Full syllabus</Link>
+            <Link href="/interview-questions/" className="notion-dash-link font-bold">Interview questions</Link>
+            <Link href="/mentorship/" className="notion-dash-link font-bold">1:1 mentorship</Link>
+          </div>
         </div>
       </div>
     </section>

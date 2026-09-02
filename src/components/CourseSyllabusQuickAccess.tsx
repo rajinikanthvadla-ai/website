@@ -16,7 +16,7 @@ const COURSES = [
     duration: MLOPS_MASTERCLASS_DURATION,
     price: "₹40,000 live · ₹30,000 recordings",
     href: "/mlops-aiops-masterclass",
-    syllabusHref: "/mlops-aiops-masterclass/#full-syllabus",
+                syllabusHref: "/syllabus/#masterclass",
     whatsapp: LINKS.whatsappSyllabus,
     modules: MLOPS_MASTERCLASS_SYLLABUS.map((mod) => ({
       label: `Module ${mod.module}: ${mod.title}`,
@@ -30,7 +30,7 @@ const COURSES = [
     duration: AI_AUTOMATION_DURATION,
     price: AI_AUTOMATION_PRICE,
     href: "/courses/ai-automation",
-    syllabusHref: "/courses/ai-automation/#curriculum",
+                syllabusHref: "/syllabus/#automation",
     whatsapp: LINKS.whatsappAutomation,
     modules: AI_AUTOMATION_SYLLABUS_RICH.map((mod) => ({
       label: `Module ${mod.module}: ${mod.title}`,
@@ -51,9 +51,17 @@ export default function CourseSyllabusQuickAccess() {
           <h2 className="font-display text-3xl md:text-4xl font-bold text-[#0f172a] mt-3 mb-3">
             See what you will learn before you enroll
           </h2>
-          <p className="text-slate-600 leading-relaxed">
+          <p className="text-slate-600 leading-relaxed mb-5">
             Full module breakdown for both live programs. Open the full syllabus, or message on WhatsApp for batch dates, fees, and a quick call.
           </p>
+          <div className="flex flex-wrap justify-center gap-3">
+            <Link href="/syllabus/" className="notion-btn notion-btn--ink">
+              Open full syllabus page &rarr;
+            </Link>
+            <Link href="/interview-questions/" className="notion-btn notion-btn--ghost">
+              AI/ML interview questions
+            </Link>
+          </div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-6 mb-10">

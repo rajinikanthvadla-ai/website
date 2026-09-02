@@ -39,7 +39,9 @@ export default function Footer({ minimal = false }: { minimal?: boolean }) {
           <div>
             <h4 className="text-white font-bold mb-4 text-xs uppercase tracking-[0.12em]">Training</h4>
             <ul className="space-y-2.5 text-sm">
-              <li><Link href="/courses/ai-automation" className="hover:text-orange-400 transition-colors">AI Automation <span className="bg-orange-500 text-white text-[8px] font-bold py-0 px-1.5 rounded-sm uppercase ml-1">NEW</span></Link></li>
+              <li><Link href="/syllabus/" className="hover:text-orange-400 transition-colors">Course Syllabus <span className="bg-orange-500 text-white text-[8px] font-bold py-0 px-1.5 rounded-sm uppercase ml-1">NEW</span></Link></li>
+              <li><Link href="/interview-questions/" className="hover:text-orange-400 transition-colors">Interview Questions <span className="bg-orange-500 text-white text-[8px] font-bold py-0 px-1.5 rounded-sm uppercase ml-1">NEW</span></Link></li>
+              <li><Link href="/courses/ai-automation" className="hover:text-white transition-colors">AI Automation</Link></li>
               <li><Link href="/mlops-aiops-masterclass" className="hover:text-[#dbeafe] transition-colors">MLOps Masterclass</Link></li>
               <li><Link href="/mentorship" className="hover:text-white transition-colors">Mentorship</Link></li>
             </ul>
@@ -85,6 +87,8 @@ export default function Footer({ minimal = false }: { minimal?: boolean }) {
           <div>
             <h4 className="text-white font-bold mb-4 text-xs uppercase tracking-[0.12em]">Site</h4>
             <ul className="space-y-2.5 text-sm">
+              <li><Link href="/syllabus/" className="hover:text-white transition-colors">Syllabus</Link></li>
+              <li><Link href="/interview-questions/" className="hover:text-white transition-colors">Interview Questions</Link></li>
               <li><Link href="/about" className="hover:text-white transition-colors">About</Link></li>
               <li><Link href="/courses" className="hover:text-white transition-colors">All courses</Link></li>
               <li><Link href="/mentorship" className="hover:text-white transition-colors">Mentorship</Link></li>
