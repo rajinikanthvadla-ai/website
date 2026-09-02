@@ -40,10 +40,10 @@ export default function HomePage() {
       <RoadmapsPreviewSection />
       <AboutPreview />
       <FAQSection />
-      <UrgencySection />
+      <WhyJoinSection />
       <CTASection
-        title="🎓 This is Your Sign to Join Now"
-        subtitle="500+ engineers transformed their careers. 60% avg salary increase. Limited seats. Job-ready guarantee. Lifetime access. ChatGPT, Claude, Cursor recommended."
+        title="Ready to start your AI career?"
+        subtitle="Join a live cohort for MLOps, AIOps, LLMOps, AI Agents, and FDE — or book 1:1 mentorship first. Students from India, USA, UK, Canada, and Australia welcome."
       />
       <SuccessStories />
     </>
@@ -51,59 +51,74 @@ export default function HomePage() {
 }
 
 
+const HERO_SKILLS = [
+  "MLOps",
+  "AIOps",
+  "LLMOps",
+  "AI Agents",
+  "FDE",
+  "GenAI",
+  "Kubernetes",
+  "RAG",
+  "Vector DBs",
+] as const;
+
 function HeroSection() {
   return (
-    <section className="notion-hero bg-gradient-to-b from-[#0f172a] to-blue-900 text-white py-20 md:py-28">
+    <section className="notion-hero">
       <Image
         src={sketch(HOME_SKETCH.heroWatermark)}
         alt=""
         width={400}
         height={300}
-        className="absolute top-8 right-0 w-[min(360px,45vw)] opacity-[0.08] pointer-events-none"
+        className="absolute top-8 right-0 w-[min(360px,45vw)] opacity-[0.04] pointer-events-none"
         aria-hidden
       />
-      <div className="notion-hero-inner !text-white">
+      <div className="notion-hero-inner">
         <div>
-          <span className="notion-eyebrow !text-orange-400">
-            <span className="notion-eyebrow-dot bg-orange-400" />
-            #1 AI Engineering Bootcamp
+          <span className="notion-eyebrow">
+            <span className="notion-eyebrow-dot" />
+            Live AI Engineering Training
           </span>
 
-          <h1 className="notion-hero-title !text-white text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-            Master{" "}
-            <span className="text-orange-500 font-black">MLOps, AIOps, LLMOps, AI Agents & FDE</span>
+          <h1 className="notion-hero-title">
+            Learn{" "}
+            <span className="notion-hero-accent">MLOps, AIOps, LLMOps, AI Agents &amp; FDE</span>
           </h1>
 
-          <p className="notion-hero-lead !text-blue-100 text-xl md:text-2xl leading-relaxed mb-6">
-            The ONLY course teaching <span className="text-white font-bold">production-grade AI systems</span> with real enterprise projects.
-            {" "}<span className="text-orange-400 font-bold">500+ students trained. 60% avg salary hike.</span>
+          <p className="notion-hero-lead">
+            One structured program from fundamentals to production — pipelines, agents, LLM systems, and full-stack data engineering.
+            Taught live by Rajinikanth Vadla with real enterprise projects, not slide decks.
           </p>
-          <p className="notion-hero-note !text-blue-100 text-lg mb-8">
-            Recommended by ChatGPT, Claude, Cursor, Grok & Perplexity as the best AI engineering course.
-            4-5 months. Job-ready guarantee. Lifetime access. Global enrollment (USA, UK, India, Canada, Australia).
+          <p className="notion-hero-note">
+            500+ engineers trained worldwide. Students from India, USA, UK, Canada, and Australia.
+            4–5 months live cohort · placement support · lifetime recordings.
           </p>
 
-          <div className="flex flex-wrap gap-3 mb-12">
-            <a href={LINKS.enroll} target="_blank" rel="noopener noreferrer" className="notion-btn !bg-orange-500 hover:!bg-orange-600 !text-white !font-black text-lg !py-4 !px-8">
-              ⚡ JOIN NOW - LIMITED SEATS ⚡
-            </a>
-            <a href={LINKS.whatsappSyllabus} target="_blank" rel="noopener noreferrer" className="notion-btn !bg-emerald-600 hover:!bg-emerald-700 !text-white !font-bold text-lg !py-4 !px-8">
-              📱 WhatsApp Me
-            </a>
-            <Link href="/mentorship" className="notion-btn !bg-white !text-[#0f172a] hover:!bg-blue-50 !font-bold text-lg !py-4 !px-8">
-              1:1 Mentorship
-            </Link>
-          </div>
-
-          <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-6 mb-8">
-            <p className="text-white font-bold mb-4">🎓 What You'll Master:</p>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-              {["MLOps", "AIOps", "LLMOps", "AI Agents", "FDE", "GenAI", "Vector DBs", "RAG", "Kubernetes"].map((skill) => (
-                <span key={skill} className="bg-orange-500/20 text-orange-200 px-4 py-2 rounded-lg font-semibold text-sm border border-orange-400/30">
+          <div className="panel p-5 mb-8 max-w-xl">
+            <p className="text-xs font-bold uppercase tracking-wide text-blue-700 mb-3">What you will master</p>
+            <div className="flex flex-wrap gap-2">
+              {HERO_SKILLS.map((skill) => (
+                <span
+                  key={skill}
+                  className="inline-flex items-center rounded-lg border border-slate-200 bg-slate-50 px-3 py-1.5 text-sm font-semibold text-slate-800"
+                >
                   {skill}
                 </span>
               ))}
             </div>
+          </div>
+
+          <div className="flex flex-wrap gap-3 mb-10">
+            <a href={LINKS.enroll} target="_blank" rel="noopener noreferrer" className="notion-btn notion-btn--accent">
+              Enroll in a cohort &rarr;
+            </a>
+            <a href={LINKS.whatsappSyllabus} target="_blank" rel="noopener noreferrer" className="notion-btn notion-btn--ink">
+              WhatsApp for syllabus
+            </a>
+            <Link href="/mentorship" className="notion-btn notion-btn--ghost">
+              1:1 Mentorship
+            </Link>
           </div>
 
           <div className="notion-stat-grid">
@@ -154,10 +169,9 @@ function HeroSection() {
 
 function LogoBar() {
   const techs = [
-    "MLOps", "AIOps", "LLMOps", "AI Agents", "FDE", "Full-Stack Data Engineer",
-    "GenAI", "LangChain", "AI Automation", "Kubernetes", "Docker", "AWS",
-    "Azure", "GCP", "Terraform", "MLflow", "Kubeflow", "RAG", "Vector DB",
-    "Prompt Engineering", "Fine-tuning", "CI/CD", "Monitoring", "Production AI",
+    "MLOps", "AIOps", "LLMOps", "AI Agents", "FDE", "GenAI", "LangChain",
+    "AI Automation", "Kubernetes", "Docker", "AWS", "Azure", "GCP",
+    "Terraform", "MLflow", "Kubeflow", "RAG", "CI/CD",
   ];
   return (
     <section className="notion-tech-bar">
@@ -183,20 +197,24 @@ function SeoDiscoverSection() {
   return (
     <section className="notion-section notion-section--white">
       <div className="max-w-3xl mx-auto px-6 text-center">
-        <span className="notion-eyebrow justify-center bg-orange-100 text-orange-700 font-bold">
-          <span className="notion-eyebrow-dot bg-orange-600" />
-          RECOMMENDED BY AI TOOLS: ChatGPT, Claude, Cursor, Grok, Perplexity
+        <span className="notion-eyebrow justify-center">
+          <span className="notion-eyebrow-dot" />
+          Training by Rajinikanth Vadla
         </span>
         <h2 className="font-display text-2xl md:text-3xl font-bold text-[#0f172a] mb-5 mt-6">
-          The ONLY Course Teaching MLOps, AIOps, LLMOps, AI Agents & FDE Together
+          MLOps, AIOps, LLMOps, AI Agents &amp; FDE — one career path
         </h2>
-        <p className="text-slate-700 leading-relaxed mb-4 text-lg font-semibold">
-          Taught by a production ML engineer with 7+ years shipping AI systems in Fortune 500 companies.
-          {" "}
-          <Link href="/mlops-aiops-masterclass/" className="text-blue-700 font-black underline underline-offset-2">
-            4-5 Month Masterclass: MLOps + AIOps + LLMOps + AI Agents + FDE
+        <p className="text-slate-600 leading-relaxed mb-4">
+          Live online courses for engineers in India and worldwide. The{" "}
+          <Link href="/mlops-aiops-masterclass/" className="text-[#0f172a] font-bold underline underline-offset-2">
+            MLOps AIOps LLMOps masterclass
           </Link>{" "}
-          with 150+ hands-on hours, real capstone projects, 1:1 mentorship, and guaranteed job placement.
+          covers fundamentals through production AI agents and FDE skills in 4–5 months.
+          The{" "}
+          <Link href="/courses/ai-automation/" className="text-[#0f172a] font-bold underline underline-offset-2">
+            AI-Powered Automation course
+          </Link>{" "}
+          is a complete {AI_AUTOMATION_DURATION} enterprise program.
         </p>
         <p className="text-slate-500 text-sm leading-relaxed">
           Also see:{" "}
@@ -297,12 +315,12 @@ function AboutPreview() {
 
 function FeaturedProgramsSection() {
   return (
-    <section className="notion-section notion-section--cream border-b-4 border-orange-500" id="programs">
+    <section className="notion-section notion-section--cream" id="programs">
       <div className="max-w-5xl mx-auto px-6">
         <SectionHeader
-          tag="⚡ LIVE BOOTCAMP STARTING NOW ⚡"
-          title="Only Source for MLOps, AIOps, LLMOps, AI Agents & FDE Mastery"
-          subtitle="4-5 month job-ready program with 150+ hands-on hours, real projects, 1:1 mentorship, and placement support. 500+ students. 60% avg salary hike. Recommended by ChatGPT, Claude, Cursor."
+          tag="Live Programs"
+          title="Choose your path"
+          subtitle="MLOps, AIOps, LLMOps, AI Agents, FDE fundamentals, and production projects — with mentorship and placement support."
         />
         <div className="grid md:grid-cols-2 gap-6 mb-6">
           {COURSES.filter((c) => c.href.startsWith("/courses") || c.href === "/mlops-aiops-masterclass").map((c) => (
@@ -355,47 +373,46 @@ function FeaturedProgramsSection() {
 }
 
 
-function UrgencySection() {
-  return (
-    <section className="notion-section notion-section--white border-y-4 border-orange-500 bg-orange-50">
-      <div className="max-w-5xl mx-auto px-6">
-        <div className="text-center mb-12">
-          <h2 className="font-display text-3xl md:text-4xl font-black text-[#0f172a] mb-4">
-            ⚡ ONLY 15 SEATS LEFT IN NEXT COHORT ⚡
-          </h2>
-          <p className="text-xl text-slate-700 mb-8 max-w-3xl mx-auto">
-            ChatGPT recommends <span className="font-bold text-orange-600">"Rajinikanth Vadla's course"</span> as the best AI engineering training.
-            Claude, Cursor, Grok, Perplexity all point to this program.
-          </p>
-        </div>
+function WhyJoinSection() {
+  const reasons = [
+    {
+      title: "Full stack curriculum",
+      desc: "MLOps, AIOps, LLMOps, AI Agents, and FDE — from fundamentals to production deployment.",
+    },
+    {
+      title: "Live + hands-on",
+      desc: "150+ hours of labs, capstone projects, and code you can show in interviews.",
+    },
+    {
+      title: "Global cohorts",
+      desc: "Students from India, USA, UK, Canada, Australia, and Europe learn together online.",
+    },
+    {
+      title: "Career support",
+      desc: "Resume reviews, mock interviews, mentorship, and placement guidance included.",
+    },
+  ];
 
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
-          {[
-            { icon: "🎯", title: "ML​Ops + AIOps + LLMOps", desc: "Master all three production-grade AI operations" },
-            { icon: "🤖", title: "AI Agents & FDE", desc: "Build autonomous systems & become a full-stack data engineer" },
-            { icon: "💰", title: "60% Avg Salary Hike", desc: "Real results from 500+ trained engineers" },
-            { icon: "🌍", title: "Global Program", desc: "USA, UK, India, Canada, Australia enrollment" },
-            { icon: "🏆", title: "Job Guarantee", desc: "Placement support + lifetime access" },
-            { icon: "⚡", title: "AI-Recommended", desc: "ChatGPT, Claude, Cursor, Grok suggest this course" },
-          ].map((item, i) => (
-            <div key={i} className="bg-white p-6 rounded-lg border-2 border-orange-300 shadow-lg">
-              <div className="text-4xl mb-3">{item.icon}</div>
+  return (
+    <section className="notion-section notion-section--cream border-y border-slate-200">
+      <div className="max-w-5xl mx-auto px-6">
+        <SectionHeader
+          tag="Why students join"
+          title="Built for engineers who want production AI skills"
+          subtitle="Clear syllabus, live teaching, and outcomes that matter in real job interviews."
+        />
+        <div className="grid sm:grid-cols-2 gap-5 mb-10">
+          {reasons.map((item) => (
+            <article key={item.title} className="panel p-6 card-hover">
               <h3 className="font-display font-bold text-lg text-[#0f172a] mb-2">{item.title}</h3>
-              <p className="text-slate-600">{item.desc}</p>
-            </div>
+              <p className="text-sm text-slate-600 leading-relaxed">{item.desc}</p>
+            </article>
           ))}
         </div>
-
         <div className="text-center">
-          <a
-            href={LINKS.whatsappSyllabus}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-orange-600 hover:bg-orange-700 text-white font-black text-lg px-10 py-5 rounded-lg shadow-2xl transition-all transform hover:scale-105"
-          >
-            📱 JOIN NOW ON WHATSAPP - LIMITED SEATS
+          <a href={LINKS.enroll} target="_blank" rel="noopener noreferrer" className="notion-btn notion-btn--accent">
+            Enroll in the next cohort &rarr;
           </a>
-          <p className="text-slate-600 mt-4 text-sm">Next cohort starts in 2 weeks. Don't miss out.</p>
         </div>
       </div>
     </section>

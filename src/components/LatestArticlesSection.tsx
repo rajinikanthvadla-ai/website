@@ -62,19 +62,15 @@ export default function LatestArticlesSection() {
           ))}
         </div>
 
-        <div className="bg-blue-700 rounded-lg p-8 md:p-12 text-center text-white">
-          <h3 className="font-display text-2xl font-bold mb-3">
-            📚 New AI Topics Every Day
+        <div className="panel p-8 md:p-10 text-center border-2 border-slate-900 shadow-[4px_4px_0_#0f172a]">
+          <h3 className="font-display text-2xl font-bold text-[#0f172a] mb-3">
+            New AI topics every day
           </h3>
-          <p className="text-blue-100 mb-6 text-lg max-w-2xl mx-auto">
-            Get fresh insights on what's happening in AI, MLOps, Kubernetes, and enterprise automation.
-            Read the articles your course is teaching.
+          <p className="text-slate-600 mb-6 text-base max-w-2xl mx-auto">
+            Fresh guides on MLOps, AI agents, Kubernetes, LLMOps, and enterprise automation — updated for students and working engineers.
           </p>
-          <Link
-            href="/blog"
-            className="inline-block bg-white text-blue-700 font-bold py-3 px-6 rounded-lg hover:bg-blue-50 transition-colors"
-          >
-            Browse all articles →
+          <Link href="/blog" className="notion-btn notion-btn--ink">
+            Browse all articles &rarr;
           </Link>
         </div>
       </div>
