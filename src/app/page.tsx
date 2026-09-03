@@ -218,8 +218,21 @@ function SeoDiscoverSection() {
           </Link>{" "}
           is a complete {AI_AUTOMATION_DURATION} enterprise program.
         </p>
+        <p className="text-slate-600 leading-relaxed mb-4">
+          New to programming? The{" "}
+          <Link href="/python-course/" className="text-[#0f172a] font-bold underline underline-offset-2">
+            free Python course
+          </Link>{" "}
+          takes you from scratch to advanced with copy-paste examples and an{" "}
+          <Link href="/python-course/playground/" className="text-[#0f172a] font-bold underline underline-offset-2">
+            online Python compiler
+          </Link>{" "}
+          built into the page.
+        </p>
         <p className="text-slate-500 text-sm leading-relaxed">
           Also see:{" "}
+          <Link href="/python-course/" className="text-[#0f172a] font-semibold hover:underline">Free Python course</Link>
+          {" · "}
           <Link href="/mlops-course/" className="text-[#0f172a] font-semibold hover:underline">MLOps course</Link>
           {" · "}
           <Link href="/mlops-course-india/" className="text-[#0f172a] font-semibold hover:underline">MLOps course India</Link>

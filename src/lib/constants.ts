@@ -43,6 +43,7 @@ export const LINKS = {
 export const NAV_ITEMS: { label: string; href: string; highlight?: boolean }[] = [
   { label: "About", href: "/about" },
   { label: "Courses", href: "/courses" },
+  { label: "Python Course", href: "/python-course", highlight: true },
   { label: "Syllabus", href: "/syllabus", highlight: true },
   { label: "Interview Qs", href: "/interview-questions", highlight: true },
   { label: "Architectures", href: "/architecture" },

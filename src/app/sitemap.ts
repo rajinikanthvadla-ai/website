@@ -4,6 +4,7 @@ import { ROADMAP_SLUGS } from "@/lib/roadmaps";
 import { getSkillSlugs, COMPARE_SLUGS } from "@/lib/knowledge-graph";
 import { INTL_MARKETS } from "@/lib/international-markets";
 import { RESUME_ROLES } from "@/lib/resume-roles";
+import { PYTHON_LESSON_SLUGS } from "@/lib/python-course";
 
 export const dynamic = "force-static";
 
@@ -39,7 +40,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/about/`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/contact/`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${base}/blog/`, lastModified: now, changeFrequency: "daily", priority: 0.85 },
+    { url: `${base}/python-course/`, lastModified: now, changeFrequency: "weekly", priority: 0.97 },
+    { url: `${base}/python-course/playground/`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
   ];
+
+  const pythonLessonRoutes: MetadataRoute.Sitemap = PYTHON_LESSON_SLUGS.map((slug) => ({
+    url: `${base}/python-course/${slug}/`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.86,
+  }));
 
   const roadmapRoutes: MetadataRoute.Sitemap = ROADMAP_SLUGS.map((slug) => ({
     url: `${base}/roadmap/${slug}/`,
@@ -83,5 +93,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: r.traffic === "ultra" ? 0.93 : 0.9,
   }));
 
-  return [...staticRoutes, ...intlRoutes, ...resumeRoutes, ...roadmapRoutes, ...skillRoutes, ...compareRoutes, ...blogRoutes];
+  return [
+    ...staticRoutes,
+    ...pythonLessonRoutes,
+    ...intlRoutes,
+    ...resumeRoutes,
+    ...roadmapRoutes,
+    ...skillRoutes,
+    ...compareRoutes,
+    ...blogRoutes,
+  ];
 }

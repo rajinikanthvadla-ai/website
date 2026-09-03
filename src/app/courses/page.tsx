@@ -65,6 +65,35 @@ export default function CoursesPage() {
         </div>
       </section>
 
+      <section className="py-14 bg-slate-50 border-t border-slate-200">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="panel p-7 border-l-4 border-l-orange-500">
+            <span className="text-[11px] font-bold uppercase tracking-wide text-orange-600">Free · No signup</span>
+            <h2 className="font-display font-bold text-xl text-slate-900 mt-1 mb-2">
+              Complete Python course for AI, ML and GenAI engineers
+            </h2>
+            <p className="text-sm text-slate-600 mb-4">
+              Scratch to advanced: variables through async LLM batching, RAG pipelines, and FastAPI serving.
+              Copy-paste examples and an online compiler built into every lesson.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <Link
+                href="/python-course/"
+                className="px-6 py-3 rounded-lg text-sm font-semibold bg-blue-700 text-white hover:bg-blue-800"
+              >
+                Start learning free &rarr;
+              </Link>
+              <Link
+                href="/python-course/playground/"
+                className="px-6 py-3 rounded-lg text-sm font-semibold border-2 border-slate-300 text-slate-700 hover:border-slate-500"
+              >
+                Open the compiler
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <CTASection
         title="Questions about which program fits you?"
         subtitle="Message on WhatsApp with your background and goal. I will point you to the right path."

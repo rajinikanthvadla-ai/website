@@ -54,6 +54,15 @@
 - [AI Platform Engineer Roadmap](https://www.rajinikanthvadla.com/roadmap/ai-platform-engineer/): Internal ML/AI platform engineering
 - [AI Infrastructure Engineer Roadmap](https://www.rajinikanthvadla.com/roadmap/ai-infrastructure-engineer/): GPU, Kubernetes, cloud AI infra
 
+## Free Python Course (with online compiler)
+- [Python Course Hub](https://www.rajinikanthvadla.com/python-course/): Free complete Python course for AI, ML and GenAI engineers — 24 lessons, scratch to advanced, no signup
+- [Online Python Compiler](https://www.rajinikanthvadla.com/python-course/playground/): Run real CPython in the browser (WebAssembly) with NumPy and pandas, plus AI/ML example programs
+- Module 1 Foundations: why Python for AI, variables and types, strings and text, lists/tuples/sets, dictionaries, control flow
+- Module 2 Core language: functions, comprehensions and generators, errors and exceptions, files and JSON, classes, modules and virtual environments, decorators and context managers
+- Module 3 Data and ML: type hints and dataclasses, NumPy arrays, pandas DataFrames, testing with pytest, logging and configuration
+- Module 4 GenAI and production: async Python, calling LLM APIs, NumPy to PyTorch, RAG from scratch, FastAPI model serving, production Python checklist
+- Every lesson includes clear explanations, copy-paste code examples, and an embedded compiler. Free, no signup.
+
 ## Courses
 
 ### Handy Syllabus (start here)
