@@ -40,22 +40,94 @@ export const LINKS = {
     "https://chatgpt.com/g/g-6938ef4591f4819198b381b03cf8707b-rajinikanth-vadla-ai-ml-ops-engineer-mentor",
 };
 
-export const NAV_ITEMS: { label: string; href: string; highlight?: boolean }[] = [
-  { label: "About", href: "/about" },
-  { label: "Courses", href: "/courses" },
-  { label: "Python Course", href: "/python-course", highlight: true },
-  { label: "Syllabus", href: "/syllabus", highlight: true },
-  { label: "Interview Qs", href: "/interview-questions", highlight: true },
-  { label: "Architectures", href: "/architecture" },
-  { label: "AI Automation", href: "/courses/ai-automation" },
-  { label: "Masterclass", href: "/mlops-aiops-masterclass" },
-  { label: "Mentorship", href: "/mentorship" },
-  { label: "Resume Prep", href: "/resume-prep" },
-  { label: "Blog", href: "/blog" },
-  { label: "Universe", href: "/universe" },
-  { label: "Roadmaps", href: "/roadmap" },
-  { label: "Contact", href: "/contact" },
+export type NavLink = {
+  label: string;
+  href: string;
+  description?: string;
+  badge?: string;
+};
+
+export type NavGroup = {
+  id: string;
+  label: string;
+  href: string;
+  links: NavLink[];
+};
+
+/** Grouped navigation. Four menus keep the header readable on laptop and mobile. */
+export const NAV_GROUPS: NavGroup[] = [
+  {
+    id: "programs",
+    label: "Programs",
+    href: "/courses",
+    links: [
+      {
+        label: "AI-Powered Automation",
+        href: "/courses/ai-automation",
+        description: "2 months live · agents, Bedrock, MCP",
+        badge: "NEW",
+      },
+      {
+        label: "MLOps · AIOps Masterclass",
+        href: "/mlops-aiops-masterclass",
+        description: "4-5 months · job ready with placement support",
+      },
+      { label: "Full syllabus", href: "/syllabus", description: "Module-by-module breakdown" },
+      { label: "All programs", href: "/courses", description: "Compare every cohort" },
+    ],
+  },
+  {
+    id: "learn-free",
+    label: "Learn Free",
+    href: "/python-course",
+    links: [
+      {
+        label: "Python Course",
+        href: "/python-course",
+        description: "24 lessons with an in-browser compiler",
+        badge: "FREE",
+      },
+      {
+        label: "Python Compiler",
+        href: "/python-course/playground",
+        description: "Run Python instantly, no signup",
+      },
+      {
+        label: "Interview Questions",
+        href: "/interview-questions",
+        description: "AI/ML questions with answers",
+      },
+      { label: "Architectures", href: "/architecture", description: "How real AI systems are wired" },
+      { label: "Blog & tutorials", href: "/blog", description: "Long-form technical guides" },
+    ],
+  },
+  {
+    id: "career",
+    label: "Career",
+    href: "/roadmap",
+    links: [
+      { label: "Career roadmaps", href: "/roadmap", description: "Step-by-step paths for 8 roles" },
+      { label: "AI Universe", href: "/universe", description: "Interactive skill map" },
+      { label: "Resume prep", href: "/resume-prep", description: "ATS-ready resumes for AI roles" },
+      { label: "1:1 mentorship", href: "/mentorship", description: "Private career guidance" },
+    ],
+  },
+  {
+    id: "about",
+    label: "About",
+    href: "/about",
+    links: [
+      { label: "About Rajinikanth", href: "/about", description: "Background and teaching approach" },
+      { label: "Student guide", href: "/student-guide", description: "New here? Start with this" },
+      { label: "Contact", href: "/contact", description: "Questions before you enroll" },
+    ],
+  },
 ];
+
+/** Flat list of every navigable page, derived from the grouped menu. */
+export const NAV_ITEMS: { label: string; href: string }[] = NAV_GROUPS.flatMap((group) =>
+  group.links.map(({ label, href }) => ({ label, href })),
+);
 
 export const STATS = [
   { value: "500+", label: "Engineers Trained" },
