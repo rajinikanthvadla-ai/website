@@ -8,18 +8,18 @@ export default function LessonMarkdown({ content }: { content: string }) {
     <ReactMarkdown
       remarkPlugins={[remarkGfm]}
       components={{
-        p: ({ children }) => <p className="text-slate-600 leading-relaxed mb-4">{children}</p>,
+        p: ({ children }) => <p className="text-slate-700 leading-8 mb-4">{children}</p>,
         ul: ({ children }) => (
-          <ul className="list-disc pl-6 space-y-2 mb-4 text-slate-600 marker:text-blue-700">{children}</ul>
+          <ul className="list-disc pl-6 space-y-2 mb-4 text-slate-700 marker:text-blue-700">{children}</ul>
         ),
-        ol: ({ children }) => <ol className="list-decimal pl-6 space-y-2 mb-4 text-slate-600">{children}</ol>,
+        ol: ({ children }) => <ol className="list-decimal pl-6 space-y-2 mb-4 text-slate-700">{children}</ol>,
         li: ({ children }) => <li className="leading-relaxed [&>p]:mb-0">{children}</li>,
         strong: ({ children }) => <strong className="text-slate-900">{children}</strong>,
         h3: ({ children }) => (
           <h3 className="font-display text-lg font-bold text-slate-900 mt-6 mb-2">{children}</h3>
         ),
         table: ({ children }) => (
-          <div className="overflow-x-auto my-5 border-2 border-slate-200 rounded-lg">
+          <div className="overflow-x-auto my-5 border border-slate-200 rounded-xl shadow-sm">
             <table className="w-full text-sm text-left">{children}</table>
           </div>
         ),
@@ -39,7 +39,7 @@ export default function LessonMarkdown({ content }: { content: string }) {
           );
         },
         pre: ({ children }) => (
-          <pre className="bg-[#0f172a] text-slate-100 text-sm p-4 rounded-lg overflow-x-auto my-4 font-mono leading-relaxed">
+          <pre className="bg-[#0f172a] text-slate-100 text-sm p-4 rounded-xl overflow-x-auto my-4 font-mono leading-relaxed [tab-size:2] shadow-sm">
             {children}
           </pre>
         ),

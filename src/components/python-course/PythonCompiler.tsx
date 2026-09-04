@@ -66,6 +66,7 @@ export default function PythonCompiler({
   useEffect(() => {
     setCode(starter);
     setOutput("");
+    setImages([]);
   }, [starter]);
 
   const run = useCallback(() => {
@@ -155,15 +156,16 @@ export default function PythonCompiler({
   const outputIsError = status === "Error" || status === "Timed out";
 
   return (
-    <div className="border-2 border-slate-900 rounded-lg overflow-hidden bg-white shadow-[4px_4px_0_#0f172a]">
-      <div className="flex flex-wrap items-center justify-between gap-2 px-3 py-2.5 bg-slate-900 text-white">
-        <div>
-          <p className="text-xs font-bold uppercase tracking-wide">{title}</p>
+    <div className="border border-slate-200 rounded-xl overflow-hidden bg-white shadow-sm">
+      <div className="flex flex-col gap-3 px-4 py-3 bg-slate-900 text-white sm:flex-row sm:items-start sm:justify-between">
+        <div className="min-w-0">
+          <p className="text-[11px] font-bold uppercase tracking-wide text-orange-300">Live Python compiler</p>
+          <p className="text-base font-bold leading-snug">{title}</p>
           {packages.length > 0 && (
-            <p className="text-[10px] text-slate-400 mt-0.5">Packages: {packages.join(", ")}</p>
+            <p className="text-xs text-slate-400 mt-1">Loads when needed: {packages.join(", ")}</p>
           )}
         </div>
-        <div className="flex flex-wrap items-center gap-1.5">
+        <div className="flex shrink-0 flex-wrap items-center gap-2">
           <CopyButton text={code} label="Copy code" />
           <button
             type="button"
@@ -173,7 +175,7 @@ export default function PythonCompiler({
               setImages([]);
               setStatus("Editor reset to the starter example.");
             }}
-            className="text-[11px] font-bold uppercase tracking-wide px-2.5 py-1 rounded border-2 border-white bg-transparent text-white hover:bg-slate-800"
+            className="text-[11px] font-bold uppercase tracking-wide px-3 py-1.5 rounded-md border border-white/70 bg-transparent text-white hover:bg-white/10"
           >
             Reset
           </button>
@@ -181,30 +183,33 @@ export default function PythonCompiler({
             type="button"
             onClick={run}
             disabled={running}
-            className="text-[11px] font-bold uppercase tracking-wide px-3 py-1 rounded border-2 border-orange-500 bg-orange-500 text-white hover:bg-orange-600 disabled:opacity-60"
+            className="text-[11px] font-bold uppercase tracking-wide px-3.5 py-1.5 rounded-md border border-orange-500 bg-orange-500 text-white hover:bg-orange-600 disabled:opacity-60"
           >
-            {running ? "Running…" : "Run"}
+            {running ? "Running…" : "Run code"}
           </button>
         </div>
       </div>
 
       {hint && (
-        <p className="px-3 py-2 text-xs text-slate-600 bg-[#fef9c3] border-b-2 border-slate-900">{hint}</p>
+        <p className="px-4 py-3 text-sm text-slate-700 bg-[#fef9c3] border-b border-slate-200">{hint}</p>
       )}
 
+      <div className="px-4 py-2 bg-slate-800 border-b border-slate-700">
+        <p className="text-[11px] font-bold uppercase tracking-wide text-slate-300">Code editor</p>
+      </div>
       <textarea
         value={code}
         onChange={(e) => setCode(e.target.value)}
         onKeyDown={onKeyDown}
         spellCheck={false}
         aria-label="Python code editor"
-        className={`w-full bg-[#0f172a] text-slate-100 font-mono text-[13px] leading-relaxed p-4 outline-none resize-y ${
+        className={`w-full bg-[#0f172a] text-slate-100 font-mono text-[13px] leading-relaxed p-4 outline-none resize-y [tab-size:2] ${
           tall ? "min-h-[320px]" : "min-h-[220px]"
         }`}
       />
 
-      <div className="border-t-2 border-slate-900 bg-slate-50">
-        <div className="flex items-center justify-between px-3 py-2 border-b border-slate-200">
+      <div className="border-t border-slate-200 bg-slate-50">
+        <div className="flex items-center justify-between gap-3 px-4 py-2.5 border-b border-slate-200">
           <p className="text-[11px] font-bold uppercase tracking-wide text-slate-500">Output</p>
           <p className={`text-[11px] font-semibold ${outputIsError ? "text-red-600" : "text-blue-700"}`}>
             {status}
@@ -233,9 +238,9 @@ export default function PythonCompiler({
           </div>
         )}
       </div>
-      <p className="px-3 py-2 text-[11px] text-slate-500 bg-white border-t border-slate-200">
-        CPython in WebAssembly. Stdlib works. NumPy, pandas, scikit-learn and Matplotlib load on demand, and charts render below.
-        No <code>input()</code>, no GPU, no network installs.
+      <p className="px-4 py-3 text-xs text-slate-500 bg-white border-t border-slate-200 leading-relaxed">
+        Runs CPython in your browser. NumPy, pandas, scikit-learn and Matplotlib load on demand. Charts appear below the
+        output. No <code>input()</code>, no GPU, no network installs.
       </p>
     </div>
   );
