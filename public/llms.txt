@@ -55,13 +55,14 @@
 - [AI Infrastructure Engineer Roadmap](https://www.rajinikanthvadla.com/roadmap/ai-infrastructure-engineer/): GPU, Kubernetes, cloud AI infra
 
 ## Free Python Course (with online compiler)
-- [Python Course Hub](https://www.rajinikanthvadla.com/python-course/): Free complete Python course for AI, ML and GenAI engineers — 24 lessons, scratch to advanced, no signup
-- [Online Python Compiler](https://www.rajinikanthvadla.com/python-course/playground/): Run real CPython in the browser (WebAssembly) with NumPy and pandas, plus AI/ML example programs
-- Module 1 Foundations: why Python for AI, variables and types, strings and text, lists/tuples/sets, dictionaries, control flow
-- Module 2 Core language: functions, comprehensions and generators, errors and exceptions, files and JSON, classes, modules and virtual environments, decorators and context managers
-- Module 3 Data and ML: type hints and dataclasses, NumPy arrays, pandas DataFrames, testing with pytest, logging and configuration
-- Module 4 GenAI and production: async Python, calling LLM APIs, NumPy to PyTorch, RAG from scratch, FastAPI model serving, production Python checklist
-- Every lesson includes clear explanations, copy-paste code examples, and an embedded compiler. Free, no signup.
+- [Python Course Hub](https://www.rajinikanthvadla.com/python-course/): Free complete Python course for AI, ML and GenAI engineers — 46 lessons, scratch to advanced, no signup
+- [Online Python Compiler](https://www.rajinikanthvadla.com/python-course/playground/): Run real CPython in the browser (WebAssembly) with NumPy, pandas, scikit-learn, Matplotlib and SQLite, plus AI/ML example programs
+- Module 1 Foundations (11 lessons): why Python for AI, syntax and indentation, variables and types, type casting, numbers and math, booleans and truthiness, strings and text, string methods and f-string formatting, lists/tuples/sets, dictionaries, control flow
+- Module 2 Core language (14 lessons): functions, lambda/map/filter/sorting, comprehensions and generators, iterators and zip, scope and closures, errors and exceptions, files and JSON, classes and objects, inheritance and dunder methods, decorators and context managers, regular expressions, dates and timezones, standard library toolkit, modules and virtual environments
+- Module 3 Data and ML (11 lessons): type hints and dataclasses, NumPy arrays, pandas DataFrames, statistics for ML, distributions and Matplotlib plotting, scikit-learn regression, scikit-learn classification and confusion matrices, pipelines/scaling/clustering, SQL and databases with sqlite3, testing with pytest, logging and configuration
+- Module 4 GenAI and production (6 lessons): async Python, calling LLM APIs, NumPy to PyTorch, RAG from scratch, FastAPI model serving, production Python checklist
+- Module 5 Quick reference (4 lessons): built-in functions, string methods, list/dict/set/tuple methods, keywords/operators/exception hierarchy
+- Every lesson includes clear explanations, copy-paste code examples, and an embedded compiler. Matplotlib charts render inline. Free, no signup.
 
 ## Courses
 

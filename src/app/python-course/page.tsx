@@ -50,11 +50,11 @@ const FAQS = [
   },
   {
     q: "Is this suitable for complete beginners?",
-    a: "Yes. Module 1 starts from what a variable is. If you already write Python, skip to Module 3 for NumPy, pandas, testing, and logging, or Module 4 for async, LLM APIs, RAG, and FastAPI.",
+    a: "Yes. Module 1 starts from what a variable is. If you already write Python, skip to Module 3 for NumPy, pandas, statistics, and scikit-learn, or Module 4 for async, LLM APIs, RAG, and FastAPI. Module 5 is a reference you can come back to.",
   },
   {
     q: "Which libraries can I run in the browser compiler?",
-    a: "The full Python standard library, plus NumPy and pandas which load on demand. PyTorch, FastAPI, and LLM SDKs need a real machine, so those lessons give complete copy-paste files to run locally.",
+    a: "The full Python standard library including sqlite3, plus NumPy, pandas, scikit-learn, and Matplotlib which load on demand. Matplotlib charts render directly under the output. PyTorch, FastAPI, and LLM SDKs need a real machine, so those lessons give complete copy-paste files to run locally.",
   },
   {
     q: "How long does the course take?",
@@ -210,7 +210,7 @@ export default function PythonCoursePage() {
               Curriculum
             </span>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-slate-900 mb-3">
-              Four modules, {PYTHON_LESSONS.length} lessons, in order
+              {PYTHON_MODULES.length} modules, {PYTHON_LESSONS.length} lessons, in order
             </h2>
             <p className="text-slate-600 max-w-2xl leading-relaxed">
               Follow it top to bottom if you are new. If you already write Python, jump into Module 3 or 4.

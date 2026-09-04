@@ -12,6 +12,7 @@ type WorkerResult = {
   result?: string;
   error?: string;
   message?: string;
+  images?: string[];
 };
 
 type Props = {
@@ -23,6 +24,9 @@ type Props = {
 };
 
 const RUN_TIMEOUT_MS = 20000;
+// Downloading the runtime and heavy wheels such as scikit-learn is slow on a
+// first visit, so the loading phase gets a much larger budget than execution.
+const LOAD_TIMEOUT_MS = 150000;
 
 function createWorker(): Worker {
   return new Worker("/python-worker.js");
@@ -37,6 +41,7 @@ export default function PythonCompiler({
 }: Props) {
   const [code, setCode] = useState(starter);
   const [output, setOutput] = useState("");
+  const [images, setImages] = useState<string[]>([]);
   const [status, setStatus] = useState("Python runs in your browser. First run downloads the runtime.");
   const [running, setRunning] = useState(false);
   const [readyOnce, setReadyOnce] = useState(false);
@@ -70,12 +75,29 @@ export default function PythonCompiler({
     const id = `run-${Date.now()}-${++runIdRef.current}`;
     setRunning(true);
     setOutput("");
+    setImages([]);
     setStatus(readyOnce ? "Running…" : "Starting Python (first load can take 10–20 seconds)…");
+
+    const armTimeout = (ms: number) => {
+      if (timeoutRef.current) window.clearTimeout(timeoutRef.current);
+      timeoutRef.current = window.setTimeout(() => {
+        worker.removeEventListener("message", onMessage);
+        resetWorker();
+        setRunning(false);
+        setStatus("Timed out");
+        setOutput(
+          ms === RUN_TIMEOUT_MS
+            ? "This run exceeded 20 seconds and was stopped. Check for infinite loops, then press Run again."
+            : "Loading the Python packages took too long. Check your connection and press Run again.",
+        );
+      }, ms);
+    };
 
     const onMessage = (event: MessageEvent<WorkerResult>) => {
       const data = event.data;
       if (data.type === "status" && data.message) {
         setStatus(data.message);
+        armTimeout(data.message === "Running…" ? RUN_TIMEOUT_MS : LOAD_TIMEOUT_MS);
         return;
       }
       if (data.id !== id || data.type !== "result") return;
@@ -87,6 +109,7 @@ export default function PythonCompiler({
       worker.removeEventListener("message", onMessage);
       setRunning(false);
       setReadyOnce(true);
+      setImages(data.images ?? []);
 
       if (!data.ok) {
         setStatus("Error");
@@ -99,21 +122,16 @@ export default function PythonCompiler({
       if (data.stderr) chunks.push(data.stderr.replace(/\n$/, ""));
       if (data.result) chunks.push(data.result);
       setStatus("Done");
-      setOutput(chunks.filter(Boolean).join("\n") || "(no output — add a print() to see results)");
+      const hasImages = (data.images ?? []).length > 0;
+      setOutput(
+        chunks.filter(Boolean).join("\n") ||
+          (hasImages ? "" : "(no output — add a print() to see results)"),
+      );
     };
 
     worker.addEventListener("message", onMessage);
     worker.postMessage({ id, code, packages });
-
-    timeoutRef.current = window.setTimeout(() => {
-      worker.removeEventListener("message", onMessage);
-      resetWorker();
-      setRunning(false);
-      setStatus("Timed out");
-      setOutput(
-        "This run exceeded 20 seconds and was stopped. Check for infinite loops, then press Run again.",
-      );
-    }, RUN_TIMEOUT_MS);
+    armTimeout(LOAD_TIMEOUT_MS);
   }, [code, packages, readyOnce, resetWorker, running]);
 
   function onKeyDown(event: React.KeyboardEvent<HTMLTextAreaElement>) {
@@ -152,6 +170,7 @@ export default function PythonCompiler({
             onClick={() => {
               setCode(starter);
               setOutput("");
+              setImages([]);
               setStatus("Editor reset to the starter example.");
             }}
             className="text-[11px] font-bold uppercase tracking-wide px-2.5 py-1 rounded border-2 border-white bg-transparent text-white hover:bg-slate-800"
@@ -191,16 +210,32 @@ export default function PythonCompiler({
             {status}
           </p>
         </div>
-        <pre
-          className={`px-4 py-3 font-mono text-[13px] leading-relaxed whitespace-pre-wrap min-h-[88px] ${
-            outputIsError ? "text-red-700 bg-red-50" : "text-slate-800"
-          }`}
-        >
-          {output || "Press Run (or Ctrl+Enter) to execute."}
-        </pre>
+        {(output || images.length === 0) && (
+          <pre
+            className={`px-4 py-3 font-mono text-[13px] leading-relaxed whitespace-pre-wrap min-h-[88px] ${
+              outputIsError ? "text-red-700 bg-red-50" : "text-slate-800"
+            }`}
+          >
+            {output || "Press Run (or Ctrl+Enter) to execute."}
+          </pre>
+        )}
+        {images.length > 0 && (
+          <div className="px-4 py-3 border-t border-slate-200 bg-white space-y-3">
+            {images.map((src, index) => (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                key={index}
+                src={`data:image/png;base64,${src}`}
+                alt={`Chart ${index + 1} generated by your Python code`}
+                className="max-w-full h-auto border border-slate-200 rounded"
+              />
+            ))}
+          </div>
+        )}
       </div>
       <p className="px-3 py-2 text-[11px] text-slate-500 bg-white border-t border-slate-200">
-        CPython in WebAssembly. Stdlib works. NumPy and pandas load on demand. No <code>input()</code>, no GPU, no network installs.
+        CPython in WebAssembly. Stdlib works. NumPy, pandas, scikit-learn and Matplotlib load on demand, and charts render below.
+        No <code>input()</code>, no GPU, no network installs.
       </p>
     </div>
   );

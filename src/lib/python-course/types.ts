@@ -4,7 +4,8 @@ export type PythonModuleId =
   | "foundations"
   | "core-language"
   | "data-ml"
-  | "genai-production";
+  | "genai-production"
+  | "reference";
 
 export type PythonExample = {
   title: string;

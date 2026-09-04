@@ -17,14 +17,15 @@ export const MODULE_1_LESSONS: PythonLesson[] = [
         heading: "What you will learn in this course",
         body: `This is a **free, self-paced Python course** written for people who want to become AI/ML engineers or GenAI engineers — including those starting from zero.
 
-You will move through four modules:
+You will move through five modules:
 
-1. **Foundations** — how Python stores values, text, collections, and decisions.
-2. **Core language** — functions, files, errors, classes, and how to structure programs.
-3. **Data and ML Python** — type hints, NumPy, pandas, tests, and logging.
+1. **Foundations** — syntax, how Python stores values, text, collections, and decisions.
+2. **Core language** — functions, iterators, files, errors, classes, regex, dates, and how to structure programs.
+3. **Data and ML Python** — type hints, NumPy, pandas, statistics, plotting, scikit-learn, databases, tests, and logging.
 4. **GenAI and production** — HTTP/JSON, tensor thinking, prompts, FastAPI-style services, RAG building blocks, and production habits.
+5. **Quick reference** — built-ins, string and collection methods, keywords, operators, and exceptions, for looking things up later.
 
-Every lesson has a short explanation, copy-paste examples, and a **live compiler** so you can run code without installing anything. The compiler is real CPython running in your browser (WebAssembly). It is perfect for learning. Production libraries such as PyTorch and FastAPI are shown as copy-paste examples you run locally later.`,
+Every lesson has a short explanation, copy-paste examples, and a **live compiler** so you can run code without installing anything. The compiler is real CPython running in your browser (WebAssembly), and it can load NumPy, pandas, scikit-learn, Matplotlib, and SQLite on demand — charts render right under the output. Production libraries such as PyTorch and FastAPI are shown as copy-paste examples you run locally later.`,
       },
       {
         heading: "Why teams standardised on Python",

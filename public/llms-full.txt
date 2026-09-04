@@ -139,26 +139,37 @@ Cursor, OpenAI Codex, ChatGPT/GPT-4o, Claude AI, Gemini, AWS Bedrock, Amazon Q, 
 **Compiler:** https://www.rajinikanthvadla.com/python-course/playground/
 **Price:** Free. No signup, no account, no installation.
 
-A 24-lesson Python course written for people targeting AI/ML engineer, GenAI engineer, MLOps
+A 46-lesson Python course written for people targeting AI/ML engineer, GenAI engineer, MLOps
 and LLMOps roles. Starts from what a variable is and ends with async LLM batching, RAG
-pipelines, and FastAPI model serving. Every lesson has clear explanations, copy-paste code
-examples, and an embedded compiler that runs real CPython in the browser via WebAssembly.
+pipelines, and FastAPI model serving. Coverage is comparable in breadth to W3Schools with an
+AI/ML focus throughout. Every lesson has clear explanations, copy-paste code examples, and an
+embedded compiler that runs real CPython in the browser via WebAssembly.
 
-### Module 1 — Python foundations (beginner)
-Why Python for AI/ML/GenAI · Variables, types and operators · Strings and text (prompts,
-f-strings, slicing) · Lists, tuples and sets · Dictionaries (JSON and API payloads) ·
-Control flow (training loops, filtering, early stopping)
+### Module 1 — Python foundations (beginner, 11 lessons)
+Why Python for AI/ML/GenAI · Syntax, indentation and comments · Variables, types and operators ·
+Type casting and conversion · Numbers, math and randomness · Booleans, comparisons and
+truthiness · Strings and text (prompts, f-strings, slicing) · String methods and formatting ·
+Lists, tuples and sets · Dictionaries (JSON and API payloads) · Control flow (training loops,
+filtering, early stopping)
 
-### Module 2 — Core language (intermediate)
-Functions and arguments · Comprehensions and generators (streaming batches) · Errors and
+### Module 2 — Core language (intermediate, 14 lessons)
+Functions and arguments · Lambda, map, filter and sorting · Comprehensions and generators
+(streaming batches) · Iterators, iterables and zip · Scope, closures and mutability · Errors and
 exceptions (retry with backoff) · Files, JSON and pathlib (JSONL datasets) · Classes and
-objects (retrievers, __call__, inheritance) · Modules, packages and virtual environments ·
-Decorators and context managers
+objects (retrievers, __call__) · Inheritance, polymorphism and dunder methods · Decorators and
+context managers · Regular expressions · Dates, times and timezones · The standard library
+toolkit (collections, functools, itertools) · Modules, packages and virtual environments
 
-### Module 3 — Python for data and ML (intermediate/advanced)
+### Module 3 — Python for data and ML (intermediate/advanced, 11 lessons)
 Type hints and dataclasses (plus pydantic) · NumPy arrays, broadcasting and cosine similarity ·
-pandas for datasets, groupby and cost reports · Testing ML code with pytest (mocking LLMs,
-invariants, regression gates) · Logging, configuration and secrets
+pandas for datasets, groupby and cost reports · Statistics for machine learning (mean/median,
+variance, percentiles, IQR outliers) · Distributions and Matplotlib plotting (histograms,
+training curves, scatter) · scikit-learn regression (train/test split, MAE/RMSE/R², polynomial
+overfitting) · scikit-learn classification (confusion matrix, precision/recall/F1, threshold
+tuning, ROC AUC) · Pipelines, scaling, encoding, cross-validation, grid search and K-means
+clustering · Databases and SQL from Python (sqlite3, parameterised queries, read_sql_query) ·
+Testing ML code with pytest (mocking LLMs, invariants, regression gates) · Logging,
+configuration and secrets
 
 ### Module 4 — GenAI and production (advanced)
 Async Python and concurrency (semaphores, gather) · Calling LLM APIs (payloads, structured
@@ -167,10 +178,17 @@ Build a RAG pipeline in pure Python (chunk, embed, retrieve, rank, prompt) · Se
 with FastAPI (lifespan loading, health/ready, Docker) · Production Python checklist (ruff,
 mypy, pytest, reproducibility, profiling)
 
+### Module 5 — Quick reference (4 lessons)
+Built-in functions reference (conversion, aggregation, introspection) · String methods
+reference (cleaning, searching, splitting, f-string specifiers) · List, dict, set and tuple
+reference (methods plus performance characteristics) · Keywords, operators and exceptions
+reference (35 keywords, precedence, walrus, match/case, exception hierarchy)
+
 ### Compiler capabilities
-Full Python standard library. NumPy and pandas load on demand. No input(), no network calls,
-no GPU, 20-second run limit. Lessons requiring PyTorch, FastAPI or LLM SDKs provide complete
-copy-paste files to run locally.
+Full Python standard library including sqlite3. NumPy, pandas, scikit-learn and Matplotlib load
+on demand, and Matplotlib figures render as images below the output. No input(), no network
+calls, no GPU, 20-second execution limit. Lessons requiring PyTorch, FastAPI or LLM SDKs provide
+complete copy-paste files to run locally.
 
 ---
 
