@@ -1,7 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import PythonCompiler from "./PythonCompiler";
+import {
+  decodeShareCode,
+  encodeShareCode,
+  loadPlaygroundDraft,
+  savePlaygroundDraft,
+} from "@/lib/python-course/code-storage";
 
 type Preset = {
   id: string;
@@ -78,74 +85,37 @@ for hit in retriever.search("python llm"):
 
 labels = ["mlops", "llmops", "data engineering", "frontend"]
 docs = np.array([
-    [0.9, 0.3, 0.1, 0.0],
-    [0.8, 0.6, 0.1, 0.0],
-    [0.4, 0.2, 0.9, 0.0],
-    [0.0, 0.1, 0.0, 0.9],
+    [1.0, 0.8, 0.2, 0.1],
+    [0.7, 1.0, 0.3, 0.0],
+    [0.4, 0.2, 1.0, 0.1],
+    [0.1, 0.0, 0.2, 1.0],
 ], dtype=np.float32)
 
-query = np.array([0.85, 0.5, 0.1, 0.0], dtype=np.float32)
+query = np.array([0.9, 0.7, 0.2, 0.0], dtype=np.float32)
+query = query / np.linalg.norm(query)
+sims = docs @ query
+order = np.argsort(-sims)
 
-docs_n = docs / np.linalg.norm(docs, axis=1, keepdims=True)
-scores = docs_n @ (query / np.linalg.norm(query))
-
-for idx in np.argsort(-scores):
-    print(f"{labels[idx]:20s} {scores[idx]:.4f}")
+print("query similar to:")
+for i in order[:3]:
+    print(f"  {labels[i]:18s}  score={sims[i]:.3f}")
 `,
   },
   {
     id: "pandas",
-    label: "pandas report",
-    description: "Group LLM calls by model and compute cost.",
-    packages: ["pandas", "numpy"],
+    label: "pandas filter",
+    description: "Tiny dataframe of model scores.",
+    packages: ["pandas"],
     code: `import pandas as pd
 
-calls = pd.DataFrame({
-    "model": ["mini", "mini", "large", "large", "mini"],
-    "prompt_tokens": [500, 700, 1200, 900, 400],
-    "completion_tokens": [120, 200, 450, 380, 90],
-    "latency_ms": [620, 700, 1800, 1650, 540],
+df = pd.DataFrame({
+    "id": ["a", "b", "c", "d"],
+    "label": ["pos", "neg", "pos", "neu"],
+    "score": [0.91, 0.42, 0.77, 0.55],
 })
-
-price_per_1k = {"mini": 0.0006, "large": 0.009}
-calls["total_tokens"] = calls["prompt_tokens"] + calls["completion_tokens"]
-calls["cost_usd"] = [
-    row.total_tokens / 1000 * price_per_1k[row.model] for row in calls.itertuples()
-]
-
-summary = calls.groupby("model").agg(
-    calls=("model", "size"),
-    tokens=("total_tokens", "sum"),
-    avg_latency=("latency_ms", "mean"),
-    cost_usd=("cost_usd", "sum"),
-).round(4)
-
-print(calls)
-print("---")
-print(summary)
-`,
-  },
-  {
-    id: "async",
-    label: "Async batching",
-    description: "Concurrent calls with a semaphore.",
-    packages: [],
-    code: `import asyncio
-import time
-
-limit = asyncio.Semaphore(5)
-
-async def fake_llm(i):
-    async with limit:
-        await asyncio.sleep(0.2)
-        return f"answer-{i}"
-
-start = time.perf_counter()
-results = await asyncio.gather(*(fake_llm(i) for i in range(10)))
-elapsed = (time.perf_counter() - start) * 1000
-
-print(results)
-print(f"10 calls in {elapsed:.0f} ms (sequential would be ~2000 ms)")
+kept = df[df["score"] >= 0.7]
+print(kept)
+print("mean kept score:", round(kept["score"].mean(), 3))
 `,
   },
   {
@@ -187,7 +157,87 @@ print("Question:", query)
 ];
 
 export default function PlaygroundView() {
-  const [active, setActive] = useState(PRESETS[0]);
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
+  const [active, setActive] = useState<Preset>(PRESETS[0]);
+  const [starter, setStarter] = useState(PRESETS[0].code);
+  const [editorKey, setEditorKey] = useState("blank");
+  const [ready, setReady] = useState(false);
+  const [shareNote, setShareNote] = useState("");
+  const [draftCode, setDraftCode] = useState(PRESETS[0].code);
+
+  useEffect(() => {
+    const encoded = searchParams.get("c");
+    const shared = encoded ? decodeShareCode(encoded) : null;
+    if (shared) {
+      const sharedPreset: Preset = {
+        id: "shared",
+        label: "Shared",
+        description: "Loaded from a share link.",
+        packages: [],
+        code: shared,
+      };
+      setActive(sharedPreset);
+      setStarter(shared);
+      setDraftCode(shared);
+      setEditorKey(`shared-${(encoded || "link").slice(0, 12)}`);
+      setReady(true);
+      return;
+    }
+
+    const draft = loadPlaygroundDraft();
+    if (draft) {
+      const preset = PRESETS.find((item) => item.id === draft.presetId) || {
+        id: "draft",
+        label: "Saved draft",
+        description: "Restored from this device.",
+        packages: draft.packages,
+        code: draft.code,
+      };
+      setActive({ ...preset, code: draft.code, packages: draft.packages.length ? draft.packages : preset.packages });
+      setStarter(draft.code);
+      setDraftCode(draft.code);
+      setEditorKey(preset.id);
+      setReady(true);
+      return;
+    }
+
+    setReady(true);
+  }, [searchParams]);
+
+  useEffect(() => {
+    if (!ready) return;
+    const timer = window.setTimeout(() => {
+      savePlaygroundDraft(draftCode, active.packages, active.id);
+    }, 400);
+    return () => window.clearTimeout(timer);
+  }, [draftCode, active.packages, active.id, ready]);
+
+  function loadPreset(preset: Preset) {
+    setActive(preset);
+    setStarter(preset.code);
+    setDraftCode(preset.code);
+    setEditorKey(`${preset.id}-${Date.now()}`);
+    setShareNote("");
+    router.replace(pathname);
+  }
+
+  async function copyShareLink() {
+    try {
+      const encoded = encodeShareCode(draftCode);
+      if (encoded.length > 1800) {
+        setShareNote("Code is a bit long for a link. Shorten it, or keep using save on this device.");
+        return;
+      }
+      const url = `${window.location.origin}${pathname}?c=${encoded}`;
+      await navigator.clipboard.writeText(url);
+      setShareNote("Share link copied. Anyone with the link can open this code.");
+      router.replace(`${pathname}?c=${encoded}`);
+    } catch {
+      setShareNote("Could not copy the link. Your code is still saved on this device.");
+    }
+  }
 
   return (
     <div className="max-w-5xl mx-auto px-6 py-12 md:py-16">
@@ -198,19 +248,27 @@ export default function PlaygroundView() {
       <h1 className="font-display text-3xl md:text-4xl font-bold text-slate-900 mb-3">
         Python playground
       </h1>
-      <p className="text-slate-600 leading-relaxed mb-8 max-w-2xl">
-        Real CPython running in your browser. Write anything, load a preset, and press Run. Nothing is
-        installed and your code never leaves this tab.
+      <p className="text-slate-600 leading-relaxed mb-6 max-w-2xl">
+        Real CPython in your browser. Your last draft is saved on this device. You can also copy a share link.
       </p>
 
       <div className="mb-6">
-        <p className="text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-2">Load an example</p>
+        <div className="flex flex-wrap items-center justify-between gap-3 mb-2">
+          <p className="text-[11px] font-bold uppercase tracking-wide text-slate-500">Load an example</p>
+          <button
+            type="button"
+            onClick={copyShareLink}
+            className="text-xs font-bold uppercase tracking-wide px-3 py-2 rounded-md border-2 border-slate-900 bg-white hover:bg-[#fef9c3]"
+          >
+            Copy share link
+          </button>
+        </div>
         <div className="flex flex-wrap gap-2">
           {PRESETS.map((preset) => (
             <button
               key={preset.id}
               type="button"
-              onClick={() => setActive(preset)}
+              onClick={() => loadPreset(preset)}
               className={`text-sm font-semibold px-3.5 py-2 rounded-lg border-2 border-slate-900 transition-colors ${
                 active.id === preset.id
                   ? "bg-slate-900 text-white"
@@ -222,15 +280,23 @@ export default function PlaygroundView() {
           ))}
         </div>
         <p className="text-sm text-slate-600 mt-3">{active.description}</p>
+        {shareNote && <p className="text-sm text-emerald-700 mt-2">{shareNote}</p>}
       </div>
 
-      <PythonCompiler
-        key={active.id}
-        starter={active.code}
-        packages={active.packages}
-        title={`Playground — ${active.label}`}
-        tall
-      />
+      {ready ? (
+        <PythonCompiler
+          key={editorKey}
+          starter={starter}
+          packages={active.packages}
+          title={`Playground - ${active.label}`}
+          tall
+          onCodeChange={setDraftCode}
+        />
+      ) : (
+        <div className="rounded-xl border border-zinc-700 bg-black text-zinc-400 px-4 py-16 text-center font-mono text-sm">
+          Loading editor...
+        </div>
+      )}
     </div>
   );
 }

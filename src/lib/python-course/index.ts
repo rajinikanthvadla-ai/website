@@ -9,6 +9,18 @@ import { MODULE_4_LESSONS } from "./module-4";
 import { MODULE_5_LESSONS } from "./module-5";
 
 export type { PythonLesson, PythonModule, PythonModuleId, PythonLevel, PythonExample } from "./types";
+export {
+  DAILY_CHALLENGES,
+  getChallengeForDate,
+  challengeDateKey,
+  type DailyChallenge,
+} from "./challenges";
+export {
+  PRACTICE_TOPICS,
+  PRACTICE_TOPIC_SLUGS,
+  getPracticeTopic,
+  type PracticeTopic,
+} from "./topics";
 
 export const PYTHON_MODULES: PythonModule[] = [
   {
@@ -134,6 +146,10 @@ const UNLISTED = ALL_LESSONS.filter((lesson) => !ORDERED_SLUGS.has(lesson.slug))
 export const PYTHON_LESSONS: PythonLesson[] = [...ORDERED, ...UNLISTED];
 
 export const PYTHON_LESSON_SLUGS = PYTHON_LESSONS.map((lesson) => lesson.slug);
+
+export const FOUNDATIONS_LESSON_SLUGS = PYTHON_LESSONS.filter(
+  (lesson) => lesson.moduleId === "foundations",
+).map((lesson) => lesson.slug);
 
 export const TOTAL_LESSONS = PYTHON_LESSONS.length;
 

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Suspense } from "react";
 import PlaygroundView from "@/components/python-course/PlaygroundView";
 import { SITE } from "@/lib/constants";
 import { PYTHON_LESSONS } from "@/lib/python-course";
@@ -9,7 +10,7 @@ const CANONICAL = `${SITE.url}/python-course/playground/`;
 export const metadata: Metadata = {
   title: "Online Python Compiler — Run Python in Your Browser",
   description:
-    "Free online Python compiler. Run real CPython in your browser with NumPy and pandas support. No signup, no installation, includes ready-made AI and ML examples.",
+    "Free online Python compiler. Run real CPython in your browser with NumPy and pandas support. No signup, no installation, save drafts and share links.",
   keywords: [
     "online python compiler",
     "run python in browser",
@@ -45,20 +46,31 @@ export default function PythonPlaygroundPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(appLd) }} />
-      <PlaygroundView />
+      <Suspense
+        fallback={
+          <div className="max-w-5xl mx-auto px-6 py-16 text-slate-500 font-mono text-sm">
+            Loading playground...
+          </div>
+        }
+      >
+        <PlaygroundView />
+      </Suspense>
 
       <section className="border-t-2 border-slate-900 bg-slate-50 py-14">
         <div className="max-w-5xl mx-auto px-6">
           <h2 className="font-display text-2xl font-bold text-slate-900 mb-3">Learn while you experiment</h2>
           <p className="text-slate-600 mb-6 max-w-2xl leading-relaxed">
             The playground is the same compiler used throughout the free Python course. Each lesson explains a
-            concept, gives copy-paste examples, and drops you into an editor to try it.
+            concept, shows real-time examples, and lets you run code in the page.
           </p>
           <div className="flex flex-wrap gap-2">
             <Link href="/python-course/" className="notion-btn notion-btn--ink">
               Course home
             </Link>
-            {PYTHON_LESSONS.slice(0, 5).map((lesson) => (
+            <Link href="/python-course/challenge/" className="notion-btn notion-btn--accent">
+              Daily challenge
+            </Link>
+            {PYTHON_LESSONS.slice(0, 4).map((lesson) => (
               <Link
                 key={lesson.slug}
                 href={`/python-course/${lesson.slug}/`}

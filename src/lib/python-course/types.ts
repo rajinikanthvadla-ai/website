@@ -9,13 +9,24 @@ export type PythonModuleId =
 
 export type PythonExample = {
   title: string;
+  /** Easy, human meaning of the idea (plain English). */
   note: string;
   code: string;
+  /** Why we show this real-time example. */
+  why?: string;
+  /** How the same idea shows up in real AI / ML coding. */
+  aiMl?: string;
+  /** A simple real-world analogy. */
+  analogy?: string;
 };
 
 export type PythonSection = {
   heading: string;
   body: string;
+  /** Tiny W3Schools-style starter shown under the explanation. */
+  basicCode?: string;
+  /** One-line tip above the tiny starter. */
+  basicTip?: string;
 };
 
 export type PythonLesson = {

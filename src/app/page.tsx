@@ -223,7 +223,7 @@ function SeoDiscoverSection() {
           <Link href="/python-course/" className="text-[#0f172a] font-bold underline underline-offset-2">
             free Python course
           </Link>{" "}
-          takes you from scratch to advanced with copy-paste examples and an{" "}
+          takes you from scratch to advanced with real-time examples and an{" "}
           <Link href="/python-course/playground/" className="text-[#0f172a] font-bold underline underline-offset-2">
             online Python compiler
           </Link>{" "}

@@ -3,565 +3,487 @@ import type { PythonLesson } from "./types";
 export const MODULE_1_LESSONS: PythonLesson[] = [
   {
     slug: "why-python-for-ai",
-    title: "Why Python for AI, ML, and GenAI",
+    title: "Python Intro",
     moduleId: "foundations",
     level: "beginner",
     minutes: 12,
     summary:
-      "Start here. See why Python is the default language for machine learning and generative AI, how this course is organised, and run your first program in the on-site compiler.",
+      "Learn why Python is used for AI, how this course is organised, and run your first program.",
     whyForAi:
-      "Job descriptions for ML engineers, GenAI engineers, MLOps, and LLMOps almost always list Python first. PyTorch, Hugging Face, LangChain, FastAPI, pandas, and most RAG tooling are Python-native. You will write training scripts, data jobs, APIs, and agent glue in this language.",
+      "Most ML and GenAI tools are written in Python. Start here, then build up.",
     packages: [],
     sections: [
       {
-        heading: "What you will learn in this course",
-        body: `This is a **free, self-paced Python course** written for people who want to become AI/ML engineers or GenAI engineers — including those starting from zero.
+        heading: "What is this course?",
+        basicTip: "Print a short message.",
+        basicCode: `print("Hello, AI engineer")`,
+        body: `This is a free Python course for AI, ML, and GenAI beginners.
 
-You will move through five modules:
+You will learn:
 
-1. **Foundations** — syntax, how Python stores values, text, collections, and decisions.
-2. **Core language** — functions, iterators, files, errors, classes, regex, dates, and how to structure programs.
-3. **Data and ML Python** — type hints, NumPy, pandas, statistics, plotting, scikit-learn, databases, tests, and logging.
-4. **GenAI and production** — HTTP/JSON, tensor thinking, prompts, FastAPI-style services, RAG building blocks, and production habits.
-5. **Quick reference** — built-ins, string and collection methods, keywords, operators, and exceptions, for looking things up later.
+- Basic Python syntax
+- Data and ML libraries later
+- GenAI habits at the end
 
-Every lesson has a short explanation, copy-paste examples, and a **live compiler** so you can run code without installing anything. The compiler is real CPython running in your browser (WebAssembly), and it can load NumPy, pandas, scikit-learn, Matplotlib, and SQLite on demand — charts render right under the output. Production libraries such as PyTorch and FastAPI are shown as copy-paste examples you run locally later.`,
+Each lesson has short text, a tiny example, and a live editor.`,
       },
       {
-        heading: "Why teams standardised on Python",
-        body: `Python is not the fastest language. Teams use it because **the ecosystem is unmatched** for data and models:
+        heading: "Why Python?",
+        basicTip: "Store a name, then print it.",
+        basicCode: `model = "gpt-4.1-mini"
+print(model)`,
+        body: `Python is popular for AI because of its libraries:
 
-- **NumPy / pandas** for arrays and tables
-- **PyTorch / scikit-learn** for training
-- **Hugging Face** for models and tokenizers
-- **FastAPI** for model and agent APIs
-- **LangChain / LangGraph** for LLM apps
+- NumPy and pandas for data
+- scikit-learn and PyTorch for models
+- FastAPI for APIs
 
-Readability matters. An ML pipeline is mostly glue: load data, transform it, call a model, write metrics, expose an endpoint. Clear Python is easier to review, test, and hand to the next engineer.
-
-Three places you will use Python on the job:
-
-| Place | Typical file | What it does |
-| --- | --- | --- |
-| Research | notebook or \`train.py\` | Experiment and fit a model |
-| Service | \`app.py\` / FastAPI | Serve predictions or an LLM |
-| Ops | jobs, CI, eval scripts | Data, monitoring, evaluation |`,
+You write clear glue code: load data, call a model, show a result.`,
       },
       {
-        heading: "Your first program",
-        body: `Python runs **top to bottom**. \`print()\` writes text to the output. Lines starting with \`#\` are comments and are ignored.
+        heading: "Your First Program",
+        basicTip: "Comments and print.",
+        basicCode: `# This is a comment
+print("Python runs top to bottom")
+print(2 + 2)`,
+        body: `Python runs from top to bottom.
 
-Indentation is syntax, not style. Other languages use braces \`{}\`. Python uses spaces. We will use **four spaces** everywhere. Mixing tabs and spaces causes errors — a common beginner trap.
+- \`print()\` shows output
+- \`#\` starts a comment
+- Indentation matters (use four spaces)
 
-Names should describe the value: \`learning_rate\` not \`lr1\`. That habit pays off when you read training configs six months later.`,
+Common mistake: treating indentation as optional. A wrong indent is a syntax error.`,
       },
     ],
     examples: [
       {
-        title: "Hello, engineer",
-        note: "print() shows values. Comments start with #.",
-        code: `# Python runs line by line.
-print("Hello, AI engineer")
-print("Python is the language of ML, GenAI, and MLOps.")`,
-      },
-      {
-        title: "A tiny config you will see in every training script",
-        note: "You are just storing numbers and text in names. Next lesson covers types in detail.",
-        code: `model_name = "bert-base-uncased"
+        title: "AI / ML: tiny config",
+        note: "Store settings in variables, then print them.",
+        aiMl: "Training scripts start with small config values like this.",
+        code: `model_name = "bert-base"
 batch_size = 32
-learning_rate = 0.00002
-print("model:", model_name)
-print("batch_size:", batch_size)
-print("learning_rate:", learning_rate)`,
+print(model_name)
+print(batch_size)`,
       },
     ],
     tryIt: {
       title: "Run your first program",
-      hint: "Change the role string and press Run. Use Ctrl+Enter as a shortcut.",
+      hint: "Change the role string and press Run.",
       starter: `role = "GenAI engineer"
 print("I am learning Python to become a", role)
 print(2 + 2)`,
     },
     takeaways: [
-      "Python is the shared language of ML training, GenAI apps, and MLOps glue code.",
-      "This site includes a real in-browser compiler — use it on every lesson.",
-      "print() displays output; # starts a comment; indentation is required.",
+      "Python is the main language for ML and GenAI.",
+      "print() shows output. # starts a comment.",
+      "Indentation is required in Python.",
     ],
   },
   {
     slug: "variables-types-operators",
-    title: "Variables, types, and operators",
+    title: "Python Variables",
     moduleId: "foundations",
     level: "beginner",
     minutes: 18,
     summary:
-      "Names, numbers, booleans, and None — the values every hyperparameter, metric, and flag is built from.",
+      "Create variables, check types, and use operators. These are the building blocks of every script.",
     whyForAi:
-      "Learning rates, batch sizes, temperature, max tokens, and confidence thresholds are ordinary Python values. Getting types wrong (string \"0.2\" instead of float 0.2) is a real production bug in config files and LLM API calls.",
+      "Learning rates, batch sizes, and scores are ordinary Python values.",
     packages: [],
     sections: [
       {
-        heading: "Names are labels, not boxes",
-        body: `A variable is a **name bound to a value**. Python does not make you declare a type. The value has a type; the name can be rebound later.
+        heading: "Creating Variables",
+        basicTip: "A name holds a value.",
+        basicCode: `score = 0.91
+print(score)
+print(type(score))`,
+        body: `A variable is a name bound to a value.
 
-\`type(x)\` tells you the type. Use it while learning. In production you will prefer type hints (a later lesson) plus tests.
+Common types:
 
-Common built-in types:
+- \`int\` - whole numbers like \`32\`
+- \`float\` - decimals like \`0.001\`
+- \`bool\` - \`True\` or \`False\`
+- \`None\` - no value
 
-- **int** — whole numbers: \`32\`, \`0\`, \`-1\`
-- **float** — decimals: \`0.001\`, \`3.14\`
-- **bool** — \`True\` or \`False\` (capital T/F)
-- **str** — text (next lesson)
-- **None** — “no value”, used for missing optional settings
-
-\`None\` is not the string \`"None"\` and not \`0\`. Model APIs often use \`None\` to mean “use the server default”.`,
+Use \`type(x)\` to check the type.
+Common mistake: treating \`None\` like the string \`"None"\`.`,
       },
       {
-        heading: "Operators you will actually use",
-        body: `Arithmetic: \`+\` \`-\` \`*\` \`/\` (always float) \`//\` (integer divide) \`%\` (remainder) \`**\` (power).
+        heading: "Operators",
+        basicTip: "Compare a score to a threshold.",
+        basicCode: `score = 0.82
+threshold = 0.7
+print(score >= threshold)`,
+        body: `Arithmetic: \`+\` \`-\` \`*\` \`/\` \`//\` \`%\` \`**\`
 
-Comparisons return bools: \`==\` \`!=\` \`<\` \`>\` \`<=\` \`>=\`.
+Comparisons return bools: \`==\` \`!=\` \`<\` \`>\` \`<=\` \`>=\`
 
-Logic: \`and\`, \`or\`, \`not\`. These show up in filters (“keep rows where score > 0.7 and label is not None”).
+Logic: \`and\`, \`or\`, \`not\`
 
-Division with \`/\` on two ints still returns a float (\`5 / 2\` is \`2.5\`). Use \`//\` when you need an int index into a list.`,
+\`/\` always returns a float. Use \`//\` for a whole number.
+Common mistake: using \`/\` when you need an int index.`,
       },
     ],
     examples: [
       {
-        title: "Inspect types",
-        note: "type() is a learning tool. Read the output carefully.",
+        title: "AI / ML: inspect types",
+        note: "type() shows what Python thinks a value is.",
+        aiMl: "Hyperparameters mix ints, floats, bools, and None.",
         code: `epochs = 10
 learning_rate = 3e-5
 enabled = True
-api_key = None
-
-print(type(epochs), epochs)
-print(type(learning_rate), learning_rate)
-print(type(enabled), enabled)
-print(type(api_key), api_key)`,
+print(type(epochs))
+print(type(learning_rate))
+print(type(enabled))`,
       },
       {
-        title: "Thresholds and flags",
-        note: "This is the same logic you will write for confidence filtering.",
+        title: "AI / ML: threshold check",
+        note: "A comparison turns a score into keep or drop.",
+        aiMl: "Classifiers often keep predictions only above a threshold.",
         code: `score = 0.82
 threshold = 0.7
-is_confident = score >= threshold
-print("confident:", is_confident)
-
-temperature = 0.2
-use_greedy = temperature == 0
-print("greedy decoding:", use_greedy)`,
-      },
-      {
-        title: "Integer vs float division",
-        note: "Batching often needs // to get a whole number of steps.",
-        code: `n_samples = 1000
-batch_size = 32
-n_batches = n_samples // batch_size
-leftover = n_samples % batch_size
-print("full batches:", n_batches)
-print("leftover samples:", leftover)
-print("true divide:", n_samples / batch_size)`,
+print(score >= threshold)`,
       },
     ],
     tryIt: {
-      title: "Practice: learning-rate sanity check",
-      hint: "Change learning_rate to 3e-2 and see whether the warning prints.",
+      title: "Practice variables",
+      hint: "Change learning_rate and press Run.",
       starter: `learning_rate = 3e-5
 batch_size = 16
-max_tokens = 512
-
-print("lr type:", type(learning_rate).__name__)
-print("too high?", learning_rate > 0.01)
-print("steps for 1000 rows:", 1000 // batch_size)
-print("max_tokens is set:", max_tokens is not None)`,
+print(type(learning_rate).__name__)
+print(learning_rate > 0.01)
+print(1000 // batch_size)`,
     },
     takeaways: [
-      "Values have types (int, float, bool, None). Names just point at values.",
-      "Use / for real division and // when you need a whole number.",
-      "True/False/None are capitalized. They are not strings.",
+      "Values have types. Names point at values.",
+      "Use / for float divide and // for whole numbers.",
+      "True, False, and None are capitalized.",
     ],
   },
   {
     slug: "strings-and-text",
-    title: "Strings and text",
+    title: "Python Strings",
     moduleId: "foundations",
     level: "beginner",
     minutes: 20,
     summary:
-      "Text is the raw material of NLP and GenAI. Learn quotes, f-strings, slicing, and the methods you will use on prompts and documents.",
+      "Create strings, use f-strings, slice text, and clean whitespace.",
     whyForAi:
-      "Prompts, system messages, retrieved chunks, JSON payloads, and log lines are all strings. Token counts correlate with length. Cleaning whitespace and building prompts with f-strings is daily work for GenAI engineers.",
+      "Prompts, chunks, and log lines are all strings.",
     packages: [],
     sections: [
       {
-        heading: "Creating and combining strings",
-        body: `Use single or double quotes. For multi-line text (prompts, docs) use triple quotes \`"""..."""\`.
+        heading: "Creating Strings",
+        basicTip: "Make a string and print its length.",
+        basicCode: `name = "RAG"
+print(name)
+print(len(name))`,
+        body: `Use single or double quotes. Use triple quotes for multi-line text.
 
-Concatenate with \`+\`, or better, **f-strings**: \`f"Model {name} scored {score:.2f}"\`. F-strings keep prompts readable.
+Prefer f-strings: \`f"Model {name}"\`
 
-\`len(s)\` is the number of characters, not tokens. Character length is still a useful proxy when you do not have a tokenizer loaded.
+\`len(s)\` counts characters.
 
-Strings are **immutable**. \`s.upper()\` returns a new string; \`s\` does not change unless you assign the result back.`,
+Strings are immutable. \`s.upper()\` returns a new string.
+Common mistake: expecting \`s.upper()\` to change \`s\` in place.`,
       },
       {
-        heading: "Slicing, splitting, and stripping",
-        body: `Indexing: \`s[0]\` is the first character. \`s[-1]\` is the last. Slices: \`s[0:50]\` is the first 50 characters (end index is exclusive).
+        heading: "Slicing and Cleaning",
+        basicTip: "Strip spaces, then take a slice.",
+        basicCode: `text = "  Hello GenAI  "
+clean = text.strip()
+print(clean)
+print(clean[:5])`,
+        body: `\`s[0]\` is the first character. \`s[-1]\` is the last.
 
-\`split()\` breaks on whitespace by default — useful for a crude word count. \`strip()\` removes leading/trailing whitespace, which you should do on every user prompt before sending it to a model.
+\`s[0:5]\` is the first 5 characters (end index not included).
 
-\`in\` checks substring membership: \`"error" in message.lower()\`.
-
-Escape sequences: \`\\n\` is a newline. In prompts, extra blank lines change model behaviour more than people expect — keep prompt templates tidy.`,
+\`strip()\` removes leading and trailing spaces.
+\`split()\` breaks text into a list of words.
+Common mistake: sending padded text to a model without stripping.`,
       },
     ],
     examples: [
       {
-        title: "F-string prompt template",
-        note: "This is the pattern behind most LLM wrappers before you add a library.",
-        code: `user_question = "What is MLOps?"
-context = "MLOps is how teams deploy and monitor ML models."
-
-prompt = f"""You are a precise assistant.
-Use only the context.
-
-Context:
-{context}
-
-Question: {user_question}
-Answer:"""
-
-print(prompt)
-print("---")
-print("characters:", len(prompt))`,
+        title: "AI / ML: f-string prompt",
+        note: "Put variables into a prompt with curly braces.",
+        aiMl: "Chat apps build prompts from system text and user questions.",
+        code: `question = "What is MLOps?"
+context = "MLOps deploys and monitors models."
+prompt = f"Context: {context}\\nQ: {question}"
+print(prompt)`,
       },
       {
-        title: "Clean user text before it hits a model",
-        note: "strip, lower, and a length guard prevent empty or huge prompts.",
-        code: `raw = "   What is RAG?   \\n"
+        title: "AI / ML: clean user text",
+        note: "strip() removes extra spaces before a model call.",
+        aiMl: "Before RAG or chat, engineers strip and reject empty prompts.",
+        code: `raw = "   What is RAG?   "
 clean = raw.strip()
-print(repr(raw))
-print(repr(clean))
-print("empty?", clean == "")
-print("too long?", len(clean) > 4000)
-print("words (rough):", len(clean.split()))`,
-      },
-      {
-        title: "Slice a long document into a preview",
-        note: "End index is exclusive. Add an ellipsis when truncated.",
-        code: `doc = "Retrieval-Augmented Generation grounds an LLM in your own documents."
-preview = doc[:40]
-print(preview + ("..." if len(doc) > 40 else ""))
-print("starts with Retrieval?", doc.startswith("Retrieval"))
-print("mentions LLM?", "LLM" in doc)`,
+print(clean)
+print(clean == "")`,
       },
     ],
     tryIt: {
-      title: "Build a system + user prompt",
-      hint: "Edit the context and question, then print character counts for each part.",
-      starter: `system = "You answer only from context. If unsure, say you do not know."
-context = "Python is the main language for ML and GenAI stacks."
+      title: "Build a short prompt",
+      hint: "Edit the question, then check the length.",
+      starter: `system = "Answer briefly."
 question = "Why do AI teams use Python?"
-
-prompt = f"{system}\\n\\nContext:\\n{context}\\n\\nUser: {question}"
+prompt = f"{system}\\nUser: {question}"
 print(prompt)
-print("total chars:", len(prompt))
-print("question words:", len(question.split()))`,
+print(len(prompt))`,
     },
     takeaways: [
-      "f-strings are the clean way to build prompts and log lines.",
-      "strip() user text; len() is characters, not tokens.",
-      "Strings never change in place — methods return new strings.",
+      "f-strings are the clean way to build text.",
+      "strip() cleans spaces. len() counts characters.",
+      "String methods return new strings.",
     ],
   },
   {
     slug: "lists-tuples-sets",
-    title: "Lists, tuples, and sets",
+    title: "Python Lists",
     moduleId: "foundations",
     level: "beginner",
     minutes: 20,
     summary:
-      "Ordered collections and unique sets — how Python stores batches, token ids, labels, and vocabularies.",
+      "Store ordered items in lists, fixed records in tuples, and unique values in sets.",
     whyForAi:
-      "A batch of texts is a list. Token ids are a list of ints. Evaluation labels are lists. A set is the right tool for unique document ids or a stopword list. You will loop these structures in every training and RAG script.",
+      "Batches of texts are lists. Unique document ids often use sets.",
     packages: [],
     sections: [
       {
-        heading: "Lists: the workhorse",
-        body: `A list is an ordered, **mutable** sequence: \`docs = ["a", "b"]\`.
+        heading: "Lists",
+        basicTip: "Make a list, then print length and the first item.",
+        basicCode: `chunks = ["intro", "method", "results"]
+print(len(chunks))
+print(chunks[0])`,
+        body: `A list is ordered and changeable: \`docs = ["a", "b"]\`
 
 - Index: \`docs[0]\`, \`docs[-1]\`
-- Slice: \`docs[:2]\` (first two — think “mini batch”)
-- Add: \`append\`, \`extend\`
+- Slice: \`docs[:2]\`
+- Add: \`append()\`
 - Length: \`len(docs)\`
 
-Lists can hold mixed types, but in ML code **keep them homogeneous** (all strings, or all floats). Mixed lists become bugs at tensor conversion time.
-
-\`list.append(x)\` returns \`None\`. A classic bug is \`docs = docs.append(x)\`, which wipes the list. Append in place; do not assign the result.`,
+Keep list items the same type when you can.
+Common mistake: writing \`docs = docs.append(x)\`. \`append\` returns \`None\`.`,
       },
       {
-        heading: "Tuples and sets",
-        body: `A **tuple** is ordered and **immutable**: \`shape = (32, 768)\`. Use tuples for records that should not grow — image size, embedding dim, (train, val, test) split sizes.
+        heading: "Tuples and Sets",
+        basicTip: "A fixed tuple and a set that drops duplicates.",
+        basicCode: `shape = (8, 768)
+ids = {"d1", "d1", "d2"}
+print(shape)
+print(ids)`,
+        body: `A tuple is ordered and cannot change: \`shape = (32, 768)\`
 
-A **set** stores unique unordered values: \`seen = {"id-1", "id-2"}\`. Membership tests (\`x in seen\`) are fast. Use sets to drop duplicate retrieved ids in RAG.
+A set stores unique unordered values. Duplicates are removed.
 
-Convert: \`set(list_of_ids)\` deduplicates. \`list(the_set)\` if you need order back — but set order is not meaningful, so sort if you need stability: \`sorted(set(ids))\`.`,
+Use sets to drop duplicate ids. Use \`x in seen\` for fast checks.
+Common mistake: expecting a set to keep display order.`,
       },
     ],
     examples: [
       {
-        title: "A mini batch of documents",
-        note: "Slicing a list is how you take the first n chunks into a context window.",
-        code: `chunks = [
-    "Python is used for ML pipelines.",
-    "NumPy stores arrays for tensors.",
-    "pandas cleans tabular data.",
-    "FastAPI serves models.",
-]
+        title: "AI / ML: mini batch",
+        note: "Slice a list to take the first n items.",
+        aiMl: "Training and RAG code store texts in lists, then slice them.",
+        code: `chunks = ["a", "b", "c", "d"]
 batch = chunks[:3]
-print("batch size:", len(batch))
-print("last in batch:", batch[-1])
-batch.append("LangChain wires LLM calls.")
-print("after append:", len(batch))`,
+print(len(batch))
+print(batch[-1])`,
       },
       {
-        title: "Deduplicate retrieved document ids",
-        note: "RAG retrievers often return the same chunk twice. Sets fix that.",
-        code: `retrieved = ["d1", "d4", "d1", "d9", "d4"]
-unique_ids = list(dict.fromkeys(retrieved))  # unique, keep order
-print("raw:", retrieved)
-print("unique ordered:", unique_ids)
-print("as set:", set(retrieved))`,
-      },
-      {
-        title: "Tuple for a tensor-like shape",
-        note: "Shapes are tuples in NumPy and PyTorch. Do not use a list for a shape you will not change.",
-        code: `batch_size = 8
-hidden = 768
-shape = (batch_size, hidden)
-print("shape:", shape)
-print("rank (ndim):", len(shape))
-print("total values:", shape[0] * shape[1])`,
+        title: "AI / ML: unique ids",
+        note: "Sets remove duplicate document ids.",
+        aiMl: "RAG retrievers often return the same id twice.",
+        code: `retrieved = ["d1", "d4", "d1", "d9"]
+print(set(retrieved))`,
       },
     ],
     tryIt: {
       title: "Keep the top-k chunks",
-      hint: "Change k and confirm the printed list length matches.",
-      starter: `chunks = [
-    "MLOps deploys models.",
-    "LLMOps serves LLMs.",
-    "RAG retrieves documents.",
-    "Agents call tools.",
-    "Eval measures quality.",
-]
-k = 3
+      hint: "Change k and press Run.",
+      starter: `chunks = ["MLOps", "RAG", "Eval"]
+k = 2
 top_k = chunks[:k]
-print("using", len(top_k), "chunks")
-for i, text in enumerate(top_k, start=1):
-    print(f"{i}. {text}")`,
+print(top_k)
+print(len(top_k))`,
     },
     takeaways: [
-      "Lists are ordered and mutable — batches, token lists, labels.",
-      "Never assign the result of append(); it returns None.",
-      "Sets drop duplicates; tuples hold fixed records like shapes.",
+      "Lists are ordered and changeable.",
+      "Never assign the result of append().",
+      "Sets drop duplicates. Tuples hold fixed records.",
     ],
   },
   {
     slug: "dictionaries",
-    title: "Dictionaries",
+    title: "Python Dictionaries",
     moduleId: "foundations",
     level: "beginner",
     minutes: 18,
     summary:
-      "Key–value maps are how Python represents JSON, API payloads, model configs, and metadata.",
+      "Store data as key-value pairs. Dicts map to JSON, configs, and API payloads.",
     whyForAi:
-      "Every LLM HTTP request is a dict that becomes JSON: model, messages, temperature. Hugging Face model cards, MLflow params, and feature rows are dicts. If you can navigate nested dicts, you can work with real APIs.",
+      "LLM requests are dicts: model, messages, temperature.",
     packages: [],
     sections: [
       {
-        heading: "Keys, values, and safe lookup",
-        body: `A dict maps keys to values: \`config = {"model": "gpt-4.1-mini", "temperature": 0.2}\`.
+        heading: "Keys and Values",
+        basicTip: "Create a dict and read a key.",
+        basicCode: `config = {"model": "gpt-4.1-mini"}
+print(config["model"])
+print(config.get("top_p", 1.0))`,
+        body: `A dict maps keys to values:
 
-Keys are usually strings. Values can be anything, including lists and other dicts (nested JSON).
+\`config = {"model": "mini", "temperature": 0.2}\`
 
-- Read: \`config["model"]\` raises \`KeyError\` if missing
-- Safe read: \`config.get("top_p", 1.0)\` returns the default
+- Read: \`config["model"]\`
+- Safe read: \`config.get("top_p", 1.0)\`
 - Write: \`config["max_tokens"] = 256\`
 - Check: \`"model" in config\`
 
-Prefer \`.get()\` for optional API fields. Prefer \`["key"]\` when the key **must** exist — failing loudly is better than silently using the wrong default in a training job.`,
+Use \`.get()\` for optional fields.
+Common mistake: defaulting a required setting and shipping the wrong run.`,
       },
       {
-        heading: "Looping and nesting",
-        body: `\`config.items()\` gives \`(key, value)\` pairs. \`config.keys()\` and \`config.values()\` exist too.
+        heading: "Looping Dicts",
+        basicTip: "Loop key and value pairs.",
+        basicCode: `metrics = {"accuracy": 0.91, "latency_ms": 120}
+for name, value in metrics.items():
+    print(name, value)`,
+        body: `\`config.items()\` gives \`(key, value)\` pairs.
 
-Nested access: \`payload["messages"][0]["content"]\`. Walk one level at a time when debugging.
+Nested access looks like \`payload["messages"][0]["content"]\`.
 
-Building JSON-ready dicts is a core GenAI skill. Keep structures close to the API you call so you are not translating shapes in three places.`,
+Print \`payload.keys()\` when you are unsure of the shape.
+Common mistake: guessing nested keys instead of inspecting first.`,
       },
     ],
     examples: [
       {
-        title: "An LLM request body",
-        note: "This is the shape OpenAI-style APIs expect, before json.dumps.",
+        title: "AI / ML: LLM request body",
+        note: "This is the shape many chat APIs expect.",
+        aiMl: "An LLM call is a dict with model and messages.",
         code: `request = {
     "model": "gpt-4.1-mini",
-    "temperature": 0.2,
     "messages": [
-        {"role": "system", "content": "You are concise."},
-        {"role": "user", "content": "Define RAG in one sentence."},
+        {"role": "user", "content": "Define RAG."},
     ],
 }
 print(request["model"])
-print(request["messages"][-1]["content"])
-print("top_p" in request)
-print("top_p default:", request.get("top_p", 1.0))`,
+print(request.get("temperature", 0.0))`,
       },
       {
-        title: "Metrics dict (what you log to MLflow-style tracking)",
-        note: "Keep metric names stable so dashboards do not fragment.",
-        code: `metrics = {"accuracy": 0.91, "latency_ms": 128, "tokens_in": 412}
+        title: "AI / ML: metrics dict",
+        note: "Named scores make runs easy to compare.",
+        aiMl: "Trackers log accuracy and latency as key-value maps.",
+        code: `metrics = {"accuracy": 0.91, "latency_ms": 128}
 metrics["latency_ms"] = 141
-for name, value in metrics.items():
-    print(f"{name}={value}")`,
-      },
-      {
-        title: "Merge default config with overrides",
-        note: "{**defaults, **overrides} is a common pattern for experiment configs.",
-        code: `defaults = {"epochs": 3, "lr": 2e-5, "fp16": True}
-overrides = {"lr": 1e-5, "run_name": "exp-12"}
-config = {**defaults, **overrides}
-print(config)`,
+print(metrics)`,
       },
     ],
     tryIt: {
-      title: "Read a nested chat payload",
-      hint: "Print the system message and count how many messages are in the list.",
+      title: "Read a chat payload",
+      hint: "Print the model and message count.",
       starter: `payload = {
     "model": "local-llama",
     "messages": [
-        {"role": "system", "content": "Answer using context only."},
-        {"role": "user", "content": "What is a vector database?"},
+        {"role": "user", "content": "What is a vector DB?"},
     ],
 }
-
-print("model:", payload.get("model"))
-print("n_messages:", len(payload["messages"]))
-print("last role:", payload["messages"][-1]["role"])
-print("temperature:", payload.get("temperature", 0.0))`,
+print(payload.get("model"))
+print(len(payload["messages"]))`,
     },
     takeaways: [
-      "Dicts are JSON objects in Python form — the language of APIs.",
-      "Use .get(key, default) for optional fields; [] when the key is required.",
-      "Nested dicts + lists are how chat messages and tool calls are stored.",
+      "Dicts are key-value maps (like JSON objects).",
+      "Use .get() for optional fields.",
+      "Nested dicts store chat messages.",
     ],
   },
   {
     slug: "control-flow",
-    title: "Control flow: if, for, while",
+    title: "Python If Else",
     moduleId: "foundations",
     level: "beginner",
     minutes: 20,
     summary:
-      "Decisions and loops — training steps, early stopping, filtering predictions, and walking documents.",
+      "Make decisions with if, and repeat work with for and while.",
     whyForAi:
-      "A training loop is a for-loop over epochs and batches. RAG pipelines filter chunks with if. Eval scripts loop examples and branch on pass/fail. This is the control surface of every ML job.",
+      "Training loops are for-loops. Filters use if. Early stop uses break.",
     packages: [],
     sections: [
       {
-        heading: "if / elif / else",
-        body: `Conditions use the comparisons you already know. Indent the block. \`elif\` is “else if”.
+        heading: "If / Elif / Else",
+        basicTip: "One condition. Two paths.",
+        basicCode: `score = 0.82
+if score >= 0.7:
+    print("keep")
+else:
+    print("drop")`,
+        body: `\`if\` runs a block when a condition is True.
 
-Truthy / falsy: empty string, \`0\`, \`[]\`, \`{}\`, and \`None\` are falsy. A non-empty list is truthy. That is handy (\`if chunks:\`) and dangerous (\`if score:\` is false for \`0.0\`, which may be a valid score). For numbers, compare explicitly: \`if score is not None:\`.
+\`elif\` tries another condition. \`else\` runs when none matched.
 
-Compound conditions: \`and\`, \`or\`, \`not\`. Parentheses help readers.`,
+Indent with four spaces.
+
+Empty values like \`0\`, \`""\`, and \`None\` are falsy. For scores, compare explicitly: \`if score >= 0.7:\`
+Common mistake: using \`if score:\` and treating \`0.0\` as missing.`,
       },
       {
-        heading: "for and while",
-        body: `\`for item in sequence:\` is the default loop. \`enumerate(seq, start=1)\` when you need an index. \`range(n)\` when you need integers.
+        heading: "For and While",
+        basicTip: "Loop over each item.",
+        basicCode: `labels = ["pos", "neg", "pos"]
+for label in labels:
+    print(label)`,
+        body: `\`for item in sequence:\` is the default loop.
 
-\`break\` leaves the loop. \`continue\` skips to the next item. Early stopping is \`break\` when validation loss stops improving.
+Use \`range(n)\` for integers. Use \`enumerate()\` when you need an index.
 
-\`while\` is for “until a condition”. Avoid \`while True\` unless you also have a clear \`break\` — infinite loops freeze the browser compiler (it will time out after 20 seconds).`,
+\`break\` leaves the loop. \`continue\` skips to the next item.
+
+\`while\` repeats until a condition fails.
+Common mistake: an infinite while loop.`,
       },
     ],
     examples: [
       {
-        title: "Filter predictions by confidence",
-        note: "Same idea as dropping low-confidence classifier outputs before they reach users.",
-        code: `preds = [
-    {"label": "positive", "score": 0.92},
-    {"label": "negative", "score": 0.41},
-    {"label": "positive", "score": 0.77},
-]
+        title: "AI / ML: filter by score",
+        note: "Keep high scores. Drop the rest.",
+        aiMl: "Classifiers often keep only predictions above a threshold.",
+        code: `preds = [0.92, 0.41, 0.77]
 kept = []
-for p in preds:
-    if p["score"] >= 0.7:
-        kept.append(p)
-    else:
-        print("drop", p)
-print("kept:", kept)`,
+for score in preds:
+    if score >= 0.7:
+        kept.append(score)
+print(kept)`,
       },
       {
-        title: "Mini training loop with early stop",
-        note: "Toy numbers — the control flow is what production trainers use.",
-        code: `val_losses = [0.90, 0.70, 0.61, 0.62, 0.66]
-best = float("inf")
-patience = 1
-bad_epochs = 0
-
-for epoch, loss in enumerate(val_losses, start=1):
-    print(f"epoch {epoch} val_loss={loss}")
+        title: "AI / ML: early stop idea",
+        note: "Stop when loss stops improving.",
+        aiMl: "Training scripts watch validation loss and stop early.",
+        code: `losses = [0.9, 0.7, 0.61, 0.66]
+best = losses[0]
+for loss in losses:
     if loss < best:
         best = loss
-        bad_epochs = 0
-    else:
-        bad_epochs += 1
-        if bad_epochs > patience:
-            print("early stop at epoch", epoch)
-            break
-print("best:", best)`,
-      },
-      {
-        title: "range and enumerate",
-        note: "range(n) is 0..n-1. That matches computer-science indexing, not human page numbers.",
-        code: `docs = ["intro", "method", "results"]
-for i in range(len(docs)):
-    print(i, docs[i])
-print("---")
-for i, name in enumerate(docs, start=1):
-    print(i, name)`,
+print(best)`,
       },
     ],
     tryIt: {
-      title: "Keep chunks under a character budget",
-      hint: "This is a simplified context-window packer. Raise the budget and see more chunks kept.",
-      starter: `chunks = [
-    "Python is used across the ML stack.",
-    "Prompts are strings you template carefully.",
-    "Dicts map onto JSON API bodies.",
-    "Loops drive training and evaluation.",
-]
-budget = 80
-used = 0
+      title: "Keep short chunks",
+      hint: "Change the budget and press Run.",
+      starter: `chunks = ["short", "a bit longer text", "x"]
+budget = 10
 selected = []
-
 for chunk in chunks:
-    if used + len(chunk) > budget:
-        continue
-    selected.append(chunk)
-    used += len(chunk)
-
-print("selected:", len(selected))
-print("chars used:", used)
-for c in selected:
-    print("-", c)`,
+    if len(chunk) <= budget:
+        selected.append(chunk)
+print(selected)`,
     },
     takeaways: [
-      "if/elif/else branch on explicit comparisons — be careful with falsy 0 and empty lists.",
-      "for-loops walk batches, epochs, documents, and eval rows.",
-      "break implements early stopping; the compiler kills infinite loops after 20s.",
+      "if / elif / else branch on conditions.",
+      "for-loops walk lists and ranges.",
+      "break stops a loop early.",
     ],
   },
 ];

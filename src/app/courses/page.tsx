@@ -74,7 +74,7 @@ export default function CoursesPage() {
             </h2>
             <p className="text-sm text-slate-600 mb-4">
               Scratch to advanced: variables through async LLM batching, RAG pipelines, and FastAPI serving.
-              Copy-paste examples and an online compiler built into every lesson.
+              Real-time examples and an online compiler built into every lesson.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link

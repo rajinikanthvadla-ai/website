@@ -1,21 +1,26 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
+  PRACTICE_TOPICS,
   PYTHON_LESSONS,
   PYTHON_MODULES,
   TOTAL_CODE_EXAMPLES,
   TOTAL_COURSE_MINUTES,
+  getChallengeForDate,
   lessonsInModule,
 } from "@/lib/python-course";
 import { SITE, LINKS } from "@/lib/constants";
 import CTASection from "@/components/CTASection";
+import ContinueLearning from "@/components/python-course/ContinueLearning";
+import DailyChallenge from "@/components/python-course/DailyChallenge";
 
 const CANONICAL = `${SITE.url}/python-course/`;
+const todaysChallenge = getChallengeForDate();
 
 export const metadata: Metadata = {
   title: "Free Python Course for AI, ML and GenAI Engineers — With Online Compiler",
   description:
-    "Complete free Python course from scratch to advanced for AI/ML and GenAI engineers. Clear explanations, copy-paste code examples, and a built-in online Python compiler you can run in the browser.",
+    "Complete free Python course from scratch to advanced for AI/ML and GenAI engineers. Clear explanations, real-time code examples, daily challenges, downloadable certificate with your name, and a built-in online Python compiler.",
   keywords: [
     "free python course",
     "python for AI ML engineers",
@@ -27,12 +32,15 @@ export const metadata: Metadata = {
     "python for LLM engineers",
     "run python in browser",
     "python tutorial for beginners to advanced",
+    "daily python challenge",
+    "free python course certificate",
+    "python certificate download",
   ],
   alternates: { canonical: CANONICAL },
   openGraph: {
     title: "Free Python Course for AI, ML and GenAI Engineers",
     description:
-      "From variables to RAG pipelines and FastAPI serving. Copy-paste examples plus an in-browser Python compiler.",
+      "From variables to RAG pipelines and FastAPI serving. Real-time examples, daily practice, plus an in-browser Python compiler.",
     url: CANONICAL,
     type: "website",
   },
@@ -41,8 +49,12 @@ export const metadata: Metadata = {
 
 const FAQS = [
   {
+    q: "Can I get a certificate?",
+    a: "Yes. After you mark Module 1 lessons done, unlock the Foundations certificate. Finish all lessons for the full-course certificate. Enter your name and download a PNG with the instructor signature. Progress is stored in your browser on this device.",
+  },
+  {
     q: "Is this Python course really free?",
-    a: "Yes. Every lesson, code example, and the in-browser compiler are free to use with no signup. Paid live cohorts on MLOps, AIOps, and AI automation are separate programs.",
+    a: "Yes. Every lesson, code example, daily challenge, certificate download, and the in-browser compiler are free to use with no signup. Paid live cohorts on MLOps, AIOps, and AI automation are separate programs.",
   },
   {
     q: "Do I need to install Python to follow along?",
@@ -54,7 +66,7 @@ const FAQS = [
   },
   {
     q: "Which libraries can I run in the browser compiler?",
-    a: "The full Python standard library including sqlite3, plus NumPy, pandas, scikit-learn, and Matplotlib which load on demand. Matplotlib charts render directly under the output. PyTorch, FastAPI, and LLM SDKs need a real machine, so those lessons give complete copy-paste files to run locally.",
+    a: "The full Python standard library including sqlite3, plus NumPy, pandas, scikit-learn, and Matplotlib which load on demand. Matplotlib charts render directly under the output. PyTorch, FastAPI, and LLM SDKs need a real machine, so those lessons give complete real local examples to run on your computer.",
   },
   {
     q: "How long does the course take?",
@@ -91,7 +103,7 @@ export default function PythonCoursePage() {
     "@type": "Course",
     name: "Free Python Course for AI, ML and GenAI Engineers",
     description:
-      "Complete Python course from scratch to advanced for AI/ML and GenAI engineers, with copy-paste code examples and a built-in browser compiler.",
+      "Complete Python course from scratch to advanced for AI/ML and GenAI engineers, with real-time code examples and a built-in browser compiler.",
     provider: {
       "@type": "Person",
       name: "Rajinikanth Vadla",
@@ -134,24 +146,28 @@ export default function PythonCoursePage() {
                 Free · No signup · Runs in your browser
               </span>
               <h1 className="font-display text-4xl md:text-5xl font-bold text-slate-900 leading-tight mb-5">
-                Complete Python course for AI, ML and GenAI engineers
+                Learn Python the easy way for AI, ML and GenAI
               </h1>
               <p className="text-lg text-slate-600 leading-relaxed mb-4">
-                From your first <code className="bg-slate-100 px-1.5 py-0.5 rounded font-mono text-base">print()</code> to
-                async LLM batching, RAG pipelines, and FastAPI serving. Every lesson has clear explanations,
-                copy-paste examples, and a compiler built into the page.
+                Simple lessons like W3Schools: short text, tiny examples, Try it in the browser. Then see the same
+                idea in AI / ML code.
               </p>
               <p className="text-slate-600 leading-relaxed mb-8">
-                Written for people targeting AI/ML engineer, GenAI engineer, MLOps and LLMOps roles — so every
-                concept is tied to how it is used on the job, not toy exercises.
+                Free. No signup. No install. Built for beginners who want AI, ML, GenAI, MLOps, or LLMOps careers.
               </p>
 
-              <div className="flex flex-wrap gap-3 mb-8">
+              <div className="flex flex-wrap gap-3 mb-6">
                 <Link href={`/python-course/${firstLesson.slug}/`} className="notion-btn notion-btn--ink">
-                  Start lesson 1 &rarr;
+                  Start lesson 1 in 10 seconds &rarr;
                 </Link>
-                <Link href="/python-course/playground/" className="notion-btn notion-btn--accent">
-                  Open the compiler
+                <Link href="/python-course/challenge/" className="notion-btn notion-btn--accent">
+                  Today&apos;s 5-min challenge
+                </Link>
+                <Link href="/python-course/certificate/" className="notion-btn notion-btn--ghost">
+                  Get certificate
+                </Link>
+                <Link href="/python-course/playground/" className="notion-btn notion-btn--ghost">
+                  Open playground
                 </Link>
                 <a
                   href={LINKS.whatsapp}
@@ -161,6 +177,10 @@ export default function PythonCoursePage() {
                 >
                   Ask a question
                 </a>
+              </div>
+
+              <div className="mb-8">
+                <ContinueLearning />
               </div>
 
               <dl className="grid grid-cols-2 sm:grid-cols-4 gap-4">
@@ -184,12 +204,12 @@ export default function PythonCoursePage() {
               </div>
               <ul className="divide-y divide-slate-200">
                 {[
-                  "Real CPython in the browser — press Run, see output",
-                  "Copy button on every single code block",
-                  "NumPy and pandas load on demand in the compiler",
-                  "Production files for PyTorch, FastAPI and LLM SDKs",
-                  "Each lesson explains why it matters for AI work",
-                  "Beginner to advanced in one ordered path",
+                  "W3Schools-style basics: short text + tiny code",
+                  "Then AI / ML examples for the same idea",
+                  "Try it Yourself editor on every lesson",
+                  "NumPy, pandas, and charts in the browser",
+                  "Daily challenge + downloadable certificate",
+                  "Beginner to advanced in one clear path",
                 ].map((item) => (
                   <li key={item} className="px-4 py-3 text-sm text-slate-700 flex gap-2.5">
                     <span className="text-blue-700 font-bold shrink-0">+</span>
@@ -198,6 +218,108 @@ export default function PythonCoursePage() {
                 ))}
               </ul>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-14 md:py-16 bg-white border-b-2 border-slate-900">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
+            <div>
+              <span className="notion-eyebrow">
+                <span className="notion-eyebrow-dot" />
+                Come back every day
+              </span>
+              <h2 className="font-display text-3xl font-bold text-slate-900 mb-2">
+                Today&apos;s 5-minute challenge
+              </h2>
+              <p className="text-slate-600 max-w-2xl leading-relaxed">
+                One small practice for everyone today: {todaysChallenge.title}. No signup. Your mark-done status
+                stays on this device.
+              </p>
+            </div>
+            <Link href="/python-course/challenge/" className="notion-btn notion-btn--ink">
+              Open challenge page
+            </Link>
+          </div>
+          <DailyChallenge challenge={todaysChallenge} compact />
+        </div>
+      </section>
+
+      <section className="py-14 md:py-16 bg-[#ecfdf5] border-b-2 border-slate-900">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid lg:grid-cols-[1.2fr_1fr] gap-8 items-center">
+            <div>
+              <span className="notion-eyebrow">
+                <span className="notion-eyebrow-dot" />
+                Finish and prove it
+              </span>
+              <h2 className="font-display text-3xl font-bold text-slate-900 mb-3">
+                Download your certificate with your name
+              </h2>
+              <p className="text-slate-700 leading-relaxed mb-4 max-w-2xl">
+                Complete Module 1 for a Foundations certificate, or finish the full course for the complete
+                certificate. Enter your name and download a PNG signed by Rajinikanth Vadla - ready for LinkedIn
+                or your resume.
+              </p>
+              <ul className="space-y-2 text-sm text-slate-700 mb-6">
+                <li>+ Your name printed on the certificate</li>
+                <li>+ Instructor signature and photo</li>
+                <li>+ Unique certificate ID</li>
+                <li>+ Works on GitHub Pages (saved in your browser)</li>
+              </ul>
+              <Link href="/python-course/certificate/" className="notion-btn notion-btn--ink">
+                Open certificate page &rarr;
+              </Link>
+            </div>
+            <div className="border-2 border-slate-900 rounded-xl bg-white p-5 shadow-[4px_4px_0_#0f172a]">
+              <p className="text-[11px] font-bold uppercase tracking-wide text-emerald-700 mb-2">
+                How students unlock it
+              </p>
+              <ol className="space-y-3 text-sm text-slate-700 leading-6">
+                <li>
+                  <span className="font-bold text-slate-900">1.</span> Learn a lesson and run the tiny examples
+                </li>
+                <li>
+                  <span className="font-bold text-slate-900">2.</span> Press Mark lesson done (or Next lesson)
+                </li>
+                <li>
+                  <span className="font-bold text-slate-900">3.</span> Finish Module 1 or the full course
+                </li>
+                <li>
+                  <span className="font-bold text-slate-900">4.</span> Enter your name and download the PNG
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-14 md:py-16 bg-slate-50 border-b-2 border-slate-900">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="mb-8">
+            <span className="notion-eyebrow">
+              <span className="notion-eyebrow-dot" />
+              Easy topic starts
+            </span>
+            <h2 className="font-display text-3xl font-bold text-slate-900 mb-2">
+              Jump in by topic
+            </h2>
+            <p className="text-slate-600 max-w-2xl leading-relaxed">
+              Short landing pages for common searches. Each one opens the matching lesson with the live compiler.
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            {PRACTICE_TOPICS.map((topic) => (
+              <Link
+                key={topic.slug}
+                href={`/python-course/learn/${topic.slug}/`}
+                className="rounded-xl border-2 border-slate-900 bg-white p-4 hover:bg-[#fef9c3] transition-colors"
+              >
+                <p className="font-bold text-slate-900 leading-snug mb-1">{topic.title}</p>
+                <p className="text-sm text-slate-600 leading-6 line-clamp-3">{topic.starterIdea}</p>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

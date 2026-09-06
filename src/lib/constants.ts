@@ -84,8 +84,18 @@ export const NAV_GROUPS: NavGroup[] = [
       {
         label: "Python Course",
         href: "/python-course",
-        description: "24 lessons with an in-browser compiler",
+        description: "Lessons with an in-browser compiler",
         badge: "FREE",
+      },
+      {
+        label: "Daily Challenge",
+        href: "/python-course/challenge",
+        description: "5-minute Python practice every day",
+      },
+      {
+        label: "Course Certificate",
+        href: "/python-course/certificate",
+        description: "Download a signed certificate with your name",
       },
       {
         label: "Python Compiler",
