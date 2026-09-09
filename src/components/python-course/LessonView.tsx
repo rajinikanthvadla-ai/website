@@ -212,7 +212,7 @@ export default function LessonView({ lesson, modules }: Props) {
                 {plain(lesson.whyForAi)}
               </p>
               <p className="mt-3 text-[13px] text-slate-500 leading-6 max-w-2xl">
-                Learn like W3Schools: short basics first. Then AI / ML examples.
+                Short basics first. Then AI / ML examples.
               </p>
             </header>
 

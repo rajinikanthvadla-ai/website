@@ -1,6 +1,6 @@
-# W3Schools-style lesson writing rules (Python course)
+# Python course lesson writing rules
 
-Every lesson must feel like https://www.w3schools.com/python/
+Own voice. Keep lessons short, clear, and practical for AI / ML beginners.
 
 ## Structure
 1. **Basics first** - one idea per section, short text, tiny runnable example

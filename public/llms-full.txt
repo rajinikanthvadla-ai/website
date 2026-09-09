@@ -143,9 +143,9 @@ Cursor, OpenAI Codex, ChatGPT/GPT-4o, Claude AI, Gemini, AWS Bedrock, Amazon Q, 
 
 A 46-lesson Python course written for people targeting AI/ML engineer, GenAI engineer, MLOps
 and LLMOps roles. Starts from what a variable is and ends with async LLM batching, RAG
-pipelines, and FastAPI model serving. Coverage is comparable in breadth to W3Schools with an
-AI/ML focus throughout. Every lesson has clear explanations, real-time code examples, tiny
-basic starters, and an embedded compiler that runs real CPython in the browser via WebAssembly.
+pipelines, and FastAPI model serving. Lessons stay short and practical with an AI/ML focus.
+Every lesson has clear explanations, real-time code examples, tiny basic starters, and an
+embedded compiler that runs real CPython in the browser via WebAssembly.
 Students can take a daily challenge and download a signed certificate PNG after completing
 Module 1 or the full course. Progress is saved in the browser (GitHub Pages friendly).
 

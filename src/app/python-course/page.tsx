@@ -149,8 +149,8 @@ export default function PythonCoursePage() {
                 Learn Python the easy way for AI, ML and GenAI
               </h1>
               <p className="text-lg text-slate-600 leading-relaxed mb-4">
-                Simple lessons like W3Schools: short text, tiny examples, Try it in the browser. Then see the same
-                idea in AI / ML code.
+                Short lessons, tiny examples, and a live editor in the browser. First learn the idea, then see the
+                same idea in AI / ML code.
               </p>
               <p className="text-slate-600 leading-relaxed mb-8">
                 Free. No signup. No install. Built for beginners who want AI, ML, GenAI, MLOps, or LLMOps careers.
@@ -204,9 +204,9 @@ export default function PythonCoursePage() {
               </div>
               <ul className="divide-y divide-slate-200">
                 {[
-                  "W3Schools-style basics: short text + tiny code",
+                  "Short basics: clear text + tiny code",
                   "Then AI / ML examples for the same idea",
-                  "Try it Yourself editor on every lesson",
+                  "Live Try it editor on every lesson",
                   "NumPy, pandas, and charts in the browser",
                   "Daily challenge + downloadable certificate",
                   "Beginner to advanced in one clear path",

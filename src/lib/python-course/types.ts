@@ -23,7 +23,7 @@ export type PythonExample = {
 export type PythonSection = {
   heading: string;
   body: string;
-  /** Tiny W3Schools-style starter shown under the explanation. */
+  /** Tiny starter shown under the explanation. */
   basicCode?: string;
   /** One-line tip above the tiny starter. */
   basicTip?: string;
