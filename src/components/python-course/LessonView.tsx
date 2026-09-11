@@ -178,46 +178,43 @@ export default function LessonView({ lesson, modules }: Props) {
   return (
     <div className="bg-[#f3f6fb] min-h-screen pb-20 lg:pb-0">
       <div className="max-w-[1360px] mx-auto px-3 sm:px-4 lg:px-5 py-5 md:py-7">
-        <div className="lg:grid lg:grid-cols-[190px_minmax(0,1fr)] lg:gap-4">
+        <div className="xl:grid xl:grid-cols-[190px_minmax(0,1fr)] xl:gap-5">
           <CourseSidebar modules={modules} lessons={PYTHON_LESSONS} currentSlug={lesson.slug} />
 
           <div className="min-w-0">
-            <header className="mb-4 px-0.5">
-              <nav className="text-[13px] mb-2" aria-label="Breadcrumb">
-                <Link href="/python-course/" className="text-blue-700 font-semibold hover:underline">
-                  Python course
-                </Link>
-                <span className="text-slate-300 mx-2">/</span>
-                <span className="text-slate-500">Lesson {lessonNumber || "?"}</span>
-              </nav>
-              <div className="flex flex-wrap items-center gap-2 mb-2">
-                <span className="text-xs font-bold uppercase tracking-wide text-blue-700">
-                  {LEVEL_LABEL[lesson.level]}
-                </span>
-                <span className="text-slate-300">·</span>
-                <span className="text-xs font-bold uppercase tracking-wide text-slate-500">
-                  {lesson.minutes} min
-                </span>
-                <span className="text-slate-300">·</span>
-                <span className="text-xs font-bold uppercase tracking-wide text-slate-500">
-                  {completedCount}/{TOTAL_LESSONS} done
-                </span>
-              </div>
-              <h1 className="font-display text-[1.65rem] md:text-[1.9rem] font-bold text-slate-900 leading-snug mb-2">
-                {lesson.title}
-              </h1>
-              <p className="text-[15px] text-slate-600 leading-7 max-w-2xl">{plain(lesson.summary)}</p>
-              <p className="mt-2 text-[14px] text-slate-700 leading-6 max-w-2xl">
-                <span className="font-semibold text-slate-900">Why it matters: </span>
-                {plain(lesson.whyForAi)}
-              </p>
-              <p className="mt-3 text-[13px] text-slate-500 leading-6 max-w-2xl">
-                Short basics first. Then AI / ML examples.
-              </p>
-            </header>
-
-            <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(340px,400px)] lg:gap-4 lg:items-start">
+            <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(360px,420px)] lg:gap-6 lg:items-start">
               <div className="min-w-0 space-y-5 order-2 lg:order-1">
+                <header className="mb-5 px-0.5">
+                  <nav className="text-[13px] mb-2" aria-label="Breadcrumb">
+                    <Link href="/python-course/" className="text-blue-700 font-semibold hover:underline">
+                      Python course
+                    </Link>
+                    <span className="text-slate-300 mx-2">/</span>
+                    <span className="text-slate-500">Lesson {lessonNumber || "?"}</span>
+                  </nav>
+                  <div className="flex flex-wrap items-center gap-2 mb-2">
+                    <span className="text-xs font-bold uppercase tracking-wide text-blue-700">
+                      {LEVEL_LABEL[lesson.level]}
+                    </span>
+                    <span className="text-slate-300">·</span>
+                    <span className="text-xs font-bold uppercase tracking-wide text-slate-500">
+                      {lesson.minutes} min
+                    </span>
+                    <span className="text-slate-300">·</span>
+                    <span className="text-xs font-bold uppercase tracking-wide text-slate-500">
+                      {completedCount}/{TOTAL_LESSONS} done
+                    </span>
+                  </div>
+                  <h1 className="font-display text-[1.65rem] md:text-[1.9rem] font-bold text-slate-900 leading-snug mb-2">
+                    {lesson.title}
+                  </h1>
+                  <p className="text-[15px] text-slate-600 leading-7">{plain(lesson.summary)}</p>
+                  <p className="mt-2 text-[14px] text-slate-700 leading-6">
+                    <span className="font-semibold text-slate-900">Why it matters: </span>
+                    {plain(lesson.whyForAi)}
+                  </p>
+                </header>
+
                 {lesson.sections.map((section, index) => {
                   const fallbackExample = lesson.examples[index % Math.max(lesson.examples.length, 1)];
                   const basicCode =

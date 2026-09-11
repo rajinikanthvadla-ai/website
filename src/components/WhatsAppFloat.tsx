@@ -1,7 +1,13 @@
+"use client";
+
+import { usePathname } from "next/navigation";
 import { LINKS } from "@/lib/constants";
 import { WhatsAppIcon } from "./Icons";
 
 export default function WhatsAppFloat() {
+  const pathname = usePathname();
+  if (pathname.startsWith("/python-course")) return null;
+
   return (
     <a
       href={LINKS.whatsapp}

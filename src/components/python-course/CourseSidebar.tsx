@@ -118,7 +118,7 @@ export default function CourseSidebar({ modules, lessons, currentSlug }: Props) 
 
   return (
     <>
-      <div className="lg:hidden mb-4">
+      <div className="xl:hidden mb-4">
         <button
           type="button"
           onClick={() => setLessonListOpen((v) => !v)}
@@ -128,7 +128,7 @@ export default function CourseSidebar({ modules, lessons, currentSlug }: Props) 
         </button>
         {lessonListOpen && <div className="mt-3 p-2 rounded-[24px] border border-slate-100 bg-white shadow-sm">{nav}</div>}
       </div>
-      <aside className="hidden lg:block lg:sticky lg:top-24 self-start max-h-[calc(100vh-7rem)] overflow-y-auto pr-1">
+      <aside className="hidden xl:block xl:sticky xl:top-24 self-start max-h-[calc(100vh-7rem)] overflow-y-auto pr-1">
         <div className="rounded-[24px] border border-slate-100 bg-white/90 shadow-sm p-3 mb-3">
           <Link
             href="/python-course/"

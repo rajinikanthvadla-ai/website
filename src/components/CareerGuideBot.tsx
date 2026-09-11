@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import CareerBotMarkdown from "@/components/CareerBotMarkdown";
 import { isGeminiConfigured, sendCareerBotMessage, type ChatTurn } from "@/lib/gemini-client";
 import { parseBotReply } from "@/lib/career-bot-parse";
@@ -94,6 +95,7 @@ function WelcomeCard() {
 }
 
 export default function CareerGuideBot() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [configured, setConfigured] = useState(false);
   const [input, setInput] = useState("");
@@ -145,6 +147,8 @@ export default function CareerGuideBot() {
 
   const userTurnCount = messages.filter((m) => m.role === "user").length;
   const showStarters = userTurnCount === 0;
+
+  if (pathname.startsWith("/python-course")) return null;
 
   return (
     <>
