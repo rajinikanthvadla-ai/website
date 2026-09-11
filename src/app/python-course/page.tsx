@@ -9,7 +9,7 @@ import {
   getChallengeForDate,
   lessonsInModule,
 } from "@/lib/python-course";
-import { SITE, LINKS } from "@/lib/constants";
+import { SITE } from "@/lib/constants";
 import CTASection from "@/components/CTASection";
 import ContinueLearning from "@/components/python-course/ContinueLearning";
 import DailyChallenge from "@/components/python-course/DailyChallenge";
@@ -58,7 +58,7 @@ const FAQS = [
   },
   {
     q: "Do I need to install Python to follow along?",
-    a: "No. Each lesson has a compiler that runs real CPython in your browser through WebAssembly. Nothing is installed and nothing is sent to a server. For production work you will still install Python locally — the course shows you how.",
+    a: "No. Every lesson can be completed on this website with the browser compiler. The course also explains how production projects use packages and environments, but no setup is required to learn here.",
   },
   {
     q: "Is this suitable for complete beginners?",
@@ -66,7 +66,7 @@ const FAQS = [
   },
   {
     q: "Which libraries can I run in the browser compiler?",
-    a: "The full Python standard library including sqlite3, plus NumPy, pandas, scikit-learn, and Matplotlib which load on demand. Matplotlib charts render directly under the output. PyTorch, FastAPI, and LLM SDKs need a real machine, so those lessons give complete real local examples to run on your computer.",
+    a: "The browser supports the Python standard library, SQLite, NumPy, pandas, scikit-learn, and Matplotlib. Advanced PyTorch, FastAPI, and LLM lessons use clear browser-safe simulations, so you can complete their learning goals without leaving the site.",
   },
   {
     q: "How long does the course take?",
@@ -130,8 +130,6 @@ export default function PythonCoursePage() {
     })),
   };
 
-  const firstLesson = PYTHON_LESSONS[0];
-
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(courseLd) }} />
@@ -153,31 +151,8 @@ export default function PythonCoursePage() {
                 same idea in AI / ML code.
               </p>
               <p className="text-slate-600 leading-relaxed mb-8">
-                Free. No signup. No install. Built for beginners who want AI, ML, GenAI, MLOps, or LLMOps careers.
+                Learn without hassle. Everything you need to finish the course is available on this website.
               </p>
-
-              <div className="flex flex-wrap gap-3 mb-6">
-                <Link href={`/python-course/${firstLesson.slug}/`} className="notion-btn notion-btn--ink">
-                  Start lesson 1 in 10 seconds &rarr;
-                </Link>
-                <Link href="/python-course/challenge/" className="notion-btn notion-btn--accent">
-                  Today&apos;s 5-min challenge
-                </Link>
-                <Link href="/python-course/certificate/" className="notion-btn notion-btn--ghost">
-                  Get certificate
-                </Link>
-                <Link href="/python-course/playground/" className="notion-btn notion-btn--ghost">
-                  Open playground
-                </Link>
-                <a
-                  href={LINKS.whatsapp}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="notion-btn notion-btn--ghost"
-                >
-                  Ask a question
-                </a>
-              </div>
 
               <div className="mb-8">
                 <ContinueLearning />

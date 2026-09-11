@@ -58,9 +58,15 @@ export default function CourseSidebar({ modules, lessons, currentSlug }: Props) 
                   <span className="block text-[11px] font-bold uppercase tracking-wide text-blue-700">
                     {mod.title}
                   </span>
-                  <span className="block text-xs text-slate-500 mt-0.5">
-                    {doneInModule}/{items.length} done
-                  </span>
+                  {doneInModule === items.length && items.length > 0 ? (
+                    <span className="mt-1 inline-flex rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-emerald-800">
+                      Complete ✓
+                    </span>
+                  ) : (
+                    <span className="block text-xs text-slate-500 mt-0.5">
+                      {doneInModule}/{items.length} done
+                    </span>
+                  )}
                 </span>
                 <span className="text-sm font-bold text-slate-400" aria-hidden="true">
                   {expanded ? "-" : "+"}

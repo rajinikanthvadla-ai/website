@@ -78,7 +78,12 @@ for (const f of files) {
         console.log("bad basic", slug);
       }
     }
-    const exBlock = chunk.split(/examples:\s*\[/)[1] || "";
+    const examplesStart = chunk.search(/examples:\s*\[/);
+    const tryItStart = chunk.search(/tryIt:\s*\{/);
+    const exBlock =
+      examplesStart >= 0
+        ? chunk.slice(examplesStart, tryItStart > examplesStart ? tryItStart : chunk.length)
+        : "";
     const exTitles = [...exBlock.matchAll(/title:\s*"([^"]+)"/g)].map((m) => m[1]);
     for (const title of exTitles) {
       if (!title.startsWith("AI / ML:")) {

@@ -34,7 +34,7 @@ export const PYTHON_MODULES: PythonModule[] = [
     id: "core-language",
     order: 2,
     title: "Module 2 · Core language",
-    tagline: "Functions, iterators, errors, files, classes, regex, dates, and project structure.",
+    tagline: "Functions, files, OOP, modules, packages, pip, errors, regex, and project structure.",
     level: "intermediate",
   },
   {
@@ -104,6 +104,7 @@ const LESSON_ORDER: string[] = [
   "dates-and-times",
   "standard-library-toolkit",
   "modules-and-environments",
+  "packages-and-pip",
 
   // Module 3 · data and ML
   "type-hints-and-dataclasses",

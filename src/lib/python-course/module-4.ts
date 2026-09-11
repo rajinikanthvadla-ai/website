@@ -322,7 +322,7 @@ print(round(w, 3))`,
 
 The learning rate is the step size. Too large and loss blows up. Too small and training crawls.
 
-PyTorch is not in this browser sandbox. NumPy shows the same idea; PyTorch just computes derivatives for you.`,
+The browser lab uses NumPy to show the same learning process. PyTorch adds automatic derivatives, but the training steps stay the same.`,
       },
     ],
     examples: [
@@ -352,14 +352,18 @@ for epoch in range(1, 61):
 print("learned:", round(float(w[0, 0]), 2), "* x +", round(float(b[0]), 2))`,
       },
       {
-        title: "AI / ML: PyTorch loop shape (run locally)",
-        note: "Same idea with autograd. pip install torch.",
-        why: "Copy this when you leave the browser sandbox.",
+        title: "AI / ML: understand the PyTorch loop",
+        note: "See the five training steps in a simple runnable form.",
+        why: "The browser example teaches the order without extra setup.",
         aiMl: "Fine-tuning scripts use this zero_grad / backward / step pattern.",
-        code: `# pip install torch
-# run locally - torch is not in the browser
-print("zero_grad -> forward -> loss -> backward -> step")
-print("inference: model.eval() + torch.no_grad()")`,
+        code: `training_steps = [
+    "zero_grad",
+    "forward",
+    "loss",
+    "backward",
+    "step",
+]
+print(" -> ".join(training_steps))`,
       },
     ],
     tryIt: {
@@ -562,7 +566,7 @@ print(validate({"question": "What is RAG?"}))`,
 
 Load the model once at startup, not per request. Loading a large model inside the handler wastes seconds and memory every call.
 
-FastAPI itself must run locally - the ideas below use plain Python.`,
+The browser lab simulates each FastAPI step, so you can learn the full request flow on this website.`,
       },
       {
         heading: "Health and predict shapes",
@@ -619,16 +623,19 @@ for p in [{"text": "good"}, {"text": "  "}, {"text": "ok", "threshold": 5}]:
     print(p, "->", validate_request(p))`,
       },
       {
-        title: "AI / ML: FastAPI sketch (run locally)",
-        note: "pip install fastapi uvicorn. Load model once at startup.",
+        title: "AI / ML: FastAPI request flow",
+        note: "Learn the endpoint flow without installing anything.",
         why: "Shows the lifespan and /predict shape without a long listing.",
         aiMl: "Production inference services follow this health + predict pattern.",
-        code: `# run locally: pip install fastapi uvicorn
-# 1) load model in lifespan (once)
-# 2) GET /health -> {"status": "ok"}
-# 3) GET /ready -> 200 only if model loaded
-# 4) POST /predict with validated body
-print("load once -> validate -> predict -> log latency")`,
+        code: `flow = [
+    "load model once",
+    "check health",
+    "validate request",
+    "predict",
+    "log latency",
+]
+for step in flow:
+    print(step)`,
       },
     ],
     tryIt: {

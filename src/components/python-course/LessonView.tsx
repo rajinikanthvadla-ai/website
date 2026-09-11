@@ -336,20 +336,24 @@ export default function LessonView({ lesson, modules }: Props) {
                     </Link>
                   ) : (
                     <Link
-                      href="/python-course/playground/"
+                      href="/python-course/certificate/"
                       onClick={() => markDone(lesson.slug)}
-                      className="rounded-xl border border-orange-200 bg-orange-500 px-4 py-3.5 text-white hover:bg-orange-600 sm:text-right"
+                      className="rounded-xl border border-emerald-200 bg-emerald-600 px-4 py-3.5 text-white hover:bg-emerald-700 sm:text-right"
                     >
-                      <p className="text-xs font-bold uppercase tracking-wide text-orange-100 mb-1">
-                        Finished
+                      <p className="text-xs font-bold uppercase tracking-wide text-emerald-100 mb-1">
+                        Course complete
                       </p>
-                      <p className="font-bold text-[15px]">Open the playground</p>
+                      <p className="font-bold text-[15px]">Get your certificate</p>
                     </Link>
                   )}
                 </nav>
               </div>
 
               <aside id="python-lab" className="order-1 lg:order-2 mb-4 lg:mb-0 lg:sticky lg:top-20 self-start">
+                <p className="mb-2 px-0.5 text-[13px] leading-5 text-slate-600">
+                  <span className="font-semibold text-slate-900">Try this: </span>
+                  {plain(lesson.tryIt.hint)}
+                </p>
                 {restored && (
                   <div className="mb-2 flex items-center justify-between gap-2 px-0.5">
                     <p className="text-[12px] text-slate-500">Your last code on this device was restored.</p>

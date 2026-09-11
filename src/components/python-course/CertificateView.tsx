@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import {
   FOUNDATIONS_LESSON_SLUGS,
+  PYTHON_LESSONS,
   PYTHON_LESSON_SLUGS,
   TOTAL_LESSONS,
 } from "@/lib/python-course";
@@ -230,6 +231,7 @@ export default function CertificateView() {
   const [readyFoundations, setReadyFoundations] = useState(false);
   const [readyFull, setReadyFull] = useState(false);
   const [completedCount, setCompletedCount] = useState(0);
+  const [nextLesson, setNextLesson] = useState(PYTHON_LESSONS[0]);
   const [status, setStatus] = useState("");
   const [issuedAt, setIssuedAt] = useState(new Date().toISOString());
   const [busy, setBusy] = useState(false);
@@ -250,6 +252,10 @@ export default function CertificateView() {
   const refreshProgress = useCallback(() => {
     const progress = readCourseProgress();
     setCompletedCount(progress.completed.length);
+    setNextLesson(
+      PYTHON_LESSONS.find((lesson) => !progress.completed.includes(lesson.slug)) ??
+        PYTHON_LESSONS[PYTHON_LESSONS.length - 1],
+    );
     setReadyFoundations(hasCompletedLessons(FOUNDATIONS_LESSON_SLUGS, progress));
     setReadyFull(hasCompletedLessons(PYTHON_LESSON_SLUGS, progress));
   }, []);
@@ -404,10 +410,17 @@ export default function CertificateView() {
         </div>
         {status && <p className="mt-3 text-sm text-emerald-700">{status}</p>}
         {!unlocked && (
-          <p className="mt-3 text-sm text-slate-600 leading-6">
-            Tip: open each lesson, practice, then press <span className="font-semibold">Mark lesson done</span>{" "}
-            (or go to Next lesson). When Module 1 or the full course is done, download unlocks here.
-          </p>
+          <div className="mt-4 border-t border-slate-200 pt-4">
+            <p className="mb-2 text-sm text-slate-600">
+              Continue with the first lesson not yet completed:
+            </p>
+            <Link
+              href={`/python-course/${nextLesson.slug}/`}
+              className="inline-flex rounded-lg bg-blue-700 px-4 py-2.5 text-sm font-bold text-white hover:bg-blue-800"
+            >
+              Continue: {nextLesson.title} →
+            </Link>
+          </div>
         )}
       </div>
 

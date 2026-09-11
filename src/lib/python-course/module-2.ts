@@ -676,6 +676,108 @@ print("__name__ is:", __name__)`,
     ],
   },
   {
+    slug: "packages-and-pip",
+    title: "Python Packages and pip",
+    moduleId: "core-language",
+    level: "intermediate",
+    minutes: 14,
+    summary:
+      "Learn what packages are, how pip installs them, and how requirements files keep projects repeatable.",
+    whyForAi:
+      "AI projects depend on packages such as NumPy, pandas, scikit-learn, PyTorch, and FastAPI.",
+    packages: [],
+    sections: [
+      {
+        heading: "Modules and Packages",
+        basicTip: "Check whether Python can find a package.",
+        basicCode: `import importlib.util
+
+name = "json"
+found = importlib.util.find_spec(name) is not None
+print(name, "available:", found)`,
+        body: `A module is one Python file. A package is a folder of related modules.
+
+Python includes standard-library packages such as \`json\`. Third-party packages add tools such as NumPy and pandas.
+
+Use \`import package_name\` after a package is available.`,
+      },
+      {
+        heading: "Install with pip",
+        basicTip: "See the common pip commands as a small list.",
+        basicCode: `commands = [
+    "python -m pip install pandas",
+    "python -m pip list",
+]
+for command in commands:
+    print(command)`,
+        body: `\`pip\` is Python's package installer.
+
+- Install: \`python -m pip install pandas\`
+- Upgrade: \`python -m pip install --upgrade pandas\`
+- List: \`python -m pip list\`
+- Remove: \`python -m pip uninstall pandas\`
+
+The browser lab loads supported packages automatically, so students can practise here without setup.`,
+      },
+      {
+        heading: "Requirements Files",
+        basicTip: "Create a short repeatable package list.",
+        basicCode: `requirements = [
+    "numpy==2.1.3",
+    "pandas==2.2.3",
+]
+print("\\n".join(requirements))`,
+        body: `A \`requirements.txt\` file lists the packages a project needs.
+
+Pin versions with \`==\` when repeatable builds matter. Install the full list with \`python -m pip install -r requirements.txt\`.
+
+Common mistake: installing packages without recording their versions.`,
+      },
+    ],
+    examples: [
+      {
+        title: "AI / ML: check project dependencies",
+        note: "Check which common data packages are available.",
+        why: "A clear dependency check explains missing-import errors quickly.",
+        aiMl: "Training and data projects usually depend on NumPy, pandas, and scikit-learn.",
+        code: `import importlib.util
+
+packages = ["numpy", "pandas", "sklearn"]
+for name in packages:
+    available = importlib.util.find_spec(name) is not None
+    print(name, "available:", available)`,
+      },
+      {
+        title: "AI / ML: build a requirements list",
+        note: "Keep one readable list of project dependencies.",
+        why: "A requirements file lets another environment rebuild the same project.",
+        aiMl: "Model services pin data, model, and API libraries before deployment.",
+        code: `project_packages = {
+    "numpy": "2.1.3",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.5.2",
+}
+for name, version in project_packages.items():
+    print(f"{name}=={version}")`,
+      },
+    ],
+    tryIt: {
+      title: "Check packages in this browser",
+      hint: "Add another import name such as json, math, or pathlib.",
+      starter: `import importlib.util
+
+names = ["json", "numpy", "pandas"]
+for name in names:
+    found = importlib.util.find_spec(name) is not None
+    print(f"{name}: {'ready' if found else 'not loaded'}")`,
+    },
+    takeaways: [
+      "A module is one file; a package groups modules.",
+      "pip installs and manages third-party packages.",
+      "Requirements files make projects easier to rebuild.",
+    ],
+  },
+  {
     slug: "decorators-and-context-managers",
     title: "Python Decorators",
     moduleId: "core-language",
