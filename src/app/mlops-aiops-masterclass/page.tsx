@@ -338,9 +338,18 @@ function PricingSection() {
                 </li>
               ))}
             </ul>
-            <a href={LINKS.whatsapp} target="_blank" rel="noopener noreferrer" className="block w-full bg-blue-700 text-white py-3.5 rounded-lg text-sm font-semibold hover:bg-blue-800 transition-colors text-center">
-              Enroll on WhatsApp &rarr;
+            <a
+              href={LINKS.razorpayLiveCohort}
+              target="_blank"
+              rel="noopener noreferrer external"
+              referrerPolicy="no-referrer"
+              className="block w-full bg-blue-700 text-white py-3.5 rounded-lg text-sm font-semibold hover:bg-blue-800 transition-colors text-center"
+            >
+              Pay ₹40,000 securely &rarr;
             </a>
+            <p className="mt-2 text-center text-xs text-slate-500">
+              Secure Razorpay checkout. For installments, message us on WhatsApp.
+            </p>
           </div>
 
           {/* Recordings Only */}

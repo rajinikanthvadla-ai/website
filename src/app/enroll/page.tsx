@@ -85,15 +85,16 @@ export default function EnrollPage() {
               </div>
 
               <a
-                href={LINKS.whatsapp}
+                href={LINKS.razorpayLiveCohort}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer external"
+                referrerPolicy="no-referrer"
                 className="block w-full bg-blue-700 hover:bg-blue-800 text-white py-4 rounded-lg text-base font-semibold transition-colors text-center mb-3"
               >
-                Enroll Live Cohort on WhatsApp →
+                Pay ₹40,000 securely with Razorpay →
               </a>
               <p className="text-xs text-slate-500 text-center">
-                WhatsApp to discuss timing, payment plan, and demo access
+                For installments, timing, or demo access, contact us on WhatsApp.
               </p>
             </div>
 
