@@ -111,14 +111,15 @@ export default function PricingHero() {
             </ul>
 
             <a
-              href={LINKS.whatsapp}
+              href={LINKS.razorpayRecordings}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener noreferrer external"
+              referrerPolicy="no-referrer"
               className="block w-full bg-slate-700 hover:bg-slate-600 text-white font-bold py-4 rounded-lg transition-colors text-center mb-3"
             >
-              Get Recordings on WhatsApp →
+              Pay ₹30,000 securely →
             </a>
-            <p className="text-xs text-slate-400 text-center">Instant access after payment</p>
+            <p className="text-xs text-slate-400 text-center">Secure Razorpay checkout • Lifetime access</p>
           </div>
         </div>
 

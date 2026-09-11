@@ -21,6 +21,7 @@ export const LINKS = {
   topmate: "https://topmate.io/rajinikanthvadla",
   enroll: "https://topmate.io/rajinikanthvadla/1838028/pay",
   razorpayLiveCohort: "https://rzp.io/rzp/LbIvCkYH",
+  razorpayRecordings: "https://rzp.io/rzp/sIqldIM",
   aiopsMastery: "https://topmate.io/rajinikanthvadla/new/EjSiaf7TdI",
   aiopsMasteryEnroll: "https://topmate.io/rajinikanthvadla/2056044/pay",
   whatsapp: "https://wa.me/919100028801",
