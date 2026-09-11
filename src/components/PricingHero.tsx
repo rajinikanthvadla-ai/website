@@ -62,14 +62,15 @@ export default function PricingHero() {
             </ul>
 
             <a
-              href={LINKS.whatsapp}
+              href={LINKS.razorpayLiveCohort}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener noreferrer external"
+              referrerPolicy="no-referrer"
               className="block w-full bg-blue-700 hover:bg-blue-800 text-white font-bold py-4 rounded-lg transition-colors text-center mb-3"
             >
-              Enroll on WhatsApp →
+              Pay ₹40,000 securely →
             </a>
-            <p className="text-xs text-slate-500 text-center">Direct to Rajinikanth • Payment plans available</p>
+            <p className="text-xs text-slate-500 text-center">Razorpay secure checkout • Installments via WhatsApp</p>
           </div>
 
           {/* Recordings Only */}
