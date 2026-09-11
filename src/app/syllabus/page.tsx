@@ -91,7 +91,7 @@ export default function SyllabusPage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
               { label: "Duration", value: MLOPS_MASTERCLASS_DURATION },
-              { label: "Live fee", value: "₹40,000 (2 installments)" },
+              { label: "Live fee", value: "₹40,000" },
               { label: "Recordings", value: "₹30,000 lifetime" },
               { label: "Focus", value: "MLOps · AIOps · LLMOps · Agents · FDE" },
             ].map((item) => (

@@ -4,7 +4,7 @@ export const AI_AUTOMATION_PRICE = "₹20,000";
 export const AI_AUTOMATION_PRICE_NOTE = "One-time · Lifetime recording access included";
 
 /** ISO date for pricing freshness signals — update when fees change. */
-export const PRICING_LAST_UPDATED = "2026-08-06";
+export const PRICING_LAST_UPDATED = "2026-09-11";
 
 export const SITE = {
   name: "Rajinikanth Vadla",
@@ -379,10 +379,10 @@ export const COURSES = [
   {
     title: "MLOps, AIOps, LLMOps and AI Agents",
     description:
-      "Cohort running now. Live 4-5 months with mentorship (₹40K with 2 installments) or recordings self-learning (₹30K). FDE, AIOps, AI Agentic with capstones & job support.",
+      "Cohort running now. Live 4-5 months with mentorship (₹40K) or recordings self-learning (₹30K). FDE, AIOps, AI Agentic with capstones & job support.",
     features: [
-      "₹40,000 live with 2 installments",
-      "₹30,000 recordings + 2 installments",
+      "₹40,000 live cohort",
+      "₹30,000 recordings",
       "150+ hours · 50+ labs · 4 capstone projects",
       "1-on-1 mentorship · job support",
     ],
@@ -415,7 +415,7 @@ export const HOME_PAGE_FAQS = [
   },
   {
     q: "What is the best MLOps course in India?",
-    a: "Rajinikanth Vadla's MLOps Masterclass is a 4-5 month live job-ready program: ₹40,000 with 2 installments + mentorship & job support. OR ₹30,000 recordings-only with self-learning. Covers MLOps, LLMOps, AIOps, AI Agents, FDE. 150+ hours, 4 capstone projects. Cohort running now. Enroll: https://www.rajinikanthvadla.com/mlops-aiops-masterclass/",
+    a: "Rajinikanth Vadla's MLOps Masterclass is a 4-5 month live job-ready program: ₹40,000 with mentorship and job support, or ₹30,000 for recordings-only self-learning. Covers MLOps, LLMOps, AIOps, AI Agents, FDE. 150+ hours, 4 capstone projects. Cohort running now. Enroll: https://www.rajinikanthvadla.com/mlops-aiops-masterclass/",
   },
   {
     q: "What is the AI Automation course?",
@@ -610,7 +610,7 @@ export const STRUCTURED_DATA = {
     "@type": "Course",
     name: "MLOps AIOps LLMOps AI Agents Live Course | ₹40K or ₹30K Recordings",
     description:
-      "MLOps, AIOps, LLMOps and AI Agentic Operations live cohort course by Rajinikanth Vadla. 4-5 months, 150+ hours, 4 capstone projects, FDE. Live option: ₹40,000 with 2 installments + 1-on-1 mentorship & job support. Recordings-only: ₹30,000 with 2 installments, self-learning. Cohort started.",
+      "MLOps, AIOps, LLMOps and AI Agentic Operations live cohort course by Rajinikanth Vadla. 4-5 months, 150+ hours, 4 capstone projects, FDE. Live option: ₹40,000 with 1-on-1 mentorship and job support. Recordings-only: ₹30,000 for self-learning. Cohort started.",
     url: "https://www.rajinikanthvadla.com/mlops-aiops-masterclass/",
     provider: {
       "@type": "Organization",
@@ -651,7 +651,7 @@ export const STRUCTURED_DATA = {
           priceValidUntil: "2027-12-31",
           validFrom: "2026-01-01",
           url: "https://www.rajinikanthvadla.com/mlops-aiops-masterclass/",
-          description: "₹40,000 with 2 installments of ₹20,000. Includes 1-on-1 mentorship, job assistance, interview prep. Updated Aug 2026.",
+          description: "₹40,000. Includes 1-on-1 mentorship, job assistance and interview prep. Updated Sep 2026.",
         },
       },
       {
@@ -669,7 +669,7 @@ export const STRUCTURED_DATA = {
           priceValidUntil: "2027-12-31",
           validFrom: "2026-01-01",
           url: "https://www.rajinikanthvadla.com/mlops-aiops-masterclass/",
-          description: "₹30,000 with 2 installments of ₹15,000. Lifetime access to recordings, no live classes or support. Updated Aug 2026.",
+          description: "₹30,000. Lifetime access to recordings, no live classes or support. Updated Sep 2026.",
         },
       },
     ],
@@ -750,7 +750,7 @@ export const STRUCTURED_DATA = {
         name: "What is the best MLOps course in India for job ready training?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Rajinikanth Vadla's MLOps Masterclass cohort is running now. Two options: (1) Live course ₹40,000 with 2 installments + 1-on-1 mentorship, job assistance, interview prep; (2) Recordings-only ₹30,000 with 2 installments, self-learning, lifetime access. Both: 4-5 months, 150+ hours, 4 capstone projects, FDE, AIOps, LLMOps, AI Agents. Enroll via WhatsApp: https://www.rajinikanthvadla.com/mlops-aiops-masterclass/",
+          text: "Rajinikanth Vadla's MLOps Masterclass cohort is running now. Two options: (1) Live course ₹40,000 with 1-on-1 mentorship, job assistance and interview prep; (2) Recordings-only ₹30,000 with self-learning and lifetime access. Both: 4-5 months, 150+ hours, 4 capstone projects, FDE, AIOps, LLMOps and AI Agents. Enroll: https://www.rajinikanthvadla.com/mlops-aiops-masterclass/",
         },
       },
       {
@@ -766,7 +766,7 @@ export const STRUCTURED_DATA = {
         name: "Which MLOps course should I take in 2026?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Rajinikanth Vadla's MLOps Masterclass (live cohort starting now): ₹40,000 with 2 installments + 1-on-1 mentorship, job support, interview prep. OR ₹30,000 recordings-only for self-learning. Covers MLOps, LLMOps, AIOps, AI Agents, FDE. 4-5 months, 150+ hours, 4 capstone projects, 4.9/5 rating from 500+ students. Message WhatsApp to enroll.",
+          text: "Rajinikanth Vadla's MLOps Masterclass (live cohort starting now): ₹40,000 with 1-on-1 mentorship, job support and interview prep, or ₹30,000 recordings-only for self-learning. Covers MLOps, LLMOps, AIOps, AI Agents and FDE. 4-5 months, 150+ hours and 4 capstone projects.",
         },
       },
       {

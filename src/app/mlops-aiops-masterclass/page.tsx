@@ -23,7 +23,7 @@ import { MLOPS_SKETCH, sketch } from "@/lib/sketch-assets";
 export const metadata: Metadata = {
   title: "MLOps Course India ₹40K | Live Classes Running | Learn MLOps, AIOps, AI Agents",
   description:
-    "MLOps, AIOps, LLMOps, AI Agents live course: ₹40,000 (2 installments) with mentorship OR ₹30,000 recordings. 4-5 months, 150+ hours, 4 capstone projects. Classes already started—join now via WhatsApp.",
+    "MLOps, AIOps, LLMOps and AI Agents live course: ₹40,000 with mentorship or ₹30,000 recordings. 4-5 months, 150+ hours and 4 capstone projects.",
   keywords: [
     "MLOps course",
     "MLOps course India",
@@ -31,7 +31,6 @@ export const metadata: Metadata = {
     "MLOps live course",
     "MLOps course price",
     "MLOps course ₹40000",
-    "MLOps course with installments",
     "AIOps course",
     "AI Agents course",
     "GenAI course",
@@ -125,12 +124,12 @@ function HeroBanner() {
           <div className="panel p-5 max-w-md mx-auto mb-8 border-l-4 border-l-blue-700">
             <div className="mb-4">
               <div className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-1">Live Course Option</div>
-              <p className="text-[#0f172a] font-bold text-2xl">₹40,000 <span className="text-slate-500 font-normal text-sm">with 2 installments</span></p>
+              <p className="text-[#0f172a] font-bold text-2xl">₹40,000</p>
               <p className="text-slate-600 text-xs mt-2">Live 4–5 months · 150+ hours · 1-on-1 support · job assistance</p>
             </div>
             <div className="border-t border-slate-300 pt-4">
               <div className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-1">Recordings Only (Self-Learning)</div>
-              <p className="text-[#0f172a] font-bold text-2xl">₹30,000 <span className="text-slate-500 font-normal text-sm">with 2 installments</span></p>
+              <p className="text-[#0f172a] font-bold text-2xl">₹30,000</p>
               <p className="text-slate-600 text-xs mt-2">Lifetime access · no live class · no support</p>
             </div>
             <p className="text-slate-500 text-xs mt-4">Mon-Fri, 8:00-9:45 PM IST (live cohort). International: $450 / €420</p>
@@ -306,7 +305,7 @@ function PricingSection() {
         <SectionHeader
           tag="Pricing"
           title="Choose your learning path"
-          subtitle="Live cohort with mentorship OR recordings-only self-study. Both with 2-installment payment plans."
+          subtitle="Choose the live cohort with mentorship or recordings-only self-study."
         />
         <div className="grid md:grid-cols-2 gap-8 mb-12">
           {/* Live Course */}
@@ -318,7 +317,6 @@ function PricingSection() {
             </div>
             <div className="mb-6">
               <p className="text-5xl font-bold text-slate-900">₹40,000</p>
-              <p className="text-slate-600 text-sm mt-1">2 installments of ₹20,000 each</p>
               <p className="text-slate-500 text-xs mt-2">$450 USD or €420 EUR (international)</p>
             </div>
             <ul className="space-y-2.5 mb-8">
@@ -348,7 +346,7 @@ function PricingSection() {
               Pay ₹40,000 securely &rarr;
             </a>
             <p className="mt-2 text-center text-xs text-slate-500">
-              Secure Razorpay checkout. For installments, message us on WhatsApp.
+              Secure Razorpay checkout
             </p>
           </div>
 
@@ -361,7 +359,6 @@ function PricingSection() {
             </div>
             <div className="mb-6">
               <p className="text-5xl font-bold text-slate-900">₹30,000</p>
-              <p className="text-slate-600 text-sm mt-1">2 installments of ₹15,000 each</p>
               <p className="text-slate-500 text-xs mt-2">$375 USD or €350 EUR (international)</p>
             </div>
             <ul className="space-y-2.5 mb-8">
@@ -388,9 +385,9 @@ function PricingSection() {
         </div>
 
         <div className="bg-white panel p-6 rounded-lg border border-slate-200 max-w-2xl mx-auto">
-          <h3 className="font-display text-lg font-bold text-slate-900 mb-3">Payment Plans & Questions?</h3>
+          <h3 className="font-display text-lg font-bold text-slate-900 mb-3">Questions before enrolling?</h3>
           <p className="text-slate-600 text-sm mb-4">
-            Both options support 2-installment payment plans. For batch timing, demo access, or enrollment details:
+            For batch timing, demo access or enrollment details:
           </p>
           <a href={LINKS.whatsapp} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2.5 rounded-lg text-sm font-semibold transition-colors">
             Message on WhatsApp
@@ -480,10 +477,6 @@ function FAQSection() {
     {
       q: "How long is the complete job ready program?",
       a: "The full program runs 4-5 months with live sessions Monday to Friday, 8:00 to 9:45 PM IST. You get 150+ hours of hands-on labs, 6 modules, 4 capstone projects, and a dedicated job ready track with interview prep.",
-    },
-    {
-      q: "Can I pay in installments?",
-      a: "Yes, EMI and installment options are available. Contact on WhatsApp for flexible payment plans.",
     },
     {
       q: "Does the syllabus cover LLMOps and AI Agents?",

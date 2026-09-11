@@ -37,12 +37,9 @@ export default function PricingHero() {
 
             <div className="mb-8 pb-8 border-b-2 border-blue-100">
               <p className="text-slate-500 text-sm mb-2 uppercase tracking-widest font-bold">Investment</p>
-              <div className="flex items-baseline gap-2">
-                <span className="text-5xl font-bold text-blue-700">₹40,000</span>
-                <span className="text-slate-600 text-lg">or 2 × ₹20,000</span>
-              </div>
+              <span className="text-5xl font-bold text-blue-700">₹40,000</span>
               <p className="text-slate-700 text-sm font-semibold mt-2 text-center">🔴 Classes Already Started</p>
-              <p className="text-slate-600 text-sm mt-2">No interest • No hidden charges</p>
+              <p className="text-slate-600 text-sm mt-2">One-time payment • Secure checkout</p>
             </div>
 
             <ul className="space-y-3 mb-8">
@@ -70,7 +67,7 @@ export default function PricingHero() {
             >
               Pay ₹40,000 securely →
             </a>
-            <p className="text-xs text-slate-500 text-center">Razorpay secure checkout • Installments via WhatsApp</p>
+            <p className="text-xs text-slate-500 text-center">Secure Razorpay checkout</p>
           </div>
 
           {/* Recordings Only */}
@@ -87,10 +84,7 @@ export default function PricingHero() {
 
             <div className="mb-8 pb-8 border-b-2 border-slate-700">
               <p className="text-slate-400 text-sm mb-2 uppercase tracking-widest font-bold">Investment</p>
-              <div className="flex items-baseline gap-2">
-                <span className="text-5xl font-bold text-white">₹30,000</span>
-                <span className="text-slate-400 text-lg">or 2 × ₹15,000</span>
-              </div>
+              <span className="text-5xl font-bold text-white">₹30,000</span>
               <p className="text-slate-400 text-sm mt-3">Lifetime access • Learn anytime</p>
             </div>
 
@@ -129,7 +123,7 @@ export default function PricingHero() {
             href="/enroll"
             className="inline-flex items-center gap-2 text-white hover:text-blue-200 font-semibold transition-colors"
           >
-            See full comparison & payment plans
+            See full comparison
             <span className="text-lg">→</span>
           </Link>
         </div>

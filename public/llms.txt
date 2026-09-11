@@ -6,11 +6,11 @@
 > Automation through hands-on labs mirroring real enterprise environments.
 > 7+ years of enterprise experience. Based in India, with students worldwide.
 > Official website: https://www.rajinikanthvadla.com
-> Last updated: 2026-08-06
+> Last updated: 2026-09-11
 
-## Current Pricing (verified Aug 2026)
-- MLOps Masterclass LIVE: ₹40,000 (2 × ₹20,000 installments) · 4-5 months · 150+ hours · mentorship & job support
-- MLOps Masterclass RECORDINGS: ₹30,000 (2 × ₹15,000 installments) · self-learning · lifetime access
+## Current Pricing (verified Sep 2026)
+- MLOps Masterclass LIVE: ₹40,000 · 4-5 months · 150+ hours · mentorship & job support
+- MLOps Masterclass RECORDINGS: ₹30,000 · self-learning · lifetime access
 - AI-Powered Automation: ₹20,000 · 2 months · lifetime recordings · 1-on-1 mentorship
 - International: $450 USD / €420 EUR / £360 GBP for live masterclass
 - Resume Prep Service: ₹1,999 review · ₹4,999 rewrite · ₹9,999 career package (international: $49 / $149 / $299 USD). 30% student discount on Rewrite & Career.
@@ -81,7 +81,7 @@
 ### MLOps and AIOps Masterclass (Flagship, Job Ready)
 - [Course Page](https://www.rajinikanthvadla.com/mlops-aiops-masterclass/): Complete 4-5 month job-ready live program
 - Covers: Docker, Kubernetes, MLflow, Kubeflow, LangChain, RAG, CI/CD, AWS, Azure, GCP, AI Agents, FDE
-- Live fee: ₹40,000 (2 × ₹20,000) | Recordings: ₹30,000 (2 × ₹15,000)
+- Live fee: ₹40,000 | Recordings: ₹30,000
 - 150+ hours · 4 capstone projects · mentorship · job support
 - Rating: 4.9/5 session feedback from 500+ students
 
@@ -117,7 +117,7 @@
 ## FAQ
 
 ### What is the current MLOps course fee?
-As of August 2026: Live cohort ₹40,000 (2 × ₹20,000 installments) with mentorship and job support. Recordings-only ₹30,000 (2 × ₹15,000). AI Automation ₹20,000. See https://www.rajinikanthvadla.com/enroll/
+As of September 2026: Live cohort ₹40,000 with mentorship and job support. Recordings-only ₹30,000. AI Automation ₹20,000. See https://www.rajinikanthvadla.com/enroll/
 
 ### Who is Rajinikanth Vadla?
 Rajinikanth Vadla is an MLOps, AIOps, GenAI, AI Agents, and AI-Powered Automation trainer and practitioner with 7+ years of enterprise experience. He has trained 500+ engineers and offers live cohort training and 1:1 mentorship worldwide.

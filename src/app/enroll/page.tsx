@@ -6,14 +6,13 @@ import { sketch, HOME_SKETCH } from "@/lib/sketch-assets";
 import YouTubeMembershipSection from "@/components/YouTubeMembershipSection";
 
 export const metadata: Metadata = {
-  title: "Enroll Now | MLOps Course ₹40K Live or ₹30K Recordings | 2 Payment Plans",
+  title: "Enroll Now | MLOps Course ₹40K Live or ₹30K Recordings",
   description:
-    "MLOps, AIOps, AI Agents course enrollment: Choose live cohort (₹40,000 with 2 installments + mentorship) or recordings-only (₹30,000 with 2 installments). Direct WhatsApp payment support.",
+    "MLOps, AIOps and AI Agents course enrollment: choose the ₹40,000 live cohort with mentorship or ₹30,000 recordings-only self-learning.",
   keywords: [
     "MLOps course buy",
     "MLOps course enroll",
     "MLOps course price",
-    "MLOps course installments",
     "buy MLOps course",
     "enroll MLOps course",
     "AIOps course enrollment",
@@ -57,7 +56,6 @@ export default function EnrollPage() {
               <div className="mb-8 pb-8 border-b-2 border-dashed border-slate-300">
                 <p className="text-slate-500 text-sm mb-2">Total Investment</p>
                 <p className="text-5xl md:text-6xl font-bold text-blue-700 mb-2">₹40,000</p>
-                <p className="text-slate-700 font-semibold text-lg">Or 2 payments of ₹20,000</p>
                 <p className="text-slate-500 text-sm mt-3">International: $450 USD or €420 EUR</p>
               </div>
 
@@ -94,7 +92,7 @@ export default function EnrollPage() {
                 Pay ₹40,000 securely with Razorpay →
               </a>
               <p className="text-xs text-slate-500 text-center">
-                For installments, timing, or demo access, contact us on WhatsApp.
+                Secure Razorpay checkout
               </p>
             </div>
 
@@ -115,7 +113,6 @@ export default function EnrollPage() {
               <div className="mb-8 pb-8 border-b-2 border-dashed border-slate-300">
                 <p className="text-slate-500 text-sm mb-2">Total Investment</p>
                 <p className="text-5xl md:text-6xl font-bold text-slate-900 mb-2">₹30,000</p>
-                <p className="text-slate-700 font-semibold text-lg">Or 2 payments of ₹15,000</p>
                 <p className="text-slate-500 text-sm mt-3">International: $375 USD or €350 EUR</p>
               </div>
 
@@ -179,7 +176,7 @@ export default function EnrollPage() {
                 </thead>
                 <tbody>
                   {[
-                    { feature: "Price", live: "₹40,000 (2 × ₹20K)", recordings: "₹30,000 (2 × ₹15K)" },
+                    { feature: "Price", live: "₹40,000", recordings: "₹30,000" },
                     { feature: "Duration", live: "4–5 months live", recordings: "Self-paced" },
                     { feature: "Live Classes", live: "✓ Yes", recordings: "✗ No" },
                     { feature: "Mentorship", live: "✓ 1-on-1", recordings: "✗ No" },
@@ -203,41 +200,16 @@ export default function EnrollPage() {
         </div>
       </section>
 
-      {/* Payment Plans Explanation */}
+      {/* Secure payment explanation */}
       <section className="py-16 md:py-24 bg-slate-50 border-b border-slate-200">
         <div className="max-w-3xl mx-auto px-6">
           <h2 className="font-display text-3xl font-bold text-slate-900 text-center mb-12">
-            How Payment Plans Work
+            How Secure Payment Works
           </h2>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* 2 Installments */}
-            <div className="panel p-8">
-              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
-                <span className="text-2xl font-bold text-blue-700">2</span>
-              </div>
-              <h3 className="font-display text-xl font-bold text-slate-900 mb-4">
-                2-Installment Payment
-              </h3>
-              <p className="text-slate-600 text-sm leading-relaxed mb-6">
-                Split your payment into two equal parts over 30–60 days. No interest, no hidden charges.
-              </p>
-              <div className="bg-blue-50 p-4 rounded-lg mb-6">
-                <p className="text-sm text-slate-700">
-                  <span className="font-bold">Live Course:</span> ₹20,000 due at enrollment + ₹20,000 within 30–45 days
-                </p>
-              </div>
-              <div className="bg-slate-100 p-4 rounded-lg">
-                <p className="text-sm text-slate-700">
-                  <span className="font-bold">Recordings:</span> ₹15,000 due at enrollment + ₹15,000 within 30–45 days
-                </p>
-              </div>
-            </div>
-
-            {/* How to Pay */}
-            <div className="panel p-8">
+          <div className="panel p-8 max-w-xl mx-auto">
               <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mb-4">
-                <span className="text-xl">💬</span>
+                <span className="text-xl">🔒</span>
               </div>
               <h3 className="font-display text-xl font-bold text-slate-900 mb-4">
                 How to Enroll & Pay
@@ -245,26 +217,17 @@ export default function EnrollPage() {
               <ol className="space-y-3 text-sm text-slate-700">
                 <li className="flex gap-3">
                   <span className="font-bold shrink-0">1.</span>
-                  <span>Message WhatsApp with your choice (Live or Recordings)</span>
+                  <span>Choose Live Cohort or Recordings</span>
                 </li>
                 <li className="flex gap-3">
                   <span className="font-bold shrink-0">2.</span>
-                  <span>We'll send you payment details and installment breakdown</span>
+                  <span>Complete payment on the secure Razorpay page</span>
                 </li>
                 <li className="flex gap-3">
                   <span className="font-bold shrink-0">3.</span>
-                  <span>Pay first installment via bank transfer or UPI</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="font-bold shrink-0">4.</span>
-                  <span>Get instant access + enrollment confirmation</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="font-bold shrink-0">5.</span>
-                  <span>Pay second installment on agreed date</span>
+                  <span>Receive your payment receipt and enrollment confirmation</span>
                 </li>
               </ol>
-            </div>
           </div>
         </div>
       </section>
@@ -278,10 +241,6 @@ export default function EnrollPage() {
 
           <div className="space-y-6">
             {[
-              {
-                q: "What if I can't make the second payment?",
-                a: "Contact us immediately via WhatsApp. We'll work out a new timeline with you — no penalties.",
-              },
               {
                 q: "Do you accept international payments?",
                 a: "Yes! We accept bank transfers, Wise transfers, and international payment methods. Contact us for details.",
