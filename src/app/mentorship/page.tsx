@@ -3,11 +3,12 @@ import { LINKS } from "@/lib/constants";
 import CTASection from "@/components/CTASection";
 import SuccessStories from "@/components/SuccessStories";
 import YouTubeMembershipSection from "@/components/YouTubeMembershipSection";
+import MentorshipPricing, { HideInUk } from "@/components/MentorshipPricing";
 
 export const metadata: Metadata = {
   title: "1:1 Mentorship & Career Guidance",
   description:
-    "Online 1:1 mentorship for MLOps, AIOps and AI engineering careers — role transitions, interview prep and learning plans. Open worldwide.",
+    "Monthly 1:1 mentorship for MLOps, AIOps and AI engineering careers — weekly calls, chat support, resume and interview prep. Priced by country for India, USA, Canada, Australia, Europe and the Gulf.",
   keywords: [
     "Rajinikanth Vadla mentorship",
     "MLOps career mentor online",
@@ -36,8 +37,16 @@ export default function MentorshipPage() {
             questions about transformation into MLOps, AIOps, cloud, or AI roles, or about the next step from where you
             are today.
           </p>
+          <a
+            href="#pricing"
+            className="inline-block mt-6 bg-accent-500 hover:bg-accent-600 text-white px-6 py-3 text-sm font-semibold uppercase tracking-wide transition-colors"
+          >
+            See mentorship plans
+          </a>
         </div>
       </section>
+
+      <MentorshipPricing />
 
       <section className="py-20 md:py-24 bg-white border-b border-stone-200">
         <div className="max-w-5xl mx-auto px-6">
@@ -116,6 +125,7 @@ export default function MentorshipPage() {
 
       <YouTubeMembershipSection compact />
 
+      <HideInUk>
       <section className="py-16 bg-stone-50 border-b border-stone-200">
         <div className="w-full px-0 md:px-0">
           <div className="panel p-4 md:p-6">
@@ -146,6 +156,7 @@ export default function MentorshipPage() {
           </div>
         </div>
       </section>
+      </HideInUk>
 
       <CTASection
         ctaPreset="mentorship"
