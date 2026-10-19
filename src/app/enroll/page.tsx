@@ -4,6 +4,7 @@ import Image from "next/image";
 import { LINKS } from "@/lib/constants";
 import { sketch, HOME_SKETCH } from "@/lib/sketch-assets";
 import YouTubeMembershipSection from "@/components/YouTubeMembershipSection";
+import TrustStrip from "@/components/TrustStrip";
 
 export const metadata: Metadata = {
   title: "Enroll Now | MLOps Course ₹40K Live or ₹30K Recordings",
@@ -158,6 +159,10 @@ export default function EnrollPage() {
                 WhatsApp to arrange payment & get instant access
               </p>
             </div>
+          </div>
+
+          <div className="mt-12">
+            <TrustStrip refundNote="7-day no-questions-asked refund on the live cohort. Recordings are non-refundable." />
           </div>
 
           {/* Comparison Table */}

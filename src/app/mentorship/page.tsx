@@ -1,29 +1,73 @@
 import type { Metadata } from "next";
-import { LINKS } from "@/lib/constants";
+import { LINKS, SITE } from "@/lib/constants";
+import { MENTORSHIP_FAQS, mentorshipOfferSchema } from "@/lib/mentorship-pricing";
 import CTASection from "@/components/CTASection";
 import SuccessStories from "@/components/SuccessStories";
 import YouTubeMembershipSection from "@/components/YouTubeMembershipSection";
 import MentorshipPricing, { HideInUk } from "@/components/MentorshipPricing";
 
 export const metadata: Metadata = {
-  title: "1:1 Mentorship & Career Guidance",
+  title: "MLOps & AI Career Mentorship – Monthly 1:1 Plans",
   description:
-    "Monthly 1:1 mentorship for MLOps, AIOps and AI engineering careers — weekly calls, chat support, resume and interview prep. Priced by country for India, USA, Canada, Australia, Europe and the Gulf.",
+    "Monthly 1:1 mentorship for MLOps, AIOps, LLMOps and AI engineering careers with Rajinikanth Vadla: weekly calls, WhatsApp support, resume and interview prep. From ₹2,499 in India and $199 internationally. Secure Razorpay payment.",
   keywords: [
     "Rajinikanth Vadla mentorship",
-    "MLOps career mentor online",
+    "MLOps mentor",
+    "MLOps mentorship India",
+    "AI career mentor online",
+    "monthly tech mentorship",
     "AI engineering career coaching",
-    "remote tech mentorship",
-    "career transformation mentor",
+    "MLOps mentor USA",
     "DevOps to MLOps career change",
-    "international students MLOps",
+    "LLMOps mentorship",
+    "job switch mentorship AI",
   ],
   alternates: { canonical: "https://www.rajinikanthvadla.com/mentorship/" },
+  openGraph: {
+    title: "1:1 MLOps & AI Career Mentorship – Rajinikanth Vadla",
+    description: "Weekly 1:1 calls, WhatsApp support, resume and interview prep. Priced for your country. Secure Razorpay payment.",
+    url: "https://www.rajinikanthvadla.com/mentorship/",
+    images: [SITE.image],
+    type: "website",
+  },
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "1:1 MLOps & AI Career Mentorship",
+  serviceType: "Career mentorship",
+  provider: { "@type": "Person", name: SITE.name, url: SITE.url },
+  areaServed: "Worldwide (except United Kingdom)",
+  url: `${SITE.url}/mentorship/`,
+  offers: mentorshipOfferSchema(SITE.url),
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: MENTORSHIP_FAQS.map((faq) => ({
+    "@type": "Question",
+    name: faq.q,
+    acceptedAnswer: { "@type": "Answer", text: faq.a },
+  })),
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: `${SITE.url}/` },
+    { "@type": "ListItem", position: 2, name: "Mentorship", item: `${SITE.url}/mentorship/` },
+  ],
 };
 
 export default function MentorshipPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <section className="relative border-b border-stone-200 bg-stone-100 surface-paper py-20 md:py-24">
         <div className="relative text-center max-w-3xl mx-auto px-6">
           <span className="inline-block text-xs font-semibold uppercase tracking-[0.14em] text-accent-600 mb-3">Personal guidance</span>
@@ -157,6 +201,20 @@ export default function MentorshipPage() {
         </div>
       </section>
       </HideInUk>
+
+      <section className="py-20 md:py-24 bg-white border-b border-stone-200">
+        <div className="max-w-3xl mx-auto px-6">
+          <h2 className="font-display text-3xl font-bold text-stone-900 text-center mb-10">Questions before you pay</h2>
+          <div className="space-y-3">
+            {MENTORSHIP_FAQS.map((faq) => (
+              <details key={faq.q} className="panel p-5 group">
+                <summary className="font-semibold text-stone-900 cursor-pointer">{faq.q}</summary>
+                <p className="text-stone-600 text-sm mt-3 leading-relaxed">{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <CTASection
         ctaPreset="mentorship"

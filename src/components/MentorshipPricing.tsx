@@ -2,19 +2,52 @@
 
 import { useEffect, useState, type ReactNode } from "react";
 import { LINKS } from "@/lib/constants";
+import TrustStrip from "@/components/TrustStrip";
 import {
   MENTORSHIP_MONTHLY_CAP,
+  MENTORSHIP_PAYMENT_PAGES,
   MENTORSHIP_PLANS,
+  MENTORSHIP_REFUND_NOTE,
   MENTORSHIP_ZONES,
   detectMentorshipRegion,
   type MentorshipRegion,
   type MentorshipZoneId,
 } from "@/lib/mentorship-pricing";
 
+const REGION_EVENT = "mentorship-region-change";
+const REGION_PARAM: Record<string, MentorshipZoneId> = {
+  a: "A", global: "A", us: "A", usa: "A",
+  b: "B",
+  c: "C", india: "C", in: "C",
+};
+
+/** Region chosen via `?region=` (shareable link) or the "not in the UK" button. */
+function readRegionOverride(): MentorshipZoneId | null {
+  const value = new URLSearchParams(window.location.search).get("region");
+  return value ? REGION_PARAM[value.toLowerCase()] ?? null : null;
+}
+
+function setRegionOverride(zone: MentorshipZoneId) {
+  const url = new URL(window.location.href);
+  url.searchParams.set("region", zone.toLowerCase());
+  window.history.replaceState(null, "", url);
+  window.dispatchEvent(new Event(REGION_EVENT));
+}
+
 function useMentorshipRegion(): MentorshipRegion | null {
   const [region, setRegion] = useState<MentorshipRegion | null>(null);
   useEffect(() => {
-    setRegion(detectMentorshipRegion(Intl.DateTimeFormat().resolvedOptions().timeZone));
+    const update = () => {
+      const override = readRegionOverride();
+      setRegion(
+        override
+          ? { uk: false, zone: override }
+          : detectMentorshipRegion(Intl.DateTimeFormat().resolvedOptions().timeZone),
+      );
+    };
+    update();
+    window.addEventListener(REGION_EVENT, update);
+    return () => window.removeEventListener(REGION_EVENT, update);
   }, []);
   return region;
 }
@@ -24,6 +57,11 @@ export function HideInUk({ children }: { children: ReactNode }) {
   const region = useMentorshipRegion();
   if (region?.uk) return null;
   return <>{children}</>;
+}
+
+function whatsappPayLink(planName: string, price: string) {
+  const text = `Hi Rajinikanth, I want to join ${planName} (${price}). Please send me the payment link.`;
+  return `${LINKS.whatsapp}?text=${encodeURIComponent(text)}`;
 }
 
 export default function MentorshipPricing() {
@@ -43,12 +81,26 @@ export default function MentorshipPricing() {
             Paid 1:1 mentorship plans are currently unavailable for the UK. You can still learn from the free Python
             course, blog and YouTube channel.
           </p>
+          <p className="text-sm text-stone-500 mt-6 mb-3">Not in the UK? Your device clock may be set to UK time. Choose your region:</p>
+          <div className="flex flex-wrap justify-center gap-2">
+            {MENTORSHIP_ZONES.map((z) => (
+              <button
+                key={z.id}
+                type="button"
+                onClick={() => setRegionOverride(z.id)}
+                className="px-4 py-2 text-sm font-semibold border bg-white border-stone-300 text-stone-700 hover:border-stone-900 transition-colors"
+              >
+                {z.label}
+              </button>
+            ))}
+          </div>
         </div>
       </section>
     );
   }
 
   const activeZone = MENTORSHIP_ZONES.find((z) => z.id === zone)!;
+  const paymentPage = MENTORSHIP_PAYMENT_PAGES[zone];
 
   return (
     <section id="pricing" className="py-20 md:py-24 bg-stone-50 border-b border-stone-200">
@@ -73,7 +125,7 @@ export default function MentorshipPricing() {
               type="button"
               role="tab"
               aria-selected={zone === z.id}
-              onClick={() => setZone(z.id)}
+              onClick={() => setRegionOverride(z.id)}
               className={`px-4 py-2 text-sm font-semibold border transition-colors ${
                 zone === z.id
                   ? "bg-stone-900 border-stone-900 text-white"
@@ -116,21 +168,52 @@ export default function MentorshipPricing() {
                     </li>
                   ))}
                 </ul>
-                <a
-                  href={plan.bookUrl[zone]}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`block text-center px-5 py-3 text-sm font-semibold uppercase tracking-wide transition-colors ${
-                    plan.featured
-                      ? "bg-accent-500 hover:bg-accent-600 text-white"
-                      : "bg-stone-900 hover:bg-accent-600 text-white"
-                  }`}
-                >
-                  {plan.id === "deep-dive" ? "Book a call" : "Start mentorship"}
-                </a>
+                <div className="grid grid-cols-2 gap-2">
+                  <a
+                    href={paymentPage ?? whatsappPayLink(plan.name, price.main)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`flex items-center justify-center text-center px-2 py-3 text-xs font-semibold uppercase tracking-wide text-white transition-colors ${
+                      plan.featured ? "bg-accent-500 hover:bg-accent-600" : "bg-stone-900 hover:bg-accent-600"
+                    }`}
+                  >
+                    {paymentPage ? "Pay with Razorpay" : "Get payment link"}
+                  </a>
+                  <a
+                    href={LINKS.topmate}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center text-center px-2 py-3 text-xs font-semibold uppercase tracking-wide border border-stone-300 bg-white text-stone-700 hover:border-stone-900 transition-colors"
+                  >
+                    Book on Topmate
+                  </a>
+                </div>
               </div>
             );
           })}
+        </div>
+
+        <div className="mt-12">
+          <TrustStrip refundNote={MENTORSHIP_REFUND_NOTE} />
+        </div>
+
+        <div className="max-w-5xl mx-auto mt-12">
+          <h3 className="font-display text-2xl font-bold text-stone-900 text-center mb-6">What happens after you pay</h3>
+          <ol className="grid md:grid-cols-3 gap-3">
+            {[
+              { step: "1", title: "Instant receipt", desc: "Razorpay emails your payment receipt straight away." },
+              { step: "2", title: "I contact you", desc: "Within 24 hours on WhatsApp or email to fix your first call time." },
+              { step: "3", title: "First session", desc: "We map your goal and build your plan. Weekly calls start from here." },
+            ].map((item) => (
+              <li key={item.step} className="panel p-5">
+                <span className="inline-flex items-center justify-center w-8 h-8 bg-stone-900 text-white font-bold text-sm mb-3">
+                  {item.step}
+                </span>
+                <p className="font-semibold text-stone-900">{item.title}</p>
+                <p className="text-sm text-stone-600 leading-relaxed">{item.desc}</p>
+              </li>
+            ))}
+          </ol>
         </div>
 
         <p className="text-center text-sm text-stone-600 mt-10">

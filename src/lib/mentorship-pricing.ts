@@ -22,8 +22,6 @@ export type MentorshipPlan = {
   includes: string[];
   /** Price per zone. Zone C is charged in INR; `alt` is the rough USD equivalent. */
   prices: Record<MentorshipZoneId, { main: string; alt?: string }>;
-  /** Replace with the zone-specific Topmate payment links once created. */
-  bookUrl: Record<MentorshipZoneId, string>;
 };
 
 /** Monthly mentee cap — keep this honest; it is shown on the page. */
@@ -47,10 +45,14 @@ export const MENTORSHIP_ZONES: MentorshipZone[] = [
   },
 ];
 
-const topmateAll: Record<MentorshipZoneId, string> = {
-  A: LINKS.topmate,
-  B: LINKS.topmate,
-  C: LINKS.topmate,
+/**
+ * One Razorpay Payment Page per zone lists every plan.
+ * `null` = no page yet: the pay button opens WhatsApp so a payment link can be sent manually.
+ */
+export const MENTORSHIP_PAYMENT_PAGES: Record<MentorshipZoneId, string | null> = {
+  A: LINKS.razorpayMentorshipGlobal,
+  B: null,
+  C: LINKS.razorpayMentorshipIndia,
 };
 
 export const MENTORSHIP_PLANS: MentorshipPlan[] = [
@@ -61,7 +63,6 @@ export const MENTORSHIP_PLANS: MentorshipPlan[] = [
     summary: "One focused session on your CV, system design, career move or a stuck project.",
     includes: ["60-minute video call", "Clear next steps for your situation", "Follow-up questions on WhatsApp for 3 days"],
     prices: { A: { main: "$199" }, B: { main: "$119" }, C: { main: "₹2,499", alt: "≈ $30" } },
-    bookUrl: topmateAll,
   },
   {
     id: "monthly",
@@ -78,7 +79,6 @@ export const MENTORSHIP_PLANS: MentorshipPlan[] = [
       "Priority booking for mock interviews",
     ],
     prices: { A: { main: "$599" }, B: { main: "$349" }, C: { main: "₹7,999", alt: "≈ $95" } },
-    bookUrl: topmateAll,
   },
   {
     id: "quarterly",
@@ -87,7 +87,6 @@ export const MENTORSHIP_PLANS: MentorshipPlan[] = [
     summary: "Everything in Monthly for 3 months — the usual time it takes to switch roles.",
     includes: ["Everything in Monthly Mentorship", "12 × 60-min 1:1 calls", "2 full mock interview loops"],
     prices: { A: { main: "$1,499" }, B: { main: "$899" }, C: { main: "₹19,999", alt: "≈ $240" } },
-    bookUrl: topmateAll,
   },
   {
     id: "job-switch",
@@ -102,7 +101,6 @@ export const MENTORSHIP_PLANS: MentorshipPlan[] = [
       "Offer and salary negotiation guidance",
     ],
     prices: { A: { main: "$2,999" }, B: { main: "$1,799" }, C: { main: "₹29,999", alt: "≈ $360" } },
-    bookUrl: topmateAll,
   },
 ];
 
@@ -180,4 +178,56 @@ export function detectMentorshipRegion(timeZone: string): MentorshipRegion {
     return { uk: false, zone: "A" };
   }
   return { uk: false, zone: "B" };
+}
+
+export const MENTORSHIP_REFUND_NOTE = "Full refund if you ask before your first session.";
+
+export const MENTORSHIP_FAQS = [
+  {
+    q: "Is the payment safe?",
+    a: "Yes. Payments go through Razorpay, a well-known, RBI-regulated Indian payment gateway. You get an email receipt instantly. I never see your card or UPI details.",
+  },
+  {
+    q: "What if mentorship is not right for me?",
+    a: "Ask before your first session and you get a full refund. After the first call you will already know exactly how I work, so there are no surprises.",
+  },
+  {
+    q: "What happens after I pay?",
+    a: "Within 24 hours I message you on WhatsApp or email, we pick a call time in your time zone, and you send a short note on your background and goal so the first session is useful from minute one.",
+  },
+  {
+    q: "Which currency do I pay in?",
+    a: "Visitors from India and South Asia pay in rupees (UPI, cards, net banking). Visitors from the USA, Canada, Europe, the Gulf, Australia and other countries pay in US dollars by card. The page picks your region automatically and you can switch it.",
+  },
+  {
+    q: "Can I book through Topmate instead?",
+    a: "Yes. Every plan has a Topmate button if you prefer booking there.",
+  },
+  {
+    q: "Is mentorship available in the United Kingdom?",
+    a: "No. Paid mentorship plans are currently not offered to UK residents.",
+  },
+];
+
+/** Plan offers for structured data (Google rich results). */
+export function mentorshipOfferSchema(siteUrl: string) {
+  const toNumber = (price: string) => Number(price.replace(/[^0-9.]/g, ""));
+  return MENTORSHIP_PLANS.flatMap((plan) => [
+    {
+      "@type": "Offer",
+      name: `${plan.name} (India)`,
+      price: toNumber(plan.prices.C.main),
+      priceCurrency: "INR",
+      url: `${siteUrl}/mentorship/?region=india`,
+      availability: "https://schema.org/InStock",
+    },
+    {
+      "@type": "Offer",
+      name: `${plan.name} (International)`,
+      price: toNumber(plan.prices.A.main),
+      priceCurrency: "USD",
+      url: `${siteUrl}/mentorship/?region=usa`,
+      availability: "https://schema.org/InStock",
+    },
+  ]);
 }
