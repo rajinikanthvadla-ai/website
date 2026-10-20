@@ -35,7 +35,7 @@ const DASHBOARD_COURSES: DashboardCourse[] = [
     href: "/mlops-aiops-masterclass",
     sketch: sketch(HOME_SKETCH.programsMlops),
     sketchAlt: "Enterprise team at work",
-    price: "₹40,000 · $450 USD",
+    price: "₹40,000 · $599 USD",
     duration: MLOPS_MASTERCLASS_DURATION,
     highlights: ["150+ hours hands-on", "4 capstone projects", "Placement support"],
     accent: "blue",

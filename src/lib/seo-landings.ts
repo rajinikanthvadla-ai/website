@@ -64,7 +64,7 @@ export const SEO_LANDINGS: Record<string, SeoLanding> = {
   "mlops-course": {
     slug: "mlops-course",
     title: "MLOps Course",
-    metaTitle: "MLOps Course 2026 | Job Ready Live Training | Rajinikanth Vadla",
+    metaTitle: "MLOps Course 2026 – Live MLOps, LLMOps & AIOps Training Online",
     metaDescription:
       "MLOps course with AIOps, LLMOps and AI Agents. 4-5 month live job-ready program by Rajinikanth Vadla. 150+ hours hands-on, placement support. Watch free course videos here.",
     keywords: [
@@ -99,7 +99,7 @@ export const SEO_LANDINGS: Record<string, SeoLanding> = {
   "mlops-training": {
     slug: "mlops-training",
     title: "MLOps Training",
-    metaTitle: "MLOps Training India | MLflow, Kubeflow, Production ML | Live Course",
+    metaTitle: "MLOps Training Online – MLflow, Kubeflow, LLMOps & AIOps (Live)",
     metaDescription:
       "Hands-on MLOps training with MLflow, Kubeflow, CI/CD, Kubernetes and model monitoring. Part of Rajinikanth Vadla's job-ready 4-5 month masterclass. Enroll live online.",
     keywords: ["MLOps training", "MLOps training India", "MLflow training", "Kubeflow course", "production ML training"],
@@ -120,7 +120,7 @@ export const SEO_LANDINGS: Record<string, SeoLanding> = {
   "genai-training": {
     slug: "genai-training",
     title: "GenAI and AI Agents Training",
-    metaTitle: "GenAI Course & Training India | AI Agents, LangChain, RAG, MCP",
+    metaTitle: "GenAI & Agentic AI Training – AI Agents, LangChain, RAG, MCP",
     metaDescription:
       "GenAI course with AI Agents, LangChain, RAG, vector databases and MCP. Live training by Rajinikanth Vadla. Watch free GenAI class videos on this page.",
     keywords: [
@@ -216,7 +216,7 @@ export const SEO_LANDINGS: Record<string, SeoLanding> = {
   "aiops-training": {
     slug: "aiops-training",
     title: "AIOps Training",
-    metaTitle: "AIOps Training India | Anomaly Detection, Self-Healing Infrastructure",
+    metaTitle: "AIOps Training Online – Anomaly Detection, Self-Healing, LLMOps",
     metaDescription:
       "AIOps training with Prometheus, Grafana, anomaly detection and automated remediation. Live online course by Rajinikanth Vadla. Module 4 of the MLOps masterclass.",
     keywords: ["AIOps training", "AIOps course India", "AIOps engineer training", "intelligent operations course"],

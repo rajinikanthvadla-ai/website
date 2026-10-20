@@ -14,6 +14,8 @@ import {
 } from "@/lib/constants";
 import MasterclassSyllabus from "@/components/masterclass/MasterclassSyllabus";
 import SectionHeader from "@/components/SectionHeader";
+import CoursePricing from "@/components/CoursePricing";
+import { COURSE_USD } from "@/lib/course-pricing";
 import SuccessStories from "@/components/SuccessStories";
 import LiveZoomDemo from "@/components/LiveZoomDemo";
 import CourseVideoSection from "@/components/CourseVideoSection";
@@ -21,35 +23,41 @@ import { COURSE_VIDEOS } from "@/lib/course-videos";
 import { MLOPS_SKETCH, sketch } from "@/lib/sketch-assets";
 
 export const metadata: Metadata = {
-  title: "MLOps Course India ₹40K | Live Classes Running | Learn MLOps, AIOps, AI Agents",
+  title: "MLOps, AIOps, LLMOps & Agentic AI Course – Live GenAI, FDE Training",
   description:
-    "MLOps, AIOps, LLMOps and AI Agents live course: ₹40,000 with mentorship or ₹30,000 recordings. 4-5 months, 150+ hours and 4 capstone projects.",
+    "Live MLOps, AIOps, LLMOps, Agentic AI, GenAI, FDE and AI Platform engineering course by Rajinikanth Vadla. 4-5 months, 150+ hours, 4 capstone projects, 1:1 mentorship and job support. Online worldwide: $599 or ₹40,000 in India.",
   keywords: [
     "MLOps course",
+    "AIOps course",
+    "LLMOps course",
+    "agentic AI course",
+    "AI agents course",
+    "GenAI course",
+    "FDE course",
+    "forward deployed engineer course",
+    "AI platform engineering course",
+    "MLOps course online",
+    "MLOps course USA",
     "MLOps course India",
     "best MLOps course",
     "MLOps live course",
-    "MLOps course price",
-    "MLOps course ₹40000",
-    "AIOps course",
-    "AI Agents course",
-    "GenAI course",
-    "LLMOps course",
-    "MLOps for students",
-    "learn MLOps online",
-    "MLOps training online",
-    "hands-on MLOps course",
-    "production ML course",
-    "MLOps capstone projects",
-    "MLOps masterclass",
-    "Rajinikanth Vadla MLOps",
+    "MLOps certification course",
+    "MLOps bootcamp",
+    "LLMOps training",
+    "AIOps training",
     "MLOps engineer course",
     "DevOps to MLOps course",
-    "AI Agents training",
-    "agentic AI course",
     "LangChain course",
+    "MCP AI agents course",
+    "Rajinikanth Vadla MLOps",
   ],
   alternates: { canonical: "https://rajinikanthvadla.com/mlops-aiops-masterclass/" },
+  openGraph: {
+    title: "MLOps, AIOps, LLMOps & Agentic AI Live Course – GenAI, FDE, AI Platform",
+    description: "4-5 month live course with 150+ hours, 4 capstone projects, 1:1 mentorship and job support. Online worldwide.",
+    url: "https://rajinikanthvadla.com/mlops-aiops-masterclass/",
+    type: "website",
+  },
 };
 
 export default function MasterclassPage() {
@@ -68,7 +76,7 @@ export default function MasterclassPage() {
       <ProgramOverview />
       <FullSyllabus />
       <CapstoneProjects />
-      <PricingSection />
+      <CoursePricing />
       <CareerRoles />
       <InstructorSection />
       <FAQSection />
@@ -132,11 +140,11 @@ function HeroBanner() {
               <p className="text-[#0f172a] font-bold text-2xl">₹30,000</p>
               <p className="text-slate-600 text-xs mt-2">Lifetime access · no live class · no support</p>
             </div>
-            <p className="text-slate-500 text-xs mt-4">Mon-Fri, 8:00-9:45 PM IST (live cohort). International: $450 / €420</p>
+            <p className="text-slate-500 text-xs mt-4">Mon-Fri, 8:00-9:45 PM IST (live cohort). Outside India: ${COURSE_USD.live} live · ${COURSE_USD.recordings} recordings</p>
           </div>
 
           <div className="flex flex-col sm:flex-row justify-center gap-3 mb-4">
-            <a href="/enroll" className="notion-btn notion-btn--accent">
+            <a href="#pricing" className="notion-btn notion-btn--accent">
               View Pricing & Enroll &rarr;
             </a>
             <a href="#course-videos" className="notion-btn notion-btn--ink">
@@ -258,8 +266,8 @@ function FullSyllabus() {
             <a href={LINKS.whatsappSyllabus} target="_blank" rel="noopener noreferrer" className="inline-flex justify-center items-center bg-emerald-600 text-white px-8 py-3 rounded-lg text-sm font-semibold hover:bg-emerald-700 transition-colors">
               WhatsApp for Syllabus &rarr;
             </a>
-            <a href={LINKS.enroll} target="_blank" rel="noopener noreferrer" className="inline-flex justify-center items-center bg-blue-700 text-white px-8 py-3 rounded-lg text-sm font-semibold hover:bg-blue-800 transition-colors">
-              Enroll at ₹40,000
+            <a href="#pricing" className="inline-flex justify-center items-center bg-blue-700 text-white px-8 py-3 rounded-lg text-sm font-semibold hover:bg-blue-800 transition-colors">
+              See fees &amp; enroll
             </a>
           </div>
         </div>
@@ -292,106 +300,6 @@ function CapstoneProjects() {
               </div>
             </div>
           ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function PricingSection() {
-  return (
-    <section className="py-24 md:py-28 bg-slate-50 border-b border-slate-200">
-      <div className="max-w-5xl mx-auto px-6 text-center">
-        <SectionHeader
-          tag="Pricing"
-          title="Choose your learning path"
-          subtitle="Choose the live cohort with mentorship or recordings-only self-study."
-        />
-        <div className="grid md:grid-cols-2 gap-8 mb-12">
-          {/* Live Course */}
-          <div className="panel border-l-4 border-l-blue-700 p-10 text-left">
-            <div className="mb-6">
-              <div className="inline-block bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-bold mb-3">Recommended</div>
-              <h3 className="font-display text-2xl font-bold text-slate-900 mb-2">Live Cohort Course</h3>
-              <p className="text-slate-600 text-sm mb-4">Full support, mentorship, and job assistance</p>
-            </div>
-            <div className="mb-6">
-              <p className="text-5xl font-bold text-slate-900">₹40,000</p>
-              <p className="text-slate-500 text-xs mt-2">$450 USD or €420 EUR (international)</p>
-            </div>
-            <ul className="space-y-2.5 mb-8">
-              {[
-                "4–5 months live online cohort",
-                "150+ hours hands-on training",
-                "6 comprehensive modules",
-                "4 capstone portfolio projects",
-                "1-on-1 mentorship from Rajinikanth",
-                "Mock interviews & interview prep",
-                "Lifetime access to recordings",
-                "Real enterprise projects",
-              ].map((f) => (
-                <li key={f} className="flex items-start gap-2 text-slate-700 text-sm">
-                  <span className="text-blue-600 font-bold shrink-0 mt-0.5">✓</span>
-                  {f}
-                </li>
-              ))}
-            </ul>
-            <a
-              href={LINKS.razorpayLiveCohort}
-              target="_blank"
-              rel="noopener noreferrer external"
-              referrerPolicy="no-referrer"
-              className="block w-full bg-blue-700 text-white py-3.5 rounded-lg text-sm font-semibold hover:bg-blue-800 transition-colors text-center"
-            >
-              Pay ₹40,000 securely &rarr;
-            </a>
-            <p className="mt-2 text-center text-xs text-slate-500">
-              Secure Razorpay checkout
-            </p>
-          </div>
-
-          {/* Recordings Only */}
-          <div className="panel border-l-4 border-l-slate-400 p-10 text-left">
-            <div className="mb-6">
-              <div className="inline-block bg-slate-200 text-slate-700 px-3 py-1 rounded-full text-xs font-bold mb-3">Self-Learning</div>
-              <h3 className="font-display text-2xl font-bold text-slate-900 mb-2">Recordings Only</h3>
-              <p className="text-slate-600 text-sm mb-4">Learn at your own pace, no live classes</p>
-            </div>
-            <div className="mb-6">
-              <p className="text-5xl font-bold text-slate-900">₹30,000</p>
-              <p className="text-slate-500 text-xs mt-2">$375 USD or €350 EUR (international)</p>
-            </div>
-            <ul className="space-y-2.5 mb-8">
-              {[
-                "4–5 months of recorded sessions",
-                "150+ hours of content",
-                "6 comprehensive modules",
-                "4 capstone projects + solutions",
-                "Lifetime access (no expiry)",
-                "No live classes or mentorship",
-                "No job assistance",
-                "Community (optional, unprioritized)",
-              ].map((f) => (
-                <li key={f} className="flex items-start gap-2 text-slate-700 text-sm">
-                  <span className="text-slate-500 font-bold shrink-0 mt-0.5">–</span>
-                  {f}
-                </li>
-              ))}
-            </ul>
-            <a href={LINKS.whatsapp} target="_blank" rel="noopener noreferrer" className="block w-full bg-slate-600 text-white py-3.5 rounded-lg text-sm font-semibold hover:bg-slate-700 transition-colors text-center">
-              WhatsApp for recordings &rarr;
-            </a>
-          </div>
-        </div>
-
-        <div className="bg-white panel p-6 rounded-lg border border-slate-200 max-w-2xl mx-auto">
-          <h3 className="font-display text-lg font-bold text-slate-900 mb-3">Questions before enrolling?</h3>
-          <p className="text-slate-600 text-sm mb-4">
-            For batch timing, demo access or enrollment details:
-          </p>
-          <a href={LINKS.whatsapp} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2.5 rounded-lg text-sm font-semibold transition-colors">
-            Message on WhatsApp
-          </a>
         </div>
       </div>
     </section>
@@ -484,7 +392,7 @@ function FAQSection() {
     },
     {
       q: "Can I join from outside India?",
-      a: "Yes. Training is live online. Students from USA, Europe, Middle East, and other regions regularly enroll. Pricing: ₹40,000 (India), $450 (USD), €420 (EUR).",
+      a: `Yes. Training is live online. Students from USA, Europe, Middle East, and other regions regularly enroll. Fees: ₹40,000 in India and South Asia, $${COURSE_USD.live} everywhere else (recordings: ₹30,000 / $${COURSE_USD.recordings}). Pay securely by card.`,
     },
   ];
 
@@ -521,8 +429,8 @@ function FinalCTA() {
           Join 500+ engineers who accelerated their careers. Limited seats per batch for personal attention.
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-3 mb-4">
-          <a href={LINKS.enroll} target="_blank" rel="noopener noreferrer" className="inline-flex justify-center bg-orange-500 text-white px-10 py-4 rounded-lg text-base font-bold hover:bg-orange-600 transition-colors">
-            Enroll at ₹40,000 &rarr;
+          <a href="#pricing" className="inline-flex justify-center bg-orange-500 text-white px-10 py-4 rounded-lg text-base font-bold hover:bg-orange-600 transition-colors">
+            Enroll now &rarr;
           </a>
           <a href={LINKS.whatsapp} target="_blank" rel="noopener noreferrer" className="inline-flex justify-center bg-emerald-600 text-white px-10 py-4 rounded-lg text-base font-semibold hover:bg-emerald-700 transition-colors">
             WhatsApp

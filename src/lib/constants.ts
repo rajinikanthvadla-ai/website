@@ -429,7 +429,7 @@ export const HOME_PAGE_FAQS = [
   },
   {
     q: "Can I join from outside India?",
-    a: "Yes. All programs are online. Masterclass pricing: ₹40,000 (India), $450 (USD), €420 (EUR).",
+    a: "Yes. All programs are online. Masterclass fees: ₹40,000 in India, $599 everywhere else (recordings ₹30,000 / $399).",
   },
   {
     q: "Do you help with jobs?",
@@ -441,7 +441,7 @@ export const HOME_PAGE_FAQS = [
   },
   {
     q: "Can I join from USA, UK, Ireland, or Europe?",
-    a: "Yes. Training is 100% online. Engineers from USA ($450), UK (£360), Ireland, Netherlands, Luxembourg, Germany, Canada, Australia, Singapore and UAE join the same live cohort. See https://rajinikanthvadla.com/global-training/ for your country's landing page with local salary data and pricing.",
+    a: "Yes. Training is 100% online. Engineers from the USA, UK, Ireland, Netherlands, Luxembourg, Germany, Canada, Australia, Singapore and UAE join the same live cohort. See https://rajinikanthvadla.com/global-training/ for your country's landing page with local salary data. Fees outside India: $599 live, $399 recordings.",
   },
 ];
 
@@ -610,9 +610,9 @@ export const STRUCTURED_DATA = {
   course: {
     "@context": "https://schema.org",
     "@type": "Course",
-    name: "MLOps AIOps LLMOps AI Agents Live Course | ₹40K or ₹30K Recordings",
+    name: "MLOps, AIOps, LLMOps & Agentic AI Live Course (GenAI, FDE, AI Platform)",
     description:
-      "MLOps, AIOps, LLMOps and AI Agentic Operations live cohort course by Rajinikanth Vadla. 4-5 months, 150+ hours, 4 capstone projects, FDE. Live option: ₹40,000 with 1-on-1 mentorship and job support. Recordings-only: ₹30,000 for self-learning. Cohort started.",
+      "Live MLOps, AIOps, LLMOps, Agentic AI, GenAI, FDE and AI Platform engineering course by Rajinikanth Vadla. 4-5 months, 150+ hours, 4 capstone projects, 1-on-1 mentorship and job support. Online worldwide: $599 live or $399 recordings; in India ₹40,000 live or ₹30,000 recordings.",
     url: "https://rajinikanthvadla.com/mlops-aiops-masterclass/",
     provider: {
       "@type": "Organization",
@@ -645,16 +645,28 @@ export const STRUCTURED_DATA = {
         startDate: "2026-07-15",
         duration: "P4M",
         instructor: { "@type": "Person", name: "Rajinikanth Vadla" },
-        offers: {
-          "@type": "Offer",
-          availability: "https://schema.org/InStock",
-          price: "40000",
-          priceCurrency: "INR",
-          priceValidUntil: "2027-12-31",
-          validFrom: "2026-01-01",
-          url: "https://rajinikanthvadla.com/mlops-aiops-masterclass/",
-          description: "₹40,000. Includes 1-on-1 mentorship, job assistance and interview prep. Updated Sep 2026.",
-        },
+        offers: [
+          {
+            "@type": "Offer",
+            availability: "https://schema.org/InStock",
+            price: "40000",
+            priceCurrency: "INR",
+            priceValidUntil: "2027-12-31",
+            validFrom: "2026-01-01",
+            url: "https://rajinikanthvadla.com/mlops-aiops-masterclass/",
+            description: "₹40,000 in India. Includes 1-on-1 mentorship, job assistance and interview prep.",
+          },
+          {
+            "@type": "Offer",
+            availability: "https://schema.org/InStock",
+            price: "599",
+            priceCurrency: "USD",
+            priceValidUntil: "2027-12-31",
+            validFrom: "2026-10-20",
+            url: "https://rajinikanthvadla.com/mlops-aiops-masterclass/",
+            description: "$599 outside India. Includes 1-on-1 mentorship, job assistance and interview prep.",
+          },
+        ],
       },
       {
         "@type": "CourseInstance",
@@ -663,16 +675,28 @@ export const STRUCTURED_DATA = {
         inLanguage: "en",
         duration: "P4M",
         instructor: { "@type": "Person", name: "Rajinikanth Vadla" },
-        offers: {
-          "@type": "Offer",
-          availability: "https://schema.org/InStock",
-          price: "30000",
-          priceCurrency: "INR",
-          priceValidUntil: "2027-12-31",
-          validFrom: "2026-01-01",
-          url: "https://rajinikanthvadla.com/mlops-aiops-masterclass/",
-          description: "₹30,000. Lifetime access to recordings, no live classes or support. Updated Sep 2026.",
-        },
+        offers: [
+          {
+            "@type": "Offer",
+            availability: "https://schema.org/InStock",
+            price: "30000",
+            priceCurrency: "INR",
+            priceValidUntil: "2027-12-31",
+            validFrom: "2026-01-01",
+            url: "https://rajinikanthvadla.com/mlops-aiops-masterclass/",
+            description: "₹30,000 in India. Lifetime access to recordings, no live classes or support.",
+          },
+          {
+            "@type": "Offer",
+            availability: "https://schema.org/InStock",
+            price: "399",
+            priceCurrency: "USD",
+            priceValidUntil: "2027-12-31",
+            validFrom: "2026-10-20",
+            url: "https://rajinikanthvadla.com/mlops-aiops-masterclass/",
+            description: "$399 outside India. Lifetime access to recordings, no live classes or support.",
+          },
+        ],
       },
     ],
     offers: {

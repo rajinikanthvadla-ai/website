@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import { LINKS } from "@/lib/constants";
-import { sketch, HOME_SKETCH } from "@/lib/sketch-assets";
 import YouTubeMembershipSection from "@/components/YouTubeMembershipSection";
-import TrustStrip from "@/components/TrustStrip";
+import CoursePricing from "@/components/CoursePricing";
+import { COURSE_USD } from "@/lib/course-pricing";
 
 export const metadata: Metadata = {
-  title: "Enroll Now | MLOps Course ₹40K Live or ₹30K Recordings",
+  title: "Enroll: MLOps, AIOps, LLMOps & Agentic AI Course – Fees & Payment",
   description:
-    "MLOps, AIOps and AI Agents course enrollment: choose the ₹40,000 live cohort with mentorship or ₹30,000 recordings-only self-learning.",
+    "Enroll in the live MLOps, AIOps, LLMOps, Agentic AI, GenAI and FDE course. Live cohort with 1:1 mentorship or self-paced recordings. $599 / $399 worldwide, ₹40,000 / ₹30,000 in India. Secure Razorpay checkout.",
   keywords: [
     "MLOps course buy",
     "MLOps course enroll",
@@ -28,145 +27,20 @@ export default function EnrollPage() {
       <section className="bg-gradient-to-b from-blue-50 to-white py-16 md:py-24 border-b border-slate-200">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h1 className="font-display text-3xl md:text-5xl font-bold text-slate-900 leading-tight mb-4">
-            Enroll in the MLOps Course Today
+            Enroll in the MLOps, AIOps, LLMOps &amp; Agentic AI course
           </h1>
           <p className="text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto mb-8">
-            Two flexible payment options. Same world-class instructor. Choose your learning style and start building production AI systems.
+            Live cohort or self-paced recordings. Same instructor, same 150+ hours. Pay securely in your currency and start building production AI systems.
           </p>
         </div>
       </section>
 
-      {/* Pricing Options */}
+      <CoursePricing />
+
       <section className="py-16 md:py-24 bg-white border-b border-slate-200">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
-            {/* Option 1: Live Cohort */}
-            <div className="panel border-l-4 border-l-blue-700 p-8 md:p-10">
-              <div className="flex items-start justify-between mb-6">
-                <div>
-                  <div className="inline-block bg-blue-100 text-blue-700 px-4 py-1.5 rounded-full text-sm font-bold mb-3">
-                    Recommended
-                  </div>
-                  <h2 className="font-display text-2xl md:text-3xl font-bold text-slate-900">
-                    Live Cohort
-                  </h2>
-                  <p className="text-slate-600 text-sm mt-2">Full support & mentorship</p>
-                </div>
-              </div>
-
-              <div className="mb-8 pb-8 border-b-2 border-dashed border-slate-300">
-                <p className="text-slate-500 text-sm mb-2">Total Investment</p>
-                <p className="text-5xl md:text-6xl font-bold text-blue-700 mb-2">₹40,000</p>
-                <p className="text-slate-500 text-sm mt-3">International: $450 USD or €420 EUR</p>
-              </div>
-
-              <div className="space-y-3 mb-8">
-                <h3 className="font-display font-bold text-slate-900">What you get:</h3>
-                <ul className="space-y-3">
-                  {[
-                    "4–5 months live online cohort",
-                    "Mon–Fri, 8:00–9:45 PM IST",
-                    "150+ hours hands-on training",
-                    "6 comprehensive modules",
-                    "4 capstone portfolio projects",
-                    "1-on-1 mentorship from Rajinikanth",
-                    "Mock interviews & interview prep",
-                    "Job assistance & placement support",
-                    "Lifetime access to all recordings",
-                    "Community slack / WhatsApp group",
-                  ].map((item) => (
-                    <li key={item} className="flex items-start gap-3 text-slate-700 text-sm">
-                      <span className="text-blue-600 font-bold shrink-0 mt-0.5">✓</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <a
-                href={LINKS.razorpayLiveCohort}
-                target="_blank"
-                rel="noopener noreferrer external"
-                referrerPolicy="no-referrer"
-                className="block w-full bg-blue-700 hover:bg-blue-800 text-white py-4 rounded-lg text-base font-semibold transition-colors text-center mb-3"
-              >
-                Pay ₹40,000 securely with Razorpay →
-              </a>
-              <p className="text-xs text-slate-500 text-center">
-                Secure Razorpay checkout
-              </p>
-            </div>
-
-            {/* Option 2: Recordings */}
-            <div className="panel border-l-4 border-l-slate-400 p-8 md:p-10">
-              <div className="flex items-start justify-between mb-6">
-                <div>
-                  <div className="inline-block bg-slate-200 text-slate-700 px-4 py-1.5 rounded-full text-sm font-bold mb-3">
-                    Self-Learning
-                  </div>
-                  <h2 className="font-display text-2xl md:text-3xl font-bold text-slate-900">
-                    Recordings Only
-                  </h2>
-                  <p className="text-slate-600 text-sm mt-2">Learn at your own pace</p>
-                </div>
-              </div>
-
-              <div className="mb-8 pb-8 border-b-2 border-dashed border-slate-300">
-                <p className="text-slate-500 text-sm mb-2">Total Investment</p>
-                <p className="text-5xl md:text-6xl font-bold text-slate-900 mb-2">₹30,000</p>
-                <p className="text-slate-500 text-sm mt-3">International: $375 USD or €350 EUR</p>
-              </div>
-
-              <div className="space-y-3 mb-8">
-                <h3 className="font-display font-bold text-slate-900">What you get:</h3>
-                <ul className="space-y-3">
-                  {[
-                    "4–5 months of recorded sessions",
-                    "150+ hours of video content",
-                    "6 comprehensive modules",
-                    "4 capstone projects + solutions",
-                    "All lecture notes & resources",
-                    "Lifetime access (no expiry)",
-                    "Watch anytime, anywhere",
-                    "No live classes",
-                    "No 1-on-1 mentorship",
-                    "No job assistance",
-                  ].map((item) => (
-                    <li
-                      key={item}
-                      className={`flex items-start gap-3 text-sm ${
-                        item.toLowerCase().includes("no") ? "text-slate-500" : "text-slate-700"
-                      }`}
-                    >
-                      <span className={`font-bold shrink-0 mt-0.5 ${item.toLowerCase().includes("no") ? "text-slate-400" : "text-slate-600"}`}>
-                        {item.toLowerCase().includes("no") ? "—" : "✓"}
-                      </span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <a
-                href={LINKS.whatsapp}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block w-full bg-slate-600 hover:bg-slate-700 text-white py-4 rounded-lg text-base font-semibold transition-colors text-center mb-3"
-              >
-                Buy Recordings on WhatsApp →
-              </a>
-              <p className="text-xs text-slate-500 text-center">
-                WhatsApp to arrange payment & get instant access
-              </p>
-            </div>
-          </div>
-
-          <div className="mt-12">
-            <TrustStrip refundNote="7-day no-questions-asked refund on the live cohort. Recordings are non-refundable." />
-          </div>
-
           {/* Comparison Table */}
-          <div className="mt-16 pt-16 border-t-2 border-slate-200">
+          <div>
             <h3 className="font-display text-2xl font-bold text-slate-900 text-center mb-10">
               Quick Comparison
             </h3>
@@ -181,7 +55,8 @@ export default function EnrollPage() {
                 </thead>
                 <tbody>
                   {[
-                    { feature: "Price", live: "₹40,000", recordings: "₹30,000" },
+                    { feature: "Price (India)", live: "₹40,000", recordings: "₹30,000" },
+                    { feature: "Price (outside India)", live: `$${COURSE_USD.live}`, recordings: `$${COURSE_USD.recordings}` },
                     { feature: "Duration", live: "4–5 months live", recordings: "Self-paced" },
                     { feature: "Live Classes", live: "✓ Yes", recordings: "✗ No" },
                     { feature: "Mentorship", live: "✓ 1-on-1", recordings: "✗ No" },

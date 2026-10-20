@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { setRegionOverride, useDisplayZone } from "@/components/visitor-zone";
 import { LINKS } from "@/lib/constants";
 import TrustStrip from "@/components/TrustStrip";
 import {
@@ -9,42 +9,8 @@ import {
   MENTORSHIP_PLANS,
   MENTORSHIP_REFUND_NOTE,
   MENTORSHIP_ZONES,
-  detectMentorshipZone,
   type MentorshipZoneId,
 } from "@/lib/mentorship-pricing";
-
-const REGION_EVENT = "mentorship-region-change";
-const REGION_PARAM: Record<string, MentorshipZoneId> = {
-  a: "A", global: "A", us: "A", usa: "A",
-  b: "A", international: "A",
-  c: "C", india: "C", in: "C",
-};
-
-/** Region chosen via `?region=` (shareable link) or the region tabs. */
-function readRegionOverride(): MentorshipZoneId | null {
-  const value = new URLSearchParams(window.location.search).get("region");
-  return value ? REGION_PARAM[value.toLowerCase()] ?? null : null;
-}
-
-function setRegionOverride(zone: MentorshipZoneId) {
-  const url = new URL(window.location.href);
-  url.searchParams.set("region", zone.toLowerCase());
-  window.history.replaceState(null, "", url);
-  window.dispatchEvent(new Event(REGION_EVENT));
-}
-
-/** The visitor's zone: `?region=` override first, otherwise guessed from the browser time zone. */
-function useMentorshipZone(): MentorshipZoneId | null {
-  const [zone, setZone] = useState<MentorshipZoneId | null>(null);
-  useEffect(() => {
-    const update = () =>
-      setZone(readRegionOverride() ?? detectMentorshipZone(Intl.DateTimeFormat().resolvedOptions().timeZone));
-    update();
-    window.addEventListener(REGION_EVENT, update);
-    return () => window.removeEventListener(REGION_EVENT, update);
-  }, []);
-  return zone;
-}
 
 function whatsappPayLink(planName: string, price: string) {
   const text = `Hi Rajinikanth, I want to join ${planName} (${price}). Please send me the payment link.`;
@@ -53,12 +19,7 @@ function whatsappPayLink(planName: string, price: string) {
 
 /** `defaultZone` pins a country page to its currency; visitors can still switch with the tabs. */
 export default function MentorshipPricing({ defaultZone }: { defaultZone?: MentorshipZoneId } = {}) {
-  const detectedZone = useMentorshipZone();
-  const [zone, setZone] = useState<MentorshipZoneId>(defaultZone ?? "C");
-
-  useEffect(() => {
-    if (detectedZone) setZone(defaultZone && !readRegionOverride() ? defaultZone : detectedZone);
-  }, [detectedZone, defaultZone]);
+  const zone = useDisplayZone(defaultZone);
 
   const activeZone = MENTORSHIP_ZONES.find((z) => z.id === zone)!;
   const paymentPage = MENTORSHIP_PAYMENT_PAGES[zone];

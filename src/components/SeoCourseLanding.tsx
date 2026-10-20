@@ -1,4 +1,5 @@
 import Link from "next/link";
+import CoursePricing from "@/components/CoursePricing";
 import type { SeoLanding } from "@/lib/seo-landings";
 import { LINKS, STRUCTURED_DATA } from "@/lib/constants";
 import CourseVideoSection from "@/components/CourseVideoSection";
@@ -73,6 +74,10 @@ export default function SeoCourseLanding({ landing }: Props) {
           variant="paper"
         />
       ) : null}
+
+      {landing.slug !== "ai-tools-productivity" && (
+        <CoursePricing defaultZone={landing.slug === "mlops-course-india" ? "C" : undefined} />
+      )}
     </>
   );
 }

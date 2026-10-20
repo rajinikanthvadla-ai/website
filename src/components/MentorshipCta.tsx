@@ -39,6 +39,12 @@ export default function MentorshipCta({ topic }: { topic: string }) {
         <p className="text-stone-400 text-sm mt-5">
           Start with one 60-minute call: {deepDive.C.main} in India · {deepDive.A.main} everywhere else.
         </p>
+        <p className="text-stone-300 text-sm mt-6 pt-6 border-t border-stone-700">
+          Prefer a structured live course?{" "}
+          <Link href="/mlops-aiops-masterclass/#pricing" className="font-semibold text-accent-400 underline">
+            Join the MLOps · AIOps · LLMOps · Agentic AI masterclass →
+          </Link>
+        </p>
       </div>
     </section>
   );

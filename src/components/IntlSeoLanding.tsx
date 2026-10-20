@@ -1,4 +1,5 @@
 import Link from "next/link";
+import CoursePricing from "@/components/CoursePricing";
 import type { IntlSeoLanding } from "@/lib/intl-seo-landings";
 import { INTL_COURSE_VIDEOS } from "@/lib/intl-seo-landings";
 import { INTL_MARKETS, PRIMARY_INTL_SLUGS } from "@/lib/international-markets";
@@ -130,6 +131,8 @@ export default function IntlSeoLandingPage({ landing }: Props) {
         videos={INTL_COURSE_VIDEOS}
         variant="paper"
       />
+
+      <CoursePricing defaultZone="A" />
 
       {/* Cross-link other regions */}
       <section className="py-14 bg-[#faf9f6] border-t-2 border-[#0f172a]">
