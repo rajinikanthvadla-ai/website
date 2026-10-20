@@ -3,7 +3,7 @@ import CourseRedirect from "@/components/CourseRedirect";
 
 export const metadata: Metadata = {
   title: "AI Agents & GenAI Course",
-  alternates: { canonical: "https://www.rajinikanthvadla.com/ai-agents-course/" },
+  alternates: { canonical: "https://rajinikanthvadla.com/ai-agents-course/" },
 };
 
 export default function AIAgentsGenAIPage() {

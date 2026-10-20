@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     "LangChain RAG guide",
     "MLOps career roadmap",
   ],
-  alternates: { canonical: "https://www.rajinikanthvadla.com/blog/" },
+  alternates: { canonical: "https://rajinikanthvadla.com/blog/" },
 };
 
 const sorted = [...articles].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());

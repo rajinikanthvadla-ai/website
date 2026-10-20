@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     "AI agents course",
     "Rajinikanth Vadla courses",
   ],
-  alternates: { canonical: "https://www.rajinikanthvadla.com/courses/" },
+  alternates: { canonical: "https://rajinikanthvadla.com/courses/" },
 };
 
 export default function CoursesPage() {

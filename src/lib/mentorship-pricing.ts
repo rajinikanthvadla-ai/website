@@ -5,7 +5,8 @@ import { LINKS } from "@/lib/constants";
  * The United Kingdom is intentionally excluded from mentorship.
  */
 
-export type MentorshipZoneId = "A" | "B" | "C";
+/** A = international (USD), C = India & South Asia / Africa (INR). */
+export type MentorshipZoneId = "A" | "C";
 
 export type MentorshipZone = {
   id: MentorshipZoneId;
@@ -30,17 +31,12 @@ export const MENTORSHIP_MONTHLY_CAP = 10;
 export const MENTORSHIP_ZONES: MentorshipZone[] = [
   {
     id: "A",
-    label: "USA, Canada, Australia, Europe & Gulf",
-    countries: "USA, Canada, Australia, New Zealand, Singapore, UAE, Germany, Netherlands, Ireland, Luxembourg and Western Europe",
-  },
-  {
-    id: "B",
-    label: "Middle-income countries",
-    countries: "Saudi Arabia, Qatar, Malaysia, South Africa, Eastern Europe, Latin America and others",
+    label: "International (USD)",
+    countries: "USA, Canada, Australia, New Zealand, Singapore, UAE, Saudi Arabia, Qatar, Germany, Netherlands, Ireland, Europe, Latin America and every other country except the UK",
   },
   {
     id: "C",
-    label: "India & South Asia / Africa",
+    label: "India & South Asia (₹)",
     countries: "India, Pakistan, Bangladesh, Sri Lanka, Nepal, Nigeria, Kenya, Philippines, Indonesia",
   },
 ];
@@ -51,7 +47,6 @@ export const MENTORSHIP_ZONES: MentorshipZone[] = [
  */
 export const MENTORSHIP_PAYMENT_PAGES: Record<MentorshipZoneId, string | null> = {
   A: LINKS.razorpayMentorshipGlobal,
-  B: null,
   C: LINKS.razorpayMentorshipIndia,
 };
 
@@ -62,7 +57,7 @@ export const MENTORSHIP_PLANS: MentorshipPlan[] = [
     cadence: "single 60-min call",
     summary: "One focused session on your CV, system design, career move or a stuck project.",
     includes: ["60-minute video call", "Clear next steps for your situation", "Follow-up questions on WhatsApp for 3 days"],
-    prices: { A: { main: "$199" }, B: { main: "$119" }, C: { main: "₹2,499", alt: "≈ $30" } },
+    prices: { A: { main: "$199" }, C: { main: "₹2,499", alt: "≈ $30" } },
   },
   {
     id: "monthly",
@@ -78,7 +73,7 @@ export const MENTORSHIP_PLANS: MentorshipPlan[] = [
       "Project and code review on your repos",
       "Priority booking for mock interviews",
     ],
-    prices: { A: { main: "$599" }, B: { main: "$349" }, C: { main: "₹7,999", alt: "≈ $95" } },
+    prices: { A: { main: "$599" }, C: { main: "₹7,999", alt: "≈ $95" } },
   },
   {
     id: "quarterly",
@@ -86,7 +81,7 @@ export const MENTORSHIP_PLANS: MentorshipPlan[] = [
     cadence: "paid upfront · save ~15%",
     summary: "Everything in Monthly for 3 months — the usual time it takes to switch roles.",
     includes: ["Everything in Monthly Mentorship", "12 × 60-min 1:1 calls", "2 full mock interview loops"],
-    prices: { A: { main: "$1,499" }, B: { main: "$899" }, C: { main: "₹19,999", alt: "≈ $240" } },
+    prices: { A: { main: "$1,499" }, C: { main: "₹19,999", alt: "≈ $240" } },
   },
   {
     id: "job-switch",
@@ -100,7 +95,7 @@ export const MENTORSHIP_PLANS: MentorshipPlan[] = [
       "Referrals where I have a network fit",
       "Offer and salary negotiation guidance",
     ],
-    prices: { A: { main: "$2,999" }, B: { main: "$1,799" }, C: { main: "₹29,999", alt: "≈ $360" } },
+    prices: { A: { main: "$2,999" }, C: { main: "₹29,999", alt: "≈ $360" } },
   },
 ];
 
@@ -120,64 +115,13 @@ const ZONE_C_TIMEZONES = [
   "Africa/Nairobi",
 ];
 
-const ZONE_A_PREFIXES = ["Australia/", "Pacific/Auckland", "Pacific/Honolulu", "US/", "Canada/"];
-const ZONE_A_TIMEZONES = [
-  "Asia/Singapore",
-  "Asia/Dubai",
-  "Asia/Tokyo",
-  "Asia/Hong_Kong",
-  "Asia/Seoul",
-  "Europe/Dublin",
-  "Europe/Amsterdam",
-  "Europe/Luxembourg",
-  "Europe/Berlin",
-  "Europe/Paris",
-  "Europe/Brussels",
-  "Europe/Zurich",
-  "Europe/Vienna",
-  "Europe/Stockholm",
-  "Europe/Oslo",
-  "Europe/Copenhagen",
-  "Europe/Helsinki",
-  "Europe/Madrid",
-  "Europe/Rome",
-  "Europe/Lisbon",
-];
-/** US and Canadian zones live under America/ alongside Latin America, so list them explicitly. */
-const NORTH_AMERICA_TIMEZONES = [
-  "America/New_York",
-  "America/Chicago",
-  "America/Denver",
-  "America/Los_Angeles",
-  "America/Phoenix",
-  "America/Anchorage",
-  "America/Detroit",
-  "America/Boise",
-  "America/Toronto",
-  "America/Vancouver",
-  "America/Edmonton",
-  "America/Winnipeg",
-  "America/Halifax",
-  "America/St_Johns",
-  "America/Regina",
-];
-
 export type MentorshipRegion = { uk: true } | { uk: false; zone: MentorshipZoneId };
 
 /** Detects the visitor's zone from the browser time zone (locale is unreliable: many Indians use en-GB). */
 export function detectMentorshipRegion(timeZone: string): MentorshipRegion {
   if (UK_TIMEZONES.includes(timeZone)) return { uk: true };
   if (ZONE_C_TIMEZONES.includes(timeZone)) return { uk: false, zone: "C" };
-  if (
-    ZONE_A_TIMEZONES.includes(timeZone) ||
-    NORTH_AMERICA_TIMEZONES.includes(timeZone) ||
-    timeZone.startsWith("America/Indiana/") ||
-    timeZone.startsWith("America/Kentucky/") ||
-    ZONE_A_PREFIXES.some((p) => timeZone.startsWith(p))
-  ) {
-    return { uk: false, zone: "A" };
-  }
-  return { uk: false, zone: "B" };
+  return { uk: false, zone: "A" };
 }
 
 export const MENTORSHIP_REFUND_NOTE = "Full refund if you ask before your first session.";
@@ -197,7 +141,7 @@ export const MENTORSHIP_FAQS = [
   },
   {
     q: "Which currency do I pay in?",
-    a: "Visitors from India and South Asia pay in rupees (UPI, cards, net banking). Visitors from the USA, Canada, Europe, the Gulf, Australia and other countries pay in US dollars by card. The page picks your region automatically and you can switch it.",
+    a: "Visitors from India and South Asia pay in rupees (UPI, cards, net banking). Visitors from every other country (USA, Canada, Europe, the Gulf, Australia, Singapore and more) pay in US dollars by card. The page picks your region automatically and you can switch it.",
   },
   {
     q: "Can I book through Topmate instead?",

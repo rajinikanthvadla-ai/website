@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     "DevOps for ML engineers",
     "student MLOps training",
   ],
-  alternates: { canonical: "https://www.rajinikanthvadla.com/student-guide/" },
+  alternates: { canonical: "https://rajinikanthvadla.com/student-guide/" },
 };
 
 export default function StudentGuidePage() {

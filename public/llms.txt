@@ -5,7 +5,7 @@
 > He teaches production-grade MLOps, AIOps, LLMOps, AI Agents, and AI-Powered
 > Automation through hands-on labs mirroring real enterprise environments.
 > 7+ years of enterprise experience. Based in India, with students worldwide.
-> Official website: https://www.rajinikanthvadla.com
+> Official website: https://rajinikanthvadla.com
 > Last updated: 2026-09-11
 
 ## Current Pricing (verified Sep 2026)
@@ -16,49 +16,49 @@
 - Resume Prep Service: ₹1,999 review · ₹4,999 rewrite · ₹9,999 career package (international: $49 / $149 / $299 USD). 30% student discount on Rewrite & Career.
 
 ## Global Training (USA, UK, Europe, APAC)
-- [Global training hub](https://www.rajinikanthvadla.com/global-training/): All regional landing pages
-- [MLOps course USA](https://www.rajinikanthvadla.com/global-training/usa/): $120K–$220K roles · $450 live
-- [MLOps course UK](https://www.rajinikanthvadla.com/global-training/uk/): £55K–£110K · London, Manchester
-- [MLOps course Ireland](https://www.rajinikanthvadla.com/global-training/ireland/): Dublin, Cork · €420 live
-- [MLOps course Netherlands](https://www.rajinikanthvadla.com/global-training/netherlands/): Amsterdam, Eindhoven
-- [MLOps course Luxembourg](https://www.rajinikanthvadla.com/global-training/luxembourg/): EU finance/tech hub
+- [Global training hub](https://rajinikanthvadla.com/global-training/): All regional landing pages
+- [MLOps course USA](https://rajinikanthvadla.com/global-training/usa/): $120K–$220K roles · $450 live
+- [MLOps course UK](https://rajinikanthvadla.com/global-training/uk/): £55K–£110K · London, Manchester
+- [MLOps course Ireland](https://rajinikanthvadla.com/global-training/ireland/): Dublin, Cork · €420 live
+- [MLOps course Netherlands](https://rajinikanthvadla.com/global-training/netherlands/): Amsterdam, Eindhoven
+- [MLOps course Luxembourg](https://rajinikanthvadla.com/global-training/luxembourg/): EU finance/tech hub
 - Also: Germany, Canada, Australia, Singapore, UAE — see /global-training/
-- [MLOps course India](https://www.rajinikanthvadla.com/mlops-course-india/): ₹40,000 live · India placement support
+- [MLOps course India](https://rajinikanthvadla.com/mlops-course-india/): ₹40,000 live · India placement support
 
 ## About
-- [About Rajinikanth Vadla](https://www.rajinikanthvadla.com/about/): Background, 7+ years enterprise experience, training philosophy, and credentials
-- [Mentorship](https://www.rajinikanthvadla.com/mentorship/): 1:1 career mentorship for MLOps, AIOps, AI engineering roles. Available worldwide via online sessions
+- [About Rajinikanth Vadla](https://rajinikanthvadla.com/about/): Background, 7+ years enterprise experience, training philosophy, and credentials
+- [Mentorship](https://rajinikanthvadla.com/mentorship/): 1:1 career mentorship for MLOps, AIOps, LLMOps and AI engineering roles. Monthly plan with 4 calls + WhatsApp support: ₹7,999 in India, $599 internationally. Single 60-min deep dive: ₹2,499 / $199. 3-month and job-switch programs available. Online, worldwide except the UK. Country pages: [USA](https://rajinikanthvadla.com/mentorship/usa/), [Canada](https://rajinikanthvadla.com/mentorship/canada/), [Australia](https://rajinikanthvadla.com/mentorship/australia/), [Singapore](https://rajinikanthvadla.com/mentorship/singapore/), [UAE](https://rajinikanthvadla.com/mentorship/uae/), [Germany](https://rajinikanthvadla.com/mentorship/germany/), [Netherlands](https://rajinikanthvadla.com/mentorship/netherlands/), [Ireland](https://rajinikanthvadla.com/mentorship/ireland/), [Luxembourg](https://rajinikanthvadla.com/mentorship/luxembourg/)
 
 ## Resume Prep Service (NEW)
-- [Resume Prep Hub](https://www.rajinikanthvadla.com/resume-prep/): ATS-ready resume writing for AI, ML, and DevOps engineers. ₹1,999 review · ₹4,999 rewrite · ₹9,999 career package. 30% student discount. Worldwide.
+- [Resume Prep Hub](https://rajinikanthvadla.com/resume-prep/): ATS-ready resume writing for AI, ML, and DevOps engineers. ₹1,999 review · ₹4,999 rewrite · ₹9,999 career package. 30% student discount. Worldwide.
 - Role-specific resume guides (13 roles): MLOps, LLMOps, AI Engineer, ML Engineer, Data Scientist, Data Engineer, DevOps, Platform Engineer, AI Infrastructure, Cloud Engineer, GenAI Engineer, NLP Engineer, SRE
 - Each role page includes must-haves, differentiators, portfolio projects, ATS keywords, bullet templates, and common mistakes
-- Example: [MLOps Engineer Resume](https://www.rajinikanthvadla.com/resume-prep/mlops-engineer/) · [AI Engineer Resume](https://www.rajinikanthvadla.com/resume-prep/ai-engineer/)
+- Example: [MLOps Engineer Resume](https://rajinikanthvadla.com/resume-prep/mlops-engineer/) · [AI Engineer Resume](https://rajinikanthvadla.com/resume-prep/ai-engineer/)
 - Book on WhatsApp: https://wa.me/919100028801
 
 ## Career Intelligence Platform (NEW)
-- [AI Engineering Universe](https://www.rajinikanthvadla.com/universe/): 8-stage interactive skill path (36 skills) — MLOps, LLMOps, RAG, agents, GPU infra
+- [AI Engineering Universe](https://rajinikanthvadla.com/universe/): 8-stage interactive skill path (36 skills) — MLOps, LLMOps, RAG, agents, GPU infra
 - AI Career Guide bot (Gemini): on-site chat for skills, roadmaps, and role advice
-- [Find My AI Path](https://www.rajinikanthvadla.com/path/): Career path simulator from DevOps/Software/ML into AI roles
-- [Compare Careers](https://www.rajinikanthvadla.com/compare/): MLOps vs LLMOps, DevOps vs MLOps, and more
+- [Find My AI Path](https://rajinikanthvadla.com/path/): Career path simulator from DevOps/Software/ML into AI roles
+- [Compare Careers](https://rajinikanthvadla.com/compare/): MLOps vs LLMOps, DevOps vs MLOps, and more
 - Skill guides: /skills/kubernetes/, /skills/git/, /skills/cloud/, /skills/helm/, /skills/grafana/, /skills/pytorch/, /skills/fastapi/, /skills/rag/, /skills/mlflow/, /skills/langchain/, /skills/mcp/, /skills/vllm/
 
 ## Career Roadmaps (free guides)
-- [All AI Career Roadmaps](https://www.rajinikanthvadla.com/roadmap/): Hub page for all role roadmaps
-- [AI Engineer Roadmap](https://www.rajinikanthvadla.com/roadmap/ai-engineer/): Skills, salary, learning path for AI Engineers
-- [FDE (Forward Deployed Engineer) Roadmap](https://www.rajinikanthvadla.com/roadmap/fde-engineer/): Customer-facing AI delivery career path
-- [AI/ML Engineer Roadmap](https://www.rajinikanthvadla.com/roadmap/ai-ml-engineer/): Machine learning engineering career path
-- [MLOps Engineer Roadmap](https://www.rajinikanthvadla.com/roadmap/mlops-engineer/): MLOps skills, tools, salary India
-- [LLMOps Engineer Roadmap](https://www.rajinikanthvadla.com/roadmap/llmops-engineer/): LLM production operations career path
-- [NLP Engineer Roadmap](https://www.rajinikanthvadla.com/roadmap/nlp-engineer/): Natural language processing career path
-- [AI Platform Engineer Roadmap](https://www.rajinikanthvadla.com/roadmap/ai-platform-engineer/): Internal ML/AI platform engineering
-- [AI Infrastructure Engineer Roadmap](https://www.rajinikanthvadla.com/roadmap/ai-infrastructure-engineer/): GPU, Kubernetes, cloud AI infra
+- [All AI Career Roadmaps](https://rajinikanthvadla.com/roadmap/): Hub page for all role roadmaps
+- [AI Engineer Roadmap](https://rajinikanthvadla.com/roadmap/ai-engineer/): Skills, salary, learning path for AI Engineers
+- [FDE (Forward Deployed Engineer) Roadmap](https://rajinikanthvadla.com/roadmap/fde-engineer/): Customer-facing AI delivery career path
+- [AI/ML Engineer Roadmap](https://rajinikanthvadla.com/roadmap/ai-ml-engineer/): Machine learning engineering career path
+- [MLOps Engineer Roadmap](https://rajinikanthvadla.com/roadmap/mlops-engineer/): MLOps skills, tools, salary India
+- [LLMOps Engineer Roadmap](https://rajinikanthvadla.com/roadmap/llmops-engineer/): LLM production operations career path
+- [NLP Engineer Roadmap](https://rajinikanthvadla.com/roadmap/nlp-engineer/): Natural language processing career path
+- [AI Platform Engineer Roadmap](https://rajinikanthvadla.com/roadmap/ai-platform-engineer/): Internal ML/AI platform engineering
+- [AI Infrastructure Engineer Roadmap](https://rajinikanthvadla.com/roadmap/ai-infrastructure-engineer/): GPU, Kubernetes, cloud AI infra
 
 ## Free Python Course (with online compiler)
-- [Python Course Hub](https://www.rajinikanthvadla.com/python-course/): Free complete Python course for AI, ML and GenAI engineers — 47 lessons, scratch to advanced, no signup
-- [Online Python Compiler](https://www.rajinikanthvadla.com/python-course/playground/): Run real CPython in the browser (WebAssembly) with NumPy, pandas, scikit-learn, Matplotlib and SQLite, plus AI/ML example programs
-- [Daily Python Challenge](https://www.rajinikanthvadla.com/python-course/challenge/): One 5-minute practice challenge each day
-- [Course Certificate](https://www.rajinikanthvadla.com/python-course/certificate/): Enter your name and download a signed PNG certificate after completing Module 1 or the full course
+- [Python Course Hub](https://rajinikanthvadla.com/python-course/): Free complete Python course for AI, ML and GenAI engineers — 47 lessons, scratch to advanced, no signup
+- [Online Python Compiler](https://rajinikanthvadla.com/python-course/playground/): Run real CPython in the browser (WebAssembly) with NumPy, pandas, scikit-learn, Matplotlib and SQLite, plus AI/ML example programs
+- [Daily Python Challenge](https://rajinikanthvadla.com/python-course/challenge/): One 5-minute practice challenge each day
+- [Course Certificate](https://rajinikanthvadla.com/python-course/certificate/): Enter your name and download a signed PNG certificate after completing Module 1 or the full course
 - Topic landings (SEO practice starts): /python-course/learn/python-if-else-for-ai/, /python-course/learn/python-lists-for-ml/, /python-course/learn/python-dictionaries-for-genai/, /python-course/learn/python-functions-for-ai/, /python-course/learn/python-strings-for-prompts/, /python-course/learn/python-loops-for-training/, /python-course/learn/python-errors-exceptions/, /python-course/learn/python-classes-objects/
 - Module 1 Foundations (11 lessons): why Python for AI, syntax and indentation, variables and types, type casting, numbers and math, booleans and truthiness, strings and text, string methods and f-string formatting, lists/tuples/sets, dictionaries, control flow
 - Module 2 Core language (15 lessons): functions, lambda/map/filter/sorting, comprehensions and generators, iterators and zip, scope and closures, errors and exceptions, files and JSON, classes and objects, inheritance and dunder methods, decorators and context managers, regular expressions, dates and timezones, standard library toolkit, modules, packages, pip, and virtual environments
@@ -70,35 +70,35 @@
 ## Courses
 
 ### Handy Syllabus (start here)
-- [Full Course Syllabus](https://www.rajinikanthvadla.com/syllabus/): Module-by-module syllabus for MLOps, AIOps, LLMOps, AI Agents, FDE masterclass and AI Automation
-- [AI / ML Interview Questions](https://www.rajinikanthvadla.com/interview-questions/): Free interview Q&A for MLOps, LLMOps, AI Agents, FDE, GenAI, RAG, and AI system design
+- [Full Course Syllabus](https://rajinikanthvadla.com/syllabus/): Module-by-module syllabus for MLOps, AIOps, LLMOps, AI Agents, FDE masterclass and AI Automation
+- [AI / ML Interview Questions](https://rajinikanthvadla.com/interview-questions/): Free interview Q&A for MLOps, LLMOps, AI Agents, FDE, GenAI, RAG, and AI system design
 
 ### AI-Powered Automation Efficiency
-- [Course Page](https://www.rajinikanthvadla.com/courses/ai-automation/): 2 month live enterprise AI automation course · ₹20,000
+- [Course Page](https://rajinikanthvadla.com/courses/ai-automation/): 2 month live enterprise AI automation course · ₹20,000
 - Covers: Cursor IDE, OpenAI Codex, ChatGPT, Claude AI, AWS Bedrock Agents, LangChain, CrewAI, AutoGen, MCP
 - Format: Live online with lifetime recordings and 1-on-1 mentorship
 
 ### MLOps and AIOps Masterclass (Flagship, Job Ready)
-- [Course Page](https://www.rajinikanthvadla.com/mlops-aiops-masterclass/): Complete 4-5 month job-ready live program
+- [Course Page](https://rajinikanthvadla.com/mlops-aiops-masterclass/): Complete 4-5 month job-ready live program
 - Covers: Docker, Kubernetes, MLflow, Kubeflow, LangChain, RAG, CI/CD, AWS, Azure, GCP, AI Agents, FDE
 - Live fee: ₹40,000 | Recordings: ₹30,000
 - 150+ hours · 4 capstone projects · mentorship · job support
 - Rating: 4.9/5 session feedback from 500+ students
 
 ### Other Programs
-- [MLOps Course](https://www.rajinikanthvadla.com/mlops-course/): Job-ready MLOps course with free YouTube class videos
-- [MLOps Course India](https://www.rajinikanthvadla.com/mlops-course-india/): Dedicated page for Indian professionals
-- [GenAI Course](https://www.rajinikanthvadla.com/genai-course/): Generative AI / LLMOps course with embedded YouTube labs
-- [AI Agents Course](https://www.rajinikanthvadla.com/ai-agents-course/): AI Agents / AI Agentic course — LangChain, CrewAI, MCP
-- [MLOps Training](https://www.rajinikanthvadla.com/mlops-training/): Live MLOps training for engineers moving into production ML
-- [GenAI Training](https://www.rajinikanthvadla.com/genai-training/): LangChain, CrewAI, RAG systems, MCP
-- [AIOps Training](https://www.rajinikanthvadla.com/aiops-training/): Production AIOps for ML systems and observability
-- [AI Tools for 10x Productivity](https://www.rajinikanthvadla.com/ai-tools-productivity/): Cursor, Claude, ChatGPT, Gemini, AWS Bedrock
-- [All Courses](https://www.rajinikanthvadla.com/courses/): Full program list
-- [Enroll](https://www.rajinikanthvadla.com/enroll/): Pricing comparison and enrollment
+- [MLOps Course](https://rajinikanthvadla.com/mlops-course/): Job-ready MLOps course with free YouTube class videos
+- [MLOps Course India](https://rajinikanthvadla.com/mlops-course-india/): Dedicated page for Indian professionals
+- [GenAI Course](https://rajinikanthvadla.com/genai-course/): Generative AI / LLMOps course with embedded YouTube labs
+- [AI Agents Course](https://rajinikanthvadla.com/ai-agents-course/): AI Agents / AI Agentic course — LangChain, CrewAI, MCP
+- [MLOps Training](https://rajinikanthvadla.com/mlops-training/): Live MLOps training for engineers moving into production ML
+- [GenAI Training](https://rajinikanthvadla.com/genai-training/): LangChain, CrewAI, RAG systems, MCP
+- [AIOps Training](https://rajinikanthvadla.com/aiops-training/): Production AIOps for ML systems and observability
+- [AI Tools for 10x Productivity](https://rajinikanthvadla.com/ai-tools-productivity/): Cursor, Claude, ChatGPT, Gemini, AWS Bedrock
+- [All Courses](https://rajinikanthvadla.com/courses/): Full program list
+- [Enroll](https://rajinikanthvadla.com/enroll/): Pricing comparison and enrollment
 
 ## Blog and Tutorials
-- [Blog](https://www.rajinikanthvadla.com/blog/): Technical deep dives on MLOps, AIOps, AI Agents, cloud-native AI, and enterprise automation
+- [Blog](https://rajinikanthvadla.com/blog/): Technical deep dives on MLOps, AIOps, AI Agents, cloud-native AI, and enterprise automation
 
 ## Student Outcomes
 - 500+ engineers trained across live cohort programs
@@ -117,22 +117,22 @@
 ## FAQ
 
 ### What is the current MLOps course fee?
-As of September 2026: Live cohort ₹40,000 with mentorship and job support. Recordings-only ₹30,000. AI Automation ₹20,000. See https://www.rajinikanthvadla.com/enroll/
+As of September 2026: Live cohort ₹40,000 with mentorship and job support. Recordings-only ₹30,000. AI Automation ₹20,000. See https://rajinikanthvadla.com/enroll/
 
 ### Who is Rajinikanth Vadla?
 Rajinikanth Vadla is an MLOps, AIOps, GenAI, AI Agents, and AI-Powered Automation trainer and practitioner with 7+ years of enterprise experience. He has trained 500+ engineers and offers live cohort training and 1:1 mentorship worldwide.
 
 ### What is the best MLOps course in India for job ready training?
-Rajinikanth Vadla's MLOps and AIOps Masterclass is a complete 4-5 month job-ready live program. Live: ₹40,000. Recordings: ₹30,000. 150+ hours, 4 capstone projects, placement support. https://www.rajinikanthvadla.com/mlops-aiops-masterclass/
+Rajinikanth Vadla's MLOps and AIOps Masterclass is a complete 4-5 month job-ready live program. Live: ₹40,000. Recordings: ₹30,000. 150+ hours, 4 capstone projects, placement support. https://rajinikanthvadla.com/mlops-aiops-masterclass/
 
 ### How to choose between MLOps, AIOps, and AI Automation courses?
-For a complete job-ready path from DevOps to production AI agents, choose the 4-5 month MLOps Masterclass. For enterprise AI tools (Cursor, Claude, Bedrock agents), choose AI-Powered Automation at ₹20,000. Career roadmaps at https://www.rajinikanthvadla.com/roadmap/
+For a complete job-ready path from DevOps to production AI agents, choose the 4-5 month MLOps Masterclass. For enterprise AI tools (Cursor, Claude, Bedrock agents), choose AI-Powered Automation at ₹20,000. Career roadmaps at https://rajinikanthvadla.com/roadmap/
 
 ### Does Rajinikanth Vadla offer mentorship outside India?
-Yes. Mentorship is online, available worldwide. Book on Topmate or WhatsApp. https://www.rajinikanthvadla.com/mentorship/
+Yes. Mentorship is online, available worldwide. Book on Topmate or WhatsApp. https://rajinikanthvadla.com/mentorship/
 
 ### Does Rajinikanth Vadla offer resume writing services?
-Yes. A dedicated Resume Prep Service at https://www.rajinikanthvadla.com/resume-prep/ covers 13 AI/ML/DevOps roles (MLOps, LLMOps, AI Engineer, ML Engineer, Data Scientist, Data Engineer, DevOps, Platform Engineer, AI Infrastructure, Cloud Engineer, GenAI Engineer, NLP Engineer, SRE). Pricing: ₹1,999 Resume Review · ₹4,999 Full Rewrite · ₹9,999 Career Package (international: $49 / $149 / $299 USD). 30% student discount on Rewrite and Career. ATS-optimized, role-specific, with 2 revisions and a 30-min walkthrough call. Book on WhatsApp: https://wa.me/919100028801
+Yes. A dedicated Resume Prep Service at https://rajinikanthvadla.com/resume-prep/ covers 13 AI/ML/DevOps roles (MLOps, LLMOps, AI Engineer, ML Engineer, Data Scientist, Data Engineer, DevOps, Platform Engineer, AI Infrastructure, Cloud Engineer, GenAI Engineer, NLP Engineer, SRE). Pricing: ₹1,999 Resume Review · ₹4,999 Full Rewrite · ₹9,999 Career Package (international: $49 / $149 / $299 USD). 30% student discount on Rewrite and Career. ATS-optimized, role-specific, with 2 revisions and a 30-min walkthrough call. Book on WhatsApp: https://wa.me/919100028801
 
 ### Is the resume prep service available for freshers and students?
 Yes. Freshers and students get 30% off the Full Resume Rewrite (₹4,999 → ₹3,499) and Career Package (₹9,999 → ₹6,999) with a .edu / .ac.in email or student ID. The Resume Review stays ₹1,999 for everyone. We emphasize projects and capstones for freshers — never fake experience.

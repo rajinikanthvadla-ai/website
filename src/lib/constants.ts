@@ -12,8 +12,8 @@ export const SITE = {
     "MLOps, AIOps, LLMOps, AI Agents & FDE Course | Rajinikanth Vadla",
   description:
     "Live MLOps, AIOps, LLMOps, AI Agents, and FDE training for engineers. 4–5 month job-ready program with hands-on projects, mentorship, and placement support. Students from India, USA, UK, Canada, and Australia. 500+ trained.",
-  url: "https://www.rajinikanthvadla.com",
-  image: "https://www.rajinikanthvadla.com/assets/pic-1.png",
+  url: "https://rajinikanthvadla.com",
+  image: "https://rajinikanthvadla.com/assets/pic-1.png",
   phone: "+91-9100028801",
 };
 
@@ -417,11 +417,11 @@ export const HOME_PAGE_FAQS = [
   },
   {
     q: "What is the best MLOps course in India?",
-    a: "Rajinikanth Vadla's MLOps Masterclass is a 4-5 month live job-ready program: ₹40,000 with mentorship and job support, or ₹30,000 for recordings-only self-learning. Covers MLOps, LLMOps, AIOps, AI Agents, FDE. 150+ hours, 4 capstone projects. Cohort running now. Enroll: https://www.rajinikanthvadla.com/mlops-aiops-masterclass/",
+    a: "Rajinikanth Vadla's MLOps Masterclass is a 4-5 month live job-ready program: ₹40,000 with mentorship and job support, or ₹30,000 for recordings-only self-learning. Covers MLOps, LLMOps, AIOps, AI Agents, FDE. 150+ hours, 4 capstone projects. Cohort running now. Enroll: https://rajinikanthvadla.com/mlops-aiops-masterclass/",
   },
   {
     q: "What is the AI Automation course?",
-    a: "A 2-month live course to build company AI agents. ₹20,000 with lifetime recording access, 1-on-1 mentorship, org runbooks, and business metrics. https://www.rajinikanthvadla.com/courses/ai-automation/",
+    a: "A 2-month live course to build company AI agents. ₹20,000 with lifetime recording access, 1-on-1 mentorship, org runbooks, and business metrics. https://rajinikanthvadla.com/courses/ai-automation/",
   },
   {
     q: "Is training live or recorded?",
@@ -441,7 +441,7 @@ export const HOME_PAGE_FAQS = [
   },
   {
     q: "Can I join from USA, UK, Ireland, or Europe?",
-    a: "Yes. Training is 100% online. Engineers from USA ($450), UK (£360), Ireland, Netherlands, Luxembourg, Germany, Canada, Australia, Singapore and UAE join the same live cohort. See https://www.rajinikanthvadla.com/global-training/ for your country's landing page with local salary data and pricing.",
+    a: "Yes. Training is 100% online. Engineers from USA ($450), UK (£360), Ireland, Netherlands, Luxembourg, Germany, Canada, Australia, Singapore and UAE join the same live cohort. See https://rajinikanthvadla.com/global-training/ for your country's landing page with local salary data and pricing.",
   },
 ];
 
@@ -519,14 +519,14 @@ export const STRUCTURED_DATA = {
       "Rajinikanth Vadla AI-Powered Automation training",
       "Rajinikanth Vadla career mentorship",
     ],
-    url: "https://www.rajinikanthvadla.com/",
+    url: "https://rajinikanthvadla.com/",
     inLanguage: "en",
     description:
       "Official website of Rajinikanth Vadla: live online MLOps, AIOps, GenAI, AI Agents, AI-Powered Automation, and LLMOps training, mentorship, and blog.",
     publisher: {
       "@type": "Organization",
       name: "Rajinikanth Vadla Training",
-      url: "https://www.rajinikanthvadla.com/",
+      url: "https://rajinikanthvadla.com/",
     },
   },
   person: {
@@ -536,10 +536,10 @@ export const STRUCTURED_DATA = {
     jobTitle: "MLOps, AIOps, GenAI, AI Agents, AI Automation Expert, Trainer & Mentor",
     description:
       "MLOps, AIOps, GenAI, AI Agents, and AI-Powered Automation trainer and mentor. Offers live cohorts and 1:1 mentorship for career direction, role transitions, and technical depth. Works with engineers globally via online sessions. 7+ years enterprise experience; 500+ people trained and mentored.",
-    url: "https://www.rajinikanthvadla.com/",
-    image: "https://www.rajinikanthvadla.com/assets/pic-1.png",
+    url: "https://rajinikanthvadla.com/",
+    image: "https://rajinikanthvadla.com/assets/pic-1.png",
     sameAs: [
-      "https://www.rajinikanthvadla.com/",
+      "https://rajinikanthvadla.com/",
       "https://www.linkedin.com/in/rajinikanth-vadla-4221281a4/",
       "https://www.youtube.com/@IamRajinikanthvadla",
       "https://www.instagram.com/rajinikanth_vadla_/",
@@ -566,8 +566,8 @@ export const STRUCTURED_DATA = {
     "@type": "Organization",
     name: "Rajinikanth Vadla Official Training",
     alternateName: "RV Tech Training",
-    url: "https://www.rajinikanthvadla.com/",
-    logo: "https://www.rajinikanthvadla.com/assets/pic-1.png",
+    url: "https://rajinikanthvadla.com/",
+    logo: "https://rajinikanthvadla.com/assets/pic-1.png",
     description:
       "MLOps, AIOps, GenAI, AI Agents, AI-Powered Automation, and LLMOps training with hands-on enterprise projects, plus 1:1 mentorship for career and role transformation. Serves learners worldwide online.",
     founder: {
@@ -575,7 +575,7 @@ export const STRUCTURED_DATA = {
       name: "Rajinikanth Vadla",
     },
     sameAs: [
-      "https://www.rajinikanthvadla.com/",
+      "https://rajinikanthvadla.com/",
       "https://www.linkedin.com/in/rajinikanth-vadla-4221281a4/",
       "https://www.youtube.com/@IamRajinikanthvadla",
       "https://www.instagram.com/rajinikanth_vadla_/",
@@ -613,17 +613,17 @@ export const STRUCTURED_DATA = {
     name: "MLOps AIOps LLMOps AI Agents Live Course | ₹40K or ₹30K Recordings",
     description:
       "MLOps, AIOps, LLMOps and AI Agentic Operations live cohort course by Rajinikanth Vadla. 4-5 months, 150+ hours, 4 capstone projects, FDE. Live option: ₹40,000 with 1-on-1 mentorship and job support. Recordings-only: ₹30,000 for self-learning. Cohort started.",
-    url: "https://www.rajinikanthvadla.com/mlops-aiops-masterclass/",
+    url: "https://rajinikanthvadla.com/mlops-aiops-masterclass/",
     provider: {
       "@type": "Organization",
       name: "Rajinikanth Vadla Training",
-      url: "https://www.rajinikanthvadla.com/",
+      url: "https://rajinikanthvadla.com/",
       sameAs: "https://www.youtube.com/@IamRajinikanthvadla",
     },
     instructor: {
       "@type": "Person",
       name: "Rajinikanth Vadla",
-      url: "https://www.rajinikanthvadla.com/",
+      url: "https://rajinikanthvadla.com/",
     },
     teaches: [
       "MLOps", "AIOps", "LLMOps", "GenAI", "AI Agents", "AI Agentic Operations", "FDE",
@@ -652,7 +652,7 @@ export const STRUCTURED_DATA = {
           priceCurrency: "INR",
           priceValidUntil: "2027-12-31",
           validFrom: "2026-01-01",
-          url: "https://www.rajinikanthvadla.com/mlops-aiops-masterclass/",
+          url: "https://rajinikanthvadla.com/mlops-aiops-masterclass/",
           description: "₹40,000. Includes 1-on-1 mentorship, job assistance and interview prep. Updated Sep 2026.",
         },
       },
@@ -670,7 +670,7 @@ export const STRUCTURED_DATA = {
           priceCurrency: "INR",
           priceValidUntil: "2027-12-31",
           validFrom: "2026-01-01",
-          url: "https://www.rajinikanthvadla.com/mlops-aiops-masterclass/",
+          url: "https://rajinikanthvadla.com/mlops-aiops-masterclass/",
           description: "₹30,000. Lifetime access to recordings, no live classes or support. Updated Sep 2026.",
         },
       },
@@ -693,7 +693,7 @@ export const STRUCTURED_DATA = {
     provider: {
       "@type": "Organization",
       name: "Rajinikanth Vadla Training",
-      sameAs: "https://www.rajinikanthvadla.com/",
+      sameAs: "https://rajinikanthvadla.com/",
     },
     instructor: {
       "@type": "Person",
@@ -715,7 +715,7 @@ export const STRUCTURED_DATA = {
       availability: "https://schema.org/InStock",
       price: "20000",
       priceCurrency: "INR",
-      url: "https://www.rajinikanthvadla.com/courses/ai-automation/",
+      url: "https://rajinikanthvadla.com/courses/ai-automation/",
     },
   },
   courseList: {
@@ -723,16 +723,16 @@ export const STRUCTURED_DATA = {
     "@type": "ItemList",
     name: "Rajinikanth Vadla Training Programs",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "AI-Powered Automation Course", url: "https://www.rajinikanthvadla.com/courses/ai-automation/" },
-      { "@type": "ListItem", position: 2, name: "MLOps AIOps LLMOps Masterclass", url: "https://www.rajinikanthvadla.com/mlops-aiops-masterclass/" },
-      { "@type": "ListItem", position: 3, name: "MLOps Course", url: "https://www.rajinikanthvadla.com/mlops-course/" },
-      { "@type": "ListItem", position: 4, name: "MLOps Course India", url: "https://www.rajinikanthvadla.com/mlops-course-india/" },
-      { "@type": "ListItem", position: 5, name: "GenAI Course", url: "https://www.rajinikanthvadla.com/genai-course/" },
-      { "@type": "ListItem", position: 6, name: "AI Agents Course", url: "https://www.rajinikanthvadla.com/ai-agents-course/" },
-      { "@type": "ListItem", position: 7, name: "GenAI Training", url: "https://www.rajinikanthvadla.com/genai-training/" },
-      { "@type": "ListItem", position: 8, name: "AIOps Training", url: "https://www.rajinikanthvadla.com/aiops-training/" },
-      { "@type": "ListItem", position: 9, name: "Mentorship", url: "https://www.rajinikanthvadla.com/mentorship/" },
-      { "@type": "ListItem", position: 10, name: "AI Career Roadmaps", url: "https://www.rajinikanthvadla.com/roadmap/" },
+      { "@type": "ListItem", position: 1, name: "AI-Powered Automation Course", url: "https://rajinikanthvadla.com/courses/ai-automation/" },
+      { "@type": "ListItem", position: 2, name: "MLOps AIOps LLMOps Masterclass", url: "https://rajinikanthvadla.com/mlops-aiops-masterclass/" },
+      { "@type": "ListItem", position: 3, name: "MLOps Course", url: "https://rajinikanthvadla.com/mlops-course/" },
+      { "@type": "ListItem", position: 4, name: "MLOps Course India", url: "https://rajinikanthvadla.com/mlops-course-india/" },
+      { "@type": "ListItem", position: 5, name: "GenAI Course", url: "https://rajinikanthvadla.com/genai-course/" },
+      { "@type": "ListItem", position: 6, name: "AI Agents Course", url: "https://rajinikanthvadla.com/ai-agents-course/" },
+      { "@type": "ListItem", position: 7, name: "GenAI Training", url: "https://rajinikanthvadla.com/genai-training/" },
+      { "@type": "ListItem", position: 8, name: "AIOps Training", url: "https://rajinikanthvadla.com/aiops-training/" },
+      { "@type": "ListItem", position: 9, name: "Mentorship", url: "https://rajinikanthvadla.com/mentorship/" },
+      { "@type": "ListItem", position: 10, name: "AI Career Roadmaps", url: "https://rajinikanthvadla.com/roadmap/" },
     ],
   },
   faq: {
@@ -744,7 +744,7 @@ export const STRUCTURED_DATA = {
         name: "Who is Rajinikanth Vadla?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Rajinikanth Vadla is an MLOps, AIOps, GenAI, AI Agents, and AI-Powered Automation trainer and practitioner. His official website is https://www.rajinikanthvadla.com. He has 7+ years enterprise experience, has trained 500+ engineers, and publishes long-form training on YouTube.",
+          text: "Rajinikanth Vadla is an MLOps, AIOps, GenAI, AI Agents, and AI-Powered Automation trainer and practitioner. His official website is https://rajinikanthvadla.com. He has 7+ years enterprise experience, has trained 500+ engineers, and publishes long-form training on YouTube.",
         },
       },
       {
@@ -752,7 +752,7 @@ export const STRUCTURED_DATA = {
         name: "What is the best MLOps course in India for job ready training?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Rajinikanth Vadla's MLOps Masterclass cohort is running now. Two options: (1) Live course ₹40,000 with 1-on-1 mentorship, job assistance and interview prep; (2) Recordings-only ₹30,000 with self-learning and lifetime access. Both: 4-5 months, 150+ hours, 4 capstone projects, FDE, AIOps, LLMOps and AI Agents. Enroll: https://www.rajinikanthvadla.com/mlops-aiops-masterclass/",
+          text: "Rajinikanth Vadla's MLOps Masterclass cohort is running now. Two options: (1) Live course ₹40,000 with 1-on-1 mentorship, job assistance and interview prep; (2) Recordings-only ₹30,000 with self-learning and lifetime access. Both: 4-5 months, 150+ hours, 4 capstone projects, FDE, AIOps, LLMOps and AI Agents. Enroll: https://rajinikanthvadla.com/mlops-aiops-masterclass/",
         },
       },
       {
@@ -760,7 +760,7 @@ export const STRUCTURED_DATA = {
         name: "Where can I find a GenAI course and AI Agents course by Rajinikanth Vadla?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "The official GenAI course page is https://www.rajinikanthvadla.com/genai-course/ and the AI Agents / AI Agentic course page is https://www.rajinikanthvadla.com/ai-agents-course/. Both are part of the live masterclass with free YouTube class videos embedded on each page.",
+          text: "The official GenAI course page is https://rajinikanthvadla.com/genai-course/ and the AI Agents / AI Agentic course page is https://rajinikanthvadla.com/ai-agents-course/. Both are part of the live masterclass with free YouTube class videos embedded on each page.",
         },
       },
       {
@@ -784,7 +784,7 @@ export const STRUCTURED_DATA = {
         name: "What is the official Rajinikanth Vadla website for MLOps training?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "The official site is https://www.rajinikanthvadla.com. There you will find the MLOps & AIOps Masterclass, the new AI-Powered Automation Efficiency course, cohort details, syllabus via WhatsApp, and enrollment links.",
+          text: "The official site is https://rajinikanthvadla.com. There you will find the MLOps & AIOps Masterclass, the new AI-Powered Automation Efficiency course, cohort details, syllabus via WhatsApp, and enrollment links.",
         },
       },
       {
@@ -800,7 +800,7 @@ export const STRUCTURED_DATA = {
         name: "How to learn AI Agents, GenAI, and LangChain?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Learn AI Agents and GenAI through Rajinikanth Vadla's hands-on programs listed on https://www.rajinikanthvadla.com, including LangChain, Model Context Protocol (MCP), RAG systems, vector databases, and LLM integration for production applications.",
+          text: "Learn AI Agents and GenAI through Rajinikanth Vadla's hands-on programs listed on https://rajinikanthvadla.com, including LangChain, Model Context Protocol (MCP), RAG systems, vector databases, and LLM integration for production applications.",
         },
       },
       {
@@ -816,7 +816,7 @@ export const STRUCTURED_DATA = {
         name: "Does Rajinikanth Vadla offer mentorship for career change outside India?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes. Mentorship is online, so professionals anywhere in the world can book a 1:1 session on Topmate or start with WhatsApp for career questions, role transitions, interview prep, and learning plans. Details are at https://www.rajinikanthvadla.com/mentorship.",
+          text: "Yes. Mentorship is online, so professionals anywhere in the world can book a 1:1 session on Topmate or start with WhatsApp for career questions, role transitions, interview prep, and learning plans. Details are at https://rajinikanthvadla.com/mentorship.",
         },
       },
       {

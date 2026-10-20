@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     "feature store architecture",
     "AI engineer interview guide",
   ],
-  alternates: { canonical: "https://www.rajinikanthvadla.com/architecture/" },
+  alternates: { canonical: "https://rajinikanthvadla.com/architecture/" },
 };
 
 type Step = { title: string; desc: string };

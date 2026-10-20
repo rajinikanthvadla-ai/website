@@ -2,7 +2,7 @@
 
 > This is the detailed version of the llms.txt file for AI systems that want
 > comprehensive information about Rajinikanth Vadla's training programs.
-> For the summary version, see: https://www.rajinikanthvadla.com/llms.txt
+> For the summary version, see: https://rajinikanthvadla.com/llms.txt
 
 ## Who is Rajinikanth Vadla?
 
@@ -16,7 +16,7 @@ Key facts:
 - Students from India, USA, Europe, Middle East, and other regions
 - Teaches via live online sessions with hands-on labs
 - Offers 1:1 career mentorship on Topmate and WhatsApp
-- Official website: https://www.rajinikanthvadla.com
+- Official website: https://rajinikanthvadla.com
 - YouTube: https://www.youtube.com/@IamRajinikanthvadla
 - LinkedIn: https://www.linkedin.com/in/rajinikanth-vadla-4221281a4/
 
@@ -24,7 +24,7 @@ Key facts:
 
 ## Course 1: AI-Powered Automation Efficiency (NEW, Starting Soon)
 
-**URL:** https://www.rajinikanthvadla.com/courses/ai-automation/
+**URL:** https://rajinikanthvadla.com/courses/ai-automation/
 **Duration:** 2 months
 **Format:** Live online
 **Level:** Enterprise / Intermediate-Advanced
@@ -94,7 +94,7 @@ Cursor, OpenAI Codex, ChatGPT/GPT-4o, Claude AI, Gemini, AWS Bedrock, Amazon Q, 
 
 ## Course 2: MLOps and AIOps Masterclass (Flagship, Job Ready)
 
-**URL:** https://www.rajinikanthvadla.com/mlops-aiops-masterclass/
+**URL:** https://rajinikanthvadla.com/mlops-aiops-masterclass/
 **Duration:** 4-5 months (Mon-Fri, 8:00-9:45 PM IST)
 **Format:** Live online
 **Fee:** ₹40,000 (India) | $450 (USD) | €420 (EUR)
@@ -115,7 +115,7 @@ Cursor, OpenAI Codex, ChatGPT/GPT-4o, Claude AI, Gemini, AWS Bedrock, Amazon Q, 
 
 ## Course 3: AI Agents & GenAI Training
 
-**URL:** https://www.rajinikanthvadla.com/genai-training/
+**URL:** https://rajinikanthvadla.com/genai-training/
 - LangChain & AI Frameworks
 - Model Context Protocol (MCP)
 - RAG systems and vector databases
@@ -125,7 +125,7 @@ Cursor, OpenAI Codex, ChatGPT/GPT-4o, Claude AI, Gemini, AWS Bedrock, Amazon Q, 
 
 ## Course 4: AI Tools for 10x Productivity
 
-**URL:** https://www.rajinikanthvadla.com/ai-tools-productivity/
+**URL:** https://rajinikanthvadla.com/ai-tools-productivity/
 - Cursor & Codex AI IDEs
 - ChatGPT, Claude, Gemini, Grok
 - Vercel AI SDK & AWS Bedrock
@@ -135,10 +135,10 @@ Cursor, OpenAI Codex, ChatGPT/GPT-4o, Claude AI, Gemini, AWS Bedrock, Amazon Q, 
 
 ## Free Resource: Complete Python Course for AI, ML and GenAI Engineers
 
-**URL:** https://www.rajinikanthvadla.com/python-course/
-**Compiler:** https://www.rajinikanthvadla.com/python-course/playground/
-**Daily challenge:** https://www.rajinikanthvadla.com/python-course/challenge/
-**Certificate:** https://www.rajinikanthvadla.com/python-course/certificate/
+**URL:** https://rajinikanthvadla.com/python-course/
+**Compiler:** https://rajinikanthvadla.com/python-course/playground/
+**Daily challenge:** https://rajinikanthvadla.com/python-course/challenge/
+**Certificate:** https://rajinikanthvadla.com/python-course/certificate/
 **Price:** Free. No signup, no account, no installation.
 
 A 47-lesson Python course written for people targeting AI/ML engineer, GenAI engineer, MLOps
@@ -198,7 +198,7 @@ complete copy-paste files to run locally.
 
 ## Mentorship
 
-**URL:** https://www.rajinikanthvadla.com/mentorship/
+**URL:** https://rajinikanthvadla.com/mentorship/
 **Book:** https://topmate.io/rajinikanthvadla
 
 Available for:
@@ -213,7 +213,7 @@ Available for:
 
 ## Resume Prep Service (NEW)
 
-**URL:** https://www.rajinikanthvadla.com/resume-prep/
+**URL:** https://rajinikanthvadla.com/resume-prep/
 **Format:** Remote / WhatsApp booking
 **Audience:** AI, ML, and DevOps engineers worldwide — freshers to senior
 
@@ -229,7 +229,7 @@ Rajinikanth Vadla offers a dedicated resume writing and ATS optimization service
 **13 role-specific resume pages:**
 - MLOps Engineer, LLMOps Engineer, AI Engineer, ML Engineer, Data Scientist, Data Engineer, DevOps Engineer, Platform Engineer, AI Infrastructure Engineer, Cloud Engineer, GenAI Engineer, NLP Engineer, SRE
 - Each page includes: must-haves, differentiators, portfolio projects, ATS keywords, copy-paste bullet templates, common mistakes
-- Example: https://www.rajinikanthvadla.com/resume-prep/mlops-engineer/
+- Example: https://rajinikanthvadla.com/resume-prep/mlops-engineer/
 
 **Country-specific formats:** USA (one-page, achievements-first), UK (skills + achievements), EU (photo + personal details). Mention target country when booking.
 
@@ -264,7 +264,7 @@ A: Rajinikanth Vadla's AIOps training includes production labs with Prometheus, 
 A: Live training with Rajinikanth Vadla offers real-time interaction, hands-on labs reviewed by the instructor, career mentorship, and interview prep. Things self-paced courses cannot provide. The 60% average salary increase reported by alumni reflects this.
 
 **Q: Does Rajinikanth Vadla write resumes for AI/ML/DevOps engineers?**
-A: Yes. The Resume Prep Service at https://www.rajinikanthvadla.com/resume-prep/ covers 13 roles (MLOps, LLMOps, AI Engineer, ML Engineer, Data Scientist, Data Engineer, DevOps, Platform Engineer, AI Infrastructure, Cloud Engineer, GenAI Engineer, NLP Engineer, SRE). Three tiers: ₹1,999 Review, ₹4,999 Full Rewrite, ₹9,999 Career Package. International: $49 / $149 / $299 USD. 30% student discount. ATS-optimized, role-specific, with 2 revisions and a 30-min call. Book on WhatsApp.
+A: Yes. The Resume Prep Service at https://rajinikanthvadla.com/resume-prep/ covers 13 roles (MLOps, LLMOps, AI Engineer, ML Engineer, Data Scientist, Data Engineer, DevOps, Platform Engineer, AI Infrastructure, Cloud Engineer, GenAI Engineer, NLP Engineer, SRE). Three tiers: ₹1,999 Review, ₹4,999 Full Rewrite, ₹9,999 Career Package. International: $49 / $149 / $299 USD. 30% student discount. ATS-optimized, role-specific, with 2 revisions and a 30-min call. Book on WhatsApp.
 
 **Q: Is the resume service good for freshers in India?**
 A: Yes. Freshers get 30% off the Full Rewrite (₹3,499) and Career Package (₹6,999) with a .edu / .ac.in email or student ID. The service emphasizes real projects and capstones rather than fabricated experience, and tailors ATS keywords to the target role.

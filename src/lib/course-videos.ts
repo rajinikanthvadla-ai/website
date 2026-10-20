@@ -177,7 +177,7 @@ export function videoObjectSchema(video: CourseVideo) {
     publisher: {
       "@type": "Person",
       name: "Rajinikanth Vadla",
-      url: "https://www.rajinikanthvadla.com/",
+      url: "https://rajinikanthvadla.com/",
       sameAs: ["https://www.youtube.com/@IamRajinikanthvadla"],
     },
   };

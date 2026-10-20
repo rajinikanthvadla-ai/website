@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     "agentic AI course",
     "LangChain course",
   ],
-  alternates: { canonical: "https://www.rajinikanthvadla.com/mlops-aiops-masterclass/" },
+  alternates: { canonical: "https://rajinikanthvadla.com/mlops-aiops-masterclass/" },
 };
 
 export default function MasterclassPage() {

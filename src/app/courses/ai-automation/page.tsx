@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     title: "AI Automation Course | ₹20,000 | Lifetime Recordings | Mentorship",
     description: "Build company AI agents. Org runbooks. Business metrics. Evolving syllabus.",
   },
-  alternates: { canonical: "https://www.rajinikanthvadla.com/courses/ai-automation/" },
+  alternates: { canonical: "https://rajinikanthvadla.com/courses/ai-automation/" },
 };
 
 export default function AIAutomationCoursePage() {

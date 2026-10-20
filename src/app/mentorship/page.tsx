@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { LINKS, SITE } from "@/lib/constants";
 import { MENTORSHIP_FAQS, mentorshipOfferSchema } from "@/lib/mentorship-pricing";
+import { MENTORSHIP_MARKETS } from "@/lib/mentorship-markets";
+import Link from "next/link";
 import CTASection from "@/components/CTASection";
 import SuccessStories from "@/components/SuccessStories";
 import YouTubeMembershipSection from "@/components/YouTubeMembershipSection";
@@ -22,11 +24,20 @@ export const metadata: Metadata = {
     "LLMOps mentorship",
     "job switch mentorship AI",
   ],
-  alternates: { canonical: "https://www.rajinikanthvadla.com/mentorship/" },
+  alternates: {
+    canonical: "https://rajinikanthvadla.com/mentorship/",
+    languages: {
+      "x-default": "https://rajinikanthvadla.com/mentorship/",
+      "en-IN": "https://rajinikanthvadla.com/mentorship/",
+      ...Object.fromEntries(
+        MENTORSHIP_MARKETS.map((m) => [m.hreflang, `https://rajinikanthvadla.com/mentorship/${m.slug}/`]),
+      ),
+    },
+  },
   openGraph: {
     title: "1:1 MLOps & AI Career Mentorship – Rajinikanth Vadla",
     description: "Weekly 1:1 calls, WhatsApp support, resume and interview prep. Priced for your country. Secure Razorpay payment.",
-    url: "https://www.rajinikanthvadla.com/mentorship/",
+    url: "https://rajinikanthvadla.com/mentorship/",
     images: [SITE.image],
     type: "website",
   },
@@ -201,6 +212,24 @@ export default function MentorshipPage() {
         </div>
       </section>
       </HideInUk>
+
+      <section className="py-16 bg-stone-50 border-b border-stone-200">
+        <div className="max-w-5xl mx-auto px-6 text-center">
+          <h2 className="font-display text-2xl font-bold text-stone-900 mb-2">Mentorship by country</h2>
+          <p className="text-stone-600 text-sm mb-6">Time zones, salary ranges and USD pricing for your country.</p>
+          <div className="flex flex-wrap justify-center gap-2">
+            {MENTORSHIP_MARKETS.map((m) => (
+              <Link
+                key={m.slug}
+                href={`/mentorship/${m.slug}/`}
+                className="px-4 py-2 text-sm font-semibold border border-stone-300 bg-white text-stone-700 hover:border-stone-900 transition-colors"
+              >
+                {m.flag} {m.name}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <section className="py-20 md:py-24 bg-white border-b border-stone-200">
         <div className="max-w-3xl mx-auto px-6">

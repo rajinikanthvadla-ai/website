@@ -6,7 +6,7 @@ import BlogMarkdown from "@/components/BlogMarkdown";
 
 type Article = (typeof articles)[number];
 
-const SITE_ORIGIN = "https://www.rajinikanthvadla.com";
+const SITE_ORIGIN = "https://rajinikanthvadla.com";
 
 export function generateStaticParams() {
   return articles.map((a) => ({ slug: a.slug }));

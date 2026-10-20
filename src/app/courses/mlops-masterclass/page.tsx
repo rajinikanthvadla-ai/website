@@ -3,7 +3,7 @@ import CourseRedirect from "@/components/CourseRedirect";
 
 export const metadata: Metadata = {
   title: "Enterprise MLOps Training",
-  alternates: { canonical: "https://www.rajinikanthvadla.com/mlops-aiops-masterclass/" },
+  alternates: { canonical: "https://rajinikanthvadla.com/mlops-aiops-masterclass/" },
 };
 
 export default function EnterpriseMLOpsCoursePage() {

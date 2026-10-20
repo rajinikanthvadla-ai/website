@@ -5,7 +5,7 @@ import CTASection from "@/components/CTASection";
 export const metadata: Metadata = {
   title: "Contact",
   description: "Reach Rajinikanth Vadla on WhatsApp, Topmate, LinkedIn or YouTube — fastest replies for batch timing, fees and mentorship booking.",
-  alternates: { canonical: "https://www.rajinikanthvadla.com/contact/" },
+  alternates: { canonical: "https://rajinikanthvadla.com/contact/" },
 };
 
 export default function ContactPage() {

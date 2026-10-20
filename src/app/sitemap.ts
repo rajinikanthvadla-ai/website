@@ -3,13 +3,14 @@ import articles from "../../content/articles.json";
 import { ROADMAP_SLUGS } from "@/lib/roadmaps";
 import { getSkillSlugs, COMPARE_SLUGS } from "@/lib/knowledge-graph";
 import { INTL_MARKETS } from "@/lib/international-markets";
+import { MENTORSHIP_MARKETS } from "@/lib/mentorship-markets";
 import { RESUME_ROLES } from "@/lib/resume-roles";
 import { PYTHON_LESSON_SLUGS, PRACTICE_TOPIC_SLUGS } from "@/lib/python-course";
 
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://www.rajinikanthvadla.com";
+  const base = "https://rajinikanthvadla.com";
   const now = new Date().toISOString();
 
   const staticRoutes: MetadataRoute.Sitemap = [
@@ -95,6 +96,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: m.slug === "usa" || m.slug === "uk" ? 0.95 : 0.93,
   }));
 
+  const mentorshipRoutes: MetadataRoute.Sitemap = MENTORSHIP_MARKETS.map((m) => ({
+    url: `${base}/mentorship/${m.slug}/`,
+    lastModified: now,
+    changeFrequency: "weekly" as const,
+    priority: m.slug === "usa" ? 0.92 : 0.88,
+  }));
+
   const resumeRoutes: MetadataRoute.Sitemap = RESUME_ROLES.map((r) => ({
     url: `${base}/resume-prep/${r.slug}/`,
     lastModified: now,
@@ -107,6 +115,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...pythonLessonRoutes,
     ...pythonTopicRoutes,
     ...intlRoutes,
+    ...mentorshipRoutes,
     ...resumeRoutes,
     ...roadmapRoutes,
     ...skillRoutes,

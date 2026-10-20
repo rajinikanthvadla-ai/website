@@ -17,7 +17,7 @@ import {
 const REGION_EVENT = "mentorship-region-change";
 const REGION_PARAM: Record<string, MentorshipZoneId> = {
   a: "A", global: "A", us: "A", usa: "A",
-  b: "B",
+  b: "A", international: "A",
   c: "C", india: "C", in: "C",
 };
 
@@ -64,13 +64,14 @@ function whatsappPayLink(planName: string, price: string) {
   return `${LINKS.whatsapp}?text=${encodeURIComponent(text)}`;
 }
 
-export default function MentorshipPricing() {
+/** `defaultZone` pins a country page to its currency; visitors can still switch with the tabs. */
+export default function MentorshipPricing({ defaultZone }: { defaultZone?: MentorshipZoneId } = {}) {
   const region = useMentorshipRegion();
-  const [zone, setZone] = useState<MentorshipZoneId>("C");
+  const [zone, setZone] = useState<MentorshipZoneId>(defaultZone ?? "C");
 
   useEffect(() => {
-    if (region && !region.uk) setZone(region.zone);
-  }, [region]);
+    if (region && !region.uk) setZone(defaultZone && !readRegionOverride() ? defaultZone : region.zone);
+  }, [region, defaultZone]);
 
   if (region?.uk) {
     return (

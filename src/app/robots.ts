@@ -27,7 +27,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/" as const,
       })),
     ],
-    sitemap: "https://www.rajinikanthvadla.com/sitemap.xml",
-    host: "https://www.rajinikanthvadla.com",
+    sitemap: "https://rajinikanthvadla.com/sitemap.xml",
+    host: "https://rajinikanthvadla.com",
   };
 }

@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     "AIOps course enrollment",
     "AI agents course buy",
   ],
-  alternates: { canonical: "https://www.rajinikanthvadla.com/enroll/" },
+  alternates: { canonical: "https://rajinikanthvadla.com/enroll/" },
 };
 
 export default function EnrollPage() {
