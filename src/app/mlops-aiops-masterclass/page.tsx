@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import Image from "next/image";
 import {
   LINKS,
@@ -10,22 +11,20 @@ import {
   MLOPS_PROGRAM_INCLUDES,
   MLOPS_PREREQUISITES,
   MLOPS_TARGET_AUDIENCE,
-  COURSE_ZOOM_DEMOS,
 } from "@/lib/constants";
 import MasterclassSyllabus from "@/components/masterclass/MasterclassSyllabus";
 import SectionHeader from "@/components/SectionHeader";
 import CoursePricing from "@/components/CoursePricing";
-import { COURSE_USD } from "@/lib/course-pricing";
+import { CoursePrice } from "@/components/LocalPrice";
 import SuccessStories from "@/components/SuccessStories";
-import LiveZoomDemo from "@/components/LiveZoomDemo";
 import CourseVideoSection from "@/components/CourseVideoSection";
 import { COURSE_VIDEOS } from "@/lib/course-videos";
 import { MLOPS_SKETCH, sketch } from "@/lib/sketch-assets";
 
 export const metadata: Metadata = {
-  title: "MLOps, AIOps, LLMOps & Agentic AI Course – Live GenAI, FDE Training",
+  title: { absolute: "MLOps, AIOps, LLMOps & Agentic AI Course – Live Online" },
   description:
-    "Live MLOps, AIOps, LLMOps, Agentic AI, GenAI, FDE and AI Platform engineering course by Rajinikanth Vadla. 4-5 months, 150+ hours, 4 capstone projects, 1:1 mentorship and job support. Online worldwide: $599 or ₹40,000 in India.",
+    "Live MLOps, AIOps, LLMOps and Agentic AI course: 150+ hours, 4 capstone projects, 1:1 mentorship and job support. Online for engineers worldwide.",
   keywords: [
     "MLOps course",
     "AIOps course",
@@ -64,8 +63,8 @@ export default function MasterclassPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(STRUCTURED_DATA.course) }} />
+      <BreadcrumbJsonLd items={[{ name: "Courses", path: "/courses/" }, { name: "MLOps, AIOps, LLMOps & Agentic AI Masterclass", path: "/mlops-aiops-masterclass/" }]} />
       <HeroBanner />
-      <LiveZoomDemo demo={COURSE_ZOOM_DEMOS.mlopsMasterclass} variant="dark" />
       <CourseVideoSection
         title="Watch the masterclass on YouTube"
         subtitle="Real live-class recordings from the MLOps, LLMOps, AIOps and AI Agents course — embedded directly from Rajinikanth Vadla's channel."
@@ -132,15 +131,15 @@ function HeroBanner() {
           <div className="panel p-5 max-w-md mx-auto mb-8 border-l-4 border-l-blue-700">
             <div className="mb-4">
               <div className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-1">Live Course Option</div>
-              <p className="text-[#0f172a] font-bold text-2xl">₹40,000</p>
+              <p className="text-[#0f172a] font-bold text-2xl"><CoursePrice plan="live" /></p>
               <p className="text-slate-600 text-xs mt-2">Live 4–5 months · 150+ hours · 1-on-1 support · job assistance</p>
             </div>
             <div className="border-t border-slate-300 pt-4">
               <div className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-1">Recordings Only (Self-Learning)</div>
-              <p className="text-[#0f172a] font-bold text-2xl">₹30,000</p>
+              <p className="text-[#0f172a] font-bold text-2xl"><CoursePrice plan="recordings" /></p>
               <p className="text-slate-600 text-xs mt-2">Lifetime access · no live class · no support</p>
             </div>
-            <p className="text-slate-500 text-xs mt-4">Mon-Fri, 8:00-9:45 PM IST (live cohort). Outside India: ${COURSE_USD.live} live · ${COURSE_USD.recordings} recordings</p>
+            <p className="text-slate-500 text-xs mt-4">Mon-Fri, 8:00-9:45 PM IST (live cohort). Full recordings if the timing does not suit your time zone.</p>
           </div>
 
           <div className="flex flex-col sm:flex-row justify-center gap-3 mb-4">
@@ -392,7 +391,7 @@ function FAQSection() {
     },
     {
       q: "Can I join from outside India?",
-      a: `Yes. Training is live online. Students from USA, Europe, Middle East, and other regions regularly enroll. Fees: ₹40,000 in India and South Asia, $${COURSE_USD.live} everywhere else (recordings: ₹30,000 / $${COURSE_USD.recordings}). Pay securely by card.`,
+      a: `Yes. Training is live online. Students from USA, Europe, Middle East, and other regions regularly enroll. Fees are shown in your currency in the fees section, and you pay securely through Razorpay.`,
     },
   ];
 

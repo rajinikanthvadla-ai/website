@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import { notFound } from "next/navigation";
 import IntlSeoLandingPage from "@/components/IntlSeoLanding";
 import { INTL_SEO_LANDINGS } from "@/lib/intl-seo-landings";
@@ -22,5 +23,15 @@ export default async function GlobalTrainingMarketPage({ params }: Props) {
   const { slug } = await params;
   const landing = INTL_SEO_LANDINGS[slug as IntlMarketSlug];
   if (!landing) notFound();
-  return <IntlSeoLandingPage landing={landing} />;
+  return (
+    <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Global training", path: "/global-training/" },
+          { name: landing.market.name, path: `/global-training/${landing.market.slug}/` },
+        ]}
+      />
+      <IntlSeoLandingPage landing={landing} />
+    </>
+  );
 }

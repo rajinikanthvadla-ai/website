@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import MentorshipCta from "@/components/MentorshipCta";
 import { notFound } from "next/navigation";
 import CareerRoadmapPage from "@/components/CareerRoadmap";
@@ -36,6 +37,7 @@ export default async function RoadmapSlugPage({ params }: { params: Promise<{ sl
 
   return (
     <>
+      <BreadcrumbJsonLd items={[{ name: "Career roadmaps", path: "/roadmap/" }, { name: `${roadmap.shortTitle} roadmap`, path: `/roadmap/${roadmap.slug}/` }]} />
       <CareerRoadmapPage roadmap={roadmap} />
       <MentorshipCta topic={`${roadmap.shortTitle} roadmap`} />
     </>

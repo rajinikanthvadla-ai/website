@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { detectMentorshipZone, type MentorshipZoneId } from "@/lib/mentorship-pricing";
 
-/** Pricing zone: "C" = India & South Asia (INR), "A" = everyone else (USD). */
+/** Pricing zone: "C" = India (INR), "A" = everyone else (USD). */
 export type VisitorZone = MentorshipZoneId;
 
 const REGION_EVENT = "mentorship-region-change";
@@ -39,12 +39,12 @@ export function useVisitorZone(): VisitorZone | null {
   return zone;
 }
 
-/** Zone to show: a page's pinned default (unless overridden by ?region=), else the detected zone. */
-export function useDisplayZone(defaultZone?: VisitorZone): VisitorZone {
+/**
+ * Zone to show. `fallbackZone` is only used for the static HTML before detection;
+ * once the browser reports its location, location (or a ?region= test link) always wins.
+ * `ready` is false until then, so callers can hide prices and avoid flashing the wrong currency.
+ */
+export function useDisplayZone(fallbackZone: VisitorZone = "C"): { zone: VisitorZone; ready: boolean } {
   const detected = useVisitorZone();
-  const [zone, setZone] = useState<VisitorZone>(defaultZone ?? "C");
-  useEffect(() => {
-    if (detected) setZone(defaultZone && !readRegionOverride() ? defaultZone : detected);
-  }, [detected, defaultZone]);
-  return zone;
+  return { zone: detected ?? fallbackZone, ready: detected !== null };
 }

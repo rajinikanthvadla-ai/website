@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import MentorshipCta from "@/components/MentorshipCta";
 import Link from "next/link";
 import { getAllRoadmaps } from "@/lib/roadmaps";
@@ -58,6 +59,7 @@ export default function RoadmapHubPage() {
 
   return (
     <>
+      <BreadcrumbJsonLd items={[{ name: "Career roadmaps", path: "/roadmap/" }]} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       {/* ── Hero ── */}

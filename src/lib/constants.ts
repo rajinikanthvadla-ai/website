@@ -11,7 +11,7 @@ export const SITE = {
   title:
     "MLOps, AIOps, LLMOps, AI Agents & FDE Course | Rajinikanth Vadla",
   description:
-    "Live MLOps, AIOps, LLMOps, AI Agents, and FDE training for engineers. 4–5 month job-ready program with hands-on projects, mentorship, and placement support. Students from India, USA, UK, Canada, and Australia. 500+ trained.",
+    "Live MLOps, AIOps, LLMOps and Agentic AI training with 1:1 mentorship and real capstone projects. 500+ engineers trained worldwide. Join the next cohort.",
   url: "https://rajinikanthvadla.com",
   image: "https://rajinikanthvadla.com/assets/pic-1.png",
   phone: "+91-9100028801",
@@ -35,8 +35,6 @@ export const LINKS = {
   whatsappChannel: "https://whatsapp.com/channel/0029VbBxmp7Fy7262q1Ti72e",
   zoomAiAutomation:
     "https://us06web.zoom.us/j/87218406889?pwd=aapAaoxbKd9cK6rQioFHVMlIHxedRO.1",
-  zoomMasterclass:
-    "https://us06web.zoom.us/j/87999982120?pwd=bfqVQtQ9th5aeybBQD3QP9TdAaDd0a.1",
   linkedin: "https://www.linkedin.com/in/rajinikanth-vadla-4221281a4/",
   youtube: "https://www.youtube.com/@IamRajinikanthvadla",
   youtubeMembershipJoin: "https://www.youtube.com/@IamRajinikanthvadla/join",
@@ -332,6 +330,7 @@ export const MLOPS_CAREER_ROLES = [
   { title: "DevOps (AI/ML)", salary: "₹12-30 LPA" },
 ];
 
+/** Public demo sessions only. Never put a paid class meeting here: students get those privately after paying. */
 export const COURSE_ZOOM_DEMOS = {
   aiAutomation: {
     courseName: "AI-Powered Automation Engineer Course",
@@ -347,20 +346,7 @@ export const COURSE_ZOOM_DEMOS = {
     meetingId: "872 1840 6889",
     passcode: "1111",
   },
-  mlopsMasterclass: {
-    courseName: "MLOps + LLMOps + AIOps + Agentic AI Course",
-    sessionLabel: "Live Demo Session",
-    schedule: "Daily · 9:30 PM IST",
-    startsOn: "Jul 11, 2026",
-    joinUrl: LINKS.zoomMasterclass,
-    agendaUrl:
-      "https://docs.zoom.us/agenda/doc/e70b1ca0-8872-4403-93e9-84871706b0d8",
-    chatUrl: "https://us06web.zoom.us/launch/jc/87999982120",
-    calendarUrl:
-      "https://us06web.zoom.us/meeting/tZMkfuChpjkrGNTn8tvCE_88_70rd4kciCn7/ics?icsToken=DDx6daWm7DgqqHrBKQAALAAAAOIX1_OvK3qWcgwzsu7cdKwbxW1Z0oK2YDEIhuEhEZfCvNggz5XTD6xc5QOgw70kV7sbxGtzrL5pjaZNsTAwMDAwMQ&meetingMasterEventId=nt4z7kvyRsmxf8t3jL4hZw",
-    meetingId: "879 9998 2120",
-    passcode: "1111",
-  },
+
 } as const;
 
 export const COURSES = [
@@ -382,10 +368,10 @@ export const COURSES = [
   {
     title: "MLOps, AIOps, LLMOps and AI Agents",
     description:
-      "Cohort running now. Live 4-5 months with mentorship (₹40K) or recordings self-learning (₹30K). FDE, AIOps, AI Agentic with capstones & job support.",
+      "Cohort running now. Live 4-5 months with mentorship, or self-paced recordings. MLOps, AIOps, LLMOps, Agentic AI and FDE with capstones & job support.",
     features: [
-      "₹40,000 live cohort",
-      "₹30,000 recordings",
+      "Live cohort with 1-on-1 mentorship",
+      "Self-paced recordings option",
       "150+ hours · 50+ labs · 4 capstone projects",
       "1-on-1 mentorship · job support",
     ],
@@ -430,7 +416,7 @@ export const HOME_PAGE_FAQS = [
   },
   {
     q: "Can I join from outside India?",
-    a: "Yes. All programs are online. Masterclass fees: ₹40,000 in India, $599 everywhere else (recordings ₹30,000 / $399).",
+    a: "Yes. All programs are online. Outside India the masterclass is $599 for the live cohort or $399 for recordings, paid securely by card.",
   },
   {
     q: "Do you help with jobs?",
@@ -625,12 +611,6 @@ export const STRUCTURED_DATA = {
       "Kubernetes", "Docker", "MLflow", "Kubeflow", "LangChain", "RAG",
       "AWS", "Azure", "GCP", "Job Interview Preparation", "Career Placement",
     ],
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: "500",
-      bestRating: "5",
-    },
     hasCourseInstance: [
       {
         "@type": "CourseInstance",
@@ -787,7 +767,7 @@ export const STRUCTURED_DATA = {
         name: "Which MLOps course should I take in 2026?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Rajinikanth Vadla's MLOps Masterclass (live cohort starting now): ₹40,000 with 1-on-1 mentorship, job support and interview prep, or ₹30,000 recordings-only for self-learning. Covers MLOps, LLMOps, AIOps, AI Agents and FDE. 4-5 months, 150+ hours and 4 capstone projects.",
+          text: "Rajinikanth Vadla's MLOps Masterclass (live cohort starting now): a live cohort with 1-on-1 mentorship, job support and interview prep, or recordings-only for self-learning. Covers MLOps, LLMOps, AIOps, AI Agents and FDE. 4-5 months, 150+ hours and 4 capstone projects.",
         },
       },
       {

@@ -37,7 +37,7 @@ export function mentorshipMarketCopy(market: IntlMarket) {
       },
       {
         q: `How do engineers in ${shortName} pay?`,
-        a: `In US dollars by international card through Razorpay, a secure payment gateway. You get an instant email receipt. Your bank may add a small currency conversion fee.`,
+        a: `By card through Razorpay, a secure payment gateway. The price is shown in your currency and you get an instant email receipt.`,
       },
       {
         q: `What roles and salaries do ${shortName} mentees target?`,

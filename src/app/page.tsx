@@ -6,7 +6,7 @@ import SectionHeader from "@/components/SectionHeader";
 import CTASection from "@/components/CTASection";
 import SuccessStories from "@/components/SuccessStories";
 import WelcomeLiveDashboard from "@/components/WelcomeLiveDashboard";
-import PricingHero from "@/components/PricingHero";
+import CoursePricing from "@/components/CoursePricing";
 import YoutubePlaylist from "@/components/YoutubePlaylist";
 import YouTubeMembershipSection from "@/components/YouTubeMembershipSection";
 import LatestArticlesSection from "@/components/LatestArticlesSection";
@@ -31,7 +31,7 @@ export default function HomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(STRUCTURED_DATA.aiAutomationCourse) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(STRUCTURED_DATA.courseList) }} />
       <HeroSection />
-      <PricingHero />
+      <CoursePricing />
       <YoutubePlaylist />
       <YouTubeMembershipSection />
       <LogoBar />

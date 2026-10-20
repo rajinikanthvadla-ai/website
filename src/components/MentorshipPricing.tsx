@@ -1,6 +1,6 @@
 "use client";
 
-import { setRegionOverride, useDisplayZone } from "@/components/visitor-zone";
+import { useDisplayZone } from "@/components/visitor-zone";
 import { LINKS } from "@/lib/constants";
 import TrustStrip from "@/components/TrustStrip";
 import {
@@ -8,7 +8,6 @@ import {
   MENTORSHIP_PAYMENT_PAGES,
   MENTORSHIP_PLANS,
   MENTORSHIP_REFUND_NOTE,
-  MENTORSHIP_ZONES,
   type MentorshipZoneId,
 } from "@/lib/mentorship-pricing";
 
@@ -17,11 +16,9 @@ function whatsappPayLink(planName: string, price: string) {
   return `${LINKS.whatsapp}?text=${encodeURIComponent(text)}`;
 }
 
-/** `defaultZone` pins a country page to its currency; visitors can still switch with the tabs. */
+/** One price list per visitor: ₹ in India, $ everywhere else, from browser location. */
 export default function MentorshipPricing({ defaultZone }: { defaultZone?: MentorshipZoneId } = {}) {
-  const zone = useDisplayZone(defaultZone);
-
-  const activeZone = MENTORSHIP_ZONES.find((z) => z.id === zone)!;
+  const { zone, ready } = useDisplayZone(defaultZone);
   const paymentPage = MENTORSHIP_PAYMENT_PAGES[zone];
 
   return (
@@ -32,35 +29,18 @@ export default function MentorshipPricing({ defaultZone }: { defaultZone?: Mento
             Mentorship plans
           </span>
           <h2 className="font-display text-3xl md:text-4xl font-bold text-stone-900 mb-3">
-            Monthly 1:1 mentorship, priced for your country
+            Choose your mentorship plan
           </h2>
           <p className="text-stone-600">
-            Same mentor, same plans everywhere. Prices follow local salaries. Capped at {MENTORSHIP_MONTHLY_CAP} monthly
-            mentees so every person gets real time.
+            Weekly 1:1 calls, chat support and a plan built for you. Capped at {MENTORSHIP_MONTHLY_CAP} mentees a month
+            so every person gets real time.
           </p>
         </div>
 
-        <div role="tablist" aria-label="Choose your region" className="flex flex-wrap justify-center gap-2 mb-3">
-          {MENTORSHIP_ZONES.map((z) => (
-            <button
-              key={z.id}
-              type="button"
-              role="tab"
-              aria-selected={zone === z.id}
-              onClick={() => setRegionOverride(z.id)}
-              className={`px-4 py-2 text-sm font-semibold border transition-colors ${
-                zone === z.id
-                  ? "bg-stone-900 border-stone-900 text-white"
-                  : "bg-white border-stone-300 text-stone-700 hover:border-stone-900"
-              }`}
-            >
-              {z.label}
-            </button>
-          ))}
-        </div>
-        <p className="text-center text-xs text-stone-500 mb-10">{activeZone.countries}</p>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 items-stretch">
+        <div
+          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 items-stretch"
+          style={{ visibility: ready ? "visible" : "hidden" }}
+        >
           {MENTORSHIP_PLANS.map((plan) => {
             const price = plan.prices[zone];
             return (
@@ -79,7 +59,6 @@ export default function MentorshipPricing({ defaultZone }: { defaultZone?: Mento
                 <p className="text-sm text-stone-600 mb-5 leading-relaxed">{plan.summary}</p>
                 <div className="mb-1">
                   <span className="text-4xl font-bold text-stone-900">{price.main}</span>
-                  {price.alt && <span className="ml-2 text-sm text-stone-500">{price.alt}</span>}
                 </div>
                 <p className="text-xs font-semibold uppercase tracking-wide text-stone-500 mb-5">{plan.cadence}</p>
                 <ul className="space-y-2 mb-7 flex-1">

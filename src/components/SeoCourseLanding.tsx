@@ -1,4 +1,5 @@
 import Link from "next/link";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import CoursePricing from "@/components/CoursePricing";
 import type { SeoLanding } from "@/lib/seo-landings";
 import { LINKS, STRUCTURED_DATA } from "@/lib/constants";
@@ -13,6 +14,7 @@ export default function SeoCourseLanding({ landing }: Props) {
 
   return (
     <>
+      <BreadcrumbJsonLd items={[{ name: "Courses", path: "/courses/" }, { name: landing.title, path: `/${landing.slug}/` }]} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(STRUCTURED_DATA.course) }} />
       <section className="border-b border-slate-200 bg-slate-50 py-16 md:py-20">
         <div className="max-w-3xl mx-auto px-6">

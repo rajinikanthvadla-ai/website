@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import Link from "next/link";
 import articles from "../../../../content/articles.json";
 import { LINKS } from "@/lib/constants";
@@ -74,6 +75,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <BreadcrumbJsonLd items={[{ name: "Blog", path: "/blog/" }, { name: article.title, path: articlePath }]} />
 
       <article>
         <section className="relative border-b border-stone-200 bg-stone-100 surface-paper py-16 md:py-20">

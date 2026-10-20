@@ -94,7 +94,7 @@ export default async function CountryMentorshipPage({ params }: Props) {
             href="#pricing"
             className="inline-block bg-accent-500 hover:bg-accent-600 text-white px-6 py-3 text-sm font-semibold uppercase tracking-wide transition-colors"
           >
-            See plans in USD
+            See plans &amp; pricing
           </a>
         </div>
       </section>

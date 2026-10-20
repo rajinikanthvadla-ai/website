@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { LocalPrice } from "@/components/LocalPrice";
 import { MENTORSHIP_PLANS } from "@/lib/mentorship-pricing";
 
 const deepDive = MENTORSHIP_PLANS.find((p) => p.id === "deep-dive")!.prices;
@@ -29,15 +30,9 @@ export default function MentorshipCta({ topic }: { topic: string }) {
           >
             Get my personal roadmap
           </Link>
-          <Link
-            href="/mentorship/?region=usa#pricing"
-            className="border border-stone-500 hover:border-white text-white px-6 py-3 text-sm font-semibold uppercase tracking-wide transition-colors"
-          >
-            Outside India? See USD plans
-          </Link>
         </div>
         <p className="text-stone-400 text-sm mt-5">
-          Start with one 60-minute call: {deepDive.C.main} in India · {deepDive.A.main} everywhere else.
+          Start with one 60-minute 1:1 call: <LocalPrice inr={deepDive.C.main} usd={deepDive.A.main} />.
         </p>
         <p className="text-stone-300 text-sm mt-6 pt-6 border-t border-stone-700">
           Prefer a structured live course?{" "}

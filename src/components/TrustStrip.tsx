@@ -1,15 +1,17 @@
 import { STATS } from "@/lib/constants";
 
 type TrustStripProps = {
-  /** Refund wording must match the policy on the matching Razorpay page. */
-  refundNote: string;
+  /** Refund wording must match the policy on the matching Razorpay page. Omit when there is no refund promise. */
+  refundNote?: string;
 };
 
 /** Proof + reassurance shown right next to payment buttons, so visitors pay with confidence. */
 export default function TrustStrip({ refundNote }: TrustStripProps) {
   const points = [
     { icon: "🔒", title: "Secure payment by Razorpay", desc: "UPI, cards, net banking and international cards. Instant email receipt." },
-    { icon: "↩️", title: "Clear refund policy", desc: refundNote },
+    refundNote
+      ? { icon: "↩️", title: "Clear refund policy", desc: refundNote }
+      : { icon: "🎓", title: "Lifetime access", desc: "Every class recording and course material stays yours." },
     { icon: "💬", title: "Personal reply within 24 hours", desc: "I contact you on WhatsApp or email right after you pay." },
   ];
 

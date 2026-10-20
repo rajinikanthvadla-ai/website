@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import MentorshipCta from "@/components/MentorshipCta";
 import { notFound } from "next/navigation";
 import SkillPageContent from "@/components/universe/SkillPageContent";
@@ -34,6 +35,7 @@ export default async function SkillPage({ params }: { params: Promise<{ slug: st
 
   return (
     <>
+      <BreadcrumbJsonLd items={[{ name: "AI Universe", path: "/universe/" }, { name: skill.name, path: `/skills/${skill.slug}/` }]} />
       <SkillPageContent skill={skill} />
       <MentorshipCta topic={`${skill.name} learning path`} />
     </>

@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
+import { CoursePrice } from "@/components/LocalPrice";
 import Link from "next/link";
 import { LINKS, SITE, MLOPS_MASTERCLASS_DURATION, AI_AUTOMATION_DURATION, AI_AUTOMATION_PRICE } from "@/lib/constants";
 import {
@@ -58,6 +60,7 @@ const courseListSchema = {
 export default function SyllabusPage() {
   return (
     <>
+      <BreadcrumbJsonLd items={[{ name: "Courses", path: "/courses/" }, { name: "Syllabus", path: "/syllabus/" }]} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(courseListSchema) }} />
 
       <section className="notion-section notion-section--white border-b border-slate-200">
@@ -91,8 +94,8 @@ export default function SyllabusPage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
               { label: "Duration", value: MLOPS_MASTERCLASS_DURATION },
-              { label: "Live fee", value: "₹40,000" },
-              { label: "Recordings", value: "₹30,000 lifetime" },
+              { label: "Live fee", value: <CoursePrice plan="live" /> },
+              { label: "Recordings", value: <><CoursePrice plan="recordings" /> lifetime</> },
               { label: "Focus", value: "MLOps · AIOps · LLMOps · Agents · FDE" },
             ].map((item) => (
               <div key={item.label} className="panel p-5 text-center">

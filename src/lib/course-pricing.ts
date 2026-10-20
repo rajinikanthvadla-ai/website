@@ -3,7 +3,7 @@ import type { MentorshipZoneId } from "@/lib/mentorship-pricing";
 
 /**
  * MLOps · AIOps · LLMOps · Agentic AI masterclass pricing.
- * Zone C = India & South Asia (INR), zone A = every other country (USD).
+ * Zone C = India (INR), zone A = every other country (USD), picked from the visitor's location.
  */
 
 export type CoursePlan = {
@@ -64,4 +64,3 @@ export const COURSE_PLANS: CoursePlan[] = [
   },
 ];
 
-export const COURSE_REFUND_NOTE = "7-day no-questions-asked refund on the live cohort. Recordings are non-refundable.";

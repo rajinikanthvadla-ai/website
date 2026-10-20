@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { CoursePrice } from "@/components/LocalPrice";
 import Link from "next/link";
 import { LINKS } from "@/lib/constants";
 import YouTubeMembershipSection from "@/components/YouTubeMembershipSection";
@@ -107,7 +108,7 @@ export default function StudentGuidePage() {
             <h2 className="font-display text-3xl font-bold text-slate-900 mb-4">Which Option Is Right for You?</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="panel p-8 border-l-4 border-l-blue-700">
-                <h3 className="font-display text-2xl font-bold text-slate-900 mb-3">Live Cohort ₹40K</h3>
+                <h3 className="font-display text-2xl font-bold text-slate-900 mb-3">Live Cohort · <CoursePrice plan="live" /></h3>
                 <p className="text-slate-600 text-sm mb-4">Choose this if you want:</p>
                 <ul className="space-y-2 text-slate-600 text-sm mb-6">
                   <li>✓ Direct access to instructor</li>
@@ -122,7 +123,7 @@ export default function StudentGuidePage() {
               </div>
 
               <div className="panel p-8 border-l-4 border-l-slate-400">
-                <h3 className="font-display text-2xl font-bold text-slate-900 mb-3">Recordings ₹30K</h3>
+                <h3 className="font-display text-2xl font-bold text-slate-900 mb-3">Recordings · <CoursePrice plan="recordings" /></h3>
                 <p className="text-slate-600 text-sm mb-4">Choose this if you want:</p>
                 <ul className="space-y-2 text-slate-600 text-sm mb-6">
                   <li>✓ Learn at your own pace</li>

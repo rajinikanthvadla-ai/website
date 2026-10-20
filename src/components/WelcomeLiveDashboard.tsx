@@ -1,6 +1,8 @@
 import Image from "next/image";
+import { CoursePrice } from "@/components/LocalPrice";
 import Link from "next/link";
 import {
+  LINKS,
   COURSE_ZOOM_DEMOS,
   COURSES,
   AI_AUTOMATION_PRICE,
@@ -13,7 +15,7 @@ type DashboardCourse = {
   href: string;
   sketch: string;
   sketchAlt: string;
-  price: string;
+  price: React.ReactNode;
   duration: string;
   highlights: string[];
   accent: "yellow" | "blue";
@@ -35,7 +37,7 @@ const DASHBOARD_COURSES: DashboardCourse[] = [
     href: "/mlops-aiops-masterclass",
     sketch: sketch(HOME_SKETCH.programsMlops),
     sketchAlt: "Enterprise team at work",
-    price: "₹40,000 · $599 USD",
+    price: <CoursePrice plan="live" />,
     duration: MLOPS_MASTERCLASS_DURATION,
     highlights: ["150+ hours hands-on", "4 capstone projects", "Placement support"],
     accent: "blue",
@@ -43,7 +45,7 @@ const DASHBOARD_COURSES: DashboardCourse[] = [
 ];
 
 function CourseDashboardCard({ course }: { course: DashboardCourse }) {
-  const zoom = COURSE_ZOOM_DEMOS[course.key];
+  const zoom = course.key in COURSE_ZOOM_DEMOS ? COURSE_ZOOM_DEMOS[course.key as keyof typeof COURSE_ZOOM_DEMOS] : null;
   const meta = COURSES.find((c) => c.href === course.href);
 
   return (
@@ -65,7 +67,7 @@ function CourseDashboardCard({ course }: { course: DashboardCourse }) {
             <span className="notion-dash-tag">Course details</span>
           </div>
 
-          <h3 className="notion-dash-title">{zoom.courseName}</h3>
+          <h3 className="notion-dash-title">{zoom?.courseName ?? meta?.title}</h3>
           <p className="notion-dash-desc">{meta?.description}</p>
 
           <div className="flex flex-wrap gap-2 mb-4">
@@ -84,46 +86,68 @@ function CourseDashboardCard({ course }: { course: DashboardCourse }) {
           </Link>
         </div>
 
-        <div className="notion-dash-zoom">
-          <div className="flex items-center gap-2 mb-2">
-            <span className="notion-dash-live" aria-hidden />
-            <span className="notion-dash-zoom-label">Zoom live demo</span>
-          </div>
-          <p className="notion-dash-zoom-time">{zoom.schedule}</p>
-          <p className="notion-dash-zoom-meta">From {zoom.startsOn} · every day</p>
+        {zoom ? (
+          <div className="notion-dash-zoom">
+            <div className="flex items-center gap-2 mb-2">
+              <span className="notion-dash-live" aria-hidden />
+              <span className="notion-dash-zoom-label">Zoom live demo</span>
+            </div>
+            <p className="notion-dash-zoom-time">{zoom.schedule}</p>
+            <p className="notion-dash-zoom-meta">From {zoom.startsOn} · every day</p>
 
-          <div className="notion-dash-zoom-creds">
-            <div><span>Meeting ID</span> {zoom.meetingId}</div>
-            <div><span>Passcode</span> {zoom.passcode}</div>
-          </div>
+            <div className="notion-dash-zoom-creds">
+              <div><span>Meeting ID</span> {zoom.meetingId}</div>
+              <div><span>Passcode</span> {zoom.passcode}</div>
+            </div>
 
-          <a
-            href={zoom.joinUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="notion-dash-btn notion-dash-btn--primary"
-          >
-            Join Zoom meeting
-          </a>
-          <div className="flex gap-2 mt-2">
             <a
-              href={zoom.calendarUrl}
+              href={zoom.joinUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="notion-dash-btn notion-dash-btn--ghost flex-1 text-center"
+              className="notion-dash-btn notion-dash-btn--primary"
             >
-              Add to calendar
+              Join Zoom meeting
             </a>
+            <div className="flex gap-2 mt-2">
+              <a
+                href={zoom.calendarUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="notion-dash-btn notion-dash-btn--ghost flex-1 text-center"
+              >
+                Add to calendar
+              </a>
+              <a
+                href={zoom.agendaUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="notion-dash-btn notion-dash-btn--ghost flex-1 text-center"
+              >
+                Agenda
+              </a>
+            </div>
+          </div>
+        ) : (
+          <div className="notion-dash-zoom">
+            <div className="flex items-center gap-2 mb-2">
+              <span className="notion-dash-live" aria-hidden />
+              <span className="notion-dash-zoom-label">Free demo class</span>
+            </div>
+            <p className="notion-dash-zoom-time">Live cohort running now</p>
+            <p className="notion-dash-zoom-meta">Message on WhatsApp and get the next demo class link.</p>
             <a
-              href={zoom.agendaUrl}
+              href={LINKS.whatsappSyllabus}
               target="_blank"
               rel="noopener noreferrer"
-              className="notion-dash-btn notion-dash-btn--ghost flex-1 text-center"
+              className="notion-dash-btn notion-dash-btn--primary"
             >
-              Agenda
+              Get a free demo link
             </a>
+            <Link href={`${course.href}/#pricing`} className="notion-dash-btn notion-dash-btn--ghost text-center mt-2 block">
+              See fees &amp; enroll
+            </Link>
           </div>
-        </div>
+        )}
       </div>
     </article>
   );

@@ -1,10 +1,10 @@
 import { LINKS } from "@/lib/constants";
 
 /**
- * Mentorship pricing by zone. Same plans everywhere: India & South Asia pay in INR, everyone else in USD.
+ * Mentorship pricing by zone. Same plans everywhere: India pays in INR, everyone else in USD.
  */
 
-/** A = international (USD), C = India & South Asia / Africa (INR). */
+/** A = international (USD), C = India (INR). */
 export type MentorshipZoneId = "A" | "C";
 
 export type MentorshipZone = {
@@ -20,8 +20,8 @@ export type MentorshipPlan = {
   featured?: boolean;
   summary: string;
   includes: string[];
-  /** Price per zone. Zone C is charged in INR; `alt` is the rough USD equivalent. */
-  prices: Record<MentorshipZoneId, { main: string; alt?: string }>;
+  /** Price per zone. Zone C (India) is charged in INR, zone A in USD. */
+  prices: Record<MentorshipZoneId, { main: string }>;
 };
 
 /** Monthly mentee cap — keep this honest; it is shown on the page. */
@@ -35,8 +35,8 @@ export const MENTORSHIP_ZONES: MentorshipZone[] = [
   },
   {
     id: "C",
-    label: "India & South Asia (₹)",
-    countries: "India, Pakistan, Bangladesh, Sri Lanka, Nepal, Nigeria, Kenya, Philippines, Indonesia",
+    label: "India (₹)",
+    countries: "India",
   },
 ];
 
@@ -56,7 +56,7 @@ export const MENTORSHIP_PLANS: MentorshipPlan[] = [
     cadence: "single 60-min call",
     summary: "One focused session on your CV, system design, career move or a stuck project.",
     includes: ["60-minute video call", "Clear next steps for your situation", "Follow-up questions on WhatsApp for 3 days"],
-    prices: { A: { main: "$199" }, C: { main: "₹2,499", alt: "≈ $30" } },
+    prices: { A: { main: "$199" }, C: { main: "₹2,499" } },
   },
   {
     id: "monthly",
@@ -72,7 +72,7 @@ export const MENTORSHIP_PLANS: MentorshipPlan[] = [
       "Project and code review on your repos",
       "Priority booking for mock interviews",
     ],
-    prices: { A: { main: "$599" }, C: { main: "₹7,999", alt: "≈ $95" } },
+    prices: { A: { main: "$599" }, C: { main: "₹7,999" } },
   },
   {
     id: "quarterly",
@@ -80,7 +80,7 @@ export const MENTORSHIP_PLANS: MentorshipPlan[] = [
     cadence: "paid upfront · save ~15%",
     summary: "Everything in Monthly for 3 months — the usual time it takes to switch roles.",
     includes: ["Everything in Monthly Mentorship", "12 × 60-min 1:1 calls", "2 full mock interview loops"],
-    prices: { A: { main: "$1,499" }, C: { main: "₹19,999", alt: "≈ $240" } },
+    prices: { A: { main: "$1,499" }, C: { main: "₹19,999" } },
   },
   {
     id: "job-switch",
@@ -94,23 +94,11 @@ export const MENTORSHIP_PLANS: MentorshipPlan[] = [
       "Referrals where I have a network fit",
       "Offer and salary negotiation guidance",
     ],
-    prices: { A: { main: "$2,999" }, C: { main: "₹29,999", alt: "≈ $360" } },
+    prices: { A: { main: "$2,999" }, C: { main: "₹29,999" } },
   },
 ];
 
-const ZONE_C_TIMEZONES = [
-  "Asia/Kolkata",
-  "Asia/Calcutta",
-  "Asia/Karachi",
-  "Asia/Dhaka",
-  "Asia/Kathmandu",
-  "Asia/Katmandu",
-  "Asia/Colombo",
-  "Asia/Manila",
-  "Asia/Jakarta",
-  "Africa/Lagos",
-  "Africa/Nairobi",
-];
+const ZONE_C_TIMEZONES = ["Asia/Kolkata", "Asia/Calcutta"];
 
 /** Detects the visitor's zone from the browser time zone (locale is unreliable: many Indians use en-GB). */
 export function detectMentorshipZone(timeZone: string): MentorshipZoneId {
@@ -134,7 +122,7 @@ export const MENTORSHIP_FAQS = [
   },
   {
     q: "Which currency do I pay in?",
-    a: "Visitors from India and South Asia pay in rupees (UPI, cards, net banking). Visitors from every other country (USA, UK, Canada, Europe, the Gulf, Australia, Singapore and more) pay in US dollars by card. The page picks your region automatically and you can switch it.",
+    a: "Visitors in India pay in rupees (UPI, cards, net banking). Visitors from every other country pay in US dollars by card. The page shows the right currency for your location automatically.",
   },
   {
     q: "Can I book through Topmate instead?",

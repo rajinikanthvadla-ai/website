@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CoursePrice } from "@/components/LocalPrice";
 import {
   AI_AUTOMATION_DURATION,
   AI_AUTOMATION_PRICE,
@@ -14,7 +15,7 @@ const COURSES = [
     badge: "Flagship",
     title: "MLOps, AIOps, LLMOps, AI Agents & FDE",
     duration: MLOPS_MASTERCLASS_DURATION,
-    price: "₹40,000 live · ₹30,000 recordings",
+    price: <><CoursePrice plan="live" /> live · <CoursePrice plan="recordings" /> recordings</>,
     href: "/mlops-aiops-masterclass",
                 syllabusHref: "/syllabus/#masterclass",
     whatsapp: LINKS.whatsappSyllabus,

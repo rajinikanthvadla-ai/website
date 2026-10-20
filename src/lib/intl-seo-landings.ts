@@ -46,14 +46,14 @@ function buildLanding(market: IntlMarket): IntlSeoLanding {
     intro: `Live online MLOps, LLMOps, AIOps and AI Agents training built for engineers in ${name} — whether you are in ${cities} or working remotely. Production skills, capstone projects, and interview prep from an enterprise practitioner.`,
     paragraphs: [
       `Companies in ${name} hire MLOps and LLMOps engineers at ${salaryRange}. This 4–5 month masterclass covers MLflow, Kubernetes, RAG, LangChain, MCP, and production GenAI — the same stack listed in ${shortName} job descriptions in 2026.`,
-      `${timezoneNote} Choose live cohort (${priceLive}, mentorship + job support) or recordings-only (${priceRecordings}, self-paced). Payment via bank transfer, Wise, or WhatsApp — no India-only restrictions.`,
+      `${timezoneNote} Choose the live cohort (mentorship + job support) or recordings-only (self-paced), and pay securely by card through Razorpay.`,
       `Students from ${name} use the portfolio capstones in interviews at cloud-native, fintech, and AI companies. Resume review, mock interviews, and 1:1 mentorship are included in the live track.`,
-      `Watch free class recordings below — same instructor and curriculum — then enroll when you are ready. YouTube Agentic Pro membership (₹1,199/mo) also unlocks the full private video library with mentorship.`,
+      `Watch free class recordings below — same instructor and curriculum — then enroll when you are ready. YouTube Agentic Pro membership also unlocks the full private video library with mentorship.`,
     ],
     highlights: [
       `Salary target: ${salaryRange} in ${shortName}`,
       `Live online — ${cities} & remote`,
-      `${priceLive} live · ${priceRecordings} recordings`,
+      "Secure card payment via Razorpay",
       "MLOps, LLMOps, AIOps, AI Agents",
       "4 capstone projects for your portfolio",
       "Mock interviews & career support",

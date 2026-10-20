@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import MentorshipCta from "@/components/MentorshipCta";
 import Link from "next/link";
 import { LINKS, SITE } from "@/lib/constants";
@@ -50,6 +51,7 @@ export default function InterviewQuestionsPage() {
 
   return (
     <>
+      <BreadcrumbJsonLd items={[{ name: "Interview questions", path: "/interview-questions/" }]} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <section className="notion-section notion-section--white border-b border-slate-200">

@@ -10,7 +10,7 @@ import MentorshipPricing from "@/components/MentorshipPricing";
 export const metadata: Metadata = {
   title: "1:1 AI & MLOps Mentorship – Personal Learning Roadmap",
   description:
-    "1:1 AI and MLOps mentorship with a personal learning roadmap: weekly calls, project reviews, resume and interview prep for MLOps, LLMOps, AI agent and AI engineering roles. Online worldwide in your time zone. From $199 (₹2,499 in India).",
+    "1:1 AI and MLOps mentorship with a personal learning roadmap: weekly calls, project reviews, resume and interview prep for MLOps, LLMOps, AI agent and AI engineering roles. Online worldwide in your time zone, with secure payment.",
   keywords: [
     "Rajinikanth Vadla mentorship",
     "MLOps mentor",

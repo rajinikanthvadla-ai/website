@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CoursePrice } from "@/components/LocalPrice";
 import CoursePricing from "@/components/CoursePricing";
 import type { IntlSeoLanding } from "@/lib/intl-seo-landings";
 import { INTL_COURSE_VIDEOS } from "@/lib/intl-seo-landings";
@@ -37,7 +38,7 @@ export default function IntlSeoLandingPage({ landing }: Props) {
     offers: [
       {
         "@type": "Offer",
-        price: market.priceLive.replace(/[^0-9.]/g, "") || "450",
+        price: market.priceLive.replace(/[^0-9.]/g, "") || "599",
         priceCurrency: market.currency,
         availability: "https://schema.org/InStock",
         url: `${SITE.url}/mlops-aiops-masterclass/`,
@@ -71,8 +72,8 @@ export default function IntlSeoLandingPage({ landing }: Props) {
 
           <div className="mt-6 flex flex-wrap gap-2">
             <span className="intl-salary-pill">Roles: {market.salaryRange}</span>
-            <span className="intl-salary-pill">Live {market.priceLive}</span>
-            <span className="intl-salary-pill">Recordings {market.priceRecordings}</span>
+            <span className="intl-salary-pill">Live <CoursePrice plan="live" /></span>
+            <span className="intl-salary-pill">Recordings <CoursePrice plan="recordings" /></span>
           </div>
 
           <a href="#course-videos" className="mt-6 inline-flex text-sm font-bold text-orange-600 hover:underline">

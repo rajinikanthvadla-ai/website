@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import { notFound } from "next/navigation";
 import RoleCompare, { COMPARE_SLUGS } from "@/components/universe/RoleCompare";
 import { COMPARE_PAIRS } from "@/lib/knowledge-graph";
@@ -27,6 +28,7 @@ export default async function ComparePage({ params }: { params: Promise<{ slug: 
 
   return (
     <>
+      <BreadcrumbJsonLd items={[{ name: "Compare roles", path: "/compare/" }, { name: slug.replace(/-/g, " "), path: `/compare/${slug}/` }]} />
       <section className="border-b border-slate-200 bg-slate-50 py-10">
         <div className="max-w-5xl mx-auto px-6">
           <h1 className="font-display text-2xl md:text-3xl font-bold text-slate-900 capitalize">

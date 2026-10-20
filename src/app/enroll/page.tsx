@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import Link from "next/link";
 import { LINKS } from "@/lib/constants";
 import YouTubeMembershipSection from "@/components/YouTubeMembershipSection";
 import CoursePricing from "@/components/CoursePricing";
-import { COURSE_USD } from "@/lib/course-pricing";
+import { CoursePrice } from "@/components/LocalPrice";
 
 export const metadata: Metadata = {
   title: "Enroll: MLOps, AIOps, LLMOps & Agentic AI Course – Fees & Payment",
   description:
-    "Enroll in the live MLOps, AIOps, LLMOps, Agentic AI, GenAI and FDE course. Live cohort with 1:1 mentorship or self-paced recordings. $599 / $399 worldwide, ₹40,000 / ₹30,000 in India. Secure Razorpay checkout.",
+    "Enroll in the live MLOps, AIOps, LLMOps, Agentic AI, GenAI and FDE course. Live cohort with 1:1 mentorship or self-paced recordings. Secure Razorpay checkout.",
   keywords: [
     "MLOps course buy",
     "MLOps course enroll",
@@ -24,6 +25,7 @@ export const metadata: Metadata = {
 export default function EnrollPage() {
   return (
     <>
+      <BreadcrumbJsonLd items={[{ name: "Courses", path: "/courses/" }, { name: "Enroll", path: "/enroll/" }]} />
       <section className="bg-gradient-to-b from-blue-50 to-white py-16 md:py-24 border-b border-slate-200">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h1 className="font-display text-3xl md:text-5xl font-bold text-slate-900 leading-tight mb-4">
@@ -55,8 +57,7 @@ export default function EnrollPage() {
                 </thead>
                 <tbody>
                   {[
-                    { feature: "Price (India)", live: "₹40,000", recordings: "₹30,000" },
-                    { feature: "Price (outside India)", live: `$${COURSE_USD.live}`, recordings: `$${COURSE_USD.recordings}` },
+                    { feature: "Price", live: <CoursePrice plan="live" />, recordings: <CoursePrice plan="recordings" /> },
                     { feature: "Duration", live: "4–5 months live", recordings: "Self-paced" },
                     { feature: "Live Classes", live: "✓ Yes", recordings: "✗ No" },
                     { feature: "Mentorship", live: "✓ 1-on-1", recordings: "✗ No" },
@@ -132,10 +133,6 @@ export default function EnrollPage() {
               {
                 q: "Can I switch from Recordings to Live later?",
                 a: "Yes, you can upgrade from recordings to live mid-course if spots are available. We'll adjust pricing.",
-              },
-              {
-                q: "Is there a refund policy?",
-                a: "Yes, 7-day no-questions-asked refund for live cohort. Recordings are non-refundable but lifetime access.",
               },
               {
                 q: "Do I get a discount for bulk enrollment?",
