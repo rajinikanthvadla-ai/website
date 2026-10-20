@@ -600,12 +600,6 @@ export const STRUCTURED_DATA = {
       { "@type": "Country", name: "Australia" },
       { "@type": "Country", name: "India" },
     ],
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: "500",
-      bestRating: "5",
-    },
   },
   course: {
     "@context": "https://schema.org",
