@@ -6,12 +6,12 @@ import Link from "next/link";
 import CTASection from "@/components/CTASection";
 import SuccessStories from "@/components/SuccessStories";
 import YouTubeMembershipSection from "@/components/YouTubeMembershipSection";
-import MentorshipPricing, { HideInUk } from "@/components/MentorshipPricing";
+import MentorshipPricing from "@/components/MentorshipPricing";
 
 export const metadata: Metadata = {
-  title: "MLOps & AI Career Mentorship – Monthly 1:1 Plans",
+  title: "1:1 AI & MLOps Mentorship – Personal Learning Roadmap",
   description:
-    "Monthly 1:1 mentorship for MLOps, AIOps, LLMOps and AI engineering careers with Rajinikanth Vadla: weekly calls, WhatsApp support, resume and interview prep. From ₹2,499 in India and $199 internationally. Secure Razorpay payment.",
+    "1:1 AI and MLOps mentorship with a personal learning roadmap: weekly calls, project reviews, resume and interview prep for MLOps, LLMOps, AI agent and AI engineering roles. Online worldwide in your time zone. From $199 (₹2,499 in India).",
   keywords: [
     "Rajinikanth Vadla mentorship",
     "MLOps mentor",
@@ -23,6 +23,12 @@ export const metadata: Metadata = {
     "DevOps to MLOps career change",
     "LLMOps mentorship",
     "job switch mentorship AI",
+    "AI learning roadmap mentor",
+    "personal AI learning path",
+    "AI mentorship online",
+    "MLOps roadmap mentorship",
+    "AI engineer mentor USA",
+    "1:1 AI tutor for engineers",
   ],
   alternates: {
     canonical: "https://rajinikanthvadla.com/mentorship/",
@@ -35,8 +41,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "1:1 MLOps & AI Career Mentorship – Rajinikanth Vadla",
-    description: "Weekly 1:1 calls, WhatsApp support, resume and interview prep. Priced for your country. Secure Razorpay payment.",
+    title: "1:1 AI & MLOps Mentorship with a Personal Learning Roadmap",
+    description: "Your own week-by-week AI learning path, weekly 1:1 calls, project reviews and interview prep. Online worldwide. Secure payment.",
     url: "https://rajinikanthvadla.com/mentorship/",
     images: [SITE.image],
     type: "website",
@@ -49,7 +55,7 @@ const serviceSchema = {
   name: "1:1 MLOps & AI Career Mentorship",
   serviceType: "Career mentorship",
   provider: { "@type": "Person", name: SITE.name, url: SITE.url },
-  areaServed: "Worldwide (except United Kingdom)",
+  areaServed: "Worldwide",
   url: `${SITE.url}/mentorship/`,
   offers: mentorshipOfferSchema(SITE.url),
 };
@@ -82,10 +88,12 @@ export default function MentorshipPage() {
       <section className="relative border-b border-stone-200 bg-stone-100 surface-paper py-20 md:py-24">
         <div className="relative text-center max-w-3xl mx-auto px-6">
           <span className="inline-block text-xs font-semibold uppercase tracking-[0.14em] text-accent-600 mb-3">Personal guidance</span>
-          <h1 className="font-display text-4xl md:text-5xl font-bold text-stone-900 mb-4">1:1 Mentorship</h1>
+          <h1 className="font-display text-4xl md:text-5xl font-bold text-stone-900 mb-4">
+            1:1 AI &amp; MLOps mentorship with your own learning roadmap
+          </h1>
           <p className="text-lg text-stone-600 mb-4">
-            Direct time on your problems - not a generic playbook. I work with people who want honest help on
-            career direction, skill gaps, and how to describe the work they have already done.
+            Stop guessing what to learn next. I build a week-by-week roadmap for your background and target role,
+            meet you 1:1 every week, review your projects, and prepare you for interviews until you land the role.
           </p>
           <p className="text-stone-600 text-base leading-relaxed">
             You can be in India, the Middle East, Europe, the Americas, or anywhere else: sessions are online. Bring
@@ -180,7 +188,6 @@ export default function MentorshipPage() {
 
       <YouTubeMembershipSection compact />
 
-      <HideInUk>
       <section className="py-16 bg-stone-50 border-b border-stone-200">
         <div className="w-full px-0 md:px-0">
           <div className="panel p-4 md:p-6">
@@ -211,7 +218,6 @@ export default function MentorshipPage() {
           </div>
         </div>
       </section>
-      </HideInUk>
 
       <section className="py-16 bg-stone-50 border-b border-stone-200">
         <div className="max-w-5xl mx-auto px-6 text-center">

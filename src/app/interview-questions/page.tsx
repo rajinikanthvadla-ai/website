@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import MentorshipCta from "@/components/MentorshipCta";
 import Link from "next/link";
 import { LINKS, SITE } from "@/lib/constants";
 import { INTERVIEW_CATEGORIES, INTERVIEW_PAGE_INTRO } from "@/lib/interview-questions";
@@ -163,6 +164,7 @@ export default function InterviewQuestionsPage() {
         title="Turn interview prep into a job-ready skill set"
         subtitle="Learn MLOps, AIOps, LLMOps, AI Agents, and FDE with live projects — then practice with questions like these."
       />
+      <MentorshipCta topic="interview prep" />
     </>
   );
 }

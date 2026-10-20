@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import MentorshipCta from "@/components/MentorshipCta";
 import Link from "next/link";
 import CareerPathSimulator from "@/components/universe/CareerPathSimulator";
 import { SITE } from "@/lib/constants";
@@ -27,6 +28,7 @@ export default function PathPage() {
         </div>
       </section>
       <CareerPathSimulator />
+      <MentorshipCta topic="career path" />
     </>
   );
 }

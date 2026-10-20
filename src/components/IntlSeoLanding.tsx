@@ -114,14 +114,12 @@ export default function IntlSeoLandingPage({ landing }: Props) {
             >
               WhatsApp from {market.shortName}
             </a>
-            {market.slug !== "uk" && (
-              <Link
-                href={`/mentorship/${market.slug}/`}
-                className="notion-btn notion-btn--ink !text-sm text-center justify-center"
-              >
-                1:1 mentorship for {market.shortName} →
-              </Link>
-            )}
+            <Link
+              href={`/mentorship/${market.slug}/`}
+              className="notion-btn notion-btn--ink !text-sm text-center justify-center"
+            >
+              1:1 mentorship for {market.shortName} →
+            </Link>
           </div>
         </div>
       </section>

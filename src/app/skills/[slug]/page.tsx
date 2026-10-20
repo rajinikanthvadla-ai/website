@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import MentorshipCta from "@/components/MentorshipCta";
 import { notFound } from "next/navigation";
 import SkillPageContent from "@/components/universe/SkillPageContent";
 import { getSkill, getSkillSlugs } from "@/lib/knowledge-graph";
@@ -31,5 +32,10 @@ export default async function SkillPage({ params }: { params: Promise<{ slug: st
   const skill = getSkill(slug);
   if (!skill) notFound();
 
-  return <SkillPageContent skill={skill} />;
+  return (
+    <>
+      <SkillPageContent skill={skill} />
+      <MentorshipCta topic={`${skill.name} learning path`} />
+    </>
+  );
 }

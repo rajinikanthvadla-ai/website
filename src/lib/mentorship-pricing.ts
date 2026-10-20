@@ -1,8 +1,7 @@
 import { LINKS } from "@/lib/constants";
 
 /**
- * Mentorship pricing by income zone. Same plans everywhere, price changes by zone.
- * The United Kingdom is intentionally excluded from mentorship.
+ * Mentorship pricing by zone. Same plans everywhere: India & South Asia pay in INR, everyone else in USD.
  */
 
 /** A = international (USD), C = India & South Asia / Africa (INR). */
@@ -32,7 +31,7 @@ export const MENTORSHIP_ZONES: MentorshipZone[] = [
   {
     id: "A",
     label: "International (USD)",
-    countries: "USA, Canada, Australia, New Zealand, Singapore, UAE, Saudi Arabia, Qatar, Germany, Netherlands, Ireland, Europe, Latin America and every other country except the UK",
+    countries: "USA, Canada, Australia, New Zealand, Singapore, UAE, Saudi Arabia, Qatar, UK, Germany, Netherlands, Ireland, Europe, Latin America and every other country",
   },
   {
     id: "C",
@@ -99,8 +98,6 @@ export const MENTORSHIP_PLANS: MentorshipPlan[] = [
   },
 ];
 
-const UK_TIMEZONES = ["Europe/London", "Europe/Belfast", "Europe/Guernsey", "Europe/Jersey", "Europe/Isle_of_Man"];
-
 const ZONE_C_TIMEZONES = [
   "Asia/Kolkata",
   "Asia/Calcutta",
@@ -115,13 +112,9 @@ const ZONE_C_TIMEZONES = [
   "Africa/Nairobi",
 ];
 
-export type MentorshipRegion = { uk: true } | { uk: false; zone: MentorshipZoneId };
-
 /** Detects the visitor's zone from the browser time zone (locale is unreliable: many Indians use en-GB). */
-export function detectMentorshipRegion(timeZone: string): MentorshipRegion {
-  if (UK_TIMEZONES.includes(timeZone)) return { uk: true };
-  if (ZONE_C_TIMEZONES.includes(timeZone)) return { uk: false, zone: "C" };
-  return { uk: false, zone: "A" };
+export function detectMentorshipZone(timeZone: string): MentorshipZoneId {
+  return ZONE_C_TIMEZONES.includes(timeZone) ? "C" : "A";
 }
 
 export const MENTORSHIP_REFUND_NOTE = "Full refund if you ask before your first session.";
@@ -141,15 +134,11 @@ export const MENTORSHIP_FAQS = [
   },
   {
     q: "Which currency do I pay in?",
-    a: "Visitors from India and South Asia pay in rupees (UPI, cards, net banking). Visitors from every other country (USA, Canada, Europe, the Gulf, Australia, Singapore and more) pay in US dollars by card. The page picks your region automatically and you can switch it.",
+    a: "Visitors from India and South Asia pay in rupees (UPI, cards, net banking). Visitors from every other country (USA, UK, Canada, Europe, the Gulf, Australia, Singapore and more) pay in US dollars by card. The page picks your region automatically and you can switch it.",
   },
   {
     q: "Can I book through Topmate instead?",
     a: "Yes. Every plan has a Topmate button if you prefer booking there.",
-  },
-  {
-    q: "Is mentorship available in the United Kingdom?",
-    a: "No. Paid mentorship plans are currently not offered to UK residents.",
   },
 ];
 

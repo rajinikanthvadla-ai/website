@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useState } from "react";
 import { LINKS } from "@/lib/constants";
 import TrustStrip from "@/components/TrustStrip";
 import {
@@ -9,8 +9,7 @@ import {
   MENTORSHIP_PLANS,
   MENTORSHIP_REFUND_NOTE,
   MENTORSHIP_ZONES,
-  detectMentorshipRegion,
-  type MentorshipRegion,
+  detectMentorshipZone,
   type MentorshipZoneId,
 } from "@/lib/mentorship-pricing";
 
@@ -21,7 +20,7 @@ const REGION_PARAM: Record<string, MentorshipZoneId> = {
   c: "C", india: "C", in: "C",
 };
 
-/** Region chosen via `?region=` (shareable link) or the "not in the UK" button. */
+/** Region chosen via `?region=` (shareable link) or the region tabs. */
 function readRegionOverride(): MentorshipZoneId | null {
   const value = new URLSearchParams(window.location.search).get("region");
   return value ? REGION_PARAM[value.toLowerCase()] ?? null : null;
@@ -34,29 +33,17 @@ function setRegionOverride(zone: MentorshipZoneId) {
   window.dispatchEvent(new Event(REGION_EVENT));
 }
 
-function useMentorshipRegion(): MentorshipRegion | null {
-  const [region, setRegion] = useState<MentorshipRegion | null>(null);
+/** The visitor's zone: `?region=` override first, otherwise guessed from the browser time zone. */
+function useMentorshipZone(): MentorshipZoneId | null {
+  const [zone, setZone] = useState<MentorshipZoneId | null>(null);
   useEffect(() => {
-    const update = () => {
-      const override = readRegionOverride();
-      setRegion(
-        override
-          ? { uk: false, zone: override }
-          : detectMentorshipRegion(Intl.DateTimeFormat().resolvedOptions().timeZone),
-      );
-    };
+    const update = () =>
+      setZone(readRegionOverride() ?? detectMentorshipZone(Intl.DateTimeFormat().resolvedOptions().timeZone));
     update();
     window.addEventListener(REGION_EVENT, update);
     return () => window.removeEventListener(REGION_EVENT, update);
   }, []);
-  return region;
-}
-
-/** Renders children everywhere except for visitors in the United Kingdom. */
-export function HideInUk({ children }: { children: ReactNode }) {
-  const region = useMentorshipRegion();
-  if (region?.uk) return null;
-  return <>{children}</>;
+  return zone;
 }
 
 function whatsappPayLink(planName: string, price: string) {
@@ -66,39 +53,12 @@ function whatsappPayLink(planName: string, price: string) {
 
 /** `defaultZone` pins a country page to its currency; visitors can still switch with the tabs. */
 export default function MentorshipPricing({ defaultZone }: { defaultZone?: MentorshipZoneId } = {}) {
-  const region = useMentorshipRegion();
+  const detectedZone = useMentorshipZone();
   const [zone, setZone] = useState<MentorshipZoneId>(defaultZone ?? "C");
 
   useEffect(() => {
-    if (region && !region.uk) setZone(defaultZone && !readRegionOverride() ? defaultZone : region.zone);
-  }, [region, defaultZone]);
-
-  if (region?.uk) {
-    return (
-      <section id="pricing" className="py-20 md:py-24 bg-stone-50 border-b border-stone-200">
-        <div className="max-w-3xl mx-auto px-6 text-center panel p-8 md:p-10">
-          <h2 className="font-display text-2xl font-bold text-stone-900 mb-3">Mentorship is not offered in the United Kingdom</h2>
-          <p className="text-stone-600">
-            Paid 1:1 mentorship plans are currently unavailable for the UK. You can still learn from the free Python
-            course, blog and YouTube channel.
-          </p>
-          <p className="text-sm text-stone-500 mt-6 mb-3">Not in the UK? Your device clock may be set to UK time. Choose your region:</p>
-          <div className="flex flex-wrap justify-center gap-2">
-            {MENTORSHIP_ZONES.map((z) => (
-              <button
-                key={z.id}
-                type="button"
-                onClick={() => setRegionOverride(z.id)}
-                className="px-4 py-2 text-sm font-semibold border bg-white border-stone-300 text-stone-700 hover:border-stone-900 transition-colors"
-              >
-                {z.label}
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
-    );
-  }
+    if (detectedZone) setZone(defaultZone && !readRegionOverride() ? defaultZone : detectedZone);
+  }, [detectedZone, defaultZone]);
 
   const activeZone = MENTORSHIP_ZONES.find((z) => z.id === zone)!;
   const paymentPage = MENTORSHIP_PAYMENT_PAGES[zone];

@@ -1,8 +1,8 @@
 import { INTL_MARKETS, type IntlMarket } from "@/lib/international-markets";
 import { MENTORSHIP_PLANS } from "@/lib/mentorship-pricing";
 
-/** Country mentorship landing pages (USD pricing). The UK is excluded: mentorship is not offered there. */
-export const MENTORSHIP_MARKETS: IntlMarket[] = INTL_MARKETS.filter((m) => m.slug !== "uk");
+/** Country mentorship landing pages (USD pricing). */
+export const MENTORSHIP_MARKETS: IntlMarket[] = INTL_MARKETS;
 
 export const MENTORSHIP_MARKET_BY_SLUG = Object.fromEntries(
   MENTORSHIP_MARKETS.map((m) => [m.slug, m]),
@@ -16,16 +16,18 @@ export function mentorshipMarketCopy(market: IntlMarket) {
   const cities = hubCities.slice(0, 3).join(", ");
 
   return {
-    title: `MLOps & AI Mentor in ${shortName} – 1:1 Career Mentorship`,
+    title: `AI & MLOps Mentor in ${shortName} – Personal Roadmap, 1:1 Calls`,
     description: `1:1 MLOps, LLMOps, AIOps and AI engineering mentorship for engineers in ${name}. Weekly calls in your time zone, resume and interview prep for ${salaryRange} roles. From ${deepDiveUsd} per call or ${monthlyUsd}/month, paid securely in USD.`,
     h1: `1:1 MLOps & AI career mentorship for engineers in ${name}`,
-    intro: `Working in ${cities} or anywhere in ${shortName} and aiming for MLOps, LLMOps, AI agent or platform roles? I mentor engineers one-to-one: a clear roadmap, weekly calls, real project reviews and interview practice until you land the role.`,
+    intro: `Working in ${cities} or anywhere in ${shortName} and aiming for MLOps, LLMOps, AI agent or platform roles? I mentor engineers one-to-one: a personal week-by-week learning roadmap, weekly calls, real project reviews and interview practice until you land the role.`,
     keywords: [
       `MLOps mentor ${shortName}`,
       `AI career mentor ${shortName}`,
       `MLOps mentorship ${name}`,
       `LLMOps mentor ${shortName}`,
       `AI engineer career coaching ${shortName}`,
+      `AI learning roadmap mentor ${shortName}`,
+      `AI mentorship ${shortName}`,
       ...hubCities.slice(0, 3).map((city) => `MLOps mentor ${city}`),
     ],
     faqs: [

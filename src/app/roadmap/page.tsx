@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import MentorshipCta from "@/components/MentorshipCta";
 import Link from "next/link";
 import { getAllRoadmaps } from "@/lib/roadmaps";
 import TechLogo from "@/components/universe/TechLogo";
@@ -168,6 +169,7 @@ export default function RoadmapHubPage() {
           </div>
         </div>
       </section>
+      <MentorshipCta topic="career roadmap" />
     </>
   );
 }

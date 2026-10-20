@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import MentorshipCta from "@/components/MentorshipCta";
 import { notFound } from "next/navigation";
 import CareerRoadmapPage from "@/components/CareerRoadmap";
 import { ROADMAP_SLUGS, getRoadmap } from "@/lib/roadmaps";
@@ -33,5 +34,10 @@ export default async function RoadmapSlugPage({ params }: { params: Promise<{ sl
   const roadmap = getRoadmap(slug);
   if (!roadmap) notFound();
 
-  return <CareerRoadmapPage roadmap={roadmap} />;
+  return (
+    <>
+      <CareerRoadmapPage roadmap={roadmap} />
+      <MentorshipCta topic={`${roadmap.shortTitle} roadmap`} />
+    </>
+  );
 }
