@@ -137,26 +137,22 @@ export default function Header() {
             );
           })}
 
-          <a
-            href={LINKS.topmate}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/mentorship/#pricing"
             className="notion-btn notion-btn--ink !py-2 !px-5 !text-sm whitespace-nowrap ml-2"
           >
             Book a Session
-          </a>
+          </Link>
         </div>
 
         {/* Mobile / tablet */}
         <div className="flex items-center gap-2 lg:hidden">
-          <a
-            href={LINKS.topmate}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/mentorship/#pricing"
             className="hidden sm:inline-flex notion-btn notion-btn--ink !py-2 !px-4 !text-xs whitespace-nowrap"
           >
             Book a Session
-          </a>
+          </Link>
           <button
             type="button"
             onClick={() => setOpen(!open)}
@@ -235,15 +231,13 @@ export default function Header() {
             </ul>
 
             <div className="p-4 pt-0">
-              <a
-                href={LINKS.topmate}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/mentorship/#pricing"
                 onClick={() => setOpen(false)}
                 className="block notion-btn notion-btn--ink text-center w-full !py-3"
               >
                 Book a Session
-              </a>
+              </Link>
               <a
                 href={LINKS.whatsapp}
                 target="_blank"

@@ -40,14 +40,16 @@ export const ROADMAPS: Record<RoadmapSlug, CareerRoadmap> = {
     slug: "ai-engineer",
     title: "AI Engineer Career Roadmap 2026",
     shortTitle: "AI Engineer",
-    metaTitle: "AI Engineer Roadmap 2026: Skills, Salary & Learning Path India",
+    metaTitle: "AI Engineer Roadmap 2026: Skills, Salary (US & India) & Learning Path",
     metaDescription:
-      "Complete AI Engineer career roadmap for 2026. Skills, tools, salary (₹15-50 LPA India), projects, and a step-by-step learning path from Python to production AI systems.",
+      "Complete AI Engineer career roadmap for 2026. Skills, tools, salary ($120K–$220K US, ₹15-50 LPA India), projects, and a step-by-step learning path from Python to production AI systems.",
     keywords: [
       "AI engineer roadmap",
       "AI engineer career path",
       "how to become AI engineer",
       "AI engineer salary India",
+      "AI engineer salary USA",
+      "AI engineer roadmap USA",
       "AI engineer skills 2026",
     ],
     salaryIndia: "₹15–50 LPA",
@@ -170,7 +172,7 @@ export const ROADMAPS: Record<RoadmapSlug, CareerRoadmap> = {
     shortTitle: "AI/ML Engineer",
     metaTitle: "AI ML Engineer Roadmap 2026: Complete Learning Path & Salary Guide",
     metaDescription:
-      "AI/ML Engineer roadmap for 2026: math foundations, deep learning, LLMs, MLOps. India salary ₹12–45 LPA. Skills, projects, and tools for machine learning engineering roles.",
+      "AI/ML Engineer roadmap for 2026: math foundations, deep learning, LLMs, MLOps. Salary $110K–$200K US, ₹12–45 LPA India. Skills, projects, and tools for machine learning engineering roles.",
     keywords: [
       "AI ML engineer roadmap",
       "machine learning engineer career path",
@@ -232,20 +234,22 @@ export const ROADMAPS: Record<RoadmapSlug, CareerRoadmap> = {
     slug: "mlops-engineer",
     title: "MLOps Engineer Career Roadmap 2026",
     shortTitle: "MLOps Engineer",
-    metaTitle: "MLOps Engineer Roadmap 2026: Skills, Tools & Salary India",
+    metaTitle: "MLOps Engineer Roadmap 2026: Skills, Tools & Salary (US & India)",
     metaDescription:
-      "MLOps Engineer career roadmap: CI/CD for ML, Kubeflow, MLflow, Kubernetes, model monitoring. India salary ₹12–40 LPA. Step-by-step path from DevOps to MLOps.",
+      "MLOps Engineer career roadmap: CI/CD for ML, Kubeflow, MLflow, Kubernetes, model monitoring. Salary $120K–$190K US, ₹12–40 LPA India. Step-by-step path from DevOps to MLOps.",
     keywords: [
       "MLOps engineer roadmap",
       "MLOps career path",
       "how to become MLOps engineer",
       "MLOps engineer salary India",
+      "MLOps engineer salary USA",
+      "MLOps engineer roadmap USA",
       "MLOps skills 2026",
     ],
     salaryIndia: "₹12–40 LPA",
     salaryGlobal: "$120K–$190K",
     intro:
-      "MLOps Engineers own the path from notebook to production — automated pipelines, model versioning, deployment, monitoring, and retraining. It is one of the highest-demand roles in India's AI job market.",
+      "MLOps Engineers own the path from notebook to production — automated pipelines, model versioning, deployment, monitoring, and retraining. It is one of the highest-demand roles in AI job markets from the US to India.",
     overview: [
       "DevOps fundamentals: Linux, Git, CI/CD, containers",
       "ML pipeline orchestration: Kubeflow, Airflow, MLflow",
@@ -298,7 +302,7 @@ export const ROADMAPS: Record<RoadmapSlug, CareerRoadmap> = {
     shortTitle: "LLMOps Engineer",
     metaTitle: "LLMOps Engineer Roadmap 2026: LLM Production Skills & Salary",
     metaDescription:
-      "LLMOps Engineer roadmap: prompt management, RAG ops, LLM evaluation, fine-tuning pipelines, cost control. Salary ₹18–50 LPA India. Complete 2026 learning path.",
+      "LLMOps Engineer roadmap: prompt management, RAG ops, LLM evaluation, fine-tuning pipelines, cost control. Salary $130K–$230K US, ₹18–50 LPA India. Complete 2026 learning path.",
     keywords: [
       "LLMOps engineer roadmap",
       "LLMOps career path",
@@ -362,7 +366,7 @@ export const ROADMAPS: Record<RoadmapSlug, CareerRoadmap> = {
     shortTitle: "NLP Engineer",
     metaTitle: "NLP Engineer Roadmap 2026: Natural Language Processing Career Path",
     metaDescription:
-      "NLP Engineer roadmap for 2026: text processing, transformers, NER, sentiment analysis, LLMs. India salary ₹10–35 LPA. Skills and projects for NLP roles.",
+      "NLP Engineer roadmap for 2026: text processing, transformers, NER, sentiment analysis, LLMs. Salary $100K–$180K US, ₹10–35 LPA India. Skills and projects for NLP roles.",
     keywords: [
       "NLP engineer roadmap",
       "natural language processing career",
@@ -426,7 +430,7 @@ export const ROADMAPS: Record<RoadmapSlug, CareerRoadmap> = {
     shortTitle: "AI Platform Engineer",
     metaTitle: "AI Platform Engineer Roadmap 2026: Build Internal AI Platforms",
     metaDescription:
-      "AI Platform Engineer roadmap: internal ML/AI platforms, feature stores, model hubs, self-serve tooling. Salary ₹18–45 LPA India. Skills for platform engineering roles.",
+      "AI Platform Engineer roadmap: internal ML/AI platforms, feature stores, model hubs, self-serve tooling. Salary $140K–$220K US, ₹18–45 LPA India. Skills for platform engineering roles.",
     keywords: [
       "AI platform engineer roadmap",
       "ML platform engineer career",

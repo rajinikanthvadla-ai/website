@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-import { LINKS, SITE } from "@/lib/constants";
+import { SITE } from "@/lib/constants";
 import { MENTORSHIP_FAQS, mentorshipOfferSchema } from "@/lib/mentorship-pricing";
 import { MENTORSHIP_MARKETS } from "@/lib/mentorship-markets";
 import Link from "next/link";
 import CTASection from "@/components/CTASection";
 import SuccessStories from "@/components/SuccessStories";
-import YouTubeMembershipSection from "@/components/YouTubeMembershipSection";
 import MentorshipPricing from "@/components/MentorshipPricing";
 
 export const metadata: Metadata = {
@@ -111,10 +110,12 @@ export default function MentorshipPage() {
 
       <MentorshipPricing />
 
+      <SuccessStories />
+
       <section className="py-20 md:py-24 bg-white border-b border-stone-200">
         <div className="max-w-5xl mx-auto px-6">
           <div className="panel p-8 md:p-10 mb-14">
-            <h2 className="font-display text-2xl font-bold text-stone-900 mb-4">When private sessions help most</h2>
+            <h2 className="font-display text-2xl font-bold text-stone-900 mb-4">Who this mentorship is for</h2>
             <p className="text-stone-600 text-lg leading-relaxed mb-6">
               Whether you&apos;re breaking into AI/ML, tightening your DevOps story, preparing for a hiring loop, or
               planning a multi-year move into platform or AI teams, one-to-one work can save months of guessing. Many
@@ -141,7 +142,7 @@ export default function MentorshipPage() {
           </div>
 
           <h2 className="font-display text-2xl font-bold text-stone-900 mb-8 text-center">Typical arc</h2>
-          <div className="grid sm:grid-cols-2 gap-4 mb-14">
+          <div className="grid sm:grid-cols-2 gap-4">
             {[
               { step: "01", title: "Discovery", desc: "Current role, target role, and constraints - time, money, geography, visa or family context if relevant." },
               { step: "02", title: "Assessment", desc: "Honest read on gaps: systems thinking, depth in one stack, communication, and what recruiters will probe." },
@@ -156,65 +157,6 @@ export default function MentorshipPage() {
                 <p className="text-stone-600 text-sm leading-relaxed">{item.desc}</p>
               </div>
             ))}
-          </div>
-
-          <h2 className="font-display text-2xl font-bold text-stone-900 mb-8 text-center">Choose an entry point</h2>
-          <div className="grid sm:grid-cols-3 gap-4">
-            {[
-              { icon: "🤖", title: "AI mentor chat", desc: "Quick answers when you already know the direction but want wording or next steps.", href: LINKS.myGPT, btn: "Open chat" },
-              { icon: "📞", title: "Book 1:1", desc: "Deep dive on your CV, system design, career change, or a stuck project. Calendars are online for global time zones.", href: LINKS.topmate, btn: "Book on Topmate" },
-              { icon: "💬", title: "WhatsApp first", desc: "Short questions about mentorship, courses, or transformation before you book a paid slot.", href: LINKS.whatsapp, btn: "Message" },
-            ].map((opt) => (
-              <a
-                key={opt.title}
-                href={opt.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group panel p-8 text-center card-hover flex flex-col items-center h-full min-h-[260px] sm:min-h-[280px]"
-              >
-                <div className="w-14 h-14 shrink-0 border border-stone-200 bg-stone-50 flex items-center justify-center text-2xl mx-auto mb-4 group-hover:border-accent-400 transition-colors">
-                  {opt.icon}
-                </div>
-                <h3 className="font-display font-bold text-stone-900 text-lg mb-2">{opt.title}</h3>
-                <p className="text-sm text-stone-600 mb-5 flex-1 leading-relaxed">{opt.desc}</p>
-                <span className="mt-auto inline-block bg-stone-900 text-white px-5 py-2 text-xs font-semibold uppercase tracking-wide group-hover:bg-accent-600 transition-colors">
-                  {opt.btn}
-                </span>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <YouTubeMembershipSection compact />
-
-      <section className="py-16 bg-stone-50 border-b border-stone-200">
-        <div className="w-full px-0 md:px-0">
-          <div className="panel p-4 md:p-6">
-            <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
-              <h2 className="font-display text-2xl font-bold text-stone-900">Book without leaving this website</h2>
-              <a
-                href={LINKS.topmate}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center border border-stone-300 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-wide text-stone-700 hover:border-stone-900 transition-colors"
-              >
-                Open full page
-              </a>
-            </div>
-            <p className="text-sm text-stone-600 mb-5">
-              Topmate is embedded here for availability and booking. If your device clips the embed, use
-              "Open full page" for the complete view.
-            </p>
-            <div className="relative w-full border border-stone-200 bg-white">
-              <iframe
-                src="https://topmate.io/rajinikanthvadla"
-                title="Topmate mentorship booking"
-                loading="lazy"
-                className="w-full min-h-[88vh] md:min-h-[1100px] lg:min-h-[1250px]"
-                referrerPolicy="strict-origin-when-cross-origin"
-              />
-            </div>
           </div>
         </div>
       </section>
@@ -256,7 +198,6 @@ export default function MentorshipPage() {
         title="If you are unsure which option fits, start small"
         subtitle="A short WhatsApp note with your background, country or time zone, and what you want to change is enough - I will suggest mentorship, a course, or self-study in plain language."
       />
-      <SuccessStories />
     </>
   );
 }

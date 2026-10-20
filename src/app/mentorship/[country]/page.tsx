@@ -101,6 +101,8 @@ export default async function CountryMentorshipPage({ params }: Props) {
 
       <MentorshipPricing defaultZone="A" />
 
+      <SuccessStories />
+
       <section className="py-20 md:py-24 bg-white border-b border-stone-200">
         <div className="max-w-5xl mx-auto px-6 grid md:grid-cols-3 gap-4">
           <div className="panel p-6">
@@ -164,7 +166,6 @@ export default async function CountryMentorshipPage({ params }: Props) {
         </div>
       </section>
 
-      <SuccessStories />
     </>
   );
 }
