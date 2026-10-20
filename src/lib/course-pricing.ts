@@ -26,7 +26,7 @@ export const COURSE_INR = { live: 40000, recordings: 30000 } as const;
  */
 export const COURSE_PAYMENT_PAGES: Record<MentorshipZoneId, Record<CoursePlan["id"], string | null>> = {
   C: { live: LINKS.razorpayLiveCohort, recordings: LINKS.razorpayRecordings },
-  A: { live: null, recordings: null },
+  A: { live: LINKS.razorpayCourseGlobal, recordings: LINKS.razorpayCourseGlobal },
 };
 
 const usd = (n: number) => `$${n.toLocaleString("en-US")}`;

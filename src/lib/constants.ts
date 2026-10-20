@@ -24,6 +24,7 @@ export const LINKS = {
   razorpayRecordings: "https://rzp.io/rzp/sIqldIM",
   razorpayMentorshipIndia: "https://rzp.io/rzp/GQKc2Ix",
   razorpayMentorshipGlobal: "https://rzp.io/rzp/JwBDvBI",
+  razorpayCourseGlobal: "https://rzp.io/rzp/PNbOdXn",
   aiopsMastery: "https://topmate.io/rajinikanthvadla/new/EjSiaf7TdI",
   aiopsMasteryEnroll: "https://topmate.io/rajinikanthvadla/2056044/pay",
   whatsapp: "https://wa.me/919100028801",
