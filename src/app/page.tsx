@@ -9,6 +9,7 @@ import WelcomeLiveDashboard from "@/components/WelcomeLiveDashboard";
 import CoursePricing from "@/components/CoursePricing";
 import YoutubePlaylist from "@/components/YoutubePlaylist";
 import YouTubeMembershipSection from "@/components/YouTubeMembershipSection";
+import CommunityBanner from "@/components/CommunityBanner";
 import LatestArticlesSection from "@/components/LatestArticlesSection";
 import CourseSyllabusQuickAccess from "@/components/CourseSyllabusQuickAccess";
 import { HOME_SKETCH, sketch } from "@/lib/sketch-assets";
@@ -34,6 +35,7 @@ export default function HomePage() {
       <CoursePricing />
       <YoutubePlaylist />
       <YouTubeMembershipSection />
+      <CommunityBanner />
       <LogoBar />
       <FeaturedProgramsSection />
       <CourseSyllabusQuickAccess />
