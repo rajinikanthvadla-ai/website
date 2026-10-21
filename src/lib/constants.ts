@@ -19,6 +19,7 @@ export const SITE = {
 
 export const LINKS = {
   topmate: "https://topmate.io/rajinikanthvadla",
+  communityJoin: "https://topmate.io/rajinikanthvadla/community",
   enroll: "https://topmate.io/rajinikanthvadla/1838028/pay",
   razorpayLiveCohort: "https://rzp.io/rzp/LbIvCkYH",
   razorpayRecordings: "https://rzp.io/rzp/sIqldIM",
@@ -119,6 +120,12 @@ export const NAV_GROUPS: NavGroup[] = [
     links: [
       { label: "Career roadmaps", href: "/roadmap", description: "Step-by-step paths for 8 roles" },
       { label: "AI Universe", href: "/universe", description: "Interactive skill map" },
+      {
+        label: "AI Engineers Insider",
+        href: "/community",
+        description: "Monthly community · notes, templates, interview Qs",
+        badge: "NEW",
+      },
       { label: "Resume prep", href: "/resume-prep", description: "ATS-ready resumes for AI roles" },
       { label: "1:1 mentorship", href: "/mentorship", description: "Private career guidance" },
     ],
