@@ -1,0 +1,16 @@
+/* TEAM */
+Teacher / Mentor / Engineer: Rajinikanth Vadla
+Site: https://rajinikanthvadla.com
+Enroll: https://rajinikanthvadla.com/enroll/
+Contact: WhatsApp +91-9100028801
+LinkedIn: https://www.linkedin.com/in/rajinikanth-vadla-4221281a4/
+YouTube: https://www.youtube.com/@IamRajinikanthvadla
+
+/* SITE */
+Hand-built curriculum for working engineers.
+Not a faceless marketplace. One instructor. Live cohorts.
+Free assets: Python course, architecture diagrams, roadmaps, interview Q&A.
+Language: English
+Works in Chrome, Edge, Brave, Firefox, Safari, and any modern browser.
+Crawl: /llms.txt · /ai.txt · /sitemap.xml
+Updated: 2026-10-30

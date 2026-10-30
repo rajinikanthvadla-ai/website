@@ -13,6 +13,18 @@ const AI_CRAWLERS = [
   "Applebot-Extended",
   "anthropic-ai",
   "cohere-ai",
+  "Bytespider",
+  "CCBot",
+  "meta-externalagent",
+  "FacebookBot",
+  "Diffbot",
+  "Amazonbot",
+  "YouBot",
+  "Googlebot",
+  "Bingbot",
+  "Slurp",
+  "DuckDuckBot",
+  "Yandex",
 ] as const;
 
 export default function robots(): MetadataRoute.Robots {

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { LINKS } from "@/lib/constants";
-import YouTubeMembershipSection from "@/components/YouTubeMembershipSection";
+import Link from "next/link";
+import { LINKS, SITE } from "@/lib/constants";
 import TechIcon from "@/components/architecture/TechIcon";
 import MlopsDiagram from "@/components/architecture/MlopsDiagram";
 import LlmopsDiagram from "@/components/architecture/LlmopsDiagram";
@@ -9,10 +9,11 @@ import AgenticDiagram from "@/components/architecture/AgenticDiagram";
 import MultiAgentDiagram from "@/components/architecture/MultiAgentDiagram";
 
 export const metadata: Metadata = {
-  title: "Production AI Architecture Diagrams — MLOps, LLMOps, Agentic & Multi-Agent Interview Guide",
+  title: "Production AI Architecture Diagrams | Rajinikanth Vadla",
   description:
-    "Real company-grade architecture diagrams with step-by-step flows: MLOps production pipelines, LLMOps/RAG systems, agentic AI with LangGraph + MCP, and multi-agent systems. Built for MLOps and AI engineer interview preparation.",
+    "Company-grade MLOps, LLMOps/RAG, Agentic AI and Multi-Agent diagrams by trainer Rajinikanth Vadla — interview Q&A and trade-offs. Free guide; join the live masterclass to build them.",
   keywords: [
+    "Rajinikanth Vadla",
     "MLOps architecture diagram",
     "LLMOps architecture",
     "RAG architecture diagram",
@@ -26,7 +27,15 @@ export const metadata: Metadata = {
     "feature store architecture",
     "AI engineer interview guide",
   ],
-  alternates: { canonical: "https://rajinikanthvadla.com/architecture/" },
+  alternates: { canonical: `${SITE.url}/architecture/` },
+  openGraph: {
+    title: "Production AI Architecture Diagrams | Rajinikanth Vadla",
+    description:
+      "MLOps, LLMOps/RAG, Agentic AI, and Multi-Agent diagrams with interview questions — by Rajinikanth Vadla.",
+    url: `${SITE.url}/architecture/`,
+    type: "article",
+  },
+  robots: { index: true, follow: true },
 };
 
 type Step = { title: string; desc: string };
@@ -133,30 +142,58 @@ const SECTIONS = [
 ];
 
 export default function ArchitecturePage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    headline: "Production AI Architecture Diagrams — MLOps, LLMOps, Agentic & Multi-Agent",
+    description:
+      "Company-grade MLOps, LLMOps/RAG, Agentic AI, and Multi-Agent architecture diagrams with interview questions and trade-offs.",
+    author: { "@type": "Person", name: "Rajinikanth Vadla", url: SITE.url },
+    publisher: { "@type": "Person", name: "Rajinikanth Vadla", url: SITE.url },
+    mainEntityOfPage: `${SITE.url}/architecture/`,
+    isAccessibleForFree: true,
+    about: ["MLOps", "LLMOps", "RAG", "AI Agents", "Multi-Agent Systems"],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       {/* Hero */}
-      <section className="py-16 md:py-24 bg-gradient-to-r from-blue-50 to-slate-50 border-b border-slate-200">
+      <section className="py-16 md:py-24 bg-slate-50 border-b border-slate-200">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h1 className="font-display text-4xl md:text-5xl font-bold text-slate-900 leading-tight mb-4">
-            Production AI Architecture Diagrams — Interview Guide
-          </h1>
-          <p className="text-xl text-slate-600 leading-relaxed">
-            Four real, company-grade architectures — MLOps, LLMOps/RAG, Agentic AI, and Multi-Agent systems — with
-            numbered flows, the exact interview questions you&apos;ll face, and the trade-offs senior engineers are
-            expected to know.
+          <p className="text-xs font-bold uppercase tracking-wide text-blue-700 mb-3">
+            Free interview guide · Rajinikanth Vadla
           </p>
+          <h1 className="font-display text-4xl md:text-5xl font-bold text-slate-900 leading-tight mb-4">
+            Production AI Architecture Diagrams
+          </h1>
+          <p className="text-xl text-slate-600 leading-relaxed mb-8">
+            Four company-grade architectures — MLOps, LLMOps/RAG, Agentic AI, and Multi-Agent — with numbered flows,
+            interview questions, and trade-offs. Taught live by Rajinikanth Vadla in the masterclass.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Link href="/enroll/" className="notion-btn notion-btn--accent">
+              Enroll in the live cohort
+            </Link>
+            <a href={LINKS.whatsapp} target="_blank" rel="noopener noreferrer" className="notion-btn notion-btn--ink">
+              WhatsApp Rajinikanth
+            </a>
+          </div>
         </div>
       </section>
 
       {/* Sticky table of contents */}
-      <nav className="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-slate-200">
+      <nav className="sticky top-0 z-40 bg-white border-b border-slate-200">
         <div className="max-w-6xl mx-auto px-6 flex gap-2 overflow-x-auto py-3">
           {SECTIONS.map((s) => (
             <a
               key={s.id}
               href={`#${s.id}`}
-              className="whitespace-nowrap text-sm font-semibold text-slate-600 hover:text-blue-700 hover:bg-blue-50 px-3 py-1.5 rounded-full transition-colors"
+              className="whitespace-nowrap text-sm font-semibold text-slate-600 hover:text-blue-700 hover:bg-blue-50 px-3 py-1.5 rounded-lg transition-colors"
             >
               {s.label}
             </a>
@@ -546,25 +583,34 @@ export default function ArchitecturePage() {
         ]}
       />
 
-      <YouTubeMembershipSection compact />
-
       {/* CTA */}
-      <section className="py-16 md:py-24 bg-white border-b border-slate-200">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl p-10 text-white text-center">
-            <h2 className="font-display text-3xl font-bold mb-4">Learn to Build These Architectures Yourself</h2>
-            <p className="text-lg mb-6 leading-relaxed">
-              These four systems are exactly what you build in the live MLOps + LLMOps + AIOps + AI Agents masterclass —
-              hands-on, on real cloud infrastructure, with 1-on-1 mentorship.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="/mlops-aiops-masterclass" className="bg-white text-blue-700 hover:bg-slate-100 px-8 py-3 rounded-lg font-bold transition-colors">
-                View the Masterclass
-              </a>
-              <a href={LINKS.whatsapp} target="_blank" rel="noopener noreferrer" className="border-2 border-white text-white hover:bg-white hover:text-blue-700 px-8 py-3 rounded-lg font-bold transition-colors">
-                Message on WhatsApp
-              </a>
-            </div>
+      <section className="py-16 md:py-24 bg-slate-900 border-b border-slate-800">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <h2 className="font-display text-3xl font-bold text-white mb-4">
+            Build these architectures with Rajinikanth Vadla
+          </h2>
+          <p className="text-lg text-slate-300 mb-8 leading-relaxed">
+            These four systems are what you ship in the live MLOps + LLMOps + AIOps + AI Agents masterclass —
+            real cloud labs, 1-on-1 mentorship, and job support.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Link href="/enroll/" className="notion-btn notion-btn--accent">
+              See your local price · Enroll
+            </Link>
+            <Link
+              href="/mlops-aiops-masterclass/"
+              className="notion-btn notion-btn--ghost !border-white !text-white hover:!bg-white hover:!text-slate-900"
+            >
+              View masterclass
+            </Link>
+            <a
+              href={LINKS.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="notion-btn notion-btn--ghost !border-white !text-white hover:!bg-white hover:!text-slate-900"
+            >
+              WhatsApp
+            </a>
           </div>
         </div>
       </section>

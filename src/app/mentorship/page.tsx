@@ -86,13 +86,16 @@ export default function MentorshipPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <section className="relative border-b border-stone-200 bg-stone-100 surface-paper py-20 md:py-24">
         <div className="relative text-center max-w-3xl mx-auto px-6">
-          <span className="inline-block text-xs font-semibold uppercase tracking-[0.14em] text-accent-600 mb-3">Personal guidance</span>
+          <span className="inline-block text-xs font-semibold uppercase tracking-[0.14em] text-accent-600 mb-3">
+            Personal guidance · Rajinikanth Vadla
+          </span>
           <h1 className="font-display text-4xl md:text-5xl font-bold text-stone-900 mb-4">
-            1:1 AI &amp; MLOps mentorship with your own learning roadmap
+            1:1 AI &amp; MLOps mentorship with Rajinikanth Vadla
           </h1>
           <p className="text-lg text-stone-600 mb-4">
-            Stop guessing what to learn next. I build a week-by-week roadmap for your background and target role,
-            meet you 1:1 every week, review your projects, and prepare you for interviews until you land the role.
+            Stop guessing what to learn next. Rajinikanth Vadla builds a week-by-week roadmap for your background and
+            target role, meets you 1:1 every week, reviews your projects, and prepares you for interviews until you land
+            the role.
           </p>
           <p className="text-stone-600 text-base leading-relaxed">
             You can be in India, the Middle East, Europe, the Americas, or anywhere else: sessions are online. Bring

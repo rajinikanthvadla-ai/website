@@ -1,5 +1,22 @@
 [
   {
+    "slug": "devops-to-mlops-one-clear-path-2026",
+    "title": "DevOps to MLOps in 2026: One Clear Path That Gets Interviews",
+    "description": "A practical DevOps to MLOps path: what to learn first, what to skip, and how live projects beat random tutorials. Links to syllabus and enrollment.",
+    "category": "MLOps",
+    "tags": [
+      "MLOps",
+      "DevOps",
+      "LLMOps",
+      "AI Agents",
+      "Career",
+      "Rajinikanth Vadla"
+    ],
+    "readTime": "6 min",
+    "date": "2026-10-30",
+    "content": "## The problem most engineers hit\n\nYou already know Docker, CI/CD, maybe Kubernetes. You open YouTube for \"MLOps\" and get 40 random playlists. Six months later you still cannot explain a real pipeline in an interview.\n\nThat is not a talent problem. It is a path problem.\n\n## What companies actually ask\n\nIn 2026, hiring managers for MLOps / LLMOps / AI platform roles ask for proof you can:\n\n1. Package and deploy a model (or an LLM app) like a production service\n2. Track experiments and versions (MLflow or equivalent)\n3. Monitor drift, cost, and failures — not just \"it works on my laptop\"\n4. Wire agents / RAG with guardrails when GenAI is in the stack\n\nIf you can walk through those on a whiteboard and in a repo, you are ahead of most applicants.\n\n## A clean order (do this, not everything)\n\n**Month mindset, not weekend binge.**\n\n1. **Foundations you may already have** — Linux, Git, Docker, basic Python, one cloud.\n2. **MLOps core** — training → registry → deploy → monitor. One end-to-end lab beats ten theory videos.\n3. **LLMOps** — RAG, evals, prompt/version discipline, serving.\n4. **AIOps + agents** — alerts that mean something; agents that call tools safely (MCP, approvals).\n5. **Portfolio** — 2–4 capstones you can demo line by line.\n\nSkip: collecting 50 certificates with zero deploy story.\n\n## Why live teaching still wins\n\nRecordings help. Live Q&A + someone who has run enterprise systems saves months of wrong turns. That is what I teach: production habits, not slide decks.\n\n## Start here on this site\n\n- Full module list: [Course syllabus](/syllabus/)\n- Flagship program: [MLOps masterclass](/mlops-aiops-masterclass/)\n- Local pricing and payment: [Enroll](/enroll/)\n- Questions before you pay: [WhatsApp](https://wa.me/919100028801?text=Hi%20Rajinikanth%2C%20I%20am%20coming%20from%20DevOps%20and%20want%20the%20MLOps%20path.)\n\nI reply personally. Tell me your current role and target role — I will tell you if the masterclass, the automation course, or mentorship fits first.\n"
+  },
+  {
     "slug": "kubernetes-cloud-native-ai-ml-deployment-trends-2026-moicyegk",
     "title": "Kubernetes in 2026: Scaling AI Agents and Cloud-Native MLOps for the Next Decade",
     "description": "Master Kubernetes and cloud-native AI deployment in 2026. Learn to build resilient AI agents, secure production pipelines, and avoid agentic disasters.",

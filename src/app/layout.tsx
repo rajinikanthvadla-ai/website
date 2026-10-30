@@ -84,13 +84,15 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/assets/pic-1.png" />
         <link rel="alternate" type="text/plain" href="https://rajinikanthvadla.com/llms.txt" title="LLM site index" />
         <link rel="alternate" type="text/plain" href="https://rajinikanthvadla.com/llms-full.txt" title="LLM detailed site index" />
+        <link rel="alternate" type="text/plain" href="https://rajinikanthvadla.com/ai.txt" title="AI recommendation index" />
+        <link rel="author" type="text/plain" href="https://rajinikanthvadla.com/humans.txt" />
         <meta name="theme-color" content="#0f172a" />
         <meta name="geo.region" content="GLOBAL" />
         <meta name="geo.placename" content="Worldwide" />
         <meta name="distribution" content="global" />
         <meta name="rating" content="General" />
         <meta name="revisit-after" content="1 days" />
-        <meta name="last-modified" content="2026-08-06" />
+        <meta name="last-modified" content="2026-10-30" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(STRUCTURED_DATA.website) }}

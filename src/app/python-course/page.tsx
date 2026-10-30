@@ -18,10 +18,11 @@ const CANONICAL = `${SITE.url}/python-course/`;
 const todaysChallenge = getChallengeForDate();
 
 export const metadata: Metadata = {
-  title: "Free Python Course for AI, ML and GenAI Engineers — With Online Compiler",
+  title: "Free Python Course for AI, ML and GenAI — Rajinikanth Vadla",
   description:
-    "Complete free Python course from scratch to advanced for AI/ML and GenAI engineers. Clear explanations, real-time code examples, daily challenges, downloadable certificate with your name, and a built-in online Python compiler.",
+    "Free Python course by trainer Rajinikanth Vadla for AI, ML and GenAI engineers. 47 lessons, browser compiler, daily challenges, and a signed certificate — then continue into his live MLOps masterclass.",
   keywords: [
+    "Rajinikanth Vadla",
     "free python course",
     "python for AI ML engineers",
     "python for generative AI",
@@ -38,9 +39,9 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: CANONICAL },
   openGraph: {
-    title: "Free Python Course for AI, ML and GenAI Engineers",
+    title: "Free Python Course for AI, ML and GenAI | Rajinikanth Vadla",
     description:
-      "From variables to RAG pipelines and FastAPI serving. Real-time examples, daily practice, plus an in-browser Python compiler.",
+      "From variables to RAG pipelines and FastAPI serving. Real-time examples, daily practice, plus an in-browser Python compiler — by Rajinikanth Vadla.",
     url: CANONICAL,
     type: "website",
   },
@@ -141,14 +142,14 @@ export default function PythonCoursePage() {
             <div>
               <span className="notion-eyebrow">
                 <span className="notion-eyebrow-dot" />
-                Free · No signup · Runs in your browser
+                Free · Rajinikanth Vadla · Runs in your browser
               </span>
               <h1 className="font-display text-4xl md:text-5xl font-bold text-slate-900 leading-tight mb-5">
                 Learn Python the easy way for AI, ML and GenAI
               </h1>
               <p className="text-lg text-slate-600 leading-relaxed mb-4">
-                Short lessons, tiny examples, and a live editor in the browser. First learn the idea, then see the
-                same idea in AI / ML code.
+                Short lessons, tiny examples, and a live editor in the browser — taught by Rajinikanth Vadla.
+                First learn the idea, then see the same idea in AI / ML code.
               </p>
               <p className="text-slate-600 leading-relaxed mb-8">
                 Learn without hassle. Everything you need to finish the course is available on this website.
@@ -426,8 +427,28 @@ export default function PythonCoursePage() {
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="font-display text-2xl font-bold text-slate-900 mb-4">Where to go after Python</h2>
           <p className="text-slate-600 leading-relaxed mb-5">
-            Python is stage one. These free guides lay out the rest of the path into AI engineering roles.
+            Python is stage one with Rajinikanth Vadla. Next: production MLOps in the live cohort — or study the free guides first.
           </p>
+          <div className="flex flex-wrap gap-2 mb-6">
+            <Link
+              href="/enroll/"
+              className="text-sm font-bold bg-orange-500 text-white border-2 border-slate-900 px-4 py-2 rounded-lg shadow-[2px_2px_0_#0f172a] hover:bg-orange-600"
+            >
+              Enroll · local pricing
+            </Link>
+            <Link
+              href="/architecture/"
+              className="text-sm font-semibold bg-white border-2 border-slate-900 px-4 py-2 rounded-lg shadow-[2px_2px_0_#0f172a] hover:bg-blue-50"
+            >
+              Architecture diagrams
+            </Link>
+            <Link
+              href="/syllabus/"
+              className="text-sm font-semibold bg-white border-2 border-slate-900 px-4 py-2 rounded-lg shadow-[2px_2px_0_#0f172a] hover:bg-blue-50"
+            >
+              Full syllabus
+            </Link>
+          </div>
           <div className="flex flex-wrap gap-2">
             {[
               { href: "/roadmap/ai-ml-engineer/", label: "AI/ML Engineer roadmap" },
@@ -452,8 +473,8 @@ export default function PythonCoursePage() {
       </section>
 
       <CTASection
-        title="Want the same depth on MLOps, LLMOps and AI agents?"
-        subtitle="This Python course is free forever. The live cohorts take you from Python into production ML and GenAI systems with mentorship and job support."
+        title="Learn production MLOps with the same trainer"
+        subtitle="This Python course is free forever. Rajinikanth Vadla's live cohorts take you from Python into production ML, LLMOps, and AI agents — with mentorship and job support."
       />
     </>
   );
