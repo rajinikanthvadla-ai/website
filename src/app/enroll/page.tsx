@@ -31,9 +31,24 @@ export default function EnrollPage() {
           <h1 className="font-display text-3xl md:text-5xl font-bold text-slate-900 leading-tight mb-4">
             Enroll in the MLOps, AIOps, LLMOps &amp; Agentic AI course
           </h1>
-          <p className="text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto mb-8">
-            Live cohort or self-paced recordings. Same instructor, same 150+ hours. Pay securely in your currency and start building production AI systems.
+          <p className="text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto mb-6">
+            Live cohort or self-paced recordings with Rajinikanth Vadla. Same instructor, same 150+ hours. Your local
+            price shows below — pay and start building production AI systems.
           </p>
+          <div className="max-w-2xl mx-auto grid sm:grid-cols-2 gap-3 text-left text-sm">
+            <div className="panel p-4 border-l-4 border-l-blue-700">
+              <p className="font-bold text-slate-900 mb-1">In India</p>
+              <p className="text-slate-600 leading-relaxed">
+                Pay on Razorpay with UPI, cards, or net banking. Instant receipt, then WhatsApp joining details.
+              </p>
+            </div>
+            <div className="panel p-4 border-l-4 border-l-orange-500">
+              <p className="font-bold text-slate-900 mb-1">Outside India</p>
+              <p className="text-slate-600 leading-relaxed">
+                Pay in USD on Razorpay (cards), or message WhatsApp for Wise / bank transfer. Same live cohort.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -124,11 +139,11 @@ export default function EnrollPage() {
             {[
               {
                 q: "Do you accept international payments?",
-                a: "Yes! We accept bank transfers, Wise transfers, and international payment methods. Contact us for details.",
+                a: "Yes. Outside India you can pay in USD on Razorpay (Visa/Mastercard/Amex), or WhatsApp Rajinikanth for Wise or bank transfer. India pays on Razorpay with UPI, cards, or net banking.",
               },
               {
                 q: "When does the live cohort start?",
-                a: "The current cohort started July 15, 2026. Next intake timing depends on enrollment. WhatsApp to confirm dates.",
+                a: "Cohorts run on a rolling intake. Message WhatsApp with your timezone and we confirm the next batch dates and catch-up plan.",
               },
               {
                 q: "Can I switch from Recordings to Live later?",

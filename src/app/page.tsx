@@ -113,17 +113,24 @@ function HeroSection() {
             </div>
           </div>
 
-          <div className="flex flex-wrap gap-3 mb-10">
-            <a href={LINKS.enroll} target="_blank" rel="noopener noreferrer" className="notion-btn notion-btn--accent">
-              Enroll in a cohort &rarr;
-            </a>
-            <Link href="/syllabus/" className="notion-btn notion-btn--ink">
-              View syllabus
+          <div className="flex flex-wrap items-center gap-3 mb-4">
+            <Link href="/enroll/" className="notion-btn notion-btn--accent">
+              Enroll — see your local price &rarr;
             </Link>
             <a href={LINKS.whatsappSyllabus} target="_blank" rel="noopener noreferrer" className="notion-btn notion-btn--ghost">
-              WhatsApp for details
+              WhatsApp Rajinikanth
             </a>
           </div>
+          <p className="text-sm text-slate-600 mb-10">
+            Prefer to study first?{" "}
+            <Link href="/syllabus/" className="font-semibold text-blue-700 underline underline-offset-2">
+              Full syllabus
+            </Link>
+            {" · "}
+            <Link href="/python-course/" className="font-semibold text-blue-700 underline underline-offset-2">
+              Free Python course
+            </Link>
+          </p>
 
           <div className="notion-stat-grid">
             {STATS.map((s) => (
@@ -427,9 +434,9 @@ function WhyJoinSection() {
           ))}
         </div>
         <div className="text-center">
-          <a href={LINKS.enroll} target="_blank" rel="noopener noreferrer" className="notion-btn notion-btn--accent">
+          <Link href="/enroll/" className="notion-btn notion-btn--accent">
             Enroll in the next cohort &rarr;
-          </a>
+          </Link>
           <div className="flex flex-wrap justify-center gap-4 mt-4 text-sm">
             <Link href="/syllabus/" className="notion-dash-link font-bold">Full syllabus</Link>
             <Link href="/interview-questions/" className="notion-dash-link font-bold">Interview questions</Link>

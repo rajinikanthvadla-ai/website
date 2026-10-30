@@ -82,6 +82,23 @@ export default function CoursePricing({ defaultZone }: { defaultZone?: VisitorZo
             <p className="mt-3 text-center text-xs text-slate-500">
               🔒 Secure Razorpay checkout · {payMethods}
             </p>
+            {zone !== "C" ? (
+              <p className="mt-2 text-center text-xs text-slate-600">
+                Outside India: pay in USD on Razorpay, or{" "}
+                <a href={whatsappPayLink(live.name, live.prices[zone])} target="_blank" rel="noopener noreferrer" className="font-semibold text-blue-700 underline">
+                  WhatsApp for Wise / bank transfer
+                </a>
+                .
+              </p>
+            ) : (
+              <p className="mt-2 text-center text-xs text-slate-600">
+                India: UPI / cards on Razorpay. Questions?{" "}
+                <a href={LINKS.whatsappSyllabus} target="_blank" rel="noopener noreferrer" className="font-semibold text-blue-700 underline">
+                  WhatsApp
+                </a>
+                .
+              </p>
+            )}
           </div>
 
           <div className="lg:col-span-2 bg-white rounded-xl border border-slate-200 p-8">

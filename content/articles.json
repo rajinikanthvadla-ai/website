@@ -1,5 +1,22 @@
 [
   {
+    "slug": "python-to-mlops-one-clear-path-2026",
+    "title": "Python to MLOps in 2026: What to Learn After Free Python Lessons",
+    "description": "You finished Python basics. Here is the clear next path into MLOps, LLMOps, and production AI — what to learn, what to skip, and where to enroll with Rajinikanth Vadla.",
+    "category": "MLOps",
+    "tags": [
+      "Python",
+      "MLOps",
+      "LLMOps",
+      "Career",
+      "Rajinikanth Vadla",
+      "AI Engineering"
+    ],
+    "readTime": "7 min",
+    "date": "2026-10-30",
+    "content": "## You learned Python. Now what?\n\nFinishing a free Python course feels good. Then the feed fills with “learn Kubernetes,” “learn LangChain,” “learn Spark,” and you stall again.\n\nThe gap is not motivation. It is order.\n\n## What “job ready” actually means in 2026\n\nHiring managers for MLOps / LLMOps / AI platform roles do not ask if you memorized list comprehensions. They ask if you can:\n\n1. Turn a notebook or script into a **repeatable pipeline**\n2. **Version** models or prompts and explain what changed\n3. **Deploy** behind an API or batch job and watch it fail safely\n4. Talk about **cost, drift, and latency** without hand-waving\n\nPython is the language. Production habits are the product.\n\n## A clean path after Python (skip the noise)\n\nUse this order. Do not collect twenty certificates first.\n\n1. **Git + Docker** — ship the same code on another machine.\n2. **One cloud account** — run one small service end to end.\n3. **MLOps core** — train → registry → deploy → monitor. One lab beats ten playlists.\n4. **LLMOps** — RAG, evals, structured outputs, serving.\n5. **Agents with guardrails** — tools, approvals, MCP-style integrations only after the pipeline story is solid.\n6. **Portfolio** — 2–4 capstones you can demo line by line.\n\nSkip: random Udemy carts, 40 unfinished YouTube playlists, and “agent frameworks” before you can deploy a FastAPI service.\n\n## Free on this site first\n\n- [Free Python course](/python-course/) — 47 lessons + browser compiler\n- [Architecture diagrams](/architecture/) — MLOps, LLMOps, agents for interviews\n- [Full syllabus](/syllabus/) — what the live masterclass covers week by week\n\n## When live teaching is worth it\n\nIf you already write Python but cannot explain a real deploy story in an interview, recordings alone often waste months. Live Q&A with someone who has run enterprise systems shortens the wrong turns.\n\nThat is what I teach: production MLOps, AIOps, LLMOps, and agents — with mentorship and job support on the live track.\n\n## Next step\n\n- Local pricing and secure pay: [Enroll](/enroll/)\n- Program overview: [MLOps masterclass](/mlops-aiops-masterclass/)\n- Straight answer for your background: [WhatsApp](https://wa.me/919100028801?text=Hi%20Rajinikanth%2C%20I%20finished%20Python%20and%20want%20the%20MLOps%20path.)\n\nTell me your current role and target role. I will say whether the masterclass, the automation course, or mentorship fits first.\n"
+  },
+  {
     "slug": "devops-to-mlops-one-clear-path-2026",
     "title": "DevOps to MLOps in 2026: One Clear Path That Gets Interviews",
     "description": "A practical DevOps to MLOps path: what to learn first, what to skip, and how live projects beat random tutorials. Links to syllabus and enrollment.",
