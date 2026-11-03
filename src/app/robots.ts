@@ -33,10 +33,12 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
+        disallow: ["/student-feedback/", "/student-feedback"],
       },
       ...AI_CRAWLERS.map((bot) => ({
         userAgent: bot,
         allow: "/" as const,
+        disallow: ["/student-feedback/", "/student-feedback"],
       })),
     ],
     sitemap: "https://rajinikanthvadla.com/sitemap.xml",

@@ -4,9 +4,14 @@ import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { SUCCESS_STORIES, TEXT_TESTIMONIALS, LINKS } from "@/lib/constants";
 import { encodePublicPath } from "@/lib/encodePublicPath";
+import {
+  fetchApprovedTestimonials,
+  type ApprovedTestimonial,
+} from "@/lib/student-testimonials";
 
 export default function SuccessStories() {
   const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
+  const [approved, setApproved] = useState<ApprovedTestimonial[]>([]);
 
   const closeLightbox = useCallback(() => {
     setLightboxSrc(null);
@@ -28,6 +33,16 @@ export default function SuccessStories() {
     document.addEventListener("keydown", onKeyDown);
     return () => document.removeEventListener("keydown", onKeyDown);
   }, [lightboxSrc, closeLightbox]);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetchApprovedTestimonials().then((rows) => {
+      if (!cancelled) setApproved(rows);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   return (
     <section id="success-stories" className="notion-section notion-section--paper overflow-hidden">
@@ -74,6 +89,25 @@ export default function SuccessStories() {
                     {t.badge}
                   </span>
                   <div className="text-xs text-slate-500">{t.role}</div>
+                </div>
+              </figcaption>
+            </figure>
+          ))}
+          {approved.map((t) => (
+            <figure
+              key={t.id}
+              className="bg-white border-2 border-slate-900 rounded-lg p-5 shadow-[3px_3px_0_#0f172a] flex flex-col"
+            >
+              <blockquote className="text-sm text-slate-700 leading-relaxed flex-1 mb-4">
+                &ldquo;{t.quote}&rdquo;
+              </blockquote>
+              <figcaption className="pt-3 border-t border-slate-200">
+                <span className="inline-block bg-orange-500 text-white px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wide mb-1">
+                  {t.rating}★ · student
+                </span>
+                <div className="text-sm font-semibold text-slate-900">{t.name}</div>
+                <div className="text-xs text-slate-500">
+                  {[t.roleTitle, t.city, t.course].filter(Boolean).join(" · ")}
                 </div>
               </figcaption>
             </figure>
