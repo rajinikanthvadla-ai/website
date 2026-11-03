@@ -69,26 +69,16 @@ export default function MentorshipPricing({ defaultZone }: { defaultZone?: Mento
                     </li>
                   ))}
                 </ul>
-                <div className="grid grid-cols-2 gap-2">
-                  <a
-                    href={paymentPage ?? whatsappPayLink(plan.name, price.main)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`flex items-center justify-center text-center px-2 py-3 text-xs font-semibold uppercase tracking-wide text-white transition-colors ${
-                      plan.featured ? "bg-accent-500 hover:bg-accent-600" : "bg-stone-900 hover:bg-accent-600"
-                    }`}
-                  >
-                    {paymentPage ? "Pay with Razorpay" : "Get payment link"}
-                  </a>
-                  <a
-                    href={LINKS.topmate}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center text-center px-2 py-3 text-xs font-semibold uppercase tracking-wide border border-stone-300 bg-white text-stone-700 hover:border-stone-900 transition-colors"
-                  >
-                    Book on Topmate
-                  </a>
-                </div>
+                <a
+                  href={paymentPage ?? whatsappPayLink(plan.name, price.main)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`flex w-full items-center justify-center text-center px-3 py-3 text-xs font-semibold uppercase tracking-wide text-white transition-colors ${
+                    plan.featured ? "bg-accent-500 hover:bg-accent-600" : "bg-stone-900 hover:bg-accent-600"
+                  }`}
+                >
+                  {paymentPage ? "Pay with Razorpay" : "Get payment link"}
+                </a>
               </div>
             );
           })}
@@ -117,12 +107,12 @@ export default function MentorshipPricing({ defaultZone }: { defaultZone?: Mento
           </ol>
         </div>
 
-        <p className="text-center text-sm text-stone-600 mt-10">
-          Not sure which plan fits?{" "}
+        <p className="text-center text-sm text-stone-600 mt-10 max-w-xl mx-auto leading-relaxed">
+          Still have doubts? Call or message me on{" "}
           <a href={LINKS.whatsapp} target="_blank" rel="noopener noreferrer" className="font-semibold text-accent-700 underline">
-            Message me on WhatsApp
+            WhatsApp
           </a>{" "}
-          with your background and goal.
+          with your background and goal. I will tell you which plan fits before you pay.
         </p>
       </div>
     </section>

@@ -2,91 +2,134 @@
   "channelId": "UCeFXgm7rc9WzmRF1UZ7B4PA",
   "channelUrl": "https://www.youtube.com/@IamRajinikanthvadla",
   "channelTitle": "I'am Rajinikanth Vadla",
-  "lastSyncedAt": "2026-09-02T09:02:25.488Z",
+  "lastSyncedAt": "2026-11-03T07:21:10.862Z",
+  "source": "channel-page+oembed",
   "videos": [
     {
-      "id": "pQRWbhurANc",
-      "title": "Python Basics for MLOps, AIOps, LLMOps, Agentic AI & GenAI Engineers | Python for AI Engineers",
-      "description": "Learn Python Basics for MLOps, AIOps, LLMOps, Agentic AI, GenAI and Forward Deployed Engineers (FDE) with practical, real-world examples. This session is designed for engineers moving from DevOps, Cloud, SRE or Platform…",
-      "publishedAt": "2026-09-01T15:43:48+00:00",
-      "url": "https://www.youtube.com/watch?v=pQRWbhurANc"
+      "id": "D8W9ewxrQnM",
+      "title": "AWS SageMaker MLOps Lab: Train & Deploy an ML Model (Hands-On)",
+      "description": "Watch on Rajinikanth Vadla's YouTube channel.",
+      "publishedAt": "2026-11-03T07:21:09.404Z",
+      "url": "https://www.youtube.com/watch?v=D8W9ewxrQnM"
     },
     {
-      "id": "waM-kIldBp4",
-      "title": "AWS Networking: VPC Peering vs. Transit Gateway",
-      "description": "",
-      "publishedAt": "2026-08-12T11:31:23+00:00",
-      "url": "https://www.youtube.com/watch?v=waM-kIldBp4"
+      "id": "xykc89YWiK4",
+      "title": "AWS SageMaker Explained: No Servers, No Kubernetes",
+      "description": "Watch on Rajinikanth Vadla's YouTube channel.",
+      "publishedAt": "2026-11-03T07:21:09.475Z",
+      "url": "https://www.youtube.com/watch?v=xykc89YWiK4"
     },
     {
-      "id": "mgKgoAUog1g",
-      "title": "Google Gemini Spark Is INSANE 🚀",
-      "description": "Google just launched Gemini Spark — an always-on AI agent that works in the cloud even when your phone is locked or your laptop is closed! 🤖⚡ Unlike standard chatbots, Gemini Spark automates background tasks, manages y…",
-      "publishedAt": "2026-08-04T13:49:55+00:00",
-      "url": "https://www.youtube.com/watch?v=mgKgoAUog1g"
+      "id": "xrnAHETRLt4",
+      "title": "FastAPI for Machine Learning: Deploy Your ML Model as a REST API | MLOps Class 41",
+      "description": "Watch on Rajinikanth Vadla's YouTube channel.",
+      "publishedAt": "2026-11-03T07:21:09.554Z",
+      "url": "https://www.youtube.com/watch?v=xrnAHETRLt4"
     },
     {
-      "id": "tDPB9LbCslk",
-      "title": "Stop Surprise AWS Bills with This Free Cleanup Tool! 🚀 #shorts",
-      "description": "Forgotten AWS resources can continue generating charges even after your lab or project ends. Orphanaut is a free, open-source desktop tool that scans every AWS region, detects 18+ resource types, estimates monthly costs…",
-      "publishedAt": "2026-08-04T06:03:02+00:00",
-      "url": "https://www.youtube.com/watch?v=tDPB9LbCslk"
+      "id": "Gnasv7ApaUs",
+      "title": "MLflow Tutorial: Complete ML Training Process, Tracking & Model Registry (Day 39) | MLOps Course",
+      "description": "Watch on Rajinikanth Vadla's YouTube channel.",
+      "publishedAt": "2026-11-03T07:21:09.631Z",
+      "url": "https://www.youtube.com/watch?v=Gnasv7ApaUs"
     },
     {
-      "id": "RnQe-WV0E0s",
-      "title": "Topmate Featured My Teaching Journey! 🎉",
-      "description": "A proud milestone in my teaching journey. Topmate featured my work and recognized my contribution to helping learners grow in Cloud, DevOps, AI, MLOps, and Agentic AI. This achievement belongs to every student who trust…",
-      "publishedAt": "2026-07-29T18:36:00+00:00",
-      "url": "https://www.youtube.com/watch?v=RnQe-WV0E0s"
+      "id": "kPeN1u4zuRI",
+      "title": "Day 35: ML Training Process Explained | Train, Test & Evaluate Models | MLOps + AIOps + AI Agents",
+      "description": "Watch on Rajinikanth Vadla's YouTube channel.",
+      "publishedAt": "2026-11-03T07:21:09.698Z",
+      "url": "https://www.youtube.com/watch?v=kPeN1u4zuRI"
     },
     {
-      "id": "hmYeGn5f8h8",
-      "title": "I Was Teaching AWS... But It Turned Into an EPIC Tech Discussion | AWS Networking | MLOps AI",
-      "description": "Have you ever attended a class that suddenly became a real engineering discussion instead of a lecture? That is exactly what happened in this session. Instead of following slides, students started asking real-world AWS…",
-      "publishedAt": "2026-07-22T20:44:39+00:00",
-      "url": "https://www.youtube.com/watch?v=hmYeGn5f8h8"
+      "id": "Ycf2qVh7j2k",
+      "title": "NumPy, Pandas & Seaborn Tutorial for Beginners | Python MLOps Day 34",
+      "description": "Watch on Rajinikanth Vadla's YouTube channel.",
+      "publishedAt": "2026-11-03T07:21:09.761Z",
+      "url": "https://www.youtube.com/watch?v=Ycf2qVh7j2k"
     },
     {
-      "id": "oJTkfNV5x_s",
-      "title": "The OSI Model and Network Load Balancing",
-      "description": "",
-      "publishedAt": "2026-07-17T17:29:45+00:00",
-      "url": "https://www.youtube.com/watch?v=oJTkfNV5x_s"
+      "id": "BwtTm5iiIMc",
+      "title": "Data Preprocessing for Machine Learning | EDA, Encoding, Scaling & Feature Engineering",
+      "description": "Watch on Rajinikanth Vadla's YouTube channel.",
+      "publishedAt": "2026-11-03T07:21:09.855Z",
+      "url": "https://www.youtube.com/watch?v=BwtTm5iiIMc"
     },
     {
-      "id": "8iKoTVvqvJ4",
-      "title": "AWS Cloud Fundamentals for MLOps, LLMOps, AIOps & AI Agents | Day 05",
-      "description": "Learn AWS Cloud Fundamentals for MLOps, LLMOps, AIOps, AI Agents and Agentic AI workloads. In Day 05 of our job-ready AI and MLOps course, we explain the essential AWS cloud concepts every AI, DevOps, Cloud and MLOps en…",
-      "publishedAt": "2026-07-17T07:43:30+00:00",
-      "url": "https://www.youtube.com/watch?v=8iKoTVvqvJ4"
+      "id": "krfveAMt754",
+      "title": "Kubernetes Troubleshooting class 🔥 | Probes, StatefulSets & Real-Time AI/ML Production Scenarios",
+      "description": "Watch on Rajinikanth Vadla's YouTube channel.",
+      "publishedAt": "2026-11-03T07:21:09.920Z",
+      "url": "https://www.youtube.com/watch?v=krfveAMt754"
     },
     {
-      "id": "qEaDZ0KW7Ww",
-      "title": "DAY 03 | Network Fundamentals for MLOps, LLMOps, AIOps & AI Agents | Complete Beginner to Enterprise",
-      "description": "Welcome to Day 03 of the MLOps, LLMOps, AIOps & AI Agents complete job-ready course. In this session, we cover the Network Fundamentals every AI Engineer, DevOps Engineer, Cloud Engineer, Platform Engineer and MLOps Eng…",
-      "publishedAt": "2026-07-14T20:42:37+00:00",
-      "url": "https://www.youtube.com/watch?v=qEaDZ0KW7Ww"
+      "id": "QLoJ5cyt1QI",
+      "title": "Python Basics for AI Engineers 🔥 | Input, Data Types & Operators | MLOps, LLMOps, GenAI",
+      "description": "Watch on Rajinikanth Vadla's YouTube channel.",
+      "publishedAt": "2026-11-03T07:21:10.011Z",
+      "url": "https://www.youtube.com/watch?v=QLoJ5cyt1QI"
     },
     {
-      "id": "3bCsWPQE3YU",
-      "title": "DAY-02 | MLOPS, LLMOPS, AIOPS AI AGENTS COURSE | JOB READY | Rajinikanth Vadla",
-      "description": "Day 02 of the Job-Ready MLOps, LLMOps, AIOps and AI Agents Course by Rajinikanth Vadla. In this live class, learn the foundations of Artificial Intelligence, Machine Learning, Deep Learning, NLP and the complete enterpr…",
-      "publishedAt": "2026-07-13T18:48:13+00:00",
-      "url": "https://www.youtube.com/watch?v=3bCsWPQE3YU"
+      "id": "0B-rCYcQOVA",
+      "title": "K8S | RC | RS | DeployMents",
+      "description": "Watch on Rajinikanth Vadla's YouTube channel.",
+      "publishedAt": "2026-11-03T07:21:10.095Z",
+      "url": "https://www.youtube.com/watch?v=0B-rCYcQOVA"
     },
     {
-      "id": "Ua_C-8PQVH4",
-      "title": "AI-Powered Automation Engineering Course | Live Demo for Real Enterprise Engineers",
-      "description": "Join this live demo of the AI-Powered Automation Engineering Course designed for DevOps, Cloud, Platform, SRE, Software, Data and AI engineers. In this session, you will learn how modern companies combine: AI Agents LLM…",
-      "publishedAt": "2026-07-12T03:21:57+00:00",
-      "url": "https://www.youtube.com/watch?v=Ua_C-8PQVH4"
+      "id": "dla1LgbXQt8",
+      "title": "Pod Affinity & Node Affinity",
+      "description": "Watch on Rajinikanth Vadla's YouTube channel.",
+      "publishedAt": "2026-11-03T07:21:10.175Z",
+      "url": "https://www.youtube.com/watch?v=dla1LgbXQt8"
     },
     {
-      "id": "eWDa3NyUM94",
-      "title": "MLOps, LLMOps, AIOps & AI Agents Course | Build Real Enterprise AI Systems",
-      "description": "Learn how real companies build, deploy, monitor and automate production AI systems. This course covers MLOps, LLMOps, AIOps and AI Agents in one practical program designed for DevOps, Cloud, Platform, SRE, Data, ML and…",
-      "publishedAt": "2026-07-11T18:11:43+00:00",
-      "url": "https://www.youtube.com/watch?v=eWDa3NyUM94"
+      "id": "fsij3aA1Pbc",
+      "title": "K8S TAINT & TOLERATIONS",
+      "description": "Watch on Rajinikanth Vadla's YouTube channel.",
+      "publishedAt": "2026-11-03T07:21:10.264Z",
+      "url": "https://www.youtube.com/watch?v=fsij3aA1Pbc"
+    },
+    {
+      "id": "KmpdH8m1g7g",
+      "title": "PV, PVC & Helm Introdution",
+      "description": "Watch on Rajinikanth Vadla's YouTube channel.",
+      "publishedAt": "2026-11-03T07:21:10.336Z",
+      "url": "https://www.youtube.com/watch?v=KmpdH8m1g7g"
+    },
+    {
+      "id": "NC0BB5-crAI",
+      "title": "Pod resources and Limit Range",
+      "description": "Watch on Rajinikanth Vadla's YouTube channel.",
+      "publishedAt": "2026-11-03T07:21:10.457Z",
+      "url": "https://www.youtube.com/watch?v=NC0BB5-crAI"
+    },
+    {
+      "id": "BU4M23akQZE",
+      "title": "PV and PVC",
+      "description": "Watch on Rajinikanth Vadla's YouTube channel.",
+      "publishedAt": "2026-11-03T07:21:10.556Z",
+      "url": "https://www.youtube.com/watch?v=BU4M23akQZE"
+    },
+    {
+      "id": "onxAMv33xSA",
+      "title": "Probes and interview concepts",
+      "description": "Watch on Rajinikanth Vadla's YouTube channel.",
+      "publishedAt": "2026-11-03T07:21:10.638Z",
+      "url": "https://www.youtube.com/watch?v=onxAMv33xSA"
+    },
+    {
+      "id": "XFZk3-yFUNI",
+      "title": "Network Policy + K8's Probes",
+      "description": "Watch on Rajinikanth Vadla's YouTube channel.",
+      "publishedAt": "2026-11-03T07:21:10.722Z",
+      "url": "https://www.youtube.com/watch?v=XFZk3-yFUNI"
+    },
+    {
+      "id": "obfoXq98zT4",
+      "title": "SideCar-Containers Part-II",
+      "description": "Watch on Rajinikanth Vadla's YouTube channel.",
+      "publishedAt": "2026-11-03T07:21:10.799Z",
+      "url": "https://www.youtube.com/watch?v=obfoXq98zT4"
     }
   ]
 }

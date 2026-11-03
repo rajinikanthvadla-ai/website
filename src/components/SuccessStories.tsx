@@ -4,14 +4,16 @@ import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { SUCCESS_STORIES, TEXT_TESTIMONIALS, LINKS } from "@/lib/constants";
 import { encodePublicPath } from "@/lib/encodePublicPath";
-import {
-  fetchApprovedTestimonials,
-  type ApprovedTestimonial,
-} from "@/lib/student-testimonials";
 
-export default function SuccessStories() {
+type Props = {
+  /** Fewer screenshots for a cleaner home layout */
+  compact?: boolean;
+};
+
+export default function SuccessStories({ compact = false }: Props) {
   const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
-  const [approved, setApproved] = useState<ApprovedTestimonial[]>([]);
+  const screenshotStories = compact ? SUCCESS_STORIES.slice(0, 4) : SUCCESS_STORIES;
+  const textStories = compact ? TEXT_TESTIMONIALS.slice(0, 3) : TEXT_TESTIMONIALS;
 
   const closeLightbox = useCallback(() => {
     setLightboxSrc(null);
@@ -34,16 +36,6 @@ export default function SuccessStories() {
     return () => document.removeEventListener("keydown", onKeyDown);
   }, [lightboxSrc, closeLightbox]);
 
-  useEffect(() => {
-    let cancelled = false;
-    fetchApprovedTestimonials().then((rows) => {
-      if (!cancelled) setApproved(rows);
-    });
-    return () => {
-      cancelled = true;
-    };
-  }, []);
-
   return (
     <section id="success-stories" className="notion-section notion-section--paper overflow-hidden">
       <div className="relative max-w-7xl mx-auto px-6">
@@ -56,15 +48,15 @@ export default function SuccessStories() {
             Notes from people who sat in the same calls
           </h2>
           <p className="text-slate-600 max-w-xl mx-auto text-sm md:text-base leading-relaxed">
-            Written feedback from alumni plus screenshots they chose to share.
+            Alumni messages and screenshots they chose to share.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
-          {TEXT_TESTIMONIALS.map((t) => (
+          {textStories.map((t) => (
             <figure
               key={t.role}
-              className="bg-white border-2 border-slate-900 rounded-lg p-5 shadow-[3px_3px_0_#0f172a] flex flex-col"
+              className="bg-white border border-slate-200 rounded-lg p-5 shadow-sm flex flex-col"
             >
               <blockquote className="text-sm text-slate-700 leading-relaxed flex-1 mb-4">
                 &ldquo;{t.quote}&rdquo;
@@ -73,7 +65,7 @@ export default function SuccessStories() {
                 <button
                   type="button"
                   onClick={() => openLightbox(t.image)}
-                  className="relative w-10 h-10 rounded-sm overflow-hidden border border-slate-300 shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-700"
+                  className="relative w-10 h-10 rounded-sm overflow-hidden border border-slate-300 shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-700"
                   aria-label={`View screenshot from ${t.role}`}
                 >
                   <Image
@@ -93,25 +85,6 @@ export default function SuccessStories() {
               </figcaption>
             </figure>
           ))}
-          {approved.map((t) => (
-            <figure
-              key={t.id}
-              className="bg-white border-2 border-slate-900 rounded-lg p-5 shadow-[3px_3px_0_#0f172a] flex flex-col"
-            >
-              <blockquote className="text-sm text-slate-700 leading-relaxed flex-1 mb-4">
-                &ldquo;{t.quote}&rdquo;
-              </blockquote>
-              <figcaption className="pt-3 border-t border-slate-200">
-                <span className="inline-block bg-orange-500 text-white px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wide mb-1">
-                  {t.rating}★ · student
-                </span>
-                <div className="text-sm font-semibold text-slate-900">{t.name}</div>
-                <div className="text-xs text-slate-500">
-                  {[t.roleTitle, t.city, t.course].filter(Boolean).join(" · ")}
-                </div>
-              </figcaption>
-            </figure>
-          ))}
         </div>
 
         <div className="text-center mb-6">
@@ -119,7 +92,7 @@ export default function SuccessStories() {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
-          {SUCCESS_STORIES.map((story, i) => (
+          {screenshotStories.map((story, i) => (
             <button
               key={i}
               type="button"
@@ -128,7 +101,7 @@ export default function SuccessStories() {
             >
               <Image
                 src={encodePublicPath(story.src)}
-                alt={`Student message screenshot — ${story.badge}`}
+                alt={`Student message screenshot, ${story.badge}`}
                 fill
                 className="object-cover object-top group-hover:opacity-90 transition-opacity duration-300"
                 sizes="(max-width: 768px) 50vw, 20vw"
@@ -158,12 +131,12 @@ export default function SuccessStories() {
 
         <div className="text-center mt-10">
           <a
-            href={LINKS.topmate}
+            href={LINKS.whatsapp}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-blue-700 text-white px-8 py-3 rounded-lg text-sm font-semibold hover:bg-blue-800 transition-colors"
           >
-            Talk before you commit &rarr;
+            WhatsApp before you commit &rarr;
           </a>
         </div>
       </div>

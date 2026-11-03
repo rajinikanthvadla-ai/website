@@ -8,99 +8,84 @@ function formatPublishedDate(isoDate: string) {
   return date.toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" });
 }
 
+/** Home YouTube block: left copy, right = latest synced uploads from the channel. */
 export default function YoutubePlaylist() {
   const videos = getLatestYoutubeVideos(6);
   const lastSynced = getYoutubeLastSyncedLabel();
 
   return (
-    <section className="py-20 md:py-28 bg-white border-b border-slate-200">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <span className="inline-block bg-blue-100 text-blue-700 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4">
-            Latest on YouTube
-          </span>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-            Recent course videos
-          </h2>
-          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-            Fresh uploads from Rajinikanth Vadla&apos;s channel — MLOps, AIOps, LLMOps, AI Agents, FDE, and GenAI.
-            {lastSynced ? ` Updated ${lastSynced}.` : ""}
-          </p>
-        </div>
-
-        {/* Video Grid */}
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
-          {videos.map((video) => (
-            <a
-              key={video.id}
-              href={`https://www.youtube.com/watch?v=${video.id}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group block rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow border border-slate-200"
-            >
-              {/* Thumbnail */}
-              <div className="relative aspect-video bg-slate-900 overflow-hidden">
-                <img
-                  src={`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`}
-                  alt={video.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors flex items-center justify-center">
-                  <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                    <span className="text-white text-xl">▶</span>
-                  </div>
-                </div>
-                <div className="absolute bottom-3 right-3 bg-black text-white px-2 py-1 rounded text-xs font-bold">
-                  YouTube
-                </div>
-              </div>
-
-              {/* Title */}
-              <div className="p-4 bg-slate-50">
-                <h3 className="font-display font-bold text-slate-900 text-base leading-snug line-clamp-2 group-hover:text-blue-700 transition-colors mb-2">
-                  {video.title}
-                </h3>
-                {video.description ? (
-                  <p className="text-sm text-slate-600 line-clamp-2 mb-2">{video.description}</p>
-                ) : null}
-                {video.uploadDate ? (
-                  <p className="text-xs text-slate-400">{formatPublishedDate(video.uploadDate)}</p>
-                ) : null}
-              </div>
-            </a>
-          ))}
-        </div>
-
-        {/* Browse All */}
-        <div className="text-center">
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center max-w-2xl mx-auto mb-5">
-            <a
-              href={YOUTUBE_MEMBERSHIP_JOIN_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="yt-cta-pro group flex-1 !justify-center !text-center sm:!text-left"
-            >
-              <span className="text-2xl shrink-0" aria-hidden>▶</span>
-              <span>
-                Unlock ALL private videos
-                <span className="block text-[0.65rem] font-semibold opacity-90 mt-0.5">
-                  Agentic Pro · ₹1,199/mo + mentorship
-                </span>
-              </span>
-              <span className="yt-cta-arrow hidden sm:inline" aria-hidden>→</span>
-            </a>
-            <a
-              href={LINKS.youtube}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-white text-[#0f172a] border-2 border-[#0f172a] px-6 py-4 rounded-sm font-bold shadow-[3px_3px_0_#0f172a] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0_#0f172a] transition-all text-sm"
-            >
-              Free public videos
-            </a>
+    <section id="youtube" className="border-y border-slate-200 bg-white py-14 md:py-16">
+      <div className="max-w-5xl mx-auto px-6">
+        <div className="grid lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] gap-10 lg:gap-12 items-start">
+          <div className="lg:sticky lg:top-24">
+            <p className="text-xs font-bold uppercase tracking-[0.14em] text-red-600 mb-2">YouTube</p>
+            <h2 className="font-display text-2xl md:text-3xl font-bold text-[#0f172a] mb-3 leading-tight">
+              Latest uploads from the channel
+            </h2>
+            <p className="text-sm text-slate-600 leading-relaxed mb-4 max-w-md">
+              This list is auto-fetched from Rajinikanth Vadla&apos;s YouTube channel on every site deploy and daily sync.
+              New public videos show up here after the next refresh.
+            </p>
+            {lastSynced ? (
+              <p className="inline-flex items-center gap-2 text-xs font-semibold text-teal-800 bg-teal-50 border border-teal-100 rounded-md px-2.5 py-1 mb-6">
+                <span className="w-1.5 h-1.5 rounded-full bg-teal-500" aria-hidden />
+                Last synced {lastSynced}
+              </p>
+            ) : null}
+            <div className="flex flex-col gap-3 max-w-sm">
+              <a
+                href={LINKS.youtube}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="notion-btn notion-btn--ink text-center"
+              >
+                Open YouTube channel
+              </a>
+              <a
+                href={YOUTUBE_MEMBERSHIP_JOIN_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="notion-btn notion-btn--ghost text-center"
+              >
+                Membership (private videos)
+              </a>
+            </div>
           </div>
-          <p className="text-slate-500 text-sm">
-            60+ members-only videos · live streams · share Member ID for 1:1 help
-          </p>
+
+          <ul className="space-y-3">
+            {videos.map((video) => (
+              <li key={video.id}>
+                <a
+                  href={`https://www.youtube.com/watch?v=${video.id}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex gap-3 rounded-lg border border-slate-200 bg-slate-50 p-2.5 hover:border-slate-400 transition-colors"
+                >
+                  <div className="relative w-[132px] sm:w-[148px] shrink-0 aspect-video overflow-hidden rounded-md bg-slate-900">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`}
+                      alt=""
+                      className="w-full h-full object-cover"
+                    />
+                    <span className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/25 transition-colors">
+                      <span className="w-8 h-8 rounded-full bg-red-600 text-white text-xs flex items-center justify-center opacity-90">
+                        ▶
+                      </span>
+                    </span>
+                  </div>
+                  <div className="min-w-0 flex-1 py-0.5">
+                    <h3 className="font-display font-bold text-sm text-[#0f172a] leading-snug line-clamp-2 group-hover:text-teal-800">
+                      {video.title}
+                    </h3>
+                    {video.uploadDate ? (
+                      <p className="text-[11px] text-slate-400 mt-1.5">{formatPublishedDate(video.uploadDate)}</p>
+                    ) : null}
+                  </div>
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>

@@ -22,7 +22,7 @@ create index if not exists student_testimonials_approved_idx
 
 alter table public.student_testimonials enable row level security;
 
--- Public site may read only approved testimonials
+-- Public site may read only approved testimonials (admin approve = publish)
 drop policy if exists "Public read approved testimonials" on public.student_testimonials;
 create policy "Public read approved testimonials"
   on public.student_testimonials

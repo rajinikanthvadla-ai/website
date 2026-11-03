@@ -1,27 +1,37 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { MasterclassModule } from "@/lib/masterclass-syllabus";
 import { MLOPS_MASTERCLASS_SYLLABUS } from "@/lib/masterclass-syllabus";
 
 type Props = {
   modules?: MasterclassModule[];
-  variant?: "compact" | "accordion";
+  variant?: "compact" | "accordion" | "rail";
 };
 
-function ModuleAccordion({ mod, defaultOpen }: { mod: MasterclassModule; defaultOpen?: boolean }) {
-  const [open, setOpen] = useState(defaultOpen ?? false);
+function ModuleAccordion({
+  mod,
+  open,
+  onToggle,
+}: {
+  mod: MasterclassModule;
+  open: boolean;
+  onToggle: () => void;
+}) {
   const labCount = mod.sections.filter((s) => s.lab).length;
 
   return (
-    <div className="border border-slate-200 rounded-lg bg-white overflow-hidden">
+    <div
+      id={`module-${mod.module}`}
+      className="border border-slate-200 rounded-lg bg-white overflow-hidden scroll-mt-28"
+    >
       <button
         type="button"
-        onClick={() => setOpen(!open)}
+        onClick={onToggle}
         className="w-full flex items-start gap-4 p-5 sm:p-6 text-left hover:bg-slate-50 transition-colors"
         aria-expanded={open}
       >
-        <span className="w-10 h-10 shrink-0 rounded-lg bg-blue-700 text-white flex items-center justify-center text-sm font-bold">
+        <span className="w-10 h-10 shrink-0 rounded-lg bg-teal-700 text-white flex items-center justify-center text-sm font-bold">
           {mod.module}
         </span>
         <span className="flex-1 min-w-0">
@@ -34,7 +44,10 @@ function ModuleAccordion({ mod, defaultOpen }: { mod: MasterclassModule; default
             </span>
           )}
         </span>
-        <span className="text-slate-400 text-xl shrink-0 mt-1 transition-transform" style={{ transform: open ? "rotate(45deg)" : undefined }}>
+        <span
+          className="text-slate-400 text-xl shrink-0 mt-1 transition-transform"
+          style={{ transform: open ? "rotate(45deg)" : undefined }}
+        >
           +
         </span>
       </button>
@@ -55,7 +68,7 @@ function ModuleAccordion({ mod, defaultOpen }: { mod: MasterclassModule; default
                 <ul className="space-y-1.5">
                   {section.items.map((item) => (
                     <li key={item} className="text-sm text-slate-600 flex items-start gap-2 leading-relaxed">
-                      <span className="text-blue-600 shrink-0 mt-0.5">·</span>
+                      <span className="text-teal-600 shrink-0 mt-0.5">·</span>
                       {item}
                     </li>
                   ))}
@@ -75,7 +88,7 @@ function ModuleCompact({ mod }: { mod: MasterclassModule }) {
   return (
     <div className="panel p-6 bg-white h-full">
       <div className="flex items-start gap-4 mb-4">
-        <span className="w-10 h-10 shrink-0 rounded-lg bg-blue-700 text-white flex items-center justify-center text-sm font-bold">
+        <span className="w-10 h-10 shrink-0 rounded-lg bg-teal-700 text-white flex items-center justify-center text-sm font-bold">
           {mod.module}
         </span>
         <div>
@@ -87,7 +100,7 @@ function ModuleCompact({ mod }: { mod: MasterclassModule }) {
       <ul className="space-y-1.5">
         {preview.map((s) => (
           <li key={s.title} className="text-sm text-slate-600 flex items-center gap-2">
-            <span className="text-blue-600 font-bold shrink-0">·</span>
+            <span className="text-teal-600 font-bold shrink-0">·</span>
             <span className="truncate">{s.title}</span>
             {s.lab && <span className="text-[9px] font-bold text-orange-600 uppercase shrink-0">Lab</span>}
           </li>
@@ -101,6 +114,15 @@ function ModuleCompact({ mod }: { mod: MasterclassModule }) {
 }
 
 export default function MasterclassSyllabus({ modules = MLOPS_MASTERCLASS_SYLLABUS, variant = "accordion" }: Props) {
+  const [active, setActive] = useState(modules[0]?.module ?? 1);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const hash = window.location.hash.replace("#module-", "");
+    const n = Number(hash);
+    if (n && modules.some((m) => m.module === n)) setActive(n);
+  }, [modules]);
+
   if (variant === "compact") {
     return (
       <div className="grid md:grid-cols-2 gap-4">
@@ -111,10 +133,48 @@ export default function MasterclassSyllabus({ modules = MLOPS_MASTERCLASS_SYLLAB
     );
   }
 
+  if (variant === "rail") {
+    return (
+      <div className="syllabus-rail-layout">
+        <nav className="syllabus-module-nav" aria-label="Modules">
+          <p className="px-2 py-1 text-[10px] font-bold uppercase tracking-wide text-slate-400">Modules</p>
+          {modules.map((mod) => (
+            <button
+              key={mod.module}
+              type="button"
+              className={active === mod.module ? "is-active" : ""}
+              onClick={() => {
+                setActive(mod.module);
+                document.getElementById(`module-${mod.module}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+              }}
+            >
+              {mod.module}. {mod.title}
+            </button>
+          ))}
+        </nav>
+        <div className="space-y-3">
+          {modules.map((mod) => (
+            <ModuleAccordion
+              key={mod.module}
+              mod={mod}
+              open={active === mod.module}
+              onToggle={() => setActive(active === mod.module ? -1 : mod.module)}
+            />
+          ))}
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="space-y-3 max-w-4xl mx-auto">
-      {modules.map((mod, i) => (
-        <ModuleAccordion key={mod.module} mod={mod} defaultOpen={i === 0} />
+      {modules.map((mod) => (
+        <ModuleAccordion
+          key={mod.module}
+          mod={mod}
+          open={active === mod.module}
+          onToggle={() => setActive(active === mod.module ? -1 : mod.module)}
+        />
       ))}
     </div>
   );

@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import { Libre_Baskerville, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
+import AppShell from "@/components/AppShell";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
-import CareerGuideBot from "@/components/CareerGuideBot";
 import { SITE, STRUCTURED_DATA } from "@/lib/constants";
 import { HREFLANG_LANGUAGES } from "@/lib/hreflang";
 
@@ -133,10 +132,10 @@ export default function RootLayout({
         />
       </head>
       <body className={`${sans.className} notion-theme antialiased`}>
-        <Header />
-        <main>{children}</main>
-        <Footer />
-        <CareerGuideBot />
+        <AppShell>
+          <main>{children}</main>
+          <Footer />
+        </AppShell>
         <WhatsAppFloat />
       </body>
     </html>

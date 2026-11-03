@@ -63,83 +63,64 @@ export default function SyllabusPage() {
       <BreadcrumbJsonLd items={[{ name: "Courses", path: "/courses/" }, { name: "Syllabus", path: "/syllabus/" }]} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(courseListSchema) }} />
 
-      <section className="notion-section notion-section--white border-b border-slate-200">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <span className="notion-eyebrow justify-center">
-            <span className="notion-eyebrow-dot" />
-            Handy course syllabus
-          </span>
-          <h1 className="font-display text-4xl md:text-5xl font-bold text-[#0f172a] mt-4 mb-4 leading-tight">
-            MLOps, AIOps, LLMOps, AI Agents &amp; FDE Syllabus
+      <section className="border-b border-slate-200 bg-white py-10 md:py-14">
+        <div className="max-w-5xl mx-auto px-6">
+          <p className="text-xs font-bold uppercase tracking-[0.14em] text-teal-700 mb-2">Course syllabus</p>
+          <h1 className="font-display text-3xl md:text-4xl font-bold text-[#0f172a] mb-3 leading-tight">
+            What you learn — week by week
           </h1>
-          <p className="text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto mb-8">
-            Everything students ask for before joining — full module list, labs, projects, who it is for, and how to contact for batch details.
+          <p className="text-slate-600 leading-relaxed max-w-2xl mb-6">
+            Clear modules, labs, and outcomes. Use the left list to jump. Ask on WhatsApp for the next live batch.
           </p>
-          <div className="flex flex-wrap justify-center gap-3">
+          <div className="flex flex-wrap gap-3 mb-8">
             <a href="#masterclass" className="notion-btn notion-btn--ink">
-              Masterclass syllabus
+              Masterclass
             </a>
             <a href="#automation" className="notion-btn notion-btn--ghost">
-              AI Automation syllabus
+              AI Automation
             </a>
-            <a href={LINKS.whatsappSyllabus} target="_blank" rel="noopener noreferrer" className="notion-btn notion-btn--accent">
-              WhatsApp for batch details
+            <a
+              href={LINKS.whatsappSyllabus}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="notion-btn notion-btn--accent"
+            >
+              WhatsApp batch details
             </a>
           </div>
-        </div>
-      </section>
-
-      <section className="notion-section notion-section--cream border-b border-slate-200">
-        <div className="max-w-5xl mx-auto px-6">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
             {[
               { label: "Duration", value: MLOPS_MASTERCLASS_DURATION },
               { label: "Live fee", value: <CoursePrice plan="live" /> },
               { label: "Recordings", value: <><CoursePrice plan="recordings" /> lifetime</> },
-              { label: "Focus", value: "MLOps · AIOps · LLMOps · Agents · FDE" },
+              { label: "Focus", value: "MLOps · AIOps · LLMOps · Agents" },
             ].map((item) => (
-              <div key={item.label} className="panel p-5 text-center">
-                <p className="text-xs font-bold uppercase tracking-wide text-blue-700 mb-1">{item.label}</p>
-                <p className="font-display font-bold text-[#0f172a]">{item.value}</p>
+              <div key={item.label} className="rounded-lg border border-slate-200 bg-slate-50 px-4 py-3">
+                <p className="text-[10px] font-bold uppercase tracking-wide text-slate-500 mb-1">{item.label}</p>
+                <p className="font-display font-bold text-sm text-[#0f172a]">{item.value}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="masterclass" className="notion-section notion-section--white border-b border-slate-200">
+      <section id="masterclass" className="border-b border-slate-200 bg-[#f4f6f8] py-12 md:py-16">
         <div className="max-w-5xl mx-auto px-6">
-          <div className="mb-10">
-            <span className="notion-dash-badge mb-3 inline-flex">Flagship</span>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-[#0f172a] mb-3">
-              Masterclass curriculum ({MLOPS_MASTERCLASS_SYLLABUS.length} modules)
+          <div className="mb-8">
+            <span className="text-[10px] font-bold uppercase tracking-wide text-orange-600">Flagship · {MLOPS_MASTERCLASS_SYLLABUS.length} modules</span>
+            <h2 className="font-display text-2xl md:text-3xl font-bold text-[#0f172a] mt-2 mb-2">
+              Masterclass curriculum
             </h2>
-            <p className="text-slate-600 max-w-3xl leading-relaxed">
-              Job-ready path from fundamentals to production: DevOps foundations, MLOps, LLMOps, AIOps, AI Agents, FDE skills, and 4 portfolio capstones.
+            <p className="text-slate-600 max-w-2xl text-sm leading-relaxed">
+              Fundamentals → MLOps → LLMOps → AIOps → Agents → FDE → portfolio capstones. Open one module at a time.
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
-            {MLOPS_MASTERCLASS_SYLLABUS.map((mod) => (
-              <article
-                key={mod.module}
-                className="panel p-5 border border-slate-200"
-              >
-                <p className="text-xs font-bold text-orange-600 uppercase tracking-wide mb-1">Module {mod.module}</p>
-                <h3 className="font-display font-bold text-[#0f172a] mb-1">{mod.title}</h3>
-                <p className="text-xs text-slate-500 mb-2">{mod.duration}</p>
-                <p className="text-sm text-slate-600 line-clamp-2">{mod.summary}</p>
-              </article>
-            ))}
-          </div>
+          <MasterclassSyllabus variant="rail" />
 
-          <div className="mb-10">
-            <MasterclassSyllabus variant="accordion" />
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6 mb-10">
-            <div className="panel p-6">
-              <h3 className="font-display font-bold text-[#0f172a] mb-3">Program includes</h3>
+          <div className="grid md:grid-cols-3 gap-4 mt-10">
+            <div className="rounded-lg border border-slate-200 bg-white p-5">
+              <h3 className="font-display font-bold text-[#0f172a] mb-3 text-sm">Includes</h3>
               <ul className="space-y-2">
                 {MLOPS_PROGRAM_INCLUDES.map((item) => (
                   <li key={item.label} className="text-sm text-slate-600">
@@ -148,124 +129,96 @@ export default function SyllabusPage() {
                 ))}
               </ul>
             </div>
-            <div className="panel p-6">
-              <h3 className="font-display font-bold text-[#0f172a] mb-3">Who this is for</h3>
+            <div className="rounded-lg border border-slate-200 bg-white p-5">
+              <h3 className="font-display font-bold text-[#0f172a] mb-3 text-sm">Who this is for</h3>
               <ul className="space-y-2">
                 {MLOPS_TARGET_AUDIENCE.map((item) => (
                   <li key={item} className="text-sm text-slate-600 flex gap-2">
-                    <span className="text-blue-700">·</span>
+                    <span className="text-teal-600">·</span>
                     {item}
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="panel p-6">
-              <h3 className="font-display font-bold text-[#0f172a] mb-3">Prerequisites</h3>
-              <ul className="space-y-2 mb-5">
+            <div className="rounded-lg border border-slate-200 bg-white p-5">
+              <h3 className="font-display font-bold text-[#0f172a] mb-3 text-sm">Prerequisites</h3>
+              <ul className="space-y-2 mb-4">
                 {MLOPS_PREREQUISITES.map((item) => (
                   <li key={item} className="text-sm text-slate-600 flex gap-2">
-                    <span className="text-blue-700">·</span>
+                    <span className="text-teal-600">·</span>
                     {item}
                   </li>
                 ))}
               </ul>
-              <Link href="/mlops-aiops-masterclass/" className="notion-dash-link text-sm font-bold">
-                Open full masterclass page &rarr;
+              <Link href="/mlops-aiops-masterclass/" className="text-sm font-bold text-teal-700 underline underline-offset-2">
+                Full masterclass page →
               </Link>
-            </div>
-          </div>
-
-          <div className="panel p-6 md:p-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-2 border-slate-900 shadow-[4px_4px_0_#0f172a]">
-            <div>
-              <h3 className="font-display font-bold text-lg text-[#0f172a]">Ready to join the masterclass?</h3>
-              <p className="text-sm text-slate-600 mt-1">Ask for current batch dates, demo session, or fee details on WhatsApp.</p>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-3">
-              <a href={LINKS.whatsappSyllabus} target="_blank" rel="noopener noreferrer" className="notion-btn notion-btn--accent text-center">
-                WhatsApp syllabus help
-              </a>
-              <a href={LINKS.enroll} target="_blank" rel="noopener noreferrer" className="notion-btn notion-btn--ink text-center">
-                Enroll now
-              </a>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="automation" className="notion-section notion-section--cream border-b border-slate-200">
+      <section id="automation" className="border-b border-slate-200 bg-white py-12 md:py-16">
         <div className="max-w-5xl mx-auto px-6">
-          <div className="mb-10">
-            <span className="notion-dash-badge mb-3 inline-flex">New</span>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-[#0f172a] mb-3">
-              AI Automation syllabus ({AI_AUTOMATION_DURATION})
+          <div className="mb-8">
+            <span className="text-[10px] font-bold uppercase tracking-wide text-orange-600">New · {AI_AUTOMATION_DURATION}</span>
+            <h2 className="font-display text-2xl md:text-3xl font-bold text-[#0f172a] mt-2 mb-2">
+              AI Automation syllabus
             </h2>
-            <p className="text-slate-600 max-w-3xl leading-relaxed">
-              Build company AI agents with Cursor, MCP, RAG, Bedrock, and business metrics. Fee: {AI_AUTOMATION_PRICE} with lifetime recordings.
+            <p className="text-slate-600 max-w-2xl text-sm leading-relaxed">
+              Cursor, MCP, RAG, Bedrock agents, business metrics. Fee: {AI_AUTOMATION_PRICE} with lifetime recordings.
             </p>
           </div>
 
-          <div className="space-y-4 mb-10">
+          <div className="space-y-3 mb-8">
             {AI_AUTOMATION_SYLLABUS_RICH.map((mod) => (
-              <article key={mod.module} className="panel p-6">
-                <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
+              <details key={mod.module} className="rounded-lg border border-slate-200 bg-slate-50 group">
+                <summary className="cursor-pointer list-none p-5 flex flex-wrap items-start justify-between gap-3">
                   <div>
-                    <p className="text-xs font-bold text-orange-600 uppercase tracking-wide">Module {mod.module}</p>
-                    <h3 className="font-display font-bold text-xl text-[#0f172a]">{mod.title}</h3>
+                    <p className="text-[10px] font-bold uppercase tracking-wide text-teal-700">Module {mod.module}</p>
+                    <h3 className="font-display font-bold text-lg text-[#0f172a]">{mod.title}</h3>
                   </div>
-                  <span className="text-xs font-bold text-blue-700">{mod.duration}</span>
+                  <span className="text-xs font-bold text-slate-500">{mod.duration}</span>
+                </summary>
+                <div className="px-5 pb-5 border-t border-slate-200 pt-4">
+                  <p className="text-sm text-slate-600 mb-3">{mod.summary}</p>
+                  <p className="text-sm font-semibold text-[#0f172a] mb-3">Outcome: {mod.outcome}</p>
+                  <ul className="grid sm:grid-cols-2 gap-2">
+                    {mod.sections.flatMap((section) =>
+                      section.items.map((item) => (
+                        <li key={`${section.title}-${item}`} className="text-sm text-slate-600 flex gap-2">
+                          <span className="text-teal-600 shrink-0">·</span>
+                          <span>
+                            <span className="font-semibold text-slate-800">{section.title}:</span> {item}
+                          </span>
+                        </li>
+                      )),
+                    )}
+                  </ul>
                 </div>
-                <p className="text-sm text-slate-600 mb-4">{mod.summary}</p>
-                <p className="text-sm font-semibold text-[#0f172a] mb-3">Outcome: {mod.outcome}</p>
-                <ul className="grid sm:grid-cols-2 gap-2">
-                  {mod.sections.flatMap((section) =>
-                    section.items.map((item) => (
-                      <li key={`${section.title}-${item}`} className="text-sm text-slate-600 flex gap-2">
-                        <span className="text-blue-700 shrink-0">·</span>
-                        <span>
-                          <span className="font-semibold text-slate-800">{section.title}:</span> {item}
-                        </span>
-                      </li>
-                    )),
-                  )}
-                </ul>
-              </article>
+              </details>
             ))}
           </div>
 
           <div className="flex flex-wrap gap-3">
             <Link href="/courses/ai-automation/" className="notion-btn notion-btn--ink">
-              Open AI Automation page &rarr;
+              AI Automation page
             </Link>
-            <a href={LINKS.whatsappAutomation} target="_blank" rel="noopener noreferrer" className="notion-btn notion-btn--accent">
+            <a
+              href={LINKS.whatsappAutomation}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="notion-btn notion-btn--accent"
+            >
               WhatsApp about Automation
             </a>
           </div>
         </div>
       </section>
 
-      <section className="notion-section notion-section--white">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="font-display text-2xl md:text-3xl font-bold text-[#0f172a] mb-3">
-            Prepare for interviews while you learn
-          </h2>
-          <p className="text-slate-600 mb-6">
-            Free AI/ML interview questions covering MLOps, LLMOps, AI Agents, FDE, and system design — written for the same roles this syllabus trains.
-            Also review production architecture diagrams used in interviews.
-          </p>
-          <div className="flex flex-wrap justify-center gap-3">
-            <Link href="/interview-questions/" className="notion-btn notion-btn--ghost">
-              Open interview questions &rarr;
-            </Link>
-            <Link href="/architecture/" className="notion-btn notion-btn--ink">
-              Architecture diagrams &rarr;
-            </Link>
-          </div>
-        </div>
-      </section>
-
       <CTASection
         title="Still deciding which course fits you?"
-        subtitle="Message on WhatsApp with your background (DevOps, ML, QA, fresher). I will recommend masterclass, automation, or mentorship."
+        subtitle="Message on WhatsApp with your background. I will recommend masterclass, automation, or mentorship."
       />
     </>
   );

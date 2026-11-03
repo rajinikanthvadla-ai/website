@@ -16,13 +16,27 @@ export default function CTASection({
   ctaPreset = "default",
 }: CTASectionProps) {
   const actions =
-    ctaPreset === "mentorship" || ctaPreset === "contact" ? (
+    ctaPreset === "mentorship" ? (
       <>
-        <a href={LINKS.topmate} target="_blank" rel="noopener noreferrer" className="notion-btn notion-btn--ink">
-          Book 1:1 Session
+        <a href="/mentorship/#pricing" className="notion-btn notion-btn--ink">
+          Pay with Razorpay
         </a>
         <a href={LINKS.whatsapp} target="_blank" rel="noopener noreferrer" className="notion-btn notion-btn--accent">
+          WhatsApp if you have doubts
+        </a>
+        {showYoutube ? (
+          <a href={LINKS.youtube} target="_blank" rel="noopener noreferrer" className="notion-btn notion-btn--ghost">
+            YouTube
+          </a>
+        ) : null}
+      </>
+    ) : ctaPreset === "contact" ? (
+      <>
+        <a href={LINKS.whatsapp} target="_blank" rel="noopener noreferrer" className="notion-btn notion-btn--accent">
           WhatsApp
+        </a>
+        <a href="/mentorship/#pricing" className="notion-btn notion-btn--ink">
+          Mentorship plans
         </a>
         {showYoutube ? (
           <a href={LINKS.youtube} target="_blank" rel="noopener noreferrer" className="notion-btn notion-btn--ghost">

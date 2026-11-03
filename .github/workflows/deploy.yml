@@ -28,6 +28,10 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Sync latest YouTube videos
+        run: npm run sync:youtube
+        continue-on-error: true
+
       - name: Build
         env:
           NEXT_PUBLIC_GEMINI_API_KEY: ${{ secrets.NEXT_PUBLIC_GEMINI_API_KEY }}

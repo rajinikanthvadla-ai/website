@@ -56,7 +56,36 @@ export type NavGroup = {
   links: NavLink[];
 };
 
-/** Grouped navigation. Four menus keep the header readable on laptop and mobile. */
+/** Primary left-rail links — one level, student-first. */
+export const SIDEBAR_NAV: {
+  label: string;
+  href: string;
+  icon:
+    | "home"
+    | "courses"
+    | "syllabus"
+    | "architecture"
+    | "path"
+    | "python"
+    | "blog"
+    | "mentorship"
+    | "about"
+    | "enroll";
+}[] = [
+  { label: "Home", href: "/", icon: "home" },
+  { label: "Courses", href: "/courses", icon: "courses" },
+  { label: "Syllabus", href: "/syllabus", icon: "syllabus" },
+  { label: "Architecture", href: "/architecture", icon: "architecture" },
+  { label: "Career path", href: "/roadmap", icon: "path" },
+  { label: "Python (free)", href: "/python-course", icon: "python" },
+  { label: "YouTube", href: "/#youtube", icon: "blog" },
+  { label: "Blog", href: "/blog", icon: "blog" },
+  { label: "Mentorship", href: "/mentorship", icon: "mentorship" },
+  { label: "About", href: "/about", icon: "about" },
+  { label: "Enroll", href: "/enroll", icon: "enroll" },
+];
+
+/** Grouped navigation (legacy mega-menu; kept for secondary mobile “More”). */
 export const NAV_GROUPS: NavGroup[] = [
   {
     id: "programs",
@@ -339,7 +368,7 @@ export const COURSES = [
   {
     title: "AI-Powered Automation Efficiency",
     description:
-      "2-month live course: build company AI agents — incident, RAG, MCP, HR. ₹20,000 with lifetime recordings and 1-on-1 mentorship.",
+      "2-month live course: build company AI agents (incident, RAG, MCP, HR). ₹20,000 with lifetime recordings and 1-on-1 mentorship.",
     features: [
       "₹20,000 · lifetime recordings",
       "12 agent patterns",
@@ -374,7 +403,7 @@ export const COURSES = [
       "Resume and LinkedIn review",
       "Mock interviews",
       "Learning path guidance",
-      "Book on Topmate or WhatsApp",
+      "Pay on Razorpay or WhatsApp first",
     ],
     badge: "MENTORSHIP",
     href: "/mentorship",
@@ -398,7 +427,7 @@ export const HOME_PAGE_FAQS = [
   },
   {
     q: "Is training live or recorded?",
-    a: "All cohort sessions are live with Q&A. Recordings are shared. Mentorship is 1:1 on Topmate or WhatsApp, available worldwide.",
+    a: "All cohort sessions are live with Q&A. Recordings are shared. Mentorship is 1:1 on WhatsApp after Razorpay payment, available worldwide.",
   },
   {
     q: "Can I join from outside India?",
@@ -410,7 +439,7 @@ export const HOME_PAGE_FAQS = [
   },
   {
     q: "Is there a cheaper way to access all your course videos?",
-    a: "Yes — join YouTube AI & ML AI Agentic Pro membership at ₹1,199/month. You get every members-only video (private courses, old sessions, new uploads), live streams, and 1:1 mentorship when you share your Member ID on WhatsApp. Lower tiers (₹179 or ₹419) do not include the full library or mentorship.",
+    a: "Yes. Join YouTube AI & ML AI Agentic Pro membership at ₹1,199/month. You get every members-only video (private courses, old sessions, new uploads), live streams, and 1:1 mentorship when you share your Member ID on WhatsApp. Lower tiers (₹179 or ₹419) do not include the full library or mentorship.",
   },
   {
     q: "Can I join from USA, UK, Ireland, or Europe?",

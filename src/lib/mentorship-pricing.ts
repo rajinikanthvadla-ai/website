@@ -125,8 +125,8 @@ export const MENTORSHIP_FAQS = [
     a: "Visitors in India pay in rupees (UPI, cards, net banking). Visitors from every other country pay in US dollars by card. The page shows the right currency for your location automatically.",
   },
   {
-    q: "Can I book through Topmate instead?",
-    a: "Yes. Every plan has a Topmate button if you prefer booking there.",
+    q: "Still unsure which plan to pick?",
+    a: "Message me on WhatsApp with your background and goal. I will tell you which plan fits before you pay on Razorpay. No Topmate booking needed.",
   },
 ];
 

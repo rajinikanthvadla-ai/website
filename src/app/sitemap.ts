@@ -37,7 +37,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/ai-agents-course/`, lastModified: now, changeFrequency: "daily", priority: 0.96 },
     { url: `${base}/aiops-training/`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: `${base}/ai-tools-productivity/`, lastModified: now, changeFrequency: "weekly", priority: 0.88 },
-    { url: `${base}/mentorship/`, lastModified: now, changeFrequency: "weekly", priority: 0.85 },
+    { url: `${base}/mentorship/`, lastModified: now, changeFrequency: "daily", priority: 0.96 },
     { url: `${base}/community/`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: `${base}/about/`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/contact/`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },

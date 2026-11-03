@@ -76,15 +76,20 @@ export async function fetchApprovedTestimonials(): Promise<ApprovedTestimonial[]
   const supabase = getSupabaseBrowserClient();
   if (!supabase) return [];
 
+  // Show every row you marked approved in Supabase (consent filter was hiding many).
   const { data, error } = await supabase
     .from("student_testimonials")
-    .select("id, name, role_title, city, course, rating, quote")
+    .select("id, name, role_title, city, course, rating, quote, created_at")
     .eq("approved", true)
-    .eq("consent_to_publish", true)
-    .order("approved_at", { ascending: false })
-    .limit(24);
+    .order("created_at", { ascending: false })
+    .limit(48);
 
-  if (error || !data) return [];
+  if (error || !data) {
+    if (process.env.NODE_ENV === "development" && error) {
+      console.warn("[testimonials]", error.message);
+    }
+    return [];
+  }
 
   return data.map((row) => ({
     id: row.id as string,

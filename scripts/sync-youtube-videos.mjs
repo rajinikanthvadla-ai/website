@@ -1,6 +1,11 @@
 /**
- * Fetches the latest videos from the YouTube channel RSS feed (no API key required).
- * Writes content/youtube-videos.json for the site build.
+ * Fetches the latest videos from the YouTube channel and writes
+ * content/youtube-videos.json for the static site build.
+ *
+ * YouTube channel RSS currently 404s for this channel, so we:
+ * 1) scrape /videos for ordered video IDs
+ * 2) resolve titles via oEmbed
+ * 3) keep prior publishedAt when the video was already synced
  */
 import fs from "fs";
 import path from "path";
@@ -9,69 +14,82 @@ import { fileURLToPath } from "url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const OUTPUT = path.join(__dirname, "..", "content", "youtube-videos.json");
 const CHANNEL_ID = "UCeFXgm7rc9WzmRF1UZ7B4PA";
-const MAX_VIDEOS = 12;
-const RSS_URL = `https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}`;
+const CHANNEL_HANDLE = "@IamRajinikanthvadla";
+const CHANNEL_URL = `https://www.youtube.com/${CHANNEL_HANDLE}`;
+const VIDEOS_URL = `${CHANNEL_URL}/videos`;
+const MAX_VIDEOS = 18;
 
-function decodeXml(value) {
-  return value
-    .replace(/&amp;/g, "&")
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/&lt;/g, "<")
-    .replace(/&gt;/g, ">");
+function loadPrevious() {
+  try {
+    return JSON.parse(fs.readFileSync(OUTPUT, "utf8"));
+  } catch {
+    return { videos: [] };
+  }
 }
 
-function stripTags(value) {
-  return decodeXml(value.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim());
+function extractVideoIds(html) {
+  const ids = [];
+  const seen = new Set();
+  for (const match of html.matchAll(/"videoId":"([a-zA-Z0-9_-]{11})"/g)) {
+    const id = match[1];
+    if (seen.has(id)) continue;
+    seen.add(id);
+    ids.push(id);
+  }
+  return ids;
 }
 
-function truncate(text, max = 220) {
-  if (!text || text.length <= max) return text;
-  return `${text.slice(0, max - 1).trim()}…`;
-}
-
-function channelTitleFrom(xml) {
-  const match = xml.match(/<title>([^<]+)<\/title>/);
-  return match ? decodeXml(match[1]) : "Rajinikanth Vadla";
-}
-
-function parseFeed(xml) {
-  const entries = [...xml.matchAll(/<entry>([\s\S]*?)<\/entry>/g)].map((m) => m[1]);
-
-  return entries.map((entry) => {
-    const id = entry.match(/<yt:videoId>([^<]+)<\/yt:videoId>/)?.[1] ?? "";
-    const title = stripTags(entry.match(/<title>([\s\S]*?)<\/title>/)?.[1] ?? "");
-    const publishedAt = entry.match(/<published>([^<]+)<\/published>/)?.[1] ?? "";
-    const descriptionRaw = entry.match(/<media:description>([\s\S]*?)<\/media:description>/)?.[1] ?? "";
-    const description = truncate(stripTags(descriptionRaw));
-
-    return {
-      id,
-      title,
-      description,
-      publishedAt,
-      url: `https://www.youtube.com/watch?v=${id}`,
-    };
-  }).filter((video) => video.id && video.title);
+async function fetchOembed(id) {
+  const url = `https://www.youtube.com/oembed?url=${encodeURIComponent(`https://www.youtube.com/watch?v=${id}`)}&format=json`;
+  const response = await fetch(url, {
+    headers: { "User-Agent": "rajinikanthvadla-website-sync/1.0" },
+  });
+  if (!response.ok) return null;
+  return response.json();
 }
 
 async function main() {
-  const response = await fetch(RSS_URL, {
-    headers: { "User-Agent": "rajinikanthvadla-website-sync/1.0" },
+  const previous = loadPrevious();
+  const previousById = new Map((previous.videos || []).map((v) => [v.id, v]));
+
+  const pageResponse = await fetch(VIDEOS_URL, {
+    headers: {
+      "User-Agent":
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+      "Accept-Language": "en-US,en;q=0.9",
+    },
   });
 
-  if (!response.ok) {
-    throw new Error(`YouTube RSS fetch failed: ${response.status}`);
+  if (!pageResponse.ok) {
+    throw new Error(`YouTube channel page fetch failed: ${pageResponse.status}`);
   }
 
-  const xml = await response.text();
-  const videos = parseFeed(xml).slice(0, MAX_VIDEOS);
+  const html = await pageResponse.text();
+  const ids = extractVideoIds(html).slice(0, MAX_VIDEOS);
+  if (!ids.length) {
+    throw new Error("No video IDs found on channel videos page");
+  }
+
+  const videos = [];
+  for (const id of ids) {
+    const oembed = await fetchOembed(id);
+    const prev = previousById.get(id);
+    const title = oembed?.title || prev?.title || `YouTube video ${id}`;
+    videos.push({
+      id,
+      title,
+      description: prev?.description || "Watch on Rajinikanth Vadla's YouTube channel.",
+      publishedAt: prev?.publishedAt || new Date().toISOString(),
+      url: `https://www.youtube.com/watch?v=${id}`,
+    });
+  }
 
   const payload = {
     channelId: CHANNEL_ID,
-    channelUrl: "https://www.youtube.com/@IamRajinikanthvadla",
-    channelTitle: channelTitleFrom(xml),
+    channelUrl: CHANNEL_URL,
+    channelTitle: videos[0] ? (await fetchOembed(videos[0].id))?.author_name || previous.channelTitle || "Rajinikanth Vadla" : "Rajinikanth Vadla",
     lastSyncedAt: new Date().toISOString(),
+    source: "channel-page+oembed",
     videos,
   };
 
