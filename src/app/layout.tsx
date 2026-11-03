@@ -31,6 +31,12 @@ export const metadata: Metadata = {
     "AIOps course",
     "LLMOps course",
     "Agentic AI course",
+    "online MLOps training",
+    "live AI engineering course",
+    "MLOps mentorship",
+    "LLMOps training online",
+    "AI Agents course online",
+    "GenAI production training",
   ],
   metadataBase: new URL(SITE.url),
   authors: [{ name: "Rajinikanth Vadla", url: SITE.url }],
@@ -38,7 +44,19 @@ export const metadata: Metadata = {
   publisher: "Rajinikanth Vadla",
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: "en_IN",
+    alternateLocale: [
+      "en_US",
+      "en_GB",
+      "en_IE",
+      "en_NL",
+      "en_LU",
+      "en_DE",
+      "en_CA",
+      "en_AU",
+      "en_SG",
+      "en_AE",
+    ],
     url: SITE.url,
     siteName: SITE.name,
     title: SITE.title,
@@ -91,7 +109,10 @@ export default function RootLayout({
         <meta name="distribution" content="global" />
         <meta name="rating" content="General" />
         <meta name="revisit-after" content="1 days" />
-        <meta name="last-modified" content="2026-10-30" />
+        <meta name="last-modified" content="2026-11-03" />
+        <meta name="coverage" content="Worldwide" />
+        <meta name="target" content="all" />
+        <link rel="alternate" type="application/json" href="https://rajinikanthvadla.com/geo-markets.json" title="Regional training markets" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(STRUCTURED_DATA.website) }}

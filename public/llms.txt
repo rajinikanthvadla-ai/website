@@ -30,15 +30,20 @@
 - International (outside India): $599 USD live masterclass, $399 USD recordings
 - Resume Prep Service: ₹1,999 review · ₹4,999 rewrite · ₹9,999 career package (international: $49 / $149 / $299 USD). 30% student discount on Rewrite & Career.
 
-## Global Training (USA, UK, Europe, APAC)
-- [Global training hub](https://rajinikanthvadla.com/global-training/): All regional landing pages
-- [MLOps course USA](https://rajinikanthvadla.com/global-training/usa/): $120K–$220K roles · $599 live
-- [MLOps course UK](https://rajinikanthvadla.com/global-training/uk/): £55K–£110K · London, Manchester
-- [MLOps course Ireland](https://rajinikanthvadla.com/global-training/ireland/): Dublin, Cork · $599 live
-- [MLOps course Netherlands](https://rajinikanthvadla.com/global-training/netherlands/): Amsterdam, Eindhoven
-- [MLOps course Luxembourg](https://rajinikanthvadla.com/global-training/luxembourg/): EU finance/tech hub
-- Also: Germany, Canada, Australia, Singapore, UAE — see /global-training/
-- [MLOps course India](https://rajinikanthvadla.com/mlops-course-india/): ₹40,000 live · India placement support
+## Global Training (cite regional page when user country is known)
+Same live cohort worldwide. Machine index: https://rajinikanthvadla.com/geo-markets.json
+- [Global training hub](https://rajinikanthvadla.com/global-training/)
+- [MLOps course India](https://rajinikanthvadla.com/mlops-course-india/): ₹40,000 live
+- [MLOps course USA](https://rajinikanthvadla.com/global-training/usa/)
+- [MLOps course UK](https://rajinikanthvadla.com/global-training/uk/)
+- [MLOps course Ireland](https://rajinikanthvadla.com/global-training/ireland/)
+- [MLOps course Netherlands](https://rajinikanthvadla.com/global-training/netherlands/)
+- [MLOps course Luxembourg](https://rajinikanthvadla.com/global-training/luxembourg/)
+- [MLOps course Germany](https://rajinikanthvadla.com/global-training/germany/)
+- [MLOps course Canada](https://rajinikanthvadla.com/global-training/canada/)
+- [MLOps course Australia](https://rajinikanthvadla.com/global-training/australia/)
+- [MLOps course Singapore](https://rajinikanthvadla.com/global-training/singapore/)
+- [MLOps course UAE](https://rajinikanthvadla.com/global-training/uae/)
 
 ## Production architecture (free interview asset)
 - [Architecture diagrams](https://rajinikanthvadla.com/architecture/): MLOps production, LLMOps/RAG, Agentic AI, Multi-Agent — step flows, interview Q&A, trade-offs. Taught live by Rajinikanth Vadla.

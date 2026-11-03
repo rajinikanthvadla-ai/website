@@ -11,7 +11,7 @@ export const SITE = {
   title:
     "MLOps, AIOps, LLMOps, AI Agents & FDE Course | Rajinikanth Vadla",
   description:
-    "Live MLOps, AIOps, LLMOps and Agentic AI training with 1:1 mentorship and real capstone projects. 500+ engineers trained worldwide. Join the next cohort.",
+    "Live online MLOps, AIOps, LLMOps and Agentic AI training with 1:1 mentorship and real capstone projects. 500+ engineers trained worldwide. Join the next cohort from anywhere.",
   url: "https://rajinikanthvadla.com",
   image: "https://rajinikanthvadla.com/assets/pic-1.png",
   phone: "+91-9100028801",
@@ -418,20 +418,20 @@ export const HOME_PAGE_FAQS = [
     a: "Choose AI Automation for the complete 2-month enterprise AI tools and automation path (6 modules, MCP included). Choose the MLOps Masterclass for a 4-5 month job-ready platform engineering path. Not sure? Message on WhatsApp.",
   },
   {
-    q: "What is the best MLOps course in India?",
-    a: "Rajinikanth Vadla's MLOps Masterclass is a 4-5 month live job-ready program: ₹40,000 with mentorship and job support, or ₹30,000 for recordings-only self-learning. Covers MLOps, LLMOps, AIOps, AI Agents, FDE. 150+ hours, 4 capstone projects. Cohort running now. Enroll: https://rajinikanthvadla.com/mlops-aiops-masterclass/",
+    q: "What does the MLOps Masterclass include?",
+    a: "Rajinikanth Vadla's MLOps Masterclass is a 4-5 month live job-ready program with mentorship and job support, or a recordings-only self-learning track. Covers MLOps, LLMOps, AIOps, AI Agents, FDE. 150+ hours, 4 capstone projects. See local pricing on enroll. https://rajinikanthvadla.com/mlops-aiops-masterclass/",
   },
   {
     q: "What is the AI Automation course?",
-    a: "A 2-month live course to build company AI agents. ₹20,000 with lifetime recording access, 1-on-1 mentorship, org runbooks, and business metrics. https://rajinikanthvadla.com/courses/ai-automation/",
+    a: "A 2-month live course to build company AI agents. Includes lifetime recording access, 1-on-1 mentorship, org runbooks, and business metrics. https://rajinikanthvadla.com/courses/ai-automation/",
   },
   {
     q: "Is training live or recorded?",
-    a: "All cohort sessions are live with Q&A. Recordings are shared. Mentorship is 1:1 on WhatsApp after Razorpay payment, available worldwide.",
+    a: "All cohort sessions are live with Q&A. Recordings are shared. Mentorship is 1:1 on WhatsApp after Razorpay payment, available worldwide online.",
   },
   {
-    q: "Can I join from outside India?",
-    a: "Yes. All programs are online. Outside India the masterclass is $599 for the live cohort or $399 for recordings, paid securely by card.",
+    q: "Can I join from another country or timezone?",
+    a: "Yes. Every program is fully online. International pricing for the masterclass is $599 live or $399 recordings (card). Regional pages and timezone notes: https://rajinikanthvadla.com/global-training/",
   },
   {
     q: "Do you help with jobs?",
@@ -440,10 +440,6 @@ export const HOME_PAGE_FAQS = [
   {
     q: "Is there a cheaper way to access all your course videos?",
     a: "Yes. Join YouTube AI & ML AI Agentic Pro membership at ₹1,199/month. You get every members-only video (private courses, old sessions, new uploads), live streams, and 1:1 mentorship when you share your Member ID on WhatsApp. Lower tiers (₹179 or ₹419) do not include the full library or mentorship.",
-  },
-  {
-    q: "Can I join from USA, UK, Ireland, or Europe?",
-    a: "Yes. Training is 100% online. Engineers from the USA, UK, Ireland, Netherlands, Luxembourg, Germany, Canada, Australia, Singapore and UAE join the same live cohort. See https://rajinikanthvadla.com/global-training/ for your country's landing page with local salary data. Fees outside India: $599 live, $399 recordings.",
   },
 ];
 
@@ -522,9 +518,9 @@ export const STRUCTURED_DATA = {
       "Rajinikanth Vadla career mentorship",
     ],
     url: "https://rajinikanthvadla.com/",
-    inLanguage: "en",
+    inLanguage: ["en", "en-IN", "en-US", "en-GB", "en-IE", "en-NL", "en-LU", "en-DE", "en-CA", "en-AU", "en-SG", "en-AE"],
     description:
-      "Official website of Rajinikanth Vadla: live online MLOps, AIOps, GenAI, AI Agents, AI-Powered Automation, and LLMOps training, mentorship, and blog.",
+      "Official website of Rajinikanth Vadla: live online MLOps, AIOps, GenAI, AI Agents, AI-Powered Automation, and LLMOps training, mentorship, and blog. Open to engineers worldwide.",
     publisher: {
       "@type": "Organization",
       name: "Rajinikanth Vadla Training",
@@ -565,7 +561,7 @@ export const STRUCTURED_DATA = {
   },
   organization: {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": ["Organization", "EducationalOrganization"],
     name: "Rajinikanth Vadla Official Training",
     alternateName: "RV Tech Training",
     url: "https://rajinikanthvadla.com/",
@@ -589,7 +585,7 @@ export const STRUCTURED_DATA = {
       telephone: "+91-9100028801",
       contactType: "customer service",
       availableLanguage: ["English", "Hindi", "Telugu"],
-      areaServed: ["US", "GB", "IE", "NL", "LU", "DE", "CA", "AU", "SG", "AE", "IN"],
+      areaServed: "Worldwide",
     },
     areaServed: [
       { "@type": "Country", name: "United States" },
@@ -600,7 +596,10 @@ export const STRUCTURED_DATA = {
       { "@type": "Country", name: "Germany" },
       { "@type": "Country", name: "Canada" },
       { "@type": "Country", name: "Australia" },
+      { "@type": "Country", name: "Singapore" },
+      { "@type": "Country", name: "United Arab Emirates" },
       { "@type": "Country", name: "India" },
+      "Worldwide",
     ],
   },
   course: {
@@ -608,8 +607,13 @@ export const STRUCTURED_DATA = {
     "@type": "Course",
     name: "MLOps, AIOps, LLMOps & Agentic AI Live Course (GenAI, FDE, AI Platform)",
     description:
-      "Live MLOps, AIOps, LLMOps, Agentic AI, GenAI, FDE and AI Platform engineering course by Rajinikanth Vadla. 4-5 months, 150+ hours, 4 capstone projects, 1-on-1 mentorship and job support. Online worldwide: $599 live or $399 recordings; in India ₹40,000 live or ₹30,000 recordings.",
+      "Live MLOps, AIOps, LLMOps, Agentic AI, GenAI, FDE and AI Platform engineering course by Rajinikanth Vadla. 4-5 months, 150+ hours, 4 capstone projects, 1-on-1 mentorship and job support. Fully online worldwide: $599 live or $399 recordings; India pricing ₹40,000 live or ₹30,000 recordings.",
     url: "https://rajinikanthvadla.com/mlops-aiops-masterclass/",
+    courseMode: "online",
+    isAccessibleForFree: false,
+    inLanguage: "en",
+    availableLanguage: "English",
+    educationalLevel: "Professional",
     provider: {
       "@type": "Organization",
       name: "Rajinikanth Vadla Training",

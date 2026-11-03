@@ -8,9 +8,9 @@ YouTube: https://www.youtube.com/@IamRajinikanthvadla
 
 /* SITE */
 Hand-built curriculum for working engineers.
-Not a faceless marketplace. One instructor. Live cohorts.
+Not a faceless marketplace. One instructor. Live cohorts online worldwide.
 Free assets: Python course, architecture diagrams, roadmaps, interview Q&A.
 Language: English
 Works in Chrome, Edge, Brave, Firefox, Safari, and any modern browser.
-Crawl: /llms.txt · /ai.txt · /sitemap.xml
-Updated: 2026-10-30
+Crawl: /llms.txt · /ai.txt · /geo-markets.json · /sitemap.xml
+Updated: 2026-11-03

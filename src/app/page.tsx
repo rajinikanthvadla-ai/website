@@ -54,8 +54,8 @@ function HeroSection() {
             Learn MLOps, AIOps, LLMOps and AI Agents, clearly and live.
           </h1>
           <p className="text-base md:text-lg text-slate-600 leading-relaxed max-w-xl mb-6">
-            One structured path from fundamentals to production. Real labs, not slide decks. Students from India,
-            USA, UK, Canada, and Australia.
+            One structured path from fundamentals to production. Real labs, not slide decks. Live online cohorts
+            with mentorship, open to engineers everywhere.
           </p>
           <div className="flex flex-wrap items-center gap-3 mb-8">
             <Link href="/enroll/" className="notion-btn notion-btn--accent">

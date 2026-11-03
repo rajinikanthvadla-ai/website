@@ -1,37 +1,30 @@
 import Link from "next/link";
+import { INTL_MARKETS } from "@/lib/international-markets";
 
-const GROUPS = [
-  {
-    title: "Learn & enroll",
-    links: [
-      { href: "/enroll/", label: "Enroll & pricing" },
-      { href: "/syllabus/", label: "Full syllabus" },
-      { href: "/mlops-aiops-masterclass/", label: "MLOps · AIOps masterclass" },
-      { href: "/courses/ai-automation/", label: "AI Automation course" },
-      { href: "/mentorship/", label: "1:1 Mentorship" },
-    ],
-  },
-  {
-    title: "Free study",
-    links: [
-      { href: "/python-course/", label: "Free Python course" },
-      { href: "/architecture/", label: "Architecture diagrams" },
-      { href: "/interview-questions/", label: "Interview questions" },
-      { href: "/roadmap/", label: "Career roadmaps" },
-      { href: "/blog/", label: "Blog & tutorials" },
-    ],
-  },
-  {
-    title: "By region",
-    links: [
-      { href: "/global-training/", label: "Global training hub" },
-      { href: "/mlops-course-india/", label: "MLOps India" },
-      { href: "/global-training/usa/", label: "MLOps USA" },
-      { href: "/global-training/uk/", label: "MLOps UK" },
-      { href: "/global-training/ireland/", label: "MLOps Ireland" },
-    ],
-  },
+const LEARN_LINKS = [
+  { href: "/enroll/", label: "Enroll & pricing" },
+  { href: "/syllabus/", label: "Full syllabus" },
+  { href: "/mlops-aiops-masterclass/", label: "MLOps · AIOps masterclass" },
+  { href: "/courses/ai-automation/", label: "AI Automation course" },
+  { href: "/mentorship/", label: "1:1 Mentorship" },
 ] as const;
+
+const STUDY_LINKS = [
+  { href: "/python-course/", label: "Free Python course" },
+  { href: "/architecture/", label: "Architecture diagrams" },
+  { href: "/interview-questions/", label: "Interview questions" },
+  { href: "/roadmap/", label: "Career roadmaps" },
+  { href: "/blog/", label: "Blog & tutorials" },
+] as const;
+
+const REGION_LINKS = [
+  { href: "/global-training/", label: "Global training hub" },
+  { href: "/mlops-course-india/", label: "MLOps India" },
+  ...INTL_MARKETS.map((m) => ({
+    href: `/global-training/${m.slug}/`,
+    label: `MLOps ${m.shortName}`,
+  })),
+];
 
 /** Crawlable internal link hub. Helps Google and AI assistants find key pages. */
 export default function DiscoverLinksSection() {
@@ -45,27 +38,55 @@ export default function DiscoverLinksSection() {
           Find the right page fast
         </h2>
         <p className="text-sm text-slate-600 text-center max-w-2xl mx-auto mb-8 leading-relaxed">
-          MLOps, AIOps, LLMOps, AI Agents, GenAI, and mentorship: courses, free resources, and regional pages for
-          India, USA, UK, and Europe.
+          Courses, free study resources, and regional landing pages for local search, timezone fit, and enroll
+          pricing. Live online training open worldwide.
         </p>
         <div className="grid sm:grid-cols-3 gap-6">
-          {GROUPS.map((group) => (
-            <div key={group.title}>
-              <h3 className="font-display font-bold text-sm text-[#0f172a] mb-3">{group.title}</h3>
-              <ul className="space-y-2">
-                {group.links.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-slate-600 hover:text-teal-700 underline-offset-2 hover:underline"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          <div>
+            <h3 className="font-display font-bold text-sm text-[#0f172a] mb-3">Learn & enroll</h3>
+            <ul className="space-y-2">
+              {LEARN_LINKS.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-slate-600 hover:text-teal-700 underline-offset-2 hover:underline"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h3 className="font-display font-bold text-sm text-[#0f172a] mb-3">Free study</h3>
+            <ul className="space-y-2">
+              {STUDY_LINKS.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-slate-600 hover:text-teal-700 underline-offset-2 hover:underline"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h3 className="font-display font-bold text-sm text-[#0f172a] mb-3">Regional pages</h3>
+            <ul className="space-y-2">
+              {REGION_LINKS.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-slate-600 hover:text-teal-700 underline-offset-2 hover:underline"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </section>

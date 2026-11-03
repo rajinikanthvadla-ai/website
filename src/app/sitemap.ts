@@ -28,7 +28,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/courses/ai-automation/`, lastModified: now, changeFrequency: "daily", priority: 0.99 },
     { url: `${base}/mlops-aiops-masterclass/`, lastModified: now, changeFrequency: "daily", priority: 0.99 },
     { url: `${base}/mlops-course-india/`, lastModified: now, changeFrequency: "daily", priority: 0.97 },
-    { url: `${base}/global-training/`, lastModified: now, changeFrequency: "weekly", priority: 0.96 },
+    { url: `${base}/global-training/`, lastModified: now, changeFrequency: "weekly", priority: 0.97 },
+    { url: `${base}/geo-markets.json`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
+    { url: `${base}/ai.txt`, lastModified: now, changeFrequency: "weekly", priority: 0.75 },
+    { url: `${base}/llms.txt`, lastModified: now, changeFrequency: "weekly", priority: 0.75 },
     { url: `${base}/resume-prep/`, lastModified: now, changeFrequency: "weekly", priority: 0.95 },
     { url: `${base}/mlops-course/`, lastModified: now, changeFrequency: "daily", priority: 0.97 },
     { url: `${base}/mlops-training/`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
@@ -94,7 +97,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${base}/global-training/${m.slug}/`,
     lastModified: now,
     changeFrequency: "weekly" as const,
-    priority: m.slug === "usa" || m.slug === "uk" ? 0.95 : 0.93,
+    priority: 0.95,
   }));
 
   const mentorshipRoutes: MetadataRoute.Sitemap = MENTORSHIP_MARKETS.map((m) => ({
