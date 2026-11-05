@@ -2131,10 +2131,12 @@ h1, h2, h3, h4, .font-display {
 .shell {
   --shell-rail: #171717;
   --shell-rail-text: #c4c4c4;
-  --shell-rail-active: #5eead4;
+  --shell-rail-active: #fb923c;
+  --shell-rail-mark: #1d4ed8;
   --shell-rail-hover: #262626;
   --shell-surface: #f4f6f8;
   --shell-ink: #0f172a;
+  --shell-wa: #059669;
   display: flex;
   min-height: 100vh;
   background: var(--shell-surface);
@@ -2151,7 +2153,8 @@ h1, h2, h3, h4, .font-display {
   inset: 0 auto 0 0;
   z-index: 60;
   transform: translateX(-100%);
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, width 0.2s ease;
+  overflow: hidden;
 }
 
 .shell-rail--open {
@@ -2164,6 +2167,62 @@ h1, h2, h3, h4, .font-display {
     top: 0;
     height: 100vh;
     transform: none;
+  }
+
+  /* Home: icon rail so the hero gets more room; expand on hover. */
+  .shell--home .shell-rail {
+    width: 76px;
+  }
+
+  .shell--home .shell-rail:hover,
+  .shell--home .shell-rail:focus-within {
+    width: 240px;
+  }
+
+  .shell--home .shell-rail-name,
+  .shell--home .shell-rail-link span,
+  .shell--home .shell-rail-note,
+  .shell--home .shell-rail-wa-label,
+  .shell--home .shell-rail-chevron {
+    opacity: 0;
+    width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .shell--home .shell-rail:hover .shell-rail-name,
+  .shell--home .shell-rail:focus-within .shell-rail-name,
+  .shell--home .shell-rail:hover .shell-rail-link span,
+  .shell--home .shell-rail:focus-within .shell-rail-link span,
+  .shell--home .shell-rail:hover .shell-rail-note,
+  .shell--home .shell-rail:focus-within .shell-rail-note,
+  .shell--home .shell-rail:hover .shell-rail-wa-label,
+  .shell--home .shell-rail:focus-within .shell-rail-wa-label,
+  .shell--home .shell-rail:hover .shell-rail-chevron,
+  .shell--home .shell-rail:focus-within .shell-rail-chevron {
+    opacity: 1;
+    width: auto;
+  }
+
+  .shell--home .shell-rail-link,
+  .shell--home .shell-rail-more-btn {
+    justify-content: center;
+  }
+
+  .shell--home .shell-rail:hover .shell-rail-link,
+  .shell--home .shell-rail:focus-within .shell-rail-link,
+  .shell--home .shell-rail:hover .shell-rail-more-btn,
+  .shell--home .shell-rail:focus-within .shell-rail-more-btn {
+    justify-content: flex-start;
+  }
+
+  .shell--home .shell-rail-wa-icon {
+    display: inline;
+  }
+
+  .shell--home .shell-rail:hover .shell-rail-wa-icon,
+  .shell--home .shell-rail:focus-within .shell-rail-wa-icon {
+    display: none;
   }
 }
 
@@ -2194,13 +2253,14 @@ h1, h2, h3, h4, .font-display {
   width: 2.25rem;
   height: 2.25rem;
   border-radius: 0.35rem;
-  background: var(--shell-rail-active);
-  color: #042f2e;
+  background: var(--shell-rail-mark);
+  color: #fff;
   font-weight: 800;
   font-size: 0.75rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .shell-rail-name {
@@ -2210,6 +2270,7 @@ h1, h2, h3, h4, .font-display {
   font-weight: 700;
   font-size: 0.95rem;
   line-height: 1.15;
+  transition: opacity 0.15s ease;
 }
 
 .shell-rail-name span {
@@ -2251,6 +2312,49 @@ h1, h2, h3, h4, .font-display {
   box-shadow: inset 3px 0 0 var(--shell-rail-active);
 }
 
+.shell-rail-link span {
+  transition: opacity 0.15s ease;
+}
+
+.shell-rail-more {
+  margin-top: 0.25rem;
+  padding-top: 0.35rem;
+  border-top: 1px solid #2a2a2a;
+}
+
+.shell-rail-more-btn {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+}
+
+.shell-rail-chevron {
+  width: 14px;
+  height: 14px;
+  margin-left: auto;
+  opacity: 0.7;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.shell-rail-chevron--open {
+  transform: rotate(180deg);
+}
+
+.shell-rail-more-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  margin-top: 0.15rem;
+}
+
+.shell-rail-link--sub {
+  padding-left: 0.9rem;
+  font-size: 0.85rem;
+}
+
 .shell-rail-foot {
   padding: 0.85rem 1rem 1.25rem;
   border-top: 1px solid #2a2a2a;
@@ -2261,17 +2365,25 @@ h1, h2, h3, h4, .font-display {
   width: 100%;
   justify-content: center;
   align-items: center;
+  gap: 0.35rem;
   padding: 0.65rem 0.75rem;
   border-radius: 0.4rem;
-  background: var(--shell-rail-active);
-  color: #042f2e;
+  background: var(--shell-wa);
+  color: #fff;
   font-weight: 700;
   font-size: 0.85rem;
   text-decoration: none;
 }
 
 .shell-rail-whatsapp:hover {
-  filter: brightness(1.05);
+  background: #047857;
+}
+
+.shell-rail-wa-icon {
+  display: none;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
 }
 
 .shell-rail-note {
@@ -2279,6 +2391,7 @@ h1, h2, h3, h4, .font-display {
   font-size: 0.7rem;
   color: #8a8a8a;
   text-align: center;
+  transition: opacity 0.15s ease;
 }
 
 .shell-main {
@@ -2331,15 +2444,6 @@ h1, h2, h3, h4, .font-display {
 .shell-topbar-title {
   flex: 1;
   min-width: 0;
-}
-
-.shell-topbar-kicker {
-  display: block;
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #64748b;
 }
 
 .shell-topbar-heading {

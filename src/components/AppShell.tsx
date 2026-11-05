@@ -3,9 +3,15 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { LINKS, SIDEBAR_NAV } from "@/lib/constants";
+import {
+  LINKS,
+  SIDEBAR_ALL,
+  SIDEBAR_MORE,
+  SIDEBAR_NAV,
+  type SidebarIcon,
+} from "@/lib/constants";
 
-function NavIcon({ name }: { name: (typeof SIDEBAR_NAV)[number]["icon"] }) {
+function NavIcon({ name }: { name: SidebarIcon }) {
   const common = "w-[18px] h-[18px] shrink-0";
   switch (name) {
     case "home":
@@ -56,6 +62,13 @@ function NavIcon({ name }: { name: (typeof SIDEBAR_NAV)[number]["icon"] }) {
           <path d="M5 5h14v14H5V5Zm3 4h8M8 12h8M8 15h5" />
         </svg>
       );
+    case "youtube":
+      return (
+        <svg className={common} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden>
+          <rect x="3" y="6" width="18" height="12" rx="2" />
+          <path d="m10 9 5 3-5 3V9Z" />
+        </svg>
+      );
     case "mentorship":
       return (
         <svg className={common} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden>
@@ -85,15 +98,23 @@ function NavIcon({ name }: { name: (typeof SIDEBAR_NAV)[number]["icon"] }) {
 
 function isActivePath(pathname: string, href: string) {
   if (href === "/") return pathname === "/";
+  if (href.startsWith("/#")) return false;
   return pathname === href || pathname.startsWith(`${href}/`);
 }
 
 export default function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const moreActive = SIDEBAR_MORE.some((item) => isActivePath(pathname, item.href));
+  const [moreOpen, setMoreOpen] = useState(moreActive);
+  const isHome = pathname === "/";
 
   useEffect(() => {
     setOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    setMoreOpen(SIDEBAR_MORE.some((item) => isActivePath(pathname, item.href)));
   }, [pathname]);
 
   useEffect(() => {
@@ -104,10 +125,10 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
   }, [open]);
 
   const pageTitle =
-    SIDEBAR_NAV.find((item) => isActivePath(pathname, item.href))?.label ?? "Rajinikanth Vadla";
+    SIDEBAR_ALL.find((item) => isActivePath(pathname, item.href))?.label ?? "Rajinikanth Vadla";
 
   return (
-    <div className="shell">
+    <div className={`shell${isHome ? " shell--home" : ""}`}>
       {open ? (
         <button
           type="button"
@@ -137,12 +158,58 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
                 href={item.href}
                 className={`shell-rail-link ${active ? "shell-rail-link--active" : ""}`}
                 onClick={() => setOpen(false)}
+                title={item.label}
               >
                 <NavIcon name={item.icon} />
                 <span>{item.label}</span>
               </Link>
             );
           })}
+
+          <div className="shell-rail-more">
+            <button
+              type="button"
+              className={`shell-rail-link shell-rail-more-btn ${moreActive ? "shell-rail-link--active" : ""}`}
+              aria-expanded={moreOpen}
+              onClick={() => setMoreOpen((v) => !v)}
+            >
+              <svg className="w-[18px] h-[18px] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden>
+                <circle cx="5" cy="12" r="1.5" fill="currentColor" stroke="none" />
+                <circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none" />
+                <circle cx="19" cy="12" r="1.5" fill="currentColor" stroke="none" />
+              </svg>
+              <span>More</span>
+              <svg
+                className={`shell-rail-chevron ${moreOpen ? "shell-rail-chevron--open" : ""}`}
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                aria-hidden
+              >
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </button>
+            {moreOpen ? (
+              <div className="shell-rail-more-list">
+                {SIDEBAR_MORE.map((item) => {
+                  const active = isActivePath(pathname, item.href);
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className={`shell-rail-link shell-rail-link--sub ${active ? "shell-rail-link--active" : ""}`}
+                      onClick={() => setOpen(false)}
+                      title={item.label}
+                    >
+                      <NavIcon name={item.icon} />
+                      <span>{item.label}</span>
+                    </Link>
+                  );
+                })}
+              </div>
+            ) : null}
+          </div>
         </nav>
 
         <div className="shell-rail-foot">
@@ -151,8 +218,12 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
             target="_blank"
             rel="noopener noreferrer"
             className="shell-rail-whatsapp"
+            title="WhatsApp mentor"
           >
-            WhatsApp mentor
+            <span className="shell-rail-wa-icon" aria-hidden>
+              WA
+            </span>
+            <span className="shell-rail-wa-label">WhatsApp mentor</span>
           </a>
           <p className="shell-rail-note">Live AI engineering training</p>
         </div>
@@ -172,7 +243,6 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
             <span />
           </button>
           <div className="shell-topbar-title">
-            <span className="shell-topbar-kicker">Rajinikanth Vadla</span>
             <p className="shell-topbar-heading">{pageTitle}</p>
           </div>
           <div className="shell-topbar-actions">

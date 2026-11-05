@@ -60,34 +60,46 @@ export type NavGroup = {
   links: NavLink[];
 };
 
-/** Primary left-rail links — one level, student-first. */
-export const SIDEBAR_NAV: {
+export type SidebarIcon =
+  | "home"
+  | "courses"
+  | "syllabus"
+  | "architecture"
+  | "path"
+  | "python"
+  | "blog"
+  | "mentorship"
+  | "about"
+  | "enroll"
+  | "youtube";
+
+export type SidebarNavItem = {
   label: string;
   href: string;
-  icon:
-    | "home"
-    | "courses"
-    | "syllabus"
-    | "architecture"
-    | "path"
-    | "python"
-    | "blog"
-    | "mentorship"
-    | "about"
-    | "enroll";
-}[] = [
+  icon: SidebarIcon;
+};
+
+/** Primary left-rail links — keep short so first-time visitors are not overwhelmed. */
+export const SIDEBAR_NAV: SidebarNavItem[] = [
   { label: "Home", href: "/", icon: "home" },
   { label: "Courses", href: "/courses", icon: "courses" },
   { label: "Syllabus", href: "/syllabus", icon: "syllabus" },
-  { label: "Architecture", href: "/architecture", icon: "architecture" },
-  { label: "Career path", href: "/roadmap", icon: "path" },
-  { label: "Python (free)", href: "/python-course", icon: "python" },
-  { label: "YouTube", href: "/#youtube", icon: "blog" },
-  { label: "Blog", href: "/blog", icon: "blog" },
   { label: "Mentorship", href: "/mentorship", icon: "mentorship" },
-  { label: "About", href: "/about", icon: "about" },
+  { label: "Python (free)", href: "/python-course", icon: "python" },
+  { label: "Blog", href: "/blog", icon: "blog" },
   { label: "Enroll", href: "/enroll", icon: "enroll" },
 ];
+
+/** Secondary links tucked under “More” in the rail. */
+export const SIDEBAR_MORE: SidebarNavItem[] = [
+  { label: "Architecture", href: "/architecture", icon: "architecture" },
+  { label: "Career path", href: "/roadmap", icon: "path" },
+  { label: "YouTube", href: "/#youtube", icon: "youtube" },
+  { label: "About", href: "/about", icon: "about" },
+];
+
+/** Flat list for title lookup / active matching. */
+export const SIDEBAR_ALL: SidebarNavItem[] = [...SIDEBAR_NAV, ...SIDEBAR_MORE];
 
 /** Grouped navigation (legacy mega-menu; kept for secondary mobile “More”). */
 export const NAV_GROUPS: NavGroup[] = [
