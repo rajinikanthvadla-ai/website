@@ -75,7 +75,7 @@ export default function CTASection({
         <h2 className="font-display text-2xl md:text-4xl font-bold text-[#0f172a] mb-4 leading-tight">{title}</h2>
         <p className="text-slate-600 mb-9 leading-relaxed">{subtitle}</p>
         <div className="flex flex-col sm:flex-row justify-center gap-3">{actions}</div>
-        <p className="mt-8 text-xs text-slate-500">
+        <p className="mt-8 text-xs text-slate-600">
           I read every message. Typical reply within a day. No pressure to buy.
         </p>
       </div>

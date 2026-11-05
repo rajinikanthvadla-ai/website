@@ -52,7 +52,7 @@ export default function MentorshipHomeSection() {
           <div className="space-y-3">
             {monthly ? (
               <div className="rounded-lg border border-slate-200 bg-slate-50 p-5">
-                <p className="text-[10px] font-bold uppercase tracking-wide text-orange-600 mb-1">Most booked</p>
+                <p className="text-[10px] font-bold uppercase tracking-wide text-orange-700 mb-1">Most booked</p>
                 <h3 className="font-display font-bold text-lg text-[#0f172a]">{monthly.name}</h3>
                 <p className="text-sm text-slate-600 mt-1 mb-3">{monthly.summary}</p>
                 <p className="text-sm font-semibold text-[#0f172a]">

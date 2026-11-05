@@ -26,7 +26,7 @@ export default function Footer({ minimal = false }: { minimal?: boolean }) {
                 {SITE.name}
               </span>
             </Link>
-            <p className="text-sm leading-relaxed text-slate-500 mb-6">
+            <p className="text-sm leading-relaxed text-slate-400 mb-6">
               Live programs in MLOps, AIOps, GenAI, and AI-Powered Automation, plus 1:1 mentorship for career and role transformation worldwide.
             </p>
             <div className="flex gap-2">
@@ -37,12 +37,12 @@ export default function Footer({ minimal = false }: { minimal?: boolean }) {
           </div>
 
           <div>
-            <h4 className="text-white font-bold mb-4 text-xs uppercase tracking-[0.12em]">Training</h4>
+            <h3 className="text-white font-bold mb-4 text-xs uppercase tracking-[0.12em]">Training</h3>
             <ul className="space-y-2.5 text-sm">
-              <li><Link href="/python-course/" className="hover:text-orange-400 transition-colors">Free Python Course <span className="bg-orange-500 text-white text-[8px] font-bold py-0 px-1.5 rounded-sm uppercase ml-1">FREE</span></Link></li>
+              <li><Link href="/python-course/" className="hover:text-orange-400 transition-colors">Free Python Course <span className="bg-orange-700 text-white text-[8px] font-bold py-0 px-1.5 rounded-sm uppercase ml-1">FREE</span></Link></li>
               <li><Link href="/python-course/playground/" className="hover:text-white transition-colors">Python Compiler</Link></li>
-              <li><Link href="/syllabus/" className="hover:text-orange-400 transition-colors">Course Syllabus <span className="bg-orange-500 text-white text-[8px] font-bold py-0 px-1.5 rounded-sm uppercase ml-1">NEW</span></Link></li>
-              <li><Link href="/interview-questions/" className="hover:text-orange-400 transition-colors">Interview Questions <span className="bg-orange-500 text-white text-[8px] font-bold py-0 px-1.5 rounded-sm uppercase ml-1">NEW</span></Link></li>
+              <li><Link href="/syllabus/" className="hover:text-orange-400 transition-colors">Course Syllabus <span className="bg-orange-700 text-white text-[8px] font-bold py-0 px-1.5 rounded-sm uppercase ml-1">NEW</span></Link></li>
+              <li><Link href="/interview-questions/" className="hover:text-orange-400 transition-colors">Interview Questions <span className="bg-orange-700 text-white text-[8px] font-bold py-0 px-1.5 rounded-sm uppercase ml-1">NEW</span></Link></li>
               <li><Link href="/courses/ai-automation" className="hover:text-white transition-colors">AI Automation</Link></li>
               <li><Link href="/mlops-aiops-masterclass" className="hover:text-[#dbeafe] transition-colors">MLOps Masterclass</Link></li>
               <li><Link href="/mentorship" className="hover:text-white transition-colors">Mentorship</Link></li>
@@ -50,9 +50,9 @@ export default function Footer({ minimal = false }: { minimal?: boolean }) {
           </div>
 
           <div>
-            <h4 className="text-white font-bold mb-4 text-xs uppercase tracking-[0.12em]">Career Guides</h4>
+            <h3 className="text-white font-bold mb-4 text-xs uppercase tracking-[0.12em]">Career Guides</h3>
             <ul className="space-y-2.5 text-sm">
-              <li><Link href="/universe/" className="hover:text-orange-400 transition-colors">AI Universe <span className="bg-orange-500 text-white text-[8px] font-bold py-0 px-1.5 rounded-sm uppercase ml-1">NEW</span></Link></li>
+              <li><Link href="/universe/" className="hover:text-orange-400 transition-colors">AI Universe <span className="bg-orange-700 text-white text-[8px] font-bold py-0 px-1.5 rounded-sm uppercase ml-1">NEW</span></Link></li>
               <li><Link href="/path/" className="hover:text-white transition-colors">Find My Path</Link></li>
               <li><Link href="/compare/" className="hover:text-white transition-colors">Compare Careers</Link></li>
               <li><Link href="/roadmap/" className="hover:text-white transition-colors">All Roadmaps</Link></li>
@@ -65,9 +65,9 @@ export default function Footer({ minimal = false }: { minimal?: boolean }) {
           </div>
 
           <div>
-            <h4 className="text-white font-bold mb-4 text-xs uppercase tracking-[0.12em]">Services</h4>
+            <h3 className="text-white font-bold mb-4 text-xs uppercase tracking-[0.12em]">Services</h3>
             <ul className="space-y-2.5 text-sm">
-              <li><Link href="/resume-prep/" className="hover:text-orange-400 transition-colors">Resume Prep <span className="bg-orange-500 text-white text-[8px] font-bold py-0 px-1.5 rounded-sm uppercase ml-1">NEW</span></Link></li>
+              <li><Link href="/resume-prep/" className="hover:text-orange-400 transition-colors">Resume Prep <span className="bg-orange-700 text-white text-[8px] font-bold py-0 px-1.5 rounded-sm uppercase ml-1">NEW</span></Link></li>
               <li><Link href="/community/" className="hover:text-orange-400 transition-colors">AI Engineers Insider</Link></li>
               <li><Link href="/mentorship/" className="hover:text-white transition-colors">Mentorship</Link></li>
               <li><Link href="/mlops-aiops-masterclass" className="hover:text-white transition-colors">MLOps Masterclass</Link></li>
@@ -76,7 +76,7 @@ export default function Footer({ minimal = false }: { minimal?: boolean }) {
           </div>
 
           <div>
-            <h4 className="text-white font-bold mb-4 text-xs uppercase tracking-[0.12em]">Global Training</h4>
+            <h3 className="text-white font-bold mb-4 text-xs uppercase tracking-[0.12em]">Global Training</h3>
             <ul className="space-y-2.5 text-sm">
               <li><Link href="/global-training/" className="hover:text-orange-400 transition-colors">All regions</Link></li>
               <li><Link href="/mlops-course-india/" className="hover:text-white transition-colors">MLOps India</Link></li>
@@ -94,7 +94,7 @@ export default function Footer({ minimal = false }: { minimal?: boolean }) {
           </div>
 
           <div>
-            <h4 className="text-white font-bold mb-4 text-xs uppercase tracking-[0.12em]">Site</h4>
+            <h3 className="text-white font-bold mb-4 text-xs uppercase tracking-[0.12em]">Site</h3>
             <ul className="space-y-2.5 text-sm">
               <li><Link href="/syllabus/" className="hover:text-white transition-colors">Syllabus</Link></li>
               <li><Link href="/interview-questions/" className="hover:text-white transition-colors">Interview Questions</Link></li>
@@ -108,7 +108,7 @@ export default function Footer({ minimal = false }: { minimal?: boolean }) {
           </div>
 
           <div>
-            <h4 className="text-white font-bold mb-4 text-xs uppercase tracking-[0.12em]">Connect</h4>
+            <h3 className="text-white font-bold mb-4 text-xs uppercase tracking-[0.12em]">Connect</h3>
             <ul className="space-y-2.5 text-sm">
               <li><a href={LINKS.whatsapp} target="_blank" rel="noopener noreferrer" className="hover:text-emerald-400 transition-colors">WhatsApp</a></li>
               <li><a href={LINKS.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-[#dbeafe] transition-colors">LinkedIn</a></li>
@@ -118,9 +118,9 @@ export default function Footer({ minimal = false }: { minimal?: boolean }) {
           </div>
         </div>
 
-        <div className="border-t border-slate-700 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-600">
+        <div className="border-t border-slate-700 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-400">
           <p>&copy; <span suppressHydrationWarning>{new Date().getFullYear()}</span> {SITE.name}. All rights reserved.</p>
-          <p className="text-xs text-slate-600">MLOps · AIOps · GenAI · AI Automation · Enterprise Training</p>
+          <p className="text-xs text-slate-400">MLOps · AIOps · GenAI · AI Automation · Enterprise Training</p>
         </div>
       </div>
     </footer>

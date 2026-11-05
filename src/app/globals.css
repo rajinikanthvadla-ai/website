@@ -142,7 +142,7 @@ h1, h2, h3, h4, .font-display {
 }
 
 .notion-btn--accent {
-  background: #f97316;
+  background: #c2410c;
   color: #fff;
   border-color: var(--notion-ink);
 }
@@ -2136,7 +2136,7 @@ h1, h2, h3, h4, .font-display {
   --shell-rail-hover: #262626;
   --shell-surface: #f4f6f8;
   --shell-ink: #0f172a;
-  --shell-wa: #059669;
+  --shell-wa: #047857;
   display: flex;
   min-height: 100vh;
   background: var(--shell-surface);
@@ -2376,7 +2376,7 @@ h1, h2, h3, h4, .font-display {
 }
 
 .shell-rail-whatsapp:hover {
-  background: #047857;
+  background: #065f46;
 }
 
 .shell-rail-wa-icon {
@@ -2476,7 +2476,7 @@ h1, h2, h3, h4, .font-display {
 .shell-top-cta {
   display: inline-flex;
   align-items: center;
-  background: #ea580c;
+  background: #c2410c;
   color: #fff;
   font-weight: 700;
   font-size: 0.85rem;
@@ -2486,7 +2486,7 @@ h1, h2, h3, h4, .font-display {
 }
 
 .shell-top-cta:hover {
-  background: #c2410c;
+  background: #9a3412;
 }
 
 .shell-content {

@@ -107,7 +107,7 @@ export default function SyllabusPage() {
       <section id="masterclass" className="border-b border-slate-200 bg-[#f4f6f8] py-12 md:py-16">
         <div className="max-w-5xl mx-auto px-6">
           <div className="mb-8">
-            <span className="text-[10px] font-bold uppercase tracking-wide text-orange-600">Flagship · {MLOPS_MASTERCLASS_SYLLABUS.length} modules</span>
+            <span className="text-[10px] font-bold uppercase tracking-wide text-orange-700">Flagship · {MLOPS_MASTERCLASS_SYLLABUS.length} modules</span>
             <h2 className="font-display text-2xl md:text-3xl font-bold text-[#0f172a] mt-2 mb-2">
               Masterclass curriculum
             </h2>
@@ -161,7 +161,7 @@ export default function SyllabusPage() {
       <section id="automation" className="border-b border-slate-200 bg-white py-12 md:py-16">
         <div className="max-w-5xl mx-auto px-6">
           <div className="mb-8">
-            <span className="text-[10px] font-bold uppercase tracking-wide text-orange-600">New · {AI_AUTOMATION_DURATION}</span>
+            <span className="text-[10px] font-bold uppercase tracking-wide text-orange-700">New · {AI_AUTOMATION_DURATION}</span>
             <h2 className="font-display text-2xl md:text-3xl font-bold text-[#0f172a] mt-2 mb-2">
               AI Automation syllabus
             </h2>

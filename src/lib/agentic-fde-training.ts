@@ -18,7 +18,7 @@ export const AGENTIC_FDE = {
   trainer: "Rajinikanth Vadla",
   supportAfter: "15 to 20 days of doubt support",
   pdfPath: "/downloads/Agentic_AI_Architecture_FDE_Syllabus.pdf",
-  bannerImage: "/assets/agentic-fde-banner.jpg",
+  bannerImage: "/assets/agentic-fde-banner.webp",
   statusImage: "/assets/agentic-fde-status.jpg",
   /** Soft close for urgency copy; batch runs through November intake. */
   intakeEndsLabel: "November 2026 intake",

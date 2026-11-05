@@ -59,7 +59,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
     "@type": "Article",
     headline: article.title,
     description: article.description,
-    image: [`${SITE_ORIGIN}/assets/pic-1.png`],
+    image: [`${SITE_ORIGIN}/assets/og-image.jpg`],
     datePublished: article.date,
     dateModified: updatedAt,
     mainEntityOfPage: { "@type": "WebPage", "@id": articleUrl },
@@ -67,7 +67,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
     publisher: {
       "@type": "Organization",
       name: "Rajinikanth Vadla",
-      logo: { "@type": "ImageObject", url: `${SITE_ORIGIN}/assets/pic-1.png` },
+      logo: { "@type": "ImageObject", url: `${SITE_ORIGIN}/assets/logo-512.png` },
     },
     keywords: article.tags.join(", "),
   };

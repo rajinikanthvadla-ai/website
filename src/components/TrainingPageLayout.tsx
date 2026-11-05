@@ -76,7 +76,7 @@ export default function TrainingPageLayout({
             </div>
 
             <div className="panel p-5 lg:sticky lg:top-28">
-              <Image src="/assets/pic-1.png" alt="Rajinikanth Vadla" width={300} height={200} className="w-full h-44 object-cover object-[center_20%] mb-4 border border-stone-200" />
+              <Image src="/assets/pic-1.webp" alt="Rajinikanth Vadla" width={300} height={200} className="w-full h-44 object-cover object-[center_20%] mb-4 border border-stone-200" />
               <div className="space-y-2">
                 {programPageHref ? (
                   <a

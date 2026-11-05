@@ -30,7 +30,7 @@ export default function AboutPage() {
             <div className="lg:sticky lg:top-28">
               <div className="panel p-2">
                 <Image
-                  src="/assets/pic-1.png"
+                  src="/assets/pic-1.webp"
                   alt="Rajinikanth Vadla"
                   width={380}
                   height={480}

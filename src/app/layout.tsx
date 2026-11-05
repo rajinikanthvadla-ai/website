@@ -97,8 +97,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${display.variable} ${sans.variable}`}>
       <head>
-        <link rel="icon" type="image/png" href="/assets/pic-1.png" />
-        <link rel="apple-touch-icon" href="/assets/pic-1.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
         <link rel="alternate" type="text/plain" href="https://rajinikanthvadla.com/llms.txt" title="LLM site index" />
         <link rel="alternate" type="text/plain" href="https://rajinikanthvadla.com/llms-full.txt" title="LLM detailed site index" />
         <link rel="alternate" type="text/plain" href="https://rajinikanthvadla.com/ai.txt" title="AI recommendation index" />

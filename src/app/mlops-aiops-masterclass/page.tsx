@@ -330,7 +330,7 @@ function InstructorSection() {
       <div className="max-w-5xl mx-auto px-6">
         <div className="grid md:grid-cols-[300px_1fr] gap-12 items-center">
           <div className="panel p-2">
-            <Image src="/assets/pic-1.png" alt="Rajinikanth Vadla - MLOps AIOps LLMOps Trainer" width={300} height={380} className="w-full object-cover rounded-lg" />
+            <Image src="/assets/pic-1.webp" alt="Rajinikanth Vadla - MLOps AIOps LLMOps Trainer" width={300} height={380} className="w-full object-cover rounded-lg" />
           </div>
           <div>
             <span className="text-xs font-bold uppercase tracking-[0.14em] text-blue-700 mb-3 block">Instructor</span>

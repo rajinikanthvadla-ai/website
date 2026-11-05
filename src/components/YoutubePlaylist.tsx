@@ -66,6 +66,8 @@ export default function YoutubePlaylist() {
                     <img
                       src={`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`}
                       alt=""
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover"
                     />
                     <span className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/25 transition-colors">
@@ -79,7 +81,7 @@ export default function YoutubePlaylist() {
                       {video.title}
                     </h3>
                     {video.uploadDate ? (
-                      <p className="text-[11px] text-slate-400 mt-1.5">{formatPublishedDate(video.uploadDate)}</p>
+                      <p className="text-[11px] text-slate-500 mt-1.5">{formatPublishedDate(video.uploadDate)}</p>
                     ) : null}
                   </div>
                 </a>

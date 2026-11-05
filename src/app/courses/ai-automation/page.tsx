@@ -404,7 +404,7 @@ export default function AIAutomationCoursePage() {
         <div className="auto-page-col">
           <div className="auto-mentor-flow">
             <div className="auto-photo-stand shrink-0">
-              <Image src="/assets/pic-1.png" alt="Rajinikanth Vadla" width={280} height={350} priority />
+              <Image src="/assets/pic-1.webp" alt="Rajinikanth Vadla" width={280} height={350} priority />
               <span className="auto-photo-stand-badge">1-on-1 Mentor</span>
             </div>
             <GfxCard
