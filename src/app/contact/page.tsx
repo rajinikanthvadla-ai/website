@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { LINKS } from "@/lib/constants";
 import CTASection from "@/components/CTASection";
+import LeadForm from "@/components/LeadForm";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -13,7 +14,7 @@ export default function ContactPage() {
     <>
       <section className="relative border-b border-stone-200 bg-stone-100 surface-paper py-20 md:py-24">
         <div className="relative text-center max-w-3xl mx-auto px-6">
-          <span className="inline-block text-xs font-semibold uppercase tracking-[0.14em] text-accent-600 mb-3">Reach out</span>
+          <span className="inline-block text-xs font-semibold uppercase tracking-[0.14em] text-accent-700 mb-3">Reach out</span>
           <h1 className="font-display text-4xl md:text-5xl font-bold text-stone-900 mb-4">Contact</h1>
           <p className="text-lg text-stone-600">
             Pick a channel you already use - I answer in plain language, usually within a day. Mentorship and career
@@ -21,6 +22,8 @@ export default function ContactPage() {
           </p>
         </div>
       </section>
+
+      <LeadForm title="Send me your question" />
 
       <section className="py-20 md:py-24 bg-white border-b border-stone-200">
         <div className="max-w-5xl mx-auto px-6">
@@ -66,7 +69,7 @@ export default function ContactPage() {
                 </div>
                 <h3 className="font-display font-bold text-stone-900 text-lg mb-2">{action.title}</h3>
                 <p className="text-sm text-stone-600 mb-4 flex-1 leading-relaxed">{action.desc}</p>
-                <span className="mt-auto text-accent-600 font-semibold text-sm">Continue &rarr;</span>
+                <span className="mt-auto text-accent-700 font-semibold text-sm">Continue &rarr;</span>
               </a>
             ))}
           </div>

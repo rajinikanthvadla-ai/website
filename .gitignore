@@ -36,3 +36,6 @@ next-env.d.ts
 
 # local ad generation output (not deployed)
 /scripts/output/
+
+# IndexNow change list (generated at deploy)
+indexnow-urls.txt

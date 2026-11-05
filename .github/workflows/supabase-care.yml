@@ -1,0 +1,86 @@
+name: Supabase keep-alive and backup
+
+# Free Supabase projects pause after 1 week with no activity.
+# - Every day: one tiny read so the project never pauses.
+# - Every Sunday: encrypted backup of the database, kept 30 days as a workflow artifact.
+#
+# Secrets needed (repo Settings > Secrets and variables > Actions):
+#   NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_ANON_KEY  (already used by deploy)
+#   SUPABASE_DB_URL         Supabase > Connect > "Session pooler" connection string, with your DB password
+#   BACKUP_PASSPHRASE       any long random string; you need it to decrypt a backup
+#
+# The repo is public, so the backup is encrypted before upload. Never commit a dump.
+# Restore: gpg -d backup.sql.gz.gpg | gunzip > backup.sql
+
+on:
+  schedule:
+    - cron: "15 1 * * *" # daily 6:45 AM IST
+  workflow_dispatch:
+    inputs:
+      backup:
+        description: "Also run a backup now"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  keep-alive:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Supabase
+        env:
+          URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+        run: |
+          code=$(curl -s -o /dev/null -w "%{http_code}" \
+            "$URL/rest/v1/student_testimonials?select=id&limit=1" \
+            -H "apikey: $KEY" -H "Authorization: Bearer $KEY")
+          echo "Supabase answered $code"
+          test "$code" = "200"
+
+  backup:
+    if: github.event_name == 'schedule' || inputs.backup
+    runs-on: ubuntu-latest
+    steps:
+      - name: Only on Sundays (or when run by hand)
+        id: gate
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "$(date -u +%u)" = "7" ]; then
+            echo "run=yes" >> "$GITHUB_OUTPUT"
+          else
+            echo "run=no" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Check secrets
+        if: steps.gate.outputs.run == 'yes'
+        env:
+          DB: ${{ secrets.SUPABASE_DB_URL }}
+          PASS: ${{ secrets.BACKUP_PASSPHRASE }}
+        run: |
+          if [ -z "$DB" ] || [ -z "$PASS" ]; then
+            echo "::warning::SUPABASE_DB_URL or BACKUP_PASSPHRASE not set. Skipping backup."
+            echo "SKIP=1" >> "$GITHUB_ENV"
+          fi
+
+      - name: Dump, compress, encrypt
+        if: steps.gate.outputs.run == 'yes' && env.SKIP != '1'
+        env:
+          DB: ${{ secrets.SUPABASE_DB_URL }}
+          PASS: ${{ secrets.BACKUP_PASSPHRASE }}
+        run: |
+          set -euo pipefail
+          docker run --rm postgres:17 pg_dump "$DB" --schema=public --no-owner --no-privileges \
+            | gzip -9 \
+            | gpg --batch --yes --pinentry-mode loopback --passphrase "$PASS" --symmetric --cipher-algo AES256 \
+            > backup.sql.gz.gpg
+          ls -la backup.sql.gz.gpg
+
+      - name: Upload encrypted backup
+        if: steps.gate.outputs.run == 'yes' && env.SKIP != '1'
+        uses: actions/upload-artifact@v4
+        with:
+          name: supabase-backup-${{ github.run_id }}
+          path: backup.sql.gz.gpg
+          retention-days: 30
