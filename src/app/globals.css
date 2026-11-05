@@ -2546,3 +2546,10 @@ h1, h2, h3, h4, .font-display {
   color: #0f766e;
   box-shadow: inset 3px 0 0 #14b8a6;
 }
+
+/* Each child section of .cv-auto is only laid out and painted when it nears the viewport.
+   contain-intrinsic-size "auto" remembers the real height once seen, so scrolling stays stable. */
+.cv-auto > * {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 720px;
+}

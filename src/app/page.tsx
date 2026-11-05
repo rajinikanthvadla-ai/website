@@ -32,21 +32,27 @@ export default async function HomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(STRUCTURED_DATA.aiAutomationCourse) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(STRUCTURED_DATA.courseList) }} />
       <HeroSection />
-      <AgenticFdeBanner />
-      <ProgramsSection />
-      <StudentFeedbacks initial={reviews} />
-      <SyllabusPreviewSection />
-      <MentorshipHomeSection />
-      <YoutubePlaylist />
-      <FAQSection />
-      <LeadForm />
-      <CommunityBanner />
-      <CTASection
-        title="Ready to start your AI career?"
-        subtitle="Join a live cohort for MLOps, AIOps, LLMOps, AI Agents, and FDE, or message on WhatsApp first."
-      />
+      {/* Below-the-fold sections: the browser skips their layout until scrolled near (faster first paint on phones). */}
+      <div className="cv-auto">
+        <AgenticFdeBanner />
+        <ProgramsSection />
+        <StudentFeedbacks initial={reviews} />
+        <SyllabusPreviewSection />
+        <MentorshipHomeSection />
+        <YoutubePlaylist />
+        <FAQSection />
+        <LeadForm />
+        <CommunityBanner />
+        <CTASection
+          title="Ready to start your AI career?"
+          subtitle="Join a live cohort for MLOps, AIOps, LLMOps, AI Agents, and FDE, or message on WhatsApp first."
+        />
+      </div>
+      {/* Not wrapped: its screenshot lightbox is position:fixed, which content-visibility would clip. */}
       <SuccessStories compact />
-      <DiscoverLinksSection />
+      <div className="cv-auto">
+        <DiscoverLinksSection />
+      </div>
     </>
   );
 }
