@@ -13,7 +13,7 @@ export const SITE = {
   description:
     "Live online MLOps, AIOps, LLMOps and Agentic AI training with 1:1 mentorship and real capstone projects. 500+ engineers trained worldwide. Join the next cohort from anywhere.",
   url: "https://rajinikanthvadla.com",
-  image: "https://rajinikanthvadla.com/assets/pic-1.png",
+  image: "https://rajinikanthvadla.com/assets/og-image.jpg",
   phone: "+91-9100028801",
 };
 
@@ -191,14 +191,26 @@ export const NAV_ITEMS: { label: string; href: string }[] = NAV_GROUPS.flatMap((
   group.links.map(({ label, href }) => ({ label, href })),
 );
 
-export const STATS = [
+export const STATS: { value: string; label: string; href?: string }[] = [
   { value: "500+", label: "Engineers Trained" },
   { value: "50+", label: "Enterprise Projects" },
-  { value: "4.9★", label: "Session Feedback" },
+  { value: "4.9★", label: "Session Feedback", href: "#student-feedbacks" },
   { value: "60%", label: "Avg. Reported Hike*" },
 ];
 
-export const TEXT_TESTIMONIALS = [
+export type TextTestimonial = {
+  quote: string;
+  role: string;
+  badge: string;
+  image: string;
+  /** Real name, only with the student's permission. Shown when set. */
+  name?: string;
+  /** Public LinkedIn profile URL, only with permission. Shown when set. */
+  linkedin?: string;
+};
+
+// TODO(Rajinikanth): add name + linkedin for 3 students who agree to be named.
+export const TEXT_TESTIMONIALS: TextTestimonial[] = [
   {
     quote:
       "The live labs made the difference — I moved from deploying scripts to owning an ML pipeline on Kubernetes. Interviewers asked about exactly what we built in capstone.",
@@ -550,13 +562,14 @@ export const STRUCTURED_DATA = {
     description:
       "MLOps, AIOps, GenAI, AI Agents, and AI-Powered Automation trainer and mentor. Offers live cohorts and 1:1 mentorship for career direction, role transitions, and technical depth. Works with engineers globally via online sessions. 7+ years enterprise experience; 500+ people trained and mentored.",
     url: "https://rajinikanthvadla.com/",
-    image: "https://rajinikanthvadla.com/assets/pic-1.png",
+    image: "https://rajinikanthvadla.com/assets/rajinikanth-portrait.jpg",
     sameAs: [
       "https://rajinikanthvadla.com/",
       "https://www.linkedin.com/in/rajinikanth-vadla-4221281a4/",
       "https://www.youtube.com/@IamRajinikanthvadla",
       "https://www.instagram.com/rajinikanth_vadla_/",
       "https://topmate.io/rajinikanthvadla",
+      "https://www.urbanpro.com/hyderabad/rajinikanth-vadla-ai-ml-engineer-mentor-trainer-with-6-years-of-experience-in-it-industry",
       "https://chatgpt.com/g/g-6938ef4591f4819198b381b03cf8707b-rajinikanth-vadla-ai-ml-ops-engineer-mentor",
       "https://wa.me/919100028801",
     ],
@@ -572,7 +585,6 @@ export const STRUCTURED_DATA = {
       "Career mentoring", "Technical mentorship", "Interview preparation",
     ],
     alumniOf: { "@type": "Organization", name: "Enterprise IT" },
-    award: "Top-rated AI/ML Ops trainer (4.9/5, 500+ reviews)",
   },
   organization: {
     "@context": "https://schema.org",
@@ -580,7 +592,7 @@ export const STRUCTURED_DATA = {
     name: "Rajinikanth Vadla Official Training",
     alternateName: "RV Tech Training",
     url: "https://rajinikanthvadla.com/",
-    logo: "https://rajinikanthvadla.com/assets/pic-1.png",
+    logo: "https://rajinikanthvadla.com/assets/logo-512.png",
     description:
       "MLOps, AIOps, GenAI, AI Agents, AI-Powered Automation, and LLMOps training with hands-on enterprise projects, plus 1:1 mentorship for career and role transformation. Serves learners worldwide online.",
     founder: {

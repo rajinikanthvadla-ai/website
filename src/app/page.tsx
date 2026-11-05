@@ -18,23 +18,28 @@ import MentorshipHomeSection from "@/components/MentorshipHomeSection";
 import DiscoverLinksSection from "@/components/DiscoverLinksSection";
 import CommunityBanner from "@/components/CommunityBanner";
 import AgenticFdeBanner from "@/components/AgenticFdeBanner";
+import LeadForm from "@/components/LeadForm";
 import { MLOPS_MASTERCLASS_SYLLABUS } from "@/lib/masterclass-syllabus";
+import { fetchApprovedTestimonials } from "@/lib/student-testimonials";
 
-export default function HomePage() {
+export default async function HomePage() {
+  // Runs at build time (static export), so real reviews ship inside the HTML.
+  const reviews = await fetchApprovedTestimonials().catch(() => []);
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(STRUCTURED_DATA.faq) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(STRUCTURED_DATA.course) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(STRUCTURED_DATA.aiAutomationCourse) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(STRUCTURED_DATA.courseList) }} />
-      <AgenticFdeBanner />
       <HeroSection />
+      <AgenticFdeBanner />
       <ProgramsSection />
+      <StudentFeedbacks initial={reviews} />
       <SyllabusPreviewSection />
       <MentorshipHomeSection />
       <YoutubePlaylist />
       <FAQSection />
-      <StudentFeedbacks />
+      <LeadForm />
       <CommunityBanner />
       <CTASection
         title="Ready to start your AI career?"
@@ -81,7 +86,15 @@ function HeroSection() {
             {STATS.slice(0, 3).map((s) => (
               <div key={s.label}>
                 <div className="font-display text-2xl font-bold text-[#0f172a]">{s.value}</div>
-                <div className="text-xs text-slate-500">{s.label}</div>
+                <div className="text-xs text-slate-500">
+                  {s.href ? (
+                    <a href={s.href} className="underline decoration-slate-300 underline-offset-2 hover:text-[#0f172a]">
+                      {s.label}
+                    </a>
+                  ) : (
+                    s.label
+                  )}
+                </div>
               </div>
             ))}
           </div>
@@ -90,7 +103,7 @@ function HeroSection() {
         <div className="flex flex-col items-stretch gap-4 max-w-md mx-auto w-full">
           <div className="overflow-hidden rounded-lg border border-slate-200 bg-[#2a2a2a] shadow-sm">
             <Image
-              src="/assets/rajinikanth-portrait.jpg"
+              src="/assets/rajinikanth-portrait.webp"
               alt="Rajinikanth Vadla, MLOps and AI engineering mentor"
               width={640}
               height={800}
@@ -141,7 +154,7 @@ function ProgramsSection() {
               key={c.title}
               className="bg-white border border-slate-200 rounded-lg p-6 flex flex-col"
             >
-              <span className="text-[10px] font-bold uppercase tracking-wide text-orange-600 mb-2">
+              <span className="text-[10px] font-bold uppercase tracking-wide text-orange-700 mb-2">
                 {c.badge}
               </span>
               <h2 className="font-display font-bold text-xl text-[#0f172a] mb-2">{c.title}</h2>

@@ -15,16 +15,23 @@ function Stars({ rating }: { rating: number }) {
 }
 
 /** Live approved student feedback from Supabase (shown first so people trust it). */
-export default function StudentFeedbacks({ limit = 12 }: { limit?: number }) {
-  const [rows, setRows] = useState<ApprovedTestimonial[]>([]);
-  const [ready, setReady] = useState(false);
+export default function StudentFeedbacks({
+  limit = 12,
+  initial = [],
+}: {
+  limit?: number;
+  /** Approved reviews fetched at build time, so they are in the HTML Google and AI crawlers read. */
+  initial?: ApprovedTestimonial[];
+}) {
+  const [rows, setRows] = useState<ApprovedTestimonial[]>(initial.slice(0, limit));
+  const [ready, setReady] = useState(initial.length > 0);
   const configured = isSupabaseConfigured();
 
   useEffect(() => {
     let cancelled = false;
     fetchApprovedTestimonials()
       .then((data) => {
-        if (!cancelled) setRows(data.slice(0, limit));
+        if (!cancelled && data.length) setRows(data.slice(0, limit));
       })
       .finally(() => {
         if (!cancelled) setReady(true);

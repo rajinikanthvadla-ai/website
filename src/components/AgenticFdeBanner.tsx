@@ -13,7 +13,7 @@ export default function AgenticFdeBanner() {
       <div className="max-w-5xl mx-auto px-6 py-10 md:py-12 grid md:grid-cols-[1.15fr_0.85fr] gap-8 items-center">
         <div>
           <p className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-orange-400 mb-3">
-            <span className="rounded bg-orange-500 px-2 py-0.5 text-white">Limited</span>
+            <span className="rounded bg-orange-700 px-2 py-0.5 text-white">Limited</span>
             {AGENTIC_FDE.batchLabel}
           </p>
           <h2 className="font-display text-2xl md:text-3xl font-bold leading-tight mb-3">
@@ -33,7 +33,7 @@ export default function AgenticFdeBanner() {
               href={LINKS.whatsappAgenticFde}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-3 text-sm font-semibold transition-colors"
+              className="inline-flex items-center justify-center rounded-lg bg-emerald-700 hover:bg-emerald-800 text-white px-5 py-3 text-sm font-semibold transition-colors"
             >
               Reserve a seat on WhatsApp
             </a>
@@ -50,7 +50,7 @@ export default function AgenticFdeBanner() {
             width={960}
             height={540}
             className="w-full h-auto object-cover"
-            priority={false}
+            sizes="(min-width: 768px) 420px, 100vw"
           />
         </Link>
       </div>

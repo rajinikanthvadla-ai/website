@@ -77,9 +77,20 @@ export default function SuccessStories({ compact = false }: Props) {
                   />
                 </button>
                 <div>
-                  <span className="inline-block bg-orange-500 text-white px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wide mb-1">
+                  <span className="inline-block bg-orange-700 text-white px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wide mb-1">
                     {t.badge}
                   </span>
+                  {t.name ? (
+                    <div className="text-sm font-bold text-[#0f172a]">
+                      {t.linkedin ? (
+                        <a href={t.linkedin} target="_blank" rel="noopener noreferrer" className="underline decoration-slate-300 hover:decoration-[#0f172a]">
+                          {t.name}
+                        </a>
+                      ) : (
+                        t.name
+                      )}
+                    </div>
+                  ) : null}
                   <div className="text-xs text-slate-500">{t.role}</div>
                 </div>
               </figcaption>
@@ -107,7 +118,7 @@ export default function SuccessStories({ compact = false }: Props) {
                 sizes="(max-width: 768px) 50vw, 20vw"
               />
               <div className="absolute inset-x-0 bottom-0 p-2 bg-slate-900/80 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                <span className="inline-block bg-orange-500 text-white px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wide">
+                <span className="inline-block bg-orange-700 text-white px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wide">
                   {story.badge}
                 </span>
               </div>
@@ -127,7 +138,7 @@ export default function SuccessStories({ compact = false }: Props) {
             </div>
           ))}
         </div>
-        <p className="text-center text-[11px] text-slate-400 mt-4">* Self-reported outcomes from alumni; not a guarantee of future results.</p>
+        <p className="text-center text-[11px] text-slate-500 mt-4">* Self-reported outcomes from alumni; not a guarantee of future results.</p>
 
         <div className="text-center mt-10">
           <a
