@@ -3,10 +3,12 @@ import { INTL_MARKETS } from "@/lib/international-markets";
 
 const LEARN_LINKS = [
   { href: "/enroll/", label: "Enroll & pricing" },
+  { href: "/agentic-fde/", label: "Agentic AI & FDE (Nov 2026 · limited)" },
   { href: "/syllabus/", label: "Full syllabus" },
   { href: "/mlops-aiops-masterclass/", label: "MLOps · AIOps masterclass" },
   { href: "/courses/ai-automation/", label: "AI Automation course" },
   { href: "/mentorship/", label: "1:1 Mentorship" },
+  { href: "/community/", label: "AI Engineers Insider" },
 ] as const;
 
 const STUDY_LINKS = [

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { SITE } from "@/lib/constants";
 import {
   COMMUNITY_FAQS,
+  COMMUNITY_FREE_HREF,
   COMMUNITY_INSIDE,
   COMMUNITY_JOIN_URL,
   COMMUNITY_TIERS,
@@ -44,6 +45,8 @@ export const metadata: Metadata = {
   },
 };
 
+const paidTiers = COMMUNITY_TIERS.filter((t) => t.paid);
+
 const productSchema = {
   "@context": "https://schema.org",
   "@type": "Product",
@@ -53,7 +56,7 @@ const productSchema = {
   url: URL,
   image: SITE.image,
   brand: { "@type": "Brand", name: SITE.name },
-  offers: COMMUNITY_TIERS.map((t) => ({
+  offers: paidTiers.map((t) => ({
     "@type": "Offer",
     name: `${t.name} plan`,
     price: t.inr.replace(/[^\d]/g, ""),
@@ -81,6 +84,18 @@ const faqSchema = {
   })),
 };
 
+function TierPrice({ tier }: { tier: (typeof COMMUNITY_TIERS)[number] }) {
+  if (!tier.paid) {
+    return <span className="font-display text-4xl font-bold text-[#0f172a]">Free</span>;
+  }
+  return (
+    <>
+      <LocalPrice inr={tier.inr} usd={tier.usd} className="font-display text-4xl font-bold text-[#0f172a]" />
+      <span className="text-slate-500 text-sm"> / month</span>
+    </>
+  );
+}
+
 export default function CommunityPage() {
   return (
     <>
@@ -88,128 +103,127 @@ export default function CommunityPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <BreadcrumbJsonLd items={[{ name: "Community", path: "/community/" }]} />
 
-      <section className="relative border-b border-stone-200 bg-stone-100 surface-paper py-20 md:py-24">
-        <div className="relative text-center max-w-3xl mx-auto px-6">
-          <span className="inline-block text-xs font-semibold uppercase tracking-[0.14em] text-accent-600 mb-3">
-            Private community · Monthly membership
+      <section className="relative border-b border-slate-200 bg-gradient-to-b from-slate-50 to-white py-16 md:py-20">
+        <div className="relative text-center max-w-2xl mx-auto px-6">
+          <span className="inline-block text-xs font-semibold uppercase tracking-[0.14em] text-teal-700 mb-3">
+            Membership
           </span>
-          <h1 className="font-display text-4xl md:text-5xl font-bold text-stone-900 mb-4">
-            AI Engineers Insider: the MLOps &amp; GenAI community
+          <h1 className="font-display text-3xl md:text-5xl font-bold text-[#0f172a] mb-4 leading-tight">
+            Join AI Engineers Insider
           </h1>
-          <p className="text-lg text-stone-600 mb-4">
-            Class notes and code, resume templates, interview questions, project ideas and live Q&amp;A,
-            all in one private community run by Rajinikanth Vadla.
+          <p className="text-base md:text-lg text-slate-600 leading-relaxed">
+            For DevOps and software engineers moving into MLOps and AI roles. Start free with interview prep, upgrade
+            for the private channel, notes, and live Q&amp;A.
           </p>
-          <p className="text-stone-600 text-base leading-relaxed">
-            Built for DevOps, cloud, SRE and data engineers moving into MLOps, AIOps, LLMOps, Agentic AI and GenAI
-            roles. Cancel anytime.
-          </p>
-          <div className="mt-6 flex flex-wrap justify-center gap-3">
-            <a
-              href={COMMUNITY_JOIN_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-accent-500 hover:bg-accent-600 text-white px-6 py-3 text-sm font-semibold uppercase tracking-wide transition-colors"
-            >
-              Join the community
-            </a>
-            <a
-              href="#plans"
-              className="inline-block border border-stone-900 text-stone-900 px-6 py-3 text-sm font-semibold uppercase tracking-wide hover:bg-stone-900 hover:text-white transition-colors"
-            >
-              See plans
-            </a>
-          </div>
         </div>
       </section>
 
-      <section className="py-20 md:py-24 bg-white border-b border-stone-200">
+      <section id="plans" className="py-14 md:py-16 bg-white border-b border-slate-200 scroll-mt-20">
         <div className="max-w-5xl mx-auto px-6">
-          <h2 className="font-display text-3xl font-bold text-stone-900 text-center mb-3">What you get every month</h2>
-          <p className="text-stone-600 text-center max-w-2xl mx-auto mb-10">
-            New material lands in the private channel regularly, so the community keeps up with the MLOps and GenAI
-            job market.
+          <div className="grid md:grid-cols-3 gap-5 items-stretch">
+            {COMMUNITY_TIERS.map((tier) => {
+              const href = tier.paid ? COMMUNITY_JOIN_URL : COMMUNITY_FREE_HREF;
+              const external = tier.paid;
+              return (
+                <div
+                  key={tier.id}
+                  className={`relative flex flex-col rounded-2xl border bg-white p-6 md:p-7 ${
+                    tier.recommended
+                      ? "border-[#0f172a] border-2 shadow-sm md:-mt-2 md:mb-2"
+                      : "border-slate-200"
+                  }`}
+                >
+                  {tier.recommended && (
+                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-[0.65rem] font-bold uppercase tracking-[0.1em] bg-[#0f172a] text-white px-3 py-1 rounded-full whitespace-nowrap">
+                      Most popular
+                    </span>
+                  )}
+                  <h2 className="font-display text-xl font-bold text-[#0f172a]">{tier.name}</h2>
+                  <p className="mt-3 mb-1">
+                    <TierPrice tier={tier} />
+                  </p>
+                  <p className="text-slate-600 text-sm mt-2 mb-5 leading-relaxed">{tier.tagline}</p>
+                  <ul className="space-y-2.5 mb-8 flex-1">
+                    {tier.perks.map((perk) => (
+                      <li key={perk} className="flex gap-2.5 text-slate-600 text-sm leading-snug">
+                        <span className="text-teal-700 shrink-0 font-bold" aria-hidden>
+                          ✓
+                        </span>
+                        {perk}
+                      </li>
+                    ))}
+                  </ul>
+                  {external ? (
+                    <a
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`text-center px-5 py-3 text-sm font-semibold rounded-xl transition-colors ${
+                        tier.recommended
+                          ? "bg-[#0f172a] text-white hover:bg-slate-800"
+                          : "bg-slate-100 text-[#0f172a] hover:bg-slate-200"
+                      }`}
+                    >
+                      {tier.ctaLabel} →
+                    </a>
+                  ) : (
+                    <Link
+                      href={href}
+                      className="text-center px-5 py-3 text-sm font-semibold rounded-xl bg-slate-100 text-[#0f172a] hover:bg-slate-200 transition-colors"
+                    >
+                      {tier.ctaLabel} →
+                    </Link>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+          <p className="text-slate-500 text-xs text-center mt-8 max-w-lg mx-auto leading-relaxed">
+            Paid plans use a secure checkout, then Telegram adds you to the private channel automatically. Cancel
+            anytime.
+          </p>
+        </div>
+      </section>
+
+      <section className="py-14 md:py-16 bg-slate-50 border-b border-slate-200">
+        <div className="max-w-5xl mx-auto px-6">
+          <h2 className="font-display text-2xl md:text-3xl font-bold text-[#0f172a] text-center mb-2">
+            Inside the private channel
+          </h2>
+          <p className="text-slate-600 text-center max-w-xl mx-auto mb-8 text-sm md:text-base">
+            Fresh material lands regularly so you stay current for MLOps and GenAI interviews.
           </p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {COMMUNITY_INSIDE.map((item) => (
-              <div key={item.title} className="panel p-6 card-hover">
-                <div className="text-2xl mb-3" aria-hidden>{item.icon}</div>
-                <h3 className="font-display font-bold text-stone-900 text-lg mb-2">{item.title}</h3>
-                <p className="text-stone-600 text-sm leading-relaxed">{item.desc}</p>
+              <div key={item.title} className="rounded-xl border border-slate-200 bg-white p-5">
+                <div className="text-xl mb-2" aria-hidden>
+                  {item.icon}
+                </div>
+                <h3 className="font-display font-bold text-[#0f172a] mb-1.5">{item.title}</h3>
+                <p className="text-slate-600 text-sm leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="plans" className="py-20 md:py-24 bg-stone-50 border-b border-stone-200 scroll-mt-20">
-        <div className="max-w-4xl mx-auto px-6">
-          <h2 className="font-display text-3xl font-bold text-stone-900 text-center mb-3">Choose your plan</h2>
-          <p className="text-stone-600 text-center mb-10">Monthly billing. Cancel anytime.</p>
-          <div className="grid md:grid-cols-2 gap-6">
-            {COMMUNITY_TIERS.map((tier) => (
-              <div
-                key={tier.id}
-                className={`panel p-8 flex flex-col ${tier.recommended ? "border-2 border-stone-900" : ""}`}
-              >
-                {tier.recommended && (
-                  <span className="self-start mb-3 text-[0.65rem] font-bold uppercase tracking-[0.12em] bg-stone-900 text-white px-2 py-1">
-                    Most complete
-                  </span>
-                )}
-                <h3 className="font-display text-2xl font-bold text-stone-900">{tier.name}</h3>
-                <p className="text-stone-600 text-sm mt-1 mb-4">{tier.tagline}</p>
-                <p className="mb-5">
-                  <LocalPrice inr={tier.inr} usd={tier.usd} className="font-display text-4xl font-bold text-stone-900" />
-                  <span className="text-stone-500 text-sm"> / month</span>
-                </p>
-                <ul className="space-y-2.5 mb-8 flex-1">
-                  {tier.perks.map((perk) => (
-                    <li key={perk} className="flex gap-3 text-stone-600 text-sm">
-                      <span className="w-5 h-5 border border-accent-200 bg-accent-50 flex items-center justify-center shrink-0 text-accent-700 text-xs font-bold">✓</span>
-                      {perk}
-                    </li>
-                  ))}
-                </ul>
-                <a
-                  href={COMMUNITY_JOIN_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`text-center px-6 py-3 text-sm font-semibold uppercase tracking-wide transition-colors ${
-                    tier.recommended
-                      ? "bg-accent-500 hover:bg-accent-600 text-white"
-                      : "border border-stone-900 text-stone-900 hover:bg-stone-900 hover:text-white"
-                  }`}
-                >
-                  Join {tier.name}
-                </a>
-              </div>
-            ))}
-          </div>
-          <p className="text-stone-500 text-xs text-center mt-6">
-            Secure checkout on Topmate. After you pay, you are added to the private Telegram channel automatically,
-            usually within a minute.
-          </p>
-        </div>
-      </section>
-
-      <section className="py-20 md:py-24 bg-white border-b border-stone-200">
-        <div className="max-w-3xl mx-auto px-6">
-          <h2 className="font-display text-3xl font-bold text-stone-900 text-center mb-10">How it works</h2>
-          <ol className="space-y-4">
+      <section className="py-14 md:py-16 bg-white border-b border-slate-200">
+        <div className="max-w-2xl mx-auto px-6">
+          <h2 className="font-display text-2xl md:text-3xl font-bold text-[#0f172a] text-center mb-8">How it works</h2>
+          <ol className="space-y-3">
             {[
-              { n: "01", t: "Pick a plan", d: "Choose Community or Pro on Topmate and pay monthly." },
-              { n: "02", t: "Link Telegram", d: "Topmate asks you to connect your Telegram account once." },
-              { n: "03", t: "Get added automatically", d: "The Topmate bot adds you to the private AI Engineers Insider channel." },
-              { n: "04", t: "Learn every week", d: "Notes, templates, interview questions and ideas keep arriving in the channel." },
+              { n: "01", t: "Pick a plan", d: "Free stays on this site. Community or Pro opens secure checkout." },
+              { n: "02", t: "Link Telegram once", d: "Connect your Telegram account after payment." },
+              { n: "03", t: "Get added automatically", d: "You land in the private AI Engineers Insider channel." },
+              { n: "04", t: "Learn every week", d: "Notes, templates, interview questions and ideas keep arriving." },
             ].map((s) => (
-              <li key={s.n} className="panel p-5 flex gap-4 items-start">
-                <span className="inline-flex items-center justify-center w-10 h-10 border border-stone-900 bg-stone-900 text-[#fffefc] font-bold text-xs shrink-0">
+              <li key={s.n} className="rounded-xl border border-slate-200 p-4 flex gap-4 items-start">
+                <span className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-[#0f172a] text-white font-bold text-xs shrink-0">
                   {s.n}
                 </span>
                 <div>
-                  <h3 className="font-display font-bold text-stone-900">{s.t}</h3>
-                  <p className="text-stone-600 text-sm mt-1">{s.d}</p>
+                  <h3 className="font-display font-bold text-[#0f172a]">{s.t}</h3>
+                  <p className="text-slate-600 text-sm mt-0.5">{s.d}</p>
                 </div>
               </li>
             ))}
@@ -217,32 +231,41 @@ export default function CommunityPage() {
         </div>
       </section>
 
-      <section className="py-20 md:py-24 bg-stone-50 border-b border-stone-200">
-        <div className="max-w-3xl mx-auto px-6">
-          <h2 className="font-display text-3xl font-bold text-stone-900 text-center mb-10">Questions before you join</h2>
-          <div className="space-y-3">
+      <section className="py-14 md:py-16 bg-slate-50 border-b border-slate-200">
+        <div className="max-w-2xl mx-auto px-6">
+          <h2 className="font-display text-2xl md:text-3xl font-bold text-[#0f172a] text-center mb-8">
+            Questions before you join
+          </h2>
+          <div className="space-y-2">
             {COMMUNITY_FAQS.map((faq) => (
-              <details key={faq.q} className="panel p-5 group">
-                <summary className="font-semibold text-stone-900 cursor-pointer">{faq.q}</summary>
-                <p className="text-stone-600 text-sm mt-3 leading-relaxed">{faq.a}</p>
+              <details key={faq.q} className="rounded-xl border border-slate-200 bg-white p-4 group">
+                <summary className="font-semibold text-[#0f172a] cursor-pointer text-sm md:text-base">{faq.q}</summary>
+                <p className="text-slate-600 text-sm mt-3 leading-relaxed">{faq.a}</p>
               </details>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-16 bg-white">
-        <div className="max-w-3xl mx-auto px-6 text-center">
-          <h2 className="font-display text-2xl font-bold text-stone-900 mb-3">Want the full structured program?</h2>
-          <p className="text-stone-600 mb-6">
-            The community keeps you learning every month. The MLOps &amp; AIOps Masterclass gives you live classes,
-            projects and 1:1 mentorship for a job-ready path.
+      <section className="py-12 bg-white">
+        <div className="max-w-2xl mx-auto px-6 text-center">
+          <h2 className="font-display text-xl md:text-2xl font-bold text-[#0f172a] mb-2">
+            Want the full structured program?
+          </h2>
+          <p className="text-slate-600 text-sm mb-5">
+            The community is light monthly learning. The Masterclass is the live, job-ready path.
           </p>
           <div className="flex flex-wrap justify-center gap-3">
-            <Link href="/mlops-aiops-masterclass/" className="border border-stone-900 text-stone-900 px-6 py-3 text-sm font-semibold uppercase tracking-wide hover:bg-stone-900 hover:text-white transition-colors">
+            <Link
+              href="/mlops-aiops-masterclass/"
+              className="border border-[#0f172a] text-[#0f172a] px-5 py-2.5 text-sm font-semibold rounded-xl hover:bg-[#0f172a] hover:text-white transition-colors"
+            >
               See the Masterclass
             </Link>
-            <Link href="/mentorship/" className="border border-stone-300 text-stone-700 px-6 py-3 text-sm font-semibold uppercase tracking-wide hover:border-stone-900 transition-colors">
+            <Link
+              href="/mentorship/"
+              className="border border-slate-300 text-slate-700 px-5 py-2.5 text-sm font-semibold rounded-xl hover:border-[#0f172a] transition-colors"
+            >
               1:1 mentorship
             </Link>
           </div>

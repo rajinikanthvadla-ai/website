@@ -16,6 +16,8 @@ import StudentFeedbacks from "@/components/StudentFeedbacks";
 import YoutubePlaylist from "@/components/YoutubePlaylist";
 import MentorshipHomeSection from "@/components/MentorshipHomeSection";
 import DiscoverLinksSection from "@/components/DiscoverLinksSection";
+import CommunityBanner from "@/components/CommunityBanner";
+import AgenticFdeBanner from "@/components/AgenticFdeBanner";
 import { MLOPS_MASTERCLASS_SYLLABUS } from "@/lib/masterclass-syllabus";
 
 export default function HomePage() {
@@ -25,6 +27,7 @@ export default function HomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(STRUCTURED_DATA.course) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(STRUCTURED_DATA.aiAutomationCourse) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(STRUCTURED_DATA.courseList) }} />
+      <AgenticFdeBanner />
       <HeroSection />
       <ProgramsSection />
       <SyllabusPreviewSection />
@@ -32,6 +35,7 @@ export default function HomePage() {
       <YoutubePlaylist />
       <FAQSection />
       <StudentFeedbacks />
+      <CommunityBanner />
       <CTASection
         title="Ready to start your AI career?"
         subtitle="Join a live cohort for MLOps, AIOps, LLMOps, AI Agents, and FDE, or message on WhatsApp first."
