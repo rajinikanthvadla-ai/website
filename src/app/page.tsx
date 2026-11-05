@@ -48,11 +48,10 @@ export default async function HomePage() {
           subtitle="Join a live cohort for MLOps, AIOps, LLMOps, AI Agents, and FDE, or message on WhatsApp first."
         />
       </div>
-      {/* Not wrapped: its screenshot lightbox is position:fixed, which content-visibility would clip. */}
+      {/* Not wrapped: SuccessStories has a position:fixed lightbox that content-visibility would clip,
+          and the last section sits next to the footer, where skipped layout confuses a11y checks. */}
       <SuccessStories compact />
-      <div className="cv-auto">
-        <DiscoverLinksSection />
-      </div>
+      <DiscoverLinksSection />
     </>
   );
 }
