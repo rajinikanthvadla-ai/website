@@ -60,8 +60,7 @@ export default function ContactPage() {
               <a
                 key={action.title}
                 href={action.href}
-                target="_blank"
-                rel="noopener noreferrer"
+                {...(action.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                 className="group panel p-8 text-center card-hover flex flex-col items-center h-full min-h-[240px]"
               >
                 <div className="w-14 h-14 shrink-0 border border-stone-200 bg-stone-50 flex items-center justify-center text-2xl mx-auto mb-4 group-hover:border-accent-400 transition-colors">

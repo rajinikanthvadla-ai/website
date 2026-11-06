@@ -104,8 +104,6 @@ export default function NewCoursesPopup() {
           <div className="flex flex-col sm:flex-row gap-3 pt-2">
             <a
               href={LINKS.enroll}
-              target="_blank"
-              rel="noopener noreferrer"
               onClick={dismiss}
               className="inline-flex justify-center items-center bg-orange-500 text-white px-6 py-3 rounded-lg text-sm font-bold hover:bg-orange-600 transition-colors"
             >

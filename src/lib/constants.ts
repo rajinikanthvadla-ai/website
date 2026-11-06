@@ -20,7 +20,7 @@ export const SITE = {
 export const LINKS = {
   topmate: "https://topmate.io/rajinikanthvadla",
   communityJoin: "https://topmate.io/rajinikanthvadla/community",
-  enroll: "https://topmate.io/rajinikanthvadla/1838028/pay",
+  enroll: "/enroll/",
   razorpayLiveCohort: "https://rzp.io/rzp/LbIvCkYH",
   razorpayRecordings: "https://rzp.io/rzp/sIqldIM",
   razorpayMentorshipIndia: "https://rzp.io/rzp/GQKc2Ix",
@@ -410,7 +410,7 @@ export const COURSES = [
   {
     title: "MLOps, AIOps, LLMOps and AI Agents",
     description:
-      "Cohort running now. Live 4-5 months with mentorship, or self-paced recordings. MLOps, AIOps, LLMOps, Agentic AI and FDE with capstones & job support.",
+      "Cohort running now, rolling intake. Live 4-5 months with mentorship, or self-paced recordings. MLOps, AIOps, LLMOps, Agentic AI and FDE with capstones & job support.",
     features: [
       "Live cohort with 1-on-1 mentorship",
       "Self-paced recordings option",
@@ -463,6 +463,10 @@ export const HOME_PAGE_FAQS = [
   {
     q: "Do you help with jobs?",
     a: "Yes. Resume review, mock interviews, and placement support are included in the masterclass.",
+  },
+  {
+    q: "Do I get a certificate, and what is the refund policy?",
+    a: "You get a completion certificate after submitting all 4 masterclass capstones. There are no cash refunds, but you can move to a later batch or switch to recordings. https://rajinikanthvadla.com/refund-policy/",
   },
   {
     q: "Is there a cheaper way to access all your course videos?",

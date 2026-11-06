@@ -88,7 +88,7 @@ export default function TrainingPageLayout({
                     {programPageLabel ?? "Program on Topmate"}
                   </a>
                 ) : null}
-                <a href={checkoutHref} target="_blank" rel="noopener noreferrer" className="block w-full bg-stone-900 text-white py-3 text-sm font-semibold text-center hover:bg-stone-800 transition-colors">
+                <a href={checkoutHref} className="block w-full bg-stone-900 text-white py-3 text-sm font-semibold text-center hover:bg-stone-800 transition-colors">
                   Enroll &rarr;
                 </a>
                 <a href={LINKS.topmate} target="_blank" rel="noopener noreferrer" className="block w-full border border-stone-400 text-stone-900 py-3 text-sm font-semibold text-center hover:bg-stone-50 transition-colors">
@@ -148,13 +148,11 @@ export default function TrainingPageLayout({
                 </a>
                 <a
                   href={checkoutHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="flex w-full items-center justify-center rounded-sm border-2 border-stone-500 bg-stone-900/80 px-6 py-3.5 text-center text-sm font-semibold text-stone-100 backdrop-blur-sm transition hover:border-stone-400 hover:bg-stone-800"
                 >
                   {programSpotlight.secondaryCta}
                 </a>
-                <p className="text-center text-[11px] text-stone-500 leading-snug px-1">Opens Topmate in a new tab. Secure checkout on their site.</p>
+                <p className="text-center text-[11px] text-stone-500 leading-snug px-1">Shows your local price. Secure Razorpay checkout.</p>
               </div>
             </div>
           </div>

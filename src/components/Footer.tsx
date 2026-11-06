@@ -104,6 +104,7 @@ export default function Footer({ minimal = false }: { minimal?: boolean }) {
               <li><Link href="/mentorship" className="hover:text-white transition-colors">Mentorship</Link></li>
               <li><Link href="/blog" className="hover:text-white transition-colors">Blog</Link></li>
               <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
+              <li><Link href="/refund-policy/" className="hover:text-white transition-colors">Refund policy</Link></li>
             </ul>
           </div>
 

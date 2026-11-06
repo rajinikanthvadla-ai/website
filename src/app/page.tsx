@@ -33,11 +33,16 @@ export default async function HomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(STRUCTURED_DATA.courseList) }} />
       <HeroSection />
       {/* Below-the-fold sections: the browser skips their layout until scrolled near (faster first paint on phones). */}
+      {/* Order follows how people decide: what is on offer, proof it works, what you learn, then act. */}
       <div className="cv-auto">
-        <AgenticFdeBanner />
         <ProgramsSection />
+      </div>
+      {/* Not wrapped: SuccessStories has a position:fixed lightbox that content-visibility would clip. */}
+      <SuccessStories compact />
+      <div className="cv-auto">
         <StudentFeedbacks initial={reviews} />
         <SyllabusPreviewSection />
+        <AgenticFdeBanner />
         <MentorshipHomeSection />
         <YoutubePlaylist />
         <FAQSection />
@@ -48,9 +53,7 @@ export default async function HomePage() {
           subtitle="Join a live cohort for MLOps, AIOps, LLMOps, AI Agents, and FDE, or message on WhatsApp first."
         />
       </div>
-      {/* Not wrapped: SuccessStories has a position:fixed lightbox that content-visibility would clip,
-          and the last section sits next to the footer, where skipped layout confuses a11y checks. */}
-      <SuccessStories compact />
+      {/* Not wrapped: the last section sits next to the footer, where skipped layout confuses a11y checks. */}
       <DiscoverLinksSection />
     </>
   );
@@ -59,7 +62,7 @@ export default async function HomePage() {
 function HeroSection() {
   return (
     <section className="notion-hero !py-12 md:!py-16">
-      <div className="notion-hero-inner !gap-10">
+      <div className="notion-hero-inner !gap-10 !pt-2 lg:!pt-4">
         <div>
           <p className="text-xs font-bold uppercase tracking-[0.14em] text-teal-700 mb-3">
             Live AI engineering · Rajinikanth Vadla
@@ -71,7 +74,7 @@ function HeroSection() {
             One structured path from fundamentals to production. Real labs, not slide decks. Live online cohorts
             with mentorship, open to engineers everywhere.
           </p>
-          <div className="flex flex-wrap items-center gap-3 mb-8">
+          <div className="flex flex-wrap items-center gap-3 mb-5">
             <Link href="/enroll/" className="notion-btn notion-btn--accent">
               Enroll, see local price
             </Link>
@@ -87,6 +90,19 @@ function HeroSection() {
               WhatsApp
             </a>
           </div>
+          <ul className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-slate-700 mb-8" aria-label="What every enrollment includes">
+            {["Completion certificate", "Lifetime recordings", "Move batch anytime"].map((t) => (
+              <li key={t} className="flex items-center gap-1.5">
+                <span className="text-teal-700 font-bold" aria-hidden>✓</span>
+                {t}
+              </li>
+            ))}
+            <li>
+              <Link href="/refund-policy/" className="underline decoration-slate-300 underline-offset-2 text-slate-500 hover:text-[#0f172a]">
+                Refund policy
+              </Link>
+            </li>
+          </ul>
           <div className="flex flex-wrap gap-6">
             {STATS.slice(0, 3).map((s) => (
               <div key={s.label}>

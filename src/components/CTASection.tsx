@@ -46,7 +46,7 @@ export default function CTASection({
       </>
     ) : (
       <>
-        <a href={LINKS.enroll} target="_blank" rel="noopener noreferrer" className="notion-btn notion-btn--ink">
+        <a href={LINKS.enroll} className="notion-btn notion-btn--ink">
           Enroll Now
         </a>
         <a href={LINKS.whatsapp} target="_blank" rel="noopener noreferrer" className="notion-btn notion-btn--accent">

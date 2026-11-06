@@ -153,7 +153,7 @@ function HeroBanner() {
               View Syllabus
             </a>
           </div>
-          <p className="text-slate-500 text-sm">Classes running now. Next batch: discuss timing on WhatsApp.</p>
+          <p className="text-slate-500 text-sm">Rolling intake: join any week. Recordings cover the classes you missed.</p>
         </div>
       </div>
     </section>
@@ -384,6 +384,14 @@ function FAQSection() {
     {
       q: "How long is the complete job ready program?",
       a: "The full program runs 4-5 months with live sessions Monday to Friday, 8:00 to 9:45 PM IST. You get 150+ hours of hands-on labs, 6 modules, 4 capstone projects, and a dedicated job ready track with interview prep.",
+    },
+    {
+      q: "Do I get a certificate?",
+      a: "Yes. You get a course completion certificate with your name once you submit all 4 capstone projects. This applies to both the live cohort and recordings.",
+    },
+    {
+      q: "What if I cannot continue the batch?",
+      a: "There are no cash refunds, but you do not lose your fee. You can move to a later live batch or switch to recordings. Full details on the refund policy page: https://rajinikanthvadla.com/refund-policy/",
     },
     {
       q: "Does the syllabus cover LLMOps and AI Agents?",

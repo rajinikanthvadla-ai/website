@@ -82,6 +82,7 @@ export default function EnrollPage() {
                     { feature: "Capstone Projects", live: "✓ 4 projects", recordings: "✓ 4 + solutions" },
                     { feature: "Lifetime Access", live: "✓ Recordings", recordings: "✓ Videos" },
                     { feature: "Community", live: "✓ Priority", recordings: "✗ Optional" },
+                    { feature: "Certificate", live: "✓ After capstones", recordings: "✓ After capstones" },
                   ].map((row, idx) => (
                     <tr key={idx} className={`border-b border-slate-200 ${idx % 2 === 0 ? "bg-slate-50" : ""}`}>
                       <td className="py-4 px-4 font-semibold text-slate-900">{row.feature}</td>
@@ -124,6 +125,10 @@ export default function EnrollPage() {
                   <span>Receive your payment receipt and enrollment confirmation</span>
                 </li>
               </ol>
+              <p className="text-xs text-slate-500 mt-5">
+                No cash refunds, but you can move to a later batch or switch to recordings.{" "}
+                <Link href="/refund-policy/" className="underline font-semibold text-slate-700">Read the refund policy</Link>
+              </p>
           </div>
         </div>
       </section>
@@ -143,7 +148,15 @@ export default function EnrollPage() {
               },
               {
                 q: "When does the live cohort start?",
-                a: "Cohorts run on a rolling intake. Message WhatsApp with your timezone and we confirm the next batch dates and catch-up plan.",
+                a: "The current cohort is running and intake is rolling, so you can join any week. Recordings cover the classes you missed. Message WhatsApp with your timezone for a catch-up plan.",
+              },
+              {
+                q: "Do I get a certificate?",
+                a: "Yes. A course completion certificate with your name, once you submit all 4 capstone projects. Both plans.",
+              },
+              {
+                q: "What is the refund policy?",
+                a: "No cash refunds. If you cannot continue, move to a later live batch or switch to recordings at no extra cost. Duplicate or failed charges are always returned. See /refund-policy/ for the full policy.",
               },
               {
                 q: "Can I switch from Recordings to Live later?",
@@ -175,7 +188,7 @@ export default function EnrollPage() {
             Ready to Transform Your Career?
           </h2>
           <p className="text-blue-100 text-lg mb-8 leading-relaxed">
-            Choose your path, arrange payment on WhatsApp, and start building production AI systems in days.
+            Pick live or recordings, pay securely, and get joining details on WhatsApp within 24 hours.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
