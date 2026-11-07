@@ -3,7 +3,76 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
 import { useCallback, useEffect, useState } from "react";
 import { timeAgo, type Row } from "@/lib/admin-client";
-import { btnDanger, btnGhost, btnPrimary, Card, Notice, Pill, SectionTitle } from "./ui";
+import { reviewLink, reviewMessage, whatsappLink } from "./askReview";
+import { btnDanger, btnDark, btnGhost, btnPrimary, Card, Field, input, Notice, Pill, SectionTitle } from "./ui";
+
+function AskForReview() {
+  const link = reviewLink();
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [text, setText] = useState(() => reviewMessage());
+  const [copied, setCopied] = useState("");
+
+  async function copy(value: string, what: string) {
+    try {
+      await navigator.clipboard.writeText(value);
+      setCopied(`${what} copied`);
+    } catch {
+      setCopied("Could not copy. Select the text and copy it by hand.");
+    }
+    setTimeout(() => setCopied(""), 2500);
+  }
+
+  if (!link) {
+    return (
+      <Notice tone="error">
+        The private review link is not set on this build. Add NEXT_PUBLIC_FEEDBACK_ACCESS_TOKEN to the GitHub repository secrets, then Publish.
+      </Notice>
+    );
+  }
+
+  return (
+    <Card className="grid gap-3 mb-5">
+      <div>
+        <p className="font-display text-lg font-bold text-[#0f172a]">Ask a student for a review</p>
+        <p className="text-sm text-slate-600">
+          Sends your private feedback link. Their review comes back here as "Waiting" for you to approve.
+        </p>
+      </div>
+      <div className="grid sm:grid-cols-2 gap-3">
+        <Field label="Student name (optional)">
+          <input
+            className={input}
+            value={name}
+            placeholder="Ravi"
+            onChange={(e) => {
+              setName(e.target.value);
+              setText(reviewMessage(e.target.value));
+            }}
+          />
+        </Field>
+        <Field label="WhatsApp number (optional)" help="10-digit Indian numbers get +91 added. Leave empty to pick a contact in WhatsApp.">
+          <input className={input} type="tel" value={phone} placeholder="98xxxxxxxx" onChange={(e) => setPhone(e.target.value)} />
+        </Field>
+      </div>
+      <Field label="Message">
+        <textarea className={`${input} text-sm`} rows={6} value={text} onChange={(e) => setText(e.target.value)} />
+      </Field>
+      <div className="flex flex-wrap gap-2">
+        <a href={whatsappLink(phone, text)} target="_blank" rel="noopener noreferrer" className={btnPrimary}>
+          Send on WhatsApp
+        </a>
+        <button type="button" className={btnDark} onClick={() => copy(text, "Message")}>
+          Copy message
+        </button>
+        <button type="button" className={btnGhost} onClick={() => copy(link, "Link")}>
+          Copy link only
+        </button>
+      </div>
+      {copied ? <Notice tone="ok">{copied}</Notice> : null}
+    </Card>
+  );
+}
 
 export default function Reviews({ db, onChanged }: { db: SupabaseClient; onChanged: () => void }) {
   const [rows, setRows] = useState<Row[]>([]);
@@ -44,8 +113,9 @@ export default function Reviews({ db, onChanged }: { db: SupabaseClient; onChang
   return (
     <div>
       <SectionTitle title="Student reviews" sub="Approve a review to show it on the site (after Publish)." />
+      <AskForReview />
       {error ? <div className="mb-3"><Notice tone="error">{error}</Notice></div> : null}
-      {!rows.length ? <Notice>No reviews yet. Share the /student-feedback/ link with students.</Notice> : null}
+      {!rows.length ? <Notice>No reviews yet. Use the box above to ask your first students.</Notice> : null}
       <div className="grid gap-3">
         {rows.map((r) => (
           <Card key={r.id}>

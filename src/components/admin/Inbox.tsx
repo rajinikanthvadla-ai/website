@@ -3,6 +3,7 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
 import { useCallback, useEffect, useState } from "react";
 import { downloadText, timeAgo, toCsv, type Row } from "@/lib/admin-client";
+import { reviewLink, reviewMessage, whatsappLink } from "./askReview";
 import { btnDanger, btnGhost, Card, input, Notice, Pill, SectionTitle } from "./ui";
 
 export type InboxConfig = {
@@ -34,7 +35,7 @@ const STATUS_TONE: Record<string, "blue" | "orange" | "green" | "red" | "slate">
 
 function waLink(raw: string) {
   const digits = raw.replace(/[^\d]/g, "");
-  return digits.length >= 8 ? `https://wa.me/${digits}` : "";
+  return digits.length >= 8 ? whatsappLink(raw, "").replace(/\?text=$/, "") : "";
 }
 
 function source(r: Row) {
@@ -186,6 +187,11 @@ export default function Inbox({ db, config, onChanged }: { db: SupabaseClient; c
                     <option key={s}>{s}</option>
                   ))}
                 </select>
+                {config.table === "leads" && r.status === "enrolled" && r.whatsapp && reviewLink() ? (
+                  <a href={whatsappLink(r.whatsapp, reviewMessage(r.name))} target="_blank" rel="noopener noreferrer" className={btnGhost}>
+                    Ask for a review
+                  </a>
+                ) : null}
                 {config.activityAction && r.status === "enrolled" ? (
                   <button type="button" className={btnGhost} onClick={() => addToActivity(r)}>
                     Add to activity feed
