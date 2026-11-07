@@ -63,9 +63,23 @@ npx supabase secrets set GH_DEPLOY_TOKEN=paste-token-here --project-ref aarciofv
 
 1. https://search.google.com/search-console > add property `rajinikanthvadla.com` (Domain).
 2. Verify with the DNS record it gives you, then **Sitemaps** > submit `sitemap.xml`.
-3. Do the same at https://www.bing.com/webmasters (it can import from Search Console).
+3. Bing is verified with the `msvalidate.01` meta tag in `src/app/layout.tsx`. Don't remove it.
+   Bing also feeds Yahoo, DuckDuckGo and Copilot, and the deploy pings it through IndexNow.
 
 After 2 to 3 days, **Performance** shows the exact words people searched before clicking your site.
+
+## 7. Email me every new lead (free career call, enquiry, project request)
+
+The site is static, so the email is sent by Supabase the moment a form is saved.
+
+1. Sign up free at https://resend.com with the email address that should receive the alerts.
+2. Resend > **API Keys** > **Create API key** (Sending access). Copy the key (starts with `re_`).
+3. Supabase > **SQL Editor** > paste all of `supabase/lead-alerts.sql`. In STEP A replace
+   `PASTE_YOUR_RESEND_KEY_HERE` with the key and `PASTE_YOUR_EMAIL_HERE` with your email. Run.
+4. Test it: fill the form at https://rajinikanthvadla.com/free-career-call/ . The email arrives in under a minute.
+   The first one may land in spam: mark it "Not spam".
+
+Never paste the key anywhere else (not in chat, not in GitHub). Supabase keeps it encrypted in Vault.
 
 ## Daily use
 

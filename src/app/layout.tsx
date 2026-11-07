@@ -86,7 +86,8 @@ export const metadata: Metadata = {
     canonical: `${SITE.url}/`,
     types: { "application/rss+xml": `${SITE.url}/feed.xml` },
   },
-  verification: {},
+  // Bing Webmaster Tools ownership check. Keep it: removing it un-verifies the site in Bing.
+  verification: { other: { "msvalidate.01": "1292D163D7DAB4E908D1445F7E87EEE5" } },
 };
 
 export default async function RootLayout({
