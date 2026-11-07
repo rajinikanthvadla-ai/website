@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { LINKS, SIDEBAR_MORE, SIDEBAR_NAV } from "@/lib/constants";
+import ScrollReveal from "./ScrollReveal";
 
 /** Top-bar links: the main nav minus Home (the logo) and Enroll (the button). */
 const PRIMARY = SIDEBAR_NAV.filter((item) => item.href !== "/" && item.href !== "/enroll").map((item) =>
@@ -20,6 +21,14 @@ function isActivePath(pathname: string, href: string) {
 export default function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
     setOpen(false);
@@ -41,7 +50,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="site">
-      <header className="site-nav">
+      <header className={`site-nav${scrolled ? " is-scrolled" : ""}`}>
         <div className="site-nav-inner">
           <Link href="/" className="site-nav-logo" aria-label="Rajinikanth Vadla, home">
             <span className="site-nav-mark" aria-hidden>
@@ -118,6 +127,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
       {open ? <button type="button" className="site-nav-backdrop" aria-label="Close menu" onClick={() => setOpen(false)} /> : null}
 
       <div className="shell-content">{children}</div>
+      <ScrollReveal />
     </div>
   );
 }

@@ -2470,3 +2470,120 @@ body:has(.site-nav-menu) .wa-float {
   content-visibility: auto;
   contain-intrinsic-size: auto 720px;
 }
+
+/* ══ Motion: scroll reveal, hero entrance, hover lift ══
+   ScrollReveal.tsx adds .rv only to elements that start off screen, so the
+   HTML never ships hidden content. Everything here is off for reduced motion. */
+
+main .rv {
+  opacity: 0;
+  transform: translate3d(0, 22px, 0);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--rv-delay, 0ms);
+}
+
+main .rv.rv-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Hero: the heading and portrait paint at once (they decide page speed scores);
+   the lines around them settle in one after another. */
+@keyframes hero-rise {
+  from { opacity: 0; transform: translate3d(0, 14px, 0); }
+  to { opacity: 1; transform: none; }
+}
+
+.hero-enter > :not(h1),
+.hero-fade {
+  animation: hero-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero-enter > :nth-child(1) { animation-delay: 0.05s; }
+.hero-enter > :nth-child(3) { animation-delay: 0.15s; }
+.hero-enter > :nth-child(4) { animation-delay: 0.25s; }
+.hero-enter > :nth-child(5) { animation-delay: 0.35s; }
+.hero-enter > :nth-child(6) { animation-delay: 0.45s; }
+.hero-fade { animation-delay: 0.4s; }
+
+/* Marker highlight that draws itself under "clearly and live". */
+.hero-mark {
+  position: relative;
+  white-space: nowrap;
+  z-index: 0;
+}
+
+.hero-mark::after {
+  content: "";
+  position: absolute;
+  left: -0.08em;
+  right: -0.08em;
+  bottom: 0.06em;
+  height: 0.36em;
+  background: rgba(249, 115, 22, 0.28);
+  border-radius: 3px;
+  z-index: -1;
+  transform-origin: left center;
+  animation: hero-mark-draw 0.9s cubic-bezier(0.65, 0, 0.35, 1) 0.55s both;
+}
+
+@keyframes hero-mark-draw {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+/* "Live" pulse in the hero eyebrow. */
+.hero-live-dot {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #0f766e;
+  flex-shrink: 0;
+}
+
+.hero-live-dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #0f766e;
+  animation: live-ping 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes live-ping {
+  0% { transform: scale(1); opacity: 0.6; }
+  80%, 100% { transform: scale(2.6); opacity: 0; }
+}
+
+/* Cards lift a little on hover. */
+.lift {
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease, border-color 0.2s ease;
+}
+
+@media (hover: hover) {
+  .lift:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px -12px rgba(15, 23, 42, 0.22);
+  }
+}
+
+/* Nav gains a soft shadow once the page scrolls. */
+.site-nav {
+  transition: box-shadow 0.25s ease;
+}
+
+.site-nav.is-scrolled {
+  box-shadow: 0 6px 20px -12px rgba(15, 23, 42, 0.25);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rv { opacity: 1; transform: none; transition: none; }
+  .hero-enter > :not(h1),
+  .hero-fade,
+  .hero-mark::after,
+  .hero-live-dot::after { animation: none; }
+  .lift, .lift:hover { transition: none; transform: none; }
+}

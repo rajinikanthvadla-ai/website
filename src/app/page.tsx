@@ -63,12 +63,13 @@ function HeroSection() {
   return (
     <section className="notion-hero !py-12 md:!py-16">
       <div className="notion-hero-inner !gap-10 !pt-2 lg:!pt-4">
-        <div>
-          <p className="text-xs font-bold uppercase tracking-[0.14em] text-teal-700 mb-3">
+        <div className="hero-enter">
+          <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-teal-700 mb-3">
+            <span className="hero-live-dot" aria-hidden />
             Live AI engineering · Rajinikanth Vadla
           </p>
           <h1 className="font-display text-3xl md:text-5xl font-bold text-[#0f172a] leading-tight mb-4">
-            Learn MLOps, AIOps, LLMOps and AI Agents, clearly and live.
+            Learn MLOps, AIOps, LLMOps and AI Agents, <span className="hero-mark">clearly and live</span>.
           </h1>
           <p className="text-base md:text-lg text-slate-600 leading-relaxed max-w-xl mb-6">
             One structured path from fundamentals to production. Real labs, not slide decks. Live online cohorts
@@ -132,7 +133,7 @@ function HeroSection() {
               priority
             />
           </div>
-          <div className="flex gap-2 justify-center">
+          <div className="hero-fade flex gap-2 justify-center">
             {[
               { href: LINKS.linkedin, icon: <LinkedInIcon size={18} />, label: "LinkedIn" },
               { href: LINKS.youtube, icon: <YouTubeIcon size={18} />, label: "YouTube" },
@@ -173,7 +174,7 @@ function ProgramsSection() {
           {programs.map((c) => (
             <article
               key={c.title}
-              className="bg-white border border-slate-200 rounded-lg p-6 flex flex-col"
+              className="lift bg-white border border-slate-200 rounded-lg p-6 flex flex-col"
             >
               <span className="text-[10px] font-bold uppercase tracking-wide text-orange-700 mb-2">
                 {c.badge}
@@ -218,7 +219,7 @@ function SyllabusPreviewSection() {
             <Link
               key={mod.module}
               href={`/syllabus/#module-${mod.module}`}
-              className="bg-white border border-slate-200 rounded-lg p-4 hover:border-teal-600 transition-colors"
+              className="lift bg-white border border-slate-200 rounded-lg p-4 hover:border-teal-600"
             >
               <p className="text-[10px] font-bold uppercase tracking-wide text-teal-700 mb-1">
                 Module {mod.module} · {mod.duration}
