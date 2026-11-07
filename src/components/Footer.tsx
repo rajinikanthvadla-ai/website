@@ -116,6 +116,7 @@ export default function Footer({ minimal = false }: { minimal?: boolean }) {
             <h3 className="text-white font-bold mb-4 text-xs uppercase tracking-[0.12em]">Connect</h3>
             <ul className="space-y-2.5 text-sm">
               <li><Link href="/free-career-call/" className="hover:text-orange-400 transition-colors">Free 15-min career call</Link></li>
+              <li><a href={LINKS.whatsappCommunity} target="_blank" rel="noopener noreferrer" className="hover:text-emerald-400 transition-colors" data-track="WhatsApp community: footer">Free WhatsApp community</a></li>
               <li><a href={LINKS.whatsapp} target="_blank" rel="noopener noreferrer" className="hover:text-emerald-400 transition-colors">WhatsApp</a></li>
               <li><a href={LINKS.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-[#dbeafe] transition-colors">LinkedIn</a></li>
               <li><a href={LINKS.youtube} target="_blank" rel="noopener noreferrer" className="hover:text-red-400 transition-colors">YouTube</a></li>

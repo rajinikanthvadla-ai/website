@@ -148,6 +148,19 @@ export default function CareerCallForm({ compact = false, source = "page" }: { c
         <a href={wa} target="_blank" rel="noopener noreferrer" className="notion-btn notion-btn--accent" data-track={`Career call: WhatsApp after form (${source})`}>
           Message me on WhatsApp
         </a>
+        <p className="text-sm text-slate-600 mt-4 leading-relaxed">
+          While you wait:{" "}
+          <a
+            href={LINKS.whatsappCommunity}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-emerald-700 underline underline-offset-2"
+            data-track={`WhatsApp community: after career call form (${source})`}
+          >
+            join my free WhatsApp community
+          </a>{" "}
+          for AI career updates.
+        </p>
       </div>
     );
   }

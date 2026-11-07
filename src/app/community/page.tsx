@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { SITE } from "@/lib/constants";
+import { LINKS, SITE } from "@/lib/constants";
 import {
   COMMUNITY_FAQS,
   COMMUNITY_FREE_HREF,
@@ -115,6 +115,18 @@ export default function CommunityPage() {
             For DevOps and software engineers moving into MLOps and AI roles. Start free with interview prep, upgrade
             for the private channel, notes, and live Q&amp;A.
           </p>
+          <div className="mt-7 flex flex-col items-center gap-2">
+            <a
+              href={LINKS.whatsappCommunity}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#25D366] text-[#0f172a] text-sm font-semibold hover:bg-[#1ebe5b] transition-colors"
+              data-track="WhatsApp community: community page"
+            >
+              Join the free WhatsApp community →
+            </a>
+            <span className="text-xs text-slate-500">Free. Opens WhatsApp. Leave anytime.</span>
+          </div>
         </div>
       </section>
 

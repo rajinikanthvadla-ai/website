@@ -41,6 +41,8 @@ export const LINKS = {
   whatsappAgenticFde:
     "https://wa.me/919100028801?text=Hi%20Rajinikanth,%20I%20am%20interested%20in%20the%20November%202026%20Agentic%20AI%20Architecture%20%26%20FDE%20customized%20training.%20Please%20share%20seat%20availability.",
   whatsappChannel: "https://whatsapp.com/channel/0029VbBxmp7Fy7262q1Ti72e",
+  /** Free WhatsApp Business community (invite link). If you reset the link in WhatsApp, update it here. */
+  whatsappCommunity: "https://chat.whatsapp.com/Bt65kK4EThMDjC5TXAr5WN",
   agenticFde: "/agentic-fde/",
 
   linkedin: "https://www.linkedin.com/in/rajinikanth-vadla-4221281a4/",
