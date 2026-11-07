@@ -81,6 +81,10 @@ The site is static, so the email is sent by Supabase the moment a form is saved.
 
 Never paste the key anywhere else (not in chat, not in GitHub). Supabase keeps it encrypted in Vault.
 
+**Status:** live since 7 November 2026. Alerts go to the inbox saved in the `lead_alert_email` secret.
+Gmail files them under the **Updates** tab. To change the inbox or key: Supabase > Integrations > Vault > Secrets > edit.
+To check Resend's replies: `select status_code, content, created from net._http_response order by created desc limit 5;`
+
 ## Daily use
 
 | You want to | Go to |

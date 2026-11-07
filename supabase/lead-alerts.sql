@@ -100,6 +100,10 @@ begin
     new.email
   );
   return new;
+exception when others then
+  -- The lead is always saved, even if building the email fails.
+  raise warning 'lead alert skipped: %', sqlerrm;
+  return new;
 end;
 $$;
 
@@ -135,6 +139,9 @@ begin
     ),
     new.email
   );
+  return new;
+exception when others then
+  raise warning 'project request alert skipped: %', sqlerrm;
   return new;
 end;
 $$;
