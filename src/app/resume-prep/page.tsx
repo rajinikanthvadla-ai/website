@@ -5,7 +5,7 @@ import { RESUME_ROLES } from "@/lib/resume-roles";
 import { RESUME_SERVICE_TIERS, RESUME_SERVICE_FAQS } from "@/lib/resume-service";
 
 export const metadata: Metadata = {
-  title: "AI / ML / DevOps Resume Writing Service 2026 | ATS-Ready | Rajinikanth Vadla",
+  title: "AI / ML / DevOps Resume Writing Service 2026 | ATS-Ready",
   description:
     "Resume writing service for AI Engineers, MLOps, LLMOps, ML Engineers, Data Scientists, DevOps, Platform, Cloud, GenAI, NLP, and SRE roles. ATS-optimized, role-specific bullets, portfolio projects. ₹1,999 review to ₹9,999 career package. 30% student discount. Worldwide.",
   keywords: [

@@ -8,6 +8,8 @@ import ScrollReveal from "./ScrollReveal";
 import SiteAnalytics from "./SiteAnalytics";
 import AnnouncementBar from "./AnnouncementBar";
 import ActivityToast from "./ActivityToast";
+import RegionStrip from "./RegionStrip";
+import CareerCallPopup from "./CareerCallPopup";
 import type { ActivityItem, ActivityStats } from "@/lib/cms";
 
 /** Top-bar links: the main nav minus Home (the logo) and Enroll (the button). */
@@ -149,10 +151,12 @@ export default function AppShell({
 
       {open ? <button type="button" className="site-nav-backdrop" aria-label="Close menu" onClick={() => setOpen(false)} /> : null}
 
+      <RegionStrip />
       <div className="shell-content">{children}</div>
       <ScrollReveal />
       <SiteAnalytics />
       <ActivityToast items={activity} stats={activityStats} />
+      <CareerCallPopup />
     </div>
   );
 }

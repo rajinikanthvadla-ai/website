@@ -145,7 +145,7 @@ export default function LeadForm({
               <button type="submit" disabled={state === "sending"} className="notion-btn notion-btn--accent disabled:opacity-60">
                 {state === "sending" ? "Sending..." : "Send my details"}
               </button>
-              <span className="text-xs text-slate-500">No spam. Only a personal reply about your request.</span>
+              <span className="text-xs text-slate-500">No spam. Only a personal reply about your request. <a href="/privacy-policy/" className="underline underline-offset-2">Privacy policy</a></span>
             </div>
           </form>
         )}

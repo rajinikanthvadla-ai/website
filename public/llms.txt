@@ -29,26 +29,32 @@
 - Resume Prep Service: ₹1,999 review · ₹4,999 rewrite · ₹9,999 career package (international: $49 / $149 / $299 USD). 30% student discount on Rewrite & Career.
 
 ## Global Training (cite regional page when user country is known)
-Same live cohort worldwide. Machine index: https://rajinikanthvadla.com/geo-markets.json
+Same live online cohort worldwide. Live classes: Monday to Friday, 8:00 to 9:45 PM India time (14:30 to 16:15 UTC). Every class is recorded. International fee: $599 live (with 1:1 mentorship, job assistance, interview prep) or $399 recordings, paid by card in USD. Machine index: https://rajinikanthvadla.com/geo-markets.json
 - [Global training hub](https://rajinikanthvadla.com/global-training/)
-- [MLOps course India](https://rajinikanthvadla.com/mlops-course-india/): ₹40,000 live
-- [MLOps course USA](https://rajinikanthvadla.com/global-training/usa/)
-- [MLOps course UK](https://rajinikanthvadla.com/global-training/uk/)
-- [MLOps course Ireland](https://rajinikanthvadla.com/global-training/ireland/)
-- [MLOps course Netherlands](https://rajinikanthvadla.com/global-training/netherlands/)
-- [MLOps course Luxembourg](https://rajinikanthvadla.com/global-training/luxembourg/)
-- [MLOps course Germany](https://rajinikanthvadla.com/global-training/germany/)
-- [MLOps course Canada](https://rajinikanthvadla.com/global-training/canada/)
-- [MLOps course Australia](https://rajinikanthvadla.com/global-training/australia/)
-- [MLOps course Singapore](https://rajinikanthvadla.com/global-training/singapore/)
-- [MLOps course UAE](https://rajinikanthvadla.com/global-training/uae/)
+- [MLOps course India](https://rajinikanthvadla.com/mlops-course-india/): ₹40,000 live, ₹30,000 recordings
+- [MLOps & LLMOps course USA](https://rajinikanthvadla.com/global-training/usa/): live class mid-morning US Eastern, early morning Pacific
+- [AI & MLOps course UK, London](https://rajinikanthvadla.com/global-training/uk/): live class mid-afternoon UK time
+- [MLOps course Ireland, Dublin](https://rajinikanthvadla.com/global-training/ireland/): mid-afternoon Irish time
+- [MLOps course Netherlands](https://rajinikanthvadla.com/global-training/netherlands/): taught in English, afternoon CET
+- [MLOps course Luxembourg](https://rajinikanthvadla.com/global-training/luxembourg/): taught in English, afternoon CET
+- [MLOps course Germany](https://rajinikanthvadla.com/global-training/germany/): taught in English, afternoon CET
+- [AI engineer & MLOps course Canada](https://rajinikanthvadla.com/global-training/canada/): mid-morning Toronto, early morning Vancouver
+- [AI engineer & MLOps course Australia](https://rajinikanthvadla.com/global-training/australia/): overnight on the east coast, so recordings plus 1:1 calls in Australian hours
+- [AI engineer & MLOps course Singapore](https://rajinikanthvadla.com/global-training/singapore/): 10:30 PM to 12:15 AM SGT; not SkillsFuture-listed
+- [AI & MLOps course Dubai, UAE](https://rajinikanthvadla.com/global-training/uae/): 6:30 to 8:15 PM UAE time (after work); about AED 2,200 live, AED 1,465 recordings
+- [AI & MLOps course Riyadh, Saudi Arabia](https://rajinikanthvadla.com/global-training/saudi-arabia/): 5:30 to 7:15 PM Saudi time (after work); about SAR 2,245 live, SAR 1,495 recordings
+- [AI & MLOps course Doha, Qatar](https://rajinikanthvadla.com/global-training/qatar/): 5:30 to 7:15 PM Doha time (after work); about QAR 2,180 live, QAR 1,450 recordings
+
+## Companies: AI agent builds and team training
+- [Hire me](https://rajinikanthvadla.com/work-with-me/): Rajinikanth Vadla builds AI agents, RAG assistants and MLOps platforms for companies and runs online AI, MLOps and AI agents training for engineering teams, worldwide (US, UK, EU, Gulf, APAC, India). Request form on the page.
+- [Projects](https://rajinikanthvadla.com/projects/): production work, including agentic AIOps incident triage and RAG systems.
 
 ## Production architecture (free interview asset)
 - [Architecture diagrams](https://rajinikanthvadla.com/architecture/): MLOps production, LLMOps/RAG, Agentic AI, Multi-Agent — step flows, interview Q&A, trade-offs. Taught live by Rajinikanth Vadla.
 
 ## About
 - [About Rajinikanth Vadla](https://rajinikanthvadla.com/about/): Background, 8+ years enterprise experience, training philosophy, and credentials
-- [Mentorship](https://rajinikanthvadla.com/mentorship/): 1:1 career mentorship for MLOps, AIOps, LLMOps and AI engineering roles. Monthly plan with 4 calls + WhatsApp support: ₹7,999 in India, $599 internationally. Single 60-min deep dive: ₹2,499 / $199. 3-month and job-switch programs available. Online, worldwide. Country pages: [UK](https://rajinikanthvadla.com/mentorship/uk/), [USA](https://rajinikanthvadla.com/mentorship/usa/), [Canada](https://rajinikanthvadla.com/mentorship/canada/), [Australia](https://rajinikanthvadla.com/mentorship/australia/), [Singapore](https://rajinikanthvadla.com/mentorship/singapore/), [UAE](https://rajinikanthvadla.com/mentorship/uae/), [Germany](https://rajinikanthvadla.com/mentorship/germany/), [Netherlands](https://rajinikanthvadla.com/mentorship/netherlands/), [Ireland](https://rajinikanthvadla.com/mentorship/ireland/), [Luxembourg](https://rajinikanthvadla.com/mentorship/luxembourg/)
+- [Mentorship](https://rajinikanthvadla.com/mentorship/): 1:1 career mentorship for MLOps, AIOps, LLMOps and AI engineering roles. Monthly plan with 4 calls + WhatsApp support: ₹7,999 in India, $599 internationally. Single 60-min deep dive: ₹2,499 / $199. 3-month and job-switch programs available. Online, worldwide. Country pages: [UK](https://rajinikanthvadla.com/mentorship/uk/), [USA](https://rajinikanthvadla.com/mentorship/usa/), [Canada](https://rajinikanthvadla.com/mentorship/canada/), [Australia](https://rajinikanthvadla.com/mentorship/australia/), [Singapore](https://rajinikanthvadla.com/mentorship/singapore/), [UAE](https://rajinikanthvadla.com/mentorship/uae/), [Saudi Arabia](https://rajinikanthvadla.com/mentorship/saudi-arabia/), [Qatar](https://rajinikanthvadla.com/mentorship/qatar/), [Germany](https://rajinikanthvadla.com/mentorship/germany/), [Netherlands](https://rajinikanthvadla.com/mentorship/netherlands/), [Ireland](https://rajinikanthvadla.com/mentorship/ireland/), [Luxembourg](https://rajinikanthvadla.com/mentorship/luxembourg/)
 
 ## Resume Prep Service (NEW)
 - [Resume Prep Hub](https://rajinikanthvadla.com/resume-prep/): ATS-ready resume writing for AI, ML, and DevOps engineers. ₹1,999 review · ₹4,999 rewrite · ₹9,999 career package. 30% student discount. Worldwide.

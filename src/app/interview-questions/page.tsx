@@ -7,7 +7,7 @@ import { INTERVIEW_CATEGORIES, INTERVIEW_PAGE_INTRO } from "@/lib/interview-ques
 import CTASection from "@/components/CTASection";
 
 export const metadata: Metadata = {
-  title: "AI / ML Interview Questions | MLOps, LLMOps, AI Agents, FDE | Rajinikanth Vadla",
+  title: "AI / ML Interview Questions | MLOps, LLMOps, AI Agents, FDE",
   description:
     "Free AI and ML interview questions for MLOps, AIOps, LLMOps, AI Agents, FDE, GenAI, RAG, and AI system design. Practical answers for job interviews — aligned with live training.",
   keywords: [

@@ -14,7 +14,7 @@ import MasterclassSyllabus from "@/components/masterclass/MasterclassSyllabus";
 import CTASection from "@/components/CTASection";
 
 export const metadata: Metadata = {
-  title: "Course Syllabus | MLOps, AIOps, LLMOps, AI Agents & FDE | Rajinikanth Vadla",
+  title: "Course Syllabus | MLOps, AIOps, LLMOps, AI Agents & FDE",
   description:
     "Complete handy syllabus for MLOps, AIOps, LLMOps, AI Agents, and FDE masterclass plus AI Automation course. Module-by-module topics, labs, capstones, pricing, and WhatsApp enrollment.",
   keywords: [

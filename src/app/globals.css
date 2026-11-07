@@ -2702,3 +2702,141 @@ body:has(.site-nav-menu) .activity-toast { display: none; }
 @media (prefers-reduced-motion: reduce) {
   .activity-toast { transition: opacity 0.2s linear; transform: none; }
 }
+
+/* Local currency: both prices ship in the HTML; html[data-zone] (set in <head>) picks one before paint. */
+html[data-zone] .px-sep,
+html[data-zone="C"] .px-usd,
+html[data-zone="A"] .px-inr {
+  display: none;
+}
+
+/* ══ "In the UK?" strip (browser time zone, no redirect) ══ */
+.region-strip {
+  position: relative;
+  padding: 0.5rem 2.75rem 0.5rem 1rem;
+  background: #fef9c3;
+  border-bottom: 2px solid #0f172a;
+  color: #0f172a;
+  font-size: 0.875rem;
+  text-align: center;
+}
+.region-strip p { margin: 0; }
+.region-strip-link {
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: #ea580c;
+  text-underline-offset: 3px;
+  white-space: nowrap;
+}
+.region-strip-close {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  font-size: 1.25rem;
+  line-height: 1;
+  color: #475569;
+}
+.region-strip-close:hover { background: rgba(15, 23, 42, 0.08); color: #0f172a; }
+body:has(.admin-shell) .region-strip { display: none; }
+
+/* ══ Free 15-min career call: side panel (never covers the page on landing) ══ */
+.cc-panel {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 60;
+  width: min(370px, calc(100vw - 2.5rem));
+  max-height: calc(100vh - 2.5rem);
+  overflow-y: auto;
+  padding: 1.15rem 1.15rem 1rem;
+  background: #fff;
+  border: 2px solid #0f172a;
+  border-radius: 10px;
+  box-shadow: 6px 6px 0 #0f172a, 0 24px 48px -20px rgba(15, 23, 42, 0.45);
+  animation: cc-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.cc-panel.is-form { width: min(400px, calc(100vw - 2.5rem)); }
+@keyframes cc-in {
+  from { opacity: 0; transform: translate3d(0, 18px, 0); }
+  to { opacity: 1; transform: none; }
+}
+.cc-close {
+  position: absolute;
+  top: 0.45rem;
+  right: 0.45rem;
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  font-size: 1.3rem;
+  line-height: 1;
+  color: #64748b;
+}
+.cc-close:hover { background: #f1f5f9; color: #0f172a; }
+.cc-eyebrow {
+  display: inline-block;
+  margin: 0 0 0.55rem;
+  padding: 0.15rem 0.5rem;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #0f172a;
+  background: #fef9c3;
+  border: 1.5px solid #0f172a;
+  border-radius: 3px;
+}
+.cc-title {
+  margin: 0 1.6rem 0.5rem 0;
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #0f172a;
+}
+.cc-text { margin: 0 0 0.75rem; font-size: 0.9rem; line-height: 1.5; color: #475569; }
+.cc-list { margin: 0 0 0.9rem; padding: 0; list-style: none; display: grid; gap: 0.35rem; }
+.cc-list li { position: relative; padding-left: 1.3rem; font-size: 0.86rem; color: #334155; }
+.cc-list li::before { content: "✓"; position: absolute; left: 0; color: #ea580c; font-weight: 800; }
+.cc-who { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.9rem; font-size: 0.78rem; line-height: 1.35; color: #64748b; }
+.cc-who strong { color: #0f172a; }
+.cc-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: #0f172a;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+.cc-actions { display: flex; align-items: center; gap: 0.75rem; }
+.cc-later { font-size: 0.85rem; color: #64748b; text-decoration: underline; text-underline-offset: 3px; }
+.cc-later:hover { color: #0f172a; }
+.cc-foot { margin: 0.75rem 0 0; font-size: 0.75rem; color: #64748b; text-align: center; }
+.cc-foot a { text-decoration: underline; text-underline-offset: 2px; }
+/* While the panel is open, the WhatsApp button and the activity card step aside. */
+body:has(.cc-panel) .wa-float,
+body:has(.cc-panel) .activity-toast { display: none; }
+@media (max-width: 640px) {
+  .cc-panel,
+  .cc-panel.is-form {
+    right: 0.5rem;
+    left: 0.5rem;
+    bottom: 0.5rem;
+    width: auto;
+    max-height: 85vh;
+    padding: 1rem;
+  }
+  .cc-panel:not(.is-form) .cc-list,
+  .cc-panel:not(.is-form) .cc-who { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cc-panel { animation: none; }
+}

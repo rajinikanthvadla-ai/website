@@ -18,7 +18,7 @@ const CANONICAL = `${SITE.url}/python-course/`;
 const todaysChallenge = getChallengeForDate();
 
 export const metadata: Metadata = {
-  title: "Free Python Course for AI, ML and GenAI — Rajinikanth Vadla",
+  title: "Free Python Course for AI, ML and GenAI",
   description:
     "Free Python course by trainer Rajinikanth Vadla for AI, ML and GenAI engineers. 47 lessons, browser compiler, daily challenges, and a signed certificate — then continue into his live MLOps masterclass.",
   keywords: [

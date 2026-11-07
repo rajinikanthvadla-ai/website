@@ -24,7 +24,7 @@ export const SEO_LANDINGS: Record<string, SeoLanding> = {
   "mlops-course-india": {
     slug: "mlops-course-india",
     title: "MLOps Course India",
-    metaTitle: "Best MLOps Course India 2026 | Job Ready Live Training | Rajinikanth Vadla",
+    metaTitle: "Best MLOps Course India 2026 | Job Ready Live Training",
     metaDescription:
       "Best MLOps course in India: 4-5 month job-ready live program with MLOps, LLMOps, AIOps and AI Agents. 150+ hours hands-on, placement support. ₹40,000. 500+ trained.",
     keywords: [
@@ -151,7 +151,7 @@ export const SEO_LANDINGS: Record<string, SeoLanding> = {
   "genai-course": {
     slug: "genai-course",
     title: "GenAI Course",
-    metaTitle: "GenAI Course 2026 | Generative AI, LLMOps, RAG | Rajinikanth Vadla",
+    metaTitle: "GenAI Course 2026 | Generative AI, LLMOps, RAG",
     metaDescription:
       "GenAI course online: LLMOps, transformers, RAG, vLLM and production GenAI. Live training by Rajinikanth Vadla. Watch free GenAI course videos here.",
     keywords: [

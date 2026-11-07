@@ -17,7 +17,7 @@ export function mentorshipMarketCopy(market: IntlMarket) {
 
   return {
     title: `AI & MLOps Mentor in ${shortName} – Personal Roadmap, 1:1 Calls`,
-    description: `1:1 MLOps, LLMOps, AIOps and AI engineering mentorship for engineers in ${name}. Weekly calls in your time zone, resume and interview prep for ${salaryRange} roles. From ${deepDiveUsd} per call or ${monthlyUsd}/month, paid securely in USD.`,
+    description: `1:1 MLOps, LLMOps, AIOps and AI engineering mentorship for engineers in ${name}. Weekly calls in your time zone, resume and interview prep for ${salaryRange ? `${salaryRange} ` : ""}MLOps and AI roles. From ${deepDiveUsd} per call or ${monthlyUsd}/month, paid securely in USD.`,
     h1: `1:1 MLOps & AI career mentorship for engineers in ${name}`,
     intro: `Working in ${cities} or anywhere in ${shortName} and aiming for MLOps, LLMOps, AI agent or platform roles? I mentor engineers one-to-one: a personal week-by-week learning roadmap, weekly calls, real project reviews and interview practice until you land the role.`,
     keywords: [
@@ -41,7 +41,7 @@ export function mentorshipMarketCopy(market: IntlMarket) {
       },
       {
         q: `What roles and salaries do ${shortName} mentees target?`,
-        a: `MLOps, ML platform, LLMOps, AI agent and AIOps roles, typically in the ${salaryRange} range in ${name}. Mentorship focuses on the projects, system design and interview stories those roles expect.`,
+        a: `MLOps, ML platform, LLMOps, AI agent and AIOps roles, ${salaryRange ? `typically in the ${salaryRange} range in ${name}` : `at companies across ${name}`}. Mentorship focuses on the projects, system design and interview stories those roles expect.`,
       },
       {
         q: "What if mentorship is not right for me?",

@@ -189,8 +189,17 @@ export default function SiteAnalytics() {
       if (!label) return;
       send({ ...base("click", firstTouch()), label: label.slice(0, 120), target: a.href.slice(0, 300) });
     };
+    // Non-link actions (form submits, popup opens) report through: window.dispatchEvent(new CustomEvent("rv-track", { detail: "Label" }))
+    const onTrack = (e: Event) => {
+      const label = String((e as CustomEvent).detail || "").slice(0, 120);
+      if (label) send({ ...base("click", firstTouch()), label, target: window.location.href.slice(0, 300) });
+    };
     document.addEventListener("click", onClick, { capture: true });
-    return () => document.removeEventListener("click", onClick, { capture: true });
+    window.addEventListener("rv-track", onTrack);
+    return () => {
+      document.removeEventListener("click", onClick, { capture: true });
+      window.removeEventListener("rv-track", onTrack);
+    };
   }, []);
 
   return null;

@@ -105,17 +105,19 @@ export default async function CountryMentorshipPage({ params }: Props) {
 
       <section className="py-20 md:py-24 bg-white border-b border-stone-200">
         <div className="max-w-5xl mx-auto px-6 grid md:grid-cols-3 gap-4">
-          <div className="panel p-6">
-            <p className="text-xs font-semibold uppercase tracking-wide text-accent-600 mb-2">Target salaries</p>
-            <p className="font-display text-2xl font-bold text-stone-900">{market.salaryRange}</p>
-            <p className="text-sm text-stone-600 mt-2">Typical range for MLOps and AI engineering roles in {market.name}.</p>
-          </div>
+          {market.salaryRange ? (
+            <div className="panel p-6">
+              <p className="text-xs font-semibold uppercase tracking-wide text-accent-600 mb-2">Target salaries</p>
+              <p className="font-display text-2xl font-bold text-stone-900">{market.salaryRange}</p>
+              <p className="text-sm text-stone-600 mt-2">Typical range for MLOps and AI engineering roles in {market.name}.</p>
+            </div>
+          ) : null}
           <div className="panel p-6">
             <p className="text-xs font-semibold uppercase tracking-wide text-accent-600 mb-2">Time zone</p>
             <p className="text-sm text-stone-700 leading-relaxed">{market.timezoneNote}</p>
           </div>
           <div className="panel p-6">
-            <p className="text-xs font-semibold uppercase tracking-wide text-accent-600 mb-2">Mentees from</p>
+            <p className="text-xs font-semibold uppercase tracking-wide text-accent-600 mb-2">Online for</p>
             <p className="text-sm text-stone-700 leading-relaxed">{market.hubCities.join(" · ")}</p>
           </div>
         </div>

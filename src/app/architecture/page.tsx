@@ -9,7 +9,7 @@ import AgenticDiagram from "@/components/architecture/AgenticDiagram";
 import MultiAgentDiagram from "@/components/architecture/MultiAgentDiagram";
 
 export const metadata: Metadata = {
-  title: "Production AI Architecture Diagrams | Rajinikanth Vadla",
+  title: "Production AI Architecture Diagrams",
   description:
     "Company-grade MLOps, LLMOps/RAG, Agentic AI and Multi-Agent diagrams by trainer Rajinikanth Vadla — interview Q&A and trade-offs. Free guide; join the live masterclass to build them.",
   keywords: [

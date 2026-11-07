@@ -21,43 +21,38 @@ export type IntlSeoLanding = {
 };
 
 function buildLanding(market: IntlMarket): IntlSeoLanding {
-  const { name, shortName, salaryRange, hubCities, priceLive, priceRecordings, timezoneNote, searchTerms } =
-    market;
+  const { name, shortName, salaryRange, hubCities, priceLive, priceRecordings, localFee } = market;
   const cities = hubCities.slice(0, 4).join(", ");
 
   return {
     slug: market.slug,
     market,
     hreflang: market.hreflang,
-    metaTitle: `MLOps Course ${shortName} 2026 | LLMOps & AI Agents Training | ${SITE.name}`,
-    metaDescription: `Job-ready MLOps, LLMOps, AIOps and AI Agents live course for ${name}. ${salaryRange} roles. ${priceLive} live or ${priceRecordings} recordings. Online from ${cities}. 500+ engineers trained.`,
+    // The root layout adds " | Rajinikanth Vadla", so titles here must not.
+    metaTitle: market.seoTitle,
+    metaDescription: market.metaDescription,
     keywords: [
-      ...searchTerms,
+      ...market.searchTerms,
+      ...market.localSearches,
       `MLOps course ${shortName}`,
-      `MLOps training ${name}`,
       `LLMOps course ${shortName}`,
-      `AI Agents course ${name}`,
-      `MLOps engineer ${shortName}`,
+      `AI agents course ${name}`,
+      `AI engineer course ${shortName}`,
       `Rajinikanth Vadla ${shortName}`,
-      `online MLOps course ${name}`,
-      `remote MLOps training`,
     ],
-    h1: `MLOps & AI engineering course for ${name}`,
-    intro: `Live online MLOps, LLMOps, AIOps and AI Agents training built for engineers in ${name} — whether you are in ${cities} or working remotely. Production skills, capstone projects, and interview prep from an enterprise practitioner.`,
-    paragraphs: [
-      `Companies in ${name} hire MLOps and LLMOps engineers at ${salaryRange}. This 4–5 month masterclass covers MLflow, Kubernetes, RAG, LangChain, MCP, and production GenAI — the same stack listed in ${shortName} job descriptions in 2026.`,
-      `${timezoneNote} Choose the live cohort (mentorship + job support) or recordings-only (self-paced), and pay securely by card through Razorpay.`,
-      `Students from ${name} use the portfolio capstones in interviews at cloud-native, fintech, and AI companies. Resume review, mock interviews, and 1:1 mentorship are included in the live track.`,
-      `Watch free class recordings below — same instructor and curriculum — then enroll when you are ready. YouTube Agentic Pro membership also unlocks the full private video library with mentorship.`,
-    ],
+    h1: market.h1,
+    intro: market.intro,
+    paragraphs: market.context,
     highlights: [
-      `Salary target: ${salaryRange} in ${shortName}`,
-      `Live online — ${cities} & remote`,
-      "Secure card payment via Razorpay",
-      "MLOps, LLMOps, AIOps, AI Agents",
+      ...(salaryRange ? [`Typical pay for these roles: ${salaryRange}`] : []),
+      `Live online from ${cities}`,
+      localFee
+        ? `${priceLive} live (about ${localFee.live}) or ${priceRecordings} recordings`
+        : `${priceLive} live or ${priceRecordings} recordings, paid in USD`,
+      "MLOps, LLMOps, AIOps and AI agents",
       "4 capstone projects for your portfolio",
-      "Mock interviews & career support",
-      "English instruction · global cohort",
+      "Mock interviews and career support (live plan)",
+      "English instruction, global cohort",
     ],
     canonical: `${SITE.url}/global-training/${market.slug}/`,
   };

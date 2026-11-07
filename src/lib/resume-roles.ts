@@ -31,7 +31,7 @@ export const RESUME_ROLES: ResumeRole[] = [
     salaryIndia: "₹12–40 LPA",
     salaryGlobal: "$120K–$200K",
     traffic: "ultra",
-    metaTitle: "MLOps Engineer Resume Sample 2026 | ATS-Ready | Rajinikanth Vadla",
+    metaTitle: "MLOps Engineer Resume Sample 2026 | ATS-Ready",
     metaDescription:
       "MLOps engineer resume writing service with role-specific bullet points, MLflow/Kubernetes/KServe keywords, portfolio projects, and ATS optimization. Built by enterprise MLOps practitioners.",
     keywords: [
@@ -89,7 +89,7 @@ export const RESUME_ROLES: ResumeRole[] = [
     salaryIndia: "₹18–50 LPA",
     salaryGlobal: "$140K–$230K",
     traffic: "ultra",
-    metaTitle: "LLMOps Engineer Resume Sample 2026 | RAG, vLLM, Guardrails | Rajinikanth Vadla",
+    metaTitle: "LLMOps Engineer Resume Sample 2026 | RAG, vLLM, Guardrails",
     metaDescription:
       "LLMOps engineer resume writing service. RAG pipelines, vLLM serving, LangChain, evaluation harnesses, guardrails, cost control. ATS-ready CV built by practitioners.",
     keywords: ["LLMOps resume", "LLMOps engineer resume", "LLM engineer resume sample", "RAG resume", "vLLM resume", "LLMOps CV template", "LangChain resume"],
@@ -139,7 +139,7 @@ export const RESUME_ROLES: ResumeRole[] = [
     salaryIndia: "₹15–50 LPA",
     salaryGlobal: "$120K–$220K",
     traffic: "ultra",
-    metaTitle: "AI Engineer Resume Sample 2026 | LLM, RAG, Agents | Rajinikanth Vadla",
+    metaTitle: "AI Engineer Resume Sample 2026 | LLM, RAG, Agents",
     metaDescription:
       "AI engineer resume writing service with LLM app, RAG, agent, and MCP project bullets. ATS-ready CV built by practitioners who ship production AI.",
     keywords: ["AI engineer resume", "AI engineer CV", "AI engineer resume sample", "LLM engineer resume", "AI agent resume", "RAG engineer resume", "artificial intelligence engineer resume"],
@@ -189,7 +189,7 @@ export const RESUME_ROLES: ResumeRole[] = [
     salaryIndia: "₹10–45 LPA",
     salaryGlobal: "$110K–$190K",
     traffic: "ultra",
-    metaTitle: "ML Engineer Resume Sample 2026 | PyTorch, scikit-learn, MLOps | Rajinikanth Vadla",
+    metaTitle: "ML Engineer Resume Sample 2026 | PyTorch, scikit-learn, MLOps",
     metaDescription:
       "ML engineer resume writing service. PyTorch, scikit-learn, model deployment, feature engineering bullets. ATS-ready CV built by practitioners.",
     keywords: ["ML engineer resume", "machine learning engineer resume", "ML engineer CV", "ML engineer resume sample", "PyTorch resume", "scikit-learn resume", "ML engineer resume writing"],
@@ -239,7 +239,7 @@ export const RESUME_ROLES: ResumeRole[] = [
     salaryIndia: "₹8–35 LPA",
     salaryGlobal: "$100K–$170K",
     traffic: "ultra",
-    metaTitle: "Data Scientist Resume Sample 2026 | Python, SQL, Stats, ML | Rajinikanth Vadla",
+    metaTitle: "Data Scientist Resume Sample 2026 | Python, SQL, Stats, ML",
     metaDescription:
       "Data scientist resume writing service with statistics, Python, SQL, ML, and business impact bullets. ATS-ready CV built by practitioners.",
     keywords: ["data scientist resume", "data scientist CV", "data scientist resume sample", "data scientist resume writing", "Python data scientist resume", "SQL data scientist resume", "entry level data scientist resume"],
@@ -288,7 +288,7 @@ export const RESUME_ROLES: ResumeRole[] = [
     salaryIndia: "₹8–35 LPA",
     salaryGlobal: "$100K–$180K",
     traffic: "ultra",
-    metaTitle: "DevOps Engineer Resume Sample 2026 | Kubernetes, Terraform, CI/CD | Rajinikanth Vadla",
+    metaTitle: "DevOps Engineer Resume Sample 2026 | Kubernetes, Terraform, CI/CD",
     metaDescription:
       "DevOps engineer resume writing service with Kubernetes, Terraform, CI/CD, observability, and cloud bullets. ATS-ready CV built by practitioners.",
     keywords: ["DevOps engineer resume", "DevOps resume sample", "DevOps CV template", "Kubernetes resume", "Terraform resume", "CI/CD resume", "DevOps resume writing"],
@@ -337,7 +337,7 @@ export const RESUME_ROLES: ResumeRole[] = [
     salaryIndia: "₹8–30 LPA",
     salaryGlobal: "$100K–$170K",
     traffic: "high",
-    metaTitle: "Data Engineer Resume Sample 2026 | Spark, Airflow, SQL, Cloud | Rajinikanth Vadla",
+    metaTitle: "Data Engineer Resume Sample 2026 | Spark, Airflow, SQL, Cloud",
     metaDescription:
       "Data engineer resume writing service with Spark, Airflow, SQL, cloud data warehouse, and pipeline bullets. ATS-ready CV built by practitioners.",
     keywords: ["data engineer resume", "data engineer CV", "data engineer resume sample", "Spark resume", "Airflow resume", "data pipeline resume", "data engineer resume writing"],
@@ -386,7 +386,7 @@ export const RESUME_ROLES: ResumeRole[] = [
     salaryIndia: "₹15–45 LPA",
     salaryGlobal: "$130K–$220K",
     traffic: "high",
-    metaTitle: "Platform Engineer Resume Sample 2026 | Backstage, K8s, IDP | Rajinikanth Vadla",
+    metaTitle: "Platform Engineer Resume Sample 2026 | Backstage, K8s, IDP",
     metaDescription:
       "Platform engineer resume writing service with internal developer portal, Backstage, Kubernetes, and golden-path bullets. ATS-ready CV built by practitioners.",
     keywords: ["platform engineer resume", "platform engineering resume", "platform engineer CV", "Backstage resume", "internal developer portal resume", "platform engineer resume sample"],
@@ -435,7 +435,7 @@ export const RESUME_ROLES: ResumeRole[] = [
     salaryIndia: "₹15–40 LPA",
     salaryGlobal: "$130K–$210K",
     traffic: "high",
-    metaTitle: "AI Infrastructure Engineer Resume 2026 | GPU, vLLM, K8s | Rajinikanth Vadla",
+    metaTitle: "AI Infrastructure Engineer Resume 2026 | GPU, vLLM, K8s",
     metaDescription:
       "AI infrastructure engineer resume writing service with GPU scheduling, vLLM, distributed training, and inference serving bullets. ATS-ready CV.",
     keywords: ["AI infrastructure resume", "AI infra engineer resume", "GPU engineer resume", "vLLM resume", "inference serving resume", "AI infrastructure CV"],
@@ -485,7 +485,7 @@ export const RESUME_ROLES: ResumeRole[] = [
     salaryIndia: "₹8–30 LPA",
     salaryGlobal: "$100K–$170K",
     traffic: "high",
-    metaTitle: "Cloud Engineer Resume Sample 2026 | AWS, Azure, GCP, Terraform | Rajinikanth Vadla",
+    metaTitle: "Cloud Engineer Resume Sample 2026 | AWS, Azure, GCP, Terraform",
     metaDescription:
       "Cloud engineer resume writing service with AWS, Azure, GCP, Terraform, networking, and security bullets. ATS-ready CV built by practitioners.",
     keywords: ["cloud engineer resume", "cloud engineer CV", "AWS resume", "Azure resume", "GCP resume", "cloud engineer resume sample", "cloud resume writing"],
@@ -534,7 +534,7 @@ export const RESUME_ROLES: ResumeRole[] = [
     salaryIndia: "₹15–50 LPA",
     salaryGlobal: "$130K–$220K",
     traffic: "high",
-    metaTitle: "GenAI Engineer Resume Sample 2026 | LLM, Fine-tuning, RAG | Rajinikanth Vadla",
+    metaTitle: "GenAI Engineer Resume Sample 2026 | LLM, Fine-tuning, RAG",
     metaDescription:
       "GenAI engineer resume writing service with LLM fine-tuning, RAG, prompt engineering, and production GenAI bullets. ATS-ready CV built by practitioners.",
     keywords: ["GenAI engineer resume", "generative AI resume", "GenAI CV", "LLM engineer resume sample", "fine-tuning resume", "GenAI resume writing"],
@@ -583,7 +583,7 @@ export const RESUME_ROLES: ResumeRole[] = [
     salaryIndia: "₹10–40 LPA",
     salaryGlobal: "$110K–$190K",
     traffic: "high",
-    metaTitle: "NLP Engineer Resume Sample 2026 | Transformers, BERT, LLMs | Rajinikanth Vadla",
+    metaTitle: "NLP Engineer Resume Sample 2026 | Transformers, BERT, LLMs",
     metaDescription:
       "NLP engineer resume writing service with transformers, BERT, NER, sentiment, and LLM bullets. ATS-ready CV built by practitioners.",
     keywords: ["NLP engineer resume", "NLP resume", "NLP CV", "NLP engineer resume sample", "transformer resume", "BERT resume", "NLP resume writing"],
@@ -633,7 +633,7 @@ export const RESUME_ROLES: ResumeRole[] = [
     salaryIndia: "₹12–40 LPA",
     salaryGlobal: "$120K–$200K",
     traffic: "high",
-    metaTitle: "SRE Resume Sample 2026 | SLO, SLI, Incident, Toil | Rajinikanth Vadla",
+    metaTitle: "SRE Resume Sample 2026 | SLO, SLI, Incident, Toil",
     metaDescription:
       "Site reliability engineer resume writing service with SLO/SLI, incident management, toil reduction, and observability bullets. ATS-ready CV.",
     keywords: ["SRE resume", "site reliability engineer resume", "SRE CV", "SRE resume sample", "SLO resume", "reliability engineer resume"],

@@ -3,18 +3,20 @@ import Link from "next/link";
 import { SITE, LINKS } from "@/lib/constants";
 import { INTL_MARKETS, PRIMARY_INTL_SLUGS } from "@/lib/international-markets";
 import { IntlMarketCard } from "@/components/IntlSeoLanding";
-import { HREFLANG_LANGUAGES } from "@/lib/hreflang";
 
 export const metadata: Metadata = {
-  title: "Global MLOps Training | USA, UK, Ireland, Netherlands, Luxembourg & More",
+  title: "Online AI & MLOps Course Worldwide: USA, UK, Dubai, Riyadh, Doha, Europe",
   description:
-    "Live online MLOps, LLMOps, AIOps and AI Agents course for engineers in USA, UK, Ireland, Netherlands, Luxembourg, Germany, Canada, Australia, Singapore and UAE. Job-ready training worldwide.",
+    "Live online MLOps, LLMOps and AI agents course for engineers in the USA, UK, UAE, Saudi Arabia, Qatar, Europe, Canada, Australia and Singapore. Local class times and fees for each country.",
   keywords: [
     "MLOps course USA",
     "MLOps course UK",
     "MLOps training Ireland",
     "MLOps course Netherlands",
     "MLOps Luxembourg",
+    "AI course Dubai",
+    "AI course Riyadh",
+    "AI course Qatar",
     "MLOps course Europe",
     "LLMOps training international",
     "remote MLOps course",
@@ -22,7 +24,6 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: `${SITE.url}/global-training/`,
-    languages: HREFLANG_LANGUAGES,
   },
   openGraph: {
     title: "Global MLOps & AI Engineering Training",

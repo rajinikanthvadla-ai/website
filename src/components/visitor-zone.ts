@@ -23,6 +23,7 @@ export function setRegionOverride(zone: VisitorZone) {
   const url = new URL(window.location.href);
   url.searchParams.set("region", zone.toLowerCase());
   window.history.replaceState(null, "", url);
+  document.documentElement.setAttribute("data-zone", zone);
   window.dispatchEvent(new Event(REGION_EVENT));
 }
 

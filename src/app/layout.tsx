@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
+import { ZONE_SCRIPT } from "@/lib/zone-script";
 import { Libre_Baskerville, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
 import AppShell from "@/components/AppShell";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import { SITE, STRUCTURED_DATA } from "@/lib/constants";
-import { HREFLANG_LANGUAGES } from "@/lib/hreflang";
 import { getActivity, getActivityStats, getAnnouncement } from "@/lib/cms";
 
 const display = Libre_Baskerville({
@@ -84,7 +84,6 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: `${SITE.url}/`,
-    languages: HREFLANG_LANGUAGES,
     types: { "application/rss+xml": `${SITE.url}/feed.xml` },
   },
   verification: {},
@@ -97,8 +96,9 @@ export default async function RootLayout({
 }) {
   const [announcement, activity, activityStats] = await Promise.all([getAnnouncement(), getActivity(), getActivityStats()]);
   return (
-    <html lang="en" className={`${display.variable} ${sans.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${display.variable} ${sans.variable}`}>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: ZONE_SCRIPT }} />
         <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
         <link rel="alternate" type="text/plain" href="https://rajinikanthvadla.com/llms.txt" title="LLM site index" />

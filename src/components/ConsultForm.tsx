@@ -135,7 +135,7 @@ export default function ConsultForm({ defaultService = "" }: { defaultService?: 
         <button type="submit" className="notion-btn notion-btn--accent" disabled={state === "sending"}>
           {state === "sending" ? "Sending..." : "Send request"}
         </button>
-        <span className="text-sm text-slate-500">Reply within one working day. Your details stay private.</span>
+        <span className="text-sm text-slate-500">Reply within one working day. Your details stay private (<a href="/privacy-policy/" className="underline underline-offset-2">privacy policy</a>).</span>
       </div>
     </form>
   );

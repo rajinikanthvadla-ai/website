@@ -80,8 +80,8 @@ export default function Footer({ minimal = false }: { minimal?: boolean }) {
             <ul className="space-y-2.5 text-sm">
               <li><Link href="/global-training/" className="hover:text-orange-400 transition-colors">All regions</Link></li>
               <li><Link href="/mlops-course-india/" className="hover:text-white transition-colors">MLOps India</Link></li>
-              <li><Link href="/global-training/usa/" className="hover:text-white transition-colors">MLOps USA</Link></li>
-              <li><Link href="/global-training/uk/" className="hover:text-white transition-colors">MLOps UK</Link></li>
+              <li><Link href="/global-training/usa/" className="hover:text-white transition-colors">MLOps course USA</Link></li>
+              <li><Link href="/global-training/uk/" className="hover:text-white transition-colors">AI & MLOps course UK</Link></li>
               <li><Link href="/global-training/ireland/" className="hover:text-white transition-colors">MLOps Ireland</Link></li>
               <li><Link href="/global-training/netherlands/" className="hover:text-white transition-colors">MLOps Netherlands</Link></li>
               <li><Link href="/global-training/luxembourg/" className="hover:text-white transition-colors">MLOps Luxembourg</Link></li>
@@ -89,7 +89,9 @@ export default function Footer({ minimal = false }: { minimal?: boolean }) {
               <li><Link href="/global-training/canada/" className="hover:text-white transition-colors">MLOps Canada</Link></li>
               <li><Link href="/global-training/australia/" className="hover:text-white transition-colors">MLOps Australia</Link></li>
               <li><Link href="/global-training/singapore/" className="hover:text-white transition-colors">MLOps Singapore</Link></li>
-              <li><Link href="/global-training/uae/" className="hover:text-white transition-colors">MLOps UAE</Link></li>
+              <li><Link href="/global-training/uae/" className="hover:text-white transition-colors">AI course Dubai, UAE</Link></li>
+              <li><Link href="/global-training/saudi-arabia/" className="hover:text-white transition-colors">AI course Riyadh, Saudi Arabia</Link></li>
+              <li><Link href="/global-training/qatar/" className="hover:text-white transition-colors">AI course Doha, Qatar</Link></li>
             </ul>
           </div>
 
@@ -105,12 +107,15 @@ export default function Footer({ minimal = false }: { minimal?: boolean }) {
               <li><Link href="/blog" className="hover:text-white transition-colors">Blog</Link></li>
               <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
               <li><Link href="/refund-policy/" className="hover:text-white transition-colors">Refund policy</Link></li>
+              <li><Link href="/privacy-policy/" className="hover:text-white transition-colors">Privacy policy</Link></li>
+              <li><Link href="/terms/" className="hover:text-white transition-colors">Terms</Link></li>
             </ul>
           </div>
 
           <div>
             <h3 className="text-white font-bold mb-4 text-xs uppercase tracking-[0.12em]">Connect</h3>
             <ul className="space-y-2.5 text-sm">
+              <li><Link href="/free-career-call/" className="hover:text-orange-400 transition-colors">Free 15-min career call</Link></li>
               <li><a href={LINKS.whatsapp} target="_blank" rel="noopener noreferrer" className="hover:text-emerald-400 transition-colors">WhatsApp</a></li>
               <li><a href={LINKS.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-[#dbeafe] transition-colors">LinkedIn</a></li>
               <li><a href={LINKS.youtube} target="_blank" rel="noopener noreferrer" className="hover:text-red-400 transition-colors">YouTube</a></li>
