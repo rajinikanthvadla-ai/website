@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import CTASection from "@/components/CTASection";
 import SuccessStories from "@/components/SuccessStories";
+import { YEARS_EXPERIENCE } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "MLOps, AIOps and GenAI practitioner and mentor. 7+ years in production, 500+ engineers trained. Online mentorship open worldwide.",
+    `MLOps, AIOps and GenAI practitioner and mentor. ${YEARS_EXPERIENCE} years in production, 500+ engineers trained. Online mentorship open worldwide.`,
   alternates: { canonical: "https://rajinikanthvadla.com/about/" },
 };
 
@@ -43,7 +44,7 @@ export default function AboutPage() {
               <h2 className="font-display text-2xl font-bold text-stone-900 mb-4">Who I am</h2>
               <p className="text-stone-600 leading-relaxed text-lg mb-4">
                 I&apos;m Rajinikanth Vadla, an AI/ML Operations Engineer, Cloud Architect, and passionate mentor with over
-                7+ years of hands-on experience in enterprise technology.
+                {YEARS_EXPERIENCE} years of hands-on experience in enterprise technology.
               </p>
               <p className="text-stone-600 leading-relaxed text-lg mb-10">
                 My real passion? Teaching. I believe everyone deserves access to quality, real-world training. That&apos;s

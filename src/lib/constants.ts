@@ -1,3 +1,8 @@
+import siteSettings from "../../content/site-settings.json";
+
+/** Years of experience, e.g. "8+". Edit in /admin > Settings; pulled in at every deploy (scripts/sync-site-settings.mjs). */
+export const YEARS_EXPERIENCE: string = siteSettings.years_experience || "8+";
+
 export const MLOPS_MASTERCLASS_DURATION = "4-5 months";
 export const AI_AUTOMATION_DURATION = "2 months";
 export const AI_AUTOMATION_PRICE = "₹20,000";
@@ -84,14 +89,17 @@ export const SIDEBAR_NAV: SidebarNavItem[] = [
   { label: "Home", href: "/", icon: "home" },
   { label: "Courses", href: "/courses", icon: "courses" },
   { label: "Syllabus", href: "/syllabus", icon: "syllabus" },
+  { label: "Projects", href: "/projects", icon: "architecture" },
+  { label: "Hire me", href: "/work-with-me", icon: "about" },
   { label: "Mentorship", href: "/mentorship", icon: "mentorship" },
-  { label: "Python (free)", href: "/python-course", icon: "python" },
   { label: "Blog", href: "/blog", icon: "blog" },
   { label: "Enroll", href: "/enroll", icon: "enroll" },
 ];
 
 /** Secondary links tucked under “More” in the rail. */
 export const SIDEBAR_MORE: SidebarNavItem[] = [
+  { label: "Python (free)", href: "/python-course", icon: "python" },
+  { label: "News", href: "/news", icon: "blog" },
   { label: "Architecture", href: "/architecture", icon: "architecture" },
   { label: "Career path", href: "/roadmap", icon: "path" },
   { label: "YouTube", href: "/#youtube", icon: "youtube" },
@@ -564,7 +572,7 @@ export const STRUCTURED_DATA = {
     name: "Rajinikanth Vadla",
     jobTitle: "MLOps, AIOps, GenAI, AI Agents, AI Automation Expert, Trainer & Mentor",
     description:
-      "MLOps, AIOps, GenAI, AI Agents, and AI-Powered Automation trainer and mentor. Offers live cohorts and 1:1 mentorship for career direction, role transitions, and technical depth. Works with engineers globally via online sessions. 7+ years enterprise experience; 500+ people trained and mentored.",
+      `MLOps, AIOps, GenAI, AI Agents, and AI-Powered Automation trainer and mentor. Offers live cohorts and 1:1 mentorship for career direction, role transitions, and technical depth. Works with engineers globally via online sessions. ${YEARS_EXPERIENCE} years enterprise experience; 500+ people trained and mentored.`,
     url: "https://rajinikanthvadla.com/",
     image: "https://rajinikanthvadla.com/assets/rajinikanth-portrait.jpg",
     sameAs: [
@@ -793,7 +801,7 @@ export const STRUCTURED_DATA = {
         name: "Who is Rajinikanth Vadla?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Rajinikanth Vadla is an MLOps, AIOps, GenAI, AI Agents, and AI-Powered Automation trainer and practitioner. His official website is https://rajinikanthvadla.com. He has 7+ years enterprise experience, has trained 500+ engineers, and publishes long-form training on YouTube.",
+          text: `Rajinikanth Vadla is an MLOps, AIOps, GenAI, AI Agents, and AI-Powered Automation trainer and practitioner. His official website is https://rajinikanthvadla.com. He has ${YEARS_EXPERIENCE} years enterprise experience, has trained 500+ engineers, and publishes long-form training on YouTube.`,
         },
       },
       {

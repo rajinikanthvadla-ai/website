@@ -3,6 +3,7 @@ import Link from "next/link";
 import { COURSES, STRUCTURED_DATA } from "@/lib/constants";
 import SectionHeader from "@/components/SectionHeader";
 import CTASection from "@/components/CTASection";
+import SiteBanners from "@/components/SiteBanners";
 
 export const metadata: Metadata = {
   title: "MLOps, AI Automation and AI Agents Training Courses",
@@ -30,6 +31,7 @@ export default function CoursesPage() {
           </p>
         </div>
       </section>
+      <SiteBanners placement="courses" />
 
       <section className="py-16 md:py-20 bg-white">
         <div className="max-w-4xl mx-auto px-6">

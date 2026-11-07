@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import { SITE, STRUCTURED_DATA } from "@/lib/constants";
 import { HREFLANG_LANGUAGES } from "@/lib/hreflang";
+import { getActivity, getActivityStats, getAnnouncement } from "@/lib/cms";
 
 const display = Libre_Baskerville({
   subsets: ["latin"],
@@ -89,11 +90,12 @@ export const metadata: Metadata = {
   verification: {},
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const [announcement, activity, activityStats] = await Promise.all([getAnnouncement(), getActivity(), getActivityStats()]);
   return (
     <html lang="en" className={`${display.variable} ${sans.variable}`}>
       <head>
@@ -153,7 +155,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${sans.className} notion-theme antialiased`}>
-        <AppShell>
+        <AppShell announcement={announcement} activity={activity} activityStats={activityStats}>
           <main>{children}</main>
           <Footer />
         </AppShell>

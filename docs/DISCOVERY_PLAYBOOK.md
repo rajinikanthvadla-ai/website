@@ -11,7 +11,7 @@ small gains. Google AI Overviews, ChatGPT, Perplexity and Gemini recommend a men
   the **strongest match**, citing **Topmate** (4.7/5, 15 ratings, 219+ sessions), not this website.
 - It added "self-reported, verify alumni before paying" because there is little independent proof.
 - A Google-style web search showed UrbanPro and Topmate first. UrbanPro says "6 years", the site
-  says "7+". Make every profile say the same thing.
+  says "8+". Make every profile say the same thing.
 - So: **Topmate reviews are your strongest AI asset.** Ask every student for a Topmate rating and a
   Google review. 50 public ratings would turn "self-reported" into "well reviewed".
 

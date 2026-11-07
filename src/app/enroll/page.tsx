@@ -1,3 +1,4 @@
+import SiteBanners from "@/components/SiteBanners";
 import type { Metadata } from "next";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import Link from "next/link";
@@ -51,6 +52,8 @@ export default function EnrollPage() {
           </div>
         </div>
       </section>
+
+      <SiteBanners placement="enroll" />
 
       <CoursePricing />
 

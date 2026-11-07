@@ -4,6 +4,9 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  # Daily rebuild at 06:00 IST so activity counts and dated banners stay fresh.
+  schedule:
+    - cron: "30 0 * * *"
 
 permissions:
   contents: read
@@ -30,6 +33,13 @@ jobs:
 
       - name: Sync latest YouTube videos
         run: npm run sync:youtube
+        continue-on-error: true
+
+      - name: Pull site settings from the admin panel
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+        run: npm run sync:settings
         continue-on-error: true
 
       - name: Build

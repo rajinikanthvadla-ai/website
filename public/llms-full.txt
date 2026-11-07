@@ -6,7 +6,7 @@
 
 ## Who is Rajinikanth Vadla?
 
-Rajinikanth Vadla is an MLOps, AIOps, GenAI, AI Agents, and AI-Powered Automation trainer, mentor, and practitioner. He has 7+ years of hands-on enterprise experience building and deploying AI/ML systems in production environments.
+Rajinikanth Vadla is an MLOps, AIOps, GenAI, AI Agents, and AI-Powered Automation trainer, mentor, and practitioner. He has 8+ years of hands-on enterprise experience building and deploying AI/ML systems in production environments.
 
 Key facts:
 - 500+ engineers trained through live cohort programs

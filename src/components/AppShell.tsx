@@ -5,6 +5,10 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { LINKS, SIDEBAR_MORE, SIDEBAR_NAV } from "@/lib/constants";
 import ScrollReveal from "./ScrollReveal";
+import SiteAnalytics from "./SiteAnalytics";
+import AnnouncementBar from "./AnnouncementBar";
+import ActivityToast from "./ActivityToast";
+import type { ActivityItem, ActivityStats } from "@/lib/cms";
 
 /** Top-bar links: the main nav minus Home (the logo) and Enroll (the button). */
 const PRIMARY = SIDEBAR_NAV.filter((item) => item.href !== "/" && item.href !== "/enroll").map((item) =>
@@ -18,8 +22,21 @@ function isActivePath(pathname: string, href: string) {
   return pathname === href || pathname.startsWith(`${href}/`);
 }
 
-export default function AppShell({ children }: { children: React.ReactNode }) {
+type Announcement = { text: string; href: string; endsAt: string | null } | null;
+
+export default function AppShell({
+  children,
+  announcement = null,
+  activity = [],
+  activityStats = null,
+}: {
+  children: React.ReactNode;
+  announcement?: Announcement;
+  activity?: ActivityItem[];
+  activityStats?: ActivityStats | null;
+}) {
   const pathname = usePathname();
+  const isAdmin = pathname.startsWith("/admin");
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -48,8 +65,14 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
 
+  if (isAdmin) {
+    // The admin panel has its own header; no site nav, footer, tracking or reveal animation.
+    return <div className="admin-shell">{children}</div>;
+  }
+
   return (
     <div className="site">
+      {announcement ? <AnnouncementBar {...announcement} /> : null}
       <header className={`site-nav${scrolled ? " is-scrolled" : ""}`}>
         <div className="site-nav-inner">
           <Link href="/" className="site-nav-logo" aria-label="Rajinikanth Vadla, home">
@@ -128,6 +151,8 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
 
       <div className="shell-content">{children}</div>
       <ScrollReveal />
+      <SiteAnalytics />
+      <ActivityToast items={activity} stats={activityStats} />
     </div>
   );
 }

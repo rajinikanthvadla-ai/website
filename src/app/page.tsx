@@ -7,6 +7,7 @@ import {
   STRUCTURED_DATA,
   HOME_PAGE_FAQS,
   MLOPS_MASTERCLASS_DURATION,
+  YEARS_EXPERIENCE,
 } from "@/lib/constants";
 import { LinkedInIcon, InstagramIcon, YouTubeIcon } from "@/components/Icons";
 import SectionHeader from "@/components/SectionHeader";
@@ -21,10 +22,14 @@ import AgenticFdeBanner from "@/components/AgenticFdeBanner";
 import LeadForm from "@/components/LeadForm";
 import { MLOPS_MASTERCLASS_SYLLABUS } from "@/lib/masterclass-syllabus";
 import { fetchApprovedTestimonials } from "@/lib/student-testimonials";
+import { getProjects, type PortfolioProject } from "@/lib/cms";
+import ProjectCard from "@/components/ProjectCard";
+import SiteBanners from "@/components/SiteBanners";
 
 export default async function HomePage() {
   // Runs at build time (static export), so real reviews ship inside the HTML.
   const reviews = await fetchApprovedTestimonials().catch(() => []);
+  const featured = (await getProjects()).filter((p) => p.featured).slice(0, 3);
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(STRUCTURED_DATA.faq) }} />
@@ -32,6 +37,7 @@ export default async function HomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(STRUCTURED_DATA.aiAutomationCourse) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(STRUCTURED_DATA.courseList) }} />
       <HeroSection />
+      <SiteBanners placement="home" />
       {/* Below-the-fold sections: the browser skips their layout until scrolled near (faster first paint on phones). */}
       {/* Order follows how people decide: what is on offer, proof it works, what you learn, then act. */}
       <div className="cv-auto">
@@ -40,6 +46,7 @@ export default async function HomePage() {
       {/* Not wrapped: SuccessStories has a position:fixed lightbox that content-visibility would clip. */}
       <SuccessStories compact />
       <div className="cv-auto">
+        <BuiltInProductionSection projects={featured} />
         <StudentFeedbacks initial={reviews} />
         <SyllabusPreviewSection />
         <AgenticFdeBanner />
@@ -120,6 +127,12 @@ function HeroSection() {
               </div>
             ))}
           </div>
+          <p className="mt-6 text-sm text-slate-600 max-w-xl">
+            Senior MLOps and AIOps engineer, {YEARS_EXPERIENCE} years in production. I also build AI agents for companies.{" "}
+            <Link href="/work-with-me/" className="font-semibold text-[#c2410c] underline underline-offset-4 decoration-orange-300 hover:decoration-[#c2410c]">
+              Hire me for a project
+            </Link>
+          </p>
         </div>
 
         <div className="flex flex-col items-stretch gap-4 max-w-md mx-auto w-full">
@@ -261,6 +274,34 @@ function FAQSection() {
               </div>
             </details>
           ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function BuiltInProductionSection({ projects }: { projects: PortfolioProject[] }) {
+  if (!projects.length) return null;
+  return (
+    <section className="notion-section notion-section--paper" id="projects">
+      <div className="max-w-5xl mx-auto px-6">
+        <SectionHeader
+          tag="Built in production"
+          title="I teach what I ship"
+          subtitle="Agents, RAG and MLOps platforms running for real companies, plus open-source tools. The same patterns go into the course labs."
+        />
+        <div className="grid md:grid-cols-3 gap-5 mb-8">
+          {projects.map((p) => (
+            <ProjectCard key={p.slug} project={p} />
+          ))}
+        </div>
+        <div className="flex flex-wrap justify-center gap-3">
+          <Link href="/projects/" className="notion-btn notion-btn--ink">
+            All projects
+          </Link>
+          <Link href="/work-with-me/" className="notion-btn notion-btn--ghost">
+            Need one built for your company?
+          </Link>
         </div>
       </div>
     </section>

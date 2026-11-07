@@ -11,6 +11,7 @@ import {
   MLOPS_PROGRAM_INCLUDES,
   MLOPS_PREREQUISITES,
   MLOPS_TARGET_AUDIENCE,
+  YEARS_EXPERIENCE,
 } from "@/lib/constants";
 import MasterclassSyllabus from "@/components/masterclass/MasterclassSyllabus";
 import SectionHeader from "@/components/SectionHeader";
@@ -336,13 +337,13 @@ function InstructorSection() {
             <span className="text-xs font-bold uppercase tracking-[0.14em] text-blue-700 mb-3 block">Instructor</span>
             <h2 className="font-display text-3xl font-bold text-slate-900 mb-4">Rajinikanth Vadla</h2>
             <p className="text-slate-600 leading-relaxed mb-6">
-              MLOps, AIOps, LLMOps, and AI Agents trainer with 7+ years of enterprise experience building production AI systems.
+              MLOps, AIOps, LLMOps, and AI Agents trainer with {YEARS_EXPERIENCE} years of enterprise experience building production AI systems.
               500+ engineers trained with 95% positive outcomes and 60% average salary increase reported by alumni.
               Known for hands-on, real-world training that bridges the gap between theory and production.
             </p>
             <div className="grid grid-cols-3 gap-4">
               {[
-                { value: "7+", label: "Years Experience" },
+                { value: YEARS_EXPERIENCE, label: "Years Experience" },
                 { value: "500+", label: "Engineers Trained" },
                 { value: "4.9★", label: "Average Rating" },
               ].map((s) => (

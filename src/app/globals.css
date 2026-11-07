@@ -2587,3 +2587,118 @@ main .rv.rv-in {
   .hero-live-dot::after { animation: none; }
   .lift, .lift:hover { transition: none; transform: none; }
 }
+
+/* ══ Announcement bar (set from /admin) ══ */
+.announce-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 0.4rem 2.75rem;
+  background: #0f172a;
+  color: #fff;
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+.announce-bar-link {
+  color: #fff;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(251, 146, 60, 0.7);
+  text-underline-offset: 3px;
+}
+
+.announce-bar-link:hover { text-decoration-color: #fb923c; }
+
+.announce-bar-close {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  color: #cbd5e1;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.announce-bar-close:hover { color: #fff; background: rgba(255, 255, 255, 0.1); }
+
+.site-banners { padding: 2rem 0; background: #fff; }
+
+/* Admin panel: hide public chrome. */
+.admin-shell footer,
+body:has(.admin-shell) .wa-float { display: none; }
+
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+/* ══ Activity card (real entries from /admin > Activity) ══ */
+.activity-toast {
+  position: fixed;
+  left: 1rem;
+  bottom: 1.25rem;
+  z-index: 45;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  max-width: min(330px, calc(100vw - 6.5rem));
+  padding: 0.7rem 0.75rem 0.7rem 0.85rem;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 14px 34px -14px rgba(15, 23, 42, 0.35);
+  opacity: 0;
+  transform: translate3d(0, 14px, 0);
+  pointer-events: none;
+  transition: opacity 0.35s ease, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.activity-toast.is-visible { opacity: 1; transform: none; pointer-events: auto; }
+
+.activity-toast-dot {
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  margin-top: 0.4rem;
+  border-radius: 50%;
+  background: #16a34a;
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.18);
+}
+
+.activity-toast-text {
+  font-size: 0.85rem;
+  line-height: 1.35;
+  color: #0f172a;
+  font-weight: 600;
+}
+
+.activity-toast-when {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: #64748b;
+}
+
+.activity-toast-close {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  margin: -0.15rem -0.2rem 0 0.1rem;
+  border-radius: 6px;
+  color: #94a3b8;
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
+.activity-toast-close:hover { color: #0f172a; background: #f1f5f9; }
+
+body:has(.site-nav-menu) .activity-toast { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .activity-toast { transition: opacity 0.2s linear; transform: none; }
+}
