@@ -20,7 +20,8 @@ export default function GlobalError({
       <head>
         <title>Oops — something went wrong | Rajinikanth Vadla</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+        <link rel="icon" href="/assets/favicon.ico?v=hero" sizes="any" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png?v=hero" />
       </head>
       <body className="bg-[#0f172a] text-slate-200 min-h-screen flex items-center justify-center p-6 font-sans">
         <div className="max-w-xl w-full text-center">

@@ -88,6 +88,15 @@ export const metadata: Metadata = {
   },
   // Bing Webmaster Tools ownership check. Keep it: removing it un-verifies the site in Bing.
   verification: { other: { "msvalidate.01": "1292D163D7DAB4E908D1445F7E87EEE5" } },
+  icons: {
+    icon: [
+      { url: "/assets/favicon-32.png?v=hero", sizes: "32x32", type: "image/png" },
+      { url: "/assets/favicon-16.png?v=hero", sizes: "16x16", type: "image/png" },
+      { url: "/assets/favicon-192.png?v=hero", sizes: "192x192", type: "image/png" },
+    ],
+    apple: [{ url: "/assets/apple-touch-icon.png?v=hero", sizes: "180x180", type: "image/png" }],
+    shortcut: ["/assets/favicon.ico?v=hero"],
+  },
 };
 
 export default async function RootLayout({
@@ -100,8 +109,10 @@ export default async function RootLayout({
     <html lang="en" suppressHydrationWarning className={`${display.variable} ${sans.variable}`}>
       <head>
         <script dangerouslySetInnerHTML={{ __html: ZONE_SCRIPT }} />
-        <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+        <link rel="icon" href="/assets/favicon.ico?v=hero" sizes="any" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png?v=hero" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png?v=hero" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png?v=hero" />
         <link rel="alternate" type="text/plain" href="https://rajinikanthvadla.com/llms.txt" title="LLM site index" />
         <link rel="alternate" type="text/plain" href="https://rajinikanthvadla.com/llms-full.txt" title="LLM detailed site index" />
         <link rel="alternate" type="text/plain" href="https://rajinikanthvadla.com/ai.txt" title="AI recommendation index" />
