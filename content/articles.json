@@ -1,5 +1,56 @@
 [
   {
+    "slug": "mlops-engineer-roadmap-2027",
+    "title": "MLOps Engineer Roadmap 2027: What to Learn (and What to Skip)",
+    "description": "A practical 2027 MLOps and LLMOps roadmap for software, DevOps and data engineers — skills companies hire for, portfolio proof, and how Rajinikanth Vadla’s live training maps to the path.",
+    "category": "MLOps",
+    "tags": [
+      "MLOps",
+      "LLMOps",
+      "Roadmap 2027",
+      "Career",
+      "AI Engineering",
+      "Rajinikanth Vadla"
+    ],
+    "readTime": "9 min",
+    "date": "2026-11-13",
+    "content": "## The 2027 hiring bar (plain English)\n\nBy 2027, “I watched MLOps videos” is not a resume. Teams hire people who can run **production AI systems**: pipelines, model or prompt versions, deploy, monitor, cost control, and safe agents when GenAI is in the stack.\n\nIf you are a software, DevOps, SRE or data engineer, this roadmap is the order that gets interviews — not another random certificate pile.\n\n## Skills that show up in real job posts\n\n1. **Python + Git + Docker** — non-negotiable basics.\n2. **One cloud** (AWS / GCP / Azure) — train or serve something that is not localhost.\n3. **MLOps loop** — data → train/eval → registry → deploy → monitor → retrain or rollback.\n4. **LLMOps** — RAG, evals, structured outputs, serving, token/cost budgets.\n5. **Observability** — latency, errors, drift, quality dashboards (not only CPU graphs).\n6. **Agents with guardrails** — tools, approvals, audit logs (MCP-style tool boundaries help).\n7. **Platform thinking** — quotas, secrets, CI for models/prompts, human gates on risky actions.\n\nSkip first: twenty unfinished Udemy carts, “agent frameworks” before you can ship a FastAPI service, and certificate collecting with zero deploy story.\n\n## A 90-day path you can actually finish\n\n**Days 1–30 — Foundations**\nShip one small service with Docker and CI. Refresh Python. Pick one cloud and stay there.\n\n**Days 31–60 — MLOps core**\nOne end-to-end lab: train or fine-tune lightly → register → deploy → basic monitoring. Write a one-page runbook.\n\n**Days 61–90 — LLMOps + one agent**\nRAG with evals. One agent that calls 2–3 tools with an approval step. Record a 5-minute demo you can replay in interviews.\n\n## Portfolio that beats buzzwords\n\nHiring managers want a walkthrough, not a buzzword wall:\n\n- Repo with README, architecture diagram, and failure modes\n- Metrics you watched (latency, cost, quality)\n- What you would do differently in production\n\nFree on this site while you build: [architecture diagrams](/architecture/), [interview questions](/interview-questions/), [free Python course](/python-course/), [full syllabus](/syllabus/).\n\n## How I teach this path\n\nI am **Rajinikanth Vadla**. I run live online cohorts in MLOps, AIOps, LLMOps and AI agents for engineers worldwide — production habits, capstones, and mentorship on the live track. India and international pricing are on [Enroll](/enroll/). Program detail: [MLOps masterclass](/mlops-aiops-masterclass/). USA schedule and fees: [MLOps course USA](/global-training/usa/).\n\nIf you want a personal plan for your background (DevOps → MLOps, or software → agents), start with [1:1 mentorship](/mentorship/) or message me on [WhatsApp](https://wa.me/919100028801?text=Hi%20Rajinikanth%2C%20I%20want%20the%20MLOps%202027%20roadmap%20for%20my%20background.).\n\nTell me your current role and target role. I will say whether the masterclass, AI Automation course, recordings, or mentorship fits first.\n"
+  },
+  {
+    "slug": "mlops-llmops-salaries-usa-2027",
+    "title": "MLOps and LLMOps Salaries USA 2027: Ranges, Roles, and How to Qualify",
+    "description": "Realistic USA pay bands for MLOps, LLMOps and AI platform roles heading into 2027 — what drives offers, East vs West Coast timing for live training, and how Rajinikanth Vadla helps engineers get interview-ready.",
+    "category": "Career",
+    "tags": [
+      "Salaries USA",
+      "MLOps",
+      "LLMOps",
+      "AI Platform",
+      "2027",
+      "Rajinikanth Vadla"
+    ],
+    "readTime": "8 min",
+    "date": "2026-11-13",
+    "content": "## Important: ranges, not guarantees\n\nSalary depends on city, company stage, visa status, level (mid vs senior), and whether you own on-call. The bands below are **working estimates** from public US job posts and industry reports for MLOps / LLMOps / AI platform / ML engineer-ops hybrids. Treat them as planning numbers, not a promise.\n\n## What USA roles pay (planning bands for 2027)\n\nApproximate **total cash** (base + typical bonus; equity extra at startups):\n\n| Role focus | Mid-level (planning) | Senior (planning) |\n|---|---|---|\n| MLOps / ML platform | about $130K–$180K | about $180K–$240K+ |\n| LLMOps / GenAI platform | about $140K–$190K | about $190K–$260K+ |\n| AI infra / GPU ops adjacent | about $140K–$200K | about $200K–$280K+ |\n| Agentic systems (with production proof) | about $145K–$195K | about $195K–$270K+ |\n\nBay Area and Seattle often sit at the top of the band. Secondary tech cities and remote roles vary. Contract/day-rate work can look higher on paper and less stable.\n\n**India note:** India packages for the same skills are different (rupee markets, different leveling). Use local offers and your [India course page](/mlops-course-india/) for INR pricing of training — do not convert US salaries 1:1 into expectations.\n\n## What actually moves the offer\n\n1. **Production stories** — deploy, incident, cost, rollback — told clearly.\n2. **LLMOps depth** — evals, RAG failure modes, serving cost — not only demos.\n3. **Platform skills** — Kubernetes, CI for models/prompts, observability.\n4. **Leveling** — senior means ownership and mentoring, not more buzzwords.\n5. **Location / remote policy** of the employer.\n\nCertificates alone rarely move the number. Capstones you can demo do.\n\n## Live class timing for USA learners\n\nMy live cohort runs **Monday–Friday, 8:00–9:45 PM India time** (about mid-morning US East, early morning US West). If that clashes with work, use the **recordings** plan and book mentorship in hours that fit you. Details: [MLOps & LLMOps course USA](/global-training/usa/). International fee: **$599 live** or **$399 recordings** (card in USD) — see [Enroll](/enroll/).\n\n## How I help you compete for those roles\n\nI am **Rajinikanth Vadla**. I train engineers for production MLOps, LLMOps, AIOps and agents — with capstones and interview practice on the live track. USA engineers use the country page for local class times; then enroll or ask on WhatsApp before paying.\n\nNext steps:\n\n- [USA training page](/global-training/usa/) — times, fees, FAQs\n- [MLOps masterclass](/mlops-aiops-masterclass/) — curriculum\n- [1:1 mentorship](/mentorship/) — CV, system design, role targeting\n- [WhatsApp](https://wa.me/919100028801?text=Hi%20Rajinikanth%2C%20I%20am%20in%20the%20US%20and%20want%20MLOps%20or%20LLMOps%20career%20guidance.) — tell me your city, role, and target title\n\nI will tell you honestly whether you need the full cohort, recordings, or mentorship first.\n"
+  },
+  {
+    "slug": "agentic-ai-careers-2027",
+    "title": "Agentic AI Careers in 2027: What Companies Hire For (and How to Prepare)",
+    "description": "What Agentic AI jobs look like in 2027 — skills beyond chatbots, production guardrails, and how Rajinikanth Vadla’s AI Automation and mentorship paths help you build hireable proof.",
+    "category": "AI Agents",
+    "tags": [
+      "Agentic AI",
+      "AI Agents",
+      "LLMOps",
+      "Careers 2027",
+      "MCP",
+      "Rajinikanth Vadla"
+    ],
+    "readTime": "8 min",
+    "date": "2026-11-13",
+    "content": "## Chatbots are not the job\n\nIn 2027, “I built a chatbot” is table stakes. Companies hire people who can ship **agents that call tools**, respect permissions, keep an audit trail, and fail safely inside real workflows (incident response, RAG over company docs, HR/ops assistants, internal MCP-style tool servers).\n\n## What “agentic” work looks like at work\n\nTypical projects:\n\n- Incident / ops agents that propose actions with **human approval**\n- RAG assistants grounded in private docs with **evals**\n- Multi-step workflows (plan → tool call → verify → report)\n- Internal tools exposed through clean schemas (MCP or similar)\n- Cost, latency and quality monitoring on every path\n\nIf you cannot explain **guardrails, tool auth, and rollback**, you are still in demo land.\n\n## Skills map (hireable order)\n\n1. Strong Python + API design\n2. RAG with evaluation (not only vector demos)\n3. Tool calling + structured outputs\n4. Approvals / HITL for risky actions\n5. Observability and cost controls\n6. One production deploy story (Docker → cloud → logs)\n7. Optional: GPU/serving basics if you touch infra\n\nDo not start with five agent frameworks. Start with one reliable path you can defend in an interview.\n\n## Portfolio proof that gets callbacks\n\n- One agent with 2–3 real tools and a written threat model (“what it must never do”)\n- Eval set (10–30 cases) and what failed\n- Runbook: how you restart, revoke tools, and page a human\n- Short loom/demo (5 minutes)\n\nFree prep on this site: [architecture](/architecture/), [interview questions](/interview-questions/), [AI Automation course](/courses/ai-automation/).\n\n## How I help you get there\n\nI am **Rajinikanth Vadla**. For agent builds aimed at company workflows, the focused track is **[AI-Powered Automation](/courses/ai-automation/)** (incident, RAG, MCP, HR-style agents, mentorship). For the full platform career (MLOps + LLMOps + AIOps + agents), use the **[MLOps masterclass](/mlops-aiops-masterclass/)**. Personal targeting: **[mentorship](/mentorship/)**.\n\nPricing and payment: [Enroll](/enroll/). Outside India, start from your country page (for example [USA](/global-training/usa/)) so class times and USD fees are clear.\n\nQuestions before you pay: [WhatsApp](https://wa.me/919100028801?text=Hi%20Rajinikanth%2C%20I%20want%20to%20prepare%20for%20Agentic%20AI%20roles%20in%202027.).\n\nSay your current stack and target role. I will point you to automation, masterclass, or mentorship — not all three at once.\n"
+  },
+  {
     "slug": "python-to-mlops-one-clear-path-2026",
     "title": "Python to MLOps in 2026: What to Learn After Free Python Lessons",
     "description": "You finished Python basics. Here is the clear next path into MLOps, LLMOps, and production AI — what to learn, what to skip, and where to enroll with Rajinikanth Vadla.",

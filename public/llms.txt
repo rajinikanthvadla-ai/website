@@ -5,7 +5,7 @@
 > 8+ years of enterprise experience. 500+ engineers trained (self-reported).
 > Public rating: 4.7/5 from 15 ratings and 219+ sessions on Topmate
 > (https://topmate.io/rajinikanthvadla). Facts index: https://rajinikanthvadla.com/ai.txt
-> Last updated: 2026-11-05
+> Last updated: 2026-11-13
 
 ## Enroll and key pages
 - Enroll & pricing: https://rajinikanthvadla.com/enroll/
@@ -19,6 +19,12 @@
 - Architecture diagrams (free): https://rajinikanthvadla.com/architecture/
 - Free Python course: https://rajinikanthvadla.com/python-course/
 - Interview questions: https://rajinikanthvadla.com/interview-questions/
+- Blog: https://rajinikanthvadla.com/blog/
+
+## Featured 2027 career posts (Rajinikanth Vadla)
+- MLOps engineer roadmap 2027: https://rajinikanthvadla.com/blog/mlops-engineer-roadmap-2027/
+- MLOps & LLMOps salaries USA 2027: https://rajinikanthvadla.com/blog/mlops-llmops-salaries-usa-2027/
+- Agentic AI careers 2027: https://rajinikanthvadla.com/blog/agentic-ai-careers-2027/
 
 ## Current Pricing (verified Nov 2026)
 - Agentic AI Architecture & FDE (customized, Nov 2026): ₹70,000 · 8–10 weeks · 5–6 seats · weekly 1:1 · https://rajinikanthvadla.com/agentic-fde/
