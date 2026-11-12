@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { MARKET_LABELS, TIMEZONE_TO_MARKET, liveClassTimes, type MarketSlug } from "@/lib/market-zones";
 
 const DISMISS_KEY = "rv-region-strip-dismissed";
-const HIDE_ON = [/^\/admin/, /^\/student-feedback/, /^\/enroll/, /^\/mlops-course-india/];
+const HIDE_ON = [/^\/admin/, /^\/student-feedback/, /^\/enroll/, /^\/mlops-course-india/, /^\/whiteboard/];
 
 /**
  * "In the UK? Live class is 2:30 PM your time" strip for visitors outside India.

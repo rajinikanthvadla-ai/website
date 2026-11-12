@@ -103,6 +103,7 @@ export const SIDEBAR_MORE: SidebarNavItem[] = [
   { label: "Python (free)", href: "/python-course", icon: "python" },
   { label: "News", href: "/news", icon: "blog" },
   { label: "Architecture", href: "/architecture", icon: "architecture" },
+  { label: "Whiteboard", href: "/whiteboard", icon: "architecture" },
   { label: "Career path", href: "/roadmap", icon: "path" },
   { label: "YouTube", href: "/#youtube", icon: "youtube" },
   { label: "About", href: "/about", icon: "about" },

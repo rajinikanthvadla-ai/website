@@ -6,7 +6,7 @@ import { WhatsAppIcon } from "./Icons";
 
 export default function WhatsAppFloat() {
   const pathname = usePathname();
-  if (pathname.startsWith("/python-course")) return null;
+  if (pathname.startsWith("/python-course") || pathname.startsWith("/whiteboard")) return null;
 
   return (
     <a

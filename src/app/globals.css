@@ -2840,3 +2840,99 @@ body:has(.cc-panel) .activity-toast { display: none; }
 @media (prefers-reduced-motion: reduce) {
   .cc-panel { animation: none; }
 }
+
+/* ══ Class whiteboard (Excalidraw) ══ */
+body:has(.wb-shell) .notion-footer,
+body:has(.wb-shell) .wa-float,
+body:has(.wb-shell) .activity-toast,
+body:has(.wb-shell) .region-strip {
+  display: none !important;
+}
+body:has(.wb-shell) .shell-content,
+body:has(.wb-shell) main {
+  padding: 0;
+  margin: 0;
+  max-width: none;
+}
+body:has(.wb-shell) {
+  overflow: hidden;
+}
+.wb-shell {
+  display: flex;
+  flex-direction: column;
+  height: calc(100dvh - 3.75rem);
+  min-height: 28rem;
+  background: #f8f6f0;
+}
+.wb-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1rem;
+  padding: 0.65rem 1rem;
+  border-bottom: 2px solid #0f172a;
+  background: #fffefc;
+}
+.wb-toolbar-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 12rem;
+  flex: 1;
+}
+.wb-toolbar-copy strong {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 1rem;
+  color: #0f172a;
+}
+.wb-toolbar-copy span {
+  font-size: 0.78rem;
+  color: #64748b;
+  line-height: 1.35;
+}
+.wb-toolbar-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+.wb-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 0.85rem;
+  border: 2px solid #0f172a;
+  border-radius: 0.35rem;
+  background: #0f172a;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 3px 3px 0 #ea580c;
+}
+.wb-btn:hover { filter: brightness(1.08); }
+.wb-btn--ghost {
+  background: #fff;
+  color: #0f172a;
+  box-shadow: 3px 3px 0 #cbd5e1;
+}
+.wb-btn--drawio {
+  background: #ea580c;
+  box-shadow: 3px 3px 0 #0f172a;
+}
+.wb-canvas {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+}
+.wb-canvas .excalidraw {
+  height: 100% !important;
+}
+.wb-loading {
+  display: grid;
+  place-items: center;
+  min-height: calc(100dvh - 3.75rem);
+  color: #64748b;
+  font-weight: 600;
+  background: #f8f6f0;
+}

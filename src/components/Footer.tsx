@@ -101,6 +101,7 @@ export default function Footer({ minimal = false }: { minimal?: boolean }) {
               <li><Link href="/syllabus/" className="hover:text-white transition-colors">Syllabus</Link></li>
               <li><Link href="/interview-questions/" className="hover:text-white transition-colors">Interview Questions</Link></li>
               <li><Link href="/architecture/" className="hover:text-white transition-colors">Architectures</Link></li>
+              <li><Link href="/whiteboard/" className="hover:text-white transition-colors">Class whiteboard</Link></li>
               <li><Link href="/about" className="hover:text-white transition-colors">About</Link></li>
               <li><Link href="/courses" className="hover:text-white transition-colors">All courses</Link></li>
               <li><Link href="/mentorship" className="hover:text-white transition-colors">Mentorship</Link></li>

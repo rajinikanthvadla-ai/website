@@ -11,7 +11,7 @@ const DISMISS_KEY = "rv-career-call-dismissed"; // localStorage: quiet for 3 day
 const QUIET_MS = 3 * 24 * 60 * 60 * 1000;
 const DELAY_MS = 10000;
 const SCROLL_RATIO = 0.35;
-const HIDE_ON = [/^\/admin/, /^\/student-feedback/, /^\/enroll/, /^\/free-career-call/, /^\/privacy-policy/, /^\/terms/, /^\/refund-policy/];
+const HIDE_ON = [/^\/admin/, /^\/student-feedback/, /^\/enroll/, /^\/free-career-call/, /^\/privacy-policy/, /^\/terms/, /^\/refund-policy/, /^\/whiteboard/];
 
 function storage(kind: "local" | "session") {
   try {
