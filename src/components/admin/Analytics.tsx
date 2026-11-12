@@ -40,7 +40,7 @@ export default function Analytics({ db }: { db: SupabaseClient }) {
     <div className="grid gap-4">
       <SectionTitle
         title="Analytics"
-        sub="Who comes, from where, to which page, and what they click. No cookies, no IP addresses."
+        sub="First-party: sources, landing pages, clicks. For city/country, scroll heatmaps and session replay use Clarity. For Google search words use Search Console."
         actions={
           <div className="inline-flex rounded-lg border border-slate-300 overflow-hidden">
             {[7, 30, 90].map((d) => (
@@ -56,6 +56,38 @@ export default function Analytics({ db }: { db: SupabaseClient }) {
           </div>
         }
       />
+      <Card>
+        <p className="font-semibold text-[#0f172a] mb-1">Observe users (external)</p>
+        <p className="text-xs text-slate-500 mb-3">
+          This board does not store city or heatmaps. Open these for deeper observation.
+        </p>
+        <div className="flex flex-wrap gap-2">
+          <a
+            className="inline-flex items-center rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm font-semibold text-teal-800 hover:border-teal-600"
+            href="https://clarity.microsoft.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Microsoft Clarity →
+          </a>
+          <a
+            className="inline-flex items-center rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm font-semibold text-teal-800 hover:border-teal-600"
+            href="https://search.google.com/search-console/performance/search-analytics"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Google Search Console →
+          </a>
+          <a
+            className="inline-flex items-center rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm font-semibold text-teal-800 hover:border-teal-600"
+            href="https://www.bing.com/webmasters"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Bing Webmaster →
+          </a>
+        </div>
+      </Card>
       {error ? <Notice tone="error">{error}</Notice> : null}
       {!data && !error ? <p className="text-sm text-slate-500">Loading...</p> : null}
 

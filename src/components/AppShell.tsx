@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { LINKS, SIDEBAR_MORE, SIDEBAR_NAV } from "@/lib/constants";
 import ScrollReveal from "./ScrollReveal";
 import SiteAnalytics from "./SiteAnalytics";
+import ClarityAnalytics from "./ClarityAnalytics";
 import AnnouncementBar from "./AnnouncementBar";
 import ActivityToast from "./ActivityToast";
 import RegionStrip from "./RegionStrip";
@@ -155,6 +156,7 @@ export default function AppShell({
       <div className="shell-content">{children}</div>
       <ScrollReveal />
       <SiteAnalytics />
+      <ClarityAnalytics />
       <ActivityToast items={activity} stats={activityStats} />
       <CareerCallPopup />
     </div>

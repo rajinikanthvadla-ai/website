@@ -3,7 +3,7 @@ import LegalPage, { type LegalSection } from "@/components/legal/LegalPage";
 import { SITE } from "@/lib/constants";
 
 /** Update this date whenever the policy text changes. Keep the text true to what the site actually collects. */
-const UPDATED = "7 November 2026";
+const UPDATED = "13 November 2026";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -27,7 +27,8 @@ const SECTIONS: LegalSection[] = [
       "Project and training requests (Hire me page): your name, email, company, the service you need, budget, timeline and project details, so I can reply with a plan or quote.",
       "Student reviews: the name, role, city, course, rating, review text and optional LinkedIn link you submit, plus whether you agreed to publication. A review is shown on the site only with your consent and after I approve it.",
       "Payments: handled by Razorpay. I receive your name, email, phone and payment status. I never see your full card, UPI or bank details.",
-      "Site statistics: pages viewed, which site or search engine sent you, campaign tags, device type, browser language and time zone, and which buttons you click (for example Enroll or WhatsApp). This uses a random session ID kept in your browser's session storage, which is deleted when you close the tab. No cookies, no IP address and no advertising profile.",
+      "Site statistics (first-party): pages viewed, which site or search engine sent you, campaign tags, device type, browser language and time zone, and which buttons you click (for example Enroll or WhatsApp). This uses a random session ID kept in your browser's session storage, which is deleted when you close the tab. It does not use advertising cookies and does not store your IP address in my database.",
+      "Microsoft Clarity (optional product analytics): when enabled, Clarity records anonymised session replays, click and scroll heatmaps, device type and approximate region/country so I can see where people get stuck on a page. Clarity may use cookies and process IP-derived location under Microsoft's privacy policy. Form fields such as email and phone are masked in replays.",
       "Your browser time zone is also used, only inside your browser, to show prices in your currency and class times for your country.",
     ],
   },
@@ -37,8 +38,10 @@ const SECTIONS: LegalSection[] = [
       "Supabase stores form submissions, reviews and site statistics.",
       "Resend delivers an email alert to me with the details of each form you send, so I can reply quickly.",
       "Razorpay processes payments under its own privacy policy.",
+      "Microsoft Clarity (Microsoft) processes product-analytics events when Clarity is enabled on this site.",
       "GitHub Pages hosts the website and may keep standard server logs (such as IP addresses) for security.",
       "YouTube (Google) serves the embedded videos. Google may set its own cookies when a page with a video loads or when you play it.",
+      "Google Search Console and Bing Webmaster Tools show which search words bring people to the site. Those reports stay in Google/Bing accounts and are not stored as personal profiles on this site.",
       "WhatsApp (Meta) and Topmate apply their own policies when you message me there or book a session there.",
       "I do not sell your data and I do not share it with advertisers.",
     ],

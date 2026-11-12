@@ -67,6 +67,20 @@ npx supabase secrets set GH_DEPLOY_TOKEN=paste-token-here --project-ref aarciofv
    Bing also feeds Yahoo, DuckDuckGo and Copilot, and the deploy pings it through IndexNow.
 
 After 2 to 3 days, **Performance** shows the exact words people searched before clicking your site.
+Filter by **Country** (United States, United Kingdom, India) to see US/UK intent.
+
+## 6b. Microsoft Clarity (where people stop, heatmaps, rough location)
+
+Admin Analytics stays first-party (no IP). Clarity adds session replay + scroll heatmaps + country/region.
+
+1. https://clarity.microsoft.com → **Add new project** → website URL `https://rajinikanthvadla.com`.
+2. Open **Settings → Overview** and copy the **Project ID** (short id inside the install script).
+3. GitHub repo → **Settings → Secrets and variables → Actions** → new secret
+   `NEXT_PUBLIC_CLARITY_PROJECT_ID` = that Project ID.
+4. Push to `main` or Admin → Dashboard → **Publish**. Wait for deploy.
+5. Open Clarity next day: **Dashboard / Heatmaps / Recordings**. Masking hides form fields by default.
+
+Do **not** add Google Analytics unless you later need city-level reports and accept another third-party script. Clarity + Search Console + your admin board is enough for now.
 
 ## 7. Email me every new lead (free career call, enquiry, project request)
 
@@ -95,7 +109,7 @@ To check Resend's replies: `select status_code, content, created from net._http_
 | Show a real student who just joined | Leads > set status "enrolled" > **Add to activity feed** (or Activity > Add activity) |
 | Change years of experience | Settings > Site details |
 | See and follow up enquiries | Leads (students) and Requests (companies) |
-| See where visitors come from | Analytics |
+| See where visitors come from | Analytics (plus Clarity + Search Console links there) |
 | Make changes live | Dashboard > **Publish** (about 3 to 5 minutes) |
 
 ### Making banners in ChatGPT
