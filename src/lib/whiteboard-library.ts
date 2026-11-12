@@ -143,6 +143,3 @@ export const TEACHING_LIBRARY = [
   card({ id: "human", label: "Human approve", color: "#15803d" }),
   card({ id: "user", label: "User / Client", color: INK, w: 140 }),
 ];
-
-export const DRAWIO_EMBED =
-  "https://app.diagrams.net/?splash=0&ui=min&libs=azure;aws3;aws4;aws4b;gcp2;kubernetes;flowchart";

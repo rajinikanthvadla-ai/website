@@ -2866,59 +2866,38 @@ body:has(.wb-shell) {
 }
 .wb-toolbar {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 0.75rem 1rem;
-  padding: 0.65rem 1rem;
+  gap: 0.75rem;
+  padding: 0.4rem 0.85rem;
   border-bottom: 2px solid #0f172a;
   background: #fffefc;
 }
-.wb-toolbar-copy {
-  display: flex;
-  flex-direction: column;
-  gap: 0.15rem;
-  min-width: 12rem;
-  flex: 1;
-}
-.wb-toolbar-copy strong {
+.wb-title {
   font-family: var(--font-display), Georgia, serif;
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: #0f172a;
-}
-.wb-toolbar-copy span {
-  font-size: 0.78rem;
-  color: #64748b;
-  line-height: 1.35;
 }
 .wb-toolbar-actions {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem;
+  gap: 0.4rem;
 }
 .wb-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.45rem 0.85rem;
+  padding: 0.35rem 0.7rem;
   border: 2px solid #0f172a;
-  border-radius: 0.35rem;
+  border-radius: 0.3rem;
   background: #0f172a;
   color: #fff;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 700;
-  text-decoration: none;
-  box-shadow: 3px 3px 0 #ea580c;
 }
 .wb-btn:hover { filter: brightness(1.08); }
 .wb-btn--ghost {
   background: #fff;
   color: #0f172a;
-  box-shadow: 3px 3px 0 #cbd5e1;
-}
-.wb-btn--drawio {
-  background: #ea580c;
-  box-shadow: 3px 3px 0 #0f172a;
 }
 .wb-canvas {
   flex: 1;
