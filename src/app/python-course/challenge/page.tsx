@@ -41,7 +41,7 @@ export default function PythonChallengePage() {
           Daily 5-minute Python challenge
         </h1>
         <p className="text-slate-600 leading-relaxed mb-8 max-w-2xl">
-          One small practice every day. Same challenge for everyone today. Mark it done, then open the full
+          One small practice every day. Same challenge for everyone today. Press Run &amp; check until it passes, then open the full
           lesson when you want the deeper explanation.
         </p>
         <DailyChallenge challenge={challenge} />

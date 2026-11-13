@@ -2,12 +2,12 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { PYTHON_LESSONS } from "@/lib/python-course";
+import type { LessonOutline } from "@/lib/python-course/types";
 import { getContinueLesson } from "@/lib/python-course/code-storage";
 import { readCourseProgress } from "@/lib/python-course/progress";
 
-export default function ContinueLearning() {
-  const [href, setHref] = useState(`/python-course/${PYTHON_LESSONS[0]?.slug || "why-python-for-ai"}/`);
+export default function ContinueLearning({ outline }: { outline: LessonOutline[] }) {
+  const [href, setHref] = useState(`/python-course/${outline[0]?.slug || "why-python-for-ai"}/`);
   const [label, setLabel] = useState("Start lesson 1");
   const [sub, setSub] = useState("No signup. First lesson takes about 12 minutes.");
 
@@ -21,11 +21,11 @@ export default function ContinueLearning() {
       return;
     }
     if (progress.completed.length > 0) {
-      const next = PYTHON_LESSONS.find((lesson) => !progress.completed.includes(lesson.slug));
+      const next = outline.find((lesson) => !progress.completed.includes(lesson.slug));
       if (next) {
         setHref(`/python-course/${next.slug}/`);
         setLabel(`Next: ${next.title}`);
-        setSub(`${progress.completed.length} lessons marked done on this device.`);
+        setSub(`${progress.completed.length} lessons passed on this device.`);
         return;
       }
     }

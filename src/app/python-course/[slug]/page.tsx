@@ -1,8 +1,18 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import LessonView from "@/components/python-course/LessonView";
-import { PYTHON_LESSON_SLUGS, PYTHON_MODULES, getPythonLesson } from "@/lib/python-course";
+import {
+  PYTHON_LESSON_SLUGS,
+  PYTHON_MODULES,
+  PYTHON_OUTLINE,
+  getAdjacentLessons,
+  getPythonLesson,
+} from "@/lib/python-course";
 import { SITE } from "@/lib/constants";
+
+function outlineOf(slug?: string) {
+  return PYTHON_OUTLINE.find((item) => item.slug === slug) ?? null;
+}
 
 export function generateStaticParams() {
   return PYTHON_LESSON_SLUGS.map((slug) => ({ slug }));
@@ -82,7 +92,13 @@ export default async function PythonLessonPage({ params }: { params: Promise<{ s
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
-      <LessonView lesson={lesson} modules={PYTHON_MODULES} />
+      <LessonView
+        lesson={lesson}
+        modules={PYTHON_MODULES}
+        outline={PYTHON_OUTLINE}
+        prev={outlineOf(getAdjacentLessons(lesson.slug).prev?.slug)}
+        next={outlineOf(getAdjacentLessons(lesson.slug).next?.slug)}
+      />
     </>
   );
 }

@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import {
   PRACTICE_TOPICS,
+  PROJECT_LESSONS,
   PYTHON_LESSONS,
   PYTHON_MODULES,
-  TOTAL_CODE_EXAMPLES,
+  PYTHON_OUTLINE,
   TOTAL_COURSE_MINUTES,
   getChallengeForDate,
   lessonsInModule,
@@ -20,7 +21,7 @@ const todaysChallenge = getChallengeForDate();
 export const metadata: Metadata = {
   title: "Free Python Course for AI, ML and GenAI",
   description:
-    "Free Python course by trainer Rajinikanth Vadla for AI, ML and GenAI engineers. 47 lessons, browser compiler, daily challenges, and a signed certificate — then continue into his live MLOps masterclass.",
+    `Free Python course by trainer Rajinikanth Vadla for AI, ML and GenAI engineers. ${PYTHON_LESSONS.length} lessons with auto-checked exercises, ${PROJECT_LESSONS.length} GitHub projects, your first real AI call, a browser compiler and a certificate.`,
   keywords: [
     "Rajinikanth Vadla",
     "free python course",
@@ -35,13 +36,16 @@ export const metadata: Metadata = {
     "python tutorial for beginners to advanced",
     "daily python challenge",
     "free python course certificate",
+    "python projects for beginners",
+    "python exercises with answers",
+    "run llm locally with python",
     "python certificate download",
   ],
   alternates: { canonical: CANONICAL },
   openGraph: {
     title: "Free Python Course for AI, ML and GenAI | Rajinikanth Vadla",
     description:
-      "From variables to RAG pipelines and FastAPI serving. Real-time examples, daily practice, plus an in-browser Python compiler — by Rajinikanth Vadla.",
+      "From variables to a RAG bot. Exercises that check your answers, 4 projects for GitHub, and your first real AI call. By Rajinikanth Vadla.",
     url: CANONICAL,
     type: "website",
   },
@@ -51,7 +55,7 @@ export const metadata: Metadata = {
 const FAQS = [
   {
     q: "Can I get a certificate?",
-    a: "Yes. After you mark Module 1 lessons done, unlock the Foundations certificate. Finish all lessons for the full-course certificate. Enter your name and download a PNG with the instructor signature. Progress is stored in your browser on this device.",
+    a: "Yes. Every lesson ends with a short exercise that checks your answer automatically. Pass every Module 1 exercise (including its project) for the Foundations certificate, or every lesson for the full-course certificate. Enter your name and download a PNG with the instructor signature. Progress is stored in your browser on this device.",
   },
   {
     q: "Is this Python course really free?",
@@ -59,7 +63,7 @@ const FAQS = [
   },
   {
     q: "Do I need to install Python to follow along?",
-    a: "No. Every lesson can be completed on this website with the browser compiler. The course also explains how production projects use packages and environments, but no setup is required to learn here.",
+    a: "Not to learn. Every lesson and exercise runs in your browser. The projects, the first real AI call, and the PyTorch and FastAPI lessons also give you complete files and steps to run on your own laptop, because employers expect you to know how.",
   },
   {
     q: "Is this suitable for complete beginners?",
@@ -67,7 +71,11 @@ const FAQS = [
   },
   {
     q: "Which libraries can I run in the browser compiler?",
-    a: "The browser supports the Python standard library, SQLite, NumPy, pandas, scikit-learn, and Matplotlib. Advanced PyTorch, FastAPI, and LLM lessons use clear browser-safe simulations, so you can complete their learning goals without leaving the site.",
+    a: "The browser supports the Python standard library, SQLite, NumPy, pandas, scikit-learn, and Matplotlib. PyTorch, FastAPI and real AI model calls cannot run in a browser tab, so those lessons give you a browser-safe version to practise here, plus a complete file and setup steps for your laptop.",
+  },
+  {
+    q: "What projects will I build?",
+    a: "Four, one at the end of each main module: a review sentiment checker, an ML experiment tracker (a mini MLflow), a spam message classifier with scikit-learn, and a bot that answers questions from your own notes using a free AI model on your laptop. Each one comes with a README and steps to put it on GitHub.",
   },
   {
     q: "How long does the course take?",
@@ -148,21 +156,22 @@ export default function PythonCoursePage() {
                 Learn Python the easy way for AI, ML and GenAI
               </h1>
               <p className="text-lg text-slate-600 leading-relaxed mb-4">
-                Short lessons, tiny examples, and a live editor in the browser — taught by Rajinikanth Vadla.
-                First learn the idea, then see the same idea in AI / ML code.
+                Short lessons, tiny examples, and a live editor in the browser, taught by Rajinikanth Vadla.
+                Every lesson ends with an exercise that checks your answer.
               </p>
               <p className="text-slate-600 leading-relaxed mb-8">
-                Learn without hassle. Everything you need to finish the course is available on this website.
+                Then build {PROJECT_LESSONS.length} projects for your GitHub and make your first real AI call on your own
+                laptop, for free.
               </p>
 
               <div className="mb-8">
-                <ContinueLearning />
+                <ContinueLearning outline={PYTHON_OUTLINE} />
               </div>
 
               <dl className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 {[
                   { value: String(PYTHON_LESSONS.length), label: "Lessons" },
-                  { value: `${TOTAL_CODE_EXAMPLES}+`, label: "Code examples" },
+                  { value: String(PROJECT_LESSONS.length), label: "Projects" },
                   { value: `${Math.round(TOTAL_COURSE_MINUTES / 60)}h`, label: "Reading time" },
                   { value: "₹0", label: "Cost" },
                 ].map((stat) => (
@@ -181,11 +190,11 @@ export default function PythonCoursePage() {
               <ul className="divide-y divide-slate-200">
                 {[
                   "Short basics: clear text + tiny code",
-                  "Then AI / ML examples for the same idea",
-                  "Live Try it editor on every lesson",
-                  "NumPy, pandas, and charts in the browser",
+                  "An exercise in every lesson that checks your answer",
+                  "4 projects with README and GitHub steps",
+                  "Your first real AI call, free, on your laptop",
+                  "NumPy, pandas, scikit-learn and charts in the browser",
                   "Daily challenge + downloadable certificate",
-                  "Beginner to advanced in one clear path",
                 ].map((item) => (
                   <li key={item} className="px-4 py-3 text-sm text-slate-700 flex gap-2.5">
                     <span className="text-blue-700 font-bold shrink-0">+</span>
@@ -210,7 +219,7 @@ export default function PythonCoursePage() {
                 Today&apos;s 5-minute challenge
               </h2>
               <p className="text-slate-600 max-w-2xl leading-relaxed">
-                One small practice for everyone today: {todaysChallenge.title}. No signup. Your mark-done status
+                One small practice for everyone today: {todaysChallenge.title}. No signup. Run &amp; check tells you if your answer is right, and your progress
                 stays on this device.
               </p>
             </div>
@@ -234,9 +243,9 @@ export default function PythonCoursePage() {
                 Download your certificate with your name
               </h2>
               <p className="text-slate-700 leading-relaxed mb-4 max-w-2xl">
-                Complete Module 1 for a Foundations certificate, or finish the full course for the complete
-                certificate. Enter your name and download a PNG signed by Rajinikanth Vadla - ready for LinkedIn
-                or your resume.
+                Pass every Module 1 exercise for a Foundations certificate, or the whole course for the complete
+                certificate. Enter your name and download a PNG signed by Rajinikanth Vadla, ready for LinkedIn.
+                Your GitHub projects are what recruiters will open, so link those too.
               </p>
               <ul className="space-y-2 text-sm text-slate-700 mb-6">
                 <li>+ Your name printed on the certificate</li>
@@ -254,13 +263,13 @@ export default function PythonCoursePage() {
               </p>
               <ol className="space-y-3 text-sm text-slate-700 leading-6">
                 <li>
-                  <span className="font-bold text-slate-900">1.</span> Learn a lesson and run the tiny examples
+                  <span className="font-bold text-slate-900">1.</span> Read a lesson and run the tiny examples
                 </li>
                 <li>
-                  <span className="font-bold text-slate-900">2.</span> Press Mark lesson done (or Next lesson)
+                  <span className="font-bold text-slate-900">2.</span> Pass the exercise at the end (it checks your answer)
                 </li>
                 <li>
-                  <span className="font-bold text-slate-900">3.</span> Finish Module 1 or the full course
+                  <span className="font-bold text-slate-900">3.</span> Finish Module 1 (with its project) or the full course
                 </li>
                 <li>
                   <span className="font-bold text-slate-900">4.</span> Enter your name and download the PNG
@@ -342,7 +351,12 @@ export default function PythonCoursePage() {
                           </span>
                           <span className="flex-1">
                             <span className="block font-bold text-slate-900 group-hover:text-blue-700">
-                              {lesson.title}
+                              {lesson.kind === "project" && (
+                                <span className="mr-2 align-middle text-[10px] font-bold uppercase tracking-wide bg-orange-500 text-white px-1.5 py-0.5 rounded">
+                                  Project
+                                </span>
+                              )}
+                              {lesson.title.replace(/^Project: /, "")}
                             </span>
                             <span className="block text-sm text-slate-600 mt-0.5">{lesson.summary}</span>
                           </span>
@@ -397,8 +411,8 @@ export default function PythonCoursePage() {
           <div className="border-l-4 border-l-orange-500 bg-[#fff7ed] border border-slate-200 rounded-r-lg p-4">
             <p className="text-sm text-slate-700 leading-relaxed">
               <strong>Limits worth knowing:</strong> no <code className="font-mono">input()</code>, no network calls,
-              no GPU, and runs stop after 20 seconds. Lessons that need PyTorch, FastAPI, or an LLM SDK give you a
-              complete file to run on your own machine.
+              no GPU, and runs stop after 20 seconds. The PyTorch, FastAPI and real AI call lessons, and every project,
+              give you complete files and setup steps to run on your own laptop.
             </p>
           </div>
         </div>
@@ -427,7 +441,7 @@ export default function PythonCoursePage() {
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="font-display text-2xl font-bold text-slate-900 mb-4">Where to go after Python</h2>
           <p className="text-slate-600 leading-relaxed mb-5">
-            Python is stage one with Rajinikanth Vadla. Next: production MLOps in the live cohort — or study the free guides first.
+            Python is stage one with Rajinikanth Vadla. Next: production MLOps in the live cohort, or study the free guides first.
           </p>
           <div className="flex flex-wrap gap-2 mb-6">
             <Link
@@ -474,7 +488,7 @@ export default function PythonCoursePage() {
 
       <CTASection
         title="Learn production MLOps with the same trainer"
-        subtitle="This Python course is free forever. Rajinikanth Vadla's live cohorts take you from Python into production ML, LLMOps, and AI agents — with mentorship and job support."
+        subtitle="This Python course is free forever. Rajinikanth Vadla's live cohorts take you from Python into production ML, LLMOps, and AI agents, with mentorship and job support."
       />
     </>
   );

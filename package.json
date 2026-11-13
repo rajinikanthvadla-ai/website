@@ -12,7 +12,8 @@
     "lint": "next lint",
     "generate-ads": "node ./scripts/generate-social-ads.mjs",
     "sync:youtube": "node ./scripts/sync-youtube-videos.mjs",
-    "sync:settings": "node ./scripts/sync-site-settings.mjs"
+    "sync:settings": "node ./scripts/sync-site-settings.mjs",
+    "check:python": "node ./scripts/check-python-exercises.mjs"
   },
   "dependencies": {
     "@excalidraw/excalidraw": "^0.18.1",

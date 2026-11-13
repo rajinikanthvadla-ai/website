@@ -1,4 +1,4 @@
-import type { PythonLesson, PythonModule, PythonModuleId } from "./types";
+import type { LessonOutline, PythonLesson, PythonModule, PythonModuleId } from "./types";
 import { MODULE_1_LESSONS } from "./module-1";
 import { MODULE_1B_LESSONS } from "./module-1b";
 import { MODULE_2_LESSONS } from "./module-2";
@@ -7,8 +7,19 @@ import { MODULE_3_LESSONS } from "./module-3";
 import { MODULE_3B_LESSONS } from "./module-3b";
 import { MODULE_4_LESSONS } from "./module-4";
 import { MODULE_5_LESSONS } from "./module-5";
+import { LESSON_EXERCISES } from "./exercises";
+import { EXTRA_LESSONS, LESSON_LAPTOP_RUNS } from "./projects";
 
-export type { PythonLesson, PythonModule, PythonModuleId, PythonLevel, PythonExample } from "./types";
+export type {
+  PythonLesson,
+  PythonModule,
+  PythonModuleId,
+  PythonLevel,
+  PythonExample,
+  PythonExercise,
+  LaptopRun,
+  LessonOutline,
+} from "./types";
 export {
   DAILY_CHALLENGES,
   getChallengeForDate,
@@ -27,28 +38,28 @@ export const PYTHON_MODULES: PythonModule[] = [
     id: "foundations",
     order: 1,
     title: "Module 1 · Python foundations",
-    tagline: "Zero to comfortable: syntax, values, text, collections, and control flow.",
+    tagline: "Zero to comfortable: syntax, values, text, collections, and control flow. Ends with your first project.",
     level: "beginner",
   },
   {
     id: "core-language",
     order: 2,
     title: "Module 2 · Core language",
-    tagline: "Functions, files, OOP, modules, packages, pip, errors, regex, and project structure.",
+    tagline: "Functions, files, your first real AI call, OOP, errors, regex, packages, and an experiment tracker project.",
     level: "intermediate",
   },
   {
     id: "data-ml",
     order: 3,
     title: "Module 3 · Python for data and ML",
-    tagline: "NumPy, pandas, statistics, plotting, scikit-learn, databases, and testing.",
+    tagline: "NumPy, pandas, statistics, plotting, scikit-learn, databases, testing, and a spam classifier project.",
     level: "intermediate",
   },
   {
     id: "genai-production",
     order: 4,
     title: "Module 4 · GenAI and production",
-    tagline: "Async, LLM APIs, tensors, RAG, FastAPI serving, and shipping habits.",
+    tagline: "Async, LLM APIs, tensors, RAG, FastAPI serving, shipping habits, and a RAG bot project.",
     level: "advanced",
   },
   {
@@ -69,7 +80,12 @@ const ALL_LESSONS: PythonLesson[] = [
   ...MODULE_3B_LESSONS,
   ...MODULE_4_LESSONS,
   ...MODULE_5_LESSONS,
-];
+  ...EXTRA_LESSONS,
+].map((lesson) => ({
+  ...lesson,
+  exercise: lesson.exercise ?? LESSON_EXERCISES[lesson.slug],
+  laptop: lesson.laptop ?? LESSON_LAPTOP_RUNS[lesson.slug],
+}));
 
 /**
  * Teaching order. Lessons written in the "b" files are interleaved with the
@@ -88,6 +104,7 @@ const LESSON_ORDER: string[] = [
   "lists-tuples-sets",
   "dictionaries",
   "control-flow",
+  "project-sentiment-checker",
 
   // Module 2 · core language
   "functions",
@@ -97,6 +114,7 @@ const LESSON_ORDER: string[] = [
   "scope-and-closures",
   "errors-and-exceptions",
   "files-and-json",
+  "first-real-ai-call",
   "classes-and-objects",
   "inheritance-and-polymorphism",
   "decorators-and-context-managers",
@@ -105,6 +123,7 @@ const LESSON_ORDER: string[] = [
   "standard-library-toolkit",
   "modules-and-environments",
   "packages-and-pip",
+  "project-experiment-tracker",
 
   // Module 3 · data and ML
   "type-hints-and-dataclasses",
@@ -118,6 +137,7 @@ const LESSON_ORDER: string[] = [
   "databases-with-python",
   "testing-with-pytest",
   "logging-and-configuration",
+  "project-spam-classifier",
 
   // Module 4 · GenAI and production
   "async-python",
@@ -126,6 +146,7 @@ const LESSON_ORDER: string[] = [
   "rag-from-scratch",
   "fastapi-model-service",
   "production-python-checklist",
+  "project-ask-my-notes",
 
   // Module 5 · reference
   "builtin-functions-reference",
@@ -153,6 +174,20 @@ export const FOUNDATIONS_LESSON_SLUGS = PYTHON_LESSONS.filter(
 ).map((lesson) => lesson.slug);
 
 export const TOTAL_LESSONS = PYTHON_LESSONS.length;
+
+export const PROJECT_LESSONS = PYTHON_LESSONS.filter((lesson) => lesson.kind === "project");
+
+/**
+ * Pass this (not PYTHON_LESSONS) to client components. Importing this index from a
+ * "use client" file ships every lesson's full text and code to the browser.
+ */
+export const PYTHON_OUTLINE: LessonOutline[] = PYTHON_LESSONS.map(({ slug, title, moduleId, kind, minutes }) => ({
+  slug,
+  title,
+  moduleId,
+  kind,
+  minutes,
+}));
 
 export const TOTAL_COURSE_MINUTES = PYTHON_LESSONS.reduce((sum, lesson) => sum + lesson.minutes, 0);
 

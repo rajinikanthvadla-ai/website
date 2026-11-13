@@ -2,13 +2,12 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
-import type { PythonLesson, PythonModule } from "@/lib/python-course/types";
-import { lessonsInModule, TOTAL_LESSONS } from "@/lib/python-course";
+import type { LessonOutline, PythonModule } from "@/lib/python-course/types";
 import { useCourseProgress } from "./useCourseProgress";
 
 type Props = {
   modules: PythonModule[];
-  lessons: PythonLesson[];
+  lessons: LessonOutline[];
   currentSlug?: string;
 };
 
@@ -37,7 +36,7 @@ export default function CourseSidebar({ modules, lessons, currentSlug }: Props) 
   const nav = (
     <nav aria-label="Python course lessons" className="space-y-3">
       {modules.map((mod) => {
-        const items = lessonsInModule(lessons, mod.id);
+        const items = lessons.filter((lesson) => lesson.moduleId === mod.id);
         const expanded = openModules[mod.id] ?? mod.id === activeModuleId;
         const panelId = `python-module-${mod.id}`;
         const doneInModule = items.filter((item) => completed(item.slug)).length;
@@ -103,7 +102,14 @@ export default function CourseSidebar({ modules, lessons, currentSlug }: Props) 
                         >
                           {done ? "✓" : index + 1}
                         </span>
-                        <span className="min-w-0 leading-snug">{lesson.title}</span>
+                        <span className="min-w-0 leading-snug">
+                          {lesson.kind === "project" ? lesson.title.replace(/^Project: /, "") : lesson.title}
+                          {lesson.kind === "project" && (
+                            <span className="ml-1.5 align-middle text-[9px] font-bold uppercase tracking-wide bg-orange-500 text-white px-1.5 py-0.5 rounded">
+                              Project
+                            </span>
+                          )}
+                        </span>
                       </Link>
                     </li>
                   );
@@ -124,7 +130,7 @@ export default function CourseSidebar({ modules, lessons, currentSlug }: Props) 
           onClick={() => setLessonListOpen((v) => !v)}
           className="w-full text-left px-4 py-3 rounded-2xl border border-slate-100 bg-white font-bold text-sm shadow-sm"
         >
-          {lessonListOpen ? "Hide lessons" : `Show lessons · ${completedCount}/${TOTAL_LESSONS} done`}
+          {lessonListOpen ? "Hide lessons" : `Show lessons · ${completedCount}/${lessons.length} done`}
         </button>
         {lessonListOpen && <div className="mt-3 p-2 rounded-[24px] border border-slate-100 bg-white shadow-sm">{nav}</div>}
       </div>
@@ -137,7 +143,7 @@ export default function CourseSidebar({ modules, lessons, currentSlug }: Props) 
             Course home
           </Link>
           <p className="text-sm text-slate-500 mt-1 leading-relaxed">
-            {completedCount}/{TOTAL_LESSONS} lessons done
+            {completedCount}/{lessons.length} lessons done
           </p>
           <Link
             href="/python-course/certificate/"

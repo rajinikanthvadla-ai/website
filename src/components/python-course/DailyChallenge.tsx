@@ -1,14 +1,14 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import {
   challengeDateKey,
   getChallengeForDate,
   type DailyChallenge,
-} from "@/lib/python-course";
+} from "@/lib/python-course/challenges";
 import { isChallengeDone, markChallengeDone } from "@/lib/python-course/code-storage";
-import PythonCompiler from "./PythonCompiler";
+import PythonCompiler, { type CheckVerdict } from "./PythonCompiler";
 
 type Props = {
   challenge?: DailyChallenge;
@@ -23,6 +23,15 @@ export default function DailyChallenge({ challenge, compact = false }: Props) {
   useEffect(() => {
     setDone(isChallengeDone(dateKey));
   }, [dateKey]);
+
+  const onCheck = useCallback(
+    (verdict: CheckVerdict) => {
+      if (!verdict.passed) return;
+      markChallengeDone(dateKey);
+      setDone(true);
+    },
+    [dateKey],
+  );
 
   return (
     <section className={compact ? "" : "border-2 border-slate-900 rounded-xl bg-white overflow-hidden shadow-[4px_4px_0_#0f172a]"}>
@@ -42,6 +51,10 @@ export default function DailyChallenge({ challenge, compact = false }: Props) {
             {done ? (
               <span className="text-xs font-bold uppercase tracking-wide px-3 py-2 rounded-md bg-emerald-600 text-white">
                 Done today
+              </span>
+            ) : active.check ? (
+              <span className="text-xs font-bold uppercase tracking-wide px-3 py-2 rounded-md border-2 border-dashed border-slate-400 text-slate-600">
+                Pass the check to finish
               </span>
             ) : (
               <button
@@ -72,6 +85,8 @@ export default function DailyChallenge({ challenge, compact = false }: Props) {
           packages={active.packages}
           title={`Daily challenge · ${active.lessonLabel}`}
           tall={!compact}
+          check={active.check}
+          onCheck={onCheck}
         />
       </div>
     </section>

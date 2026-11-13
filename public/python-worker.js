@@ -52,6 +52,24 @@ def _blocked_input(prompt=""):
 
 builtins.input = _blocked_input
 
+def _new_namespace():
+    return {"__name__": "__main__"}
+
+def _run_check(ns, check_src, printed, source):
+    # Same rules as scripts/check-python-exercises.mjs, keep them in sync.
+    scope = dict(ns)
+    scope["printed"] = printed
+    scope["source"] = source
+    try:
+        exec(check_src, scope)
+    except AssertionError as err:
+        return "FAIL:" + (str(err) or "Not quite yet. Read the task again and compare your output.")
+    except NameError as err:
+        return "FAIL:" + str(err) + ". Create it in your code first."
+    except Exception as err:
+        return "FAIL:" + type(err).__name__ + ": " + str(err)
+    return "PASS"
+
 def _collect_figures():
     import sys
     plt = sys.modules.get("matplotlib.pyplot")
@@ -92,10 +110,12 @@ function collectFigures(runtime) {
 }
 
 self.onmessage = async (event) => {
-  const { id, code, packages = [] } = event.data || {};
+  const { id, code, packages = [], check } = event.data || {};
   if (!id || typeof code !== "string") {
     return;
   }
+  const checking = typeof check === "string" && check.trim().length > 0;
+  let namespace = null;
 
   try {
     const runtime = await ensurePyodide();
@@ -118,7 +138,7 @@ self.onmessage = async (event) => {
     // Examples can import more than the lesson declared, so resolve from the code too.
     self.postMessage({ type: "status", message: "Preparing packages…" });
     try {
-      await runtime.loadPackagesFromImports(code);
+      await runtime.loadPackagesFromImports(checking ? `${code}\n${check}` : code);
     } catch {
       // Ignore: unresolvable imports surface as a normal Python ImportError.
     }
@@ -139,7 +159,13 @@ self.onmessage = async (event) => {
     });
 
     self.postMessage({ type: "status", message: "Running…" });
-    const result = await runtime.runPythonAsync(code);
+    // Exercises run in a fresh namespace so old variables from earlier runs cannot pass a check.
+    if (checking) {
+      const makeNamespace = runtime.globals.get("_new_namespace");
+      namespace = makeNamespace();
+      makeNamespace.destroy();
+    }
+    const result = await runtime.runPythonAsync(code, namespace ? { globals: namespace } : undefined);
     let resultText = "";
     if (result !== undefined && result !== null) {
       try {
@@ -152,6 +178,16 @@ self.onmessage = async (event) => {
       }
     }
 
+    let checkResult;
+    if (checking && namespace) {
+      const runCheck = runtime.globals.get("_run_check");
+      const verdict = String(runCheck(namespace, check, stdout, code));
+      runCheck.destroy();
+      checkResult = verdict === "PASS"
+        ? { passed: true, message: "" }
+        : { passed: false, message: verdict.replace(/^FAIL:/, "") };
+    }
+
     self.postMessage({
       id,
       type: "result",
@@ -160,6 +196,7 @@ self.onmessage = async (event) => {
       stderr,
       images: collectFigures(runtime),
       result: resultText === "undefined" || resultText === "None" ? "" : resultText,
+      check: checkResult,
     });
   } catch (err) {
     const message = err && typeof err === "object" && "message" in err ? String(err.message) : String(err);
@@ -170,5 +207,13 @@ self.onmessage = async (event) => {
       images: pyodide ? collectFigures(pyodide) : [],
       error: message,
     });
+  } finally {
+    if (namespace) {
+      try {
+        namespace.destroy();
+      } catch {
+        // already released
+      }
+    }
   }
 };

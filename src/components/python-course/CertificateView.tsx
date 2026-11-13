@@ -2,12 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
-import {
-  FOUNDATIONS_LESSON_SLUGS,
-  PYTHON_LESSONS,
-  PYTHON_LESSON_SLUGS,
-  TOTAL_LESSONS,
-} from "@/lib/python-course";
+import type { LessonOutline } from "@/lib/python-course/types";
 import {
   loadCertificateRecord,
   makeCertificateCode,
@@ -72,6 +67,8 @@ type PaintArgs = {
   issuedAt: string;
   unlocked: boolean;
   completedCount: number;
+  total: number;
+  foundationsTotal: number;
 };
 
 async function paintCertificate(canvas: HTMLCanvasElement, args: PaintArgs) {
@@ -146,8 +143,8 @@ async function paintCertificate(canvas: HTMLCanvasElement, args: PaintArgs) {
   ctx.font = "500 18px Inter, Arial, sans-serif";
   const detail =
     args.kind === "full"
-      ? `${TOTAL_LESSONS} lessons · foundations through GenAI and production Python · with in-browser practice`
-      : `${FOUNDATIONS_LESSON_SLUGS.length} foundation lessons · syntax, data types, text, collections, and control flow`;
+      ? `${args.total} lessons · foundations through GenAI and production Python · with checked exercises`
+      : `${args.foundationsTotal} foundation lessons · syntax, data types, text, collections, and control flow`;
   ctx.fillText(detail, W / 2, 580);
 
   ctx.fillStyle = "#64748b";
@@ -216,22 +213,28 @@ async function paintCertificate(canvas: HTMLCanvasElement, args: PaintArgs) {
     ctx.font = "500 20px Inter, Arial, sans-serif";
     ctx.fillText(
       args.kind === "full"
-        ? `Full course: ${args.completedCount}/${TOTAL_LESSONS} lessons done`
-        : `Foundations: mark all Module 1 lessons done`,
+        ? `Full course: ${args.completedCount}/${args.total} lessons passed`
+        : `Foundations: pass every Module 1 exercise`,
       W / 2,
       H / 2 + 34,
     );
   }
 }
 
-export default function CertificateView() {
+type Props = {
+  outline: LessonOutline[];
+  foundationSlugs: string[];
+};
+
+export default function CertificateView({ outline, foundationSlugs }: Props) {
+  const total = outline.length;
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [name, setName] = useState("");
   const [kind, setKind] = useState<CertificateKind>("foundations");
   const [readyFoundations, setReadyFoundations] = useState(false);
   const [readyFull, setReadyFull] = useState(false);
   const [completedCount, setCompletedCount] = useState(0);
-  const [nextLesson, setNextLesson] = useState(PYTHON_LESSONS[0]);
+  const [nextLesson, setNextLesson] = useState(outline[0]);
   const [status, setStatus] = useState("");
   const [issuedAt, setIssuedAt] = useState(new Date().toISOString());
   const [busy, setBusy] = useState(false);
@@ -245,20 +248,21 @@ export default function CertificateView() {
       issuedAt,
       unlocked,
       completedCount,
+      total,
+      foundationsTotal: foundationSlugs.length,
     }),
-    [name, kind, issuedAt, unlocked, completedCount],
+    [name, kind, issuedAt, unlocked, completedCount, total, foundationSlugs.length],
   );
 
   const refreshProgress = useCallback(() => {
     const progress = readCourseProgress();
     setCompletedCount(progress.completed.length);
     setNextLesson(
-      PYTHON_LESSONS.find((lesson) => !progress.completed.includes(lesson.slug)) ??
-        PYTHON_LESSONS[PYTHON_LESSONS.length - 1],
+      outline.find((lesson) => !progress.completed.includes(lesson.slug)) ?? outline[outline.length - 1],
     );
-    setReadyFoundations(hasCompletedLessons(FOUNDATIONS_LESSON_SLUGS, progress));
-    setReadyFull(hasCompletedLessons(PYTHON_LESSON_SLUGS, progress));
-  }, []);
+    setReadyFoundations(hasCompletedLessons(foundationSlugs, progress));
+    setReadyFull(hasCompletedLessons(outline.map((lesson) => lesson.slug), progress));
+  }, [outline, foundationSlugs]);
 
   useEffect(() => {
     refreshProgress();
@@ -287,8 +291,8 @@ export default function CertificateView() {
     if (!unlocked) {
       setStatus(
         kind === "full"
-          ? "Finish all lessons and mark them done to unlock the full certificate."
-          : "Finish Module 1 (foundations) and mark those lessons done to unlock this certificate.",
+          ? "Pass the exercise in every lesson to unlock the full certificate."
+          : "Pass every Module 1 exercise, including its project, to unlock this certificate.",
       );
       return;
     }
@@ -308,6 +312,8 @@ export default function CertificateView() {
       issuedAt: now,
       unlocked: true,
       completedCount,
+      total,
+      foundationsTotal: foundationSlugs.length,
     });
 
     const link = document.createElement("a");
@@ -333,15 +339,15 @@ export default function CertificateView() {
         Your Python course certificate
       </h1>
       <p className="text-slate-600 leading-relaxed mb-6 max-w-2xl">
-        Enter your name, unlock by completing lessons on this device, then download a PNG certificate signed
-        by Rajinikanth Vadla. Progress uses browser storage, so it works on GitHub Pages with no backend.
+        Every lesson ends with an exercise that checks your answer. Pass them on this device, enter your name, and
+        download a PNG certificate signed by Rajinikanth Vadla. Progress is saved in this browser.
       </p>
 
       <div className="rounded-xl border-2 border-slate-900 bg-white p-5 mb-6 shadow-[4px_4px_0_#0f172a]">
         <p className="text-sm text-slate-700 mb-4">
           Progress on this device:{" "}
           <span className="font-bold text-slate-900">
-            {completedCount}/{TOTAL_LESSONS} lessons marked done
+            {completedCount}/{total} lessons passed
           </span>
         </p>
         <div className="grid gap-4 sm:grid-cols-2 mb-4">
@@ -374,7 +380,7 @@ export default function CertificateView() {
                   {" · "}
                   {readyFoundations
                     ? "Unlocked"
-                    : `Complete Module 1 (${FOUNDATIONS_LESSON_SLUGS.length} lessons)`}
+                    : `Complete Module 1 (${foundationSlugs.length} lessons)`}
                 </span>
               </label>
               <label className="flex items-start gap-2 text-sm text-slate-700">
@@ -388,7 +394,7 @@ export default function CertificateView() {
                 <span>
                   <span className="font-bold text-slate-900">Full course</span>
                   {" · "}
-                  {readyFull ? "Unlocked" : `Complete all ${TOTAL_LESSONS} lessons`}
+                  {readyFull ? "Unlocked" : `Complete all ${total} lessons`}
                 </span>
               </label>
             </div>

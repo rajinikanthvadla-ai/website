@@ -2,8 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import type { PythonLesson, PythonModule } from "@/lib/python-course/types";
-import { getAdjacentLessons, PYTHON_LESSONS, TOTAL_LESSONS } from "@/lib/python-course";
+import type { LessonOutline, PythonLesson, PythonModule } from "@/lib/python-course/types";
 import {
   clearLessonCode,
   loadLessonCode,
@@ -15,6 +14,8 @@ import CodeExample from "./CodeExample";
 import BasicCodeBlock from "./BasicCodeBlock";
 import PythonCompiler, { type PythonCompilerHandle } from "./PythonCompiler";
 import LessonMarkdown from "./LessonMarkdown";
+import ExerciseCard from "./ExerciseCard";
+import LaptopRun from "./LaptopRun";
 import { useCourseProgress } from "./useCourseProgress";
 
 const LEVEL_LABEL: Record<PythonLesson["level"], string> = {
@@ -120,17 +121,22 @@ function tinyStarter(code: string, maxLines = 6): string | undefined {
 type Props = {
   lesson: PythonLesson;
   modules: PythonModule[];
+  outline: LessonOutline[];
+  prev: LessonOutline | null;
+  next: LessonOutline | null;
 };
 
-export default function LessonView({ lesson, modules }: Props) {
+export default function LessonView({ lesson, modules, outline, prev, next }: Props) {
   const [compilerCode, setCompilerCode] = useState(lesson.tryIt.starter);
   const [restored, setRestored] = useState(false);
   const compilerRef = useRef<PythonCompilerHandle>(null);
   const saveTimerRef = useRef<number | null>(null);
-  const { prev, next } = getAdjacentLessons(lesson.slug);
-  const lessonNumber = PYTHON_LESSONS.findIndex((item) => item.slug === lesson.slug) + 1;
+  const totalLessons = outline.length;
+  const lessonNumber = outline.findIndex((item) => item.slug === lesson.slug) + 1;
   const { completed, completedCount, markDone, markUndone } = useCourseProgress(lesson.slug);
   const isDone = completed(lesson.slug);
+  const isProject = lesson.kind === "project";
+  const hasExercise = Boolean(lesson.exercise);
 
   useEffect(() => {
     setContinueLesson(lesson.slug, lesson.title);
@@ -179,7 +185,7 @@ export default function LessonView({ lesson, modules }: Props) {
     <div className="bg-[#f3f6fb] min-h-screen pb-20 lg:pb-0">
       <div className="max-w-[1360px] mx-auto px-3 sm:px-4 lg:px-5 py-5 md:py-7">
         <div className="xl:grid xl:grid-cols-[190px_minmax(0,1fr)] xl:gap-5">
-          <CourseSidebar modules={modules} lessons={PYTHON_LESSONS} currentSlug={lesson.slug} />
+          <CourseSidebar modules={modules} lessons={outline} currentSlug={lesson.slug} />
 
           <div className="min-w-0">
             <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(360px,420px)] lg:gap-6 lg:items-start">
@@ -193,6 +199,11 @@ export default function LessonView({ lesson, modules }: Props) {
                     <span className="text-slate-500">Lesson {lessonNumber || "?"}</span>
                   </nav>
                   <div className="flex flex-wrap items-center gap-2 mb-2">
+                    {isProject && (
+                      <span className="text-[11px] font-bold uppercase tracking-wide bg-orange-500 text-white px-2 py-0.5 rounded">
+                        Project
+                      </span>
+                    )}
                     <span className="text-xs font-bold uppercase tracking-wide text-blue-700">
                       {LEVEL_LABEL[lesson.level]}
                     </span>
@@ -202,7 +213,7 @@ export default function LessonView({ lesson, modules }: Props) {
                     </span>
                     <span className="text-slate-300">·</span>
                     <span className="text-xs font-bold uppercase tracking-wide text-slate-500">
-                      {completedCount}/{TOTAL_LESSONS} done
+                      {completedCount}/{totalLessons} done
                     </span>
                   </div>
                   <h1 className="font-display text-[1.65rem] md:text-[1.9rem] font-bold text-slate-900 leading-snug mb-2">
@@ -219,13 +230,15 @@ export default function LessonView({ lesson, modules }: Props) {
                   const fallbackExample = lesson.examples[index % Math.max(lesson.examples.length, 1)];
                   const basicCode =
                     section.basicCode ||
-                    (fallbackExample ? tinyStarter(fallbackExample.code) : undefined) ||
-                    (index === 0 ? tinyStarter(lesson.tryIt.starter, 8) : undefined);
+                    (isProject
+                      ? undefined
+                      : (fallbackExample ? tinyStarter(fallbackExample.code) : undefined) ||
+                        (index === 0 ? tinyStarter(lesson.tryIt.starter, 8) : undefined));
 
                   return (
                     <section key={section.heading} className="pb-1">
                       <p className="text-xs font-bold uppercase tracking-wide text-emerald-700 mb-1">
-                        Basics
+                        {isProject ? `Step ${index + 1}` : "Basics"}
                       </p>
                       <h2 className="font-display text-xl font-bold text-slate-900 mb-3">
                         {section.heading}
@@ -244,6 +257,7 @@ export default function LessonView({ lesson, modules }: Props) {
                   );
                 })}
 
+                {lesson.examples.length > 0 && (
                 <section className="space-y-3 pt-2 border-t border-slate-200">
                   <div className="pt-4">
                     <p className="text-xs font-bold uppercase tracking-wide text-blue-700 mb-1">
@@ -272,6 +286,21 @@ export default function LessonView({ lesson, modules }: Props) {
                     />
                   ))}
                 </section>
+                )}
+
+                {lesson.exercise && (
+                  <ExerciseCard
+                    storageKey={`${lesson.slug}#exercise`}
+                    exercise={lesson.exercise}
+                    packages={lesson.packages}
+                    passed={isDone}
+                    isProject={isProject}
+                    onPass={() => markDone(lesson.slug)}
+                    next={next ? { href: `/python-course/${next.slug}/`, title: next.title } : undefined}
+                  />
+                )}
+
+                {lesson.laptop && <LaptopRun laptop={lesson.laptop} />}
 
                 <section className="pt-2 border-t border-slate-200">
                   <h2 className="font-display text-xl font-bold text-slate-900 mb-3 pt-4">Takeaways</h2>
@@ -286,17 +315,30 @@ export default function LessonView({ lesson, modules }: Props) {
                     ))}
                   </ul>
                   <div className="mt-4 flex flex-wrap gap-2">
-                    <button
-                      type="button"
-                      onClick={() => (isDone ? markUndone(lesson.slug) : markDone(lesson.slug))}
-                      className={`text-sm font-bold px-4 py-2.5 rounded-lg border ${
-                        isDone
-                          ? "border-emerald-200 bg-emerald-50 text-emerald-800"
-                          : "border-slate-200 bg-white text-slate-800 hover:bg-slate-50"
-                      }`}
-                    >
-                      {isDone ? "Marked done - undo" : "Mark lesson done"}
-                    </button>
+                    {isDone ? (
+                      <button
+                        type="button"
+                        onClick={() => markUndone(lesson.slug)}
+                        className="text-sm font-bold px-4 py-2.5 rounded-lg border border-emerald-200 bg-emerald-50 text-emerald-800"
+                      >
+                        Done - undo
+                      </button>
+                    ) : hasExercise ? (
+                      <a
+                        href="#lesson-exercise"
+                        className="text-sm font-bold px-4 py-2.5 rounded-lg border border-orange-200 bg-orange-50 text-orange-900 hover:bg-orange-100"
+                      >
+                        Pass the {isProject ? "project" : "exercise"} to finish this {isProject ? "project" : "lesson"}
+                      </a>
+                    ) : (
+                      <button
+                        type="button"
+                        onClick={() => markDone(lesson.slug)}
+                        className="text-sm font-bold px-4 py-2.5 rounded-lg border border-slate-200 bg-white text-slate-800 hover:bg-slate-50"
+                      >
+                        Mark lesson done
+                      </button>
+                    )}
                     <Link
                       href="/python-course/certificate/"
                       className="text-sm font-bold px-4 py-2.5 rounded-lg border border-blue-200 bg-blue-50 text-blue-800 hover:bg-blue-100"
@@ -323,7 +365,9 @@ export default function LessonView({ lesson, modules }: Props) {
                   {next ? (
                     <Link
                       href={`/python-course/${next.slug}/`}
-                      onClick={() => markDone(lesson.slug)}
+                      onClick={() => {
+                        if (!hasExercise) markDone(lesson.slug);
+                      }}
                       className="rounded-xl border border-blue-100 bg-blue-50 px-4 py-3.5 hover:bg-blue-100 sm:text-right"
                     >
                       <p className="text-xs font-bold uppercase tracking-wide text-blue-700 mb-1">
@@ -334,7 +378,9 @@ export default function LessonView({ lesson, modules }: Props) {
                   ) : (
                     <Link
                       href="/python-course/certificate/"
-                      onClick={() => markDone(lesson.slug)}
+                      onClick={() => {
+                        if (!hasExercise) markDone(lesson.slug);
+                      }}
                       className="rounded-xl border border-emerald-200 bg-emerald-600 px-4 py-3.5 text-white hover:bg-emerald-700 sm:text-right"
                     >
                       <p className="text-xs font-bold uppercase tracking-wide text-emerald-100 mb-1">

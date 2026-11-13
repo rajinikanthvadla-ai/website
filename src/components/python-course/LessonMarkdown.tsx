@@ -17,6 +17,16 @@ export default function LessonMarkdown({ content }: { content: string }) {
         ol: ({ children }) => <ol className="list-decimal pl-5 space-y-1.5 mb-3.5 text-[15px] text-slate-700">{children}</ol>,
         li: ({ children }) => <li className="leading-7 [&>p]:mb-0">{children}</li>,
         strong: ({ children }) => <strong className="text-slate-900 font-semibold">{children}</strong>,
+        a: ({ href, children }) => (
+          <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-700 font-semibold underline underline-offset-2 hover:text-blue-900"
+          >
+            {children}
+          </a>
+        ),
         h3: ({ children }) => (
           <h3 className="font-display text-[17px] font-bold text-slate-900 mt-4 mb-1.5">{children}</h3>
         ),

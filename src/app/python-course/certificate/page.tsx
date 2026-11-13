@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import CertificateView from "@/components/python-course/CertificateView";
 import { SITE } from "@/lib/constants";
-import { TOTAL_LESSONS } from "@/lib/python-course";
+import { FOUNDATIONS_LESSON_SLUGS, PYTHON_OUTLINE, TOTAL_LESSONS } from "@/lib/python-course";
 
 const CANONICAL = `${SITE.url}/python-course/certificate/`;
 
@@ -46,7 +46,7 @@ export default function PythonCertificatePage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="bg-[#fdfcf8] min-h-screen">
-        <CertificateView />
+        <CertificateView outline={PYTHON_OUTLINE} foundationSlugs={FOUNDATIONS_LESSON_SLUGS} />
       </div>
     </>
   );

@@ -20,7 +20,10 @@ type WorkerResult = {
   error?: string;
   message?: string;
   images?: string[];
+  check?: { passed: boolean; message: string };
 };
+
+export type CheckVerdict = { passed: boolean; message: string };
 
 type Props = {
   starter: string;
@@ -28,6 +31,9 @@ type Props = {
   title?: string;
   tall?: boolean;
   onCodeChange?: (code: string) => void;
+  /** Exercise mode: Python that checks the answer after every run. */
+  check?: string;
+  onCheck?: (verdict: CheckVerdict) => void;
 };
 
 export type PythonCompilerHandle = {
@@ -40,7 +46,8 @@ const LOAD_TIMEOUT_MS = 150000;
 const READY_ONCE_KEY = "python-course-runtime-ready-v1";
 
 function createWorker(): Worker {
-  return new Worker("/python-worker.js");
+  // Bump the version when python-worker.js changes so browsers do not use a cached copy.
+  return new Worker("/python-worker.js?v=2");
 }
 
 function hasRuntimeReadyFlag(): boolean {
@@ -62,7 +69,7 @@ function setRuntimeReadyFlag(): void {
 }
 
 const PythonCompiler = forwardRef<PythonCompilerHandle, Props>(function PythonCompiler(
-  { starter, packages = [], title = "Python console", tall = false, onCodeChange },
+  { starter, packages = [], title = "Python console", tall = false, onCodeChange, check, onCheck },
   ref,
 ) {
   const [code, setCode] = useState(starter);
@@ -72,6 +79,7 @@ const PythonCompiler = forwardRef<PythonCompilerHandle, Props>(function PythonCo
   const [running, setRunning] = useState(false);
   const [readyOnce, setReadyOnce] = useState(false);
   const [showFirstLoadSplash, setShowFirstLoadSplash] = useState(false);
+  const [verdict, setVerdict] = useState<CheckVerdict | null>(null);
   const workerRef = useRef<Worker | null>(null);
   const runIdRef = useRef(0);
   const timeoutRef = useRef<number | null>(null);
@@ -96,6 +104,7 @@ const PythonCompiler = forwardRef<PythonCompilerHandle, Props>(function PythonCo
     setCode(starter);
     setOutput("");
     setImages([]);
+    setVerdict(null);
     setStatus("loaded");
   }, [starter]);
 
@@ -113,6 +122,7 @@ const PythonCompiler = forwardRef<PythonCompilerHandle, Props>(function PythonCo
     setRunning(true);
     setOutput("");
     setImages([]);
+    setVerdict(null);
     setStatus(firstLoad ? "loading" : "running");
     setShowFirstLoadSplash(firstLoad);
 
@@ -161,7 +171,21 @@ const PythonCompiler = forwardRef<PythonCompilerHandle, Props>(function PythonCo
       if (!data.ok) {
         setStatus("error");
         setOutput(data.error || "The program failed.");
+        if (check) {
+          const failed = { passed: false, message: "Your code stopped with an error (shown above). Fix it, then run again." };
+          setVerdict(failed);
+          onCheck?.(failed);
+        }
         return;
+      }
+
+      if (check) {
+        const result = data.check ?? {
+          passed: false,
+          message: "Could not check this run. Refresh the page and try again.",
+        };
+        setVerdict(result);
+        onCheck?.(result);
       }
 
       const chunks: string[] = [];
@@ -177,9 +201,9 @@ const PythonCompiler = forwardRef<PythonCompilerHandle, Props>(function PythonCo
     };
 
     worker.addEventListener("message", onMessage);
-    worker.postMessage({ id, code, packages });
+    worker.postMessage(check ? { id, code, packages, check } : { id, code, packages });
     armTimeout(LOAD_TIMEOUT_MS);
-  }, [code, packages, readyOnce, resetWorker]);
+  }, [code, packages, readyOnce, resetWorker, check, onCheck]);
 
   useImperativeHandle(
     ref,
@@ -264,6 +288,7 @@ const PythonCompiler = forwardRef<PythonCompilerHandle, Props>(function PythonCo
               setCode(starter);
               setOutput("");
               setImages([]);
+              setVerdict(null);
               setStatus("loaded");
             }}
             className="text-[11px] font-bold uppercase tracking-wide px-2.5 py-1.5 rounded-md border border-zinc-600 bg-zinc-900 text-zinc-200 hover:bg-zinc-800"
@@ -276,7 +301,7 @@ const PythonCompiler = forwardRef<PythonCompilerHandle, Props>(function PythonCo
             disabled={running}
             className="text-[11px] font-bold uppercase tracking-wide px-3 py-1.5 rounded-md bg-[#27c93f] text-black hover:bg-[#3ddc55] disabled:opacity-60"
           >
-            {running ? "Running..." : "Run"}
+            {running ? "Running..." : check ? "Run & check" : "Run"}
           </button>
         </div>
       </div>
@@ -339,6 +364,18 @@ const PythonCompiler = forwardRef<PythonCompilerHandle, Props>(function PythonCo
             {output || "waiting for Run..."}
           </pre>
         </div>
+        {verdict && (
+          <div
+            role="status"
+            className={`px-3 py-2.5 border-t text-[13px] leading-5 font-semibold ${
+              verdict.passed
+                ? "bg-emerald-950 border-emerald-700 text-emerald-200"
+                : "bg-amber-950 border-amber-700 text-amber-100"
+            }`}
+          >
+            {verdict.passed ? "Correct! Well done." : `Not yet: ${verdict.message}`}
+          </div>
+        )}
         {images.length > 0 && (
           <div className="px-3 pb-3 space-y-2 bg-black border-t border-zinc-800">
             {images.map((src, index) => (
