@@ -16,6 +16,8 @@ import Curriculum from "@/components/python-course/Curriculum";
 import DailyChallenge from "@/components/python-course/DailyChallenge";
 import TryHello from "@/components/python-course/TryHello";
 import { SketchCard } from "@/components/python-course/sketches";
+import { MODULE_SHORT_LABEL } from "@/lib/python-course/labels";
+import { moduleCards } from "@/lib/python-course/memory";
 
 const CANONICAL = `${SITE.url}/python-course/`;
 const todaysChallenge = getChallengeForDate();
@@ -216,7 +218,8 @@ export default function PythonCoursePage() {
             Three steps, then lesson 1
           </h2>
           <p className="text-slate-700 max-w-2xl leading-relaxed mb-6">
-            Read this once. Then open Python Intro. You can leave and come back. Progress stays in this browser.
+            Read this once. Then open Python Intro. Every lesson has a picture you can step through, and a few easy
+            questions. Progress stays in this browser.
           </p>
           <div className="grid lg:grid-cols-3 gap-4">
             <article className="flex flex-col gap-3">
@@ -300,6 +303,32 @@ export default function PythonCoursePage() {
               kind,
             }))}
           />
+        </div>
+      </section>
+
+      <section className="py-14 md:py-16 bg-white border-b-2 border-slate-900" aria-labelledby="module-recap">
+        <div className="max-w-6xl mx-auto px-6">
+          <h2 id="module-recap" className="font-display text-3xl font-bold text-slate-900 mb-2">
+            A few cards to keep
+          </h2>
+          <p className="text-slate-700 max-w-2xl leading-relaxed mb-6">
+            One minute per module. Open a card. The answer is one line.
+          </p>
+          <div className="grid md:grid-cols-2 gap-4">
+            {PYTHON_MODULES.map((mod) => (
+              <article key={mod.id} className="border-2 border-slate-900 rounded-lg bg-[#fffef8] p-4">
+                <h3 className="font-display text-xl font-bold text-slate-900 mb-3">{MODULE_SHORT_LABEL[mod.id]}</h3>
+                <div className="space-y-2">
+                  {moduleCards(mod.id).map((card) => (
+                    <details key={card.prompt} className="border-2 border-slate-900 rounded-lg bg-white px-3 py-2">
+                      <summary className="cursor-pointer font-semibold text-slate-900">{card.prompt}</summary>
+                      <p className="mt-2 text-[15px] text-slate-700 leading-6">{card.answer}</p>
+                    </details>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 

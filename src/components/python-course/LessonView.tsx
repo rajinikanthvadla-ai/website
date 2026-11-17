@@ -3,6 +3,9 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import type { LessonOutline, PythonLesson, PythonModule } from "@/lib/python-course/types";
+import type { LessonQuiz } from "@/lib/python-course/quiz-shared";
+import type { MemoryHook, FlashCard } from "@/lib/python-course/memory";
+import type { Scene } from "@/lib/python-course/scenes";
 import {
   clearLessonCode,
   loadLessonCode,
@@ -19,6 +22,7 @@ import LaptopRun from "./LaptopRun";
 import { useCourseProgress } from "./useCourseProgress";
 import LessonSketch from "./LessonSketch";
 import CheckpointQuiz from "./CheckpointQuiz";
+import LazyConceptPlayer from "./LazyConceptPlayer";
 import { MODULE_SHORT_LABEL } from "@/lib/python-course/labels";
 
 const LEVEL_LABEL: Record<PythonLesson["level"], string> = {
@@ -127,9 +131,13 @@ type Props = {
   outline: LessonOutline[];
   prev: LessonOutline | null;
   next: LessonOutline | null;
+  quiz?: LessonQuiz;
+  memory?: MemoryHook;
+  scene: Scene;
+  moduleRecap?: FlashCard[];
 };
 
-export default function LessonView({ lesson, modules, outline, prev, next }: Props) {
+export default function LessonView({ lesson, modules, outline, prev, next, quiz, memory, scene, moduleRecap }: Props) {
   const [compilerCode, setCompilerCode] = useState(lesson.tryIt.starter);
   const [restored, setRestored] = useState(false);
   const compilerRef = useRef<PythonCompilerHandle>(null);
@@ -246,6 +254,12 @@ export default function LessonView({ lesson, modules, outline, prev, next }: Pro
                     <span className="font-semibold text-slate-900">Why it matters for AI and ML: </span>
                     {plain(lesson.whyForAi)}
                   </p>
+                  {memory ? (
+                    <p className="mt-2 text-[15px] text-slate-800 leading-6">
+                      <span className="font-semibold text-slate-900">Picture it: </span>
+                      {memory.analogy}
+                    </p>
+                  ) : null}
                   <div className="mt-3">
                     <div
                       role="progressbar"
@@ -299,7 +313,9 @@ export default function LessonView({ lesson, modules, outline, prev, next }: Pro
                   );
                 })}
 
-                <CheckpointQuiz slug={lesson.slug} />
+                <LazyConceptPlayer scene={scene} />
+
+                {quiz ? <CheckpointQuiz quiz={quiz} /> : null}
 
                 {lesson.examples.length > 0 && (
                 <section className="space-y-3 pt-2 border-t border-slate-200">
@@ -314,6 +330,7 @@ export default function LessonView({ lesson, modules, outline, prev, next }: Pro
                       Same idea, used in real AI work. Press{" "}
                       <span className="font-semibold text-slate-900">Try in lab</span> to run it.
                     </p>
+                    {memory ? <p className="mt-2 text-[15px] text-slate-800 leading-6">{memory.ai}</p> : null}
                   </div>
                   {lesson.examples.map((example, index) => (
                     <CodeExample
@@ -385,6 +402,36 @@ export default function LessonView({ lesson, modules, outline, prev, next }: Pro
                     )}
                   </div>
                 </section>
+
+                {memory ? (
+                  <aside className="border-2 border-slate-900 rounded-lg bg-[#fffef8] p-4 sm:p-5 shadow-[4px_4px_0_#0f172a]">
+                    <p className="text-xs font-bold uppercase tracking-wide text-orange-700">Remember this</p>
+                    <p className="font-display text-2xl font-bold text-slate-900 mt-1 leading-snug">{memory.remember}</p>
+                    <p className="mt-2 text-[15px] text-slate-800 leading-6">
+                      <span className="font-semibold text-slate-900">In AI and ML: </span>
+                      {memory.ai}
+                    </p>
+                  </aside>
+                ) : null}
+
+                {moduleRecap && moduleRecap.length > 0 ? (
+                  <section aria-labelledby={`recap-${lesson.moduleId}`}>
+                    <h2 id={`recap-${lesson.moduleId}`} className="font-display text-xl font-bold text-slate-900">
+                      Quick recap
+                    </h2>
+                    <p className="mt-1 text-sm text-slate-700 leading-6">
+                      Four cards for this module. Open one when you want the one-line answer.
+                    </p>
+                    <div className="mt-3 space-y-2">
+                      {moduleRecap.map((card) => (
+                        <details key={card.prompt} className="border-2 border-slate-900 rounded-lg bg-white px-3 py-2">
+                          <summary className="cursor-pointer font-semibold text-slate-900">{card.prompt}</summary>
+                          <p className="mt-2 text-[15px] text-slate-700 leading-6">{card.answer}</p>
+                        </details>
+                      ))}
+                    </div>
+                  </section>
+                ) : null}
 
                 {next ? (
                   <section className="border-2 border-slate-900 rounded-lg bg-blue-700 text-white p-4 sm:p-5 shadow-[4px_4px_0_#0f172a]">

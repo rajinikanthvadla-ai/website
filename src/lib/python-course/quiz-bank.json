@@ -1,0 +1,4206 @@
+[
+  {
+    "slug": "why-python-for-ai",
+    "title": "Easy questions",
+    "questions": [
+      {
+        "id": "q1",
+        "kind": "choice",
+        "prompt": "What is Python?",
+        "options": [
+          {
+            "id": "0",
+            "label": "A programming language"
+          },
+          {
+            "id": "1",
+            "label": "A chart"
+          },
+          {
+            "id": "2",
+            "label": "A certificate"
+          }
+        ],
+        "answer": "0",
+        "why": "Python is a language. You write steps and the computer follows them."
+      },
+      {
+        "id": "q2",
+        "kind": "choice",
+        "prompt": "How do you run code in this course?",
+        "options": [
+          {
+            "id": "0",
+            "label": "Install Python first"
+          },
+          {
+            "id": "1",
+            "label": "Press Run in the browser"
+          },
+          {
+            "id": "2",
+            "label": "Email a teacher"
+          }
+        ],
+        "answer": "1",
+        "why": "Press Run. Python loads in the browser. Nothing to install."
+      },
+      {
+        "id": "q3",
+        "kind": "predict",
+        "prompt": "What does this print?",
+        "code": "print(\"Hello\")\nprint(2 + 2)",
+        "options": [
+          {
+            "id": "0",
+            "label": "Hello, then 4"
+          },
+          {
+            "id": "1",
+            "label": "Hello only"
+          },
+          {
+            "id": "2",
+            "label": "Nothing"
+          }
+        ],
+        "answer": "0",
+        "why": "print shows each result. 2 + 2 is 4."
+      },
+      {
+        "id": "q4",
+        "kind": "blank",
+        "prompt": "The function that shows text is ____.",
+        "accept": [
+          "print"
+        ],
+        "answer": "print",
+        "why": "print(...) is how you see a result."
+      },
+      {
+        "id": "q5",
+        "kind": "bug",
+        "prompt": "Which line is a note Python skips?",
+        "code": "# this is a note\nprint(\"hi\")",
+        "options": [
+          {
+            "id": "0",
+            "label": "Line 1, because it starts with #"
+          },
+          {
+            "id": "1",
+            "label": "Line 2, because it uses print"
+          },
+          {
+            "id": "2",
+            "label": "Both lines"
+          }
+        ],
+        "answer": "0",
+        "why": "A line that starts with # is a comment. Python skips it."
+      }
+    ]
+  },
+  {
+    "slug": "syntax-and-comments",
+    "title": "Easy questions",
+    "questions": [
+      {
+        "id": "q1",
+        "kind": "choice",
+        "prompt": "Where does Python start reading?",
+        "options": [
+          {
+            "id": "0",
+            "label": "The top line"
+          },
+          {
+            "id": "1",
+            "label": "The last line"
+          },
+          {
+            "id": "2",
+            "label": "A random line"
+          }
+        ],
+        "answer": "0",
+        "why": "Python walks from the top of the file downward."
+      },
+      {
+        "id": "q2",
+        "kind": "predict",
+        "prompt": "score is 0.9. What prints?",
+        "code": "score = 0.9\nif score > 0.7:\n    print(\"keep\")\nprint(\"done\")",
+        "options": [
+          {
+            "id": "0",
+            "label": "keep, then done"
+          },
+          {
+            "id": "1",
+            "label": "done only"
+          },
+          {
+            "id": "2",
+            "label": "keep only"
+          }
+        ],
+        "answer": "0",
+        "why": "The indented line runs because 0.9 > 0.7. The last line always runs."
+      },
+      {
+        "id": "q3",
+        "kind": "blank",
+        "prompt": "A comment starts with ____.",
+        "accept": [
+          "#"
+        ],
+        "answer": "#",
+        "why": "The # marks a note. Python does not run that line."
+      },
+      {
+        "id": "q4",
+        "kind": "bug",
+        "prompt": "What is wrong here?",
+        "code": "if score > 0.7\n    print(\"keep\")",
+        "options": [
+          {
+            "id": "0",
+            "label": "The if line is missing a colon"
+          },
+          {
+            "id": "1",
+            "label": "print is the wrong word"
+          },
+          {
+            "id": "2",
+            "label": "The score is too high"
+          }
+        ],
+        "answer": "0",
+        "why": "A colon ends the if line. Then the next line is indented."
+      }
+    ]
+  },
+  {
+    "slug": "variables-types-operators",
+    "title": "Easy questions",
+    "questions": [
+      {
+        "id": "q1",
+        "kind": "choice",
+        "prompt": "What is a variable?",
+        "options": [
+          {
+            "id": "0",
+            "label": "A name on a box that holds a value"
+          },
+          {
+            "id": "1",
+            "label": "A kind of loop"
+          },
+          {
+            "id": "2",
+            "label": "A comment"
+          }
+        ],
+        "answer": "0",
+        "why": "The name is the label. The value sits inside the box."
+      },
+      {
+        "id": "q2",
+        "kind": "predict",
+        "prompt": "What does this print?",
+        "code": "score = 0.91\nprint(type(score))",
+        "options": [
+          {
+            "id": "0",
+            "label": "float"
+          },
+          {
+            "id": "1",
+            "label": "int"
+          },
+          {
+            "id": "2",
+            "label": "str"
+          }
+        ],
+        "answer": "0",
+        "why": "A number with a decimal point is a float."
+      },
+      {
+        "id": "q3",
+        "kind": "blank",
+        "prompt": "True, False, and None start with a ____ letter.",
+        "accept": [
+          "capital",
+          "uppercase",
+          "big"
+        ],
+        "answer": "capital",
+        "why": "Python writes True, False, and None with a capital letter."
+      },
+      {
+        "id": "q4",
+        "kind": "bug",
+        "prompt": "What is wrong here?",
+        "code": "ready = true",
+        "options": [
+          {
+            "id": "0",
+            "label": "true should be True"
+          },
+          {
+            "id": "1",
+            "label": "ready is a bad name"
+          },
+          {
+            "id": "2",
+            "label": "The line needs print"
+          }
+        ],
+        "answer": "0",
+        "why": "The boolean is True, with a capital T."
+      }
+    ]
+  },
+  {
+    "slug": "casting-and-conversion",
+    "title": "Easy questions",
+    "questions": [
+      {
+        "id": "q1",
+        "kind": "choice",
+        "prompt": "What is float(\"0.2\")?",
+        "options": [
+          {
+            "id": "0",
+            "label": "The number 0.2"
+          },
+          {
+            "id": "1",
+            "label": "The text 0.2"
+          },
+          {
+            "id": "2",
+            "label": "An error"
+          }
+        ],
+        "answer": "0",
+        "why": "float() reads the text and makes a real number."
+      },
+      {
+        "id": "q2",
+        "kind": "predict",
+        "prompt": "What does this print?",
+        "code": "print(int(\"3\"))",
+        "options": [
+          {
+            "id": "0",
+            "label": "3"
+          },
+          {
+            "id": "1",
+            "label": "\"3\""
+          },
+          {
+            "id": "2",
+            "label": "3.0"
+          }
+        ],
+        "answer": "0",
+        "why": "int() turns the text \"3\" into the number 3."
+      },
+      {
+        "id": "q3",
+        "kind": "blank",
+        "prompt": "Turn the text \"0.2\" into a number with ____(\"0.2\").",
+        "accept": [
+          "float"
+        ],
+        "answer": "float",
+        "why": "float(\"0.2\") is the number 0.2."
+      },
+      {
+        "id": "q4",
+        "kind": "bug",
+        "prompt": "What is wrong here?",
+        "code": "temperature = \"0.2\"\nprint(temperature + 1)",
+        "options": [
+          {
+            "id": "0",
+            "label": "You cannot add text and a number"
+          },
+          {
+            "id": "1",
+            "label": "0.2 is too small"
+          },
+          {
+            "id": "2",
+            "label": "print is missing"
+          }
+        ],
+        "answer": "0",
+        "why": "Cast first: float(\"0.2\") + 1 is 1.2."
+      }
+    ]
+  },
+  {
+    "slug": "numbers-and-math",
+    "title": "Easy questions",
+    "questions": [
+      {
+        "id": "q1",
+        "kind": "choice",
+        "prompt": "What is 7 / 2?",
+        "options": [
+          {
+            "id": "0",
+            "label": "3.5"
+          },
+          {
+            "id": "1",
+            "label": "3"
+          },
+          {
+            "id": "2",
+            "label": "4"
+          }
+        ],
+        "answer": "0",
+        "why": "A single slash always gives a float. 7 / 2 is 3.5."
+      },
+      {
+        "id": "q2",
+        "kind": "predict",
+        "prompt": "What does this print?",
+        "code": "scores = [0.82, 0.74, 0.91]\nprint(round(sum(scores) / len(scores), 2))",
+        "options": [
+          {
+            "id": "0",
+            "label": "0.82"
+          },
+          {
+            "id": "1",
+            "label": "2.47"
+          },
+          {
+            "id": "2",
+            "label": "3"
+          }
+        ],
+        "answer": "0",
+        "why": "Add the three scores, divide by 3, then round to two decimals."
+      },
+      {
+        "id": "q3",
+        "kind": "blank",
+        "prompt": "Whole-number division uses ____.",
+        "accept": [
+          "//"
+        ],
+        "answer": "//",
+        "why": "7 // 2 is 3. The leftover is dropped."
+      },
+      {
+        "id": "q4",
+        "kind": "choice",
+        "prompt": "A batch size is usually which type?",
+        "options": [
+          {
+            "id": "0",
+            "label": "int"
+          },
+          {
+            "id": "1",
+            "label": "str"
+          },
+          {
+            "id": "2",
+            "label": "bool"
+          }
+        ],
+        "answer": "0",
+        "why": "A count of rows is a whole number, an int."
+      }
+    ]
+  },
+  {
+    "slug": "booleans-and-comparisons",
+    "title": "Easy questions",
+    "questions": [
+      {
+        "id": "q1",
+        "kind": "choice",
+        "prompt": "What is 10 > 9?",
+        "options": [
+          {
+            "id": "0",
+            "label": "True"
+          },
+          {
+            "id": "1",
+            "label": "False"
+          },
+          {
+            "id": "2",
+            "label": "None"
+          }
+        ],
+        "answer": "0",
+        "why": "10 is bigger than 9, so the comparison is True."
+      },
+      {
+        "id": "q2",
+        "kind": "predict",
+        "prompt": "What does this print?",
+        "code": "print(bool(\"\"))",
+        "options": [
+          {
+            "id": "0",
+            "label": "False"
+          },
+          {
+            "id": "1",
+            "label": "True"
+          },
+          {
+            "id": "2",
+            "label": "None"
+          }
+        ],
+        "answer": "0",
+        "why": "An empty string is falsy. bool(\"\") is False."
+      },
+      {
+        "id": "q3",
+        "kind": "blank",
+        "prompt": "The two boolean values are True and ____.",
+        "accept": [
+          "False"
+        ],
+        "answer": "False",
+        "why": "True and False are the only boolean values."
+      },
+      {
+        "id": "q4",
+        "kind": "bug",
+        "prompt": "score is 0.0. What is wrong with this check?",
+        "code": "if score:\n    print(\"keep\")",
+        "options": [
+          {
+            "id": "0",
+            "label": "0.0 is falsy, so the line never runs"
+          },
+          {
+            "id": "1",
+            "label": "print is spelled wrong"
+          },
+          {
+            "id": "2",
+            "label": "The indent is too big"
+          }
+        ],
+        "answer": "0",
+        "why": "Use a comparison such as score >= 0.7. A bare if treats 0.0 as no."
+      }
+    ]
+  },
+  {
+    "slug": "strings-and-text",
+    "title": "Easy questions",
+    "questions": [
+      {
+        "id": "q1",
+        "kind": "choice",
+        "prompt": "What does strip() remove?",
+        "options": [
+          {
+            "id": "0",
+            "label": "Spaces at the ends"
+          },
+          {
+            "id": "1",
+            "label": "Every letter"
+          },
+          {
+            "id": "2",
+            "label": "The first word"
+          }
+        ],
+        "answer": "0",
+        "why": "strip() drops spaces on the ends and keeps the letters."
+      },
+      {
+        "id": "q2",
+        "kind": "predict",
+        "prompt": "What does this print?",
+        "code": "print(len(\"RAG\"))",
+        "options": [
+          {
+            "id": "0",
+            "label": "3"
+          },
+          {
+            "id": "1",
+            "label": "2"
+          },
+          {
+            "id": "2",
+            "label": "4"
+          }
+        ],
+        "answer": "0",
+        "why": "R, A, and G are three characters."
+      },
+      {
+        "id": "q3",
+        "kind": "blank",
+        "prompt": "An f-string starts with the letter ____ before the quotes.",
+        "accept": [
+          "f"
+        ],
+        "answer": "f",
+        "why": "f\"Hello {name}\" fills the name in."
+      },
+      {
+        "id": "q4",
+        "kind": "bug",
+        "prompt": "What is wrong with this hope?",
+        "code": "name = \"rag\"\nname.upper()\nprint(name)",
+        "options": [
+          {
+            "id": "0",
+            "label": "upper() does not change name"
+          },
+          {
+            "id": "1",
+            "label": "print cannot show text"
+          },
+          {
+            "id": "2",
+            "label": "rag is too short"
+          }
+        ],
+        "answer": "0",
+        "why": "upper() returns a new string. Assign it: name = name.upper()."
+      }
+    ]
+  },
+  {
+    "slug": "string-methods-and-formatting",
+    "title": "Easy questions",
+    "questions": [
+      {
+        "id": "q1",
+        "kind": "choice",
+        "prompt": "What does a string method return?",
+        "options": [
+          {
+            "id": "0",
+            "label": "A new string"
+          },
+          {
+            "id": "1",
+            "label": "None, always"
+          },
+          {
+            "id": "2",
+            "label": "A list of numbers"
+          }
+        ],
+        "answer": "0",
+        "why": "Strings do not change in place. You get a new one back."
+      },
+      {
+        "id": "q2",
+        "kind": "predict",
+        "prompt": "What does this print?",
+        "code": "print(\" Hi \".strip().lower())",
+        "options": [
+          {
+            "id": "0",
+            "label": "hi"
+          },
+          {
+            "id": "1",
+            "label": " Hi "
+          },
+          {
+            "id": "2",
+            "label": "HI"
+          }
+        ],
+        "answer": "0",
+        "why": "strip() leaves \"Hi\". lower() makes \"hi\"."
+      },
+      {
+        "id": "q3",
+        "kind": "blank",
+        "prompt": "Break a sentence into words with ____.",
+        "accept": [
+          "split",
+          "split()"
+        ],
+        "answer": "split",
+        "why": "split() cuts on spaces and returns a list of words."
+      },
+      {
+        "id": "q4",
+        "kind": "choice",
+        "prompt": "What is the better way to build a long prompt?",
+        "options": [
+          {
+            "id": "0",
+            "label": "Join a list of pieces"
+          },
+          {
+            "id": "1",
+            "label": "Add strings with += in a loop"
+          },
+          {
+            "id": "2",
+            "label": "Print each piece"
+          }
+        ],
+        "answer": "0",
+        "why": "\" \".join(pieces) builds one string without a slow loop of copies."
+      }
+    ]
+  },
+  {
+    "slug": "lists-tuples-sets",
+    "title": "Easy questions",
+    "questions": [
+      {
+        "id": "q1",
+        "kind": "choice",
+        "prompt": "What is a list?",
+        "options": [
+          {
+            "id": "0",
+            "label": "An ordered tray of items"
+          },
+          {
+            "id": "1",
+            "label": "A single number"
+          },
+          {
+            "id": "2",
+            "label": "A comment"
+          }
+        ],
+        "answer": "0",
+        "why": "Items stay in order. You can add more."
+      },
+      {
+        "id": "q2",
+        "kind": "predict",
+        "prompt": "What does this print?",
+        "code": "chunks = [\"intro\", \"method\"]\nprint(chunks[0])",
+        "options": [
+          {
+            "id": "0",
+            "label": "intro"
+          },
+          {
+            "id": "1",
+            "label": "method"
+          },
+          {
+            "id": "2",
+            "label": "0"
+          }
+        ],
+        "answer": "0",
+        "why": "Index 0 is the first item."
+      },
+      {
+        "id": "q3",
+        "kind": "blank",
+        "prompt": "A ____ drops duplicate items.",
+        "accept": [
+          "set"
+        ],
+        "answer": "set",
+        "why": "A set keeps each value once."
+      },
+      {
+        "id": "q4",
+        "kind": "bug",
+        "prompt": "What is wrong here?",
+        "code": "docs = [\"a\"]\ndocs = docs.append(\"b\")",
+        "options": [
+          {
+            "id": "0",
+            "label": "append returns None, so docs is wiped"
+          },
+          {
+            "id": "1",
+            "label": "append adds to the front"
+          },
+          {
+            "id": "2",
+            "label": "The list cannot hold text"
+          }
+        ],
+        "answer": "0",
+        "why": "Call docs.append(\"b\") and do not assign the result."
+      }
+    ]
+  },
+  {
+    "slug": "dictionaries",
+    "title": "Easy questions",
+    "questions": [
+      {
+        "id": "q1",
+        "kind": "choice",
+        "prompt": "What is a dictionary?",
+        "options": [
+          {
+            "id": "0",
+            "label": "Labeled lockers of values"
+          },
+          {
+            "id": "1",
+            "label": "An ordered tray only"
+          },
+          {
+            "id": "2",
+            "label": "A yes-or-no value"
+          }
+        ],
+        "answer": "0",
+        "why": "Each key is a label. The value sits inside."
+      },
+      {
+        "id": "q2",
+        "kind": "predict",
+        "prompt": "What does this print?",
+        "code": "config = {\"model\": \"mini\"}\nprint(config[\"model\"])",
+        "options": [
+          {
+            "id": "0",
+            "label": "mini"
+          },
+          {
+            "id": "1",
+            "label": "model"
+          },
+          {
+            "id": "2",
+            "label": "config"
+          }
+        ],
+        "answer": "0",
+        "why": "The key model opens the locker that holds mini."
+      },
+      {
+        "id": "q3",
+        "kind": "blank",
+        "prompt": "A safe lookup with a fallback is .____(key, default).",
+        "accept": [
+          "get"
+        ],
+        "answer": "get",
+        "why": ".get(\"top_p\", 1.0) returns 1.0 when the key is missing."
+      },
+      {
+        "id": "q4",
+        "kind": "bug",
+        "prompt": "What is wrong here?",
+        "code": "config = {\"model\": \"mini\"}\nprint(config[\"temperature\"])",
+        "options": [
+          {
+            "id": "0",
+            "label": "temperature is missing, so this raises KeyError"
+          },
+          {
+            "id": "1",
+            "label": "model is the wrong type"
+          },
+          {
+            "id": "2",
+            "label": "print cannot show text"
+          }
+        ],
+        "answer": "0",
+        "why": "Use config.get(\"temperature\", 0.2) when the key might be absent."
+      }
+    ]
+  },
+  {
+    "slug": "control-flow",
+    "title": "Easy questions",
+    "questions": [
+      {
+        "id": "q1",
+        "kind": "choice",
+        "prompt": "What is an if?",
+        "options": [
+          {
+            "id": "0",
+            "label": "A fork that runs one path"
+          },
+          {
+            "id": "1",
+            "label": "A loop that never stops"
+          },
+          {
+            "id": "2",
+            "label": "A way to save a file"
+          }
+        ],
+        "answer": "0",
+        "why": "The condition picks a path. The other path does not run."
+      },
+      {
+        "id": "q2",
+        "kind": "predict",
+        "prompt": "What does this print?",
+        "code": "score = 0.82\nif score >= 0.7:\n    print(\"keep\")\nelse:\n    print(\"drop\")",
+        "options": [
+          {
+            "id": "0",
+            "label": "keep"
+          },
+          {
+            "id": "1",
+            "label": "drop"
+          },
+          {
+            "id": "2",
+            "label": "keep and drop"
+          }
+        ],
+        "answer": "0",
+        "why": "0.82 is at least 0.7, so the keep path runs."
+      },
+      {
+        "id": "q3",
+        "kind": "blank",
+        "prompt": "A ____ loop visits each item in a list.",
+        "accept": [
+          "for"
+        ],
+        "answer": "for",
+        "why": "for item in items: walks the tray once."
+      },
+      {
+        "id": "q4",
+        "kind": "bug",
+        "prompt": "What is wrong here?",
+        "code": "for label in labels\n    print(label)",
+        "options": [
+          {
+            "id": "0",
+            "label": "The for line is missing a colon"
+          },
+          {
+            "id": "1",
+            "label": "print is inside the loop"
+          },
+          {
+            "id": "2",
+            "label": "label is a bad name"
+          }
+        ],
+        "answer": "0",
+        "why": "The for line needs a colon, then an indented body."
+      }
+    ]
+  },
+  {
+    "slug": "project-sentiment-checker",
+    "title": "Easy questions",
+    "questions": [
+      {
+        "id": "q1",
+        "kind": "choice",
+        "prompt": "What does this project print for each review?",
+        "options": [
+          {
+            "id": "0",
+            "label": "positive, negative, or neutral"
+          },
+          {
+            "id": "1",
+            "label": "A random score"
+          },
+          {
+            "id": "2",
+            "label": "The whole internet"
+          }
+        ],
+        "answer": "0",
+        "why": "It compares good words and bad words, then picks a label."
+      },
+      {
+        "id": "q2",
+        "kind": "choice",
+        "prompt": "A review has 2 good words and 0 bad words. The label is?",
+        "options": [
+          {
+            "id": "0",
+            "label": "positive"
+          },
+          {
+            "id": "1",
+            "label": "negative"
+          },
+          {
+            "id": "2",
+            "label": "neutral"
+          }
+        ],
+        "answer": "0",
+        "why": "More good words than bad words means positive."
+      },
+      {
+        "id": "q3",
+        "kind": "blank",
+        "prompt": "The five reviews live in a ____.",
+        "accept": [
+          "list"
+        ],
+        "answer": "list",
+        "why": "A list holds the reviews in order."
+      },
+      {
+        "id": "q4",
+        "kind": "choice",
+        "prompt": "When good words and bad words are equal, the label is?",
+        "options": [
+          {
+            "id": "0",
+            "label": "neutral"
+          },
+          {
+            "id": "1",
+            "label": "positive"
+          },
+          {
+            "id": "2",
+            "label": "an error"
+          }
+        ],
+        "answer": "0",
+        "why": "A tie is neutral."
+      }
+    ]
+  },
+  {
+    "slug": "functions",
+    "title": "Easy questions",
+    "questions": [
+      {
+        "id": "q1",
+        "kind": "choice",
+        "prompt": "What does def do?",
+        "options": [
+          {
+            "id": "0",
+            "label": "Builds a function"
+          },
+          {
+            "id": "1",
+            "label": "Prints a value"
+          },
+          {
+            "id": "2",
+            "label": "Deletes a variable"
+          }
+        ],
+        "answer": "0",
+        "why": "def names the machine. It does not run it yet."
+      },
+      {
+        "id": "q2",
+        "kind": "predict",
+        "prompt": "What does this print?",
+        "code": "def greet(name):\n    return \"hello \" + name\nprint(greet(\"model\"))",
+        "options": [
+          {
+            "id": "0",
+            "label": "hello model"
+          },
+          {
+            "id": "1",
+            "label": "model"
+          },
+          {
+            "id": "2",
+            "label": "None"
+          }
+        ],
+        "answer": "0",
+        "why": "The call sends model in. return sends hello model out."
+      },
+      {
+        "id": "q3",
+        "kind": "blank",
+        "prompt": "The word that sends a value out of a function is ____.",
+        "accept": [
+          "return"
+        ],
+        "answer": "return",
+        "why": "return hands the result back to the caller."
+      },
+      {
+        "id": "q4",
+        "kind": "bug",
+        "prompt": "What is wrong with this default?",
+        "code": "def add_item(item, items=[]):\n    items.append(item)\n    return items",
+        "options": [
+          {
+            "id": "0",
+            "label": "The default list is shared across calls"
+          },
+          {
+            "id": "1",
+            "label": "append cannot add text"
+          },
+          {
+            "id": "2",
+            "label": "return is in the wrong place"
+          }
+        ],
+        "answer": "0",
+        "why": "Use items=None and create a new list inside the function."
+      }
+    ]
+  },
+  {
+    "slug": "lambda-map-filter",
+    "title": "Easy questions",
+    "questions": [
+      {
+        "id": "q1",
+        "kind": "choice",
+        "prompt": "What is a lambda?",
+        "options": [
+          {
+            "id": "0",
+            "label": "A one-line function with no name"
+          },
+          {
+            "id": "1",
+            "label": "A type of list"
+          },
+          {
+            "id": "2",
+            "label": "A file"
+          }
+        ],
+        "answer": "0",
+        "why": "lambda is a tiny function you can pass around."
+      },
+      {
+        "id": "q2",
+        "kind": "predict",
+        "prompt": "Which row comes first?",
+        "code": "rows = [{\"score\": 0.4}, {\"score\": 0.9}]\nprint(sorted(rows, key=lambda row: row[\"score\"])[0][\"score\"])",
+        "options": [
+          {
+            "id": "0",
+            "label": "0.4"
+          },
+          {
+            "id": "1",
+            "label": "0.9"
+          },
+          {
+            "id": "2",
+            "label": "score"
+          }
+        ],
+        "answer": "0",
+        "why": "sorted uses the lambda and puts the smaller score first."
+      },
+      {
+        "id": "q3",
+        "kind": "blank",
+        "prompt": "A sort key is written key=____ row: row[\"score\"].",
+        "accept": [
+          "lambda"
+        ],
+        "answer": "lambda",
+        "why": "key=lambda row: row[\"score\"] tells sorted what to compare."
+      },
+      {
+        "id": "q4",
+        "kind": "choice",
+        "prompt": "For a new list of high scores, what is the clearer tool?",
+        "options": [
+          {
+            "id": "0",
+            "label": "A comprehension"
+          },
+          {
+            "id": "1",
+            "label": "map plus a lambda"
+          },
+          {
+            "id": "2",
+            "label": "A bare except"
+          }
+        ],
+        "answer": "0",
+        "why": "A comprehension reads more clearly than map or filter for this job."
+      }
+    ]
+  },
+  {
+    "slug": "comprehensions-and-generators",
+    "title": "Easy questions",
+    "questions": [
+      {
+        "id": "q1",
+        "kind": "choice",
+        "prompt": "What does a comprehension build?",
+        "options": [
+          {
+            "id": "0",
+            "label": "A new list from a rule"
+          },
+          {
+            "id": "1",
+            "label": "A file on disk"
+          },
+          {
+            "id": "2",
+            "label": "A class"
+          }
+        ],
+        "answer": "0",
+        "why": "The rule decides which items go into the new list."
+      },
+      {
+        "id": "q2",
+        "kind": "predict",
+        "prompt": "What does this print?",
+        "code": "scores = [0.4, 0.9]\nprint([s for s in scores if s >= 0.7])",
+        "options": [
+          {
+            "id": "0",
+            "label": "[0.9]"
+          },
+          {
+            "id": "1",
+            "label": "[0.4, 0.9]"
+          },
+          {
+            "id": "2",
+            "label": "[]"
+          }
+        ],
+        "answer": "0",
+        "why": "Only 0.9 passes the test."
+      },
+      {
+        "id": "q3",
+        "kind": "blank",
+        "prompt": "A generator function uses the word ____.",
+        "accept": [
+          "yield"
+        ],
+        "answer": "yield",
+        "why": "yield hands back one value and pauses."
+      },
+      {
+        "id": "q4",
+        "kind": "bug",
+        "prompt": "What is wrong with this second loop?",
+        "code": "nums = (n for n in [1, 2])\nprint(list(nums))\nprint(list(nums))",
+        "options": [
+          {
+            "id": "0",
+            "label": "The second list is empty"
+          },
+          {
+            "id": "1",
+            "label": "The first list is empty"
+          },
+          {
+            "id": "2",
+            "label": "n is a bad name"
+          }
+        ],
+        "answer": "0",
+        "why": "A generator is single-use. The second pass finds nothing left."
+      }
+    ]
+  },
+  {
+    "slug": "iterators-and-iterables",
+    "title": "Easy questions",
+    "questions": [
+      {
+        "id": "q1",
+        "kind": "choice",
+        "prompt": "What is special about an iterator?",
+        "options": [
+          {
+            "id": "0",
+            "label": "You can walk it once"
+          },
+          {
+            "id": "1",
+            "label": "It stores every value twice"
+          },
+          {
+            "id": "2",
+            "label": "It is always a string"
+          }
+        ],
+        "answer": "0",
+        "why": "After the items are used, the iterator looks empty."
+      },
+      {
+        "id": "q2",
+        "kind": "predict",
+        "prompt": "What does this print?",
+        "code": "print(list(zip([\"cat\", \"dog\"], [0, 1])))",
+        "options": [
+          {
+            "id": "0",
+            "label": "[('cat', 0), ('dog', 1)]"
+          },
+          {
+            "id": "1",
+            "label": "[cat, dog]"
+          },
+          {
+            "id": "2",
+            "label": "[0, 1]"
+          }
+        ],
+        "answer": "0",
+        "why": "zip pairs the first with the first, then the second with the second."
+      },
+      {
+        "id": "q3",
+        "kind": "blank",
+        "prompt": "____ pairs two lists, item by item.",
+        "accept": [
+          "zip"
+        ],
+        "answer": "zip",
+        "why": "zip(predictions, labels) walks both together."
+      },
+      {
+        "id": "q4",
+        "kind": "bug",
+        "prompt": "What is wrong here?",
+        "code": "rows = iter([1, 2])\nprint(list(rows))\nprint(list(rows))",
+        "options": [
+          {
+            "id": "0",
+            "label": "The second print is empty"
+          },
+          {
+            "id": "1",
+            "label": "iter cannot take a list"
+          },
+          {
+            "id": "2",
+            "label": "print runs too early"
+          }
+        ],
+        "answer": "0",
+        "why": "The iterator was already spent by the first list()."
+      }
+    ]
+  },
+  {
+    "slug": "scope-and-closures",
+    "title": "Easy questions",
+    "questions": [
+      {
+        "id": "q1",
+        "kind": "choice",
+        "prompt": "Where does a name inside a function live?",
+        "options": [
+          {
+            "id": "0",
+            "label": "In that function, unless you say otherwise"
+          },
+          {
+            "id": "1",
+            "label": "In every file at once"
+          },
+          {
+            "id": "2",
+            "label": "Only in a class"
+          }
+        ],
+        "answer": "0",
+        "why": "A name belongs to the room where it was written."
+      },
+      {
+        "id": "q2",
+        "kind": "predict",
+        "prompt": "What does this print?",
+        "code": "items = []\ndef add(x):\n    items.append(x)\nadd(1)\nprint(items)",
+        "options": [
+          {
+            "id": "0",
+            "label": "[1]"
+          },
+          {
+            "id": "1",
+            "label": "[]"
+          },
+          {
+            "id": "2",
+            "label": "None"
+          }
+        ],
+        "answer": "0",
+        "why": "append changes the same list. The outer name still sees it."
+      },
+      {
+        "id": "q3",
+        "kind": "blank",
+        "prompt": "To change a list you were given, call a method like ____.",
+        "accept": [
+          "append"
+        ],
+        "answer": "append",
+        "why": "append changes that list. Assigning a new name does not."
+      },
+      {
+        "id": "q4",
+        "kind": "bug",
+        "prompt": "What is the trap in this loop?",
+        "code": "funcs = []\nfor n in [1, 2]:\n    funcs.append(lambda: n)\nprint(funcs[0]())",
+        "options": [
+          {
+            "id": "0",
+            "label": "Both lambdas see the last n"
+          },
+          {
+            "id": "1",
+            "label": "The list stays empty"
+          },
+          {
+            "id": "2",
+            "label": "lambda cannot be stored"
+          }
+        ],
+        "answer": "0",
+        "why": "The lambdas look up n later, when the loop has finished."
+      }
+    ]
+  },
+  {
+    "slug": "errors-and-exceptions",
+    "title": "Easy questions",
+    "questions": [
+      {
+        "id": "q1",
+        "kind": "choice",
+        "prompt": "What does except do?",
+        "options": [
+          {
+            "id": "0",
+            "label": "Runs when the matching error happens"
+          },
+          {
+            "id": "1",
+            "label": "Runs on every line"
+          },
+          {
+            "id": "2",
+            "label": "Deletes the error"
+          }
+        ],
+        "answer": "0",
+        "why": "The net catches one kind of error so the program can continue."
+      },
+      {
+        "id": "q2",
+        "kind": "predict",
+        "prompt": "payload has no temperature. What prints?",
+        "code": "payload = {\"model\": \"mini\"}\ntry:\n    print(payload[\"temperature\"])\nexcept KeyError:\n    print(\"missing\")",
+        "options": [
+          {
+            "id": "0",
+            "label": "missing"
+          },
+          {
+            "id": "1",
+            "label": "mini"
+          },
+          {
+            "id": "2",
+            "label": "The program crashes"
+          }
+        ],
+        "answer": "0",
+        "why": "The missing key raises KeyError, and except prints missing."
+      },
+      {
+        "id": "q3",
+        "kind": "blank",
+        "prompt": "Read the traceback from the ____ up.",
+        "accept": [
+          "bottom"
+        ],
+        "answer": "bottom",
+        "why": "The last line of the traceback names the error."
+      },
+      {
+        "id": "q4",
+        "kind": "bug",
+        "prompt": "What is wrong here?",
+        "code": "try:\n    risky()\nexcept:\n    pass",
+        "options": [
+          {
+            "id": "0",
+            "label": "A bare except hides every error"
+          },
+          {
+            "id": "1",
+            "label": "try is spelled wrong"
+          },
+          {
+            "id": "2",
+            "label": "pass is too short"
+          }
+        ],
+        "answer": "0",
+        "why": "Catch the error you expect, such as KeyError, and handle that one."
+      }
+    ]
+  },
+  {
+    "slug": "files-and-json",
+    "title": "Easy questions",
+    "questions": [
+      {
+        "id": "q1",
+        "kind": "choice",
+        "prompt": "What does with open(...) do at the end?",
+        "options": [
+          {
+            "id": "0",
+            "label": "Closes the file for you"
+          },
+          {
+            "id": "1",
+            "label": "Deletes the file"
+          },
+          {
+            "id": "2",
+            "label": "Prints the file"
+          }
+        ],
+        "answer": "0",
+        "why": "Leaving the with block closes the door."
+      },
+      {
+        "id": "q2",
+        "kind": "choice",
+        "prompt": "Which call reads JSON text that is already a string?",
+        "options": [
+          {
+            "id": "0",
+            "label": "json.loads(text)"
+          },
+          {
+            "id": "1",
+            "label": "json.load(text)"
+          },
+          {
+            "id": "2",
+            "label": "json.dump(text)"
+          }
+        ],
+        "answer": "0",
+        "why": "loads reads a string. load reads a file."
+      },
+      {
+        "id": "q3",
+        "kind": "blank",
+        "prompt": "Open text files with encoding=____.",
+        "accept": [
+          "utf-8",
+          "\"utf-8\""
+        ],
+        "answer": "utf-8",
+        "why": "utf-8 reads the letters the same way on every computer."
+      },
+      {
+        "id": "q4",
+        "kind": "bug",
+        "prompt": "What is wrong here?",
+        "code": "open(\"notes.txt\").read()",
+        "options": [
+          {
+            "id": "0",
+            "label": "The file is never closed"
+          },
+          {
+            "id": "1",
+            "label": "read cannot see text"
+          },
+          {
+            "id": "2",
+            "label": "The name is too long"
+          }
+        ],
+        "answer": "0",
+        "why": "Use with open(...) as handle: so the file closes."
+      }
+    ]
+  },
+  {
+    "slug": "first-real-ai-call",
+    "title": "Easy questions",
+    "questions": [
+      {
+        "id": "q1",
+        "kind": "choice",
+        "prompt": "What do you send to the model?",
+        "options": [
+          {
+            "id": "0",
+            "label": "A request dict"
+          },
+          {
+            "id": "1",
+            "label": "A screenshot"
+          },
+          {
+            "id": "2",
+            "label": "A certificate"
+          }
+        ],
+        "answer": "0",
+        "why": "The dict holds the model name and the messages."
+      },
+      {
+        "id": "q2",
+        "kind": "choice",
+        "prompt": "Which keys belong in a chat request?",
+        "options": [
+          {
+            "id": "0",
+            "label": "model and messages"
+          },
+          {
+            "id": "1",
+            "label": "only a password"
+          },
+          {
+            "id": "2",
+            "label": "only a file path"
+          }
+        ],
+        "answer": "0",
+        "why": "The model needs to know who it is and what was said."
+      },
+      {
+        "id": "q3",
+        "kind": "blank",
+        "prompt": "The reply text comes back; a strange reply should not ____ the program.",
+        "accept": [
+          "crash",
+          "stop",
+          "break"
+        ],
+        "answer": "crash",
+        "why": "Check the reply and show a calm message when it looks odd."
+      },
+      {
+        "id": "q4",
+        "kind": "choice",
+        "prompt": "Where can you try this with no API key?",
+        "options": [
+          {
+            "id": "0",
+            "label": "A local model, such as Ollama"
+          },
+          {
+            "id": "1",
+            "label": "Only a paid website"
+          },
+          {
+            "id": "2",
+            "label": "Only inside a spreadsheet"
+          }
+        ],
+        "answer": "0",
+        "why": "A local model lets you practice the same request loop for free."
+      }
+    ]
+  },
+  {
+    "slug": "classes-and-objects",
+    "title": "Easy questions",
+    "questions": [
+      {
+        "id": "q1",
+        "kind": "choice",
+        "prompt": "What is a class?",
+        "options": [
+          {
+            "id": "0",
+            "label": "A blueprint for objects"
+          },
+          {
+            "id": "1",
+            "label": "A single number"
+          },
+          {
+            "id": "2",
+            "label": "A comment"
+          }
+        ],
+        "answer": "0",
+        "why": "The class describes the object. Each object is one built thing."
+      },
+      {
+        "id": "q2",
+        "kind": "predict",
+        "prompt": "What does this print?",
+        "code": "class Client:\n    def __init__(self, model):\n        self.model = model\nprint(Client(\"mini\").model)",
+        "options": [
+          {
+            "id": "0",
+            "label": "mini"
+          },
+          {
+            "id": "1",
+            "label": "Client"
+          },
+          {
+            "id": "2",
+            "label": "model"
+          }
+        ],
+        "answer": "0",
+        "why": "self.model stores mini on that one object."
+      },
+      {
+        "id": "q3",
+        "kind": "blank",
+        "prompt": "Inside a method, the object itself is called ____.",
+        "accept": [
+          "self"
+        ],
+        "answer": "self",
+        "why": "self is how the method reaches that object's data."
+      },
+      {
+        "id": "q4",
+        "kind": "bug",
+        "prompt": "What is wrong here?",
+        "code": "class Client:\n    def __init__(model):\n        model = model",
+        "options": [
+          {
+            "id": "0",
+            "label": "The method forgot self"
+          },
+          {
+            "id": "1",
+            "label": "class is the wrong word"
+          },
+          {
+            "id": "2",
+            "label": "mini is missing"
+          }
+        ],
+        "answer": "0",
+        "why": "The first parameter is self, then the model name."
+      }
+    ]
+  },
+  {
+    "slug": "inheritance-and-polymorphism",
+    "title": "Easy questions",
+    "questions": [
+      {
+        "id": "q1",
+        "kind": "choice",
+        "prompt": "What is a shared interface?",
+        "options": [
+          {
+            "id": "0",
+            "label": "The same method names on different classes"
+          },
+          {
+            "id": "1",
+            "label": "One giant function"
+          },
+          {
+            "id": "2",
+            "label": "A private file"
+          }
+        ],
+        "answer": "0",
+        "why": "Calling code uses the names and does not care which class it has."
+      },
+      {
+        "id": "q2",
+        "kind": "choice",
+        "prompt": "Both classes have search(). What can you call?",
+        "options": [
+          {
+            "id": "0",
+            "label": "search() on either object"
+          },
+          {
+            "id": "1",
+            "label": "only the first class"
+          },
+          {
+            "id": "2",
+            "label": "only print"
+          }
+        ],
+        "answer": "0",
+        "why": "If the method is there, the call works."
+      },
+      {
+        "id": "q3",
+        "kind": "blank",
+        "prompt": "A subclass ____ from a parent class.",
+        "accept": [
+          "inherits"
+        ],
+        "answer": "inherits",
+        "why": "The subclass reuses the parent and can override a method."
+      },
+      {
+        "id": "q4",
+        "kind": "choice",
+        "prompt": "What do sklearn estimators share?",
+        "options": [
+          {
+            "id": "0",
+            "label": "fit and predict"
+          },
+          {
+            "id": "1",
+            "label": "only print"
+          },
+          {
+            "id": "2",
+            "label": "only open"
+          }
+        ],
+        "answer": "0",
+        "why": "fit learns. predict answers. The names stay the same."
+      }
+    ]
+  },
+  {
+    "slug": "decorators-and-context-managers",
+    "title": "Easy questions",
+    "questions": [
+      {
+        "id": "q1",
+        "kind": "choice",
+        "prompt": "What does a decorator return?",
+        "options": [
+          {
+            "id": "0",
+            "label": "A function"
+          },
+          {
+            "id": "1",
+            "label": "A number"
+          },
+          {
+            "id": "2",
+            "label": "A file path"
+          }
+        ],
+        "answer": "0",
+        "why": "It wraps a function and hands a function back."
+      },
+      {
+        "id": "q2",
+        "kind": "choice",
+        "prompt": "What does with do when the block ends?",
+        "options": [
+          {
+            "id": "0",
+            "label": "Closes the resource"
+          },
+          {
+            "id": "1",
+            "label": "Deletes your code"
+          },
+          {
+            "id": "2",
+            "label": "Runs the block twice"
+          }
+        ],
+        "answer": "0",
+        "why": "The door shuts even if something goes wrong inside."
+      },
+      {
+        "id": "q3",
+        "kind": "blank",
+        "prompt": "Copy a wrapped function's name with functools.____.",
+        "accept": [
+          "wraps"
+        ],
+        "answer": "wraps",
+        "why": "wraps keeps the original name and notes."
+      },
+      {
+        "id": "q4",
+        "kind": "bug",
+        "prompt": "What is wrong here?",
+        "code": "def wrapper(func):\n    def inner():\n        return func()\n    return inner()",
+        "options": [
+          {
+            "id": "0",
+            "label": "The decorator calls inner instead of returning it"
+          },
+          {
+            "id": "1",
+            "label": "func is a bad name"
+          },
+          {
+            "id": "2",
+            "label": "return is not allowed"
+          }
+        ],
+        "answer": "0",
+        "why": "Return inner without calling it. The caller will call it later."
+      }
+    ]
+  },
+  {
+    "slug": "regular-expressions",
+    "title": "Easy questions",
+    "questions": [
+      {
+        "id": "q1",
+        "kind": "choice",
+        "prompt": "What is a regular expression good at?",
+        "options": [
+          {
+            "id": "0",
+            "label": "Finding a text shape"
+          },
+          {
+            "id": "1",
+            "label": "Training a model"
+          },
+          {
+            "id": "2",
+            "label": "Opening a port"
+          }
+        ],
+        "answer": "0",
+        "why": "You describe the shape. re finds the matching text."
+      },
+      {
+        "id": "q2",
+        "kind": "choice",
+        "prompt": "Which job fits re.findall?",
+        "options": [
+          {
+            "id": "0",
+            "label": "Pull every email out of a log"
+          },
+          {
+            "id": "1",
+            "label": "Add two numbers"
+          },
+          {
+            "id": "2",
+            "label": "Save a JSON file"
+          }
+        ],
+        "answer": "0",
+        "why": "findall returns each match."
+      },
+      {
+        "id": "q3",
+        "kind": "blank",
+        "prompt": "The regex module is named ____.",
+        "accept": [
+          "re"
+        ],
+        "answer": "re",
+        "why": "import re, then call re.search or re.findall."
+      },
+      {
+        "id": "q4",
+        "kind": "choice",
+        "prompt": "Before a prompt leaves your system, what might you redact?",
+        "options": [
+          {
+            "id": "0",
+            "label": "Email addresses"
+          },
+          {
+            "id": "1",
+            "label": "The word def"
+          },
+          {
+            "id": "2",
+            "label": "Blank lines only"
+          }
+        ],
+        "answer": "0",
+        "why": "A pattern can replace private text with a placeholder."
+      }
+    ]
+  },
+  {
+    "slug": "dates-and-times",
+    "title": "Easy questions",
+    "questions": [
+      {
+        "id": "q1",
+        "kind": "choice",
+        "prompt": "What should you store timestamps in?",
+        "options": [
+          {
+            "id": "0",
+            "label": "UTC"
+          },
+          {
+            "id": "1",
+            "label": "Whatever the laptop shows"
+          },
+          {
+            "id": "2",
+            "label": "A float of dollars"
+          }
+        ],
+        "answer": "0",
+        "why": "UTC is one clock for every machine."
+      },
+      {
+        "id": "q2",
+        "kind": "choice",
+        "prompt": "A training window starts Monday and ends Wednesday. What do you measure?",
+        "options": [
+          {
+            "id": "0",
+            "label": "The duration between the two times"
+          },
+          {
+            "id": "1",
+            "label": "The file size"
+          },
+          {
+            "id": "2",
+            "label": "The model name"
+          }
+        ],
+        "answer": "0",
+        "why": "Subtract the two datetimes to get a timedelta."
+      },
+      {
+        "id": "q3",
+        "kind": "blank",
+        "prompt": "A length of time you can add to a date is a time____.",
+        "accept": [
+          "delta",
+          "timedelta"
+        ],
+        "answer": "delta",
+        "why": "timedelta(days=1) moves the clock forward one day."
+      },
+      {
+        "id": "q4",
+        "kind": "choice",
+        "prompt": "Daily token reports group rows by what?",
+        "options": [
+          {
+            "id": "0",
+            "label": "The day"
+          },
+          {
+            "id": "1",
+            "label": "The letter a"
+          },
+          {
+            "id": "2",
+            "label": "The indent"
+          }
+        ],
+        "answer": "0",
+        "why": "Group timestamps by date to get one total per day."
+      }
+    ]
+  },
+  {
+    "slug": "standard-library-toolkit",
+    "title": "Easy questions",
+    "questions": [
+      {
+        "id": "q1",
+        "kind": "choice",
+        "prompt": "What does Counter do?",
+        "options": [
+          {
+            "id": "0",
+            "label": "Counts how often each item appears"
+          },
+          {
+            "id": "1",
+            "label": "Opens a website"
+          },
+          {
+            "id": "2",
+            "label": "Trains a model"
+          }
+        ],
+        "answer": "0",
+        "why": "Counter is a tally. It is perfect for label counts."
+      },
+      {
+        "id": "q2",
+        "kind": "choice",
+        "prompt": "Which tool makes a unique request id?",
+        "options": [
+          {
+            "id": "0",
+            "label": "uuid"
+          },
+          {
+            "id": "1",
+            "label": "print"
+          },
+          {
+            "id": "2",
+            "label": "len"
+          }
+        ],
+        "answer": "0",
+        "why": "uuid4() gives a new id that is very unlikely to collide."
+      },
+      {
+        "id": "q3",
+        "kind": "blank",
+        "prompt": "A fingerprint of text comes from hash____.",
+        "accept": [
+          "lib",
+          "hashlib"
+        ],
+        "answer": "lib",
+        "why": "hashlib can hash a prompt so you can spot duplicates."
+      },
+      {
+        "id": "q4",
+        "kind": "choice",
+        "prompt": "Where do these tools live?",
+        "options": [
+          {
+            "id": "0",
+            "label": "In Python's standard library"
+          },
+          {
+            "id": "1",
+            "label": "Only in a paid package"
+          },
+          {
+            "id": "2",
+            "label": "Only in a browser"
+          }
+        ],
+        "answer": "0",
+        "why": "collections, uuid, and hashlib ship with Python."
+      }
+    ]
+  },
+  {
+    "slug": "modules-and-environments",
+    "title": "Easy questions",
+    "questions": [
+      {
+        "id": "q1",
+        "kind": "choice",
+        "prompt": "Where do imports go?",
+        "options": [
+          {
+            "id": "0",
+            "label": "At the top of the file"
+          },
+          {
+            "id": "1",
+            "label": "Inside every loop"
+          },
+          {
+            "id": "2",
+            "label": "After the last line"
+          }
+        ],
+        "answer": "0",
+        "why": "Readers and tools expect imports first."
+      },
+      {
+        "id": "q2",
+        "kind": "choice",
+        "prompt": "When does the code under if __name__ == \"__main__\" run?",
+        "options": [
+          {
+            "id": "0",
+            "label": "When you run the file directly"
+          },
+          {
+            "id": "1",
+            "label": "On every import"
+          },
+          {
+            "id": "2",
+            "label": "Never"
+          }
+        ],
+        "answer": "0",
+        "why": "Importing the file skips that block."
+      },
+      {
+        "id": "q3",
+        "kind": "blank",
+        "prompt": "A private shelf of packages for one project is a ____.",
+        "accept": [
+          "venv",
+          "virtualenv",
+          "environment"
+        ],
+        "answer": "venv",
+        "why": "One project, one venv, so versions do not clash."
+      },
+      {
+        "id": "q4",
+        "kind": "bug",
+        "prompt": "What is wrong here?",
+        "code": "def train():\n    import math\n    return math.sqrt(9)",
+        "options": [
+          {
+            "id": "0",
+            "label": "The import is hidden inside the function"
+          },
+          {
+            "id": "1",
+            "label": "sqrt is wrong"
+          },
+          {
+            "id": "2",
+            "label": "9 is not a number"
+          }
+        ],
+        "answer": "0",
+        "why": "Put import math at the top. math.sqrt(9) is 3."
+      }
+    ]
+  },
+  {
+    "slug": "packages-and-pip",
+    "title": "Easy questions",
+    "questions": [
+      {
+        "id": "q1",
+        "kind": "choice",
+        "prompt": "What is a package?",
+        "options": [
+          {
+            "id": "0",
+            "label": "A folder of modules"
+          },
+          {
+            "id": "1",
+            "label": "A single number"
+          },
+          {
+            "id": "2",
+            "label": "A comment"
+          }
+        ],
+        "answer": "0",
+        "why": "A module is one file. A package groups modules."
+      },
+      {
+        "id": "q2",
+        "kind": "choice",
+        "prompt": "What file lists the libraries to install?",
+        "options": [
+          {
+            "id": "0",
+            "label": "requirements.txt"
+          },
+          {
+            "id": "1",
+            "label": "notes.md"
+          },
+          {
+            "id": "2",
+            "label": "index.html"
+          }
+        ],
+        "answer": "0",
+        "why": "pip installs the lines in that shopping list."
+      },
+      {
+        "id": "q3",
+        "kind": "blank",
+        "prompt": "The installer command is ____ install.",
+        "accept": [
+          "pip"
+        ],
+        "answer": "pip",
+        "why": "pip install -r requirements.txt reads the list."
+      },
+      {
+        "id": "q4",
+        "kind": "choice",
+        "prompt": "Why pin versions?",
+        "options": [
+          {
+            "id": "0",
+            "label": "So a rerun uses the same libraries"
+          },
+          {
+            "id": "1",
+            "label": "So the file is shorter"
+          },
+          {
+            "id": "2",
+            "label": "So print runs faster"
+          }
+        ],
+        "answer": "0",
+        "why": "A pin stops a surprise upgrade from changing your results."
+      }
+    ]
+  },
+  {
+    "slug": "project-experiment-tracker",
+    "title": "Easy questions",
+    "questions": [
+      {
+        "id": "q1",
+        "kind": "choice",
+        "prompt": "What does this project save?",
+        "options": [
+          {
+            "id": "0",
+            "label": "Each run's settings and scores"
+          },
+          {
+            "id": "1",
+            "label": "Only a photo"
+          },
+          {
+            "id": "2",
+            "label": "The whole internet"
+          }
+        ],
+        "answer": "0",
+        "why": "Every run becomes a record you can compare later."
+      },
+      {
+        "id": "q2",
+        "kind": "choice",
+        "prompt": "Two runs have scores 0.70 and 0.91. Which do you keep?",
+        "options": [
+          {
+            "id": "0",
+            "label": "0.91"
+          },
+          {
+            "id": "1",
+            "label": "0.70"
+          },
+          {
+            "id": "2",
+            "label": "Neither"
+          }
+        ],
+        "answer": "0",
+        "why": "The higher score is the better run, if higher means better."
+      },
+      {
+        "id": "q3",
+        "kind": "blank",
+        "prompt": "The records are stored as ____.",
+        "accept": [
+          "JSON",
+          "json"
+        ],
+        "answer": "JSON",
+        "why": "JSON keeps the settings and the scores in one file."
+      },
+      {
+        "id": "q4",
+        "kind": "choice",
+        "prompt": "What big tool does the same job for a team?",
+        "options": [
+          {
+            "id": "0",
+            "label": "MLflow"
+          },
+          {
+            "id": "1",
+            "label": "A spreadsheet of photos"
+          },
+          {
+            "id": "2",
+            "label": "A CSS file"
+          }
+        ],
+        "answer": "0",
+        "why": "MLflow tracks runs at team scale. The idea is the same."
+      }
+    ]
+  },
+  {
+    "slug": "type-hints-and-dataclasses",
+    "title": "Easy questions",
+    "questions": [
+      {
+        "id": "q1",
+        "kind": "choice",
+        "prompt": "What does a type hint describe?",
+        "options": [
+          {
+            "id": "0",
+            "label": "What kind of value belongs there"
+          },
+          {
+            "id": "1",
+            "label": "The color of the page"
+          },
+          {
+            "id": "2",
+            "label": "The file size"
+          }
+        ],
+        "answer": "0",
+        "why": "The hint says str, int, or float so mistakes show up early."
+      },
+      {
+        "id": "q2",
+        "kind": "predict",
+        "prompt": "What does this say?",
+        "code": "def score(text: str) -> int:\n    return len(text)",
+        "options": [
+          {
+            "id": "0",
+            "label": "text is str, and the result is int"
+          },
+          {
+            "id": "1",
+            "label": "text is int"
+          },
+          {
+            "id": "2",
+            "label": "There is no return"
+          }
+        ],
+        "answer": "0",
+        "why": "The argument is text. The return is a count, an int."
+      },
+      {
+        "id": "q3",
+        "kind": "blank",
+        "prompt": "A small typed record can be a data____.",
+        "accept": [
+          "class",
+          "dataclass"
+        ],
+        "answer": "class",
+        "why": "@dataclass builds a record with named fields."
+      },
+      {
+        "id": "q4",
+        "kind": "bug",
+        "prompt": "What is wrong here?",
+        "code": "rate: float = \"0.2\"",
+        "options": [
+          {
+            "id": "0",
+            "label": "A string is sitting where a float belongs"
+          },
+          {
+            "id": "1",
+            "label": "float is a bad word"
+          },
+          {
+            "id": "2",
+            "label": "The name is too short"
+          }
+        ],
+        "answer": "0",
+        "why": "Use rate: float = 0.2, or cast the text first."
+      }
+    ]
+  },
+  {
+    "slug": "numpy-arrays",
+    "title": "Easy questions",
+    "questions": [
+      {
+        "id": "q1",
+        "kind": "choice",
+        "prompt": "What does shape tell you?",
+        "options": [
+          {
+            "id": "0",
+            "label": "How the numbers are arranged"
+          },
+          {
+            "id": "1",
+            "label": "The file name"
+          },
+          {
+            "id": "2",
+            "label": "The author's name"
+          }
+        ],
+        "answer": "0",
+        "why": "shape might say 3 rows and 4 columns."
+      },
+      {
+        "id": "q2",
+        "kind": "choice",
+        "prompt": "Two embeddings are arrays. What do you compare?",
+        "options": [
+          {
+            "id": "0",
+            "label": "Their direction, with cosine similarity"
+          },
+          {
+            "id": "1",
+            "label": "Their variable names"
+          },
+          {
+            "id": "2",
+            "label": "Their comments"
+          }
+        ],
+        "answer": "0",
+        "why": "Cosine similarity asks how aligned the two vectors are."
+      },
+      {
+        "id": "q3",
+        "kind": "blank",
+        "prompt": "The number kind of an array is its ____.",
+        "accept": [
+          "dtype"
+        ],
+        "answer": "dtype",
+        "why": "float32 is a common dtype for model weights."
+      },
+      {
+        "id": "q4",
+        "kind": "choice",
+        "prompt": "Why center an embedding?",
+        "options": [
+          {
+            "id": "0",
+            "label": "So a shared offset does not dominate the comparison"
+          },
+          {
+            "id": "1",
+            "label": "So the file is smaller on disk"
+          },
+          {
+            "id": "2",
+            "label": "So print is quieter"
+          }
+        ],
+        "answer": "0",
+        "why": "Subtract the mean, then compare the leftover pattern."
+      }
+    ]
+  },
+  {
+    "slug": "pandas-dataframes",
+    "title": "Easy questions",
+    "questions": [
+      {
+        "id": "q1",
+        "kind": "choice",
+        "prompt": "What is a DataFrame?",
+        "options": [
+          {
+            "id": "0",
+            "label": "A table with named columns"
+          },
+          {
+            "id": "1",
+            "label": "A single boolean"
+          },
+          {
+            "id": "2",
+            "label": "A decorator"
+          }
+        ],
+        "answer": "0",
+        "why": "Rows are examples. Columns are fields."
+      },
+      {
+        "id": "q2",
+        "kind": "choice",
+        "prompt": "You want only the rows where the score is high. What do you do?",
+        "options": [
+          {
+            "id": "0",
+            "label": "Filter the rows"
+          },
+          {
+            "id": "1",
+            "label": "Delete the column names"
+          },
+          {
+            "id": "2",
+            "label": "Open a socket"
+          }
+        ],
+        "answer": "0",
+        "why": "A filter keeps the rows that pass the test."
+      },
+      {
+        "id": "q3",
+        "kind": "blank",
+        "prompt": "A per-model report often uses group____.",
+        "accept": [
+          "by",
+          "groupby"
+        ],
+        "answer": "by",
+        "why": "groupby(\"model\") gathers the rows for each model."
+      },
+      {
+        "id": "q4",
+        "kind": "choice",
+        "prompt": "What should you avoid on a big table?",
+        "options": [
+          {
+            "id": "0",
+            "label": "Looping cell by cell in Python"
+          },
+          {
+            "id": "1",
+            "label": "Naming the columns"
+          },
+          {
+            "id": "2",
+            "label": "Saving the file"
+          }
+        ],
+        "answer": "0",
+        "why": "Column operations are clearer and much faster."
+      }
+    ]
+  },
+  {
+    "slug": "statistics-for-ml",
+    "title": "Easy questions",
+    "questions": [
+      {
+        "id": "q1",
+        "kind": "choice",
+        "prompt": "What is the mean?",
+        "options": [
+          {
+            "id": "0",
+            "label": "The sum divided by the count"
+          },
+          {
+            "id": "1",
+            "label": "The middle card"
+          },
+          {
+            "id": "2",
+            "label": "The largest value"
+          }
+        ],
+        "answer": "0",
+        "why": "Add the numbers, then divide by how many there are."
+      },
+      {
+        "id": "q2",
+        "kind": "choice",
+        "prompt": "Scores are 120, 130, 140, and 9000. Which moves more?",
+        "options": [
+          {
+            "id": "0",
+            "label": "The mean"
+          },
+          {
+            "id": "1",
+            "label": "The median"
+          },
+          {
+            "id": "2",
+            "label": "Neither"
+          }
+        ],
+        "answer": "0",
+        "why": "9000 pulls the mean up. The median stays near the middle of the small numbers."
+      },
+      {
+        "id": "q3",
+        "kind": "blank",
+        "prompt": "A sample standard deviation in pandas uses ddof=____.",
+        "accept": [
+          "1"
+        ],
+        "answer": "1",
+        "why": "ddof=1 is the sample version, the usual choice for a sample of rows."
+      },
+      {
+        "id": "q4",
+        "kind": "choice",
+        "prompt": "What is a p95 latency?",
+        "options": [
+          {
+            "id": "0",
+            "label": "A value slower than 95% of the requests"
+          },
+          {
+            "id": "1",
+            "label": "The mean"
+          },
+          {
+            "id": "2",
+            "label": "The fastest request"
+          }
+        ],
+        "answer": "0",
+        "why": "Only 5% of requests are slower than the p95."
+      }
+    ]
+  },
+  {
+    "slug": "data-distributions-and-plots",
+    "title": "Easy questions",
+    "questions": [
+      {
+        "id": "q1",
+        "kind": "choice",
+        "prompt": "What is a histogram for?",
+        "options": [
+          {
+            "id": "0",
+            "label": "The shape of one column"
+          },
+          {
+            "id": "1",
+            "label": "A single string"
+          },
+          {
+            "id": "2",
+            "label": "A class blueprint"
+          }
+        ],
+        "answer": "0",
+        "why": "It shows how often values fall in each bin."
+      },
+      {
+        "id": "q2",
+        "kind": "choice",
+        "prompt": "You want to see score against loss. Which plot?",
+        "options": [
+          {
+            "id": "0",
+            "label": "A scatter"
+          },
+          {
+            "id": "1",
+            "label": "A single number"
+          },
+          {
+            "id": "2",
+            "label": "A comment"
+          }
+        ],
+        "answer": "0",
+        "why": "A scatter puts one value on each axis."
+      },
+      {
+        "id": "q3",
+        "kind": "blank",
+        "prompt": "Make a repeatable random draw with a ____.",
+        "accept": [
+          "seed"
+        ],
+        "answer": "seed",
+        "why": "np.random.default_rng(seed) gives the same draws again."
+      },
+      {
+        "id": "q4",
+        "kind": "choice",
+        "prompt": "What does fig, ax = plt.subplots() give you?",
+        "options": [
+          {
+            "id": "0",
+            "label": "A figure and an axes to draw on"
+          },
+          {
+            "id": "1",
+            "label": "A trained model"
+          },
+          {
+            "id": "2",
+            "label": "A database"
+          }
+        ],
+        "answer": "0",
+        "why": "You draw on ax, then show or save fig."
+      }
+    ]
+  },
+  {
+    "slug": "sklearn-regression",
+    "title": "Easy questions",
+    "questions": [
+      {
+        "id": "q1",
+        "kind": "choice",
+        "prompt": "What does fit do?",
+        "options": [
+          {
+            "id": "0",
+            "label": "Learns from the training rows"
+          },
+          {
+            "id": "1",
+            "label": "Deletes the test rows"
+          },
+          {
+            "id": "2",
+            "label": "Prints a chart"
+          }
+        ],
+        "answer": "0",
+        "why": "fit looks at X and y and stores a pattern."
+      },
+      {
+        "id": "q2",
+        "kind": "choice",
+        "prompt": "Which shape is X?",
+        "options": [
+          {
+            "id": "0",
+            "label": "2D, one row per example"
+          },
+          {
+            "id": "1",
+            "label": "A single string"
+          },
+          {
+            "id": "2",
+            "label": "A boolean"
+          }
+        ],
+        "answer": "0",
+        "why": "X is a table. y is one number per row."
+      },
+      {
+        "id": "q3",
+        "kind": "blank",
+        "prompt": "Split the rows ____ you fit.",
+        "accept": [
+          "before"
+        ],
+        "answer": "before",
+        "why": "The test rows must stay unseen until scoring."
+      },
+      {
+        "id": "q4",
+        "kind": "bug",
+        "prompt": "What is wrong here?",
+        "code": "scaler.fit(X_test)\nmodel.fit(X_train, y_train)",
+        "options": [
+          {
+            "id": "0",
+            "label": "The scaler saw the test rows"
+          },
+          {
+            "id": "1",
+            "label": "fit is the wrong name"
+          },
+          {
+            "id": "2",
+            "label": "y_train is missing"
+          }
+        ],
+        "answer": "0",
+        "why": "Fit the scaler on the training rows only."
+      }
+    ]
+  },
+  {
+    "slug": "sklearn-classification",
+    "title": "Easy questions",
+    "questions": [
+      {
+        "id": "q1",
+        "kind": "choice",
+        "prompt": "What does accuracy hide when one class is rare?",
+        "options": [
+          {
+            "id": "0",
+            "label": "Misses on that rare class"
+          },
+          {
+            "id": "1",
+            "label": "The column names"
+          },
+          {
+            "id": "2",
+            "label": "The file path"
+          }
+        ],
+        "answer": "0",
+        "why": "A model can look accurate by always saying the common class."
+      },
+      {
+        "id": "q2",
+        "kind": "choice",
+        "prompt": "4 messages, 1 predicted spam, and that one is right. Precision on spam is?",
+        "options": [
+          {
+            "id": "0",
+            "label": "1.0, the spam guess was right"
+          },
+          {
+            "id": "1",
+            "label": "0, because most are ham"
+          },
+          {
+            "id": "2",
+            "label": "4"
+          }
+        ],
+        "answer": "0",
+        "why": "Precision asks: of the spam guesses, how many were spam?"
+      },
+      {
+        "id": "q3",
+        "kind": "blank",
+        "prompt": "The chance of each class comes from predict____.",
+        "accept": [
+          "proba",
+          "predict_proba"
+        ],
+        "answer": "proba",
+        "why": "predict_proba gives scores you can threshold."
+      },
+      {
+        "id": "q4",
+        "kind": "choice",
+        "prompt": "Must the decision threshold be 0.5?",
+        "options": [
+          {
+            "id": "0",
+            "label": "No"
+          },
+          {
+            "id": "1",
+            "label": "Yes, always"
+          },
+          {
+            "id": "2",
+            "label": "Only on Tuesdays"
+          }
+        ],
+        "answer": "0",
+        "why": "You can pick a threshold that fits the cost of a miss."
+      }
+    ]
+  },
+  {
+    "slug": "sklearn-pipelines-and-clustering",
+    "title": "Easy questions",
+    "questions": [
+      {
+        "id": "q1",
+        "kind": "choice",
+        "prompt": "Why put steps inside a Pipeline?",
+        "options": [
+          {
+            "id": "0",
+            "label": "So the order stays fixed"
+          },
+          {
+            "id": "1",
+            "label": "So the file is shorter"
+          },
+          {
+            "id": "2",
+            "label": "So print is louder"
+          }
+        ],
+        "answer": "0",
+        "why": "The same steps run on train and on new rows."
+      },
+      {
+        "id": "q2",
+        "kind": "choice",
+        "prompt": "A color column has no order. How do you encode it?",
+        "options": [
+          {
+            "id": "0",
+            "label": "One-hot"
+          },
+          {
+            "id": "1",
+            "label": "As a single bigger number"
+          },
+          {
+            "id": "2",
+            "label": "As a boolean of the file size"
+          }
+        ],
+        "answer": "0",
+        "why": "One-hot makes a column per color, with no fake ranking."
+      },
+      {
+        "id": "q3",
+        "kind": "blank",
+        "prompt": "Before K-means, ____ the numbers.",
+        "accept": [
+          "scale",
+          "standardize"
+        ],
+        "answer": "scale",
+        "why": "Scaling stops a huge column from dominating the distance."
+      },
+      {
+        "id": "q4",
+        "kind": "choice",
+        "prompt": "What is z = (x - mean) / std?",
+        "options": [
+          {
+            "id": "0",
+            "label": "A scaled value"
+          },
+          {
+            "id": "1",
+            "label": "A file path"
+          },
+          {
+            "id": "2",
+            "label": "A class name"
+          }
+        ],
+        "answer": "0",
+        "why": "Subtract the mean and divide by the spread."
+      }
+    ]
+  },
+  {
+    "slug": "databases-with-python",
+    "title": "Easy questions",
+    "questions": [
+      {
+        "id": "q1",
+        "kind": "choice",
+        "prompt": "What is a placeholder for?",
+        "options": [
+          {
+            "id": "0",
+            "label": "A value you pass separately from the SQL"
+          },
+          {
+            "id": "1",
+            "label": "A comment"
+          },
+          {
+            "id": "2",
+            "label": "A plot color"
+          }
+        ],
+        "answer": "0",
+        "why": "The database treats it as data, not as part of the question."
+      },
+      {
+        "id": "q2",
+        "kind": "choice",
+        "prompt": "Which is the safe call?",
+        "options": [
+          {
+            "id": "0",
+            "label": "cursor.execute(\"select * from t where id = ?\", (3,))"
+          },
+          {
+            "id": "1",
+            "label": "cursor.execute(f\"select * from t where id = {user}\")"
+          },
+          {
+            "id": "2",
+            "label": "Neither"
+          }
+        ],
+        "answer": "0",
+        "why": "The ? keeps the value out of the SQL text."
+      },
+      {
+        "id": "q3",
+        "kind": "blank",
+        "prompt": "A throwaway demo database can use ____.",
+        "accept": [
+          ":memory:",
+          "memory"
+        ],
+        "answer": ":memory:",
+        "why": ":memory: lives in RAM and disappears when you close it."
+      },
+      {
+        "id": "q4",
+        "kind": "bug",
+        "prompt": "What is wrong here?",
+        "code": "cursor.execute(f\"delete from users where name = '{name}'\")",
+        "options": [
+          {
+            "id": "0",
+            "label": "The name is pasted into the SQL"
+          },
+          {
+            "id": "1",
+            "label": "delete is a Python keyword"
+          },
+          {
+            "id": "2",
+            "label": "The table is missing quotes"
+          }
+        ],
+        "answer": "0",
+        "why": "Pass the value with a placeholder instead."
+      }
+    ]
+  },
+  {
+    "slug": "testing-with-pytest",
+    "title": "Easy questions",
+    "questions": [
+      {
+        "id": "q1",
+        "kind": "choice",
+        "prompt": "What does assert do in a test?",
+        "options": [
+          {
+            "id": "0",
+            "label": "Fails the test when the check is false"
+          },
+          {
+            "id": "1",
+            "label": "Trains a model"
+          },
+          {
+            "id": "2",
+            "label": "Opens a port"
+          }
+        ],
+        "answer": "0",
+        "why": "A failed assert is how you hear that something changed."
+      },
+      {
+        "id": "q2",
+        "kind": "choice",
+        "prompt": "Why mock the model client?",
+        "options": [
+          {
+            "id": "0",
+            "label": "So the test does not call the network"
+          },
+          {
+            "id": "1",
+            "label": "So the test is slower"
+          },
+          {
+            "id": "2",
+            "label": "So the prompt is deleted"
+          }
+        ],
+        "answer": "0",
+        "why": "A fake client returns a fixed reply."
+      },
+      {
+        "id": "q3",
+        "kind": "blank",
+        "prompt": "A test function name starts with ____.",
+        "accept": [
+          "test",
+          "test_"
+        ],
+        "answer": "test",
+        "why": "pytest finds functions whose names start with test."
+      },
+      {
+        "id": "q4",
+        "kind": "choice",
+        "prompt": "What is an accuracy gate?",
+        "options": [
+          {
+            "id": "0",
+            "label": "A test that fails when the score drops"
+          },
+          {
+            "id": "1",
+            "label": "A CSS rule"
+          },
+          {
+            "id": "2",
+            "label": "A comment"
+          }
+        ],
+        "answer": "0",
+        "why": "The build stops if the new score is worse than the floor."
+      }
+    ]
+  },
+  {
+    "slug": "logging-and-configuration",
+    "title": "Easy questions",
+    "questions": [
+      {
+        "id": "q1",
+        "kind": "choice",
+        "prompt": "What belongs in a log line?",
+        "options": [
+          {
+            "id": "0",
+            "label": "The model name and the latency"
+          },
+          {
+            "id": "1",
+            "label": "The API key"
+          },
+          {
+            "id": "2",
+            "label": "The user's password"
+          }
+        ],
+        "answer": "0",
+        "why": "Log what you need to debug. Leave secrets out."
+      },
+      {
+        "id": "q2",
+        "kind": "choice",
+        "prompt": "A call fails in production. What helps you reconstruct it?",
+        "options": [
+          {
+            "id": "0",
+            "label": "The log of the config and the timing"
+          },
+          {
+            "id": "1",
+            "label": "A blank file"
+          },
+          {
+            "id": "2",
+            "label": "The font"
+          }
+        ],
+        "answer": "0",
+        "why": "The diary line tells you what was asked and how long it took."
+      },
+      {
+        "id": "q3",
+        "kind": "blank",
+        "prompt": "Never write an API ____ into the log.",
+        "accept": [
+          "key",
+          "token",
+          "secret"
+        ],
+        "answer": "key",
+        "why": "A key in a log is a key in the wrong hands."
+      },
+      {
+        "id": "q4",
+        "kind": "bug",
+        "prompt": "What is wrong here?",
+        "code": "logger.info(\"key=%s\", api_key)",
+        "options": [
+          {
+            "id": "0",
+            "label": "The secret is written to the log"
+          },
+          {
+            "id": "1",
+            "label": "info is the wrong level for everything"
+          },
+          {
+            "id": "2",
+            "label": "logger cannot take a string"
+          }
+        ],
+        "answer": "0",
+        "why": "Log that a call happened. Do not log the key."
+      }
+    ]
+  },
+  {
+    "slug": "project-spam-classifier",
+    "title": "Easy questions",
+    "questions": [
+      {
+        "id": "q1",
+        "kind": "choice",
+        "prompt": "What does the model learn?",
+        "options": [
+          {
+            "id": "0",
+            "label": "Which words lean spam, from labeled examples"
+          },
+          {
+            "id": "1",
+            "label": "A hand-written word list only"
+          },
+          {
+            "id": "2",
+            "label": "The page color"
+          }
+        ],
+        "answer": "0",
+        "why": "Nobody writes the rules. The model learns them from examples."
+      },
+      {
+        "id": "q2",
+        "kind": "choice",
+        "prompt": "When do you split into train and test?",
+        "options": [
+          {
+            "id": "0",
+            "label": "Before fit"
+          },
+          {
+            "id": "1",
+            "label": "After you publish the score"
+          },
+          {
+            "id": "2",
+            "label": "Never"
+          }
+        ],
+        "answer": "0",
+        "why": "Fit on train. Score on rows the model has not seen."
+      },
+      {
+        "id": "q3",
+        "kind": "blank",
+        "prompt": "A normal message is often called ____.",
+        "accept": [
+          "ham"
+        ],
+        "answer": "ham",
+        "why": "Spam is the unwanted class. Ham is the normal one."
+      },
+      {
+        "id": "q4",
+        "kind": "choice",
+        "prompt": "What do you save at the end?",
+        "options": [
+          {
+            "id": "0",
+            "label": "The model file"
+          },
+          {
+            "id": "1",
+            "label": "Only a screenshot"
+          },
+          {
+            "id": "2",
+            "label": "The test answers inside the training rows"
+          }
+        ],
+        "answer": "0",
+        "why": "A saved file is what a later service can load."
+      }
+    ]
+  },
+  {
+    "slug": "async-python",
+    "title": "Easy questions",
+    "questions": [
+      {
+        "id": "q1",
+        "kind": "choice",
+        "prompt": "What does await mean?",
+        "options": [
+          {
+            "id": "0",
+            "label": "Pause here, and let other work wait too"
+          },
+          {
+            "id": "1",
+            "label": "Stop the whole computer"
+          },
+          {
+            "id": "2",
+            "label": "Delete the function"
+          }
+        ],
+        "answer": "0",
+        "why": "The function waits without blocking every other task."
+      },
+      {
+        "id": "q2",
+        "kind": "choice",
+        "prompt": "Ten calls that each wait on the network. What helps?",
+        "options": [
+          {
+            "id": "0",
+            "label": "asyncio.gather"
+          },
+          {
+            "id": "1",
+            "label": "time.sleep in a loop"
+          },
+          {
+            "id": "2",
+            "label": "A bare except"
+          }
+        ],
+        "answer": "0",
+        "why": "gather starts them together so the waits overlap."
+      },
+      {
+        "id": "q3",
+        "kind": "blank",
+        "prompt": "A cap on how many calls run at once is a ____.",
+        "accept": [
+          "semaphore"
+        ],
+        "answer": "semaphore",
+        "why": "A semaphore keeps you from opening too many calls at once."
+      },
+      {
+        "id": "q4",
+        "kind": "bug",
+        "prompt": "What is wrong here?",
+        "code": "async def load():\n    time.sleep(2)",
+        "options": [
+          {
+            "id": "0",
+            "label": "time.sleep blocks the whole loop"
+          },
+          {
+            "id": "1",
+            "label": "async is the wrong word"
+          },
+          {
+            "id": "2",
+            "label": "2 is too small"
+          }
+        ],
+        "answer": "0",
+        "why": "Use await asyncio.sleep(2) so other tasks can run."
+      }
+    ]
+  },
+  {
+    "slug": "calling-llm-apis",
+    "title": "Easy questions",
+    "questions": [
+      {
+        "id": "q1",
+        "kind": "choice",
+        "prompt": "What is temperature 0 good for?",
+        "options": [
+          {
+            "id": "0",
+            "label": "A steady, less random reply"
+          },
+          {
+            "id": "1",
+            "label": "The longest possible story"
+          },
+          {
+            "id": "2",
+            "label": "Skipping the timeout"
+          }
+        ],
+        "answer": "0",
+        "why": "Low temperature keeps the reply closer to the same answer."
+      },
+      {
+        "id": "q2",
+        "kind": "choice",
+        "prompt": "Which failure is worth a retry?",
+        "options": [
+          {
+            "id": "0",
+            "label": "A temporary network timeout"
+          },
+          {
+            "id": "1",
+            "label": "A wrong API key"
+          },
+          {
+            "id": "2",
+            "label": "A bad JSON shape you wrote"
+          }
+        ],
+        "answer": "0",
+        "why": "Retry the blip. Fix the key or the payload yourself."
+      },
+      {
+        "id": "q3",
+        "kind": "blank",
+        "prompt": "The request body includes model, messages, temperature, and max____.",
+        "accept": [
+          "tokens",
+          "max_tokens"
+        ],
+        "answer": "tokens",
+        "why": "max_tokens caps how long the reply can be."
+      },
+      {
+        "id": "q4",
+        "kind": "bug",
+        "prompt": "What is wrong here?",
+        "code": "reply = call_model(payload)  # no timeout",
+        "options": [
+          {
+            "id": "0",
+            "label": "The call can hang forever"
+          },
+          {
+            "id": "1",
+            "label": "payload is a bad name"
+          },
+          {
+            "id": "2",
+            "label": "The comment is too short"
+          }
+        ],
+        "answer": "0",
+        "why": "Set a timeout so a stuck call cannot freeze the app."
+      }
+    ]
+  },
+  {
+    "slug": "numpy-to-pytorch",
+    "title": "Easy questions",
+    "questions": [
+      {
+        "id": "q1",
+        "kind": "choice",
+        "prompt": "What is a tensor?",
+        "options": [
+          {
+            "id": "0",
+            "label": "An array that can remember how it was computed"
+          },
+          {
+            "id": "1",
+            "label": "A text file"
+          },
+          {
+            "id": "2",
+            "label": "A CSS class"
+          }
+        ],
+        "answer": "0",
+        "why": "That memory is what backward() uses."
+      },
+      {
+        "id": "q2",
+        "kind": "choice",
+        "prompt": "What is the training order?",
+        "options": [
+          {
+            "id": "0",
+            "label": "zero_grad, forward, loss, backward, step"
+          },
+          {
+            "id": "1",
+            "label": "step, then forward"
+          },
+          {
+            "id": "2",
+            "label": "only print"
+          }
+        ],
+        "answer": "0",
+        "why": "Clear old gradients, compute the loss, then update."
+      },
+      {
+        "id": "q3",
+        "kind": "blank",
+        "prompt": "Inference should run under torch.no____.",
+        "accept": [
+          "grad",
+          "no_grad"
+        ],
+        "answer": "grad",
+        "why": "no_grad skips the extra memory you only need for training."
+      },
+      {
+        "id": "q4",
+        "kind": "choice",
+        "prompt": "What does model.eval() change?",
+        "options": [
+          {
+            "id": "0",
+            "label": "Layers like dropout behave for inference"
+          },
+          {
+            "id": "1",
+            "label": "The file name"
+          },
+          {
+            "id": "2",
+            "label": "The Python version"
+          }
+        ],
+        "answer": "0",
+        "why": "eval() is the inference switch. train() is the learning switch."
+      }
+    ]
+  },
+  {
+    "slug": "rag-from-scratch",
+    "title": "Easy questions",
+    "questions": [
+      {
+        "id": "q1",
+        "kind": "choice",
+        "prompt": "What is the RAG order?",
+        "options": [
+          {
+            "id": "0",
+            "label": "Chunk, find, then ask"
+          },
+          {
+            "id": "1",
+            "label": "Ask, then hope"
+          },
+          {
+            "id": "2",
+            "label": "Train a new model first"
+          }
+        ],
+        "answer": "0",
+        "why": "Find the right notes before you ask the model."
+      },
+      {
+        "id": "q2",
+        "kind": "choice",
+        "prompt": "The answer is wrong but the chunks are irrelevant. What do you fix first?",
+        "options": [
+          {
+            "id": "0",
+            "label": "The search"
+          },
+          {
+            "id": "1",
+            "label": "The model's personality"
+          },
+          {
+            "id": "2",
+            "label": "The font"
+          }
+        ],
+        "answer": "0",
+        "why": "A model cannot use notes it was never given."
+      },
+      {
+        "id": "q3",
+        "kind": "blank",
+        "prompt": "Overlap between chunks keeps a fact from being ____ in half.",
+        "accept": [
+          "cut",
+          "split"
+        ],
+        "answer": "cut",
+        "why": "A little overlap means a sentence on the edge still appears whole."
+      },
+      {
+        "id": "q4",
+        "kind": "choice",
+        "prompt": "What should you store with each chunk?",
+        "options": [
+          {
+            "id": "0",
+            "label": "The source it came from"
+          },
+          {
+            "id": "1",
+            "label": "The user's password"
+          },
+          {
+            "id": "2",
+            "label": "A random label"
+          }
+        ],
+        "answer": "0",
+        "why": "The source lets you show where the answer came from."
+      }
+    ]
+  },
+  {
+    "slug": "fastapi-model-service",
+    "title": "Easy questions",
+    "questions": [
+      {
+        "id": "q1",
+        "kind": "choice",
+        "prompt": "When do you load the model?",
+        "options": [
+          {
+            "id": "0",
+            "label": "Once, when the service starts"
+          },
+          {
+            "id": "1",
+            "label": "On every request"
+          },
+          {
+            "id": "2",
+            "label": "Never"
+          }
+        ],
+        "answer": "0",
+        "why": "Loading is slow. Do it once and reuse it."
+      },
+      {
+        "id": "q2",
+        "kind": "choice",
+        "prompt": "What is the difference between /health and /ready?",
+        "options": [
+          {
+            "id": "0",
+            "label": "/ready means the model is loaded"
+          },
+          {
+            "id": "1",
+            "label": "They are the same"
+          },
+          {
+            "id": "2",
+            "label": "/health runs a training job"
+          }
+        ],
+        "answer": "0",
+        "why": "Health means the process is up. Ready means it can answer."
+      },
+      {
+        "id": "q3",
+        "kind": "blank",
+        "prompt": "A request with no question should be ____.",
+        "accept": [
+          "rejected",
+          "invalid",
+          "a validation error"
+        ],
+        "answer": "rejected",
+        "why": "Make question required so an empty call fails clearly."
+      },
+      {
+        "id": "q4",
+        "kind": "bug",
+        "prompt": "What is wrong here?",
+        "code": "def predict(q):\n    model = load_model()\n    return model(q)",
+        "options": [
+          {
+            "id": "0",
+            "label": "The model loads on every call"
+          },
+          {
+            "id": "1",
+            "label": "predict is a bad name"
+          },
+          {
+            "id": "2",
+            "label": "q is too short"
+          }
+        ],
+        "answer": "0",
+        "why": "Load once at startup and reuse that object."
+      }
+    ]
+  },
+  {
+    "slug": "production-python-checklist",
+    "title": "Easy questions",
+    "questions": [
+      {
+        "id": "q1",
+        "kind": "choice",
+        "prompt": "What does a pin do?",
+        "options": [
+          {
+            "id": "0",
+            "label": "Locks a library version"
+          },
+          {
+            "id": "1",
+            "label": "Deletes the tests"
+          },
+          {
+            "id": "2",
+            "label": "Hides the logs"
+          }
+        ],
+        "answer": "0",
+        "why": "A rerun installs the same versions."
+      },
+      {
+        "id": "q2",
+        "kind": "choice",
+        "prompt": "Why set a random seed?",
+        "options": [
+          {
+            "id": "0",
+            "label": "So a rerun can match"
+          },
+          {
+            "id": "1",
+            "label": "So the model is always perfect"
+          },
+          {
+            "id": "2",
+            "label": "So logs disappear"
+          }
+        ],
+        "answer": "0",
+        "why": "The seed makes the random draws repeatable."
+      },
+      {
+        "id": "q3",
+        "kind": "blank",
+        "prompt": "Run ruff, mypy, and ____ before you ship.",
+        "accept": [
+          "pytest"
+        ],
+        "answer": "pytest",
+        "why": "pytest is the check that the behavior still holds."
+      },
+      {
+        "id": "q4",
+        "kind": "choice",
+        "prompt": "What should a run log include?",
+        "options": [
+          {
+            "id": "0",
+            "label": "The config it used"
+          },
+          {
+            "id": "1",
+            "label": "The API key"
+          },
+          {
+            "id": "2",
+            "label": "Nothing"
+          }
+        ],
+        "answer": "0",
+        "why": "The config tells you which settings produced the score."
+      }
+    ]
+  },
+  {
+    "slug": "project-ask-my-notes",
+    "title": "Easy questions",
+    "questions": [
+      {
+        "id": "q1",
+        "kind": "choice",
+        "prompt": "What does this bot answer from?",
+        "options": [
+          {
+            "id": "0",
+            "label": "Your notes"
+          },
+          {
+            "id": "1",
+            "label": "Whatever the model remembers"
+          },
+          {
+            "id": "2",
+            "label": "A random file"
+          }
+        ],
+        "answer": "0",
+        "why": "The notes are retrieved and placed in the prompt."
+      },
+      {
+        "id": "q2",
+        "kind": "choice",
+        "prompt": "What happens before the model is asked?",
+        "options": [
+          {
+            "id": "0",
+            "label": "The matching chunks are found"
+          },
+          {
+            "id": "1",
+            "label": "The model is retrained"
+          },
+          {
+            "id": "2",
+            "label": "The notes are deleted"
+          }
+        ],
+        "answer": "0",
+        "why": "Search first. Then build the prompt."
+      },
+      {
+        "id": "q3",
+        "kind": "blank",
+        "prompt": "The prompt should include the retrieved ____.",
+        "accept": [
+          "chunks",
+          "notes"
+        ],
+        "answer": "chunks",
+        "why": "The chunks are the open book the model answers from."
+      },
+      {
+        "id": "q4",
+        "kind": "choice",
+        "prompt": "What do you attach so a reader can check the answer?",
+        "options": [
+          {
+            "id": "0",
+            "label": "The source of the chunk"
+          },
+          {
+            "id": "1",
+            "label": "A new API key"
+          },
+          {
+            "id": "2",
+            "label": "The training set"
+          }
+        ],
+        "answer": "0",
+        "why": "A source lets you confirm the line really came from the notes."
+      }
+    ]
+  },
+  {
+    "slug": "builtin-functions-reference",
+    "title": "Easy questions",
+    "questions": [
+      {
+        "id": "q1",
+        "kind": "choice",
+        "prompt": "Which check is preferred?",
+        "options": [
+          {
+            "id": "0",
+            "label": "isinstance(score, float)"
+          },
+          {
+            "id": "1",
+            "label": "type(score) is float"
+          },
+          {
+            "id": "2",
+            "label": "score == float"
+          }
+        ],
+        "answer": "0",
+        "why": "isinstance still works for subclasses. A strict type is float does not."
+      },
+      {
+        "id": "q2",
+        "kind": "predict",
+        "prompt": "What does this print?",
+        "code": "print(float(\"0.91\"))",
+        "options": [
+          {
+            "id": "0",
+            "label": "0.91"
+          },
+          {
+            "id": "1",
+            "label": "\"0.91\""
+          },
+          {
+            "id": "2",
+            "label": "1"
+          }
+        ],
+        "answer": "0",
+        "why": "float() reads the text and returns a number."
+      },
+      {
+        "id": "q3",
+        "kind": "blank",
+        "prompt": "sorted, min, and max can take a ____= function.",
+        "accept": [
+          "key"
+        ],
+        "answer": "key",
+        "why": "key= tells them which value to compare."
+      },
+      {
+        "id": "q4",
+        "kind": "choice",
+        "prompt": "What does getattr(obj, \"model\", \"mini\") do when model is missing?",
+        "options": [
+          {
+            "id": "0",
+            "label": "Returns mini"
+          },
+          {
+            "id": "1",
+            "label": "Raises KeyError"
+          },
+          {
+            "id": "2",
+            "label": "Deletes obj"
+          }
+        ],
+        "answer": "0",
+        "why": "The third argument is the default."
+      }
+    ]
+  },
+  {
+    "slug": "string-methods-reference",
+    "title": "Easy questions",
+    "questions": [
+      {
+        "id": "q1",
+        "kind": "choice",
+        "prompt": "What must you do with a string method's result?",
+        "options": [
+          {
+            "id": "0",
+            "label": "Assign it, or pass it on"
+          },
+          {
+            "id": "1",
+            "label": "Nothing, the original changes"
+          },
+          {
+            "id": "2",
+            "label": "Call print only"
+          }
+        ],
+        "answer": "0",
+        "why": "The method returns a new string."
+      },
+      {
+        "id": "q2",
+        "kind": "predict",
+        "prompt": "What does this print?",
+        "code": "print(\"a-b-c\".split(\"-\"))",
+        "options": [
+          {
+            "id": "0",
+            "label": "['a', 'b', 'c']"
+          },
+          {
+            "id": "1",
+            "label": "a-b-c"
+          },
+          {
+            "id": "2",
+            "label": "abc"
+          }
+        ],
+        "answer": "0",
+        "why": "split cuts the string on each dash."
+      },
+      {
+        "id": "q3",
+        "kind": "blank",
+        "prompt": "Join words with a space using \" \".____(words).",
+        "accept": [
+          "join"
+        ],
+        "answer": "join",
+        "why": "join is the clear way to build one string from a list."
+      },
+      {
+        "id": "q4",
+        "kind": "bug",
+        "prompt": "What is wrong here?",
+        "code": "label = \" Spam \"\nlabel.strip().lower()\nprint(label)",
+        "options": [
+          {
+            "id": "0",
+            "label": "The results are thrown away"
+          },
+          {
+            "id": "1",
+            "label": "strip cannot remove spaces"
+          },
+          {
+            "id": "2",
+            "label": "lower adds spaces"
+          }
+        ],
+        "answer": "0",
+        "why": "Assign it: label = label.strip().lower()."
+      }
+    ]
+  },
+  {
+    "slug": "collection-methods-reference",
+    "title": "Easy questions",
+    "questions": [
+      {
+        "id": "q1",
+        "kind": "choice",
+        "prompt": "What is a set good for?",
+        "options": [
+          {
+            "id": "0",
+            "label": "Asking whether an item is already there"
+          },
+          {
+            "id": "1",
+            "label": "Keeping a strict order"
+          },
+          {
+            "id": "2",
+            "label": "Storing two values per key"
+          }
+        ],
+        "answer": "0",
+        "why": "Membership tests on a set are simple and fast."
+      },
+      {
+        "id": "q2",
+        "kind": "predict",
+        "prompt": "What does this print?",
+        "code": "names = [\"b\", \"a\"]\nprint(names.sort())",
+        "options": [
+          {
+            "id": "0",
+            "label": "None"
+          },
+          {
+            "id": "1",
+            "label": "['a', 'b']"
+          },
+          {
+            "id": "2",
+            "label": "['b', 'a']"
+          }
+        ],
+        "answer": "0",
+        "why": "sort() changes the list and returns None. Use sorted() if you want a new list."
+      },
+      {
+        "id": "q3",
+        "kind": "blank",
+        "prompt": "A missing key can use dict.____(key, default).",
+        "accept": [
+          "get"
+        ],
+        "answer": "get",
+        "why": "get returns the default instead of raising KeyError."
+      },
+      {
+        "id": "q4",
+        "kind": "choice",
+        "prompt": "What does setdefault do?",
+        "options": [
+          {
+            "id": "0",
+            "label": "Returns the value, and inserts the default if the key is new"
+          },
+          {
+            "id": "1",
+            "label": "Deletes the key"
+          },
+          {
+            "id": "2",
+            "label": "Sorts the dict"
+          }
+        ],
+        "answer": "0",
+        "why": "It is a get that also writes the default in."
+      }
+    ]
+  },
+  {
+    "slug": "keywords-operators-exceptions-reference",
+    "title": "Easy questions",
+    "questions": [
+      {
+        "id": "q1",
+        "kind": "choice",
+        "prompt": "When do you use is?",
+        "options": [
+          {
+            "id": "0",
+            "label": "For None, True, and False"
+          },
+          {
+            "id": "1",
+            "label": "For every number"
+          },
+          {
+            "id": "2",
+            "label": "For every string"
+          }
+        ],
+        "answer": "0",
+        "why": "is asks whether it is the same object. == asks whether the values match."
+      },
+      {
+        "id": "q2",
+        "kind": "predict",
+        "prompt": "What does this print?",
+        "code": "value = 0\nif value:\n    print(\"yes\")\nelse:\n    print(\"no\")",
+        "options": [
+          {
+            "id": "0",
+            "label": "no"
+          },
+          {
+            "id": "1",
+            "label": "yes"
+          },
+          {
+            "id": "2",
+            "label": "0"
+          }
+        ],
+        "answer": "0",
+        "why": "0 is falsy, so the else path runs."
+      },
+      {
+        "id": "q3",
+        "kind": "blank",
+        "prompt": "Compare two numbers with ____.",
+        "accept": [
+          "=="
+        ],
+        "answer": "==",
+        "why": "== checks the values. is is for None, True, and False."
+      },
+      {
+        "id": "q4",
+        "kind": "bug",
+        "prompt": "What is wrong here?",
+        "code": "assert user_is_admin",
+        "options": [
+          {
+            "id": "0",
+            "label": "assert can be switched off"
+          },
+          {
+            "id": "1",
+            "label": "admin is a bad word"
+          },
+          {
+            "id": "2",
+            "label": "The line needs a colon"
+          }
+        ],
+        "answer": "0",
+        "why": "Do not use assert for a real security check. Use a normal if."
+      }
+    ]
+  }
+]
