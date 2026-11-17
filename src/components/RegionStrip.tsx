@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { MARKET_LABELS, TIMEZONE_TO_MARKET, liveClassTimes, type MarketSlug } from "@/lib/market-zones";
 
 const DISMISS_KEY = "rv-region-strip-dismissed";
-const HIDE_ON = [/^\/admin/, /^\/student-feedback/, /^\/enroll/, /^\/mlops-course-india/, /^\/whiteboard/];
+const HIDE_ON = [/^\/admin/, /^\/student-feedback/, /^\/enroll/, /^\/whiteboard/];
 
 /**
  * "In the UK? Live class is 2:30 PM your time" strip for visitors outside India.
@@ -29,7 +29,7 @@ export default function RegionStrip() {
   }, []);
 
   if (!found || closed) return null;
-  if (HIDE_ON.some((r) => r.test(pathname)) || pathname.startsWith(`/global-training/${found.slug}`)) return null;
+  if (HIDE_ON.some((r) => r.test(pathname)) || pathname.startsWith("/global-training")) return null;
 
   const label = MARKET_LABELS[found.slug];
   const t = liveClassTimes(found.tz);
@@ -49,7 +49,7 @@ export default function RegionStrip() {
       <p>
         <span aria-hidden>{label.flag}</span> In {label.name}? Live class is {when}
         {label.fee ? `, about ${label.fee}` : ""}.{" "}
-        <Link href={`/global-training/${found.slug}/`} className="region-strip-link" data-track={`Region strip: ${found.slug}`}>
+        <Link href={`/global-training/#${found.slug}`} className="region-strip-link" data-track={`Region strip: ${found.slug}`}>
           Fees and class times for {label.name} →
         </Link>
       </p>

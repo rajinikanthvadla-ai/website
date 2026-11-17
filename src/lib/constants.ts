@@ -498,7 +498,7 @@ export const SERVICES = [
     title: "MLOps Engineering Training",
     description:
       "Deploy ML models to production with MLflow, Kubeflow, SageMaker, model monitoring & pipelines.",
-    href: "/mlops-course",
+    href: "/mlops-aiops-masterclass",
   },
   {
     icon: "zap",
@@ -560,7 +560,7 @@ export const STRUCTURED_DATA = {
       "Rajinikanth Vadla career mentorship",
     ],
     url: "https://rajinikanthvadla.com/",
-    inLanguage: ["en", "en-IN", "en-US", "en-GB", "en-IE", "en-NL", "en-LU", "en-DE", "en-CA", "en-AU", "en-SG", "en-AE"],
+    inLanguage: "en",
     description:
       "Official website of Rajinikanth Vadla: live online MLOps, AIOps, GenAI, AI Agents, AI-Powered Automation, and LLMOps training, mentorship, and blog. Open to engineers worldwide.",
     publisher: {
@@ -785,14 +785,11 @@ export const STRUCTURED_DATA = {
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "AI-Powered Automation Course", url: "https://rajinikanthvadla.com/courses/ai-automation/" },
       { "@type": "ListItem", position: 2, name: "MLOps AIOps LLMOps Masterclass", url: "https://rajinikanthvadla.com/mlops-aiops-masterclass/" },
-      { "@type": "ListItem", position: 3, name: "MLOps Course", url: "https://rajinikanthvadla.com/mlops-course/" },
-      { "@type": "ListItem", position: 4, name: "MLOps Course India", url: "https://rajinikanthvadla.com/mlops-course-india/" },
-      { "@type": "ListItem", position: 5, name: "GenAI Course", url: "https://rajinikanthvadla.com/genai-course/" },
-      { "@type": "ListItem", position: 6, name: "AI Agents Course", url: "https://rajinikanthvadla.com/ai-agents-course/" },
-      { "@type": "ListItem", position: 7, name: "GenAI Training", url: "https://rajinikanthvadla.com/genai-training/" },
-      { "@type": "ListItem", position: 8, name: "AIOps Training", url: "https://rajinikanthvadla.com/aiops-training/" },
-      { "@type": "ListItem", position: 9, name: "Mentorship", url: "https://rajinikanthvadla.com/mentorship/" },
-      { "@type": "ListItem", position: 10, name: "AI Career Roadmaps", url: "https://rajinikanthvadla.com/roadmap/" },
+      { "@type": "ListItem", position: 3, name: "GenAI Course", url: "https://rajinikanthvadla.com/genai-course/" },
+      { "@type": "ListItem", position: 4, name: "AI Agents Course", url: "https://rajinikanthvadla.com/ai-agents-course/" },
+      { "@type": "ListItem", position: 5, name: "AIOps Training", url: "https://rajinikanthvadla.com/aiops-training/" },
+      { "@type": "ListItem", position: 6, name: "Mentorship", url: "https://rajinikanthvadla.com/mentorship/" },
+      { "@type": "ListItem", position: 7, name: "AI Career Roadmaps", url: "https://rajinikanthvadla.com/roadmap/" },
     ],
   },
   faq: {

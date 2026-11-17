@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { SITE } from "@/lib/constants";
 import { MENTORSHIP_FAQS, mentorshipOfferSchema } from "@/lib/mentorship-pricing";
 import { MENTORSHIP_MARKETS } from "@/lib/mentorship-markets";
-import Link from "next/link";
 import CTASection from "@/components/CTASection";
 import SuccessStories from "@/components/SuccessStories";
 import MentorshipPricing from "@/components/MentorshipPricing";
@@ -31,13 +30,6 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: "https://rajinikanthvadla.com/mentorship/",
-    languages: {
-      "x-default": "https://rajinikanthvadla.com/mentorship/",
-      "en-IN": "https://rajinikanthvadla.com/mentorship/",
-      ...Object.fromEntries(
-        MENTORSHIP_MARKETS.map((m) => [m.hreflang, `https://rajinikanthvadla.com/mentorship/${m.slug}/`]),
-      ),
-    },
   },
   openGraph: {
     title: "1:1 AI & MLOps Mentorship with a Personal Learning Roadmap",
@@ -166,17 +158,19 @@ export default function MentorshipPage() {
 
       <section className="py-16 bg-stone-50 border-b border-stone-200">
         <div className="max-w-5xl mx-auto px-6 text-center">
-          <h2 className="font-display text-2xl font-bold text-stone-900 mb-2">Mentorship by country</h2>
-          <p className="text-stone-600 text-sm mb-6">Time zones, salary ranges and USD pricing for your country.</p>
+          <h2 className="font-display text-2xl font-bold text-stone-900 mb-2">Where mentees are</h2>
+          <p className="text-stone-600 text-sm mb-6">
+            One practice, online worldwide. Bands below are typical pay for the roles people prepare for, not a salary promise.
+          </p>
           <div className="flex flex-wrap justify-center gap-2">
             {MENTORSHIP_MARKETS.map((m) => (
-              <Link
+              <span
                 key={m.slug}
-                href={`/mentorship/${m.slug}/`}
-                className="px-4 py-2 text-sm font-semibold border border-stone-300 bg-white text-stone-700 hover:border-stone-900 transition-colors"
+                className="px-4 py-2 text-sm font-semibold border border-stone-300 bg-white text-stone-700"
               >
                 {m.flag} {m.name}
-              </Link>
+                {m.salaryRange ? ` · ${m.salaryRange}` : ""}
+              </span>
             ))}
           </div>
         </div>

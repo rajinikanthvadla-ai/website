@@ -1,10 +1,10 @@
 /**
- * Target markets for international SEO: USA, UK, EU hubs, the Gulf and APAC.
+ * Country facts shown on the single /global-training/ page.
  *
- * Every market page must read as its own page (local class times, local fees,
- * local questions), not a copy with the country name swapped. Google treats
- * near-identical city pages as doorway pages. `localSearches` holds phrases
- * seen in Google autocomplete for that country (research: docs/KEYWORD-RESEARCH.md).
+ * Do not publish a separate indexable URL per country. Those pages were near-duplicates
+ * and now refresh to the hub. `hreflang` is kept only as a locale label in this data.
+ * Do not emit it as a link rel=alternate: every public page is English.
+ * `localSearches` holds phrases seen in Google autocomplete (research: docs/KEYWORD-RESEARCH.md).
  */
 export type IntlMarketSlug =
   | "usa"

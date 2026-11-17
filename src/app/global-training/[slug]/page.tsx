@@ -1,37 +1,32 @@
 import type { Metadata } from "next";
-import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import { notFound } from "next/navigation";
-import IntlSeoLandingPage from "@/components/IntlSeoLanding";
-import { INTL_SEO_LANDINGS } from "@/lib/intl-seo-landings";
-import { intlLandingMetadata } from "@/lib/seo-metadata";
-import type { IntlMarketSlug } from "@/lib/international-markets";
+import SeoAlias from "@/components/SeoAlias";
+import { INTL_MARKETS } from "@/lib/international-markets";
+import { aliasPageMetadata } from "@/lib/seo-alias";
 
 type Props = { params: Promise<{ slug: string }> };
 
 export function generateStaticParams() {
-  return Object.keys(INTL_SEO_LANDINGS).map((slug) => ({ slug }));
+  return INTL_MARKETS.map((market) => ({ slug: market.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const landing = INTL_SEO_LANDINGS[slug as IntlMarketSlug];
-  if (!landing) return {};
-  return intlLandingMetadata(landing);
+  if (!INTL_MARKETS.some((market) => market.slug === slug)) return {};
+  return aliasPageMetadata("/global-training/", "Global training");
 }
 
 export default async function GlobalTrainingMarketPage({ params }: Props) {
   const { slug } = await params;
-  const landing = INTL_SEO_LANDINGS[slug as IntlMarketSlug];
-  if (!landing) notFound();
+  const market = INTL_MARKETS.find((item) => item.slug === slug);
+  if (!market) notFound();
+
   return (
-    <>
-      <BreadcrumbJsonLd
-        items={[
-          { name: "Global training", path: "/global-training/" },
-          { name: landing.market.name, path: `/global-training/${landing.market.slug}/` },
-        ]}
-      />
-      <IntlSeoLandingPage landing={landing} />
-    </>
+    <SeoAlias
+      title={`Training for ${market.name}`}
+      message={`Engineers in ${market.name} join the same live online cohort. Class times, fees, and typical pay are on the global training page.`}
+      href="/global-training/"
+      cta="View global training"
+    />
   );
 }

@@ -78,7 +78,7 @@ export default function SeoCourseLanding({ landing }: Props) {
       ) : null}
 
       {landing.slug !== "ai-tools-productivity" && (
-        <CoursePricing defaultZone={landing.slug === "mlops-course-india" ? "C" : undefined} />
+        <CoursePricing />
       )}
     </>
   );

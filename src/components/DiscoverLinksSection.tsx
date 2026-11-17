@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { INTL_MARKETS } from "@/lib/international-markets";
 
 const LEARN_LINKS = [
   { href: "/enroll/", label: "Enroll & pricing" },
@@ -20,12 +19,9 @@ const STUDY_LINKS = [
 ] as const;
 
 const REGION_LINKS = [
-  { href: "/global-training/", label: "Global training hub" },
-  { href: "/mlops-course-india/", label: "MLOps India" },
-  ...INTL_MARKETS.map((m) => ({
-    href: `/global-training/${m.slug}/`,
-    label: `MLOps ${m.shortName}`,
-  })),
+  { href: "/global-training/", label: "Global training" },
+  { href: "/genai-course/", label: "GenAI course" },
+  { href: "/ai-agents-course/", label: "AI agents course" },
 ];
 
 /** Crawlable internal link hub. Helps Google and AI assistants find key pages. */
@@ -40,8 +36,8 @@ export default function DiscoverLinksSection() {
           Find the right page fast
         </h2>
         <p className="text-sm text-slate-600 text-center max-w-2xl mx-auto mb-8 leading-relaxed">
-          Courses, free study resources, and regional landing pages for local search, timezone fit, and enroll
-          pricing. Live online training open worldwide.
+          Courses, free study resources, and the global training page for class times and fees.
+          Live online training is open worldwide.
         </p>
         <div className="grid sm:grid-cols-3 gap-6">
           <div>
@@ -75,7 +71,7 @@ export default function DiscoverLinksSection() {
             </ul>
           </div>
           <div>
-            <h3 className="font-display font-bold text-sm text-[#0f172a] mb-3">Regional pages</h3>
+            <h3 className="font-display font-bold text-sm text-[#0f172a] mb-3">Training</h3>
             <ul className="space-y-2">
               {REGION_LINKS.map((link) => (
                 <li key={link.href}>

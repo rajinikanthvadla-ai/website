@@ -1,12 +1,16 @@
 import type { Metadata } from "next";
-import SeoCourseLanding from "@/components/SeoCourseLanding";
-import { SEO_LANDINGS } from "@/lib/seo-landings";
-import { seoLandingMetadata } from "@/lib/seo-metadata";
+import SeoAlias from "@/components/SeoAlias";
+import { aliasPageMetadata } from "@/lib/seo-alias";
 
-const landing = SEO_LANDINGS["mlops-course-india"];
-
-export const metadata: Metadata = seoLandingMetadata(landing);
+export const metadata: Metadata = aliasPageMetadata("/mlops-aiops-masterclass/", "MLOps course India");
 
 export default function MLOpsCourseIndiaPage() {
-  return <SeoCourseLanding landing={landing} />;
+  return (
+    <SeoAlias
+      title="MLOps course in India"
+      message="The India cohort is the same live masterclass: ₹40,000 with mentorship, or ₹30,000 for recordings. Evening classes are 8:00–9:45 PM IST."
+      href="/mlops-aiops-masterclass/"
+      cta="View the masterclass"
+    />
+  );
 }

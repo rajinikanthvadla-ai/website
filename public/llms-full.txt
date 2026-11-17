@@ -115,7 +115,7 @@ Cursor, OpenAI Codex, ChatGPT/GPT-4o, Claude AI, Gemini, AWS Bedrock, Amazon Q, 
 
 ## Course 3: AI Agents & GenAI Training
 
-**URL:** https://rajinikanthvadla.com/genai-training/
+**URL:** https://rajinikanthvadla.com/genai-course/
 - LangChain & AI Frameworks
 - Model Context Protocol (MCP)
 - RAG systems and vector databases

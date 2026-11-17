@@ -1,12 +1,16 @@
 import type { Metadata } from "next";
-import SeoCourseLanding from "@/components/SeoCourseLanding";
-import { SEO_LANDINGS } from "@/lib/seo-landings";
-import { seoLandingMetadata } from "@/lib/seo-metadata";
+import SeoAlias from "@/components/SeoAlias";
+import { aliasPageMetadata } from "@/lib/seo-alias";
 
-const landing = SEO_LANDINGS["mlops-course"];
-
-export const metadata: Metadata = seoLandingMetadata(landing);
+export const metadata: Metadata = aliasPageMetadata("/mlops-aiops-masterclass/", "MLOps course");
 
 export default function MLOpsCoursePage() {
-  return <SeoCourseLanding landing={landing} />;
+  return (
+    <SeoAlias
+      title="MLOps course"
+      message="The MLOps course is the live MLOps, AIOps, LLMOps and AI Agents masterclass. Syllabus, India and international fees, and enrollment are on that page."
+      href="/mlops-aiops-masterclass/"
+      cta="View the masterclass"
+    />
+  );
 }
