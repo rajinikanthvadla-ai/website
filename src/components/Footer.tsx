@@ -78,20 +78,8 @@ export default function Footer({ minimal = false }: { minimal?: boolean }) {
           <div>
             <h3 className="text-white font-bold mb-4 text-xs uppercase tracking-[0.12em]">Global Training</h3>
             <ul className="space-y-2.5 text-sm">
-              <li><Link href="/global-training/" className="hover:text-orange-400 transition-colors">All regions</Link></li>
-              <li><Link href="/mlops-course-india/" className="hover:text-white transition-colors">MLOps India</Link></li>
-              <li><Link href="/global-training/usa/" className="hover:text-white transition-colors">MLOps course USA</Link></li>
-              <li><Link href="/global-training/uk/" className="hover:text-white transition-colors">AI & MLOps course UK</Link></li>
-              <li><Link href="/global-training/ireland/" className="hover:text-white transition-colors">MLOps Ireland</Link></li>
-              <li><Link href="/global-training/netherlands/" className="hover:text-white transition-colors">MLOps Netherlands</Link></li>
-              <li><Link href="/global-training/luxembourg/" className="hover:text-white transition-colors">MLOps Luxembourg</Link></li>
-              <li><Link href="/global-training/germany/" className="hover:text-white transition-colors">MLOps Germany</Link></li>
-              <li><Link href="/global-training/canada/" className="hover:text-white transition-colors">MLOps Canada</Link></li>
-              <li><Link href="/global-training/australia/" className="hover:text-white transition-colors">MLOps Australia</Link></li>
-              <li><Link href="/global-training/singapore/" className="hover:text-white transition-colors">MLOps Singapore</Link></li>
-              <li><Link href="/global-training/uae/" className="hover:text-white transition-colors">AI course Dubai, UAE</Link></li>
-              <li><Link href="/global-training/saudi-arabia/" className="hover:text-white transition-colors">AI course Riyadh, Saudi Arabia</Link></li>
-              <li><Link href="/global-training/qatar/" className="hover:text-white transition-colors">AI course Doha, Qatar</Link></li>
+              <li><Link href="/global-training/" className="hover:text-orange-400 transition-colors">Global training</Link></li>
+              <li><Link href="/genai-course/" className="hover:text-white transition-colors">GenAI course</Link></li>
             </ul>
           </div>
 

@@ -197,13 +197,117 @@ function slugify(input) {
     .replace(/^-|-$/g, "");
 }
 
+const TOKEN_STOP = new Set([
+  "with", "from", "that", "this", "into", "will", "have", "your", "guide", "ultimate",
+  "mastering", "latest", "future", "comprehensive", "update", "systems", "technologies",
+  "trends", "breakthroughs", "practices", "production", "deployment", "advanced",
+  "techniques", "patterns", "course", "training",
+]);
+
+function normalizeToken(word) {
+  if (word.endsWith("ies") && word.length > 5) return `${word.slice(0, -3)}y`;
+  if (word.endsWith("s") && !word.endsWith("ss") && word.length > 4) return word.slice(0, -1);
+  return word;
+}
+
+function significantTokens(value) {
+  return new Set(
+    String(value || "")
+      .toLowerCase()
+      .replace(/[^a-z0-9\s]/g, " ")
+      .split(/\s+/)
+      .map(normalizeToken)
+      .filter((word) => word.length >= 4 && !TOKEN_STOP.has(word)),
+  );
+}
+
+function jaccard(left, right) {
+  if (!left.size || !right.size) return 0;
+  let shared = 0;
+  for (const token of left) {
+    if (right.has(token)) shared += 1;
+  }
+  const union = left.size + right.size - shared;
+  return union === 0 ? 0 : shared / union;
+}
+
+/** Drops the old Date.now().toString(36) suffix the daily job used to force a second URL. */
+function canonicalSlug(slug) {
+  return String(slug || "")
+    .toLowerCase()
+    .replace(/-(20\d{2})-[a-z0-9]{6,}$/, "-$1");
+}
+
+/** Scheduled topics that already have one post. Checked before the fuzzy match. */
+const TOPIC_SLUGS = {
+  "Latest breakthroughs in AI Agents and autonomous systems": "latest-breakthroughs-ai-agents-autonomous-systems-2026",
+  "New MLOps tools and practices for production ML in 2026": "mlops-tools-practices-production-2026",
+  "AIOps innovations: AI-powered infrastructure management": "aiops-innovations-infrastructure-management-2026",
+  "GenAI and LLM updates: new models, techniques, and use cases": "genai-llm-updates-2026-comprehensive-guide",
+  "Kubernetes and cloud-native AI/ML deployment trends": "kubernetes-cloud-native-ai-ml-deployment-trends-2026",
+  "LangChain and RAG system advancements": "mastering-langchain-rag-systems-advancements-2026",
+  "AI tools for developer productivity: Cursor, Copilot, and beyond": "10x-developer-productivity-cursor-copilot-2026",
+  "Enterprise AI adoption trends and challenges": "enterprise-ai-adoption-trends-challenges-2026",
+  "Vector databases and embedding technologies update": "vector-database-embeddings-update-2026",
+  "Multi-cloud AI/ML deployment strategies": "mastering-multi-cloud-ai-ml-deployment-strategies-2026",
+  "AI safety, governance, and responsible AI practices": "ai-safety-governance-responsible-practices-2026",
+  "Fine-tuning LLMs: new techniques and open-source models": "master-fine-tuning-llms-2026-techniques-models",
+};
+
+function topicAlreadyCovered(topic, articles) {
+  const mapped = TOPIC_SLUGS[topic];
+  if (mapped && articles.some((article) => canonicalSlug(article.slug) === mapped)) return mapped;
+
+  const incoming = significantTokens(topic);
+  let best = null;
+  let bestScore = 0;
+  for (const article of articles) {
+    const slug = canonicalSlug(article.slug);
+    const score = jaccard(incoming, significantTokens(`${slug} ${article.title}`));
+    if (score > bestScore) {
+      bestScore = score;
+      best = slug;
+    }
+  }
+  return bestScore >= 0.45 ? best : null;
+}
+
+function duplicateOf(slug, articles) {
+  const incomingSlug = canonicalSlug(slug);
+  const incoming = significantTokens(incomingSlug);
+  for (const article of articles) {
+    const existing = canonicalSlug(article.slug);
+    if (existing === incomingSlug) return existing;
+    if (jaccard(incoming, significantTokens(existing)) >= 0.5) return existing;
+  }
+  return null;
+}
+
+function pickTopic(requested, articles) {
+  const trimmed = String(requested || "").trim();
+  if (trimmed) {
+    const covered = topicAlreadyCovered(trimmed, articles);
+    if (covered) return { skip: true, reason: `topic already covered by ${covered}` };
+    return { topic: trimmed };
+  }
+
+  const open = TOPICS.filter((item) => !topicAlreadyCovered(item, articles));
+  if (!open.length) return { skip: true, reason: "every scheduled topic already has an article" };
+  return { topic: open[Math.floor(Math.random() * open.length)] };
+}
+
 function sanitizeArticle(article, today) {
   const sanitized = { ...article };
-  sanitized.slug = slugify(sanitized.slug || sanitized.title);
-  if (!sanitized.slug.includes("2026")) {
+  sanitized.slug = canonicalSlug(slugify(sanitized.slug || sanitized.title));
+  if (!sanitized.slug.includes("2026") && !sanitized.slug.includes("2027")) {
     sanitized.slug = `${sanitized.slug}-2026`;
   }
-  sanitized.title = String(sanitized.title || "").trim();
+  sanitized.title = String(sanitized.title || "").replace(/\s+/g, " ").trim();
+  if (sanitized.title.length > 70) {
+    const clipped = sanitized.title.slice(0, 70);
+    const boundary = clipped.lastIndexOf(" ");
+    sanitized.title = (boundary > 40 ? clipped.slice(0, boundary) : clipped).trim();
+  }
   sanitized.description = String(sanitized.description || "").trim().slice(0, 155);
   sanitized.category = String(sanitized.category || "").trim();
   sanitized.readTime = String(sanitized.readTime || "10 min").trim();
@@ -229,7 +333,13 @@ async function generateArticle(topic) {
     process.exit(0);
   }
 
-  const selectedTopic = topic || TOPICS[Math.floor(Math.random() * TOPICS.length)];
+  const articles = JSON.parse(fs.readFileSync(ARTICLES_PATH, "utf-8"));
+  const picked = pickTopic(topic, articles);
+  if (picked.skip) {
+    console.log(`Skipped article generation: ${picked.reason}`);
+    process.exit(0);
+  }
+  const selectedTopic = picked.topic;
   const today = new Date().toISOString().split("T")[0];
   const trends = await fetchTrendingSignals();
   const trendLines = trends.headlines.length
@@ -239,7 +349,7 @@ async function generateArticle(topic) {
     ? trends.keywords.join(", ")
     : "ai agents, llmops, mlops, aiops, rag, langchain, kubernetes, genai";
 
-  const prompt = `You are Rajinikanth Vadla, India's #1 MLOps, AIOps, GenAI, and AI Agents trainer. Write a comprehensive, SEO-optimized blog article.
+  const prompt = `You are Rajinikanth Vadla, an MLOps, AIOps, GenAI, and AI Agents trainer in Hyderabad. Write one practical article. Do not invent rankings or news.
 
 Topic: ${selectedTopic}
 Date context: ${today}
@@ -251,7 +361,7 @@ Priority SEO keywords (use naturally):
 ${trendKeywords}
 
 Requirements:
-- Title should be catchy, include the year 2026, and target high-intent keywords
+- Title should be catchy, include the year 2026, stay under 70 characters, and target one intent
 - Description should be 1-2 sentences, keyword-rich, under 155 characters
 - Content should be 1200-1800 words in markdown format and genuinely useful
 - Use ## for main headings, ### for subheadings
@@ -260,8 +370,7 @@ Requirements:
 - Include one section: "Implementation checklist"
 - Include one FAQ section with 4-6 Q&A bullets
 - Include one comparison section of your approach vs common competitor approaches (without naming brands negatively)
-- Include "India" and "global" search intent naturally in headings or body
-- End with a call-to-action linking to relevant training pages (use paths like /mlops-aiops-masterclass, /genai-training, /aiops-training, /mlops-training, /ai-tools-productivity)
+- End with a call-to-action linking to relevant pages (use paths like /mlops-aiops-masterclass, /genai-course, /ai-agents-course, /aiops-training, /ai-tools-productivity)
 - Category should be one of: MLOps, AIOps, GenAI, AI Agents, AI Tools, DevOps, Kubernetes, LLMOps
 - Tags should be 6-10 relevant keywords focused on high-intent search phrases
 - Slug should be URL-friendly (lowercase, hyphens, include 2026)
@@ -320,10 +429,10 @@ Respond ONLY with valid JSON (no markdown code fences, no extra text) in this ex
     validateArticleShape(rawArticle);
     const article = sanitizeArticle(rawArticle, today);
 
-    const articles = JSON.parse(fs.readFileSync(ARTICLES_PATH, "utf-8"));
-
-    if (articles.some((a) => a.slug === article.slug)) {
-      article.slug += "-" + Date.now().toString(36);
+    const duplicate = duplicateOf(article.slug, articles);
+    if (duplicate) {
+      console.log(`Skipped duplicate article. Slug "${article.slug}" matches existing "${duplicate}".`);
+      process.exit(0);
     }
 
     articles.unshift(article);
@@ -344,5 +453,15 @@ Respond ONLY with valid JSON (no markdown code fences, no extra text) in this ex
   }
 }
 
-const topic = process.argv[2] || "";
-generateArticle(topic);
+module.exports = {
+  topicAlreadyCovered,
+  duplicateOf,
+  canonicalSlug,
+  pickTopic,
+  TOPICS,
+};
+
+if (require.main === module) {
+  const topic = process.argv[2] || "";
+  generateArticle(topic);
+}

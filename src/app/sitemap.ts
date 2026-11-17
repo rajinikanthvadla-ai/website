@@ -2,8 +2,6 @@ import type { MetadataRoute } from "next";
 import articles from "../../content/articles.json";
 import { ROADMAP_SLUGS } from "@/lib/roadmaps";
 import { getSkillSlugs, COMPARE_SLUGS } from "@/lib/knowledge-graph";
-import { INTL_MARKETS } from "@/lib/international-markets";
-import { MENTORSHIP_MARKETS } from "@/lib/mentorship-markets";
 import { RESUME_ROLES } from "@/lib/resume-roles";
 import { PYTHON_LESSON_SLUGS, PRACTICE_TOPIC_SLUGS } from "@/lib/python-course";
 
@@ -32,7 +30,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/compare/`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: `${base}/courses/ai-automation/`, lastModified: now, changeFrequency: "daily", priority: 0.99 },
     { url: `${base}/mlops-aiops-masterclass/`, lastModified: now, changeFrequency: "daily", priority: 0.99 },
-    { url: `${base}/mlops-course-india/`, lastModified: now, changeFrequency: "daily", priority: 0.97 },
     { url: `${base}/global-training/`, lastModified: now, changeFrequency: "weekly", priority: 0.97 },
     { url: `${base}/free-career-call/`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/privacy-policy/`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
@@ -41,9 +38,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/ai.txt`, lastModified: now, changeFrequency: "weekly", priority: 0.75 },
     { url: `${base}/llms.txt`, lastModified: now, changeFrequency: "weekly", priority: 0.75 },
     { url: `${base}/resume-prep/`, lastModified: now, changeFrequency: "weekly", priority: 0.95 },
-    { url: `${base}/mlops-course/`, lastModified: now, changeFrequency: "daily", priority: 0.97 },
-    { url: `${base}/mlops-training/`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
-    { url: `${base}/genai-training/`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: `${base}/genai-course/`, lastModified: now, changeFrequency: "daily", priority: 0.96 },
     { url: `${base}/ai-agents-course/`, lastModified: now, changeFrequency: "daily", priority: 0.96 },
     { url: `${base}/aiops-training/`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
@@ -102,20 +96,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.75,
   }));
 
-  const intlRoutes: MetadataRoute.Sitemap = INTL_MARKETS.map((m) => ({
-    url: `${base}/global-training/${m.slug}/`,
-    lastModified: now,
-    changeFrequency: "weekly" as const,
-    priority: 0.95,
-  }));
-
-  const mentorshipRoutes: MetadataRoute.Sitemap = MENTORSHIP_MARKETS.map((m) => ({
-    url: `${base}/mentorship/${m.slug}/`,
-    lastModified: now,
-    changeFrequency: "weekly" as const,
-    priority: m.slug === "usa" ? 0.92 : 0.88,
-  }));
-
   const resumeRoutes: MetadataRoute.Sitemap = RESUME_ROLES.map((r) => ({
     url: `${base}/resume-prep/${r.slug}/`,
     lastModified: now,
@@ -127,8 +107,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...staticRoutes,
     ...pythonLessonRoutes,
     ...pythonTopicRoutes,
-    ...intlRoutes,
-    ...mentorshipRoutes,
     ...resumeRoutes,
     ...roadmapRoutes,
     ...skillRoutes,

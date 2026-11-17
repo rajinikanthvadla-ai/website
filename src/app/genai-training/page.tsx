@@ -1,12 +1,16 @@
 import type { Metadata } from "next";
-import SeoCourseLanding from "@/components/SeoCourseLanding";
-import { SEO_LANDINGS } from "@/lib/seo-landings";
-import { seoLandingMetadata } from "@/lib/seo-metadata";
+import SeoAlias from "@/components/SeoAlias";
+import { aliasPageMetadata } from "@/lib/seo-alias";
 
-const landing = SEO_LANDINGS["genai-training"];
-
-export const metadata: Metadata = seoLandingMetadata(landing);
+export const metadata: Metadata = aliasPageMetadata("/genai-course/", "GenAI training");
 
 export default function GenAITrainingPage() {
-  return <SeoCourseLanding landing={landing} />;
+  return (
+    <SeoAlias
+      title="GenAI training"
+      message="GenAI training and the GenAI course are the same module. The course page has the outline and class videos."
+      href="/genai-course/"
+      cta="View the GenAI course"
+    />
+  );
 }

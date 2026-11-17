@@ -32,6 +32,7 @@ jobs:
       - name: Sync latest YouTube videos
         run: node scripts/sync-youtube-videos.mjs
 
+      # Skips when the topic is already covered. Never appends a timestamp to force a new slug.
       - name: Generate daily AI article
         if: ${{ inputs.skip_article != 'true' }}
         env:

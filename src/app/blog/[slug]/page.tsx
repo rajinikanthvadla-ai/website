@@ -4,17 +4,25 @@ import Link from "next/link";
 import articles from "../../../../content/articles.json";
 import { LINKS } from "@/lib/constants";
 import BlogMarkdown from "@/components/BlogMarkdown";
+import SeoAlias from "@/components/SeoAlias";
+import { ARTICLE_REDIRECTS } from "@/lib/article-redirects";
+import { aliasPageMetadata } from "@/lib/seo-alias";
 
 type Article = (typeof articles)[number];
 
 const SITE_ORIGIN = "https://rajinikanthvadla.com";
 
 export function generateStaticParams() {
-  return articles.map((a) => ({ slug: a.slug }));
+  return [
+    ...articles.map((a) => ({ slug: a.slug })),
+    ...Object.keys(ARTICLE_REDIRECTS).map((slug) => ({ slug })),
+  ];
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
+  const redirectTarget = ARTICLE_REDIRECTS[slug];
+  if (redirectTarget) return aliasPageMetadata(`/blog/${redirectTarget}/`, "Article moved");
   const article = articles.find((a) => a.slug === slug);
   if (!article) return { title: "Article Not Found" };
 
@@ -36,6 +44,22 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function ArticlePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
+  const redirectTarget = ARTICLE_REDIRECTS[slug];
+  if (redirectTarget) {
+    const canonical = articles.find((a) => a.slug === redirectTarget);
+    return (
+      <SeoAlias
+        title="This article has moved"
+        message={
+          canonical
+            ? `The current version is “${canonical.title}”.`
+            : "This note now lives on the main article for the topic."
+        }
+        href={`/blog/${redirectTarget}/`}
+        cta="Read the article"
+      />
+    );
+  }
   const article = articles.find((a) => a.slug === slug) as Article | undefined;
   const relatedArticles = articles
     .filter((a) => a.slug !== slug)
@@ -136,11 +160,11 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
               ))}
             </div>
             <div className="mt-6 flex flex-wrap gap-3">
-              <Link href="/mlops-course-india/" className="text-sm font-semibold text-accent-700 hover:underline underline-offset-4">
-                MLOps Course in India
-              </Link>
               <Link href="/mlops-aiops-masterclass/" className="text-sm font-semibold text-accent-700 hover:underline underline-offset-4">
-                MLOps & AIOps Masterclass
+                MLOps masterclass
+              </Link>
+              <Link href="/genai-course/" className="text-sm font-semibold text-accent-700 hover:underline underline-offset-4">
+                GenAI course
               </Link>
             </div>
           </div>

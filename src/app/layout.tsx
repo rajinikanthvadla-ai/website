@@ -46,18 +46,6 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
-    alternateLocale: [
-      "en_US",
-      "en_GB",
-      "en_IE",
-      "en_NL",
-      "en_LU",
-      "en_DE",
-      "en_CA",
-      "en_AU",
-      "en_SG",
-      "en_AE",
-    ],
     url: SITE.url,
     siteName: SITE.name,
     title: SITE.title,

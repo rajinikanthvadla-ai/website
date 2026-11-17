@@ -26,13 +26,10 @@ import { getProjects, type PortfolioProject } from "@/lib/cms";
 import ProjectCard from "@/components/ProjectCard";
 import SiteBanners from "@/components/SiteBanners";
 import type { Metadata } from "next";
-import { HREFLANG_LANGUAGES } from "@/lib/hreflang";
 
-/** Only the home, India and country pages carry the hreflang set, so Google sees one consistent group. */
 export const metadata: Metadata = {
   alternates: {
     canonical: "https://rajinikanthvadla.com/",
-    languages: HREFLANG_LANGUAGES,
     types: { "application/rss+xml": "https://rajinikanthvadla.com/feed.xml" },
   },
 };

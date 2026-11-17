@@ -62,23 +62,23 @@ export default function GlobalTrainingHubPage() {
             Primary regions
           </h2>
           <p className="text-sm text-slate-500 text-center mb-10">
-            Local salary data, pricing, and city-specific landing pages for search in your country
+            One live cohort worldwide. Class times and typical pay for each country are on this page.
           </p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-16">
             {primary.map((m) => (
               <IntlMarketCard key={m.slug} slug={m.slug} />
             ))}
-            <Link href="/mlops-course-india/" className="intl-hub-card group">
+            <article id="india" className="intl-hub-card">
               <span className="text-3xl mb-3 block" aria-hidden>
                 🇮🇳
               </span>
-              <h3 className="font-display font-bold text-[#0f172a] text-lg group-hover:text-orange-600 transition-colors">
-                India
-              </h3>
-              <p className="text-sm text-slate-500 mt-1">₹12–50 LPA</p>
-              <p className="text-xs text-slate-400 mt-2">Bangalore, Hyderabad, Pune</p>
-              <span className="mt-4 inline-block text-xs font-bold text-orange-600">MLOps course →</span>
-            </Link>
+              <h3 className="font-display font-bold text-[#0f172a] text-lg">India</h3>
+              <p className="text-sm text-slate-500 mt-1">₹40,000 live · ₹30,000 recordings</p>
+              <p className="text-xs text-slate-400 mt-2">Bangalore, Hyderabad, Pune, Chennai</p>
+              <p className="text-xs text-slate-600 mt-3 leading-relaxed">
+                Live classes run Monday to Friday, 8:00–9:45 PM IST. Typical MLOps and AI engineering pay is about ₹12–50 LPA.
+              </p>
+            </article>
           </div>
 
           <h2 className="font-display text-xl font-bold text-[#0f172a] mb-6 text-center">
