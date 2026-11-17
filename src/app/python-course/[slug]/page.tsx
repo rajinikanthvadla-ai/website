@@ -8,6 +8,10 @@ import {
   getAdjacentLessons,
   getPythonLesson,
 } from "@/lib/python-course";
+import { MODULE_SHORT_LABEL } from "@/lib/python-course/labels";
+import { memoryFor, moduleCards } from "@/lib/python-course/memory";
+import { getQuiz } from "@/lib/python-course/quizzes";
+import { sceneFor } from "@/lib/python-course/scenes";
 import { SITE } from "@/lib/constants";
 
 function outlineOf(slug?: string) {
@@ -74,6 +78,9 @@ export default async function PythonLessonPage({ params }: { params: Promise<{ s
     proficiencyLevel: lesson.level,
   };
 
+  const moduleMeta = PYTHON_MODULES.find((mod) => mod.id === lesson.moduleId);
+  const moduleLessons = PYTHON_OUTLINE.filter((item) => item.moduleId === lesson.moduleId);
+  const isLastInModule = moduleLessons.at(-1)?.slug === lesson.slug;
   const breadcrumbLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -82,6 +89,12 @@ export default async function PythonLessonPage({ params }: { params: Promise<{ s
       {
         "@type": "ListItem",
         position: 2,
+        name: moduleMeta ? MODULE_SHORT_LABEL[moduleMeta.id] : "Lesson",
+        item: `${SITE.url}/python-course/#module-${lesson.moduleId}`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
         name: lesson.title,
         item: `${SITE.url}/python-course/${lesson.slug}/`,
       },
@@ -98,6 +111,10 @@ export default async function PythonLessonPage({ params }: { params: Promise<{ s
         outline={PYTHON_OUTLINE}
         prev={outlineOf(getAdjacentLessons(lesson.slug).prev?.slug)}
         next={outlineOf(getAdjacentLessons(lesson.slug).next?.slug)}
+        quiz={getQuiz(lesson.slug)}
+        memory={memoryFor(lesson.slug)}
+        scene={sceneFor(lesson.slug)}
+        moduleRecap={isLastInModule ? moduleCards(lesson.moduleId) : undefined}
       />
     </>
   );

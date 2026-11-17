@@ -27,6 +27,26 @@ export const metadata: Metadata = {
 };
 
 export default function PythonCertificatePage() {
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Python course", item: `${SITE.url}/python-course/` },
+      { "@type": "ListItem", position: 2, name: "Certificate", item: CANONICAL },
+    ],
+  };
+
+  const courseLd = {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    name: "Free Python Course for AI, ML and GenAI Engineers",
+    description:
+      "Free Python course from scratch for AI and ML. The certificate page is the finish line. Lessons run in the browser with nothing to install.",
+    url: `${SITE.url}/python-course/`,
+    provider: { "@type": "Person", name: "Rajinikanth Vadla", url: SITE.url },
+    isAccessibleForFree: true,
+  };
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "EducationalOccupationalCredential",
@@ -45,6 +65,8 @@ export default function PythonCertificatePage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(courseLd) }} />
       <div className="bg-[#fdfcf8] min-h-screen">
         <CertificateView outline={PYTHON_OUTLINE} foundationSlugs={FOUNDATIONS_LESSON_SLUGS} />
       </div>

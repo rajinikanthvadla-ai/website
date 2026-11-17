@@ -262,6 +262,19 @@ print(2 ** 10)`,
 
 Also useful: \`abs()\`, \`round()\`, \`min()\`, \`max()\`, \`sum()\`.`,
       },
+      {
+        heading: "Average a list of scores",
+        basicTip: "Add the scores, then divide by how many there are.",
+        basicCode: `scores = [0.82, 0.74, 0.91]
+average = sum(scores) / len(scores)
+print(round(average, 2))`,
+        body: `A tiny ML check often starts with an average.
+
+sum() adds the scores. len() counts them. Divide to get the mean.
+
+round(average, 2) keeps two decimal places.
+Common mistake: dividing by a hard-coded 3 after the list grows.`,
+      },
     ],
     examples: [
       {
@@ -287,18 +300,12 @@ else:
       },
     ],
     tryIt: {
-      title: "Practice numbers",
-      hint: "Change the values, then press Run. Check the types.",
-      starter: `x = 1
-y = 2.8
-z = 1j
-print(type(x))
-print(type(y))
-print(type(z))
-learning_rate = 3e-5
-batch_size = 16
-print(type(learning_rate).__name__)
-print(1000 // batch_size)`,
+      title: "Average these scores",
+      hint: "Add another score to the list, then press Run.",
+      starter: `scores = [0.82, 0.74, 0.91]
+average = sum(scores) / len(scores)
+print("scores", scores)
+print("average", round(average, 2))`,
     },
     takeaways: [
       "Python has three number types: int, float, and complex.",

@@ -90,8 +90,14 @@ const PythonCompiler = forwardRef<PythonCompilerHandle, Props>(function PythonCo
     workerRef.current = createWorker();
   }, []);
 
+  const ensureWorker = useCallback(() => {
+    if (!workerRef.current) workerRef.current = createWorker();
+    return workerRef.current;
+  }, []);
+
   useEffect(() => {
-    workerRef.current = createWorker();
+    // Pyodide is fetched by python-worker.js as soon as the worker starts.
+    // Wait for Run so a lesson page does not download it on open.
     setReadyOnce(hasRuntimeReadyFlag());
     return () => {
       if (timeoutRef.current) window.clearTimeout(timeoutRef.current);
@@ -113,8 +119,8 @@ const PythonCompiler = forwardRef<PythonCompilerHandle, Props>(function PythonCo
   }, [running]);
 
   const run = useCallback(() => {
-    const worker = workerRef.current;
-    if (!worker || runningRef.current) return;
+    if (runningRef.current) return;
+    const worker = ensureWorker();
 
     const id = `run-${Date.now()}-${++runIdRef.current}`;
     const firstLoad = !readyOnce && !hasRuntimeReadyFlag();
@@ -203,7 +209,7 @@ const PythonCompiler = forwardRef<PythonCompilerHandle, Props>(function PythonCo
     worker.addEventListener("message", onMessage);
     worker.postMessage(check ? { id, code, packages, check } : { id, code, packages });
     armTimeout(LOAD_TIMEOUT_MS);
-  }, [code, packages, readyOnce, resetWorker, check, onCheck]);
+  }, [code, packages, readyOnce, resetWorker, ensureWorker, check, onCheck]);
 
   useImperativeHandle(
     ref,
@@ -361,7 +367,7 @@ const PythonCompiler = forwardRef<PythonCompilerHandle, Props>(function PythonCo
             }`}
           >
             <span className="text-zinc-500 select-none">$ </span>
-            {output || "waiting for Run..."}
+            {output || "Press Run. Python loads in this browser the first time."}
           </pre>
         </div>
         {verdict && (

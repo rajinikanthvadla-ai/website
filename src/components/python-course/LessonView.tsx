@@ -3,6 +3,9 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import type { LessonOutline, PythonLesson, PythonModule } from "@/lib/python-course/types";
+import type { LessonQuiz } from "@/lib/python-course/quiz-shared";
+import type { MemoryHook, FlashCard } from "@/lib/python-course/memory";
+import type { Scene } from "@/lib/python-course/scenes";
 import {
   clearLessonCode,
   loadLessonCode,
@@ -17,6 +20,10 @@ import LessonMarkdown from "./LessonMarkdown";
 import ExerciseCard from "./ExerciseCard";
 import LaptopRun from "./LaptopRun";
 import { useCourseProgress } from "./useCourseProgress";
+import LessonSketch from "./LessonSketch";
+import CheckpointQuiz from "./CheckpointQuiz";
+import LazyConceptPlayer from "./LazyConceptPlayer";
+import { MODULE_SHORT_LABEL } from "@/lib/python-course/labels";
 
 const LEVEL_LABEL: Record<PythonLesson["level"], string> = {
   beginner: "Beginner",
@@ -124,16 +131,24 @@ type Props = {
   outline: LessonOutline[];
   prev: LessonOutline | null;
   next: LessonOutline | null;
+  quiz?: LessonQuiz;
+  memory?: MemoryHook;
+  scene: Scene;
+  moduleRecap?: FlashCard[];
 };
 
-export default function LessonView({ lesson, modules, outline, prev, next }: Props) {
+export default function LessonView({ lesson, modules, outline, prev, next, quiz, memory, scene, moduleRecap }: Props) {
   const [compilerCode, setCompilerCode] = useState(lesson.tryIt.starter);
   const [restored, setRestored] = useState(false);
   const compilerRef = useRef<PythonCompilerHandle>(null);
   const saveTimerRef = useRef<number | null>(null);
   const totalLessons = outline.length;
   const lessonNumber = outline.findIndex((item) => item.slug === lesson.slug) + 1;
+  const moduleLessons = outline.filter((item) => item.moduleId === lesson.moduleId);
+  const moduleStep = moduleLessons.findIndex((item) => item.slug === lesson.slug) + 1;
+  const moduleLabel = MODULE_SHORT_LABEL[lesson.moduleId];
   const { completed, completedCount, markDone, markUndone } = useCourseProgress(lesson.slug);
+  const progressPct = totalLessons === 0 ? 0 : Math.round((completedCount / totalLessons) * 100);
   const isDone = completed(lesson.slug);
   const isProject = lesson.kind === "project";
   const hasExercise = Boolean(lesson.exercise);
@@ -192,39 +207,80 @@ export default function LessonView({ lesson, modules, outline, prev, next }: Pro
               <div className="min-w-0 space-y-5 order-2 lg:order-1">
                 <header className="mb-5 px-0.5">
                   <nav className="text-[13px] mb-2" aria-label="Breadcrumb">
-                    <Link href="/python-course/" className="text-blue-700 font-semibold hover:underline">
-                      Python course
-                    </Link>
-                    <span className="text-slate-300 mx-2">/</span>
-                    <span className="text-slate-500">Lesson {lessonNumber || "?"}</span>
+                    <ol className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                      <li>
+                        <Link href="/python-course/" className="text-blue-700 font-semibold hover:underline">
+                          Python course
+                        </Link>
+                      </li>
+                      <li aria-hidden="true" className="text-slate-300">/</li>
+                      <li>
+                        <Link
+                          href={`/python-course/#module-${lesson.moduleId}`}
+                          className="text-blue-700 font-semibold hover:underline"
+                        >
+                          {moduleLabel}
+                        </Link>
+                      </li>
+                      <li aria-hidden="true" className="text-slate-300">/</li>
+                      <li aria-current="page" className="text-slate-700">
+                        {lesson.title}
+                      </li>
+                    </ol>
                   </nav>
                   <div className="flex flex-wrap items-center gap-2 mb-2">
                     {isProject && (
-                      <span className="text-[11px] font-bold uppercase tracking-wide bg-orange-500 text-white px-2 py-0.5 rounded">
+                      <span className="text-[11px] font-bold uppercase tracking-wide bg-orange-600 text-white px-2 py-0.5 rounded">
                         Project
                       </span>
                     )}
                     <span className="text-xs font-bold uppercase tracking-wide text-blue-700">
                       {LEVEL_LABEL[lesson.level]}
                     </span>
-                    <span className="text-slate-300">·</span>
-                    <span className="text-xs font-bold uppercase tracking-wide text-slate-500">
+                    <span className="text-slate-300" aria-hidden="true">·</span>
+                    <span className="text-xs font-bold uppercase tracking-wide text-slate-600">
                       {lesson.minutes} min
                     </span>
-                    <span className="text-slate-300">·</span>
-                    <span className="text-xs font-bold uppercase tracking-wide text-slate-500">
-                      {completedCount}/{totalLessons} done
+                    <span className="text-slate-300" aria-hidden="true">·</span>
+                    <span className="text-xs font-bold uppercase tracking-wide text-slate-600">
+                      Lesson {lessonNumber || "?"}
                     </span>
                   </div>
                   <h1 className="font-display text-[1.65rem] md:text-[1.9rem] font-bold text-slate-900 leading-snug mb-2">
                     {lesson.title}
                   </h1>
-                  <p className="text-[15px] text-slate-600 leading-7">{plain(lesson.summary)}</p>
-                  <p className="mt-2 text-[14px] text-slate-700 leading-6">
-                    <span className="font-semibold text-slate-900">Why it matters: </span>
+                  <p className="text-[15px] text-slate-700 leading-7">{plain(lesson.summary)}</p>
+                  <p className="mt-2 text-[14px] text-slate-800 leading-6">
+                    <span className="font-semibold text-slate-900">Why it matters for AI and ML: </span>
                     {plain(lesson.whyForAi)}
                   </p>
+                  {memory ? (
+                    <p className="mt-2 text-[15px] text-slate-800 leading-6">
+                      <span className="font-semibold text-slate-900">Picture it: </span>
+                      {memory.analogy}
+                    </p>
+                  ) : null}
+                  <div className="mt-3">
+                    <div
+                      role="progressbar"
+                      aria-valuemin={0}
+                      aria-valuemax={totalLessons}
+                      aria-valuenow={completedCount}
+                      aria-label="Lessons saved on this device"
+                      className="h-2 rounded-full bg-slate-200 overflow-hidden"
+                    >
+                      <div className="h-full bg-blue-700" style={{ width: `${progressPct}%` }} />
+                    </div>
+                    <p className="mt-1.5 text-xs font-bold uppercase tracking-wide text-slate-700">
+                      Step {moduleStep || "?"} of {moduleLessons.length} in {moduleLabel}
+                      {completedCount > 0
+                        ? ` · ${completedCount} of ${totalLessons} saved on this device`
+                        : " · progress saves on this device"}
+                    </p>
+                  </div>
                 </header>
+
+                <LessonSketch slug={lesson.slug} />
 
                 {lesson.sections.map((section, index) => {
                   const fallbackExample = lesson.examples[index % Math.max(lesson.examples.length, 1)];
@@ -257,6 +313,10 @@ export default function LessonView({ lesson, modules, outline, prev, next }: Pro
                   );
                 })}
 
+                <LazyConceptPlayer scene={scene} />
+
+                {quiz ? <CheckpointQuiz quiz={quiz} /> : null}
+
                 {lesson.examples.length > 0 && (
                 <section className="space-y-3 pt-2 border-t border-slate-200">
                   <div className="pt-4">
@@ -270,6 +330,7 @@ export default function LessonView({ lesson, modules, outline, prev, next }: Pro
                       Same idea, used in real AI work. Press{" "}
                       <span className="font-semibold text-slate-900">Try in lab</span> to run it.
                     </p>
+                    {memory ? <p className="mt-2 text-[15px] text-slate-800 leading-6">{memory.ai}</p> : null}
                   </div>
                   {lesson.examples.map((example, index) => (
                     <CodeExample
@@ -326,76 +387,121 @@ export default function LessonView({ lesson, modules, outline, prev, next }: Pro
                     ) : hasExercise ? (
                       <a
                         href="#lesson-exercise"
-                        className="text-sm font-bold px-4 py-2.5 rounded-lg border border-orange-200 bg-orange-50 text-orange-900 hover:bg-orange-100"
+                        className="text-sm font-bold px-4 py-2.5 rounded-lg border-2 border-slate-900 bg-orange-50 text-slate-900 hover:bg-orange-100"
                       >
-                        Pass the {isProject ? "project" : "exercise"} to finish this {isProject ? "project" : "lesson"}
+                        Pass the {isProject ? "project" : "exercise"} to finish
                       </a>
                     ) : (
                       <button
                         type="button"
                         onClick={() => markDone(lesson.slug)}
-                        className="text-sm font-bold px-4 py-2.5 rounded-lg border border-slate-200 bg-white text-slate-800 hover:bg-slate-50"
+                        className="text-sm font-bold px-4 py-2.5 rounded-lg border-2 border-slate-900 bg-white text-slate-900 hover:bg-slate-50"
                       >
                         Mark lesson done
                       </button>
                     )}
-                    <Link
-                      href="/python-course/certificate/"
-                      className="text-sm font-bold px-4 py-2.5 rounded-lg border border-blue-200 bg-blue-50 text-blue-800 hover:bg-blue-100"
-                    >
-                      Certificate
-                    </Link>
                   </div>
                 </section>
 
-                <nav className="grid gap-2.5 sm:grid-cols-2 pb-2 pt-1">
-                  {prev ? (
-                    <Link
-                      href={`/python-course/${prev.slug}/`}
-                      className="rounded-xl border border-slate-200 bg-white px-4 py-3.5 hover:bg-slate-50"
-                    >
-                      <p className="text-xs font-bold uppercase tracking-wide text-slate-500 mb-1">
-                        Previous
-                      </p>
-                      <p className="font-bold text-[15px] text-slate-900">{prev.title}</p>
-                    </Link>
-                  ) : (
-                    <span />
-                  )}
-                  {next ? (
+                {memory ? (
+                  <aside className="border-2 border-slate-900 rounded-lg bg-[#fffef8] p-4 sm:p-5 shadow-[4px_4px_0_#0f172a]">
+                    <p className="text-xs font-bold uppercase tracking-wide text-orange-700">Remember this</p>
+                    <p className="font-display text-2xl font-bold text-slate-900 mt-1 leading-snug">{memory.remember}</p>
+                    <p className="mt-2 text-[15px] text-slate-800 leading-6">
+                      <span className="font-semibold text-slate-900">In AI and ML: </span>
+                      {memory.ai}
+                    </p>
+                  </aside>
+                ) : null}
+
+                {moduleRecap && moduleRecap.length > 0 ? (
+                  <section aria-labelledby={`recap-${lesson.moduleId}`}>
+                    <h2 id={`recap-${lesson.moduleId}`} className="font-display text-xl font-bold text-slate-900">
+                      Quick recap
+                    </h2>
+                    <p className="mt-1 text-sm text-slate-700 leading-6">
+                      Four cards for this module. Open one when you want the one-line answer.
+                    </p>
+                    <div className="mt-3 space-y-2">
+                      {moduleRecap.map((card) => (
+                        <details key={card.prompt} className="border-2 border-slate-900 rounded-lg bg-white px-3 py-2">
+                          <summary className="cursor-pointer font-semibold text-slate-900">{card.prompt}</summary>
+                          <p className="mt-2 text-[15px] text-slate-700 leading-6">{card.answer}</p>
+                        </details>
+                      ))}
+                    </div>
+                  </section>
+                ) : null}
+
+                {next ? (
+                  <section className="border-2 border-slate-900 rounded-lg bg-blue-700 text-white p-4 sm:p-5 shadow-[4px_4px_0_#0f172a]">
+                    <p className="text-xs font-bold uppercase tracking-wide text-blue-100">Next lesson</p>
+                    <h2 className="font-display text-2xl font-bold mt-1">{next.title}</h2>
+                    <p className="text-sm text-blue-50 mt-1 leading-6">
+                      About {next.minutes} minutes. Your place stays on this device.
+                    </p>
                     <Link
                       href={`/python-course/${next.slug}/`}
                       onClick={() => {
                         if (!hasExercise) markDone(lesson.slug);
                       }}
-                      className="rounded-xl border border-blue-100 bg-blue-50 px-4 py-3.5 hover:bg-blue-100 sm:text-right"
+                      className="mt-3 inline-flex bg-white text-slate-900 font-bold px-4 py-2.5 rounded-lg hover:bg-blue-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                     >
-                      <p className="text-xs font-bold uppercase tracking-wide text-blue-700 mb-1">
-                        Next lesson
-                      </p>
-                      <p className="font-bold text-[15px] text-slate-900">{next.title}</p>
+                      Continue to {next.title}
                     </Link>
-                  ) : (
+                  </section>
+                ) : (
+                  <section className="border-2 border-slate-900 rounded-lg bg-emerald-700 text-white p-4 sm:p-5 shadow-[4px_4px_0_#0f172a]">
+                    <p className="text-xs font-bold uppercase tracking-wide text-emerald-100">You reached the end</p>
+                    <h2 className="font-display text-2xl font-bold mt-1">Get your certificate</h2>
+                    <p className="text-sm text-emerald-50 mt-1 leading-6">
+                      Enter your name on the certificate page. The download unlocks when the lessons are passed on this device.
+                    </p>
                     <Link
                       href="/python-course/certificate/"
                       onClick={() => {
                         if (!hasExercise) markDone(lesson.slug);
                       }}
-                      className="rounded-xl border border-emerald-200 bg-emerald-600 px-4 py-3.5 text-white hover:bg-emerald-700 sm:text-right"
+                      className="mt-3 inline-flex bg-white text-slate-900 font-bold px-4 py-2.5 rounded-lg hover:bg-emerald-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                     >
-                      <p className="text-xs font-bold uppercase tracking-wide text-emerald-100 mb-1">
-                        Course complete
-                      </p>
-                      <p className="font-bold text-[15px]">Get your certificate</p>
+                      Open the certificate page
+                    </Link>
+                  </section>
+                )}
+
+                <nav className="flex flex-wrap items-center justify-between gap-3 pb-2 pt-1" aria-label="Lesson">
+                  {prev ? (
+                    <Link
+                      href={`/python-course/${prev.slug}/`}
+                      className="text-sm font-bold text-blue-700 hover:underline"
+                    >
+                      Previous: {prev.title}
+                    </Link>
+                  ) : (
+                    <Link href="/python-course/" className="text-sm font-bold text-blue-700 hover:underline">
+                      Course home
                     </Link>
                   )}
+                  <p className="text-sm text-slate-700">
+                    <Link href="/python-course/certificate/" className="font-bold text-blue-700 hover:underline">
+                      Certificate
+                    </Link>
+                    <span aria-hidden="true"> · </span>
+                    <Link href="/mentorship/" className="font-bold text-blue-700 hover:underline">
+                      Mentorship
+                    </Link>
+                    <span aria-hidden="true"> · </span>
+                    <Link href="/courses/" className="font-bold text-blue-700 hover:underline">
+                      Live courses
+                    </Link>
+                  </p>
                 </nav>
               </div>
 
               <aside id="python-lab" className="order-1 lg:order-2 mb-4 lg:mb-0 lg:sticky lg:top-20 self-start">
-                <p className="mb-2 px-0.5 text-[13px] leading-5 text-slate-600">
-                  <span className="font-semibold text-slate-900">Try this: </span>
-                  {plain(lesson.tryIt.hint)}
+                <p className="mb-2 px-0.5 text-[13px] leading-5 text-slate-700">
+                  <span className="font-semibold text-slate-900">Try it yourself. </span>
+                  {plain(lesson.tryIt.hint)} Edit the code, then press Run. Python loads on the first Run only.
                 </p>
                 {restored && (
                   <div className="mb-2 flex items-center justify-between gap-2 px-0.5">

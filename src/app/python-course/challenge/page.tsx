@@ -40,9 +40,16 @@ export default function PythonChallengePage() {
         <h1 className="font-display text-3xl md:text-4xl font-bold text-slate-900 mb-3">
           Daily 5-minute Python challenge
         </h1>
-        <p className="text-slate-600 leading-relaxed mb-8 max-w-2xl">
+        <p className="text-slate-700 leading-relaxed mb-4 max-w-2xl">
           One small practice every day. Same challenge for everyone today. Press Run &amp; check until it passes, then open the full
           lesson when you want the deeper explanation.
+        </p>
+        <p className="text-sm text-slate-800 leading-6 mb-8 max-w-2xl border-2 border-slate-900 bg-white rounded-lg px-4 py-3">
+          New to Python? This is extra practice, not step 1.{" "}
+          <Link href="/python-course/why-python-for-ai/" className="font-bold text-blue-700 hover:underline">
+            Start with Python Intro
+          </Link>
+          . Nothing to install.
         </p>
         <DailyChallenge challenge={challenge} />
         <div className="mt-8 flex flex-wrap gap-3">
