@@ -8,8 +8,8 @@ import { readCourseProgress } from "@/lib/python-course/progress";
 
 export default function ContinueLearning({ outline }: { outline: LessonOutline[] }) {
   const [href, setHref] = useState(`/python-course/${outline[0]?.slug || "why-python-for-ai"}/`);
-  const [label, setLabel] = useState("Start lesson 1");
-  const [sub, setSub] = useState("No signup. First lesson takes about 12 minutes.");
+  const [label, setLabel] = useState("Start with Python Intro");
+  const [sub, setSub] = useState("No signup and nothing to install. About 12 minutes.");
 
   useEffect(() => {
     const saved = getContinueLesson();
@@ -32,23 +32,29 @@ export default function ContinueLearning({ outline }: { outline: LessonOutline[]
   }, []);
 
   return (
-    <div className="flex flex-col sm:flex-row sm:items-center gap-3 rounded-xl border-2 border-slate-900 bg-white p-4 shadow-[4px_4px_0_#0f172a]">
-      <div className="min-w-0 flex-1">
-        <p className="text-[11px] font-bold uppercase tracking-wide text-blue-700 mb-1">Easiest next step</p>
-        <p className="font-bold text-slate-900 leading-snug">{label}</p>
-        <p className="text-sm text-slate-600 mt-1">{sub}</p>
-      </div>
-      <div className="flex flex-wrap gap-2 shrink-0">
-        <Link href={href} className="notion-btn notion-btn--ink">
-          Open &rarr;
-        </Link>
-        <Link href="/python-course/challenge/" className="notion-btn notion-btn--accent">
-          Today&apos;s challenge
-        </Link>
-        <Link href="/python-course/certificate/" className="notion-btn notion-btn--ghost">
+    <div className="rounded-lg border-2 border-slate-900 bg-white p-4 shadow-[4px_4px_0_#0f172a]">
+      <p className="text-[11px] font-bold uppercase tracking-wide text-blue-700 mb-1">Start here</p>
+      <p className="font-display text-xl font-bold text-slate-900 leading-snug">{label}</p>
+      <p className="text-sm text-slate-700 mt-1 leading-6">{sub}</p>
+      <Link
+        href={href}
+        className="notion-btn notion-btn--ink mt-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
+      >
+        {label.startsWith("Start") ? "Start lesson 1" : "Continue"} &rarr;
+      </Link>
+      <p className="mt-3 text-sm text-slate-700">
+        <Link href="/python-course/certificate/" className="font-bold text-blue-700 hover:underline">
           Certificate
         </Link>
-      </div>
+        <span aria-hidden="true"> · </span>
+        <Link href="/python-course/challenge/" className="font-bold text-blue-700 hover:underline">
+          Daily practice
+        </Link>
+        <span aria-hidden="true"> · </span>
+        <Link href="/mentorship/" className="font-bold text-blue-700 hover:underline">
+          Mentorship
+        </Link>
+      </p>
     </div>
   );
 }

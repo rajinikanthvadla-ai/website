@@ -64,7 +64,10 @@ export default function PythonPlaygroundPage() {
             concept, shows real-time examples, and lets you run code in the page.
           </p>
           <div className="flex flex-wrap gap-2">
-            <Link href="/python-course/" className="notion-btn notion-btn--ink">
+            <Link href="/python-course/why-python-for-ai/" className="notion-btn notion-btn--ink">
+              New? Start with Python Intro
+            </Link>
+            <Link href="/python-course/" className="notion-btn notion-btn--ghost">
               Course home
             </Link>
             <Link href="/python-course/challenge/" className="notion-btn notion-btn--accent">

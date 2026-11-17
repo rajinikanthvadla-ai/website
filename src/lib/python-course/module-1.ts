@@ -8,11 +8,32 @@ export const MODULE_1_LESSONS: PythonLesson[] = [
     level: "beginner",
     minutes: 12,
     summary:
-      "Learn why Python is used for AI, how this course is organised, and run your first program.",
+      "Python is a programming language used for AI and ML. Start here with zero install, then run your first program in the browser.",
     whyForAi:
       "Most ML and GenAI tools are written in Python. Start here, then build up.",
     packages: [],
     sections: [
+      {
+        heading: "What is Python?",
+        basicTip: "A program can be one line.",
+        basicCode: `print("Python is a programming language")`,
+        body: `Python is a programming language. You write short instructions, and the computer follows them from top to bottom.
+
+AI and ML teams use it to clean data, check scores, and call models.
+
+You do not need to be a programmer already. A name, a number, and print() are enough to start.`,
+      },
+      {
+        heading: "Nothing to install",
+        basicTip: "Put a name in a box, then print it.",
+        basicCode: `name = "Asha"
+print("Hello", name)`,
+        body: `You can learn here with zero install. Press Run and Python runs inside your browser. Your code stays on this device.
+
+Laptop setup shows up later, next to the projects. Skip it until you want it.
+
+Common mistake: looking for an installer before you have run the first print.`,
+      },
       {
         heading: "What is this course?",
         basicTip: "Print a short message.",

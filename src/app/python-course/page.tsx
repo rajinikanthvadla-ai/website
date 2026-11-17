@@ -8,12 +8,14 @@ import {
   PYTHON_OUTLINE,
   TOTAL_COURSE_MINUTES,
   getChallengeForDate,
-  lessonsInModule,
 } from "@/lib/python-course";
 import { SITE } from "@/lib/constants";
 import CTASection from "@/components/CTASection";
 import ContinueLearning from "@/components/python-course/ContinueLearning";
+import Curriculum from "@/components/python-course/Curriculum";
 import DailyChallenge from "@/components/python-course/DailyChallenge";
+import TryHello from "@/components/python-course/TryHello";
+import { SketchCard } from "@/components/python-course/sketches";
 
 const CANONICAL = `${SITE.url}/python-course/`;
 const todaysChallenge = getChallengeForDate();
@@ -129,6 +131,15 @@ export default function PythonCoursePage() {
     },
   };
 
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${SITE.url}/` },
+      { "@type": "ListItem", position: 2, name: "Free Python course", item: CANONICAL },
+    ],
+  };
+
   const faqLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -143,67 +154,152 @@ export default function PythonCoursePage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(courseLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
 
-      <section className="border-b-2 border-slate-900 bg-[#fdfcf8] py-16 md:py-20">
+      <section className="border-b-2 border-slate-900 bg-[#fdfcf8] py-12 md:py-16">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="grid lg:grid-cols-[1.3fr_1fr] gap-10 items-start">
+          <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-8 items-start">
             <div>
               <span className="notion-eyebrow">
                 <span className="notion-eyebrow-dot" />
-                Free · Rajinikanth Vadla · Runs in your browser
+                Start here · Free · Nothing to install
               </span>
-              <h1 className="font-display text-4xl md:text-5xl font-bold text-slate-900 leading-tight mb-5">
+              <h1 className="font-display text-4xl md:text-5xl font-bold text-slate-900 leading-tight mb-4">
                 Learn Python the easy way for AI, ML and GenAI
               </h1>
-              <p className="text-lg text-slate-600 leading-relaxed mb-4">
-                Short lessons, tiny examples, and a live editor in the browser, taught by Rajinikanth Vadla.
-                Every lesson ends with an exercise that checks your answer.
+              <p className="text-lg text-slate-800 leading-relaxed mb-3">
+                Python is a programming language. You write short instructions, and the computer follows them from
+                top to bottom. AI and ML teams use it to clean data, check scores, and call models.
               </p>
-              <p className="text-slate-600 leading-relaxed mb-8">
-                Then build {PROJECT_LESSONS.length} projects for your GitHub and make your first real AI call on your own
-                laptop, for free.
-              </p>
-
-              <div className="mb-8">
-                <ContinueLearning outline={PYTHON_OUTLINE} />
+              <div className="my-4 lg:hidden">
+                <SketchCard
+                  kind="model"
+                  title="Rows of data flowing into a model, then a keep decision"
+                  caption="This is the shape of the course: plain Python first, then data flowing into a model."
+                />
               </div>
-
-              <dl className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                {[
-                  { value: String(PYTHON_LESSONS.length), label: "Lessons" },
-                  { value: String(PROJECT_LESSONS.length), label: "Projects" },
-                  { value: `${Math.round(TOTAL_COURSE_MINUTES / 60)}h`, label: "Reading time" },
-                  { value: "₹0", label: "Cost" },
-                ].map((stat) => (
-                  <div key={stat.label} className="border-2 border-slate-900 rounded-lg p-3 bg-white">
-                    <dt className="font-display text-2xl font-bold text-slate-900">{stat.value}</dt>
-                    <dd className="text-xs font-bold uppercase tracking-wide text-slate-500 mt-1">{stat.label}</dd>
-                  </div>
-                ))}
-              </dl>
+              <p className="text-slate-700 leading-relaxed mb-6">
+                Short lessons and a live editor in the browser, taught by Rajinikanth Vadla. Every lesson ends with
+                an exercise that checks your answer. Then build {PROJECT_LESSONS.length} projects for your GitHub
+                and make your first real AI call on your own laptop, for free.
+              </p>
+              <ContinueLearning outline={PYTHON_OUTLINE} />
             </div>
-
-            <div className="border-2 border-slate-900 rounded-lg bg-white shadow-[6px_6px_0_#0f172a] overflow-hidden">
-              <div className="bg-slate-900 px-4 py-2.5">
-                <p className="text-xs font-bold uppercase tracking-wide text-white">What is inside</p>
-              </div>
-              <ul className="divide-y divide-slate-200">
-                {[
-                  "Short basics: clear text + tiny code",
-                  "An exercise in every lesson that checks your answer",
-                  "4 projects with README and GitHub steps",
-                  "Your first real AI call, free, on your laptop",
-                  "NumPy, pandas, scikit-learn and charts in the browser",
-                  "Daily challenge + downloadable certificate",
-                ].map((item) => (
-                  <li key={item} className="px-4 py-3 text-sm text-slate-700 flex gap-2.5">
-                    <span className="text-blue-700 font-bold shrink-0">+</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
+            <div className="hidden lg:block">
+              <SketchCard
+                kind="model"
+                title="Rows of data flowing into a model, then a keep decision"
+                caption="This is the shape of the course: plain Python first, then data flowing into a model."
+              />
             </div>
           </div>
+
+          <dl className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4">
+            {[
+              { value: String(PYTHON_LESSONS.length), label: "Short lessons" },
+              { value: String(PROJECT_LESSONS.length), label: "Projects" },
+              { value: `${Math.round(TOTAL_COURSE_MINUTES / 60)}h`, label: "At your pace" },
+              { value: "₹0", label: "Cost" },
+            ].map((stat) => (
+              <div key={stat.label} className="border-2 border-slate-900 rounded-lg p-3 bg-white">
+                <dt className="font-display text-2xl font-bold text-slate-900">{stat.value}</dt>
+                <dd className="text-xs font-bold uppercase tracking-wide text-slate-600 mt-1">{stat.label}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+
+      <section className="py-12 md:py-16 bg-white border-b-2 border-slate-900" aria-labelledby="start-path">
+        <div className="max-w-6xl mx-auto px-6">
+          <h2 id="start-path" className="font-display text-3xl font-bold text-slate-900 mb-2">
+            Three steps, then lesson 1
+          </h2>
+          <p className="text-slate-700 max-w-2xl leading-relaxed mb-6">
+            Read this once. Then open Python Intro. You can leave and come back. Progress stays in this browser.
+          </p>
+          <div className="grid lg:grid-cols-3 gap-4">
+            <article className="flex flex-col gap-3">
+              <div>
+                <h3 className="font-display text-xl font-bold text-slate-900">1. What Python is</h3>
+                <p className="text-sm text-slate-700 leading-6 mt-1">
+                  A variable is a labeled box. A list is a tray. A loop walks the tray. A function is a small machine.
+                  That is the whole start.
+                </p>
+              </div>
+              <div className="mt-auto">
+                <SketchCard
+                  kind="variables"
+                  title="Three labeled boxes: name, score, and ready"
+                  caption="Boxes first. The rest of Python is boxes, trays, and machines."
+                />
+              </div>
+            </article>
+            <article className="flex flex-col gap-3">
+              <div>
+                <h3 className="font-display text-xl font-bold text-slate-900">2. Why it matters for AI</h3>
+                <p className="text-sm text-slate-700 leading-6 mt-1">
+                  Models do not read your mind. You clean a list of scores, average them, and decide what to keep.
+                  Python is how that work gets written.
+                </p>
+              </div>
+              <div className="mt-auto">
+                <SketchCard
+                  kind="function"
+                  title="Scores going into an average function and a number coming out"
+                  caption="A first ML habit: turn a tray of scores into one number."
+                />
+              </div>
+            </article>
+            <article className="flex flex-col gap-3">
+              <div>
+                <h3 className="font-display text-xl font-bold text-slate-900">3. Setup in plain words</h3>
+                <p className="text-sm text-slate-700 leading-6 mt-1">
+                  Zero install: open a lesson and press Run. Python downloads into the browser once. Your code stays
+                  on this device. Laptop commands appear later, beside the projects. Skip them until you want them.
+                </p>
+              </div>
+              <div className="mt-auto">
+                <SketchCard
+                  kind="browser"
+                  title="A browser window with a print statement and a Run button"
+                  caption="No installer. No account. Press Run when you are ready."
+                />
+              </div>
+            </article>
+          </div>
+          <div className="mt-6 max-w-3xl">
+            <TryHello />
+          </div>
+        </div>
+      </section>
+
+      <section className="py-14 md:py-16 bg-white border-b-2 border-slate-900">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="mb-8">
+            <span className="notion-eyebrow">
+              <span className="notion-eyebrow-dot" />
+              Curriculum
+            </span>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-slate-900 mb-3">
+              {PYTHON_MODULES.length} modules, {PYTHON_LESSONS.length} lessons, in order
+            </h2>
+            <p className="text-slate-700 max-w-2xl leading-relaxed">
+              New here? Stay in Module 1. It is open below. If you already write Python, open Module 3 or 4.
+              A tick appears when a lesson is saved on this device.
+            </p>
+          </div>
+          <Curriculum
+            modules={PYTHON_MODULES}
+            lessons={PYTHON_LESSONS.map(({ slug, title, summary, minutes, moduleId, kind }) => ({
+              slug,
+              title,
+              summary,
+              minutes,
+              moduleId,
+              kind,
+            }))}
+          />
         </div>
       </section>
 
@@ -218,9 +314,9 @@ export default function PythonCoursePage() {
               <h2 className="font-display text-3xl font-bold text-slate-900 mb-2">
                 Today&apos;s 5-minute challenge
               </h2>
-              <p className="text-slate-600 max-w-2xl leading-relaxed">
-                One small practice for everyone today: {todaysChallenge.title}. No signup. Run &amp; check tells you if your answer is right, and your progress
-                stays on this device.
+              <p className="text-slate-700 max-w-2xl leading-relaxed">
+                Extra practice after lesson 1, not the first step. Today: {todaysChallenge.title}. No signup. Run
+                &amp; check tells you if your answer is right, and your progress stays on this device.
               </p>
             </div>
             <Link href="/python-course/challenge/" className="notion-btn notion-btn--ink">
@@ -288,10 +384,11 @@ export default function PythonCoursePage() {
               Easy topic starts
             </span>
             <h2 className="font-display text-3xl font-bold text-slate-900 mb-2">
-              Jump in by topic
+              Already know a topic?
             </h2>
-            <p className="text-slate-600 max-w-2xl leading-relaxed">
-              Short landing pages for common searches. Each one opens the matching lesson with the live compiler.
+            <p className="text-slate-700 max-w-2xl leading-relaxed">
+              These short pages are doorways into the matching lesson. They are not a second copy of the lesson.
+              New learners should start at lesson 1 instead.
             </p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
@@ -305,69 +402,6 @@ export default function PythonCoursePage() {
                 <p className="text-sm text-slate-600 leading-6 line-clamp-3">{topic.starterIdea}</p>
               </Link>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 md:py-20 bg-white border-b-2 border-slate-900">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="mb-10">
-            <span className="notion-eyebrow">
-              <span className="notion-eyebrow-dot" />
-              Curriculum
-            </span>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-slate-900 mb-3">
-              {PYTHON_MODULES.length} modules, {PYTHON_LESSONS.length} lessons, in order
-            </h2>
-            <p className="text-slate-600 max-w-2xl leading-relaxed">
-              Follow it top to bottom if you are new. If you already write Python, jump into Module 3 or 4.
-            </p>
-          </div>
-
-          <div className="space-y-8">
-            {PYTHON_MODULES.map((mod) => {
-              const lessons = lessonsInModule(PYTHON_LESSONS, mod.id);
-              const minutes = lessons.reduce((sum, l) => sum + l.minutes, 0);
-              return (
-                <div key={mod.id} className="border-2 border-slate-900 rounded-lg overflow-hidden bg-white">
-                  <div className="flex flex-wrap items-center justify-between gap-3 px-5 py-4 bg-slate-50 border-b-2 border-slate-900">
-                    <div>
-                      <h3 className="font-display text-xl font-bold text-slate-900">{mod.title}</h3>
-                      <p className="text-sm text-slate-600 mt-1">{mod.tagline}</p>
-                    </div>
-                    <span className="text-xs font-bold uppercase tracking-wide bg-slate-900 text-white px-2.5 py-1 rounded shrink-0">
-                      {lessons.length} lessons · {minutes} min
-                    </span>
-                  </div>
-                  <ol className="divide-y divide-slate-200">
-                    {lessons.map((lesson, index) => (
-                      <li key={lesson.slug}>
-                        <Link
-                          href={`/python-course/${lesson.slug}/`}
-                          className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 px-5 py-4 hover:bg-[#fef9c3] transition-colors group"
-                        >
-                          <span className="font-mono text-xs text-slate-400 w-6 shrink-0">
-                            {String(index + 1).padStart(2, "0")}
-                          </span>
-                          <span className="flex-1">
-                            <span className="block font-bold text-slate-900 group-hover:text-blue-700">
-                              {lesson.kind === "project" && (
-                                <span className="mr-2 align-middle text-[10px] font-bold uppercase tracking-wide bg-orange-500 text-white px-1.5 py-0.5 rounded">
-                                  Project
-                                </span>
-                              )}
-                              {lesson.title.replace(/^Project: /, "")}
-                            </span>
-                            <span className="block text-sm text-slate-600 mt-0.5">{lesson.summary}</span>
-                          </span>
-                          <span className="text-xs font-bold text-slate-500 shrink-0">{lesson.minutes} min</span>
-                        </Link>
-                      </li>
-                    ))}
-                  </ol>
-                </div>
-              );
-            })}
           </div>
         </div>
       </section>

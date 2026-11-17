@@ -8,6 +8,7 @@ import {
 } from "@/lib/python-course";
 import { SITE } from "@/lib/constants";
 import TopicStarter from "@/components/python-course/TopicStarter";
+import LessonSketch from "@/components/python-course/LessonSketch";
 
 export function generateStaticParams() {
   return PRACTICE_TOPIC_SLUGS.map((topic) => ({ topic }));
@@ -53,6 +54,15 @@ export default async function PracticeTopicPage({
   const tip = lesson.sections[0]?.basicTip || "Tiny starter for this topic.";
   const lessonHref = `/python-course/${lesson.slug}/`;
 
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Python course", item: `${SITE.url}/python-course/` },
+      { "@type": "ListItem", position: 2, name: topic.title, item: canonical },
+    ],
+  };
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "LearningResource",
@@ -72,6 +82,7 @@ export default async function PracticeTopicPage({
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <div className="bg-[#fdfcf8] min-h-screen">
         <div className="max-w-3xl mx-auto px-6 py-12 md:py-16">
           <nav className="text-sm mb-6" aria-label="Breadcrumb">
@@ -88,7 +99,14 @@ export default async function PracticeTopicPage({
           <h1 className="font-display text-3xl md:text-4xl font-bold text-slate-900 leading-tight mb-4">
             {topic.title}
           </h1>
-          <p className="text-[17px] text-slate-600 leading-8 mb-6">{topic.description}</p>
+          <p className="text-[17px] text-slate-700 leading-8 mb-4">{topic.description}</p>
+          <p className="text-[15px] text-slate-800 leading-7 mb-6">
+            No install. This page is a short doorway, not a second copy of the lesson. The full lesson has the steps,
+            a diagram, a checkpoint, and a compiler that loads when you press Run.
+          </p>
+          <div className="mb-6">
+            <LessonSketch slug={topic.lessonSlug} />
+          </div>
 
           <div className="rounded-xl border-2 border-slate-900 bg-white p-5 mb-6 shadow-[4px_4px_0_#0f172a]">
             <p className="text-sm font-bold text-slate-900 mb-2">What you will learn</p>

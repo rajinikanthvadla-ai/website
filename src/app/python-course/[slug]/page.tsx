@@ -8,6 +8,7 @@ import {
   getAdjacentLessons,
   getPythonLesson,
 } from "@/lib/python-course";
+import { MODULE_SHORT_LABEL } from "@/lib/python-course/labels";
 import { SITE } from "@/lib/constants";
 
 function outlineOf(slug?: string) {
@@ -74,6 +75,7 @@ export default async function PythonLessonPage({ params }: { params: Promise<{ s
     proficiencyLevel: lesson.level,
   };
 
+  const moduleMeta = PYTHON_MODULES.find((mod) => mod.id === lesson.moduleId);
   const breadcrumbLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -82,6 +84,12 @@ export default async function PythonLessonPage({ params }: { params: Promise<{ s
       {
         "@type": "ListItem",
         position: 2,
+        name: moduleMeta ? MODULE_SHORT_LABEL[moduleMeta.id] : "Lesson",
+        item: `${SITE.url}/python-course/#module-${lesson.moduleId}`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
         name: lesson.title,
         item: `${SITE.url}/python-course/${lesson.slug}/`,
       },

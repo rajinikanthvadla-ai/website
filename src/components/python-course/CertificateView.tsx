@@ -11,6 +11,7 @@ import {
 } from "@/lib/python-course/certificate";
 import { hasCompletedLessons, readCourseProgress } from "@/lib/python-course/progress";
 import { SITE } from "@/lib/constants";
+import { SketchCard } from "./sketches";
 
 const W = 1400;
 const H = 990;
@@ -238,6 +239,7 @@ export default function CertificateView({ outline, foundationSlugs }: Props) {
   const [status, setStatus] = useState("");
   const [issuedAt, setIssuedAt] = useState(new Date().toISOString());
   const [busy, setBusy] = useState(false);
+  const [hydrated, setHydrated] = useState(false);
 
   const unlocked = kind === "full" ? readyFull : readyFoundations;
 
@@ -272,6 +274,7 @@ export default function CertificateView({ outline, foundationSlugs }: Props) {
       setKind(saved.kind);
       setIssuedAt(saved.issuedAt);
     }
+    setHydrated(true);
     window.addEventListener("python-course-progress", refreshProgress);
     return () => window.removeEventListener("python-course-progress", refreshProgress);
   }, [refreshProgress]);
@@ -338,10 +341,57 @@ export default function CertificateView({ outline, foundationSlugs }: Props) {
       <h1 className="font-display text-3xl md:text-4xl font-bold text-slate-900 mb-3">
         Your Python course certificate
       </h1>
-      <p className="text-slate-600 leading-relaxed mb-6 max-w-2xl">
-        Every lesson ends with an exercise that checks your answer. Pass them on this device, enter your name, and
-        download a PNG certificate signed by Rajinikanth Vadla. Progress is saved in this browser.
+      <p className="text-slate-700 leading-relaxed mb-6 max-w-2xl">
+        This page is the finish line. Every lesson ends with an exercise that checks your answer. Pass them on this
+        device, enter your name, and download a PNG certificate signed by Rajinikanth Vadla. Progress is saved in
+        this browser.
       </p>
+
+      <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-4 mb-6">
+        <div className="border-2 border-slate-900 rounded-lg bg-white p-5 shadow-[4px_4px_0_#0f172a]">
+          <p className="text-xs font-bold uppercase tracking-wide text-blue-700 mb-1">New here?</p>
+          <h2 className="font-display text-2xl font-bold text-slate-900 mb-2">Start the course, then come back</h2>
+          <p className="text-sm text-slate-700 leading-6 mb-3">
+            You do not need a name yet. Python is a programming language, and you can learn it in this browser with
+            nothing to install. Lesson 1 takes about 12 minutes. This download unlocks after the lessons are passed
+            on this device.
+          </p>
+          <Link
+            href={`/python-course/${nextLesson?.slug || "why-python-for-ai"}/`}
+            className="notion-btn notion-btn--ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
+          >
+            {hydrated && completedCount > 0 ? `Continue: ${nextLesson?.title ?? "the next lesson"}` : "Start with Python Intro"} &rarr;
+          </Link>
+          <p className="mt-3 text-sm text-slate-700">
+            <Link href="/mentorship/" className="font-bold text-blue-700 hover:underline">
+              Mentorship
+            </Link>
+            <span aria-hidden="true"> · </span>
+            <Link href="/courses/" className="font-bold text-blue-700 hover:underline">
+              Live courses
+            </Link>
+          </p>
+        </div>
+        <SketchCard
+          kind="browser"
+          title="A browser window where Python runs with no install"
+          caption="Press Run on a lesson. Python stays in the browser. The certificate waits here."
+        />
+      </div>
+
+      <div
+        role="progressbar"
+        aria-valuemin={0}
+        aria-valuemax={total}
+        aria-valuenow={hydrated ? completedCount : 0}
+        aria-label="Lessons passed on this device"
+        className="mb-6 h-2 rounded-full bg-slate-200 overflow-hidden border border-slate-300"
+      >
+        <div
+          className="h-full bg-blue-700"
+          style={{ width: `${total === 0 ? 0 : Math.round(((hydrated ? completedCount : 0) / total) * 100)}%` }}
+        />
+      </div>
 
       <div className="rounded-xl border-2 border-slate-900 bg-white p-5 mb-6 shadow-[4px_4px_0_#0f172a]">
         <p className="text-sm text-slate-700 mb-4">
