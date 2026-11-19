@@ -48,7 +48,7 @@ async function searchCommons(query: string, withFiletype: boolean): Promise<Sear
   const pages = Object.values(data.query?.pages ?? {});
 
   return pages
-    .map((page, index) => {
+    .map((page, index): SearchImage | null => {
       const info = page.imageinfo?.[0];
       const fullSrc = cleanWikiUrl(info?.url || info?.thumburl || "");
       const thumbSrc = cleanWikiUrl(info?.thumburl || info?.url || "");
@@ -64,9 +64,9 @@ async function searchCommons(query: string, withFiletype: boolean): Promise<Sear
         width: info?.width,
         height: info?.height,
         source: info?.descriptionurl,
-      } satisfies SearchImage;
+      };
     })
-    .filter((hit): hit is SearchImage => Boolean(hit));
+    .filter((hit): hit is SearchImage => hit !== null);
 }
 
 function cleanWikiUrl(src: string) {
