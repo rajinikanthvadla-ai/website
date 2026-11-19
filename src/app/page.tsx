@@ -28,14 +28,21 @@ import SiteBanners from "@/components/SiteBanners";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  title: {
+    absolute:
+      "AI Platform Engineering Course — MLOps, AIOps, LLMOps, Agents & FDE | Rajinikanth Vadla",
+  },
+  description:
+    "Learn AI Platform Engineering (DevOps / SRE / ML → production AI platforms). Live training in MLOps, AIOps, LLMOps, AI Agents and FDE with 1:1 mentorship. 500+ engineers trained worldwide.",
   alternates: {
     canonical: "https://rajinikanthvadla.com/",
     types: { "application/rss+xml": "https://rajinikanthvadla.com/feed.xml" },
   },
 };
 
+const STACK = ["MLOps", "AIOps", "LLMOps", "AI Agents", "FDE"] as const;
+
 export default async function HomePage() {
-  // Runs at build time (static export), so real reviews ship inside the HTML.
   const reviews = await fetchApprovedTestimonials().catch(() => []);
   const featured = (await getProjects()).filter((p) => p.featured).slice(0, 3);
   return (
@@ -46,12 +53,10 @@ export default async function HomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(STRUCTURED_DATA.courseList) }} />
       <HeroSection />
       <SiteBanners placement="home" />
-      {/* Below-the-fold sections: the browser skips their layout until scrolled near (faster first paint on phones). */}
-      {/* Order follows how people decide: what is on offer, proof it works, what you learn, then act. */}
       <div className="cv-auto">
         <ProgramsSection />
+        <PathLadderSection />
       </div>
-      {/* Not wrapped: SuccessStories has a position:fixed lightbox that content-visibility would clip. */}
       <SuccessStories compact />
       <div className="cv-auto">
         <BuiltInProductionSection projects={featured} />
@@ -64,11 +69,10 @@ export default async function HomePage() {
         <LeadForm />
         <CommunityBanner />
         <CTASection
-          title="Ready to start your AI career?"
-          subtitle="Join a live cohort for MLOps, AIOps, LLMOps, AI Agents, and FDE, or message on WhatsApp first."
+          title="Ready to build production AI platforms?"
+          subtitle="Join the AI Platform Engineering masterclass (MLOps → FDE), or message on WhatsApp first."
         />
       </div>
-      {/* Not wrapped: the last section sits next to the footer, where skipped layout confuses a11y checks. */}
       <DiscoverLinksSection />
     </>
   );
@@ -76,45 +80,69 @@ export default async function HomePage() {
 
 function HeroSection() {
   return (
-    <section className="notion-hero !py-12 md:!py-16">
+    <section className="notion-hero home-hero !py-12 md:!py-16">
       <div className="notion-hero-inner !gap-10 !pt-2 lg:!pt-4">
         <div className="hero-enter">
-          <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-teal-700 mb-3">
+          <p className="home-hero-brand">Rajinikanth Vadla</p>
+          <p className="home-hero-live">
             <span className="hero-live-dot" aria-hidden />
-            Live AI engineering · Rajinikanth Vadla
+            Live online · AI Platform Engineering
           </p>
-          <h1 className="font-display text-3xl md:text-5xl font-bold text-[#0f172a] leading-tight mb-4">
-            Learn MLOps, AIOps, LLMOps and AI Agents, <span className="hero-mark">clearly and live</span>.
+          <h1 className="font-display text-3xl md:text-5xl font-bold text-[#0f172a] leading-[1.08] mb-3">
+            AI Platform Engineering
+            <span className="home-hero-bracket">
+              {" "}
+              (DevOps / SRE / ML → production AI platforms)
+            </span>
           </h1>
-          <p className="text-base md:text-lg text-slate-600 leading-relaxed max-w-xl mb-6">
-            One structured path from fundamentals to production. Real labs, not slide decks. Live online cohorts
-            with mentorship, open to engineers everywhere.
+          <p className="text-base md:text-lg text-slate-700 leading-relaxed max-w-xl mb-3">
+            One live path that still covers{" "}
+            <span className="font-semibold text-[#0f172a]">
+              {STACK.join(" · ")}
+            </span>
+            . Real labs, mentorship, and portfolio work — not slide decks.
           </p>
-          <div className="flex flex-wrap items-center gap-3 mb-5">
+          <p className="text-sm md:text-base text-slate-600 leading-relaxed max-w-xl mb-6">
+            Built for engineers who want to ship models, agents, and platforms in production —
+            with {YEARS_EXPERIENCE} years of enterprise practice behind the teaching.
+          </p>
+          <div className="flex flex-wrap items-center gap-3 mb-4">
             <Link href="/enroll/" className="notion-btn notion-btn--accent">
-              Enroll, see local price
+              Enroll — see local price
             </Link>
             <Link href="/syllabus/" className="notion-btn notion-btn--ink">
-              Open full syllabus
+              Full syllabus
             </Link>
+          </div>
+          <p className="text-sm text-slate-600 mb-7">
+            Questions first?{" "}
             <a
               href={LINKS.whatsappSyllabus}
               target="_blank"
               rel="noopener noreferrer"
-              className="notion-btn notion-btn--ghost"
+              className="font-semibold text-teal-800 underline underline-offset-2 hover:text-teal-950"
             >
-              WhatsApp
+              WhatsApp batch details
             </a>
-          </div>
+            {" · "}
+            <Link href="/roadmap/ai-platform-engineer/" className="font-semibold text-[#0f172a] underline underline-offset-2 decoration-slate-300 hover:decoration-[#0f172a]">
+              Free AI Platform roadmap
+            </Link>
+          </p>
           <ul className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-slate-700 mb-8" aria-label="What every enrollment includes">
             {["Completion certificate", "Lifetime recordings", "Move batch anytime"].map((t) => (
               <li key={t} className="flex items-center gap-1.5">
-                <span className="text-teal-700 font-bold" aria-hidden>✓</span>
+                <span className="text-teal-700 font-bold" aria-hidden>
+                  ✓
+                </span>
                 {t}
               </li>
             ))}
             <li>
-              <Link href="/refund-policy/" className="underline decoration-slate-300 underline-offset-2 text-slate-500 hover:text-[#0f172a]">
+              <Link
+                href="/refund-policy/"
+                className="underline decoration-slate-300 underline-offset-2 text-slate-500 hover:text-[#0f172a]"
+              >
                 Refund policy
               </Link>
             </li>
@@ -135,25 +163,22 @@ function HeroSection() {
               </div>
             ))}
           </div>
-          <p className="mt-6 text-sm text-slate-600 max-w-xl">
-            Senior MLOps and AIOps engineer, {YEARS_EXPERIENCE} years in production. I also build AI agents for companies.{" "}
-            <Link href="/work-with-me/" className="font-semibold text-[#c2410c] underline underline-offset-4 decoration-orange-300 hover:decoration-[#c2410c]">
-              Hire me for a project
-            </Link>
-          </p>
         </div>
 
         <div className="flex flex-col items-stretch gap-4 max-w-md mx-auto w-full">
-          <div className="overflow-hidden rounded-lg border border-slate-200 bg-[#2a2a2a] shadow-sm">
+          <div className="overflow-hidden rounded-lg border-2 border-[#0f172a] bg-[#2a2a2a] shadow-sm">
             <Image
               src="/assets/rajinikanth-portrait.webp"
-              alt="Rajinikanth Vadla, MLOps and AI engineering mentor"
+              alt="Rajinikanth Vadla, AI Platform Engineering mentor for MLOps, AIOps, LLMOps, Agents and FDE"
               width={640}
               height={800}
-              className="w-full object-cover object-top h-[340px] lg:h-[400px]"
+              className="w-full object-cover object-top h-[340px] lg:h-[420px]"
               priority
             />
           </div>
+          <p className="text-center text-xs font-semibold tracking-wide text-slate-600 uppercase">
+            Mentor · practitioner · live cohorts worldwide
+          </p>
           <div className="hero-fade flex gap-2 justify-center">
             {[
               { href: LINKS.linkedin, icon: <LinkedInIcon size={18} />, label: "LinkedIn" },
@@ -178,9 +203,76 @@ function HeroSection() {
   );
 }
 
+function PathLadderSection() {
+  const steps = [
+    {
+      title: "Orient free",
+      body: "Roadmaps, Python course, architecture diagrams — start without paying.",
+      href: "/roadmap/ai-platform-engineer/",
+      cta: "AI Platform roadmap",
+    },
+    {
+      title: "Talk / community",
+      body: "WhatsApp batch details or the free community before you commit.",
+      href: LINKS.whatsappSyllabus,
+      cta: "WhatsApp",
+      external: true,
+    },
+    {
+      title: "Mentorship",
+      body: "1:1 career and interview guidance if you need a personal plan first.",
+      href: "/mentorship/",
+      cta: "Mentorship",
+    },
+    {
+      title: "Masterclass",
+      body: "Full AI Platform Engineering path: MLOps → AIOps → LLMOps → Agents → FDE.",
+      href: "/enroll/",
+      cta: "Enroll",
+    },
+  ];
+
+  return (
+    <section className="notion-section notion-section--paper" id="start-here">
+      <div className="max-w-5xl mx-auto px-6">
+        <SectionHeader
+          tag="How to start"
+          title="A clear ladder — not five equal offers"
+          subtitle="Move from free orientation to paid depth. Keep MLOps through FDE inside the flagship path."
+        />
+        <ol className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {steps.map((step, index) => (
+            <li key={step.title} className="home-ladder-step">
+              <span className="home-ladder-num" aria-hidden>
+                {index + 1}
+              </span>
+              <h3 className="font-display font-bold text-[#0f172a] text-base mb-1">{step.title}</h3>
+              <p className="text-sm text-slate-600 leading-relaxed mb-3 flex-1">{step.body}</p>
+              {step.external ? (
+                <a
+                  href={step.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-bold text-teal-800 underline underline-offset-2"
+                >
+                  {step.cta}
+                </a>
+              ) : (
+                <Link href={step.href} className="text-sm font-bold text-teal-800 underline underline-offset-2">
+                  {step.cta}
+                </Link>
+              )}
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+  );
+}
+
 function ProgramsSection() {
   const programs = COURSES.filter(
-    (c) => c.href.startsWith("/courses") || c.href === "/mlops-aiops-masterclass",
+    (c) => c.href.startsWith("/courses") || c.href === "/mlops-aiops-masterclass" || c.href === "/mentorship",
   );
 
   return (
@@ -188,14 +280,16 @@ function ProgramsSection() {
       <div className="max-w-5xl mx-auto px-6">
         <SectionHeader
           tag="Programs"
-          title="Two clear paths"
-          subtitle="Pick the masterclass for a full career shift, or Automation if you need agents and tooling faster."
+          title="Flagship platform path + faster automation + 1:1"
+          subtitle="AI Platform Engineering stays the main career offer. Automation is the shorter agents track. Mentorship is private guidance."
         />
-        <div className="grid md:grid-cols-2 gap-5">
+        <div className="grid md:grid-cols-3 gap-5">
           {programs.map((c) => (
             <article
               key={c.title}
-              className="lift bg-white border border-slate-200 rounded-lg p-6 flex flex-col"
+              className={`lift bg-white border rounded-lg p-6 flex flex-col ${
+                c.featured ? "border-[#0f172a] border-2 shadow-sm" : "border-slate-200"
+              }`}
             >
               <span className="text-[10px] font-bold uppercase tracking-wide text-orange-700 mb-2">
                 {c.badge}
@@ -233,7 +327,7 @@ function SyllabusPreviewSection() {
         <SectionHeader
           tag="Syllabus"
           title="What you learn, module by module"
-          subtitle={`${MLOPS_MASTERCLASS_DURATION} masterclass. Open any module on the full syllabus page.`}
+          subtitle={`${MLOPS_MASTERCLASS_DURATION} masterclass for AI Platform Engineering — MLOps through FDE. Open any module on the full syllabus.`}
         />
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-8">
           {modules.map((mod) => (
@@ -260,7 +354,7 @@ function SyllabusPreviewSection() {
 }
 
 function FAQSection() {
-  const faqs = HOME_PAGE_FAQS.slice(0, 5);
+  const faqs = HOME_PAGE_FAQS.slice(0, 6);
 
   return (
     <section className="notion-section notion-section--white">
@@ -296,7 +390,7 @@ function BuiltInProductionSection({ projects }: { projects: PortfolioProject[] }
         <SectionHeader
           tag="Built in production"
           title="I teach what I ship"
-          subtitle="Agents, RAG and MLOps platforms running for real companies, plus open-source tools. The same patterns go into the course labs."
+          subtitle="Agents, RAG and AI platforms running for real companies. The same patterns go into the course labs."
         />
         <div className="grid md:grid-cols-3 gap-5 mb-8">
           {projects.map((p) => (

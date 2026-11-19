@@ -40,6 +40,7 @@ export default function AppShell({
 }) {
   const pathname = usePathname();
   const isAdmin = pathname.startsWith("/admin");
+  const isWhiteboard = pathname.startsWith("/whiteboard");
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -71,6 +72,17 @@ export default function AppShell({
   if (isAdmin) {
     // The admin panel has its own header; no site nav, footer, tracking or reveal animation.
     return <div className="admin-shell">{children}</div>;
+  }
+
+  // Class whiteboard needs every pixel — no site nav/chrome around the board.
+  if (isWhiteboard) {
+    return (
+      <div className="site site--whiteboard">
+        <div className="shell-content">{children}</div>
+        <SiteAnalytics />
+        <ClarityAnalytics />
+      </div>
+    );
   }
 
   return (

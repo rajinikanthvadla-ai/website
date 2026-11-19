@@ -1,13 +1,16 @@
-# Rajinikanth Vadla: MLOps, AIOps, GenAI, AI Agents and AI-Powered Automation Training
+# Rajinikanth Vadla: AI Platform Engineering — MLOps, AIOps, LLMOps, Agents, FDE
 
-> Rajinikanth Vadla teaches live online cohorts and 1:1 mentorship in MLOps, AIOps,
-> LLMOps, AI Agents and AI-powered automation, for engineers in any country.
-> 8+ years of enterprise experience. 500+ engineers trained (self-reported).
-> Public rating: 4.7/5 from 15 ratings and 219+ sessions on Topmate
-> (https://topmate.io/rajinikanthvadla). Facts index: https://rajinikanthvadla.com/ai.txt
-> Last updated: 2026-11-13
+> Rajinikanth Vadla teaches AI Platform Engineering
+> (DevOps / SRE / ML → production AI platforms) through live online cohorts and 1:1
+> mentorship. The flagship path still covers MLOps, AIOps, LLMOps, AI Agents and FDE,
+> plus GenAI and AI-powered automation. 8+ years enterprise experience. 500+ engineers
+> trained (self-reported). Public rating: 4.7/5 from 15 ratings and 219+ sessions on
+> Topmate (https://topmate.io/rajinikanthvadla). Facts: https://rajinikanthvadla.com/ai.txt
+> Last updated: 2026-11-19
 
 ## Enroll and key pages
+- Homepage (AI Platform Engineering): https://rajinikanthvadla.com/
+- AI Platform Engineer roadmap: https://rajinikanthvadla.com/roadmap/ai-platform-engineer/
 - Enroll & pricing: https://rajinikanthvadla.com/enroll/
 - Full syllabus: https://rajinikanthvadla.com/syllabus/
 - **Limited · November 2026:** Agentic AI Architecture & FDE customized training (5–6 seats, ₹70,000): https://rajinikanthvadla.com/agentic-fde/
@@ -22,6 +25,11 @@
 - Blog: https://rajinikanthvadla.com/blog/
 
 ## Featured 2027 career posts (Rajinikanth Vadla)
+- Who is Rajinikanth Vadla (2027): https://rajinikanthvadla.com/blog/who-is-rajinikanth-vadla-2027/
+- AI Platform Engineering trends 2027: https://rajinikanthvadla.com/blog/ai-platform-engineering-trends-2027/
+- LLM gateway / AI platform 2027: https://rajinikanthvadla.com/blog/llm-gateway-ai-platform-2027/
+- MCP careers 2027: https://rajinikanthvadla.com/blog/mcp-model-context-protocol-2027/
+- AI evals & LLMOps reliability 2027: https://rajinikanthvadla.com/blog/ai-evals-llmops-reliability-2027/
 - MLOps engineer roadmap 2027: https://rajinikanthvadla.com/blog/mlops-engineer-roadmap-2027/
 - MLOps & LLMOps salaries USA 2027: https://rajinikanthvadla.com/blog/mlops-llmops-salaries-usa-2027/
 - Agentic AI careers 2027: https://rajinikanthvadla.com/blog/agentic-ai-careers-2027/

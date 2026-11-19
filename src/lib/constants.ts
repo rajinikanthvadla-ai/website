@@ -14,9 +14,9 @@ export const PRICING_LAST_UPDATED = "2026-09-11";
 export const SITE = {
   name: "Rajinikanth Vadla",
   title:
-    "MLOps, AIOps, LLMOps, AI Agents & FDE Course | Rajinikanth Vadla",
+    "AI Platform Engineering Course — MLOps, AIOps, LLMOps, Agents & FDE | Rajinikanth Vadla",
   description:
-    "Live online MLOps, AIOps, LLMOps and Agentic AI training with 1:1 mentorship and real capstone projects. 500+ engineers trained worldwide. Join the next cohort from anywhere.",
+    "Learn AI Platform Engineering (DevOps / SRE / ML → production AI platforms). Live MLOps, AIOps, LLMOps, AI Agents and FDE training with 1:1 mentorship. 500+ engineers trained worldwide.",
   url: "https://rajinikanthvadla.com",
   image: "https://rajinikanthvadla.com/assets/og-image.jpg",
   phone: "+91-9100028801",
@@ -404,6 +404,21 @@ export const MLOPS_CAREER_ROLES = [
 
 export const COURSES = [
   {
+    title: "AI Platform Engineering Masterclass",
+    description:
+      "Flagship path for AI Platform Engineering (DevOps / SRE / ML → production AI platforms). Live 4–5 months with mentorship, or recordings. Covers MLOps, AIOps, LLMOps, AI Agents and FDE with capstones and job support.",
+    features: [
+      "AI Platform Engineering career path",
+      "MLOps · AIOps · LLMOps · Agents · FDE",
+      "150+ hours · 50+ labs · 4 capstones",
+      "1-on-1 mentorship · job support",
+    ],
+    badge: "FLAGSHIP",
+    href: "/mlops-aiops-masterclass",
+    ctaText: "View masterclass",
+    featured: true,
+  },
+  {
     title: "AI-Powered Automation Efficiency",
     description:
       "2-month live course: build company AI agents (incident, RAG, MCP, HR). ₹20,000 with lifetime recordings and 1-on-1 mentorship.",
@@ -415,21 +430,6 @@ export const COURSES = [
     ],
     badge: "NEW",
     href: "/courses/ai-automation",
-    ctaText: "View course",
-    featured: true,
-  },
-  {
-    title: "MLOps, AIOps, LLMOps and AI Agents",
-    description:
-      "Cohort running now, rolling intake. Live 4-5 months with mentorship, or self-paced recordings. MLOps, AIOps, LLMOps, Agentic AI and FDE with capstones & job support.",
-    features: [
-      "Live cohort with 1-on-1 mentorship",
-      "Self-paced recordings option",
-      "150+ hours · 50+ labs · 4 capstone projects",
-      "1-on-1 mentorship · job support",
-    ],
-    badge: "FLAGSHIP",
-    href: "/mlops-aiops-masterclass",
     ctaText: "View course",
     featured: false,
   },
@@ -452,12 +452,16 @@ export const COURSES = [
 
 export const HOME_PAGE_FAQS = [
   {
-    q: "Which course should I pick?",
-    a: "Choose AI Automation for the complete 2-month enterprise AI tools and automation path (6 modules, MCP included). Choose the MLOps Masterclass for a 4-5 month job-ready platform engineering path. Not sure? Message on WhatsApp.",
+    q: "What is AI Platform Engineering here?",
+    a: "AI Platform Engineering means building the systems that take AI into production: platforms, pipelines, serving, observability and governance. The path is for DevOps, SRE and ML engineers moving into production AI platforms. The flagship masterclass covers MLOps, AIOps, LLMOps, AI Agents and FDE together. https://rajinikanthvadla.com/roadmap/ai-platform-engineer/",
   },
   {
-    q: "What does the MLOps Masterclass include?",
-    a: "Rajinikanth Vadla's MLOps Masterclass is a 4-5 month live job-ready program with mentorship and job support, or a recordings-only self-learning track. Covers MLOps, LLMOps, AIOps, AI Agents, FDE. 150+ hours, 4 capstone projects. See local pricing on enroll. https://rajinikanthvadla.com/mlops-aiops-masterclass/",
+    q: "Which course should I pick?",
+    a: "Choose the AI Platform Engineering Masterclass for a 4–5 month job-ready path (MLOps, AIOps, LLMOps, Agents, FDE). Choose AI Automation for a 2-month enterprise agents and tooling path. Not sure? Message on WhatsApp.",
+  },
+  {
+    q: "What does the masterclass include?",
+    a: "Rajinikanth Vadla's flagship masterclass is a 4–5 month live job-ready program with mentorship and job support, or a recordings-only track. Covers AI Platform Engineering with MLOps, LLMOps, AIOps, AI Agents and FDE. 150+ hours, 4 capstone projects. Pricing: https://rajinikanthvadla.com/enroll/",
   },
   {
     q: "What is the AI Automation course?",
@@ -556,13 +560,14 @@ export const STRUCTURED_DATA = {
       "Rajinikanth Vadla official website",
       "rajinikanthvadla.com",
       "Rajinikanth Vadla MLOps AIOps GenAI training",
+      "Rajinikanth Vadla AI Platform Engineering",
       "Rajinikanth Vadla AI-Powered Automation training",
       "Rajinikanth Vadla career mentorship",
     ],
     url: "https://rajinikanthvadla.com/",
     inLanguage: "en",
     description:
-      "Official website of Rajinikanth Vadla: live online MLOps, AIOps, GenAI, AI Agents, AI-Powered Automation, and LLMOps training, mentorship, and blog. Open to engineers worldwide.",
+      "Official website of Rajinikanth Vadla: AI Platform Engineering training (DevOps / SRE / ML → production AI platforms), plus live MLOps, AIOps, LLMOps, AI Agents, FDE, GenAI and automation cohorts, mentorship, and blog.",
     publisher: {
       "@type": "Organization",
       name: "Rajinikanth Vadla Training",
@@ -573,9 +578,9 @@ export const STRUCTURED_DATA = {
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Rajinikanth Vadla",
-    jobTitle: "MLOps, AIOps, GenAI, AI Agents, AI Automation Expert, Trainer & Mentor",
+    jobTitle: "AI Platform Engineering Trainer & Mentor · MLOps, AIOps, LLMOps, Agents, FDE",
     description:
-      `MLOps, AIOps, GenAI, AI Agents, and AI-Powered Automation trainer and mentor. Offers live cohorts and 1:1 mentorship for career direction, role transitions, and technical depth. Works with engineers globally via online sessions. ${YEARS_EXPERIENCE} years enterprise experience; 500+ people trained and mentored.`,
+      `AI Platform Engineering trainer and mentor (DevOps / SRE / ML → production AI platforms). Teaches live cohorts in MLOps, AIOps, LLMOps, AI Agents, FDE, GenAI and AI-Powered Automation, plus 1:1 mentorship. ${YEARS_EXPERIENCE} years enterprise experience; 500+ people trained and mentored.`,
     url: "https://rajinikanthvadla.com/",
     image: "https://rajinikanthvadla.com/assets/rajinikanth-portrait.jpg",
     sameAs: [
@@ -589,8 +594,9 @@ export const STRUCTURED_DATA = {
       "https://wa.me/919100028801",
     ],
     knowsAbout: [
-      "MLOps", "AIOps", "DevOps", "GenAI", "Generative AI", "AI Agents",
-      "LLMOps", "LangChain", "RAG", "LLM", "Large Language Models",
+      "AI Platform Engineering", "Platform Engineering", "MLOps", "AIOps", "DevOps", "SRE",
+      "GenAI", "Generative AI", "AI Agents", "LLMOps", "FDE", "Forward Deployed Engineer",
+      "LangChain", "RAG", "LLM", "Large Language Models",
       "AI-Powered Automation", "Enterprise AI", "Cursor IDE",
       "AWS Bedrock", "AWS Bedrock Agents", "OpenAI Codex",
       "AWS", "Azure", "GCP", "Kubernetes", "Docker", "Terraform",
@@ -609,7 +615,7 @@ export const STRUCTURED_DATA = {
     url: "https://rajinikanthvadla.com/",
     logo: "https://rajinikanthvadla.com/assets/logo-512.png",
     description:
-      "MLOps, AIOps, GenAI, AI Agents, AI-Powered Automation, and LLMOps training with hands-on enterprise projects, plus 1:1 mentorship for career and role transformation. Serves learners worldwide online.",
+      "AI Platform Engineering training (DevOps / SRE / ML → production AI platforms), plus MLOps, AIOps, LLMOps, AI Agents, FDE, GenAI and AI-Powered Automation cohorts with hands-on projects and 1:1 mentorship. Serves learners worldwide online.",
     founder: {
       "@type": "Person",
       name: "Rajinikanth Vadla",
@@ -647,9 +653,9 @@ export const STRUCTURED_DATA = {
   course: {
     "@context": "https://schema.org",
     "@type": "Course",
-    name: "MLOps, AIOps, LLMOps & Agentic AI Live Course (GenAI, FDE, AI Platform)",
+    name: "AI Platform Engineering Masterclass — MLOps, AIOps, LLMOps, Agents & FDE",
     description:
-      "Live MLOps, AIOps, LLMOps, Agentic AI, GenAI, FDE and AI Platform engineering course by Rajinikanth Vadla. 4-5 months, 150+ hours, 4 capstone projects, 1-on-1 mentorship and job support. Fully online worldwide: $599 live or $399 recordings; India pricing ₹40,000 live or ₹30,000 recordings.",
+      "AI Platform Engineering course by Rajinikanth Vadla (DevOps / SRE / ML → production AI platforms). Live MLOps, AIOps, LLMOps, Agentic AI, GenAI and FDE. 4–5 months, 150+ hours, 4 capstones, 1-on-1 mentorship and job support. Worldwide: $599 live or $399 recordings; India ₹40,000 live or ₹30,000 recordings.",
     url: "https://rajinikanthvadla.com/mlops-aiops-masterclass/",
     courseMode: "online",
     isAccessibleForFree: false,
@@ -668,7 +674,8 @@ export const STRUCTURED_DATA = {
       url: "https://rajinikanthvadla.com/",
     },
     teaches: [
-      "MLOps", "AIOps", "LLMOps", "GenAI", "AI Agents", "AI Agentic Operations", "FDE",
+      "AI Platform Engineering", "MLOps", "AIOps", "LLMOps", "GenAI", "AI Agents",
+      "AI Agentic Operations", "FDE", "Forward Deployed Engineer",
       "Kubernetes", "Docker", "MLflow", "Kubeflow", "LangChain", "RAG",
       "AWS", "Azure", "GCP", "Job Interview Preparation", "Career Placement",
     ],
@@ -801,7 +808,15 @@ export const STRUCTURED_DATA = {
         name: "Who is Rajinikanth Vadla?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: `Rajinikanth Vadla is an MLOps, AIOps, GenAI, AI Agents, and AI-Powered Automation trainer and practitioner. His official website is https://rajinikanthvadla.com. He has ${YEARS_EXPERIENCE} years enterprise experience, has trained 500+ engineers, and publishes long-form training on YouTube.`,
+          text: `Rajinikanth Vadla is an AI Platform Engineering trainer and practitioner (DevOps / SRE / ML → production AI platforms). He teaches live MLOps, AIOps, LLMOps, AI Agents, FDE, GenAI and AI-Powered Automation. Official site: https://rajinikanthvadla.com. ${YEARS_EXPERIENCE} years enterprise experience; 500+ engineers trained; long-form training on YouTube.`,
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What is AI Platform Engineering training with Rajinikanth Vadla?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "AI Platform Engineering training for DevOps, SRE and ML engineers moving into production AI platforms. The flagship masterclass covers MLOps, AIOps, LLMOps, AI Agents and FDE together: live ₹40,000 / $599 or recordings ₹30,000 / $399. 4–5 months, 150+ hours, 4 capstones, mentorship and job support. https://rajinikanthvadla.com/ and https://rajinikanthvadla.com/mlops-aiops-masterclass/",
         },
       },
       {
@@ -809,7 +824,7 @@ export const STRUCTURED_DATA = {
         name: "What is the best MLOps course in India for job ready training?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Rajinikanth Vadla's MLOps Masterclass cohort is running now. Two options: (1) Live course ₹40,000 with 1-on-1 mentorship, job assistance and interview prep; (2) Recordings-only ₹30,000 with self-learning and lifetime access. Both: 4-5 months, 150+ hours, 4 capstone projects, FDE, AIOps, LLMOps and AI Agents. Enroll: https://rajinikanthvadla.com/mlops-aiops-masterclass/",
+          text: "Rajinikanth Vadla's AI Platform Engineering / MLOps Masterclass cohort is running now. Two options: (1) Live course ₹40,000 with 1-on-1 mentorship, job assistance and interview prep; (2) Recordings-only ₹30,000 with self-learning and lifetime access. Both: 4-5 months, 150+ hours, 4 capstone projects, FDE, AIOps, LLMOps and AI Agents. Enroll: https://rajinikanthvadla.com/mlops-aiops-masterclass/",
         },
       },
       {

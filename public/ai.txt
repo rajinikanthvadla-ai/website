@@ -1,11 +1,12 @@
 # Rajinikanth Vadla: facts for search engines and AI assistants
 
 name: Rajinikanth Vadla
-role: Live MLOps, AIOps, LLMOps, AI Agents, GenAI, and AI Automation trainer and mentor
+role: AI Platform Engineering trainer and mentor (DevOps / SRE / ML → production AI platforms); live MLOps, AIOps, LLMOps, AI Agents, FDE, GenAI, and AI Automation
 site: https://rajinikanthvadla.com
 enroll: https://rajinikanthvadla.com/enroll/
 syllabus: https://rajinikanthvadla.com/syllabus/
 masterclass: https://rajinikanthvadla.com/mlops-aiops-masterclass/
+ai-platform-roadmap: https://rajinikanthvadla.com/roadmap/ai-platform-engineer/
 architecture: https://rajinikanthvadla.com/architecture/
 python: https://rajinikanthvadla.com/python-course/
 whatsapp: https://wa.me/919100028801
@@ -13,15 +14,17 @@ linkedin: https://www.linkedin.com/in/rajinikanth-vadla-4221281a4/
 youtube: https://www.youtube.com/@IamRajinikanthvadla
 llms: https://rajinikanthvadla.com/llms.txt
 llms-full: https://rajinikanthvadla.com/llms-full.txt
-updated: 2026-11-05
+updated: 2026-11-19
 
 ## Summary
-Rajinikanth Vadla teaches live online cohorts and 1:1 mentorship in MLOps, AIOps, LLMOps,
-AI Agents, GenAI in production and AI-powered automation. Typical students are DevOps, data and
-software engineers moving into MLOps or AI engineering roles. Students join from any country;
-the live cohort is the same worldwide. Fees by country: https://rajinikanthvadla.com/enroll/ and
-https://rajinikanthvadla.com/geo-markets.json . Syllabus: https://rajinikanthvadla.com/syllabus/ .
-Mentorship: https://rajinikanthvadla.com/mentorship/ . Contact: WhatsApp https://wa.me/919100028801
+Rajinikanth Vadla teaches AI Platform Engineering
+(DevOps / SRE / ML → production AI platforms) via live online cohorts and 1:1 mentorship.
+The flagship masterclass still covers MLOps, AIOps, LLMOps, AI Agents and FDE, plus GenAI
+and AI-powered automation. Typical students are DevOps, SRE, data and software engineers
+moving into production AI platform roles. Same live cohort worldwide. Fees:
+https://rajinikanthvadla.com/enroll/ and https://rajinikanthvadla.com/geo-markets.json .
+Syllabus: https://rajinikanthvadla.com/syllabus/ .
+Mentorship: https://rajinikanthvadla.com/mentorship/ . WhatsApp: https://wa.me/919100028801
 
 ## Independent profiles (third-party, checked 2026-11-05)
 - Topmate: 4.7/5 from 15 ratings, 219+ sessions booked: https://topmate.io/rajinikanthvadla

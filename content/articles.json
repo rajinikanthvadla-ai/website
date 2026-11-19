@@ -1,5 +1,90 @@
 [
   {
+    "slug": "who-is-rajinikanth-vadla-2027",
+    "title": "Who Is Rajinikanth Vadla in 2027? AI Platform Engineering Trainer & Mentor",
+    "description": "Who Rajinikanth Vadla is in 2027: AI Platform Engineering trainer teaching MLOps, AIOps, LLMOps, AI Agents and FDE live online — background, what he teaches, and how to join.",
+    "category": "About",
+    "tags": [
+      "Rajinikanth Vadla",
+      "AI Platform Engineering",
+      "MLOps",
+      "Mentorship",
+      "About",
+      "2027"
+    ],
+    "readTime": "8 min",
+    "date": "2026-11-19",
+    "content": "## Short answer\n\n**Rajinikanth Vadla** is an **AI Platform Engineering** trainer and mentor. He teaches engineers how to move from DevOps, SRE, software or ML work into **production AI platforms** — not demo chatbots.\n\nIn 2027 the hiring language is shifting to platform, gateway, evals and agent runtimes. His live cohorts still cover the full stack companies ask for: **MLOps · AIOps · LLMOps · AI Agents · FDE**.\n\nOfficial site: [rajinikanthvadla.com](https://rajinikanthvadla.com/).\n\n## What \"AI Platform Engineering\" means here\n\nAI Platform Engineering is the work of building the shared systems that let product teams ship AI safely:\n\n- Model and prompt registries\n- Deploy, serve, rollback\n- LLM gateways, quotas, cost control\n- Observability and evals\n- Agent tools with permissions and audit trails\n\nThe audience is **DevOps / SRE / ML → production AI platforms**. That is the niche. The curriculum still includes the named tracks people search for: MLOps, AIOps, LLMOps, agents and Forward Deployed Engineer (FDE) skills.\n\n## Background (facts, not hype)\n\n- Enterprise practitioner background (**8+ years** cited on site)\n- **500+** engineers trained (self-reported)\n- Live online cohorts worldwide (same class, India and international pricing)\n- Public Topmate profile with ratings and booked sessions\n- Long-form teaching on YouTube\n\nHe also builds agents and platforms for companies — see [Hire me](/work-with-me/) and [Projects](/projects/).\n\n## What he teaches in 2027\n\n| Path | Best for | Start |\n|---|---|---|\n| AI Platform Engineering Masterclass | Full career shift: MLOps → FDE | [Masterclass](/mlops-aiops-masterclass/) · [Enroll](/enroll/) |\n| AI-Powered Automation | Faster agent / tooling track (2 months) | [Automation](/courses/ai-automation/) |\n| 1:1 Mentorship | Personal plan, interviews, role target | [Mentorship](/mentorship/) |\n| Free assets | Orient before paying | [AI Platform roadmap](/roadmap/ai-platform-engineer/), [Python](/python-course/), [Architecture](/architecture/) |\n\n## Why people search this name in 2027\n\nEngineers Google a person when they want a **practitioner path**, not another generic certificate site. Searches that should land here:\n\n- \"Rajinikanth Vadla MLOps\"\n- \"AI Platform Engineering course\"\n- \"MLOps AIOps LLMOps mentor\"\n- \"DevOps to AI platform\"\n\nIf that is you: read the homepage promise, then either [enroll](/enroll/) or message [WhatsApp](https://wa.me/919100028801?text=Hi%20Rajinikanth%2C%20I%20want%20to%20know%20which%20program%20fits%20me%20in%202027.) with your current role and target title.\n\n## Related 2027 guides on this site\n\n- [MLOps Engineer Roadmap 2027](/blog/mlops-engineer-roadmap-2027/)\n- [Agentic AI Careers 2027](/blog/agentic-ai-careers-2027/)\n- [AI Platform Engineering trends 2027](/blog/ai-platform-engineering-trends-2027/)\n- [LLM Gateway guide 2027](/blog/llm-gateway-ai-platform-2027/)\n"
+  },
+  {
+    "slug": "ai-platform-engineering-trends-2027",
+    "title": "AI Platform Engineering Trends 2027: What Will Dominate Google Search (and Hiring)",
+    "description": "The AI Platform Engineering trends shaping 2027 search and jobs: LLM gateways, agent runtimes, evals, FinOps, MCP — and how Rajinikanth Vadla's training maps to them.",
+    "category": "AI Platform",
+    "tags": [
+      "AI Platform Engineering",
+      "Trends 2027",
+      "LLMOps",
+      "MLOps",
+      "Agentic AI",
+      "Rajinikanth Vadla"
+    ],
+    "readTime": "10 min",
+    "date": "2026-11-19",
+    "content": "## Why this topic will stay hot in Google\n\nEnterprises are past \"one chatbot demo.\" In 2027, search and job posts cluster around **AI Platform Engineering**: who owns the shared AI layer so every team does not rebuild auth, routing, cost and safety alone.\n\nIndustry coverage already points the same way — platform ownership of AI infrastructure, multi-environment inference, and centralized control planes. Hiring pages list **AI Platform Engineer** with gateway, registry, FinOps and agent lifecycle language.\n\nIf you want traffic and career relevance, this is the phrase to own — with clear subtopics below.\n\n## Trend 1 — LLM / AI gateways become default\n\nCompanies route traffic through a gateway for:\n\n- Multi-provider failover (Bedrock, Vertex, OpenAI, and peers)\n- Quotas, rate limits, tenant isolation\n- Semantic cache and cost attribution\n- Policy hooks before tools fire\n\nSearch intent: \"LLM gateway\", \"AI gateway platform\", \"model routing\".\n\nDeep dive: [LLM Gateway AI Platform 2027](/blog/llm-gateway-ai-platform-2027/).\n\n## Trend 2 — Agent runtimes, not chat UIs\n\nThe product is an **agent control plane**: create, register, version, deploy, observe, revoke. Job posts talk about agent registries, SDKs and lifecycle.\n\nSearch intent: \"agent platform\", \"agent registry\", \"agentic AI production\".\n\nGuide: [Agentic AI Careers 2027](/blog/agentic-ai-careers-2027/).\n\n## Trend 3 — Evaluation engineering as its own layer\n\nProbabilistic systems need regression evals, hallucination checks, retrieval validation and release gates. Hiring is splitting into infra, evals/reliability, and product execution.\n\nSearch intent: \"LLM evaluation\", \"AI reliability engineer\", \"prompt regression testing\".\n\nGuide: [AI Evals and LLMOps Reliability 2027](/blog/ai-evals-llmops-reliability-2027/).\n\n## Trend 4 — MCP and tool governance\n\nModel Context Protocol–style tool servers (and similar schemas) show up in production designs: typed tools, auth boundaries, audit. \"I called an API from a prompt\" is not enough.\n\nGuide: [MCP Careers 2027](/blog/mcp-model-context-protocol-2027/).\n\n## Trend 5 — AI FinOps\n\nToken spend, GPU hours and per-team chargeback become board topics. Platform teams that cannot explain cost will lose trust.\n\n## What to learn (order that matches hiring)\n\n1. Python + Docker + one cloud\n2. MLOps loop (train/register/deploy/monitor)\n3. LLMOps (RAG, serving, cost)\n4. Gateway basics + observability\n5. One agent with tools + approvals + evals\n6. Platform habits: quotas, secrets, CI for prompts/models\n\nSkip: twenty unfinished agent frameworks with zero deploy story.\n\n## How I teach this for 2027\n\nI am **Rajinikanth Vadla**. The flagship path is **AI Platform Engineering** — still including **MLOps, AIOps, LLMOps, AI Agents and FDE** — live online with mentorship on the live track.\n\n- Roadmap: [AI Platform Engineer](/roadmap/ai-platform-engineer/)\n- Program: [Masterclass](/mlops-aiops-masterclass/)\n- Pay: [Enroll](/enroll/)\n- Personal plan: [Mentorship](/mentorship/) or [WhatsApp](https://wa.me/919100028801?text=Hi%20Rajinikanth%2C%20I%20want%20AI%20Platform%20Engineering%20guidance%20for%202027.)\n\nTell me your background (DevOps, SRE, ML, software). I will say masterclass, automation course, or mentorship first.\n"
+  },
+  {
+    "slug": "llm-gateway-ai-platform-2027",
+    "title": "LLM Gateway in 2027: The AI Platform Piece Every Company Will Need",
+    "description": "What an LLM / AI gateway is in 2027, why Google and job posts care, core features (routing, FinOps, policy), and how to learn it with Rajinikanth Vadla.",
+    "category": "AI Platform",
+    "tags": [
+      "LLM Gateway",
+      "AI Gateway",
+      "AI Platform Engineering",
+      "LLMOps",
+      "2027",
+      "Rajinikanth Vadla"
+    ],
+    "readTime": "9 min",
+    "date": "2026-11-19",
+    "content": "## What people will search\n\nExpect rising queries like:\n\n- LLM gateway\n- AI gateway Kubernetes\n- model routing multi provider\n- AI platform FinOps chargeback\n\nBecause every business unit spinning its own API key does not scale. A **gateway** is the shared front door.\n\n## What an LLM gateway actually does\n\nAt minimum:\n\n1. **Route** requests to the right model/provider\n2. **Limit** rate, quota and tenants\n3. **Observe** latency, errors, tokens, cost\n4. **Fail over** when a provider blips\n5. **Enforce policy** before tools or data leave the boundary\n\nNice-to-haves in 2027 job posts: semantic cache, JWT multi-tenant isolation, per-team chargeback, canary of prompt/config versions.\n\n## Why platform engineers own it\n\nProduct teams should not each reinvent auth and spend controls. Central platform teams (or AI Platform Engineering groups) own the gateway the way they once owned API gateways — different payload, same organizational reason.\n\n## Skills map (practical)\n\n| Skill | Why |\n|---|---|\n| APIs + Python/Go | Gateway is a distributed service |\n| Kubernetes + ingress basics | How it runs at scale |\n| Observability (metrics, traces, logs) | Tokens and failures must be visible |\n| LLMOps | Prompt/config versioning, evals before promote |\n| Security | Keys, PII, tool allowlists |\n| FinOps | Attribution and budgets |\n\n## Portfolio project that beats buzzwords\n\nBuild a thin gateway that:\n\n- Accepts chat/completions-style requests\n- Routes to two backends (even mock + one real API)\n- Emits cost and latency metrics\n- Blocks a disallowed tool call\n- Has a one-page runbook\n\nPut the architecture on a diagram and record a 5-minute walkthrough. Free diagrams mindset: [Architecture](/architecture/).\n\n## How this fits my training\n\nI am **Rajinikanth Vadla**. Gateway thinking sits inside **AI Platform Engineering** and **LLMOps** modules in the live masterclass — with the rest of MLOps → Agents → FDE so you are not a single-tool specialist.\n\n- [Masterclass](/mlops-aiops-masterclass/)\n- [Syllabus](/syllabus/)\n- [Enroll](/enroll/)\n- [WhatsApp](https://wa.me/919100028801?text=Hi%20Rajinikanth%2C%20I%20want%20to%20learn%20LLM%20gateways%20and%20AI%20platform%20skills.)\n\nRelated: [AI Platform Engineering trends 2027](/blog/ai-platform-engineering-trends-2027/).\n"
+  },
+  {
+    "slug": "mcp-model-context-protocol-2027",
+    "title": "MCP (Model Context Protocol) in 2027: Why It Matters for AI Platform Careers",
+    "description": "Model Context Protocol (MCP) in 2027 — what it is, why companies care for agent tools, skills to learn, and how Rajinikanth Vadla teaches production agent patterns.",
+    "category": "AI Agents",
+    "tags": [
+      "MCP",
+      "Model Context Protocol",
+      "AI Agents",
+      "LLMOps",
+      "2027",
+      "Rajinikanth Vadla"
+    ],
+    "readTime": "8 min",
+    "date": "2026-11-19",
+    "content": "## Why MCP will keep showing up in search\n\nEngineers and managers search **MCP**, **Model Context Protocol**, and \"MCP server\" because agent demos die without **typed tools**, **auth boundaries** and a way to reuse integrations across products.\n\nWhether your company uses MCP itself or a similar tool-gateway pattern, the career skill is the same: **safe tool calling in production**.\n\n## What MCP-style design fixes\n\nWithout a protocol mindset:\n\n- Every agent reinvents connectors\n- Secrets leak into prompts\n- Nobody can audit what tool ran\n- Rollback means \"restart the laptop\"\n\nWith a tool server / gateway mindset:\n\n- Tools are schemas with clear inputs\n- Auth is explicit\n- Logs show which tool, who, when\n- Risky actions need human approval\n\n## Hireable skills (order)\n\n1. Solid Python APIs\n2. Structured outputs / tool calling on one LLM API\n3. One internal tool server (files, tickets, metrics — pick a real workflow)\n4. Auth + allowlists\n5. Eval cases for tool misuse\n6. Deploy + observe (Docker → cloud)\n\nDo not collect five agent frameworks before you can explain one tool's threat model.\n\n## Portfolio that gets interviews\n\n- MCP-style or OpenAPI tool server for 2–3 company-like tools\n- Agent that must ask before destructive actions\n- 15 eval cases (including \"should refuse\")\n- Short architecture note\n\nFree prep: [Architecture](/architecture/), [Interview questions](/interview-questions/).\n\n## Where I teach this\n\nI am **Rajinikanth Vadla**.\n\n- Fast agent + MCP-oriented path: [AI-Powered Automation](/courses/ai-automation/)\n- Full platform career including agents: [AI Platform Engineering Masterclass](/mlops-aiops-masterclass/)\n- Personal targeting: [Mentorship](/mentorship/)\n- Message: [WhatsApp](https://wa.me/919100028801?text=Hi%20Rajinikanth%2C%20I%20want%20to%20learn%20MCP%20and%20production%20agents%20for%202027.)\n\nAlso read: [Agentic AI Careers 2027](/blog/agentic-ai-careers-2027/).\n"
+  },
+  {
+    "slug": "ai-evals-llmops-reliability-2027",
+    "title": "AI Evals and LLMOps Reliability in 2027: The Hiring Layer Nobody Can Skip",
+    "description": "Why AI evaluation and LLMOps reliability explode in 2027 search and jobs — regression evals, release gates, monitoring — and how to learn them with Rajinikanth Vadla.",
+    "category": "LLMOps",
+    "tags": [
+      "AI Evals",
+      "LLMOps",
+      "AI Reliability",
+      "AI Platform Engineering",
+      "2027",
+      "Rajinikanth Vadla"
+    ],
+    "readTime": "9 min",
+    "date": "2026-11-19",
+    "content": "## The search shift\n\nPeople will not only Google \"LangChain tutorial.\" They will Google:\n\n- LLM evaluation framework\n- prompt regression testing\n- AI reliability engineer\n- RAG evaluation metrics\n- LLMOps monitoring\n\nBecause shipping a prompt without a **release gate** is how demos become incidents.\n\n## Why evals became a separate hiring layer\n\nClassic software is mostly deterministic. LLM apps are not. Organizations need:\n\n- Golden sets and regression suites\n- Retrieval quality checks for RAG\n- Safety / refusal scoring\n- Latency and cost SLOs next to quality\n- Incident response when quality drifts after a model or prompt change\n\nThat creates demand for **LLMOps**, **evaluation engineers**, and platform people who wire evals into CI/CD.\n\n## Minimum reliability stack (2027)\n\n1. Version prompts/configs like code\n2. Offline eval set before promote\n3. Online monitors (error rate, latency, cost, thumbs-down or task success)\n4. Rollback path (previous prompt/model)\n5. Human review for high-risk tools\n\n## Skills to practice this month\n\n- Write 20–50 eval cases for one workflow\n- Fail a change on purpose and catch it in CI\n- Dashboard tokens + quality on one deploy\n- Document \"what green means\" in one page\n\n## Portfolio proof\n\nA repo that shows:\n\n- Prompt v1 → v2 with eval scores\n- One bad change blocked\n- One production-like alert\n\nManagers hire the person who can narrate that story.\n\n## How I teach it\n\nI am **Rajinikanth Vadla**. Evals and reliability sit inside **LLMOps** and **AI Platform Engineering** in the live masterclass — next to MLOps pipelines, AIOps habits, agents and FDE delivery skills.\n\n- [Trends overview](/blog/ai-platform-engineering-trends-2027/)\n- [Masterclass](/mlops-aiops-masterclass/)\n- [Enroll](/enroll/)\n- [Mentorship](/mentorship/)\n- [WhatsApp](https://wa.me/919100028801?text=Hi%20Rajinikanth%2C%20I%20want%20to%20learn%20AI%20evals%20and%20LLMOps%20reliability%20for%202027.)\n\nSay whether you are stronger in DevOps, data, or app code. I will point you to the shortest reliable path.\n"
+  },
+  {
     "slug": "mlops-engineer-roadmap-2027",
     "title": "MLOps Engineer Roadmap 2027: What to Learn (and What to Skip)",
     "description": "A practical 2027 MLOps and LLMOps roadmap for software, DevOps and data engineers — skills companies hire for, portfolio proof, and how Rajinikanth Vadla’s live training maps to the path.",
