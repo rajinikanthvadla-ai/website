@@ -5,7 +5,7 @@ import { SITE } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Class whiteboard",
   description:
-    "Live class whiteboard with Azure, AWS, Kubernetes and AI-agent teaching stencils.",
+    "Live class whiteboard on Eraser — HD architecture diagrams for MLOps, LLMOps, AI agents and platform engineering.",
   alternates: { canonical: `${SITE.url}/whiteboard/` },
   robots: { index: true, follow: true },
 };

@@ -3,7 +3,6 @@ import { ZONE_SCRIPT } from "@/lib/zone-script";
 import { Libre_Baskerville, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
 import AppShell from "@/components/AppShell";
-import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import { SITE, STRUCTURED_DATA } from "@/lib/constants";
 import { getActivity, getActivityStats, getAnnouncement } from "@/lib/cms";
@@ -161,7 +160,6 @@ export default async function RootLayout({
       <body className={`${sans.className} notion-theme antialiased`}>
         <AppShell announcement={announcement} activity={activity} activityStats={activityStats}>
           <main>{children}</main>
-          <Footer />
         </AppShell>
         <WhatsAppFloat />
       </body>

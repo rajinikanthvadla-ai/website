@@ -11,6 +11,7 @@ import AnnouncementBar from "./AnnouncementBar";
 import ActivityToast from "./ActivityToast";
 import RegionStrip from "./RegionStrip";
 import CareerCallPopup from "./CareerCallPopup";
+import Footer from "./Footer";
 import type { ActivityItem, ActivityStats } from "@/lib/cms";
 
 /** Top-bar links: the main nav minus Home (the logo) and Enroll (the button). */
@@ -166,6 +167,7 @@ export default function AppShell({
 
       <RegionStrip />
       <div className="shell-content">{children}</div>
+      <Footer />
       <ScrollReveal />
       <SiteAnalytics />
       <ClarityAnalytics />
