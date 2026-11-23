@@ -4,6 +4,8 @@
  * Machine suffixes (`-moicyegk`) came from Date.now().toString(36) in scripts/generate-article.js.
  */
 export const ARTICLE_REDIRECTS: Record<string, string> = {
+  "spec-driven-development-ai-2026": "spec-driven-development-ai-2027",
+  "physical-ai-2026": "physical-ai-2027",
   "kubernetes-cloud-native-ai-ml-deployment-trends-2026-moicyegk":
     "kubernetes-cloud-native-ai-ml-deployment-trends-2026",
   "kubernetes-cloud-native-ai-ml-deployment-trends-2026-mocmdoxh":
