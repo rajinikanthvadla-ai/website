@@ -24,7 +24,7 @@ export default function TechIcon({ slug, label, fallback, color }: TechIconProps
           width={26}
           height={26}
           loading="lazy"
-          className="h-[26px] w-[26px] grayscale transition duration-200 hover:grayscale-0"
+          className="h-[26px] w-[26px]"
         />
       ) : (
         <span

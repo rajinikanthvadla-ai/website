@@ -1,5 +1,5 @@
 /**
- * Shared SVG building blocks for the /architecture diagrams.
+ * Draw.io-style SVG building blocks for /architecture diagrams.
  * Server components only — pure SVG, no client JS.
  */
 
@@ -32,6 +32,7 @@ export function SvgIcon({
         y={y}
         width={size}
         height={size}
+        preserveAspectRatio="xMidYMid meet"
       />
     );
   }
@@ -42,7 +43,7 @@ export function SvgIcon({
       <text
         x={x + size / 2}
         y={y + size / 2 + 3.5}
-        fontSize={9}
+        fontSize={Math.max(8, size * 0.45)}
         fontWeight={700}
         fill="#ffffff"
         textAnchor="middle"
@@ -53,7 +54,87 @@ export function SvgIcon({
   );
 }
 
-/** A tinted, dashed-border group lane that visually groups nodes (e.g. "TRAINING"). */
+/** Shared marker defs for a diagram. */
+export function ArrowMarkers({ prefix }: { prefix: string }) {
+  return (
+    <defs>
+      <marker
+        id={`${prefix}-arrow`}
+        viewBox="0 0 10 10"
+        refX="9"
+        refY="5"
+        markerWidth={7}
+        markerHeight={7}
+        orient="auto-start-reverse"
+      >
+        <path d="M0 0 L10 5 L0 10 z" fill="#475569" />
+      </marker>
+      <marker
+        id={`${prefix}-arrow-amber`}
+        viewBox="0 0 10 10"
+        refX="9"
+        refY="5"
+        markerWidth={7}
+        markerHeight={7}
+        orient="auto-start-reverse"
+      >
+        <path d="M0 0 L10 5 L0 10 z" fill="#b45309" />
+      </marker>
+      <marker
+        id={`${prefix}-arrow-green`}
+        viewBox="0 0 10 10"
+        refX="9"
+        refY="5"
+        markerWidth={7}
+        markerHeight={7}
+        orient="auto-start-reverse"
+      >
+        <path d="M0 0 L10 5 L0 10 z" fill="#059669" />
+      </marker>
+      <marker
+        id={`${prefix}-arrow-blue`}
+        viewBox="0 0 10 10"
+        refX="9"
+        refY="5"
+        markerWidth={7}
+        markerHeight={7}
+        orient="auto-start-reverse"
+      >
+        <path d="M0 0 L10 5 L0 10 z" fill="#1d4ed8" />
+      </marker>
+      <filter id={`${prefix}-soft`} x="-8%" y="-8%" width="116%" height="116%">
+        <feDropShadow dx="0" dy="1.5" stdDeviation="1.2" floodColor="#0f172a" floodOpacity="0.12" />
+      </filter>
+    </defs>
+  );
+}
+
+/** Diagram title strip (draw.io-like header). */
+export function DiagramTitle({
+  title,
+  subtitle,
+  width,
+}: {
+  title: string;
+  subtitle?: string;
+  width: number;
+}) {
+  return (
+    <g>
+      <rect x={0} y={0} width={width} height={subtitle ? 44 : 34} fill="#0f172a" />
+      <text x={16} y={22} fontSize={14} fontWeight={700} fill="#ffffff">
+        {title}
+      </text>
+      {subtitle ? (
+        <text x={16} y={38} fontSize={10} fill="#94a3b8">
+          {subtitle}
+        </text>
+      ) : null}
+    </g>
+  );
+}
+
+/** Tinted swimlane / group (draw.io container). */
 export function Lane({
   x,
   y,
@@ -61,7 +142,8 @@ export function Lane({
   h,
   label,
   tint = "#f8fafc",
-  stroke = "#cbd5e1",
+  stroke = "#94a3b8",
+  accent = "#1d4ed8",
 }: {
   x: number;
   y: number;
@@ -70,39 +152,35 @@ export function Lane({
   label: string;
   tint?: string;
   stroke?: string;
+  accent?: string;
 }) {
   return (
     <g>
-      <rect
-        x={x}
-        y={y}
-        width={w}
-        height={h}
-        rx={14}
-        fill={tint}
-        stroke={stroke}
-        strokeWidth={1.2}
-        strokeDasharray="6 4"
-      />
-      <text x={x + 12} y={y + 20} fontSize={10.5} fontWeight={700} fill="#475569" letterSpacing={1.2}>
+      <rect x={x} y={y} width={w} height={h} rx={12} fill={tint} stroke={stroke} strokeWidth={1.5} />
+      <rect x={x} y={y} width={w} height={26} rx={12} fill={accent} />
+      <rect x={x} y={y + 14} width={w} height={12} fill={accent} />
+      <text x={x + 12} y={y + 17} fontSize={10.5} fontWeight={700} fill="#ffffff" letterSpacing={0.8}>
         {label.toUpperCase()}
       </text>
     </g>
   );
 }
 
-/** A white component box with a title, an optional row of tech icons, and a subtitle. */
+/**
+ * Draw.io-style component: colored header + white body + brand icons.
+ */
 export function NodeBox({
   x,
   y,
-  w = 150,
-  h = 64,
+  w = 160,
+  h = 72,
   title,
   subtitle,
   icons = [],
-  stroke = "#94a3b8",
+  accent = "#1d4ed8",
   fill = "#ffffff",
-  titleColor = "#0f172a",
+  stroke,
+  filterId,
 }: {
   x: number;
   y: number;
@@ -111,34 +189,70 @@ export function NodeBox({
   title: string;
   subtitle?: string;
   icons?: IconSpec[];
-  stroke?: string;
+  accent?: string;
   fill?: string;
-  titleColor?: string;
+  stroke?: string;
+  filterId?: string;
 }) {
+  const headerH = 26;
   const iconSize = 18;
-  const gap = 6;
+  const gap = 7;
+  const bodyTop = y + headerH;
+  const bodyH = h - headerH;
   const total = icons.length * iconSize + Math.max(0, icons.length - 1) * gap;
   const startX = x + (w - total) / 2;
-  const iconsY = y + (subtitle ? 28 : (h - iconSize) / 2 + 6);
+  const iconsY = bodyTop + (subtitle ? 8 : (bodyH - iconSize) / 2);
+  const border = stroke ?? accent;
+
   return (
-    <g>
-      <rect x={x} y={y} width={w} height={h} rx={10} fill={fill} stroke={stroke} strokeWidth={1.4} />
-      <text x={x + w / 2} y={y + 19} fontSize={12} fontWeight={700} fill={titleColor} textAnchor="middle">
+    <g filter={filterId ? `url(#${filterId})` : undefined}>
+      <rect x={x} y={y} width={w} height={h} rx={8} fill={fill} stroke={border} strokeWidth={1.6} />
+      <path
+        d={`M${x} ${y + 8} Q${x} ${y} ${x + 8} ${y} L${x + w - 8} ${y} Q${x + w} ${y} ${x + w} ${y + 8} L${x + w} ${y + headerH} L${x} ${y + headerH} Z`}
+        fill={accent}
+      />
+      <text x={x + w / 2} y={y + 17.5} fontSize={11.5} fontWeight={700} fill="#ffffff" textAnchor="middle">
         {title}
       </text>
       {icons.map((icon, i) => (
         <SvgIcon key={i} icon={icon} x={startX + i * (iconSize + gap)} y={iconsY} size={iconSize} />
       ))}
-      {subtitle && (
-        <text x={x + w / 2} y={y + h - 9} fontSize={9.5} fill="#64748b" textAnchor="middle">
+      {subtitle ? (
+        <text x={x + w / 2} y={y + h - 10} fontSize={9.5} fill="#475569" textAnchor="middle">
           {subtitle}
         </text>
-      )}
+      ) : null}
     </g>
   );
 }
 
-/** Numbered step badge placed on the diagram; matches the numbered list below it. */
+/** Compact pill node for loop steps (Observe/Plan/Act). */
+export function PillNode({
+  x,
+  y,
+  w,
+  h = 32,
+  title,
+  accent = "#1d4ed8",
+}: {
+  x: number;
+  y: number;
+  w: number;
+  h?: number;
+  title: string;
+  accent?: string;
+}) {
+  return (
+    <g>
+      <rect x={x} y={y} width={w} height={h} rx={8} fill="#eff6ff" stroke={accent} strokeWidth={1.5} />
+      <text x={x + w / 2} y={y + h / 2 + 4} fontSize={11} fontWeight={700} fill={accent} textAnchor="middle">
+        {title}
+      </text>
+    </g>
+  );
+}
+
+/** Numbered step badge placed on the diagram. */
 export function StepBadge({
   x,
   y,
@@ -152,7 +266,7 @@ export function StepBadge({
 }) {
   return (
     <g>
-      <circle cx={x} cy={y} r={10.5} fill={fill} stroke="#ffffff" strokeWidth={2} />
+      <circle cx={x} cy={y} r={11} fill={fill} stroke="#ffffff" strokeWidth={2} />
       <text x={x} y={y + 3.5} fontSize={10.5} fontWeight={700} fill="#ffffff" textAnchor="middle">
         {n}
       </text>
@@ -160,7 +274,7 @@ export function StepBadge({
   );
 }
 
-/** Straight arrow between two points, with optional step badge and italic label. */
+/** Straight arrow between two points. */
 export function FlowArrow({
   x1,
   y1,
@@ -169,10 +283,10 @@ export function FlowArrow({
   marker,
   step,
   dashed = false,
-  color = "#64748b",
+  color = "#475569",
   label,
   labelDx = 0,
-  labelDy = -6,
+  labelDy = -7,
   stepX,
   stepY,
 }: {
@@ -180,7 +294,6 @@ export function FlowArrow({
   y1: number;
   x2: number;
   y2: number;
-  /** id of an arrowhead <marker> defined in the same SVG. */
   marker: string;
   step?: number;
   dashed?: boolean;
@@ -188,14 +301,11 @@ export function FlowArrow({
   label?: string;
   labelDx?: number;
   labelDy?: number;
-  /** Override step badge position (defaults to line midpoint). */
   stepX?: number;
   stepY?: number;
 }) {
   const mx = (x1 + x2) / 2;
   const my = (y1 + y2) / 2;
-  const badgeX = stepX ?? mx;
-  const badgeY = stepY ?? my;
   return (
     <g>
       <line
@@ -204,22 +314,24 @@ export function FlowArrow({
         x2={x2}
         y2={y2}
         stroke={color}
-        strokeWidth={1.8}
+        strokeWidth={2}
         strokeLinecap="round"
         strokeDasharray={dashed ? "5 4" : undefined}
         markerEnd={`url(#${marker})`}
       />
-      {label && (
+      {label ? (
         <text x={mx + labelDx} y={my + labelDy} fontSize={9.5} fontStyle="italic" fill={color} textAnchor="middle">
           {label}
         </text>
-      )}
-      {step != null && <StepBadge x={badgeX} y={badgeY} n={step} fill={color === "#64748b" ? "#1d4ed8" : color} />}
+      ) : null}
+      {step != null ? (
+        <StepBadge x={stepX ?? mx} y={stepY ?? my} n={step} fill={color === "#475569" || color === "#64748b" ? "#1d4ed8" : color} />
+      ) : null}
     </g>
   );
 }
 
-/** Elbow/curved arrow from an SVG path string, with optional step badge at an explicit point. */
+/** Elbow/path arrow. */
 export function FlowPath({
   d,
   marker,
@@ -227,7 +339,7 @@ export function FlowPath({
   stepX,
   stepY,
   dashed = false,
-  color = "#64748b",
+  color = "#475569",
   label,
   labelX,
   labelY,
@@ -249,20 +361,20 @@ export function FlowPath({
         d={d}
         fill="none"
         stroke={color}
-        strokeWidth={1.8}
+        strokeWidth={2}
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeDasharray={dashed ? "5 4" : undefined}
         markerEnd={`url(#${marker})`}
       />
-      {label && labelX != null && labelY != null && (
+      {label && labelX != null && labelY != null ? (
         <text x={labelX} y={labelY} fontSize={9.5} fontStyle="italic" fill={color} textAnchor="middle">
           {label}
         </text>
-      )}
-      {step != null && stepX != null && stepY != null && (
-        <StepBadge x={stepX} y={stepY} n={step} fill={color === "#64748b" ? "#1d4ed8" : color} />
-      )}
+      ) : null}
+      {step != null && stepX != null && stepY != null ? (
+        <StepBadge x={stepX} y={stepY} n={step} fill={color === "#475569" || color === "#64748b" ? "#1d4ed8" : color} />
+      ) : null}
     </g>
   );
 }

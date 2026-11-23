@@ -7,11 +7,12 @@ import MlopsDiagram from "@/components/architecture/MlopsDiagram";
 import LlmopsDiagram from "@/components/architecture/LlmopsDiagram";
 import AgenticDiagram from "@/components/architecture/AgenticDiagram";
 import MultiAgentDiagram from "@/components/architecture/MultiAgentDiagram";
+import PlatformDiagram from "@/components/architecture/PlatformDiagram";
 
 export const metadata: Metadata = {
   title: "Production AI Architecture Diagrams",
   description:
-    "Company-grade MLOps, LLMOps/RAG, Agentic AI and Multi-Agent diagrams by trainer Rajinikanth Vadla — interview Q&A and trade-offs. Free guide; join the live masterclass to build them.",
+    "Draw.io-style MLOps, RAG/LLMOps, Agentic AI, Agent Multiverse, and AI Platform gateway diagrams by Rajinikanth Vadla — icons, interview Q&A, trade-offs.",
   keywords: [
     "Rajinikanth Vadla",
     "MLOps architecture diagram",
@@ -19,6 +20,7 @@ export const metadata: Metadata = {
     "RAG architecture diagram",
     "agentic AI architecture",
     "multi-agent system architecture",
+    "AI platform gateway architecture",
     "MLOps interview questions",
     "LLMOps interview questions",
     "production ML system design",
@@ -31,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Production AI Architecture Diagrams | Rajinikanth Vadla",
     description:
-      "MLOps, LLMOps/RAG, Agentic AI, and Multi-Agent diagrams with interview questions — by Rajinikanth Vadla.",
+      "MLOps, RAG, Agentic AI, Agent Multiverse, and AI Platform diagrams with icons and interview questions — by Rajinikanth Vadla.",
     url: `${SITE.url}/architecture/`,
     type: "article",
   },
@@ -135,24 +137,25 @@ function ArchitectureSection({
 }
 
 const SECTIONS = [
-  { id: "mlops", label: "1. MLOps Production" },
-  { id: "llmops", label: "2. LLMOps / RAG" },
+  { id: "mlops", label: "1. MLOps" },
+  { id: "llmops", label: "2. RAG / LLMOps" },
   { id: "agentic", label: "3. Agentic AI" },
-  { id: "multi-agent", label: "4. Multi-Agent" },
+  { id: "multi-agent", label: "4. Agent Multiverse" },
+  { id: "platform", label: "5. AI Platform Gateway" },
 ];
 
 export default function ArchitecturePage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "TechArticle",
-    headline: "Production AI Architecture Diagrams — MLOps, LLMOps, Agentic & Multi-Agent",
+    headline: "Production AI Architecture Diagrams — MLOps, RAG, Agentic, Multiverse & Platform",
     description:
-      "Company-grade MLOps, LLMOps/RAG, Agentic AI, and Multi-Agent architecture diagrams with interview questions and trade-offs.",
+      "Draw.io-style MLOps, RAG/LLMOps, Agentic AI, Agent Multiverse, and AI Platform gateway diagrams with interview questions and trade-offs.",
     author: { "@type": "Person", name: "Rajinikanth Vadla", url: SITE.url },
     publisher: { "@type": "Person", name: "Rajinikanth Vadla", url: SITE.url },
     mainEntityOfPage: `${SITE.url}/architecture/`,
     isAccessibleForFree: true,
-    about: ["MLOps", "LLMOps", "RAG", "AI Agents", "Multi-Agent Systems"],
+    about: ["MLOps", "LLMOps", "RAG", "AI Agents", "Multi-Agent Systems", "AI Platform Engineering"],
   };
 
   return (
@@ -172,8 +175,8 @@ export default function ArchitecturePage() {
             Production AI Architecture Diagrams
           </h1>
           <p className="text-xl text-slate-600 leading-relaxed mb-8">
-            Four company-grade architectures — MLOps, LLMOps/RAG, Agentic AI, and Multi-Agent — with numbered flows,
-            interview questions, and trade-offs. Taught live by Rajinikanth Vadla in the masterclass.
+            Draw.io-style diagrams with real tech icons — MLOps, RAG/LLMOps, Agentic AI, Agent Multiverse, and AI Platform
+            Gateway — plus numbered flows, interview questions, and trade-offs. Taught live by Rajinikanth Vadla.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link href="/enroll/" className="notion-btn notion-btn--accent">
@@ -305,8 +308,8 @@ export default function ArchitecturePage() {
       {/* 2. LLMOps / RAG */}
       <ArchitectureSection
         id="llmops"
-        kicker="Architecture 2 · Enterprise GenAI"
-        title="LLMOps / RAG Production Architecture"
+        kicker="Architecture 2 · RAG / Enterprise GenAI"
+        title="RAG / LLMOps Production Architecture"
         intro="This is how enterprises ship a GenAI knowledge assistant over their own documents: an offline indexing pipeline chunks and embeds content into a vector database, and an online path retrieves the most relevant chunks, reranks them, and sends them with a versioned prompt through an LLM gateway to a foundation model. Guardrails filter inputs and outputs, and every request is traced for cost, latency, and quality. User feedback feeds a fine-tuning loop so the system improves instead of stagnating. This is the single most common system-design interview topic for GenAI roles right now."
         tech={[
           { slug: "langchain", label: "LangChain" },
@@ -492,9 +495,9 @@ export default function ArchitecturePage() {
       {/* 4. Multi-agent */}
       <ArchitectureSection
         id="multi-agent"
-        kicker="Architecture 4 · Agent Teams"
-        title="Multi-Agent System Architecture"
-        intro="This is a crew of specialized agents working like a software-delivery team: a supervisor decomposes an incoming feature request and routes subtasks over a message bus to a PM agent, an architect, parallel coder agents, a reviewer/QA agent that aggregates their work, and a DevOps agent that deploys. Agents coordinate through a shared blackboard memory instead of brittle point-to-point calls, and a policy engine plus human checkpoints govern anything that touches production. Frameworks like CrewAI, AutoGen, and LangGraph implement this pattern; the interview questions are about coordination, failure modes, and when it's overkill."
+        kicker="Architecture 4 · Agent Multiverse"
+        title="Agent Multiverse — Multi-Agent System Architecture"
+        intro="This is the agent multiverse: a crew of specialized agents working like a software-delivery team. A supervisor decomposes an incoming feature request and routes subtasks over a message bus to a PM agent, an architect, parallel coder agents, a reviewer/QA agent that aggregates their work, and a DevOps agent that deploys. Agents coordinate through a shared blackboard memory instead of brittle point-to-point calls, and a policy engine plus human checkpoints govern anything that touches production. Frameworks like CrewAI, AutoGen, and LangGraph implement this pattern; the interview questions are about coordination, failure modes, and when it's overkill."
         tech={[
           { slug: "crewai", label: "CrewAI" },
           { label: "AutoGen", fallback: "AG", color: "#7c3aed" },
@@ -583,6 +586,93 @@ export default function ArchitecturePage() {
         ]}
       />
 
+      {/* 5. AI Platform Gateway */}
+      <ArchitectureSection
+        id="platform"
+        kicker="Architecture 5 · AI Platform Engineering"
+        title="AI Platform Control Plane — Multi-Model Gateway"
+        intro="This is the shared AI layer enterprises hire platform engineers to own: product apps hit one authenticated API, an LLM/AI gateway routes across a model multiverse (frontier + self-host), policy and guardrails run before tools fire, RAG and MCP tools sit behind the gateway, and evals + FinOps + kill switches keep spend and safety under control. If you can whiteboard this and defend every box, you sound like an AI Platform Engineer — not a chatbot hobbyist."
+        tech={[
+          { slug: "nextdotjs", label: "Next.js" },
+          { slug: "react", label: "React" },
+          { slug: "nginx", label: "NGINX" },
+          { label: "LiteLLM", fallback: "LG", color: "#7c3aed" },
+          { slug: "redis", label: "Redis" },
+          { label: "OpenAI", fallback: "OA", color: "#10a37f" },
+          { slug: "anthropic", label: "Claude" },
+          { slug: "googlegemini", label: "Gemini" },
+          { slug: "vllm", label: "vLLM" },
+          { slug: "huggingface", label: "HuggingFace" },
+          { slug: "postgresql", label: "pgvector" },
+          { slug: "langchain", label: "LangChain" },
+          { slug: "langgraph", label: "LangGraph" },
+          { slug: "github", label: "GitHub" },
+          { slug: "kubernetes", label: "Kubernetes" },
+          { slug: "opentelemetry", label: "OTel" },
+          { slug: "grafana", label: "Grafana" },
+          { slug: "apacheairflow", label: "Airflow" },
+        ]}
+        diagram={<PlatformDiagram />}
+        steps={[
+          {
+            title: "Product surfaces call one API",
+            desc: "Web, mobile, internal tools, and batch jobs all hit the same authenticated edge — not each team wiring its own provider keys. Tenant identity and rate limits start here.",
+          },
+          {
+            title: "Requests enter the LLM / AI gateway",
+            desc: "LiteLLM-style gateway normalizes chat/completions, applies routing rules, retries, and semantic cache (Redis) for repeat questions before burning frontier tokens.",
+          },
+          {
+            title: "Policy and guardrails run first",
+            desc: "Allowlists, PII redaction, topic refusals, and tool permission checks happen before any model or MCP tool executes. Risky actions never skip this lane.",
+          },
+          {
+            title: "Route across the model multiverse",
+            desc: "Cheap/easy queries go to smaller or self-hosted models (vLLM); hard reasoning goes to frontier providers. Embedding/rerank models stay on the retrieval path.",
+          },
+          {
+            title: "Attach RAG and MCP tools",
+            desc: "Gateway or orchestrator pulls vector docs and calls MCP servers (GitHub, Slack, Kubernetes) with least-privilege credentials and audited schemas.",
+          },
+          {
+            title: "Version prompts and agent configs",
+            desc: "Prompt/agent registry stores versions like code — canary a new prompt, roll back instantly when quality or cost regressions show up.",
+          },
+          {
+            title: "Measure cost, quality, and traces",
+            desc: "Evals CI blocks bad releases; OpenTelemetry/Langfuse traces every hop; Grafana FinOps dashboards show token and GPU spend per team.",
+          },
+          {
+            title: "Kill switch and rollback",
+            desc: "On incident: disable a tool, force a previous prompt/model, or cut agent runtimes. Platform ownership means you can stop the blast radius in minutes.",
+          },
+        ]}
+        qa={[
+          {
+            q: "Why a shared AI gateway instead of every team calling OpenAI directly?",
+            a: "Central auth, budgets, failover, logging, and policy. Without a gateway, every product reinvented keys, spend, and safety — and provider migration becomes a company-wide rewrite.",
+          },
+          {
+            q: "How do you choose which model in the multiverse handles a request?",
+            a: "Route by task class and SLO: classification and short FAQ → cheap/self-host; complex reasoning → frontier; embeddings stay fixed to the index model. Put the rule in config, not in app code.",
+          },
+          {
+            q: "Where do evals fit in a platform?",
+            a: "Offline golden/refusal suites gate prompt, tool, and model promotions in CI. Online monitors watch latency, cost, and thumbs-down. No promote without both.",
+          },
+          {
+            q: "How is this different from a single RAG demo?",
+            a: "A demo is one path. A platform is multi-tenant quotas, multi-model routing, tool governance, FinOps, and rollback — the shared layer product teams consume.",
+          },
+        ]}
+        tradeoffs={[
+          "A full control plane is overkill for one pilot chatbot — start with gateway + logging, then add cache, evals, and MCP as pain appears.",
+          "Semantic cache can serve stale answers if documents change; TTL and tenant keys matter.",
+          "Multi-model routing without evals silently ships worse quality on the 'cheap' path.",
+          "Central gateway is a blast radius: harden auth, isolate tenants, and keep a kill switch.",
+        ]}
+      />
+
       {/* CTA */}
       <section className="py-16 md:py-24 bg-slate-900 border-b border-slate-800">
         <div className="max-w-3xl mx-auto px-6 text-center">
@@ -590,7 +680,7 @@ export default function ArchitecturePage() {
             Build these architectures with Rajinikanth Vadla
           </h2>
           <p className="text-lg text-slate-300 mb-8 leading-relaxed">
-            These four systems are what you ship in the live MLOps + LLMOps + AIOps + AI Agents masterclass —
+            These five systems are what you ship in the live MLOps + LLMOps + AIOps + AI Agents masterclass —
             real cloud labs, 1-on-1 mentorship, and job support.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
