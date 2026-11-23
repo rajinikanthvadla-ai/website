@@ -1,10 +1,10 @@
 import { ArrowMarkers, DiagramTitle, Lane, NodeBox, FlowArrow, FlowPath, SvgIcon } from "./DiagramPrimitives";
 
 const WORKERS = [
-  { x: 90, cx: 160, title: "PM Agent", icons: [{ fallback: "OA", color: "#10a37f" }], subtitle: "LLM + Jira, Slack", accent: "#10a37f" },
+  { x: 90, cx: 160, title: "PM Agent", icons: [{ slug: "openai" }], subtitle: "LLM + Jira, Slack", accent: "#10a37f" },
   { x: 255, cx: 325, title: "Architect", icons: [{ slug: "anthropic" }], subtitle: "LLM + repo tools", accent: "#D4A27F" },
   { x: 420, cx: 490, title: "Coder A", icons: [{ slug: "huggingface" }], subtitle: "GitHub · CI tools", accent: "#FFD21E" },
-  { x: 585, cx: 655, title: "Coder B", icons: [{ fallback: "OA", color: "#10a37f" }], subtitle: "GitHub · CI tools", accent: "#10a37f" },
+  { x: 585, cx: 655, title: "Coder B", icons: [{ slug: "openai" }], subtitle: "GitHub · CI tools", accent: "#10a37f" },
   { x: 750, cx: 820, title: "Reviewer QA", icons: [{ slug: "anthropic" }], subtitle: "tests · review", accent: "#D4A27F" },
   { x: 915, cx: 985, title: "DevOps", icons: [{ slug: "argo" }, { slug: "docker" }], subtitle: "ArgoCD · K8s", accent: "#EF7B4D" },
 ] as const;
@@ -28,7 +28,7 @@ export default function MultiAgentDiagram() {
       <Lane x={60} y={555} w={500} h={100} label="Shared State" tint="#eff6ff" stroke="#93c5fd" accent="#1d4ed8" />
       <Lane x={600} y={555} w={500} h={100} label="Governance & Observability" tint="#fef2f2" stroke="#fecaca" accent="#dc2626" />
 
-      <NodeBox x={60} y={88} w={170} h={60} title="Incoming Task" subtitle="feature · ticket" icons={[{ fallback: "IN", color: "#334155" }]} accent="#334155" filterId={f} />
+      <NodeBox x={60} y={88} w={170} h={60} title="Incoming Task" subtitle="feature · ticket" icons={[{ slug: "task" }]} accent="#334155" filterId={f} />
       <NodeBox
         x={380}
         y={85}
@@ -36,7 +36,7 @@ export default function MultiAgentDiagram() {
         h={64}
         title="Supervisor / Orchestrator"
         subtitle="CrewAI · AutoGen · LangGraph"
-        icons={[{ slug: "crewai" }, { fallback: "AG", color: "#7c3aed" }, { slug: "langgraph" }]}
+        icons={[{ slug: "crewai" }, { slug: "autogen" }, { slug: "langgraph" }]}
         accent="#4338ca"
         filterId={f}
       />
@@ -64,8 +64,8 @@ export default function MultiAgentDiagram() {
       ))}
 
       <NodeBox x={100} y={585} w={280} h={56} title="Shared Blackboard Memory" subtitle="PostgreSQL + pgvector" icons={[{ slug: "postgresql" }]} accent="#336791" filterId={f} />
-      <NodeBox x={620} y={585} w={140} h={56} title="Policy Engine" subtitle="OPA · allow/deny" icons={[{ fallback: "OP", color: "#0f766e" }]} accent="#0f766e" filterId={f} />
-      <NodeBox x={775} y={585} w={140} h={56} title="HITL Gate" subtitle="approve deploys" icons={[{ fallback: "HI", color: "#d97706" }]} accent="#d97706" fill="#fffbeb" stroke="#f59e0b" filterId={f} />
+      <NodeBox x={620} y={585} w={140} h={56} title="Policy Engine" subtitle="OPA · allow/deny" icons={[{ slug: "opa" }]} accent="#0f766e" filterId={f} />
+      <NodeBox x={775} y={585} w={140} h={56} title="HITL Gate" subtitle="approve deploys" icons={[{ slug: "hitl" }]} accent="#d97706" fill="#fffbeb" stroke="#f59e0b" filterId={f} />
       <NodeBox x={930} y={585} w={150} h={56} title="Observability" subtitle="OTel · Grafana" icons={[{ slug: "opentelemetry" }, { slug: "grafana" }]} accent="#F46800" filterId={f} />
 
       <FlowArrow x1={230} y1={118} x2={378} y2={118} marker="ma-arrow" step={1} />

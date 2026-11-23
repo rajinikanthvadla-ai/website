@@ -17,13 +17,13 @@ export default function AgenticDiagram() {
       <Lane x={220} y={180} w={360} h={390} label="Agent Core (LangGraph)" tint="#eef2ff" stroke="#c7d2fe" accent="#4338ca" />
       <Lane x={610} y={180} w={230} h={290} label="Tool Layer (MCP)" tint="#f0fdf4" stroke="#86efac" accent="#059669" />
 
-      <NodeBox x={20} y={300} w={150} h={72} title="User / API" subtitle="chat · webhook · cron" icons={[{ fallback: "US", color: "#334155" }]} accent="#334155" filterId={f} />
+      <NodeBox x={20} y={300} w={150} h={72} title="User / API" subtitle="chat · webhook · cron" icons={[{ slug: "users" }]} accent="#334155" filterId={f} />
 
       <NodeBox x={235} y={95} w={160} h={52} title="Short-term" subtitle="Redis · session" icons={[{ slug: "redis" }]} accent="#DC382D" filterId={f} />
       <NodeBox x={405} y={95} w={160} h={52} title="Long-term" subtitle="vector knowledge" icons={[{ slug: "postgresql" }]} accent="#336791" filterId={f} />
 
       <NodeBox x={250} y={220} w={300} h={72} title="Orchestrator / State Graph" subtitle="LangGraph · checkpointed state" icons={[{ slug: "langgraph" }]} accent="#1C3C3C" filterId={f} />
-      <NodeBox x={250} y={315} w={300} h={78} title="Planner / Reasoner LLM" subtitle="GPT-class · Claude · tool calling" icons={[{ fallback: "OA", color: "#10a37f" }, { slug: "anthropic" }]} accent="#10a37f" filterId={f} />
+      <NodeBox x={250} y={315} w={300} h={78} title="Planner / Reasoner LLM" subtitle="GPT-class · Claude · tool calling" icons={[{ slug: "openai" }, { slug: "anthropic" }]} accent="#10a37f" filterId={f} />
 
       <PillNode x={250} y={420} w={66} title="Observe" />
       <PillNode x={326} y={420} w={56} title="Plan" />
@@ -36,15 +36,15 @@ export default function AgenticDiagram() {
       <FlowPath d="M494 452 V470 H283 V454" marker="ag-arrow" dashed />
 
       <NodeBox x={625} y={215} w={200} h={52} title="GitHub MCP" subtitle="repos · PRs · issues" icons={[{ slug: "github" }]} accent="#181717" filterId={f} />
-      <NodeBox x={625} y={280} w={200} h={52} title="Slack MCP" subtitle="channels · alerts" icons={[{ fallback: "SL", color: "#4A154B" }]} accent="#4A154B" filterId={f} />
+      <NodeBox x={625} y={280} w={200} h={52} title="Slack MCP" subtitle="channels · alerts" icons={[{ slug: "slack" }]} accent="#4A154B" filterId={f} />
       <NodeBox x={625} y={345} w={200} h={52} title="Jira MCP" subtitle="tickets · workflows" icons={[{ slug: "jira" }]} accent="#0052CC" filterId={f} />
       <NodeBox x={625} y={410} w={200} h={52} title="Kubernetes API" subtitle="pods · logs · rollouts" icons={[{ slug: "kubernetes" }]} accent="#326CE5" filterId={f} />
 
-      <NodeBox x={610} y={495} w={230} h={60} title="Human-in-the-Loop" subtitle="approval gate · Slack / UI" icons={[{ fallback: "HI", color: "#d97706" }]} accent="#d97706" stroke="#f59e0b" fill="#fffbeb" filterId={f} />
+      <NodeBox x={610} y={495} w={230} h={60} title="Human-in-the-Loop" subtitle="approval gate · Slack / UI" icons={[{ slug: "hitl" }]} accent="#d97706" stroke="#f59e0b" fill="#fffbeb" filterId={f} />
 
-      <NodeBox x={880} y={215} w={160} h={72} title="Execute Actions" subtitle="kubectl · merge · API" icons={[{ fallback: "EX", color: "#334155" }]} accent="#0f172a" filterId={f} />
+      <NodeBox x={880} y={215} w={160} h={72} title="Execute Actions" subtitle="kubectl · merge · API" icons={[{ slug: "execute" }]} accent="#0f172a" filterId={f} />
       <NodeBox x={880} y={310} w={160} h={68} title="Audit Log" subtitle="who · what · when" icons={[{ slug: "postgresql" }]} accent="#336791" filterId={f} />
-      <NodeBox x={880} y={405} w={160} h={72} title="Observability" subtitle="Langfuse traces" icons={[{ fallback: "LF", color: "#0f766e" }]} accent="#0f766e" filterId={f} />
+      <NodeBox x={880} y={405} w={160} h={72} title="Observability" subtitle="Langfuse traces" icons={[{ slug: "langfuse" }]} accent="#0f766e" filterId={f} />
 
       <FlowPath d="M170 336 H210 V256 H248" marker="ag-arrow" step={1} stepX={210} stepY={296} />
       <FlowArrow x1={400} y1={292} x2={400} y2={313} marker="ag-arrow" step={2} />

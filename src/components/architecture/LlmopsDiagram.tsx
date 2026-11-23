@@ -19,25 +19,25 @@ export default function LlmopsDiagram() {
       <Lane x={660} y={60} w={170} h={210} label="Application" tint="#fff7ed" stroke="#fdba74" accent="#ea580c" />
       <Lane x={850} y={60} w={220} h={430} label="Observability & Improve" tint="#fef2f2" stroke="#fecaca" accent="#dc2626" />
 
-      <NodeBox x={25} y={100} w={170} h={68} title="Documents" subtitle="PDFs · Confluence · tickets" icons={[{ fallback: "DC", color: "#475569" }]} accent="#334155" filterId={f} />
-      <NodeBox x={25} y={185} w={170} h={78} title="Chunking" subtitle="LangChain · LlamaIndex" icons={[{ slug: "langchain" }, { fallback: "LI", color: "#1c3c3c" }]} accent="#1C3C3C" filterId={f} />
-      <NodeBox x={25} y={280} w={170} h={78} title="Embeddings" subtitle="OpenAI · HuggingFace" icons={[{ fallback: "OA", color: "#10a37f" }, { slug: "huggingface" }]} accent="#FFD21E" filterId={f} />
-      <NodeBox x={25} y={375} w={170} h={88} title="Vector Database" subtitle="pgvector · Pinecone · Weaviate" icons={[{ slug: "postgresql" }, { fallback: "PC", color: "#1e40af" }, { fallback: "WV", color: "#059669" }]} accent="#1e40af" filterId={f} />
+      <NodeBox x={25} y={100} w={170} h={68} title="Documents" subtitle="PDFs · Confluence · tickets" icons={[{ slug: "documents" }]} accent="#334155" filterId={f} />
+      <NodeBox x={25} y={185} w={170} h={78} title="Chunking" subtitle="LangChain · LlamaIndex" icons={[{ slug: "langchain" }, { slug: "langchain" }]} accent="#1C3C3C" filterId={f} />
+      <NodeBox x={25} y={280} w={170} h={78} title="Embeddings" subtitle="OpenAI · HuggingFace" icons={[{ slug: "openai" }, { slug: "huggingface" }]} accent="#FFD21E" filterId={f} />
+      <NodeBox x={25} y={375} w={170} h={88} title="Vector Database" subtitle="pgvector · Pinecone · Weaviate" icons={[{ slug: "postgresql" }, { slug: "pinecone" }, { slug: "weaviate" }]} accent="#1e40af" filterId={f} />
 
-      <NodeBox x={240} y={100} w={130} h={72} title="Retriever" subtitle="top-k hybrid" icons={[{ fallback: "RT", color: "#334155" }]} accent="#059669" filterId={f} />
-      <NodeBox x={240} y={190} w={130} h={68} title="Reranker" subtitle="cross-encoder" icons={[{ fallback: "RR", color: "#334155" }]} accent="#047857" filterId={f} />
+      <NodeBox x={240} y={100} w={130} h={72} title="Retriever" subtitle="top-k hybrid" icons={[{ slug: "retrieve" }]} accent="#059669" filterId={f} />
+      <NodeBox x={240} y={190} w={130} h={68} title="Reranker" subtitle="cross-encoder" icons={[{ slug: "rerank" }]} accent="#047857" filterId={f} />
 
-      <NodeBox x={415} y={100} w={210} h={78} title="LiteLLM Gateway" subtitle="routing · retries · budgets" icons={[{ fallback: "LG", color: "#7c3aed" }]} accent="#7c3aed" filterId={f} />
-      <NodeBox x={415} y={195} w={210} h={72} title="LLM Providers" subtitle="GPT · Claude · Gemini" icons={[{ fallback: "OA", color: "#10a37f" }, { slug: "anthropic" }, { slug: "googlegemini" }]} accent="#10a37f" filterId={f} />
-      <NodeBox x={415} y={285} w={210} h={68} title="NeMo Guardrails" subtitle="input / output rails" icons={[{ fallback: "NG", color: "#76b900" }]} accent="#76b900" filterId={f} />
-      <NodeBox x={415} y={370} w={210} h={68} title="Prompt Registry" subtitle="LangSmith · evals" icons={[{ fallback: "LS", color: "#1c3c3c" }, { slug: "langchain" }]} accent="#1C3C3C" filterId={f} />
+      <NodeBox x={415} y={100} w={210} h={78} title="LiteLLM Gateway" subtitle="routing · retries · budgets" icons={[{ slug: "litellm" }]} accent="#7c3aed" filterId={f} />
+      <NodeBox x={415} y={195} w={210} h={72} title="LLM Providers" subtitle="GPT · Claude · Gemini" icons={[{ slug: "openai" }, { slug: "anthropic" }, { slug: "googlegemini" }]} accent="#10a37f" filterId={f} />
+      <NodeBox x={415} y={285} w={210} h={68} title="NeMo Guardrails" subtitle="input / output rails" icons={[{ slug: "nemo" }]} accent="#76b900" filterId={f} />
+      <NodeBox x={415} y={370} w={210} h={68} title="Prompt Registry" subtitle="LangSmith · evals" icons={[{ slug: "langchain" }, { slug: "langchain" }]} accent="#1C3C3C" filterId={f} />
 
       <NodeBox x={675} y={100} w={140} h={88} title="FastAPI + Next.js" subtitle="SSE streaming chat" icons={[{ slug: "fastapi" }, { slug: "nextdotjs" }]} accent="#009688" filterId={f} />
-      <NodeBox x={675} y={205} w={140} h={52} title="Users / SSO" icons={[{ fallback: "US", color: "#334155" }]} accent="#334155" filterId={f} />
+      <NodeBox x={675} y={205} w={140} h={52} title="Users / SSO" icons={[{ slug: "users" }]} accent="#334155" filterId={f} />
 
-      <NodeBox x={865} y={100} w={190} h={72} title="Tracing" subtitle="Langfuse · OTel spans" icons={[{ slug: "opentelemetry" }, { fallback: "LF", color: "#0f766e" }]} accent="#0f766e" filterId={f} />
+      <NodeBox x={865} y={100} w={190} h={72} title="Tracing" subtitle="Langfuse · OTel spans" icons={[{ slug: "opentelemetry" }, { slug: "langfuse" }]} accent="#0f766e" filterId={f} />
       <NodeBox x={865} y={190} w={190} h={68} title="Dashboards" subtitle="cost & latency SLOs" icons={[{ slug: "grafana" }]} accent="#F46800" filterId={f} />
-      <NodeBox x={865} y={275} w={190} h={60} title="Feedback" subtitle="thumbs · corrections" icons={[{ fallback: "FB", color: "#334155" }]} accent="#475569" filterId={f} />
+      <NodeBox x={865} y={275} w={190} h={60} title="Feedback" subtitle="thumbs · corrections" icons={[{ slug: "feedback" }]} accent="#475569" filterId={f} />
       <NodeBox x={865} y={355} w={190} h={88} title="Fine-tuning Loop" subtitle="PEFT / LoRA on GPUs" icons={[{ slug: "huggingface" }, { slug: "nvidia" }]} accent="#76B900" filterId={f} />
 
       <FlowArrow x1={110} y1={168} x2={110} y2={183} marker="llm-arrow" step={1} />

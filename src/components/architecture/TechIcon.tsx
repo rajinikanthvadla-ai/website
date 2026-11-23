@@ -1,5 +1,7 @@
+import { ARCH_ICONS } from "@/lib/architecture-icons";
+
 type TechIconProps = {
-  /** Simple Icons slug (https://cdn.simpleicons.org/<slug>). Omit to use a colored fallback badge. */
+  /** Brand key from ARCH_ICONS. */
   slug?: string;
   label: string;
   /** 1-2 letter fallback text when no slug exists. */
@@ -9,26 +11,28 @@ type TechIconProps = {
 };
 
 /**
- * Small technology logo chip: fixed-size logo with a label under it.
- * Used outside SVG diagrams (tech-stack rows). For icons inside SVG,
- * use SvgIcon from DiagramPrimitives.
+ * Technology logo chip under each architecture section.
+ * Uses the same local ARCH_ICONS registry as the SVG diagrams.
  */
 export default function TechIcon({ slug, label, fallback, color }: TechIconProps) {
+  const brand = slug ? ARCH_ICONS[slug] : undefined;
+
   return (
     <span className="inline-flex w-16 flex-col items-center gap-1.5">
-      {slug ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          src={`https://cdn.simpleicons.org/${slug}`}
-          alt={`${label} logo`}
-          width={26}
-          height={26}
-          loading="lazy"
-          className="h-[26px] w-[26px]"
-        />
+      {brand ? (
+        <svg
+          width={28}
+          height={28}
+          viewBox="0 0 24 24"
+          role="img"
+          aria-label={`${label} logo`}
+          className="rounded-md border border-slate-200 bg-white p-0.5"
+        >
+          <path d={brand.path} fill={`#${brand.hex}`} />
+        </svg>
       ) : (
         <span
-          className="flex h-[26px] w-[26px] items-center justify-center rounded-md text-[9px] font-bold text-white"
+          className="flex h-[28px] w-[28px] items-center justify-center rounded-md text-[9px] font-bold text-white"
           style={{ backgroundColor: color ?? "#64748b" }}
           aria-label={`${label} badge`}
         >

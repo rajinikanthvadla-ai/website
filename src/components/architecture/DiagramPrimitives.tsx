@@ -3,37 +3,39 @@
  * Server components only — pure SVG, no client JS.
  */
 
+import { ARCH_ICONS } from "@/lib/architecture-icons";
+
 export type IconSpec = {
-  /** Simple Icons slug; omit for a colored fallback badge. */
+  /** Brand key from ARCH_ICONS (postgresql, openai, kubernetes, …). */
   slug?: string;
-  /** 1-2 letter fallback text. */
+  /** 1-2 letter fallback text when slug is missing. */
   fallback?: string;
   /** Brand-ish fallback color. */
   color?: string;
 };
 
-/** Icon inside an SVG node: real logo via Simple Icons CDN, or a colored initials badge. */
+/**
+ * Inline brand logo (viewBox 0 0 24 24) — no CDN, always visible in SVG.
+ */
 export function SvgIcon({
   icon,
   x,
   y,
-  size = 18,
+  size = 20,
 }: {
   icon: IconSpec;
   x: number;
   y: number;
   size?: number;
 }) {
-  if (icon.slug) {
+  const brand = icon.slug ? ARCH_ICONS[icon.slug] : undefined;
+  if (brand) {
+    const scale = size / 24;
     return (
-      <image
-        href={`https://cdn.simpleicons.org/${icon.slug}`}
-        x={x}
-        y={y}
-        width={size}
-        height={size}
-        preserveAspectRatio="xMidYMid meet"
-      />
+      <g transform={`translate(${x} ${y}) scale(${scale})`} aria-label={brand.title}>
+        <rect x={0} y={0} width={24} height={24} rx={5} fill="#ffffff" stroke="#e2e8f0" strokeWidth={1} />
+        <path d={brand.path} fill={`#${brand.hex}`} />
+      </g>
     );
   }
   const initials = (icon.fallback ?? "?").slice(0, 2).toUpperCase();
@@ -195,8 +197,8 @@ export function NodeBox({
   filterId?: string;
 }) {
   const headerH = 26;
-  const iconSize = 18;
-  const gap = 7;
+  const iconSize = 20;
+  const gap = 8;
   const bodyTop = y + headerH;
   const bodyH = h - headerH;
   const total = icons.length * iconSize + Math.max(0, icons.length - 1) * gap;

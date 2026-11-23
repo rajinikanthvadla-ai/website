@@ -23,11 +23,11 @@ export default function MlopsDiagram() {
       <NodeBox x={20} y={100} w={150} h={70} title="PostgreSQL" subtitle="transactions" icons={[{ slug: "postgresql" }]} accent="#336791" filterId={f} />
       <NodeBox x={20} y={185} w={150} h={70} title="Snowflake" subtitle="analytics DWH" icons={[{ slug: "snowflake" }]} accent="#29B5E8" filterId={f} />
       <NodeBox x={20} y={270} w={150} h={70} title="Kafka" subtitle="event streams" icons={[{ slug: "apachekafka" }]} accent="#231F20" filterId={f} />
-      <NodeBox x={20} y={355} w={150} h={70} title="REST / Events" subtitle="app traffic" icons={[{ fallback: "AP", color: "#0ea5e9" }]} accent="#0284c7" filterId={f} />
+      <NodeBox x={20} y={355} w={150} h={70} title="REST / Events" subtitle="app traffic" icons={[{ slug: "api" }]} accent="#0284c7" filterId={f} />
 
       <NodeBox x={215} y={100} w={160} h={78} title="Airflow" subtitle="orchestration · DAGs" icons={[{ slug: "apacheairflow" }]} accent="#017CEE" filterId={f} />
       <NodeBox x={215} y={200} w={160} h={78} title="Spark" subtitle="batch & stream ETL" icons={[{ slug: "apachespark" }]} accent="#E25A1C" filterId={f} />
-      <NodeBox x={215} y={300} w={160} h={88} title="Feature Store" subtitle="Feast · offline + online" icons={[{ fallback: "FS", color: "#e11d48" }, { slug: "redis" }]} accent="#e11d48" filterId={f} />
+      <NodeBox x={215} y={300} w={160} h={88} title="Feature Store" subtitle="Feast · offline + online" icons={[{ slug: "feast" }, { slug: "redis" }]} accent="#e11d48" filterId={f} />
 
       <NodeBox x={425} y={100} w={190} h={78} title="MLflow Tracking" subtitle="experiments · metrics" icons={[{ slug: "mlflow" }]} accent="#0194E2" filterId={f} />
       <NodeBox x={425} y={200} w={190} h={88} title="Distributed Training" subtitle="Ray · K8s · NVIDIA GPUs" icons={[{ slug: "ray" }, { slug: "kubernetes" }, { slug: "nvidia" }]} accent="#028CF0" filterId={f} />
@@ -40,10 +40,10 @@ export default function MlopsDiagram() {
 
       <NodeBox x={905} y={100} w={150} h={68} title="Prometheus" subtitle="metrics scrape" icons={[{ slug: "prometheus" }]} accent="#E6522C" filterId={f} />
       <NodeBox x={905} y={185} w={150} h={68} title="Grafana" subtitle="dashboards · alerts" icons={[{ slug: "grafana" }]} accent="#F46800" filterId={f} />
-      <NodeBox x={905} y={270} w={150} h={68} title="Evidently" subtitle="data & model drift" icons={[{ fallback: "EV", color: "#f59e0b" }]} accent="#d97706" filterId={f} />
+      <NodeBox x={905} y={270} w={150} h={68} title="Evidently" subtitle="data & model drift" icons={[{ slug: "evidently" }]} accent="#d97706" filterId={f} />
 
       <NodeBox x={40} y={556} w={220} h={42} title="Terraform" icons={[{ slug: "terraform" }]} accent="#7B42BC" filterId={f} />
-      <NodeBox x={300} y={556} w={220} h={42} title="AWS" icons={[{ fallback: "AW", color: "#FF9900" }]} accent="#FF9900" filterId={f} />
+      <NodeBox x={300} y={556} w={220} h={42} title="AWS" icons={[{ slug: "amazonaws" }]} accent="#FF9900" filterId={f} />
       <NodeBox x={560} y={556} w={220} h={42} title="Google Cloud" icons={[{ slug: "googlecloud" }]} accent="#4285F4" filterId={f} />
       <text x={820} y={582} fontSize={11} fill="#64748b">EKS / GKE · S3 / GCS · IAM</text>
 
