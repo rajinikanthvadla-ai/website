@@ -6,11 +6,13 @@ import CTASection from "@/components/CTASection";
 import SiteBanners from "@/components/SiteBanners";
 
 export const metadata: Metadata = {
-  title: "MLOps, AI Automation and AI Agents Training Courses",
+  title: "MLOps, FDE, AI Automation and AI Agents Training Courses",
   description:
-    "Live online training by Rajinikanth Vadla: AI-Powered Automation course (2 months) and MLOps AIOps LLMOps masterclass (4-5 months, job ready). Hands-on labs, placement support.",
+    "Live online training by Rajinikanth Vadla: Forward Deployed AI Engineering (8 weeks), AI-Powered Automation (2 months), and MLOps AIOps LLMOps masterclass (4-5 months).",
   keywords: [
     "MLOps course",
+    "FDE course",
+    "Forward Deployed Engineering course",
     "AI automation course",
     "MLOps training India",
     "AI agents course",
@@ -27,7 +29,7 @@ export default function CoursesPage() {
         <div className="text-center max-w-2xl mx-auto px-6">
           <h1 className="font-display text-4xl md:text-5xl font-bold text-slate-900 mb-4">Training programs</h1>
           <p className="text-slate-600 text-lg">
-            Two live cohorts and mentorship. Full syllabus on each course page.
+            Live cohorts for FDE, automation, and the flagship masterclass — plus mentorship. Full syllabus on each course page.
           </p>
         </div>
       </section>

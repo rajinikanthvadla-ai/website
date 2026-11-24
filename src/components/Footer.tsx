@@ -43,6 +43,7 @@ export default function Footer({ minimal = false }: { minimal?: boolean }) {
               <li><Link href="/python-course/playground/" className="hover:text-white transition-colors">Python Compiler</Link></li>
               <li><Link href="/syllabus/" className="hover:text-orange-400 transition-colors">Course Syllabus <span className="bg-orange-700 text-white text-[8px] font-bold py-0 px-1.5 rounded-sm uppercase ml-1">NEW</span></Link></li>
               <li><Link href="/interview-questions/" className="hover:text-orange-400 transition-colors">Interview Questions <span className="bg-orange-700 text-white text-[8px] font-bold py-0 px-1.5 rounded-sm uppercase ml-1">NEW</span></Link></li>
+              <li><Link href="/courses/fde/" className="hover:text-orange-400 transition-colors">FDE Course <span className="bg-orange-700 text-white text-[8px] font-bold py-0 px-1.5 rounded-sm uppercase ml-1">NEW</span></Link></li>
               <li><Link href="/courses/ai-automation" className="hover:text-white transition-colors">AI Automation</Link></li>
               <li><Link href="/mlops-aiops-masterclass" className="hover:text-[#dbeafe] transition-colors">MLOps Masterclass</Link></li>
               <li><Link href="/mentorship" className="hover:text-white transition-colors">Mentorship</Link></li>

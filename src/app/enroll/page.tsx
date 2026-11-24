@@ -55,6 +55,26 @@ export default function EnrollPage() {
 
       <SiteBanners placement="enroll" />
 
+      <section className="py-10 bg-white border-b border-slate-200">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="panel p-6 border-l-4 border-l-orange-500 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div>
+              <span className="text-[11px] font-bold uppercase tracking-wide text-orange-600">New cohort</span>
+              <h2 className="font-display font-bold text-xl text-slate-900 mt-1">Forward Deployed AI Engineering</h2>
+              <p className="text-sm text-slate-600 mt-1">
+                Starts 7 Dec 2026, 7:00-8:30 AM IST (Mon/Wed/Fri). Early bird ₹32,000 · regular ₹36,999.
+              </p>
+            </div>
+            <Link
+              href="/courses/fde/"
+              className="shrink-0 text-center px-6 py-3 rounded-lg text-sm font-semibold bg-orange-500 text-white hover:bg-orange-600"
+            >
+              View FDE course →
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <CoursePricing />
 
       <section className="py-16 md:py-24 bg-white border-b border-slate-200">

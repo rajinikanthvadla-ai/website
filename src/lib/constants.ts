@@ -40,10 +40,13 @@ export const LINKS = {
     "https://wa.me/919100028801?text=Hi%20Rajinikanth,%20I%20am%20interested%20in%20the%20AI-Powered%20Automation%20Efficiency%20course.%20Please%20share%20details.",
   whatsappAgenticFde:
     "https://wa.me/919100028801?text=Hi%20Rajinikanth,%20I%20am%20interested%20in%20the%20November%202026%20Agentic%20AI%20Architecture%20%26%20FDE%20customized%20training.%20Please%20share%20seat%20availability.",
+  whatsappFde:
+    "https://wa.me/919100028801?text=Hi%20Rajinikanth,%20I%20want%20to%20enroll%20in%20the%20Forward%20Deployed%20AI%20Engineering%20cohort%20starting%207%20Dec%202026%2C%207%3A00%20AM%20IST%20(early%20bird%20%E2%82%B932%2C000).%20Please%20share%20seat%20availability.",
   whatsappChannel: "https://whatsapp.com/channel/0029VbBxmp7Fy7262q1Ti72e",
   /** Free WhatsApp Business community (invite link). If you reset the link in WhatsApp, update it here. */
   whatsappCommunity: "https://chat.whatsapp.com/Bt65kK4EThMDjC5TXAr5WN",
   agenticFde: "/agentic-fde/",
+  fdeCourse: "/courses/fde/",
 
   linkedin: "https://www.linkedin.com/in/rajinikanth-vadla-4221281a4/",
   youtube: "https://www.youtube.com/@IamRajinikanthvadla",
@@ -120,10 +123,15 @@ export const NAV_GROUPS: NavGroup[] = [
     href: "/courses",
     links: [
       {
+        label: "Forward Deployed AI Engineering",
+        href: "/courses/fde",
+        description: "8 weeks live · customer problem to production",
+        badge: "NEW",
+      },
+      {
         label: "AI-Powered Automation",
         href: "/courses/ai-automation",
         description: "2 months live · agents, Bedrock, MCP",
-        badge: "NEW",
       },
       {
         label: "MLOps · AIOps Masterclass",
@@ -419,6 +427,21 @@ export const COURSES = [
     featured: true,
   },
   {
+    title: "Forward Deployed AI Engineering",
+    description:
+      "Starts 7 Dec 2026, 7:00-8:30 AM IST (Mon/Wed/Fri). 8-week live cohort: customer problem to production. Early bird ₹32,000 (first 8 seats) · regular ₹36,999.",
+    features: [
+      "Starts 7 Dec 2026 · 7 AM IST",
+      "₹32,000 early bird · ₹36,999 regular",
+      "Security + cost + playbook caps",
+      "Graded demo and handover pack",
+    ],
+    badge: "NEW",
+    href: "/courses/fde",
+    ctaText: "View FDE course",
+    featured: false,
+  },
+  {
     title: "AI-Powered Automation Efficiency",
     description:
       "2-month live course: build company AI agents (incident, RAG, MCP, HR). ₹20,000 with lifetime recordings and 1-on-1 mentorship.",
@@ -428,7 +451,7 @@ export const COURSES = [
       "1-on-1 mentorship",
       "Evolving syllabus",
     ],
-    badge: "NEW",
+    badge: "COHORT",
     href: "/courses/ai-automation",
     ctaText: "View course",
     featured: false,
@@ -457,7 +480,7 @@ export const HOME_PAGE_FAQS = [
   },
   {
     q: "Which course should I pick?",
-    a: "Choose the AI Platform Engineering Masterclass for a 4–5 month job-ready path (MLOps, AIOps, LLMOps, Agents, FDE). Choose AI Automation for a 2-month enterprise agents and tooling path. Not sure? Message on WhatsApp.",
+    a: "Choose the AI Platform Engineering Masterclass for a 4–5 month job-ready path (MLOps, AIOps, LLMOps, Agents, FDE). Choose Forward Deployed AI Engineering for an 8-week customer-problem-to-production cohort (early bird ₹32,000 · regular ₹36,999). Choose AI Automation for a 2-month enterprise agents path. Not sure? Message on WhatsApp.",
   },
   {
     q: "What does the masterclass include?",
@@ -790,13 +813,14 @@ export const STRUCTURED_DATA = {
     "@type": "ItemList",
     name: "Rajinikanth Vadla Training Programs",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "AI-Powered Automation Course", url: "https://rajinikanthvadla.com/courses/ai-automation/" },
-      { "@type": "ListItem", position: 2, name: "MLOps AIOps LLMOps Masterclass", url: "https://rajinikanthvadla.com/mlops-aiops-masterclass/" },
-      { "@type": "ListItem", position: 3, name: "GenAI Course", url: "https://rajinikanthvadla.com/genai-course/" },
-      { "@type": "ListItem", position: 4, name: "AI Agents Course", url: "https://rajinikanthvadla.com/ai-agents-course/" },
-      { "@type": "ListItem", position: 5, name: "AIOps Training", url: "https://rajinikanthvadla.com/aiops-training/" },
-      { "@type": "ListItem", position: 6, name: "Mentorship", url: "https://rajinikanthvadla.com/mentorship/" },
-      { "@type": "ListItem", position: 7, name: "AI Career Roadmaps", url: "https://rajinikanthvadla.com/roadmap/" },
+      { "@type": "ListItem", position: 1, name: "Forward Deployed AI Engineering Course", url: "https://rajinikanthvadla.com/courses/fde/" },
+      { "@type": "ListItem", position: 2, name: "AI-Powered Automation Course", url: "https://rajinikanthvadla.com/courses/ai-automation/" },
+      { "@type": "ListItem", position: 3, name: "MLOps AIOps LLMOps Masterclass", url: "https://rajinikanthvadla.com/mlops-aiops-masterclass/" },
+      { "@type": "ListItem", position: 4, name: "GenAI Course", url: "https://rajinikanthvadla.com/genai-course/" },
+      { "@type": "ListItem", position: 5, name: "AI Agents Course", url: "https://rajinikanthvadla.com/ai-agents-course/" },
+      { "@type": "ListItem", position: 6, name: "AIOps Training", url: "https://rajinikanthvadla.com/aiops-training/" },
+      { "@type": "ListItem", position: 7, name: "Mentorship", url: "https://rajinikanthvadla.com/mentorship/" },
+      { "@type": "ListItem", position: 8, name: "AI Career Roadmaps", url: "https://rajinikanthvadla.com/roadmap/" },
     ],
   },
   faq: {

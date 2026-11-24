@@ -14,9 +14,8 @@ export const metadata: Metadata = {
     "Limited seats: customized Agentic AI Architecture and Forward Deployed Engineering training with Rajinikanth Vadla. 8–10 weeks live, 5–6 students, weekly 1:1. Syllabus PDF online. ₹70,000.",
   keywords: [
     "Agentic AI Architecture course",
-    "Forward Deployed Engineering training",
-    "FDE course India",
-    "AI architect training",
+    "customized Forward Deployed Engineering training",
+    "AI architect training India",
     "LangGraph MCP course",
     "Rajinikanth Vadla",
     "November 2026 AI training",
@@ -161,7 +160,11 @@ export default function AgenticFdePage() {
           </h2>
           <p className="text-slate-600 max-w-2xl mb-8">
             One client-style project from start to end. Every week adds a piece the way a real FDE or
-            consulting engagement works.
+            consulting engagement works. Looking for the larger 12 to 15 seat cohort instead? See the{" "}
+            <Link href="/courses/fde/" className="text-blue-700 font-semibold hover:underline">
+              Forward Deployed AI Engineering course
+            </Link>
+            .
           </p>
           <ul className="grid md:grid-cols-2 gap-4">
             {AGENTIC_FDE.highlights.map((item) => (

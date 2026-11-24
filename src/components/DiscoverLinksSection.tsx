@@ -2,6 +2,7 @@ import Link from "next/link";
 
 const LEARN_LINKS = [
   { href: "/enroll/", label: "Enroll & pricing" },
+  { href: "/courses/fde/", label: "Forward Deployed AI Engineering (early bird ₹32,000)" },
   { href: "/agentic-fde/", label: "Agentic AI & FDE (Nov 2026 · limited)" },
   { href: "/syllabus/", label: "Full syllabus" },
   { href: "/mlops-aiops-masterclass/", label: "MLOps · AIOps masterclass" },

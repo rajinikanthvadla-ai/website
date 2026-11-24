@@ -154,15 +154,19 @@ export const ROADMAPS: Record<RoadmapSlug, CareerRoadmap> = {
       },
     ],
     tools: ["Python", "TypeScript", "LangChain", "MCP", "AWS Bedrock", "Cursor", "Docker", "FastAPI"],
-    relatedCourse: { label: "AI-Powered Automation Course", href: "/courses/ai-automation/" },
+    relatedCourse: { label: "Forward Deployed AI Engineering Course", href: "/courses/fde/" },
     faqs: [
       {
         q: "What does a Forward Deployed Engineer do?",
-        a: "FDEs work directly with customers to design, build, and deploy AI/ML solutions quickly. They combine software engineering, AI skills, and client communication — common at Palantir-style firms and enterprise AI vendors.",
+        a: "FDEs work directly with customers to design, build, and deploy AI/ML solutions quickly. They combine software engineering, AI skills, and client communication. Common at Palantir-style firms and enterprise AI vendors.",
       },
       {
-        q: "FDE vs ML Engineer — what's the difference?",
+        q: "FDE vs ML Engineer: what's the difference?",
         a: "ML Engineers focus on model training and MLOps pipelines. FDEs focus on customer-specific delivery, rapid prototyping, and integration. FDEs need broader full-stack skills and stronger communication.",
+      },
+      {
+        q: "Is there a live FDE course in India?",
+        a: "Yes. Rajinikanth Vadla teaches an 8-week Forward Deployed AI Engineering cohort at https://rajinikanthvadla.com/courses/fde/ (early bird ₹32,000, regular ₹36,999). It is project training for engineers who already know Python and APIs.",
       },
     ],
   },

@@ -28,6 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/universe/`, lastModified: now, changeFrequency: "weekly", priority: 0.98 },
     { url: `${base}/path/`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: `${base}/compare/`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${base}/courses/fde/`, lastModified: now, changeFrequency: "daily", priority: 0.99 },
     { url: `${base}/courses/ai-automation/`, lastModified: now, changeFrequency: "daily", priority: 0.99 },
     { url: `${base}/mlops-aiops-masterclass/`, lastModified: now, changeFrequency: "daily", priority: 0.99 },
     { url: `${base}/global-training/`, lastModified: now, changeFrequency: "weekly", priority: 0.97 },
@@ -93,7 +94,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${base}/blog/${a.slug}/`,
     lastModified: new Date(a.date).toISOString(),
     changeFrequency: "weekly" as const,
-    priority: 0.75,
+    priority: a.slug === "forward-deployed-ai-engineering-course-india" ? 0.96 : 0.75,
   }));
 
   const resumeRoutes: MetadataRoute.Sitemap = RESUME_ROLES.map((r) => ({
