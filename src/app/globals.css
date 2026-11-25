@@ -2898,7 +2898,7 @@ body:has(.cc-panel) .activity-toast { display: none; }
   .cc-panel { animation: none; }
 }
 
-/* ══ Class whiteboard (Eraser.io) ══ */
+/* ══ Class whiteboard (JojoPen) ══ */
 body:has(.wb-shell) .notion-footer,
 body:has(.wb-shell) .wa-float,
 body:has(.wb-shell) .activity-toast,

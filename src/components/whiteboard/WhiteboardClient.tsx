@@ -1,7 +1,7 @@
 "use client";
 
-import EraserBoard from "./EraserBoard";
+import JojoPenBoard from "./JojoPenBoard";
 
 export default function WhiteboardClient() {
-  return <EraserBoard />;
+  return <JojoPenBoard />;
 }
