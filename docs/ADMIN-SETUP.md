@@ -103,6 +103,9 @@ To check Resend's replies: `select status_code, content, created from net._http_
 
 | You want to | Go to |
 |---|---|
+| Let Grokbot publish from the UI | Section 8. Grok signs into /admin and clicks like you |
+| Copy a lead phone number | Leads → **Copy phone** (number is also selectable) |
+| Write a blog post with a cover picture | Blog → New blog post → Upload cover → Save → Publish |
 | Announce a batch, workshop or news | News > New post. Tick "Show in top bar" for the strip above the menu |
 | Put up a ChatGPT banner | Banners > New banner > Upload. Pick the page it shows on |
 | Add a project you delivered | Projects > New project |
@@ -137,10 +140,53 @@ The site also rebuilds itself every day at 06:00 IST, so the "2 days ago" times 
 stay current without you pressing Publish. GitHub pauses daily runs if the repository has no
 commits for 60 days; any push or Publish turns them back on.
 
+## 8. Blog table (one-time SQL if admin.sql already ran)
+
+If you set up admin before Blog existed, run `supabase/blog.sql` once in the SQL Editor.
+That creates `site_blog_posts` (title, Markdown body, **cover picture**, publish flag).
+
+## 9. Grokbot (uses the admin UI, not an API)
+
+Grok signs into https://rajinikanthvadla.com/admin/ with its own admin account and works the same screens you do.
+
+### Account setup
+
+1. Supabase → **Authentication → Users → Add user** for Grok’s email + password. Auto confirm.
+2. SQL Editor:
+
+   ```sql
+   insert into public.admins (user_id)
+   select id from auth.users where email = 'GROK-EMAIL-HERE';
+   ```
+
+3. **Do not turn on 2-step login for the Grok account.** Grok cannot enter authenticator codes. Keep MFA on *your* personal admin only.
+
+### What Grok clicks
+
+| Goal | Path |
+|---|---|
+| Write a blog post + cover picture | **Blog** → New blog post → Upload cover → Markdown body → Save |
+| Write / reset a News post | **News** → New post or open existing → save (uncheck Published to reset) |
+| Upload a News thumbnail | In the News post → **Image** upload |
+| Top bar announcement | Tick **Show in top bar** + short bar text |
+| Banner | **Banners** → New banner → Upload |
+| Make it live | **Dashboard** → **Publish** |
+| Copy a lead phone | **Leads** → **Copy phone** |
+
+Existing long posts in `content/articles.json` stay. New ones from Admin → Blog appear on `/blog` after Publish.
+
+### Prompt for Grok (paste once)
+
+> Open https://rajinikanthvadla.com/admin/, sign in with the credentials I gave you.
+> To publish a blog: Blog → New blog post → title, SEO description, Upload cover picture, Markdown body, tags → tick Published → Save → Dashboard → Publish.
+> To publish news: News → New post → fill fields → upload image → Save → Publish.
+> To reset: open the post → uncheck Published (or Delete) → Save → Publish.
+> Do not use any API. Stay in the admin UI.
+
 ## How it stays safe and fast
 
 - The live site is plain pre-built pages, so it stays fast. Your edits go live when you press Publish.
 - If Supabase is down during a publish, the build stops and the live site keeps the last good version.
-- The database refuses edits from anyone who is not in `admins`. With 2-step login on, a stolen
-  password alone is not enough.
+- The database refuses edits from anyone who is not in `admins`. With 2-step login on your account, a stolen
+  password alone is not enough for you. Grok’s account stays password-only so it can use the UI.
 - Analytics stores no cookies and no IP addresses, only page, source, device type, language and time zone.

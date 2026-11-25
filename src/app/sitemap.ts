@@ -1,15 +1,16 @@
 import type { MetadataRoute } from "next";
-import articles from "../../content/articles.json";
 import { ROADMAP_SLUGS } from "@/lib/roadmaps";
 import { getSkillSlugs, COMPARE_SLUGS } from "@/lib/knowledge-graph";
 import { RESUME_ROLES } from "@/lib/resume-roles";
 import { PYTHON_LESSON_SLUGS, PRACTICE_TOPIC_SLUGS } from "@/lib/python-course";
+import { getAllArticles } from "@/lib/blog";
 
 export const dynamic = "force-static";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = "https://rajinikanthvadla.com";
   const now = new Date().toISOString();
+  const articles = await getAllArticles();
 
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: `${base}/`, lastModified: now, changeFrequency: "daily", priority: 1.0 },

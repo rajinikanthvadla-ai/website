@@ -1,4 +1,4 @@
-import articles from "../../../content/articles.json";
+import { getAllArticles } from "@/lib/blog";
 import { SITE } from "@/lib/constants";
 
 export const dynamic = "force-static";
@@ -7,8 +7,8 @@ const escapeXml = (text: string) =>
   text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&apos;");
 
 /** RSS feed of blog posts so Google, news readers and AI crawlers pick up new articles quickly. */
-export function GET() {
-  const posts = [...articles].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+export async function GET() {
+  const posts = await getAllArticles();
   const items = posts
     .map((post) => {
       const url = `${SITE.url}/blog/${post.slug}/`;

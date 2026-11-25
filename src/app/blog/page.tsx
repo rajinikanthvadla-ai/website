@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import Link from "next/link";
-import articles from "../../../content/articles.json";
+import { getAllArticles } from "@/lib/blog";
 
 export const metadata: Metadata = {
   title: "MLOps, AIOps & GenAI Blog",
@@ -19,9 +19,9 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://rajinikanthvadla.com/blog/" },
 };
 
-const sorted = [...articles].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+export default async function BlogPage() {
+  const sorted = await getAllArticles();
 
-export default function BlogPage() {
   return (
     <>
       <BreadcrumbJsonLd items={[{ name: "Blog", path: "/blog/" }]} />
@@ -44,21 +44,31 @@ export default function BlogPage() {
                 href={`/blog/${article.slug}/`}
                 className="group grid md:grid-cols-[1fr_auto] gap-6 panel p-7 md:p-8 card-hover"
               >
-                <div>
-                  <div className="flex flex-wrap items-center gap-3 mb-3">
-                    <span className="border border-stone-300 bg-stone-50 text-stone-700 px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-wide">{article.category}</span>
-                    <span className="text-stone-500 text-sm">{article.date}</span>
-                    <span className="text-stone-500 text-sm">{article.readTime} read</span>
+                <div className="grid gap-4 md:grid-cols-[minmax(0,1fr)_180px] md:items-center">
+                  <div>
+                    <div className="flex flex-wrap items-center gap-3 mb-3">
+                      <span className="border border-stone-300 bg-stone-50 text-stone-700 px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-wide">{article.category}</span>
+                      <span className="text-stone-500 text-sm">{article.date}</span>
+                      <span className="text-stone-500 text-sm">{article.readTime} read</span>
+                    </div>
+                    <h2 className="font-display text-xl md:text-2xl font-bold text-stone-900 mb-2 group-hover:text-accent-700 transition-colors leading-tight">
+                      {article.title}
+                    </h2>
+                    <p className="text-stone-600 leading-relaxed line-clamp-2 text-sm md:text-base">{article.description}</p>
+                    <div className="flex flex-wrap gap-2 mt-3">
+                      {article.tags.slice(0, 4).map((tag) => (
+                        <span key={tag} className="text-[11px] font-medium text-stone-500 border border-stone-200 px-2 py-0.5">{tag}</span>
+                      ))}
+                    </div>
                   </div>
-                  <h2 className="font-display text-xl md:text-2xl font-bold text-stone-900 mb-2 group-hover:text-accent-700 transition-colors leading-tight">
-                    {article.title}
-                  </h2>
-                  <p className="text-stone-600 leading-relaxed line-clamp-2 text-sm md:text-base">{article.description}</p>
-                  <div className="flex flex-wrap gap-2 mt-3">
-                    {article.tags.slice(0, 4).map((tag) => (
-                      <span key={tag} className="text-[11px] font-medium text-stone-500 border border-stone-200 px-2 py-0.5">{tag}</span>
-                    ))}
-                  </div>
+                  {article.coverImage ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={article.coverImage}
+                      alt=""
+                      className="hidden md:block w-full h-28 object-cover border border-stone-200 bg-stone-100"
+                    />
+                  ) : null}
                 </div>
                 <div className="flex items-center">
                   <span className="text-accent-600 font-semibold text-sm whitespace-nowrap group-hover:underline underline-offset-4">

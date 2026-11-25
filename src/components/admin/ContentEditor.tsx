@@ -21,7 +21,7 @@ export type FieldDef = {
 };
 
 export type EditorConfig = {
-  table: "site_posts" | "site_banners" | "portfolio_projects" | "site_activity";
+  table: "site_posts" | "site_banners" | "portfolio_projects" | "site_activity" | "site_blog_posts";
   title: string;
   sub: string;
   newLabel: string;
@@ -285,9 +285,13 @@ export default function ContentEditor({ db, config, onChanged }: { db: SupabaseC
       <div className="grid gap-3">
         {rows.map((r) => (
           <Card key={r.id} className="flex flex-wrap items-center gap-3">
-            {r.image_url ? (
+            {r.image_url || r.cover_image_url ? (
               // eslint-disable-next-line @next/next/no-img-element
-              <img src={r.image_url} alt="" className="h-14 w-24 rounded object-cover border border-slate-200" />
+              <img
+                src={(r.image_url || r.cover_image_url) as string}
+                alt=""
+                className="h-14 w-24 rounded object-cover border border-slate-200"
+              />
             ) : null}
             <div className="min-w-0 flex-1">
               <p className="font-semibold text-[#0f172a] truncate">{config.listTitle(r)}</p>
@@ -412,6 +416,67 @@ export const PROJECTS_CONFIG: EditorConfig = {
     results: (r.results ?? []).map((s: string) => s.trim()).filter(Boolean),
     stack: (r.stack ?? []).map((s: string) => s.trim()).filter(Boolean),
   }),
+};
+
+export const BLOG_CONFIG: EditorConfig = {
+  table: "site_blog_posts",
+  title: "Blog",
+  sub: "Long posts on /blog. Upload a cover picture, write Markdown in the body, then Publish on the Dashboard.",
+  newLabel: "New blog post",
+  folder: "blog",
+  liveKey: "published",
+  orderBy: [{ column: "published_at", ascending: false }],
+  defaults: {
+    slug: "",
+    title: "",
+    description: "",
+    category: "Courses",
+    tags: [],
+    read_time: "",
+    published_at: null,
+    content: "",
+    cover_image_url: "",
+    published: true,
+  },
+  fields: [
+    { key: "title", label: "Title", type: "text", required: true, placeholder: "FDE course in India: what to expect" },
+    { key: "description", label: "SEO description", type: "textarea", rows: 3, required: true, placeholder: "One or two sentences for Google and social previews." },
+    {
+      key: "cover_image_url",
+      label: "Cover picture",
+      type: "image",
+      help: "Landscape 1536×1024 works best. Shown on the blog list and at the top of the article.",
+    },
+    { key: "category", label: "Category", type: "text", required: true, suggestions: ["Courses", "Careers", "AI Platform", "AI Agents", "MLOps"], placeholder: "Courses" },
+    { key: "tags", label: "Tags", type: "list", help: "One tag per line" },
+    { key: "content", label: "Body (Markdown)", type: "textarea", rows: 16, required: true, help: "Use ## headings, lists, and [links](/path/)." },
+    { key: "slug", label: "URL name", type: "text", help: "Made from the title if empty. Example: fde-course-india" },
+    { key: "read_time", label: "Read time", type: "text", placeholder: "8 min", help: "Leave empty to estimate from the body." },
+    { key: "published_at", label: "Publish date", type: "datetime", help: "Leave empty for today. Only the date is used on the site." },
+    { key: "published", label: "Published", type: "checkbox" },
+  ],
+  listTitle: (r) => r.title,
+  listMeta: (r) =>
+    [r.category, r.slug ? `/blog/${r.slug}/` : "", r.cover_image_url ? "Has cover" : "No cover"].filter(Boolean).join(" · "),
+  isLive: (r) => r.published,
+  beforeSave: (r) => {
+    const publishedAt = r.published_at
+      ? String(r.published_at).slice(0, 10)
+      : new Date().toISOString().slice(0, 10);
+    const words = String(r.content || "")
+      .trim()
+      .split(/\s+/)
+      .filter(Boolean).length;
+    const estimated = `${Math.max(1, Math.round(words / 200))} min`;
+    return {
+      ...r,
+      slug: r.slug ? slugify(r.slug) : slugify(r.title),
+      tags: (r.tags ?? []).map((s: string) => s.trim()).filter(Boolean),
+      published_at: publishedAt,
+      read_time: String(r.read_time || "").trim() || estimated,
+      cover_image_url: String(r.cover_image_url || "").trim(),
+    };
+  },
 };
 
 export const ACTIVITY_ACTIONS = [

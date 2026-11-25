@@ -145,8 +145,33 @@ export async function getProjects(): Promise<PortfolioProject[]> {
   );
 }
 
+export type CmsBlogPost = {
+  id: string;
+  slug: string;
+  title: string;
+  description: string;
+  category: string;
+  tags: string[];
+  read_time: string;
+  published_at: string;
+  content: string;
+  cover_image_url: string;
+};
+
 export type ActivityItem = { id: string; first_name: string; city: string; action: string; happened_at: string };
 export type ActivityStats = { enquiries_7d: number; requests_30d: number; joined_30d: number };
+
+/** Blog posts created in /admin → Blog (cover image included). */
+export async function getCmsBlogPosts(): Promise<CmsBlogPost[]> {
+  return load<CmsBlogPost[]>("site_blog_posts", [], (db) =>
+    db
+      .from("site_blog_posts")
+      .select("id, slug, title, description, category, tags, read_time, published_at, content, cover_image_url")
+      .eq("published", true)
+      .order("published_at", { ascending: false })
+      .limit(200),
+  );
+}
 
 /** Real recent activity (last 30 days), added in /admin > Activity. */
 export async function getActivity(): Promise<ActivityItem[]> {

@@ -4,7 +4,7 @@ import type { Session, SupabaseClient } from "@supabase/supabase-js";
 import { useCallback, useEffect, useState } from "react";
 import { getAdminClient } from "@/lib/admin-client";
 import Analytics from "./Analytics";
-import ContentEditor, { ACTIVITY_CONFIG, BANNERS_CONFIG, POSTS_CONFIG, PROJECTS_CONFIG } from "./ContentEditor";
+import ContentEditor, { ACTIVITY_CONFIG, BANNERS_CONFIG, BLOG_CONFIG, POSTS_CONFIG, PROJECTS_CONFIG } from "./ContentEditor";
 import Dashboard from "./Dashboard";
 import Inbox, { LEADS_CONFIG, REQUESTS_CONFIG } from "./Inbox";
 import Reviews from "./Reviews";
@@ -18,6 +18,7 @@ const TABS = [
   { id: "requests", label: "Requests" },
   { id: "analytics", label: "Analytics" },
   { id: "news", label: "News" },
+  { id: "blog", label: "Blog" },
   { id: "banners", label: "Banners" },
   { id: "projects", label: "Projects" },
   { id: "activity", label: "Activity" },
@@ -338,6 +339,7 @@ export default function AdminApp() {
       {tab === "requests" ? <Inbox db={db} config={REQUESTS_CONFIG} /> : null}
       {tab === "analytics" ? <Analytics db={db} /> : null}
       {tab === "news" ? <ContentEditor db={db} config={POSTS_CONFIG} onChanged={markDirty} /> : null}
+      {tab === "blog" ? <ContentEditor db={db} config={BLOG_CONFIG} onChanged={markDirty} /> : null}
       {tab === "banners" ? <ContentEditor db={db} config={BANNERS_CONFIG} onChanged={markDirty} /> : null}
       {tab === "projects" ? <ContentEditor db={db} config={PROJECTS_CONFIG} onChanged={markDirty} /> : null}
       {tab === "activity" ? <ContentEditor db={db} config={ACTIVITY_CONFIG} onChanged={markDirty} /> : null}

@@ -1,18 +1,17 @@
 import type { Metadata } from "next";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import Link from "next/link";
-import articles from "../../../../content/articles.json";
 import { LINKS } from "@/lib/constants";
 import BlogMarkdown from "@/components/BlogMarkdown";
 import SeoAlias from "@/components/SeoAlias";
 import { ARTICLE_REDIRECTS } from "@/lib/article-redirects";
 import { aliasPageMetadata } from "@/lib/seo-alias";
-
-type Article = (typeof articles)[number];
+import { getAllArticles, getArticleBySlug } from "@/lib/blog";
 
 const SITE_ORIGIN = "https://rajinikanthvadla.com";
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const articles = await getAllArticles();
   return [
     ...articles.map((a) => ({ slug: a.slug })),
     ...Object.keys(ARTICLE_REDIRECTS).map((slug) => ({ slug })),
@@ -23,8 +22,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const redirectTarget = ARTICLE_REDIRECTS[slug];
   if (redirectTarget) return aliasPageMetadata(`/blog/${redirectTarget}/`, "Article moved");
-  const article = articles.find((a) => a.slug === slug);
+  const article = await getArticleBySlug(slug);
   if (!article) return { title: "Article Not Found" };
+
+  const cover = article.coverImage || `${SITE_ORIGIN}/assets/og-image.jpg`;
 
   return {
     title: article.title,
@@ -38,6 +39,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       publishedTime: article.date,
       authors: ["Rajinikanth Vadla"],
       tags: article.tags,
+      images: [{ url: cover }],
     },
   };
 }
@@ -45,6 +47,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function ArticlePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const redirectTarget = ARTICLE_REDIRECTS[slug];
+  const articles = await getAllArticles();
   if (redirectTarget) {
     const canonical = articles.find((a) => a.slug === redirectTarget);
     return (
@@ -60,10 +63,8 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
       />
     );
   }
-  const article = articles.find((a) => a.slug === slug) as Article | undefined;
-  const relatedArticles = articles
-    .filter((a) => a.slug !== slug)
-    .slice(0, 3);
+  const article = articles.find((a) => a.slug === slug);
+  const relatedArticles = articles.filter((a) => a.slug !== slug).slice(0, 3);
   const isFdeArticle =
     !!article &&
     (article.slug.includes("forward-deployed") ||
@@ -81,16 +82,16 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
 
   const articlePath = `/blog/${article.slug}/`;
   const articleUrl = `${SITE_ORIGIN}${articlePath}`;
-  const updatedAt = "updatedAt" in article && typeof (article as { updatedAt?: string }).updatedAt === "string" ? (article as { updatedAt: string }).updatedAt : article.date;
+  const cover = article.coverImage || `${SITE_ORIGIN}/assets/og-image.jpg`;
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: article.title,
     description: article.description,
-    image: [`${SITE_ORIGIN}/assets/og-image.jpg`],
+    image: [cover],
     datePublished: article.date,
-    dateModified: updatedAt,
+    dateModified: article.date,
     mainEntityOfPage: { "@type": "WebPage", "@id": articleUrl },
     author: { "@type": "Person", name: "Rajinikanth Vadla", url: `${SITE_ORIGIN}/` },
     publisher: {
@@ -117,6 +118,14 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
             </div>
             <h1 className="font-display text-3xl md:text-5xl font-bold text-stone-900 leading-tight mb-4">{article.title}</h1>
             <p className="text-lg text-stone-600 leading-relaxed">{article.description}</p>
+            {article.coverImage ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={article.coverImage}
+                alt=""
+                className="mt-8 w-full max-h-[420px] object-cover border border-stone-300 bg-white"
+              />
+            ) : null}
             <div className="flex items-center gap-3 mt-6">
               <div className="w-10 h-10 border border-stone-900 bg-stone-900 text-[#fffefc] flex items-center justify-center font-bold text-xs">RV</div>
               <div>
@@ -197,6 +206,10 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                   href={`/blog/${item.slug}/`}
                   className="panel p-5 hover:border-stone-400 transition-colors"
                 >
+                  {item.coverImage ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={item.coverImage} alt="" className="mb-3 h-28 w-full object-cover border border-stone-200" />
+                  ) : null}
                   <div className="text-xs font-semibold uppercase tracking-wide text-accent-600 mb-2">{item.category}</div>
                   <h4 className="font-semibold text-stone-900 leading-snug mb-2">{item.title}</h4>
                   <p className="text-sm text-stone-600 line-clamp-3">{item.description}</p>

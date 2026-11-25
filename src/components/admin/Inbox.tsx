@@ -83,6 +83,19 @@ export default function Inbox({ db, config, onChanged }: { db: SupabaseClient; c
   }
 
   const [flash, setFlash] = useState("");
+  const [copiedId, setCopiedId] = useState("");
+
+  async function copyText(value: string, id: string, label: string) {
+    const text = value.trim();
+    if (!text) return;
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopiedId(`${id}:${label}`);
+      setTimeout(() => setCopiedId(""), 2000);
+    } catch {
+      setError(`Could not copy ${label}. Select the number and copy it by hand.`);
+    }
+  }
 
   async function addToActivity(r: Row) {
     if (!config.activityAction) return;
@@ -172,15 +185,40 @@ export default function Inbox({ db, config, onChanged }: { db: SupabaseClient; c
               {config.body(r) ? <p className="text-sm text-slate-700 whitespace-pre-line bg-slate-50 rounded-lg p-3 mb-3">{config.body(r)}</p> : null}
 
               <div className="flex flex-wrap items-center gap-2 mb-3">
-                {wa ? (
-                  <a href={wa} target="_blank" rel="noopener noreferrer" className={btnGhost}>
-                    WhatsApp {r.whatsapp}
-                  </a>
+                {r.whatsapp ? (
+                  <div className="flex flex-wrap items-center gap-1.5">
+                    <span className="inline-flex items-center rounded-lg border border-slate-300 bg-white px-3 py-1.5 text-sm font-mono text-[#0f172a] select-all">
+                      {r.whatsapp}
+                    </span>
+                    <button
+                      type="button"
+                      className={btnGhost}
+                      onClick={() => copyText(String(r.whatsapp), r.id, "phone")}
+                      title="Copy phone number"
+                    >
+                      {copiedId === `${r.id}:phone` ? "Copied" : "Copy phone"}
+                    </button>
+                    {wa ? (
+                      <a href={wa} target="_blank" rel="noopener noreferrer" className={btnGhost}>
+                        Open WhatsApp
+                      </a>
+                    ) : null}
+                  </div>
                 ) : null}
                 {r.email ? (
-                  <a href={`mailto:${r.email}`} className={btnGhost}>
-                    Email {r.email}
-                  </a>
+                  <div className="flex flex-wrap items-center gap-1.5">
+                    <a href={`mailto:${r.email}`} className={btnGhost}>
+                      Email {r.email}
+                    </a>
+                    <button
+                      type="button"
+                      className={btnGhost}
+                      onClick={() => copyText(String(r.email), r.id, "email")}
+                      title="Copy email"
+                    >
+                      {copiedId === `${r.id}:email` ? "Copied" : "Copy email"}
+                    </button>
+                  </div>
                 ) : null}
                 <select className={`${input} w-auto`} value={r.status} onChange={(e) => update(r.id, { status: e.target.value })} aria-label="Status">
                   {config.statuses.map((s) => (
