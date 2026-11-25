@@ -64,6 +64,11 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   const relatedArticles = articles
     .filter((a) => a.slug !== slug)
     .slice(0, 3);
+  const isFdeArticle =
+    !!article &&
+    (article.slug.includes("forward-deployed") ||
+      article.slug.includes("fde") ||
+      article.tags.some((t) => /fde|forward deployed/i.test(t)));
 
   if (!article) {
     return (
@@ -130,16 +135,55 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
 
         <section className="py-14 md:py-16 bg-stone-50 border-b border-stone-200">
           <div className="max-w-3xl mx-auto px-6 text-center">
-            <h3 className="font-display text-xl md:text-2xl font-bold text-stone-900 mb-3">Want this as guided work?</h3>
-            <p className="text-stone-600 mb-6 text-sm md:text-base">The masterclass is where these threads get tied into a coherent story for interviews and delivery.</p>
-            <div className="flex flex-wrap justify-center gap-3">
-              <Link href="/mlops-aiops-masterclass" className="bg-stone-900 text-white px-7 py-3 text-sm font-semibold hover:bg-stone-800 transition-colors">
-                View masterclass
-              </Link>
-              <a href={LINKS.whatsapp} target="_blank" rel="noopener noreferrer" className="bg-emerald-700 text-white px-7 py-3 text-sm font-semibold hover:bg-emerald-800 transition-colors">
-                WhatsApp
-              </a>
-            </div>
+            {isFdeArticle ? (
+              <>
+                <h3 className="font-display text-xl md:text-2xl font-bold text-stone-900 mb-3">
+                  Ready for the live FDE cohort?
+                </h3>
+                <p className="text-stone-600 mb-6 text-sm md:text-base">
+                  Starts 7 Dec 2026, 7:00-8:30 AM IST. Early bird ₹32,000 for the first 8 seats.
+                </p>
+                <div className="flex flex-wrap justify-center gap-3">
+                  <Link
+                    href="/courses/fde/"
+                    className="bg-orange-500 text-white px-7 py-3 text-sm font-semibold hover:bg-orange-600 transition-colors"
+                  >
+                    View FDE course
+                  </Link>
+                  <a
+                    href={LINKS.whatsappFde}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-emerald-700 text-white px-7 py-3 text-sm font-semibold hover:bg-emerald-800 transition-colors"
+                  >
+                    WhatsApp to enroll
+                  </a>
+                </div>
+              </>
+            ) : (
+              <>
+                <h3 className="font-display text-xl md:text-2xl font-bold text-stone-900 mb-3">Want this as guided work?</h3>
+                <p className="text-stone-600 mb-6 text-sm md:text-base">
+                  The masterclass is where these threads get tied into a coherent story for interviews and delivery.
+                </p>
+                <div className="flex flex-wrap justify-center gap-3">
+                  <Link
+                    href="/mlops-aiops-masterclass/"
+                    className="bg-stone-900 text-white px-7 py-3 text-sm font-semibold hover:bg-stone-800 transition-colors"
+                  >
+                    View masterclass
+                  </Link>
+                  <a
+                    href={LINKS.whatsapp}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-emerald-700 text-white px-7 py-3 text-sm font-semibold hover:bg-emerald-800 transition-colors"
+                  >
+                    WhatsApp
+                  </a>
+                </div>
+              </>
+            )}
           </div>
         </section>
 
@@ -160,6 +204,9 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
               ))}
             </div>
             <div className="mt-6 flex flex-wrap gap-3">
+              <Link href="/courses/fde/" className="text-sm font-semibold text-accent-700 hover:underline underline-offset-4">
+                FDE course
+              </Link>
               <Link href="/mlops-aiops-masterclass/" className="text-sm font-semibold text-accent-700 hover:underline underline-offset-4">
                 MLOps masterclass
               </Link>
