@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 
+// Authoring rules: .cursor/skills/blog-writing-rajinikanth-vadla/SKILL.md
 const ARTICLES_PATH = path.join(__dirname, "..", "content", "articles.json");
 
 const TOPICS = [
@@ -240,6 +241,11 @@ function canonicalSlug(slug) {
 
 /** Scheduled topics that already have one post. Checked before the fuzzy match. */
 const TOPIC_SLUGS = {
+  "AI market 2027: where enterprise money moves for platforms and agents": "ai-market-outlook-2027",
+  "AI jobs 2027 India: DevOps to MLOps and LLMOps career bridges": "ai-jobs-india-world-2027",
+  "AI predictions 2027: gateways, evals, computer-use agents, Physical AI": "ai-predictions-learners-2027",
+  "How to learn AI in 2027: a production-first 90-day plan": "learn-ai-december-january-february-2027-plan",
+
   "Latest breakthroughs in AI Agents and autonomous systems": "latest-breakthroughs-ai-agents-autonomous-systems-2026",
   "New MLOps tools and practices for production ML in 2026": "mlops-tools-practices-production-2026",
   "AIOps innovations: AI-powered infrastructure management": "aiops-innovations-infrastructure-management-2026",
