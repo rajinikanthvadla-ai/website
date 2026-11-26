@@ -3,16 +3,17 @@ import { notFound } from "next/navigation";
 import LessonView from "@/components/python-course/LessonView";
 import {
   PYTHON_LESSON_SLUGS,
-  PYTHON_MODULES,
   PYTHON_OUTLINE,
   getAdjacentLessons,
   getPythonLesson,
 } from "@/lib/python-course";
-import { MODULE_SHORT_LABEL } from "@/lib/python-course/labels";
+import { buildWeeks, placeInWeeks } from "@/lib/python-course/weeks";
 import { memoryFor, moduleCards } from "@/lib/python-course/memory";
 import { getQuiz } from "@/lib/python-course/quizzes";
 import { sceneFor } from "@/lib/python-course/scenes";
 import { SITE } from "@/lib/constants";
+
+const WEEKS = buildWeeks(PYTHON_OUTLINE);
 
 function outlineOf(slug?: string) {
   return PYTHON_OUTLINE.find((item) => item.slug === slug) ?? null;
@@ -78,7 +79,7 @@ export default async function PythonLessonPage({ params }: { params: Promise<{ s
     proficiencyLevel: lesson.level,
   };
 
-  const moduleMeta = PYTHON_MODULES.find((mod) => mod.id === lesson.moduleId);
+  const place = placeInWeeks(WEEKS, lesson.slug);
   const moduleLessons = PYTHON_OUTLINE.filter((item) => item.moduleId === lesson.moduleId);
   const isLastInModule = moduleLessons.at(-1)?.slug === lesson.slug;
   const breadcrumbLd = {
@@ -89,8 +90,8 @@ export default async function PythonLessonPage({ params }: { params: Promise<{ s
       {
         "@type": "ListItem",
         position: 2,
-        name: moduleMeta ? MODULE_SHORT_LABEL[moduleMeta.id] : "Lesson",
-        item: `${SITE.url}/python-course/#module-${lesson.moduleId}`,
+        name: place ? `Week ${place.week.number}: ${place.week.title}` : "Lesson",
+        item: `${SITE.url}/python-course/#week-${place?.week.number ?? 1}`,
       },
       {
         "@type": "ListItem",
@@ -107,8 +108,12 @@ export default async function PythonLessonPage({ params }: { params: Promise<{ s
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <LessonView
         lesson={lesson}
-        modules={PYTHON_MODULES}
         outline={PYTHON_OUTLINE}
+        week={
+          place
+            ? { number: place.week.number, title: place.week.title, lessonNumber: place.lessonNumber, lessons: place.week.lessons }
+            : null
+        }
         prev={outlineOf(getAdjacentLessons(lesson.slug).prev?.slug)}
         next={outlineOf(getAdjacentLessons(lesson.slug).next?.slug)}
         quiz={getQuiz(lesson.slug)}

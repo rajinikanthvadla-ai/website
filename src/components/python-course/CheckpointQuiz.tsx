@@ -50,9 +50,13 @@ function blankMatches(question: QuizQuestion, value: string): boolean {
 
 type Props = {
   quiz: LessonQuiz;
+  /** Show only these questions, without the card header (step-by-step lessons). */
+  only?: number[];
+  /** Called when a question is answered, now or on an earlier visit. */
+  onAnswered?: (questionId: string) => void;
 };
 
-export default function CheckpointQuiz({ quiz }: Props) {
+export default function CheckpointQuiz({ quiz, only, onAnswered }: Props) {
   const [ready, setReady] = useState(false);
   const [picked, setPicked] = useState<Record<string, string>>({});
   const [drafts, setDrafts] = useState<Record<string, string>>({});
@@ -72,6 +76,7 @@ export default function CheckpointQuiz({ quiz }: Props) {
       if (question.kind !== "blank") nextPicked[question.id] = question.answer;
     }
     setCorrect(ids);
+    ids.forEach((id) => onAnswered?.(id));
     setPicked(nextPicked);
     setRevealed(nextRevealed);
     setDrafts({});
@@ -81,14 +86,15 @@ export default function CheckpointQuiz({ quiz }: Props) {
   const passed = quiz.questions.every((question) => correct.includes(question.id));
 
   function mark(question: QuizQuestion, isRight: boolean) {
-    setCorrect((current) => {
-      const next = isRight
-        ? Array.from(new Set([...current, question.id]))
-        : current.filter((id) => id !== question.id);
-      writeSaved(quiz.slug, next);
-      return next;
-    });
+    // Read storage, not state: several one-question instances share the same saved list.
+    const stored = new Set(readSaved()[quiz.slug]?.ids ?? []);
+    if (isRight) stored.add(question.id);
+    else stored.delete(question.id);
+    const next = Array.from(stored);
+    writeSaved(quiz.slug, next);
+    setCorrect(next);
     setRevealed((current) => ({ ...current, [question.id]: true }));
+    onAnswered?.(question.id);
   }
 
   function choose(question: QuizQuestion, optionId: string) {
@@ -100,22 +106,29 @@ export default function CheckpointQuiz({ quiz }: Props) {
     mark(question, blankMatches(question, drafts[question.id] ?? ""));
   }
 
+  const single = only !== undefined;
+  const shownQuestions = single ? only.map((index) => quiz.questions[index]).filter(Boolean) : quiz.questions;
+
   return (
     <section
-      className="border-2 border-slate-900 rounded-lg bg-white p-4 sm:p-5 shadow-[4px_4px_0_#0f172a]"
-      aria-labelledby={`check-${quiz.slug}`}
+      className={single ? "" : "border-2 border-slate-900 rounded-lg bg-white p-4 sm:p-5 shadow-[4px_4px_0_#0f172a]"}
+      aria-labelledby={single ? undefined : `check-${quiz.slug}`}
     >
-      <p className="text-xs font-bold uppercase tracking-wide text-orange-700 mb-1">Easy check</p>
-      <h2 id={`check-${quiz.slug}`} className="font-display text-xl font-bold text-slate-900 mb-2">
-        {quiz.title}
-      </h2>
-      <p className="text-sm text-slate-700 leading-6 mb-4">
-        {ready && passed
-          ? "That's the idea. Your answers stay on this device."
-          : "A few easy ones. Guess, then read the one-line why. Nothing here is a trick."}
-      </p>
+      {!single && (
+        <>
+          <p className="text-xs font-bold uppercase tracking-wide text-orange-700 mb-1">Easy check</p>
+          <h2 id={`check-${quiz.slug}`} className="font-display text-xl font-bold text-slate-900 mb-2">
+            {quiz.title}
+          </h2>
+          <p className="text-sm text-slate-700 leading-6 mb-4">
+            {ready && passed
+              ? "That's the idea. Your answers stay on this device."
+              : "A few easy ones. Guess, then read the one-line why. Nothing here is a trick."}
+          </p>
+        </>
+      )}
       <ol className="space-y-5">
-        {quiz.questions.map((question, index) => {
+        {shownQuestions.map((question, index) => {
           const shown = revealed[question.id] === true;
           const isRight = correct.includes(question.id);
           return (
@@ -154,7 +167,15 @@ export default function CheckpointQuiz({ quiz }: Props) {
                   </button>
                 </form>
               ) : (
-                <div className="mt-3 flex flex-col gap-2" role="group" aria-label={question.prompt}>
+                <div
+                  className={`mt-3 gap-2 ${
+                    (question.options ?? []).every((option) => option.label.length <= 14)
+                      ? "grid grid-cols-2 sm:grid-cols-3"
+                      : "flex flex-col"
+                  }`}
+                  role="group"
+                  aria-label={question.prompt}
+                >
                   {(question.options ?? []).map((option) => {
                     const selected = picked[question.id] === option.id;
                     return (

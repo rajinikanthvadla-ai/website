@@ -1,21 +1,13 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
-import type { LessonOutline, PythonLesson, PythonModule } from "@/lib/python-course/types";
+import type { LessonOutline, PythonLesson } from "@/lib/python-course/types";
 import type { LessonQuiz } from "@/lib/python-course/quiz-shared";
 import type { MemoryHook, FlashCard } from "@/lib/python-course/memory";
 import type { Scene } from "@/lib/python-course/scenes";
-import {
-  clearLessonCode,
-  loadLessonCode,
-  saveLessonCode,
-  setContinueLesson,
-} from "@/lib/python-course/code-storage";
-import CourseSidebar from "./CourseSidebar";
-import CodeExample from "./CodeExample";
-import BasicCodeBlock from "./BasicCodeBlock";
-import PythonCompiler, { type PythonCompilerHandle } from "./PythonCompiler";
+import { setContinueLesson } from "@/lib/python-course/code-storage";
+import PythonCompiler from "./PythonCompiler";
 import LessonMarkdown from "./LessonMarkdown";
 import ExerciseCard from "./ExerciseCard";
 import LaptopRun from "./LaptopRun";
@@ -23,16 +15,9 @@ import { useCourseProgress } from "./useCourseProgress";
 import LessonSketch from "./LessonSketch";
 import CheckpointQuiz from "./CheckpointQuiz";
 import LazyConceptPlayer from "./LazyConceptPlayer";
-import { MODULE_SHORT_LABEL } from "@/lib/python-course/labels";
-
-const LEVEL_LABEL: Record<PythonLesson["level"], string> = {
-  beginner: "Beginner",
-  intermediate: "Intermediate",
-  advanced: "Advanced",
-};
 
 function plain(text: string): string {
-  return text.replace(/\u2014/g, " - ").replace(/\u2013/g, " - ");
+  return text.replace(/—/g, " - ").replace(/–/g, " - ");
 }
 
 /** Only keep a snippet if brackets/parens/braces are balanced (avoids mid-list cuts). */
@@ -105,12 +90,10 @@ function tinyStarter(code: string, maxLines = 6): string | undefined {
   const nonEmpty = lines.filter((line) => line.trim().length > 0);
   if (nonEmpty.length === 0) return undefined;
 
-  // Prefer a short complete program.
   if (nonEmpty.length <= maxLines && isBalancedPython(code.trim())) {
     return code.trim();
   }
 
-  // Grow line-by-line until brackets balance, then stop at a sensible size.
   const taken: string[] = [];
   for (const line of lines) {
     taken.push(line);
@@ -125,426 +108,457 @@ function tinyStarter(code: string, maxLines = 6): string | undefined {
   return undefined;
 }
 
+type Step =
+  | { kind: "intro"; title: string }
+  | { kind: "section"; title: string; index: number; code?: string }
+  | { kind: "predict"; title: string; question: number }
+  | { kind: "scene"; title: string }
+  | { kind: "example"; title: string; index: number }
+  | { kind: "check"; title: string; questions: number[] }
+  | { kind: "exercise"; title: string }
+  | { kind: "laptop"; title: string }
+  | { kind: "finish"; title: string };
+
+/** Steps that use the whole width: they bring their own editor or none. */
+const WIDE: Step["kind"][] = ["check", "exercise", "laptop", "finish"];
+
+const STEP_KEY = "python-course-step-v1";
+
+function readStep(slug: string): number {
+  try {
+    const saved = JSON.parse(window.localStorage.getItem(STEP_KEY) || "{}") as Record<string, number>;
+    return typeof saved[slug] === "number" ? saved[slug] : 0;
+  } catch {
+    return 0;
+  }
+}
+
+function writeStep(slug: string, index: number) {
+  try {
+    const saved = JSON.parse(window.localStorage.getItem(STEP_KEY) || "{}") as Record<string, number>;
+    saved[slug] = index;
+    window.localStorage.setItem(STEP_KEY, JSON.stringify(saved));
+  } catch {
+    // storage blocked: the lesson works, it just will not resume at this step
+  }
+}
+
 type Props = {
   lesson: PythonLesson;
-  modules: PythonModule[];
   outline: LessonOutline[];
   prev: LessonOutline | null;
   next: LessonOutline | null;
+  week: { number: number; title: string; lessonNumber: number; lessons: LessonOutline[] } | null;
   quiz?: LessonQuiz;
   memory?: MemoryHook;
   scene: Scene;
   moduleRecap?: FlashCard[];
 };
 
-export default function LessonView({ lesson, modules, outline, prev, next, quiz, memory, scene, moduleRecap }: Props) {
-  const [compilerCode, setCompilerCode] = useState(lesson.tryIt.starter);
-  const [restored, setRestored] = useState(false);
-  const compilerRef = useRef<PythonCompilerHandle>(null);
-  const saveTimerRef = useRef<number | null>(null);
-  const totalLessons = outline.length;
-  const lessonNumber = outline.findIndex((item) => item.slug === lesson.slug) + 1;
-  const moduleLessons = outline.filter((item) => item.moduleId === lesson.moduleId);
-  const moduleStep = moduleLessons.findIndex((item) => item.slug === lesson.slug) + 1;
-  const moduleLabel = MODULE_SHORT_LABEL[lesson.moduleId];
-  const { completed, completedCount, markDone, markUndone } = useCourseProgress(lesson.slug);
-  const progressPct = totalLessons === 0 ? 0 : Math.round((completedCount / totalLessons) * 100);
+/** Step-by-step lesson: one small idea per screen, one editor beside it, Back and Next. */
+export default function LessonView({ lesson, outline, prev, next, week, quiz, memory, scene, moduleRecap }: Props) {
+  const { completed, markDone } = useCourseProgress(lesson.slug);
   const isDone = completed(lesson.slug);
   const isProject = lesson.kind === "project";
-  const hasExercise = Boolean(lesson.exercise);
+  const [current, setCurrent] = useState(0);
+  const [answered, setAnswered] = useState<Record<string, boolean>>({});
+  const [menuOpen, setMenuOpen] = useState(false);
+  const topRef = useRef<HTMLDivElement>(null);
+
+  const steps = useMemo<Step[]>(() => {
+    const list: Step[] = [{ kind: "intro", title: "The idea" }];
+    lesson.sections.forEach((section, index) => {
+      const fallback = lesson.examples[index % Math.max(lesson.examples.length, 1)];
+      const code =
+        section.basicCode ||
+        (isProject
+          ? undefined
+          : (fallback ? tinyStarter(fallback.code) : undefined) ||
+            (index === 0 ? tinyStarter(lesson.tryIt.starter, 8) : undefined));
+      list.push({ kind: "section", title: section.heading, index, code });
+    });
+    const predict = quiz ? Math.max(0, quiz.questions.findIndex((question) => question.kind === "predict")) : -1;
+    if (quiz) {
+      const kind = quiz.questions[predict]?.kind;
+      list.push({ kind: "predict", title: kind === "predict" ? "Predict first" : "Quick question", question: predict });
+    }
+    list.push({ kind: "scene", title: "Watch it happen" });
+    lesson.examples.forEach((example, index) =>
+      list.push({ kind: "example", title: example.title.replace(/^AI \/ ML:\s*/i, "Real AI code: "), index }),
+    );
+    if (quiz && quiz.questions.length > 1) {
+      list.push({
+        kind: "check",
+        title: "Quick check",
+        questions: quiz.questions.map((_, index) => index).filter((index) => index !== predict),
+      });
+    }
+    if (lesson.exercise) list.push({ kind: "exercise", title: isProject ? "Build the project" : "Your turn" });
+    if (lesson.laptop) list.push({ kind: "laptop", title: "On your laptop" });
+    list.push({ kind: "finish", title: "Lesson recap" });
+    return list;
+  }, [lesson, quiz, isProject]);
 
   useEffect(() => {
     setContinueLesson(lesson.slug, lesson.title);
-    const saved = loadLessonCode(lesson.slug);
-    if (saved) {
-      setCompilerCode(saved);
-      setRestored(true);
-    } else {
-      setCompilerCode(lesson.tryIt.starter);
-      setRestored(false);
+    const saved = readStep(lesson.slug);
+    setCurrent(saved > 0 && saved < steps.length ? saved : 0);
+  }, [lesson.slug, lesson.title, steps.length]);
+
+  const step = steps[current];
+  const wide = WIDE.includes(step.kind);
+  const minutesLeft = Math.max(1, Math.round((lesson.minutes * (steps.length - current)) / steps.length));
+  const predictQuestion = step.kind === "predict" && quiz ? quiz.questions[step.question] : undefined;
+
+  // What the one editor shows on this step. null = nothing to run here.
+  let editorCode: string | null = null;
+  if (step.kind === "intro" || step.kind === "scene") editorCode = lesson.tryIt.starter;
+  else if (step.kind === "section") editorCode = step.code ?? null;
+  else if (step.kind === "example") editorCode = lesson.examples[step.index].code;
+  else if (predictQuestion) editorCode = answered[predictQuestion.id] ? predictQuestion.code ?? lesson.tryIt.starter : null;
+
+  function goTo(index: number) {
+    const target = Math.max(0, Math.min(steps.length - 1, index));
+    setCurrent(target);
+    writeStep(lesson.slug, target);
+    setMenuOpen(false);
+    if ((topRef.current?.getBoundingClientRect().top ?? 0) < 0) {
+      topRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
     }
-  }, [lesson.slug, lesson.title, lesson.tryIt.starter]);
-
-  function persistCode(code: string) {
-    if (saveTimerRef.current) window.clearTimeout(saveTimerRef.current);
-    saveTimerRef.current = window.setTimeout(() => {
-      saveLessonCode(lesson.slug, code);
-    }, 400);
   }
 
-  function loadIntoLab(code: string) {
-    setCompilerCode(code);
-    saveLessonCode(lesson.slug, code);
-    setRestored(false);
-    if (typeof window !== "undefined" && window.matchMedia("(max-width: 1023px)").matches) {
-      document.getElementById("python-lab")?.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  }
+  const nextHref = next ? `/python-course/${next.slug}/` : "/python-course/certificate/";
+  const nextLabel = next ? `Next lesson: ${next.title.replace(/^Project: /, "")}` : "Get your certificate";
+  const onLast = current === steps.length - 1;
 
-  function openConsole() {
-    document.getElementById("python-lab")?.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
-
-  function runFromBar() {
-    openConsole();
-    window.setTimeout(() => compilerRef.current?.run(), 180);
-  }
-
-  function resetSavedLab() {
-    clearLessonCode(lesson.slug);
-    setCompilerCode(lesson.tryIt.starter);
-    setRestored(false);
-  }
+  const primary = onLast ? (
+    <Link
+      href={nextHref}
+      onClick={() => {
+        if (!lesson.exercise) markDone(lesson.slug);
+      }}
+      className="flex-1 sm:flex-none truncate rounded-lg bg-blue-600 px-5 py-3 text-center text-sm font-bold text-white hover:bg-blue-700"
+    >
+      {nextLabel} &rarr;
+    </Link>
+  ) : (
+    <button
+      type="button"
+      onClick={() => goTo(current + 1)}
+      className="flex-1 sm:flex-none rounded-lg bg-blue-600 px-5 py-3 text-sm font-bold text-white hover:bg-blue-700"
+    >
+      Next step &rarr;
+    </button>
+  );
+  const back =
+    current > 0 ? (
+      <button
+        type="button"
+        onClick={() => goTo(current - 1)}
+        aria-label="Previous step"
+        className="shrink-0 rounded-lg border border-slate-300 bg-white px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+      >
+        &larr;<span className="hidden sm:inline"> Back</span>
+      </button>
+    ) : null;
 
   return (
-    <div className="bg-[#f3f6fb] min-h-screen pb-20 lg:pb-0">
-      <div className="max-w-[1360px] mx-auto px-3 sm:px-4 lg:px-5 py-5 md:py-7">
-        <div className="xl:grid xl:grid-cols-[190px_minmax(0,1fr)] xl:gap-5">
-          <CourseSidebar modules={modules} lessons={outline} currentSlug={lesson.slug} />
-
-          <div className="min-w-0">
-            <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(360px,420px)] lg:gap-6 lg:items-start">
-              <div className="min-w-0 space-y-5 order-2 lg:order-1">
-                <header className="mb-5 px-0.5">
-                  <nav className="text-[13px] mb-2" aria-label="Breadcrumb">
-                    <ol className="flex flex-wrap items-center gap-x-2 gap-y-1">
-                      <li>
-                        <Link href="/python-course/" className="text-blue-700 font-semibold hover:underline">
-                          Python course
-                        </Link>
-                      </li>
-                      <li aria-hidden="true" className="text-slate-300">/</li>
-                      <li>
-                        <Link
-                          href={`/python-course/#module-${lesson.moduleId}`}
-                          className="text-blue-700 font-semibold hover:underline"
-                        >
-                          {moduleLabel}
-                        </Link>
-                      </li>
-                      <li aria-hidden="true" className="text-slate-300">/</li>
-                      <li aria-current="page" className="text-slate-700">
-                        {lesson.title}
-                      </li>
-                    </ol>
-                  </nav>
-                  <div className="flex flex-wrap items-center gap-2 mb-2">
-                    {isProject && (
-                      <span className="text-[11px] font-bold uppercase tracking-wide bg-orange-600 text-white px-2 py-0.5 rounded">
-                        Project
-                      </span>
-                    )}
-                    <span className="text-xs font-bold uppercase tracking-wide text-blue-700">
-                      {LEVEL_LABEL[lesson.level]}
-                    </span>
-                    <span className="text-slate-300" aria-hidden="true">·</span>
-                    <span className="text-xs font-bold uppercase tracking-wide text-slate-600">
-                      {lesson.minutes} min
-                    </span>
-                    <span className="text-slate-300" aria-hidden="true">·</span>
-                    <span className="text-xs font-bold uppercase tracking-wide text-slate-600">
-                      Lesson {lessonNumber || "?"}
-                    </span>
-                  </div>
-                  <h1 className="font-display text-[1.65rem] md:text-[1.9rem] font-bold text-slate-900 leading-snug mb-2">
-                    {lesson.title}
-                  </h1>
-                  <p className="text-[15px] text-slate-700 leading-7">{plain(lesson.summary)}</p>
-                  <p className="mt-2 text-[14px] text-slate-800 leading-6">
-                    <span className="font-semibold text-slate-900">Why it matters for AI and ML: </span>
-                    {plain(lesson.whyForAi)}
-                  </p>
-                  {memory ? (
-                    <p className="mt-2 text-[15px] text-slate-800 leading-6">
-                      <span className="font-semibold text-slate-900">Picture it: </span>
-                      {memory.analogy}
-                    </p>
-                  ) : null}
-                  <div className="mt-3">
-                    <div
-                      role="progressbar"
-                      aria-valuemin={0}
-                      aria-valuemax={totalLessons}
-                      aria-valuenow={completedCount}
-                      aria-label="Lessons saved on this device"
-                      className="h-2 rounded-full bg-slate-200 overflow-hidden"
-                    >
-                      <div className="h-full bg-blue-700" style={{ width: `${progressPct}%` }} />
-                    </div>
-                    <p className="mt-1.5 text-xs font-bold uppercase tracking-wide text-slate-700">
-                      Step {moduleStep || "?"} of {moduleLessons.length} in {moduleLabel}
-                      {completedCount > 0
-                        ? ` · ${completedCount} of ${totalLessons} saved on this device`
-                        : " · progress saves on this device"}
-                    </p>
-                  </div>
-                </header>
-
-                <LessonSketch slug={lesson.slug} />
-
-                {lesson.sections.map((section, index) => {
-                  const fallbackExample = lesson.examples[index % Math.max(lesson.examples.length, 1)];
-                  const basicCode =
-                    section.basicCode ||
-                    (isProject
-                      ? undefined
-                      : (fallbackExample ? tinyStarter(fallbackExample.code) : undefined) ||
-                        (index === 0 ? tinyStarter(lesson.tryIt.starter, 8) : undefined));
-
-                  return (
-                    <section key={section.heading} className="pb-1">
-                      <p className="text-xs font-bold uppercase tracking-wide text-emerald-700 mb-1">
-                        {isProject ? `Step ${index + 1}` : "Basics"}
-                      </p>
-                      <h2 className="font-display text-xl font-bold text-slate-900 mb-3">
-                        {section.heading}
-                      </h2>
-                      <div className="text-[15px] leading-7">
-                        <LessonMarkdown content={section.body} />
-                      </div>
-                      {basicCode && (
-                        <BasicCodeBlock
-                          code={basicCode}
-                          tip={section.basicTip || "Small basic code for this idea."}
-                          onTry={loadIntoLab}
-                        />
-                      )}
-                    </section>
-                  );
-                })}
-
-                <LazyConceptPlayer scene={scene} />
-
-                {quiz ? <CheckpointQuiz quiz={quiz} /> : null}
-
-                {lesson.examples.length > 0 && (
-                <section className="space-y-3 pt-2 border-t border-slate-200">
-                  <div className="pt-4">
-                    <p className="text-xs font-bold uppercase tracking-wide text-blue-700 mb-1">
-                      Then AI / ML
-                    </p>
-                    <h2 className="font-display text-xl font-bold text-slate-900 mb-1">
-                      AI / ML examples
-                    </h2>
-                    <p className="text-[14px] text-slate-600 leading-6">
-                      Same idea, used in real AI work. Press{" "}
-                      <span className="font-semibold text-slate-900">Try in lab</span> to run it.
-                    </p>
-                    {memory ? <p className="mt-2 text-[15px] text-slate-800 leading-6">{memory.ai}</p> : null}
-                  </div>
-                  {lesson.examples.map((example, index) => (
-                    <CodeExample
-                      key={example.title}
-                      index={index + 1}
-                      featured={index === 0}
-                      title={example.title}
-                      note={example.note}
-                      code={example.code}
-                      why={example.why}
-                      aiMl={example.aiMl}
-                      analogy={example.analogy}
-                      onTry={loadIntoLab}
-                    />
-                  ))}
-                </section>
-                )}
-
-                {lesson.exercise && (
-                  <ExerciseCard
-                    storageKey={`${lesson.slug}#exercise`}
-                    exercise={lesson.exercise}
-                    packages={lesson.packages}
-                    passed={isDone}
-                    isProject={isProject}
-                    onPass={() => markDone(lesson.slug)}
-                    next={next ? { href: `/python-course/${next.slug}/`, title: next.title } : undefined}
-                  />
-                )}
-
-                {lesson.laptop && <LaptopRun laptop={lesson.laptop} />}
-
-                <section className="pt-2 border-t border-slate-200">
-                  <h2 className="font-display text-xl font-bold text-slate-900 mb-3 pt-4">Takeaways</h2>
-                  <ul className="space-y-2">
-                    {lesson.takeaways.map((item, index) => (
-                      <li key={item} className="flex gap-2.5 text-[15px] text-slate-700 leading-7">
-                        <span className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue-100 text-blue-700 text-xs font-bold">
-                          {index + 1}
-                        </span>
-                        <span>{plain(item)}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {isDone ? (
-                      <button
-                        type="button"
-                        onClick={() => markUndone(lesson.slug)}
-                        className="text-sm font-bold px-4 py-2.5 rounded-lg border border-emerald-200 bg-emerald-50 text-emerald-800"
-                      >
-                        Done - undo
-                      </button>
-                    ) : hasExercise ? (
-                      <a
-                        href="#lesson-exercise"
-                        className="text-sm font-bold px-4 py-2.5 rounded-lg border-2 border-slate-900 bg-orange-50 text-slate-900 hover:bg-orange-100"
-                      >
-                        Pass the {isProject ? "project" : "exercise"} to finish
-                      </a>
-                    ) : (
-                      <button
-                        type="button"
-                        onClick={() => markDone(lesson.slug)}
-                        className="text-sm font-bold px-4 py-2.5 rounded-lg border-2 border-slate-900 bg-white text-slate-900 hover:bg-slate-50"
-                      >
-                        Mark lesson done
-                      </button>
-                    )}
-                  </div>
-                </section>
-
-                {memory ? (
-                  <aside className="border-2 border-slate-900 rounded-lg bg-[#fffef8] p-4 sm:p-5 shadow-[4px_4px_0_#0f172a]">
-                    <p className="text-xs font-bold uppercase tracking-wide text-orange-700">Remember this</p>
-                    <p className="font-display text-2xl font-bold text-slate-900 mt-1 leading-snug">{memory.remember}</p>
-                    <p className="mt-2 text-[15px] text-slate-800 leading-6">
-                      <span className="font-semibold text-slate-900">In AI and ML: </span>
-                      {memory.ai}
-                    </p>
-                  </aside>
-                ) : null}
-
-                {moduleRecap && moduleRecap.length > 0 ? (
-                  <section aria-labelledby={`recap-${lesson.moduleId}`}>
-                    <h2 id={`recap-${lesson.moduleId}`} className="font-display text-xl font-bold text-slate-900">
-                      Quick recap
-                    </h2>
-                    <p className="mt-1 text-sm text-slate-700 leading-6">
-                      Four cards for this module. Open one when you want the one-line answer.
-                    </p>
-                    <div className="mt-3 space-y-2">
-                      {moduleRecap.map((card) => (
-                        <details key={card.prompt} className="border-2 border-slate-900 rounded-lg bg-white px-3 py-2">
-                          <summary className="cursor-pointer font-semibold text-slate-900">{card.prompt}</summary>
-                          <p className="mt-2 text-[15px] text-slate-700 leading-6">{card.answer}</p>
-                        </details>
-                      ))}
-                    </div>
-                  </section>
-                ) : null}
-
-                {next ? (
-                  <section className="border-2 border-slate-900 rounded-lg bg-blue-700 text-white p-4 sm:p-5 shadow-[4px_4px_0_#0f172a]">
-                    <p className="text-xs font-bold uppercase tracking-wide text-blue-100">Next lesson</p>
-                    <h2 className="font-display text-2xl font-bold mt-1">{next.title}</h2>
-                    <p className="text-sm text-blue-50 mt-1 leading-6">
-                      About {next.minutes} minutes. Your place stays on this device.
-                    </p>
-                    <Link
-                      href={`/python-course/${next.slug}/`}
-                      onClick={() => {
-                        if (!hasExercise) markDone(lesson.slug);
-                      }}
-                      className="mt-3 inline-flex bg-white text-slate-900 font-bold px-4 py-2.5 rounded-lg hover:bg-blue-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-                    >
-                      Continue to {next.title}
-                    </Link>
-                  </section>
-                ) : (
-                  <section className="border-2 border-slate-900 rounded-lg bg-emerald-700 text-white p-4 sm:p-5 shadow-[4px_4px_0_#0f172a]">
-                    <p className="text-xs font-bold uppercase tracking-wide text-emerald-100">You reached the end</p>
-                    <h2 className="font-display text-2xl font-bold mt-1">Get your certificate</h2>
-                    <p className="text-sm text-emerald-50 mt-1 leading-6">
-                      Enter your name on the certificate page. The download unlocks when the lessons are passed on this device.
-                    </p>
-                    <Link
-                      href="/python-course/certificate/"
-                      onClick={() => {
-                        if (!hasExercise) markDone(lesson.slug);
-                      }}
-                      className="mt-3 inline-flex bg-white text-slate-900 font-bold px-4 py-2.5 rounded-lg hover:bg-emerald-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-                    >
-                      Open the certificate page
-                    </Link>
-                  </section>
-                )}
-
-                <nav className="flex flex-wrap items-center justify-between gap-3 pb-2 pt-1" aria-label="Lesson">
-                  {prev ? (
-                    <Link
-                      href={`/python-course/${prev.slug}/`}
-                      className="text-sm font-bold text-blue-700 hover:underline"
-                    >
-                      Previous: {prev.title}
-                    </Link>
-                  ) : (
-                    <Link href="/python-course/" className="text-sm font-bold text-blue-700 hover:underline">
-                      Course home
-                    </Link>
-                  )}
-                  <p className="text-sm text-slate-700">
-                    <Link href="/python-course/certificate/" className="font-bold text-blue-700 hover:underline">
-                      Certificate
-                    </Link>
-                    <span aria-hidden="true"> · </span>
-                    <Link href="/mentorship/" className="font-bold text-blue-700 hover:underline">
-                      Mentorship
-                    </Link>
-                    <span aria-hidden="true"> · </span>
-                    <Link href="/courses/" className="font-bold text-blue-700 hover:underline">
-                      Live courses
-                    </Link>
-                  </p>
-                </nav>
-              </div>
-
-              <aside id="python-lab" className="order-1 lg:order-2 mb-4 lg:mb-0 lg:sticky lg:top-20 self-start">
-                <p className="mb-2 px-0.5 text-[13px] leading-5 text-slate-700">
-                  <span className="font-semibold text-slate-900">Try it yourself. </span>
-                  {plain(lesson.tryIt.hint)} Edit the code, then press Run. Python loads on the first Run only.
+    <div className="bg-[#f3f6fb] min-h-screen pb-28 lg:pb-10">
+      <div ref={topRef} className="max-w-[1200px] mx-auto px-2 sm:px-4 py-3 md:py-6 scroll-mt-16">
+        <div className="rounded-2xl border border-slate-300 bg-white shadow-sm">
+          <header className="px-4 sm:px-6 pt-4 pb-3 border-b border-slate-200">
+            <div className="flex items-start gap-3">
+              <button
+                type="button"
+                onClick={() => setMenuOpen((open) => !open)}
+                aria-expanded={menuOpen}
+                aria-label="Lessons in this week"
+                className="mt-1 shrink-0 rounded-md border border-slate-300 p-1.5 text-slate-700 hover:bg-slate-50"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                  <path d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
+              <div className="min-w-0 flex-1">
+                <p className="text-[12px] font-semibold text-slate-500 truncate">
+                  <Link href="/python-course/" className="text-blue-700 hover:underline">
+                    Python course
+                  </Link>
+                  {week ? ` · Week ${week.number}: ${week.title} · ${isProject ? "Project" : `Lesson ${week.lessonNumber} of ${week.lessons.length}`}` : ""}
                 </p>
-                {restored && (
-                  <div className="mb-2 flex items-center justify-between gap-2 px-0.5">
-                    <p className="text-[12px] text-slate-500">Your last code on this device was restored.</p>
-                    <button
-                      type="button"
-                      onClick={resetSavedLab}
-                      className="text-[11px] font-bold uppercase tracking-wide text-blue-700 hover:underline"
-                    >
-                      Use lesson starter
-                    </button>
+                <h1 className="font-display text-[1.2rem] sm:text-[1.45rem] font-bold leading-snug text-slate-900">
+                  {lesson.title}
+                  {isDone && (
+                    <span className="ml-2 align-middle text-[10px] font-bold uppercase tracking-wide bg-emerald-600 text-white px-2 py-0.5 rounded">
+                      Done
+                    </span>
+                  )}
+                </h1>
+              </div>
+              <p className="hidden sm:block shrink-0 pt-6 text-[13px] text-slate-500">
+                Step {current + 1} of {steps.length} · {minutesLeft} min left
+              </p>
+            </div>
+
+            {menuOpen && week && (
+              <nav aria-label="Lessons in this week" className="mt-3 rounded-xl border border-slate-200 bg-slate-50 p-2">
+                <ol>
+                  {week.lessons.map((item, index) => {
+                    const itemDone = completed(item.slug);
+                    const here = item.slug === lesson.slug;
+                    return (
+                      <li key={item.slug}>
+                        <Link
+                          href={`/python-course/${item.slug}/`}
+                          aria-current={here ? "page" : undefined}
+                          className={`flex items-center gap-2.5 rounded-lg px-2.5 py-2 text-[14px] ${
+                            here ? "bg-blue-100 font-semibold text-blue-950" : "text-slate-700 hover:bg-white"
+                          }`}
+                        >
+                          <span
+                            className={`inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[10px] font-bold ${
+                              itemDone ? "bg-emerald-600 text-white" : "bg-slate-200 text-slate-600"
+                            }`}
+                          >
+                            {itemDone ? "✓" : index + 1}
+                          </span>
+                          <span className="min-w-0 flex-1 truncate">{item.title.replace(/^Project: /, "")}</span>
+                          <span className="shrink-0 text-[12px] text-slate-400">{item.minutes} min</span>
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ol>
+                <Link href="/python-course/#weeks" className="mt-1 block px-2.5 py-1.5 text-[13px] font-semibold text-blue-700 hover:underline">
+                  All 6 weeks &rarr;
+                </Link>
+              </nav>
+            )}
+
+            <div className="mt-3 flex gap-1.5">
+              {steps.map((item, index) => (
+                <button
+                  key={index}
+                  type="button"
+                  onClick={() => goTo(index)}
+                  aria-label={`Step ${index + 1}: ${item.title}`}
+                  aria-current={index === current ? "step" : undefined}
+                  title={item.title}
+                  className={`h-2 flex-1 rounded-full hover:opacity-80 ${
+                    index === current ? "bg-blue-600" : index < current ? "bg-emerald-500" : "bg-slate-200"
+                  }`}
+                />
+              ))}
+            </div>
+            <p className="sm:hidden mt-2 text-[12px] text-slate-500">
+              Step {current + 1} of {steps.length} · {minutesLeft} min left
+            </p>
+          </header>
+
+          <div className={`p-4 sm:p-6 ${wide ? "" : "lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:gap-8 lg:items-start"}`}>
+            <div className="min-w-0">
+              {steps.map((item, index) => (
+                <article key={index} hidden={index !== current} className="space-y-3">
+                  <h2 className="font-display text-xl md:text-2xl font-bold text-slate-900">{item.title}</h2>
+
+                  {item.kind === "intro" && (
+                    <>
+                      <p className="text-[15px] text-slate-700 leading-7">{plain(lesson.summary)}</p>
+                      {memory && (
+                        <p className="text-[15px] text-slate-800 leading-7">
+                          <span className="font-semibold text-slate-900">Picture it: </span>
+                          {memory.analogy}
+                        </p>
+                      )}
+                      <p className="text-[14px] text-slate-700 leading-6">
+                        <span className="font-semibold text-slate-900">Why it matters for AI: </span>
+                        {plain(lesson.whyForAi)}
+                      </p>
+                      <LessonSketch slug={lesson.slug} />
+                    </>
+                  )}
+
+                  {item.kind === "section" && (
+                    <>
+                      <div className="text-[15px] leading-7">
+                        <LessonMarkdown content={lesson.sections[item.index].body} />
+                      </div>
+                      {item.code && (
+                        <p className="text-[13px] text-slate-500">
+                          {lesson.sections[item.index].basicTip ? `${lesson.sections[item.index].basicTip} ` : ""}
+                          Run it in the editor
+                          <span className="lg:hidden"> below</span>
+                          <span className="hidden lg:inline"> on the right</span>, then change something and run it again.
+                        </p>
+                      )}
+                    </>
+                  )}
+
+                  {item.kind === "predict" && quiz && (
+                    <>
+                      <p className="text-[15px] text-slate-700 leading-7">
+                        Guess before you run. Engineers learn to read code this way.
+                      </p>
+                      <CheckpointQuiz
+                        quiz={quiz}
+                        only={[item.question]}
+                        onAnswered={(id) => setAnswered((all) => (all[id] ? all : { ...all, [id]: true }))}
+                      />
+                    </>
+                  )}
+
+                  {item.kind === "scene" && (
+                    <>
+                      <p className="text-[15px] text-slate-700 leading-7">
+                        Press Play or Step to see what Python does, one line at a time.
+                      </p>
+                      <LazyConceptPlayer scene={scene} />
+                    </>
+                  )}
+
+                  {item.kind === "example" && (
+                    <div className="text-[15px] leading-7 space-y-2">
+                      <LessonMarkdown content={lesson.examples[item.index].note} />
+                      {lesson.examples[item.index].aiMl && (
+                        <p className="text-slate-700">
+                          <span className="font-semibold text-slate-900">In real AI work: </span>
+                          {lesson.examples[item.index].aiMl}
+                        </p>
+                      )}
+                    </div>
+                  )}
+
+                  {item.kind === "check" && quiz && (
+                    <>
+                      <p className="text-[15px] text-slate-700 leading-7">
+                        A few easy ones. Guess, then read the one-line why. Nothing here is a trick.
+                      </p>
+                      <CheckpointQuiz quiz={quiz} only={item.questions} />
+                    </>
+                  )}
+
+                  {item.kind === "exercise" && lesson.exercise && (
+                    <ExerciseCard
+                      storageKey={`${lesson.slug}#exercise`}
+                      exercise={lesson.exercise}
+                      packages={lesson.packages}
+                      passed={isDone}
+                      isProject={isProject}
+                      onPass={() => markDone(lesson.slug)}
+                      next={next ? { href: nextHref, title: next.title } : undefined}
+                    />
+                  )}
+
+                  {item.kind === "laptop" && lesson.laptop && <LaptopRun laptop={lesson.laptop} />}
+
+                  {item.kind === "finish" && (
+                    <>
+                      <ul className="space-y-2">
+                        {lesson.takeaways.map((takeaway, takeawayIndex) => (
+                          <li key={takeaway} className="flex gap-2.5 text-[15px] text-slate-700 leading-7">
+                            <span className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue-100 text-blue-700 text-xs font-bold">
+                              {takeawayIndex + 1}
+                            </span>
+                            <span>{plain(takeaway)}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      {!isDone && lesson.exercise && (
+                        <p className="rounded-lg border border-orange-200 bg-orange-50 px-3 py-2 text-[14px] text-orange-950">
+                          This lesson counts as done once you pass{" "}
+                          <button
+                            type="button"
+                            onClick={() => goTo(steps.findIndex((candidate) => candidate.kind === "exercise"))}
+                            className="font-semibold underline"
+                          >
+                            {isProject ? "the project" : "the exercise"}
+                          </button>
+                          .
+                        </p>
+                      )}
+                      {memory && (
+                        <aside className="border-2 border-slate-900 rounded-lg bg-[#fffef8] p-4 sm:p-5 shadow-[4px_4px_0_#0f172a]">
+                          <p className="text-xs font-bold uppercase tracking-wide text-orange-700">Remember this</p>
+                          <p className="font-display text-2xl font-bold text-slate-900 mt-1 leading-snug">{memory.remember}</p>
+                          <p className="mt-2 text-[15px] text-slate-800 leading-6">
+                            <span className="font-semibold text-slate-900">In AI and ML: </span>
+                            {memory.ai}
+                          </p>
+                        </aside>
+                      )}
+                      {moduleRecap && moduleRecap.length > 0 && (
+                        <section aria-label="Quick recap">
+                          <h3 className="font-display text-lg font-bold text-slate-900">Quick recap</h3>
+                          <div className="mt-2 space-y-2">
+                            {moduleRecap.map((card) => (
+                              <details key={card.prompt} className="border-2 border-slate-900 rounded-lg bg-white px-3 py-2">
+                                <summary className="cursor-pointer font-semibold text-slate-900">{card.prompt}</summary>
+                                <p className="mt-2 text-[15px] text-slate-700 leading-6">{card.answer}</p>
+                              </details>
+                            ))}
+                          </div>
+                        </section>
+                      )}
+                      <p className="text-sm text-slate-600">
+                        {prev && (
+                          <>
+                            <Link href={`/python-course/${prev.slug}/`} className="font-semibold text-blue-700 hover:underline">
+                              Previous: {prev.title}
+                            </Link>
+                            <span aria-hidden="true"> · </span>
+                          </>
+                        )}
+                        <Link href="/python-course/certificate/" className="font-semibold text-blue-700 hover:underline">
+                          Certificate
+                        </Link>
+                        <span aria-hidden="true"> · </span>
+                        <Link href="/mentorship/" className="font-semibold text-blue-700 hover:underline">
+                          Mentorship
+                        </Link>
+                        <span aria-hidden="true"> · </span>
+                        <Link href="/courses/" className="font-semibold text-blue-700 hover:underline">
+                          Live courses
+                        </Link>
+                      </p>
+                    </>
+                  )}
+                </article>
+              ))}
+
+              {wide && <div className="hidden lg:flex items-center gap-3 mt-6">{back}{primary}</div>}
+            </div>
+
+            {!wide && (
+              <div className="mt-5 lg:mt-0 lg:sticky lg:top-20">
+                {editorCode === null && (
+                  <div className="hidden lg:flex min-h-[240px] items-center justify-center rounded-xl border-2 border-dashed border-slate-300 p-6 text-center text-[14px] text-slate-500">
+                    {step.kind === "predict" ? "Pick an answer. Then the code opens here so you can run it." : "Read this step, then press Next step."}
                   </div>
                 )}
-                <PythonCompiler
-                  ref={compilerRef}
-                  starter={compilerCode}
-                  packages={lesson.packages}
-                  title={lesson.tryIt.title}
-                  tall
-                  onCodeChange={persistCode}
-                />
-              </aside>
-            </div>
+                <div hidden={editorCode === null}>
+                  <PythonCompiler
+                    starter={editorCode ?? lesson.tryIt.starter}
+                    packages={lesson.packages}
+                    title={step.title}
+                  />
+                </div>
+                <div className="hidden lg:flex items-center gap-3 mt-4 justify-end">
+                  {back}
+                  {primary}
+                </div>
+              </div>
+            )}
           </div>
         </div>
+        <p className="mt-3 px-2 text-center text-[12px] text-slate-500">
+          {outline.length} lessons in the course · progress saves on this device
+        </p>
       </div>
 
-      <div className="lg:hidden fixed bottom-0 inset-x-0 z-40 border-t border-zinc-800 bg-[#0a0a0a]/safe-area-pb">
-        <div className="max-w-[1360px] mx-auto px-3 py-2.5 flex items-center gap-2">
-          <button
-            type="button"
-            onClick={openConsole}
-            className="flex-1 text-xs font-bold uppercase tracking-wide px-3 py-2.5 rounded-md border border-zinc-600 bg-zinc-900 text-zinc-100"
-          >
-            Open console
-          </button>
-          <button
-            type="button"
-            onClick={runFromBar}
-            className="flex-1 text-xs font-bold uppercase tracking-wide px-3 py-2.5 rounded-md bg-[#27c93f] text-black"
-          >
-            Run
-          </button>
+      <div className="lg:hidden fixed bottom-0 inset-x-0 z-40 border-t border-slate-200 bg-white/95 backdrop-blur">
+        <div className="mx-auto flex max-w-[1200px] items-center gap-2 px-3 py-2.5">
+          {back}
+          {primary}
         </div>
       </div>
     </div>

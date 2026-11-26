@@ -215,7 +215,7 @@ async function paintCertificate(canvas: HTMLCanvasElement, args: PaintArgs) {
     ctx.fillText(
       args.kind === "full"
         ? `Full course: ${args.completedCount}/${args.total} lessons passed`
-        : `Foundations: pass every Module 1 exercise`,
+        : `Foundations: pass every Week 1 exercise`,
       W / 2,
       H / 2 + 34,
     );
@@ -295,7 +295,7 @@ export default function CertificateView({ outline, foundationSlugs }: Props) {
       setStatus(
         kind === "full"
           ? "Pass the exercise in every lesson to unlock the full certificate."
-          : "Pass every Module 1 exercise, including its project, to unlock this certificate.",
+          : "Pass every Week 1 exercise, including its project, to unlock this certificate.",
       );
       return;
     }
@@ -430,7 +430,7 @@ export default function CertificateView({ outline, foundationSlugs }: Props) {
                   {" · "}
                   {readyFoundations
                     ? "Unlocked"
-                    : `Complete Module 1 (${foundationSlugs.length} lessons)`}
+                    : `Complete Week 1 (${foundationSlugs.length} lessons)`}
                 </span>
               </label>
               <label className="flex items-start gap-2 text-sm text-slate-700">
