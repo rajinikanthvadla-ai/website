@@ -18,7 +18,6 @@ import YoutubePlaylist from "@/components/YoutubePlaylist";
 import MentorshipHomeSection from "@/components/MentorshipHomeSection";
 import DiscoverLinksSection from "@/components/DiscoverLinksSection";
 import CommunityBanner from "@/components/CommunityBanner";
-import AgenticFdeBanner from "@/components/AgenticFdeBanner";
 import LeadForm from "@/components/LeadForm";
 import { MLOPS_MASTERCLASS_SYLLABUS } from "@/lib/masterclass-syllabus";
 import { fetchApprovedTestimonials } from "@/lib/student-testimonials";
@@ -62,7 +61,6 @@ export default async function HomePage() {
         <BuiltInProductionSection projects={featured} />
         <StudentFeedbacks initial={reviews} />
         <SyllabusPreviewSection />
-        <AgenticFdeBanner />
         <MentorshipHomeSection />
         <YoutubePlaylist />
         <FAQSection />

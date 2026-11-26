@@ -462,13 +462,6 @@ export default function FdeCoursePage() {
               </a>
             </article>
           </div>
-          <p className="text-center text-sm text-slate-500 mt-8">
-            Want the small customized architecture batch instead? See{" "}
-            <Link href="/agentic-fde/" className="text-blue-700 font-semibold hover:underline">
-              Agentic AI and FDE (₹70,000)
-            </Link>
-            .
-          </p>
         </div>
       </section>
 

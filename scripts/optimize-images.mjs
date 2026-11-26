@@ -50,7 +50,6 @@ await sharp({ create: { width: W, height: H, channels: 3, background: "#0f172a" 
   .toFile(src("og-image.jpg"));
 
 // Above-the-fold photos as WebP.
-await sharp(src("agentic-fde-banner.jpg")).resize({ width: 960 }).webp({ quality: 78 }).toFile(src("agentic-fde-banner.webp"));
 await sharp(src("rajinikanth-portrait.jpg")).resize({ width: 640 }).webp({ quality: 78 }).toFile(src("rajinikanth-portrait.webp"));
 
 console.log("done");

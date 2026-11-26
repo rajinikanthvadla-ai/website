@@ -38,14 +38,11 @@ export const LINKS = {
     "https://wa.me/919100028801?text=Hi%20Rajinikanth,%20I%20want%20to%20know%20batch%20details%20and%20syllabus",
   whatsappAutomation:
     "https://wa.me/919100028801?text=Hi%20Rajinikanth,%20I%20am%20interested%20in%20the%20AI-Powered%20Automation%20Efficiency%20course.%20Please%20share%20details.",
-  whatsappAgenticFde:
-    "https://wa.me/919100028801?text=Hi%20Rajinikanth,%20I%20am%20interested%20in%20the%20November%202026%20Agentic%20AI%20Architecture%20%26%20FDE%20customized%20training.%20Please%20share%20seat%20availability.",
   whatsappFde:
     "https://wa.me/919100028801?text=Hi%20Rajinikanth,%20I%20want%20to%20enroll%20in%20the%20Forward%20Deployed%20AI%20Engineering%20cohort%20starting%207%20Dec%202026%2C%207%3A00%20AM%20IST%20(early%20bird%20%E2%82%B932%2C000).%20Please%20share%20seat%20availability.",
   whatsappChannel: "https://whatsapp.com/channel/0029VbBxmp7Fy7262q1Ti72e",
   /** Free WhatsApp Business community (invite link). If you reset the link in WhatsApp, update it here. */
   whatsappCommunity: "https://chat.whatsapp.com/Bt65kK4EThMDjC5TXAr5WN",
-  agenticFde: "/agentic-fde/",
   fdeCourse: "/courses/fde/",
 
   linkedin: "https://www.linkedin.com/in/rajinikanth-vadla-4221281a4/",

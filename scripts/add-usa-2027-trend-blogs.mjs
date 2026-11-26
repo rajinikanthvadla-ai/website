@@ -394,7 +394,7 @@ Free: [Architecture](/architecture/), [Agentic AI careers 2027](/blog/agentic-ai
 
 The live **AI Platform Engineering** program includes Agents + FDE delivery habits — not only model theory.
 
-- [Masterclass](/mlops-aiops-masterclass/) · [Agentic FDE](/agentic-fde/)
+- [Masterclass](/mlops-aiops-masterclass/)
 - [Global training](/global-training/)
 - [Enroll](/enroll/) · [Mentorship](/mentorship/)
 - [WhatsApp](https://wa.me/919100028801?text=Hi%20Rajinikanth%2C%20I%20want%20FDE%20career%20guidance%20for%20USA%202027.)

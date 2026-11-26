@@ -196,7 +196,6 @@ Live cohorts, not passive playlists:
 - [Masterclass](/mlops-aiops-masterclass/)  
 - [FDE course](/courses/fde/) — starts 7 Dec 2026 mornings IST  
 - [AI Automation](/courses/ai-automation/)  
-- [Agentic AI + FDE customized](/agentic-fde/)  
 - [Mentorship](/mentorship/) · [Enroll](/enroll/)
 
 ## Implementation checklist

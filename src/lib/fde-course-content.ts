@@ -202,20 +202,12 @@ export const FDE_COMPARE = [
     title: "Vs the Masterclass (₹40,000 live)",
     body: "Masterclass is the longer AI Platform Engineering path (MLOps, AIOps, LLMOps, Agents, FDE). This FDE cohort is a focused delivery project track.",
   },
-  {
-    title: "Vs Agentic AI and FDE customized (₹70,000)",
-    body: "That track is a small 5 to 6 seat customized batch with deeper 1:1 architecture. This page is the 12 to 15 seat cohort at the listed fee.",
-  },
 ] as const;
 
 export const FDE_FAQS = [
   {
     q: "What is Forward Deployed AI Engineering?",
     a: "It is customer-facing AI delivery: discover a workflow, scope a first release, build with LLMs where they help, integrate with real systems, evaluate quality, prepare production, and hand over a runbook plus a reusable playbook.",
-  },
-  {
-    q: "Is this the same as the Agentic AI Architecture and FDE customized batch?",
-    a: "No. That is a small customized track (about 5 to 6 seats, ₹70,000) at /agentic-fde/. This page is the 8-week Forward Deployed AI Engineering cohort for 12 to 15 engineers at early bird ₹32,000 or regular ₹36,999.",
   },
   {
     q: "Will this make me job-ready for every FDE role?",
@@ -255,7 +247,6 @@ export const FDE_RELATED_LINKS = [
   { href: "/roadmap/fde-engineer/", label: "FDE career roadmap" },
   { href: "/mlops-aiops-masterclass/", label: "AI Platform Engineering masterclass" },
   { href: "/courses/ai-automation/", label: "AI Automation course" },
-  { href: "/agentic-fde/", label: "Customized Agentic AI and FDE" },
   { href: "/syllabus/", label: "Full syllabus hub" },
   { href: "/interview-questions/", label: "AI interview questions" },
   { href: "/blog/forward-deployed-ai-engineering-course-india/", label: "FDE course guide (blog)" },
