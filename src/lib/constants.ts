@@ -426,7 +426,7 @@ export const COURSES = [
   {
     title: "Forward Deployed AI Engineering",
     description:
-      "Starts 7 Dec 2026, 7:00-8:30 AM IST (Mon/Wed/Fri). 8-week live cohort: customer problem to production. Early bird ₹32,000 (first 8 seats) · regular ₹36,999.",
+      "Free demo Sun 6 Dec 2026, 11 AM IST (Zoom). Classes from Mon 7 Dec, 7:00-8:30 AM IST (Mon/Wed/Fri). 8-week live cohort: customer problem to production. Early bird ₹32,000 if paid by 6 Dec (first 8 seats) · regular ₹36,999.",
     features: [
       "Starts 7 Dec 2026 · 7 AM IST",
       "₹32,000 early bird · ₹36,999 regular",

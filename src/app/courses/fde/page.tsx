@@ -2,11 +2,17 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
+import FdeDemoForm from "@/components/FdeDemoForm";
+import StudentFeedbacks from "@/components/StudentFeedbacks";
+import { fetchApprovedTestimonials } from "@/lib/student-testimonials";
 import { LINKS, SITE, YEARS_EXPERIENCE } from "@/lib/constants";
 import {
   FDE_CAPS,
   FDE_COMPARE,
   FDE_COURSE,
+  FDE_DEMO_AGENDA,
+  FDE_DEMO_SCHEMA,
+  FDE_ENROL_STEPS,
   FDE_FAQS,
   FDE_FINAL_REQUIREMENTS,
   FDE_FOR_YOU,
@@ -29,7 +35,7 @@ export const metadata: Metadata = {
     absolute: "FDE Course India | Forward Deployed AI Engineering | Rajinikanth Vadla",
   },
   description:
-    "Live FDE course in India starts 7 Dec 2026, 7:00-8:30 AM IST (Mon/Wed/Fri). 8 weeks, customer problem to production. Early bird ₹32,000 · regular ₹36,999. Rajinikanth Vadla.",
+    "Free live FDE demo on Zoom, Sun 6 Dec 2026, 11 AM IST. 8-week Forward Deployed AI Engineering cohort from Mon 7 Dec, 7 AM IST. Early bird ₹32,000 till 6 Dec, then ₹36,999.",
   keywords: [
     "FDE course",
     "FDE course India",
@@ -70,10 +76,12 @@ const faqSchema = {
   })),
 };
 
-export default function FdeCoursePage() {
+export default async function FdeCoursePage() {
+  const reviews = await fetchApprovedTestimonials().catch(() => []);
   return (
     <div className="pb-24 md:pb-0">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(FDE_WEBPAGE_SCHEMA) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(FDE_DEMO_SCHEMA) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(FDE_SCHEMA) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <BreadcrumbJsonLd
@@ -91,14 +99,14 @@ export default function FdeCoursePage() {
               Rajinikanth Vadla · Starts {FDE_COURSE.startDate} · {FDE_COURSE.classTime}
             </p>
             <div className="flex flex-wrap gap-2 mb-5">
-              <span className="rounded bg-orange-500 text-white text-[11px] font-bold uppercase px-2 py-1">
-                Starts 7 Dec 2026
+              <span className="rounded bg-emerald-600 text-white text-[11px] font-bold uppercase px-2 py-1">
+                Free demo · {FDE_COURSE.demoShort} · 11 AM IST
               </span>
               <span className="rounded bg-blue-700 text-white text-[11px] font-bold uppercase px-2 py-1">
-                {FDE_COURSE.classDays} · 7 AM IST
+                Classes from Mon 7 Dec · 7 AM IST
               </span>
               <span className="rounded border border-slate-600 text-slate-300 text-[11px] font-bold uppercase px-2 py-1">
-                Early bird {FDE_COURSE.earlyBirdDisplay}
+                Early bird {FDE_COURSE.earlyBirdDisplay} till {FDE_COURSE.demoShort}
               </span>
             </div>
             <h1 className="font-display text-3xl md:text-5xl font-bold leading-tight mb-4">
@@ -111,23 +119,30 @@ export default function FdeCoursePage() {
             <p className="text-sm text-slate-400 mb-8">
               {FDE_COURSE.sessions}. {FDE_COURSE.clinic}. {FDE_COURSE.format}.
             </p>
-            <div className="flex flex-wrap gap-3 mb-8">
+            <div className="flex flex-wrap gap-3 mb-3">
+              <a
+                href="#demo"
+                className="inline-flex items-center justify-center px-6 py-3 rounded-lg text-sm font-semibold bg-orange-500 text-white hover:bg-orange-600"
+                data-track="FDE course: hero join free demo"
+              >
+                Join the free demo · {FDE_COURSE.demoShort}
+              </a>
               <a
                 href={LINKS.whatsappFde}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-6 py-3 rounded-lg text-sm font-semibold bg-orange-500 text-white hover:bg-orange-600"
+                className="inline-flex items-center justify-center px-6 py-3 rounded-lg text-sm font-semibold border-2 border-slate-500 text-white hover:border-white"
                 data-track="FDE course: hero WhatsApp enroll"
               >
                 Reserve early bird {FDE_COURSE.earlyBirdDisplay}
               </a>
-              <a
-                href="#syllabus"
-                className="inline-flex items-center justify-center px-6 py-3 rounded-lg text-sm font-semibold border-2 border-slate-500 text-white hover:border-white"
-              >
+            </div>
+            <p className="text-sm text-slate-400 mb-8">
+              Not sure yet? Watch the free demo first.{" "}
+              <a href="#syllabus" className="font-semibold text-slate-200 underline underline-offset-2 hover:text-white">
                 Read the 8-week syllabus
               </a>
-            </div>
+            </p>
             <dl className="grid grid-cols-2 gap-4 max-w-lg">
               {FDE_PROOF.map((item) => (
                 <div key={item.label}>
@@ -193,6 +208,38 @@ export default function FdeCoursePage() {
           ))}
         </div>
       </div>
+
+      {/* Free demo */}
+      <section id="demo" className="py-14 md:py-20 bg-emerald-50 border-b border-emerald-200 scroll-mt-20">
+        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-[1fr_minmax(0,460px)] gap-10 items-start">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-wide text-emerald-700 mb-3">Free live demo on Zoom</p>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-slate-900 mb-3">
+              See how the cohort works before you pay
+            </h2>
+            <p className="text-lg text-slate-700 leading-relaxed mb-6">
+              {FDE_COURSE.demoDate}, {FDE_COURSE.demoTime}, about {FDE_COURSE.demoLength}. Live with Rajinikanth Vadla. Ask
+              anything. Decide after.
+            </p>
+            <ol className="space-y-3 mb-6">
+              {FDE_DEMO_AGENDA.map((item, index) => (
+                <li key={item} className="flex gap-3 items-start">
+                  <span className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-emerald-600 text-white text-sm font-bold">
+                    {index + 1}
+                  </span>
+                  <span className="text-slate-800 leading-relaxed pt-0.5">{item}</span>
+                </li>
+              ))}
+            </ol>
+            <ul className="space-y-1.5 text-sm text-slate-700">
+              <li>✓ Free to attend. You pay only if you join the cohort.</li>
+              <li>✓ The Zoom link is sent to your WhatsApp, not posted publicly, to keep the session clean.</li>
+              <li>✓ Classes start the next morning: Monday 7 December, 7:00 AM IST.</li>
+            </ul>
+          </div>
+          <FdeDemoForm />
+        </div>
+      </section>
 
       {/* What is FDE */}
       <section className="py-16 md:py-24 bg-white border-b border-slate-200">
@@ -404,6 +451,8 @@ export default function FdeCoursePage() {
         </div>
       </section>
 
+      <StudentFeedbacks initial={reviews} limit={4} />
+
       {/* Compare */}
       <section className="py-16 md:py-24 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-6">
@@ -425,18 +474,15 @@ export default function FdeCoursePage() {
         <div className="max-w-4xl mx-auto px-6">
           <p className="text-xs font-bold uppercase tracking-wide text-blue-700 mb-3 text-center">Investment</p>
           <h2 className="font-display text-3xl font-bold text-slate-900 mb-3 text-center">First cohort pricing</h2>
-          <p className="text-center text-slate-600 mb-10 max-w-xl mx-auto">
-            Early bird is for the first 8 seats. Same syllabus, same caps, same clinics. After those seats fill, the fee
-            is {FDE_COURSE.priceDisplay}.
-          </p>
+          <p className="text-center text-slate-600 mb-10 max-w-xl mx-auto">{FDE_COURSE.earlyBirdRule} Same syllabus, same live classes, same recordings.</p>
           <div className="grid sm:grid-cols-2 gap-6">
             <article className="panel p-7 border-l-4 border-l-orange-500 relative">
               <span className="absolute top-4 right-4 rounded bg-orange-500 text-white text-[10px] font-bold uppercase px-2 py-1">
-                First 8 seats
+                Till {FDE_COURSE.demoShort} · 8 seats
               </span>
               <p className="text-xs font-bold uppercase tracking-wide text-orange-600 mb-2">Early bird</p>
               <p className="font-display text-4xl font-bold text-slate-900">{FDE_COURSE.earlyBirdDisplay}</p>
-              <p className="text-sm text-slate-500 mt-2 mb-6">Full syllabus with security, cost, and playbook caps</p>
+              <p className="text-sm text-slate-500 mt-2 mb-6">Pay by {FDE_COURSE.earlyBirdDeadline}. Full syllabus with security, cost, and playbook caps.</p>
               <a
                 href={LINKS.whatsappFde}
                 target="_blank"
@@ -450,7 +496,7 @@ export default function FdeCoursePage() {
             <article className="panel p-7 border-l-4 border-l-blue-700">
               <p className="text-xs font-bold uppercase tracking-wide text-blue-700 mb-2">Regular fee</p>
               <p className="font-display text-4xl font-bold text-slate-900">{FDE_COURSE.priceDisplay}</p>
-              <p className="text-sm text-slate-500 mt-2 mb-6">After early bird seats close · same live format</p>
+              <p className="text-sm text-slate-500 mt-2 mb-6">From Monday 7 December, or once the 8 early bird seats are taken · same live format</p>
               <a
                 href={LINKS.whatsappFde}
                 target="_blank"
@@ -461,6 +507,37 @@ export default function FdeCoursePage() {
                 Ask seat availability
               </a>
             </article>
+          </div>
+          <div className="mt-10 grid md:grid-cols-[1fr_1fr] gap-6">
+            <div className="panel p-6">
+              <h3 className="font-display font-bold text-lg text-slate-900 mb-3">How enrolment works</h3>
+              <ol className="space-y-2.5">
+                {FDE_ENROL_STEPS.map((stepText, index) => (
+                  <li key={stepText} className="flex gap-3 text-sm text-slate-700 leading-relaxed">
+                    <span className="font-bold text-blue-700 shrink-0">{index + 1}.</span>
+                    {stepText}
+                  </li>
+                ))}
+              </ol>
+            </div>
+            <div className="panel p-6">
+              <h3 className="font-display font-bold text-lg text-slate-900 mb-3">If plans change</h3>
+              <p className="text-sm text-slate-700 leading-relaxed">
+                Fees are not refunded in cash once paid. If you cannot continue, you can move your seat to a later batch
+                at no extra cost. Message on WhatsApp before you stop attending.{" "}
+                <Link href="/refund-policy/" className="font-semibold text-blue-700 hover:underline">
+                  Read the refund policy
+                </Link>
+                .
+              </p>
+              <p className="text-sm text-slate-700 leading-relaxed mt-3">
+                Questions before paying? Message Rajinikanth directly on{" "}
+                <a href={LINKS.whatsapp} target="_blank" rel="noopener noreferrer" className="font-semibold text-blue-700 hover:underline">
+                  WhatsApp +91 91000 28801
+                </a>
+                .
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -539,15 +616,22 @@ export default function FdeCoursePage() {
       </section>
 
       {/* Mobile sticky CTA */}
-      <div className="md:hidden fixed bottom-0 inset-x-0 z-40 border-t border-slate-200 bg-white p-3 safe-pb">
+      <div className="md:hidden fixed bottom-0 inset-x-0 z-40 border-t border-slate-200 bg-white p-3 safe-pb flex gap-2">
+        <a
+          href="#demo"
+          className="flex-1 text-center px-3 py-3 rounded-lg text-sm font-semibold bg-orange-500 text-white"
+          data-track="FDE course: mobile sticky free demo"
+        >
+          Free demo · {FDE_COURSE.demoShort}
+        </a>
         <a
           href={LINKS.whatsappFde}
           target="_blank"
           rel="noopener noreferrer"
-          className="block w-full text-center px-4 py-3 rounded-lg text-sm font-semibold bg-orange-500 text-white"
+          className="flex-1 text-center px-3 py-3 rounded-lg text-sm font-semibold border-2 border-emerald-600 text-emerald-700"
           data-track="FDE course: mobile sticky WhatsApp"
         >
-          Early bird {FDE_COURSE.earlyBirdDisplay} · WhatsApp
+          Early bird · WhatsApp
         </a>
       </div>
     </div>

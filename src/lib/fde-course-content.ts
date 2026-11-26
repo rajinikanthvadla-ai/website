@@ -24,7 +24,17 @@ export const FDE_COURSE = {
   priceDisplay: "₹36,999",
   earlyBirdInr: 32000,
   earlyBirdDisplay: "₹32,000",
-  earlyBirdNote: "Early bird: first 8 seats",
+  earlyBirdNote: "Early bird: pay by Sun 6 Dec, 11:59 PM IST",
+  earlyBirdDeadline: "Sunday 6 December, 11:59 PM IST",
+  earlyBirdRule:
+    "Early bird ₹32,000 if you pay by Sunday 6 December, 11:59 PM IST (first 8 seats). From Monday 7 December the fee is ₹36,999.",
+  demoDate: "Sunday 6 December 2026",
+  demoShort: "Sun 6 Dec",
+  demoTime: "11:00 AM IST",
+  demoStartIso: "2026-12-06T11:00:00+05:30",
+  demoEndIso: "2026-12-06T12:00:00+05:30",
+  demoPlatform: "Zoom",
+  demoLength: "60 minutes",
   priceNote: "Same full syllabus at both prices. Recordings and weekly clinic included.",
   prerequisite: "Python and API basics. You already know how to code.",
   positioning:
@@ -204,7 +214,37 @@ export const FDE_COMPARE = [
   },
 ] as const;
 
+export const FDE_DEMO_AGENDA = [
+  "What a Forward Deployed Engineer really does, with real job posts",
+  "A live mini case: a messy customer brief turned into a scoped first release",
+  "How the 8 weeks run and exactly what you ship by the end",
+  "Your questions, answered live",
+] as const;
+
+export const FDE_ENROL_STEPS = [
+  "Join the free demo on Sunday, or message Rajinikanth on WhatsApp.",
+  "Confirm your seat on WhatsApp, directly with Rajinikanth.",
+  "Pay by Sunday 6 December, 11:59 PM IST for the ₹32,000 early bird (first 8 seats). After that the fee is ₹36,999.",
+  "Get the Zoom link for class 1 before Monday 7 December, 7:00 AM IST.",
+] as const;
+
 export const FDE_FAQS = [
+  {
+    q: "Is the demo really free? Do I pay anything to attend?",
+    a: "Yes, it is free. The demo is on Zoom on Sunday 6 December 2026 at 11:00 AM IST and runs about 60 minutes. Register on this page and the Zoom link is sent to your WhatsApp. You pay only if you decide to join the cohort.",
+  },
+  {
+    q: "When does the early bird price end?",
+    a: "Early bird is ₹32,000 if you pay by Sunday 6 December, 11:59 PM IST, for the first 8 seats. From Monday 7 December the fee is ₹36,999. Same syllabus, same live classes, same recordings at both prices.",
+  },
+  {
+    q: "What if I cannot attend the demo?",
+    a: "Register anyway and message on WhatsApp. You can still ask your questions there and join the cohort, which starts Monday 7 December 2026 at 7:00 AM IST.",
+  },
+  {
+    q: "What if I join and then cannot continue?",
+    a: "Fees are not refunded in cash once paid, but you can move your seat to a later batch at no extra cost. Message on WhatsApp before you stop attending. The full rules are on the refund policy page.",
+  },
   {
     q: "What is Forward Deployed AI Engineering?",
     a: "It is customer-facing AI delivery: discover a workflow, scope a first release, build with LLMs where they help, integrate with real systems, evaluate quality, prepare production, and hand over a runbook plus a reusable playbook.",
@@ -228,10 +268,6 @@ export const FDE_FAQS = [
   {
     q: "What do I get at the end?",
     a: "A graded final package: working demo, architecture, evaluation evidence, security checklist, cost sheet, deployment plan, handover runbook, and reusable playbook.",
-  },
-  {
-    q: "How does early bird work?",
-    a: "Early bird is ₹32,000 for the first 8 seats (or until we close early bird). After that the fee is ₹36,999. Same syllabus either way.",
   },
   {
     q: "When does the first cohort start, and what is the class time?",
@@ -342,11 +378,11 @@ export const FDE_SCHEMA = {
         availability: "https://schema.org/LimitedAvailability",
         price: String(FDE_COURSE.earlyBirdInr),
         priceCurrency: "INR",
-        priceValidUntil: "2027-06-30",
+        priceValidUntil: "2026-12-06",
         url: `https://rajinikanthvadla.com${FDE_COURSE.path}`,
         category: "Early bird",
         description:
-          "First 8 seats. Live sessions, recordings, weekly clinic, graded projects including security, cost, and playbook caps.",
+          "Pay by Sunday 6 December 2026, 11:59 PM IST (first 8 seats). Live sessions, recordings, weekly clinic, graded projects including security, cost, and playbook caps.",
       },
       {
         "@type": "Offer",
@@ -370,6 +406,34 @@ export const FDE_SCHEMA = {
     offerCount: "2",
     url: `https://rajinikanthvadla.com${FDE_COURSE.path}`,
   },
+} as const;
+
+/** The free Zoom demo, so search engines can show it as an online event. */
+export const FDE_DEMO_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "EducationEvent",
+  "@id": `https://rajinikanthvadla.com${FDE_COURSE.path}#demo`,
+  name: "Free live demo: Forward Deployed AI Engineering",
+  description:
+    "Free 60-minute live demo on Zoom with Rajinikanth Vadla: what a Forward Deployed Engineer does, a live mini customer case, and how the 8-week FDE cohort runs.",
+  startDate: FDE_COURSE.demoStartIso,
+  endDate: FDE_COURSE.demoEndIso,
+  eventStatus: "https://schema.org/EventScheduled",
+  eventAttendanceMode: "https://schema.org/OnlineEventAttendanceMode",
+  location: { "@type": "VirtualLocation", url: `https://rajinikanthvadla.com${FDE_COURSE.path}#demo` },
+  image: "https://rajinikanthvadla.com/assets/og-image.jpg",
+  isAccessibleForFree: true,
+  inLanguage: "en",
+  offers: {
+    "@type": "Offer",
+    price: 0,
+    priceCurrency: "INR",
+    availability: "https://schema.org/InStock",
+    url: `https://rajinikanthvadla.com${FDE_COURSE.path}#demo`,
+    validFrom: "2026-11-26T00:00:00+05:30",
+  },
+  organizer: { "@type": "Person", name: "Rajinikanth Vadla", url: "https://rajinikanthvadla.com/" },
+  performer: { "@type": "Person", name: "Rajinikanth Vadla" },
 } as const;
 
 export const FDE_WEBPAGE_SCHEMA = {

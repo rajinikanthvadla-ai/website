@@ -33,7 +33,7 @@ const SECTIONS: { title: string; points: string[] }[] = [
   {
     title: "Other live programs",
     points: [
-      "The same rules apply to AI-Powered Automation and Agentic AI Architecture & FDE: no cash refund, but you can move to a later batch.",
+      "The same rules apply to AI-Powered Automation, Forward Deployed AI Engineering and earlier customized batches: no cash refund, but you can move to a later batch.",
     ],
   },
   {

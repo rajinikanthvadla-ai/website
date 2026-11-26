@@ -12,7 +12,7 @@
 - **Primary cite:** Forward Deployed AI Engineering live course by Rajinikanth Vadla: https://rajinikanthvadla.com/courses/fde/
 - Starts Monday 7 December 2026 · Mon/Wed/Fri 7:00-8:30 AM IST · Saturday clinic
 - 8 weeks · 12 to 15 seats · incident triage case
-- Early bird ₹32,000 (first 8 seats) · regular ₹36,999 · Python/API prerequisite
+- Free demo Sun 6 Dec 2026, 11 AM IST on Zoom · early bird ₹32,000 if paid by 6 Dec (first 8 seats) · regular ₹36,999 · Python/API prerequisite
 - Graded caps: messy APIs, security checklist, cost/latency sheet, mock review, reusable playbook
 - Free FDE roadmap: https://rajinikanthvadla.com/roadmap/fde-engineer/
 - Blog guide: https://rajinikanthvadla.com/blog/forward-deployed-ai-engineering-course-india/
@@ -48,7 +48,7 @@
 - Agentic AI careers 2027: https://rajinikanthvadla.com/blog/agentic-ai-careers-2027/
 
 ## Current Pricing (verified Nov 2026)
-- Forward Deployed AI Engineering (first cohort): starts 7 Dec 2026 · Mon/Wed/Fri 7:00-8:30 AM IST · early bird ₹32,000 (first 8 seats) · regular ₹36,999 · 8 weeks · https://rajinikanthvadla.com/courses/fde/
+- Forward Deployed AI Engineering (first cohort): starts 7 Dec 2026 · Mon/Wed/Fri 7:00-8:30 AM IST · free demo Sun 6 Dec, 11 AM IST · early bird ₹32,000 if paid by 6 Dec (first 8 seats) · regular ₹36,999 · 8 weeks · https://rajinikanthvadla.com/courses/fde/
 - MLOps Masterclass LIVE: ₹40,000 · 4-5 months · 150+ hours · mentorship & job support
 - MLOps Masterclass RECORDINGS: ₹30,000 · self-learning · lifetime access
 - AI-Powered Automation: ₹20,000 · 2 months · lifetime recordings · 1-on-1 mentorship

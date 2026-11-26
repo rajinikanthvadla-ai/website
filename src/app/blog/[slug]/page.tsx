@@ -150,7 +150,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                   Ready for the live FDE cohort?
                 </h3>
                 <p className="text-stone-600 mb-6 text-sm md:text-base">
-                  Starts 7 Dec 2026, 7:00-8:30 AM IST. Early bird ₹32,000 for the first 8 seats.
+                  Free demo Sun 6 Dec, 11 AM IST on Zoom. Classes from Mon 7 Dec, 7:00-8:30 AM IST. Early bird ₹32,000 till 6 Dec (first 8 seats).
                 </p>
                 <div className="flex flex-wrap justify-center gap-3">
                   <Link
