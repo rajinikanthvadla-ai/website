@@ -33,6 +33,7 @@ export const FDE_COURSE = {
   demoTime: "11:00 AM IST",
   demoStartIso: "2026-12-06T11:00:00+05:30",
   demoEndIso: "2026-12-06T12:00:00+05:30",
+  earlyBirdEndIso: "2026-12-06T23:59:59+05:30",
   demoPlatform: "Zoom",
   demoLength: "60 minutes",
   priceNote: "Same full syllabus at both prices. Recordings and weekly clinic included.",
@@ -213,6 +214,19 @@ export const FDE_COMPARE = [
     body: "Masterclass is the longer AI Platform Engineering path (MLOps, AIOps, LLMOps, Agents, FDE). This FDE cohort is a focused delivery project track.",
   },
 ] as const;
+
+/** Countdown stages: demo, then live demo, then early bird. Real dates only. */
+export const FDE_COUNTDOWN = [
+  { until: FDE_COURSE.demoStartIso, label: "Free demo starts in" },
+  {
+    until: FDE_COURSE.demoEndIso,
+    label: "Free demo is live",
+    liveText: "The free demo is live now on Zoom. Check your WhatsApp for the link.",
+  },
+  { until: FDE_COURSE.earlyBirdEndIso, label: "Early bird ₹32,000 ends in" },
+];
+
+export const FDE_COUNTDOWN_AFTER = "Early bird has closed. Seats are ₹36,999: message on WhatsApp.";
 
 export const FDE_DEMO_AGENDA = [
   "What a Forward Deployed Engineer really does, with real job posts",

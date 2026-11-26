@@ -4,6 +4,7 @@ import { useState } from "react";
 import { LINKS } from "@/lib/constants";
 import { FDE_COURSE } from "@/lib/fde-course-content";
 import { getSupabaseBrowserClient } from "@/lib/supabase-client";
+import Countdown from "./Countdown";
 
 /** Shows in Admin > Leads. The lead-alert trigger emails each signup. */
 export const FDE_DEMO_INTEREST = "FDE free demo · Sun 6 Dec";
@@ -122,6 +123,16 @@ export default function FdeDemoForm() {
       <p className="mt-1 text-[13px] text-slate-600">
         {FDE_COURSE.demoDate} · {FDE_COURSE.demoTime} · {FDE_COURSE.demoPlatform} · free
       </p>
+      <div className="mt-2">
+        <Countdown
+          variant="inline"
+          phases={[
+            { until: FDE_COURSE.demoStartIso, label: "Starts in" },
+            { until: FDE_COURSE.demoEndIso, label: "Live now", liveText: "Live now. Register to get the Zoom link on WhatsApp." },
+          ]}
+          after="This demo has ended. Message on WhatsApp to join the cohort."
+        />
+      </div>
       <div className="mt-4 grid gap-3 sm:grid-cols-2">
         <label className={`${labelCls} sm:col-span-2`}>
           Full name

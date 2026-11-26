@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
+import Countdown from "@/components/Countdown";
 import FdeDemoForm from "@/components/FdeDemoForm";
 import StudentFeedbacks from "@/components/StudentFeedbacks";
 import { fetchApprovedTestimonials } from "@/lib/student-testimonials";
@@ -9,6 +10,8 @@ import { LINKS, SITE, YEARS_EXPERIENCE } from "@/lib/constants";
 import {
   FDE_CAPS,
   FDE_COMPARE,
+  FDE_COUNTDOWN,
+  FDE_COUNTDOWN_AFTER,
   FDE_COURSE,
   FDE_DEMO_AGENDA,
   FDE_DEMO_SCHEMA,
@@ -119,6 +122,9 @@ export default async function FdeCoursePage() {
             <p className="text-sm text-slate-400 mb-8">
               {FDE_COURSE.sessions}. {FDE_COURSE.clinic}. {FDE_COURSE.format}.
             </p>
+            <div className="mb-6">
+              <Countdown variant="hero" phases={FDE_COUNTDOWN} after={FDE_COUNTDOWN_AFTER} />
+            </div>
             <div className="flex flex-wrap gap-3 mb-3">
               <a
                 href="#demo"
@@ -482,6 +488,13 @@ export default async function FdeCoursePage() {
               </span>
               <p className="text-xs font-bold uppercase tracking-wide text-orange-600 mb-2">Early bird</p>
               <p className="font-display text-4xl font-bold text-slate-900">{FDE_COURSE.earlyBirdDisplay}</p>
+              <div className="mt-2">
+                <Countdown
+                  variant="inline"
+                  phases={[{ until: FDE_COURSE.earlyBirdEndIso, label: "Ends in" }]}
+                  after="Early bird has closed."
+                />
+              </div>
               <p className="text-sm text-slate-500 mt-2 mb-6">Pay by {FDE_COURSE.earlyBirdDeadline}. Full syllabus with security, cost, and playbook caps.</p>
               <a
                 href={LINKS.whatsappFde}
