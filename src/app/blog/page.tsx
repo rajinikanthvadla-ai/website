@@ -4,77 +4,69 @@ import Link from "next/link";
 import { getAllArticles } from "@/lib/blog";
 
 export const metadata: Metadata = {
-  title: "MLOps, AIOps & GenAI Blog",
+  title: "AI Blog 2027 | Rajinikanth Vadla — Jobs, Market, MLOps, Agents",
   description:
-    "Tutorials and notes on MLOps, AIOps, GenAI, AI Agents, LangChain, RAG and Kubernetes by Rajinikanth Vadla.",
+    "Practical AI writing by Rajinikanth Vadla on 2027 jobs, market predictions, MLOps, LLMOps, agents, and FDE — for engineers learning this winter.",
   keywords: [
+    "Rajinikanth Vadla",
+    "AI jobs 2027",
+    "AI market 2027",
     "MLOps blog India",
     "LLMOps best practices",
     "AI Agents tutorial",
-    "Generative AI training blog",
-    "AIOps use cases",
-    "LangChain RAG guide",
-    "MLOps career roadmap",
+    "Forward Deployed Engineering",
   ],
   alternates: { canonical: "https://rajinikanthvadla.com/blog/" },
 };
 
 export default async function BlogPage() {
   const sorted = await getAllArticles();
+  const [featured, ...rest] = sorted;
 
   return (
     <>
       <BreadcrumbJsonLd items={[{ name: "Blog", path: "/blog/" }]} />
-      <section className="relative border-b border-stone-200 bg-stone-100 surface-paper py-20 md:py-24">
-        <div className="relative text-center max-w-3xl mx-auto px-6">
-          <span className="inline-block text-xs font-semibold uppercase tracking-[0.14em] text-accent-600 mb-3">Writing</span>
-          <h1 className="font-display text-4xl md:text-5xl font-bold text-stone-900 mb-4">Blog</h1>
-          <p className="text-lg text-stone-600">
-            Notes on MLOps, AIOps, GenAI, and agents - updated when there is something worth your time.
+      <section className="relative border-b border-stone-200 bg-stone-100 surface-paper py-16 md:py-20">
+        <div className="relative max-w-3xl mx-auto px-6 text-center">
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-accent-600 mb-3">Rajinikanth Vadla</p>
+          <h1 className="font-display text-4xl md:text-5xl font-bold text-stone-900 mb-4">AI blog</h1>
+          <p className="text-lg text-stone-600 leading-relaxed">
+            2027 market, jobs, agents, and platform notes — written so December–February learners find a clear path, not noise.
           </p>
         </div>
       </section>
 
-      <section className="py-20 md:py-24 bg-white border-b border-stone-200">
-        <div className="max-w-5xl mx-auto px-6">
-          <div className="grid gap-4">
-            {sorted.map((article) => (
-              <Link
-                key={article.slug}
-                href={`/blog/${article.slug}/`}
-                className="group grid md:grid-cols-[1fr_auto] gap-6 panel p-7 md:p-8 card-hover"
-              >
-                <div className="grid gap-4 md:grid-cols-[minmax(0,1fr)_180px] md:items-center">
-                  <div>
-                    <div className="flex flex-wrap items-center gap-3 mb-3">
-                      <span className="border border-stone-300 bg-stone-50 text-stone-700 px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-wide">{article.category}</span>
-                      <span className="text-stone-500 text-sm">{article.date}</span>
-                      <span className="text-stone-500 text-sm">{article.readTime} read</span>
-                    </div>
-                    <h2 className="font-display text-xl md:text-2xl font-bold text-stone-900 mb-2 group-hover:text-accent-700 transition-colors leading-tight">
-                      {article.title}
-                    </h2>
-                    <p className="text-stone-600 leading-relaxed line-clamp-2 text-sm md:text-base">{article.description}</p>
-                    <div className="flex flex-wrap gap-2 mt-3">
-                      {article.tags.slice(0, 4).map((tag) => (
-                        <span key={tag} className="text-[11px] font-medium text-stone-500 border border-stone-200 px-2 py-0.5">{tag}</span>
-                      ))}
-                    </div>
-                  </div>
-                  {article.coverImage ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img
-                      src={article.coverImage}
-                      alt=""
-                      className="hidden md:block w-full h-28 object-cover border border-stone-200 bg-stone-100"
-                    />
-                  ) : null}
+      <section className="py-14 md:py-16 bg-white border-b border-stone-200">
+        <div className="max-w-3xl mx-auto px-6 space-y-10">
+          {featured ? (
+            <Link href={`/blog/${featured.slug}/`} className="group block border-b border-stone-200 pb-10">
+              <div className="flex flex-wrap items-center gap-3 mb-3 text-sm text-stone-500">
+                <span className="uppercase tracking-wide text-[11px] font-semibold text-stone-700 border border-stone-300 px-2 py-0.5">
+                  {featured.category}
+                </span>
+                <span>{featured.date}</span>
+                <span>{featured.readTime} read</span>
+              </div>
+              <h2 className="font-display text-2xl md:text-3xl font-bold text-stone-900 group-hover:text-accent-700 transition-colors leading-tight mb-3">
+                {featured.title}
+              </h2>
+              <p className="text-stone-600 leading-relaxed mb-4">{featured.description}</p>
+              <span className="text-sm font-semibold text-accent-600 group-hover:underline underline-offset-4">Read article →</span>
+            </Link>
+          ) : null}
+
+          <div className="space-y-0 divide-y divide-stone-200">
+            {rest.map((article) => (
+              <Link key={article.slug} href={`/blog/${article.slug}/`} className="group block py-7">
+                <div className="flex flex-wrap items-center gap-3 mb-2 text-sm text-stone-500">
+                  <span className="uppercase tracking-wide text-[11px] font-semibold text-stone-700">{article.category}</span>
+                  <span>{article.date}</span>
+                  <span>{article.readTime}</span>
                 </div>
-                <div className="flex items-center">
-                  <span className="text-accent-600 font-semibold text-sm whitespace-nowrap group-hover:underline underline-offset-4">
-                    Read &rarr;
-                  </span>
-                </div>
+                <h2 className="font-display text-xl md:text-2xl font-bold text-stone-900 group-hover:text-accent-700 transition-colors leading-snug mb-2">
+                  {article.title}
+                </h2>
+                <p className="text-stone-600 text-sm md:text-base leading-relaxed line-clamp-2">{article.description}</p>
               </Link>
             ))}
           </div>

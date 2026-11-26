@@ -4,26 +4,26 @@ const path = require("path");
 const ARTICLES_PATH = path.join(__dirname, "..", "content", "articles.json");
 
 const TOPICS = [
-  "Latest breakthroughs in AI Agents and autonomous systems",
-  "New MLOps tools and practices for production ML in 2026",
-  "AIOps innovations: AI-powered infrastructure management",
-  "GenAI and LLM updates: new models, techniques, and use cases",
-  "Kubernetes and cloud-native AI/ML deployment trends",
-  "LangChain and RAG system advancements",
-  "AI tools for developer productivity: Cursor, Copilot, and beyond",
-  "Enterprise AI adoption trends and challenges",
-  "Vector databases and embedding technologies update",
-  "CI/CD for machine learning: latest tools and patterns",
-  "Multi-cloud AI/ML deployment strategies",
-  "AI safety, governance, and responsible AI practices",
-  "Fine-tuning LLMs: new techniques and open-source models",
-  "Model Context Protocol (MCP) and tool-use in AI agents",
-  "Prompt engineering advanced techniques and patterns",
+  "AI market 2027: where enterprise money moves for platforms and agents",
+  "AI jobs 2027 India: DevOps to MLOps and LLMOps career bridges",
+  "AI jobs 2027 USA: Agent Engineer, FDE, and platform hiring skills",
+  "AI predictions 2027: gateways, evals, computer-use agents, Physical AI",
+  "How to learn AI in 2027: a production-first 90-day plan",
+  "Forward Deployed Engineering careers in 2027 for India and USA",
+  "LLM gateway and FinOps habits every AI platform engineer needs in 2027",
+  "AI evals and reliability for LLMOps teams in 2027",
+  "MCP and tool-use patterns for production agents in 2027",
+  "Spec-driven development for AI agents in 2027",
+  "Enterprise AI adoption blockers and how platform teams fix them in 2027",
+  "From Python developer to AI Agent Engineer in 2027",
+  "RAG systems that survive production in 2027",
+  "Kubernetes patterns for AI/ML serving in 2027",
+  "Responsible AI and safety careers adjacent to platform engineering 2027",
 ];
 
 const TREND_FEEDS = [
-  "https://news.google.com/rss/search?q=AI+OR+Machine+Learning+OR+LLM+OR+AI+Agents&hl=en-US&gl=US&ceid=US:en",
-  "https://news.google.com/rss/search?q=MLOps+OR+AIOps+OR+LangChain+OR+RAG&hl=en-US&gl=US&ceid=US:en",
+  "https://news.google.com/rss/search?q=AI+jobs+OR+AI+agents+OR+LLM+OR+AI+platform+2027&hl=en-US&gl=US&ceid=US:en",
+  "https://news.google.com/rss/search?q=MLOps+OR+LLMOps+OR+Forward+Deployed+Engineer+OR+AI+market&hl=en-US&gl=US&ceid=US:en",
 ];
 
 function decodeXmlEntities(value) {
@@ -300,7 +300,7 @@ function sanitizeArticle(article, today) {
   const sanitized = { ...article };
   sanitized.slug = canonicalSlug(slugify(sanitized.slug || sanitized.title));
   if (!sanitized.slug.includes("2026") && !sanitized.slug.includes("2027")) {
-    sanitized.slug = `${sanitized.slug}-2026`;
+    sanitized.slug = `${sanitized.slug}-2027`;
   }
   sanitized.title = String(sanitized.title || "").replace(/\s+/g, " ").trim();
   if (sanitized.title.length > 70) {
@@ -344,42 +344,43 @@ async function generateArticle(topic) {
   const trends = await fetchTrendingSignals();
   const trendLines = trends.headlines.length
     ? trends.headlines.map((h, idx) => `${idx + 1}. ${h}`).join("\n")
-    : "No live feed available. Use broadly trending 2026 AI/ML industry topics.";
+    : "No live feed available. Use broadly trending 2027 AI market, jobs, agents, and platform topics.";
   const trendKeywords = trends.keywords.length
     ? trends.keywords.join(", ")
-    : "ai agents, llmops, mlops, aiops, rag, langchain, kubernetes, genai";
+    : "ai jobs 2027, ai market 2027, ai agents, llmops, mlops, fde, rajinikanth vadla, genai";
 
-  const prompt = `You are Rajinikanth Vadla, an MLOps, AIOps, GenAI, and AI Agents trainer in Hyderabad. Write one practical article. Do not invent rankings or news.
+  const prompt = `You are Rajinikanth Vadla (surname spelled Vadla), an MLOps, AIOps, GenAI, AI Agents, and Forward Deployed Engineering trainer. Write one practical SEO article. Do not invent rankings, market-size numbers, or news.
 
 Topic: ${selectedTopic}
 Date context: ${today}
 
-Live trend headlines to align with:
+Live trend headlines to align with (use as inspiration only; do not invent quotes):
 ${trendLines}
 
-Priority SEO keywords (use naturally):
+Priority SEO keywords (use naturally, no stuffing):
 ${trendKeywords}
 
+Brand rules:
+- Name "Rajinikanth Vadla" in the first 120 words and again near the final CTA
+- Always spell surname Vadla correctly
+- Link to at least two of: /courses/fde/, /mlops-aiops-masterclass/, /enroll/, /mentorship/, /genai-course/, /ai-agents-course/
+- Include a WhatsApp CTA using https://wa.me/919100028801 with a relevant prefilled message
+- No fake "#1" or unverifiable salary guarantees
+
 Requirements:
-- Title should be catchy, include the year 2026, stay under 70 characters, and target one intent
-- Description should be 1-2 sentences, keyword-rich, under 155 characters
-- Content should be 1200-1800 words in markdown format and genuinely useful
+- Title under 70 characters, one search intent, include 2027 when topical
+- Description 1-2 sentences, under 155 characters, keyword-rich
+- Content 1200-1800 words markdown, genuinely useful for Dec/Jan/Feb learners aiming at 2027 AI jobs
 - Use ## for main headings, ### for subheadings
-- Include practical insights, tool recommendations, and clearly explain real-world AI/ML use-cases
-- Include one section: "How this helps your AI/ML career in 2026"
-- Include one section: "Implementation checklist"
-- Include one FAQ section with 4-6 Q&A bullets
-- Include one comparison section of your approach vs common competitor approaches (without naming brands negatively)
-- End with a call-to-action linking to relevant pages (use paths like /mlops-aiops-masterclass, /genai-course, /ai-agents-course, /aiops-training, /ai-tools-productivity)
-- Category should be one of: MLOps, AIOps, GenAI, AI Agents, AI Tools, DevOps, Kubernetes, LLMOps
-- Tags should be 6-10 relevant keywords focused on high-intent search phrases
-- Slug should be URL-friendly (lowercase, hyphens, include 2026)
-- Ensure claims are realistic; avoid fake "India's #1" unverifiable lines
-- Keep tone clear, practical, and "human mentor" style
+- Include sections: short answer, practical table or checklist, "How this helps your AI career in 2027", Implementation checklist, FAQ (4-6 Q&A), final CTA
+- Category one of: Careers, AI Platform, AI Agents, Courses, MLOps, AIOps, GenAI, LLMOps, DevOps, Kubernetes
+- Tags 6-10 high-intent phrases; include "Rajinikanth Vadla" and "2027" when relevant
+- Slug lowercase hyphens including 2027
+- Tone: clear mentor, sharp, no fluff
 
 Respond ONLY with valid JSON (no markdown code fences, no extra text) in this exact format:
 {
-  "slug": "url-friendly-slug-2026",
+  "slug": "url-friendly-slug-2027",
   "title": "Article Title Here",
   "description": "SEO description under 160 chars",
   "category": "Category",
@@ -437,8 +438,8 @@ Respond ONLY with valid JSON (no markdown code fences, no extra text) in this ex
 
     articles.unshift(article);
 
-    if (articles.length > 50) {
-      articles.length = 50;
+    if (articles.length > 80) {
+      articles.length = 80;
     }
 
     fs.writeFileSync(ARTICLES_PATH, JSON.stringify(articles, null, 2));
