@@ -35,6 +35,7 @@ jobs:
         run: npm run sync:youtube
         continue-on-error: true
 
+      # FDE jobs sync is time-boxed through 12 Dec 2026; script no-ops after that.
       - name: Sync live FDE job openings
         run: npm run sync:fde-jobs
         continue-on-error: true

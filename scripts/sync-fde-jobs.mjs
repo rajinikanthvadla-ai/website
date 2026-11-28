@@ -3,6 +3,8 @@
  * Greenhouse job boards and writes content/fde-jobs.json for the FDE course page.
  *
  * Sources are official public ATS JSON APIs (no LinkedIn scrape).
+ * Active window: 28 Nov 2026 → 12 Dec 2026 (two weeks). After that the sync
+ * clears the feed and the course page hides the section.
  */
 import fs from "fs";
 import path from "path";
@@ -10,6 +12,9 @@ import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const OUTPUT = path.join(__dirname, "..", "content", "fde-jobs.json");
+
+/** Inclusive end: through 12 Dec 2026 IST (end of day). */
+const EXPIRES_AT = "2026-12-12T18:29:59.999Z";
 
 const POOL_SIZE = 16;
 const DISPLAY_HINT = 8;
@@ -235,7 +240,34 @@ function diversify(jobs, limit) {
   return selected;
 }
 
+function writeExpiredFeed() {
+  const payload = {
+    updatedAt: new Date().toISOString(),
+    expiresAt: EXPIRES_AT,
+    active: false,
+    displayCount: 0,
+    disclaimer:
+      "This live openings strip ran for two weeks around the Dec 2026 cohort launch and is now closed.",
+    jobs: [],
+    meta: {
+      totalMatched: 0,
+      uniqueTitles: 0,
+      sources: BOARDS.map((b) => b.brand),
+      errors: [],
+      expired: true,
+    },
+  };
+  fs.mkdirSync(path.dirname(OUTPUT), { recursive: true });
+  fs.writeFileSync(OUTPUT, `${JSON.stringify(payload, null, 2)}\n`, "utf8");
+  console.log(`FDE jobs window ended (${EXPIRES_AT}). Cleared ${OUTPUT}`);
+}
+
 async function main() {
+  if (Date.now() > Date.parse(EXPIRES_AT)) {
+    writeExpiredFeed();
+    return;
+  }
+
   const all = [];
   const errors = [];
 
@@ -271,6 +303,8 @@ async function main() {
   const pool = diversify([...dedup.values()], POOL_SIZE);
   const payload = {
     updatedAt: new Date().toISOString(),
+    expiresAt: EXPIRES_AT,
+    active: true,
     displayCount: DISPLAY_HINT,
     disclaimer:
       "Sample openings pulled from public company career boards. Not a placement guarantee — use them to see how this course maps to real FDE hiring signals.",

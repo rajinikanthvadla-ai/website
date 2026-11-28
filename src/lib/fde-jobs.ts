@@ -16,6 +16,8 @@ export type FdeJob = {
 
 export type FdeJobsFeed = {
   updatedAt: string;
+  expiresAt?: string;
+  active?: boolean;
   displayCount: number;
   disclaimer: string;
   jobs: FdeJob[];
@@ -24,14 +26,27 @@ export type FdeJobsFeed = {
     uniqueTitles?: number;
     sources?: string[];
     errors?: string[];
+    expired?: boolean;
   };
 };
+
+/** Two-week launch window ending 12 Dec 2026 IST. */
+export const FDE_JOBS_EXPIRES_AT = "2026-12-12T18:29:59.999Z";
 
 export function getFdeJobsFeed(): FdeJobsFeed {
   return fdeJobsFeed as FdeJobsFeed;
 }
 
+export function isFdeJobsWindowActive(now = Date.now()): boolean {
+  const feed = getFdeJobsFeed();
+  if (feed.active === false || feed.meta?.expired) return false;
+  const expiresAt = Date.parse(feed.expiresAt || FDE_JOBS_EXPIRES_AT);
+  if (Number.isNaN(expiresAt)) return false;
+  return now <= expiresAt;
+}
+
 export function getFdeJobsForPage(limit = 8): FdeJob[] {
+  if (!isFdeJobsWindowActive()) return [];
   const feed = getFdeJobsFeed();
   const count = Math.min(limit, feed.displayCount || limit, feed.jobs?.length || 0);
   return (feed.jobs || []).slice(0, count);
