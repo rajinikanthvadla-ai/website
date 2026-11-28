@@ -39,6 +39,7 @@ export default function Footer({ minimal = false }: { minimal?: boolean }) {
           <div>
             <h3 className="text-white font-bold mb-4 text-xs uppercase tracking-[0.12em]">Training</h3>
             <ul className="space-y-2.5 text-sm">
+              <li><Link href="/ai-labs/" className="hover:text-orange-400 transition-colors">AI Labs <span className="bg-orange-700 text-white text-[8px] font-bold py-0 px-1.5 rounded-sm uppercase ml-1">NEW</span></Link></li>
               <li><Link href="/python-course/" className="hover:text-orange-400 transition-colors">Free Python Course <span className="bg-orange-700 text-white text-[8px] font-bold py-0 px-1.5 rounded-sm uppercase ml-1">FREE</span></Link></li>
               <li><Link href="/python-course/playground/" className="hover:text-white transition-colors">Python Compiler</Link></li>
               <li><Link href="/syllabus/" className="hover:text-orange-400 transition-colors">Course Syllabus <span className="bg-orange-700 text-white text-[8px] font-bold py-0 px-1.5 rounded-sm uppercase ml-1">NEW</span></Link></li>

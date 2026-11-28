@@ -44,6 +44,7 @@ export const LINKS = {
   /** Free WhatsApp Business community (invite link). If you reset the link in WhatsApp, update it here. */
   whatsappCommunity: "https://chat.whatsapp.com/Bt65kK4EThMDjC5TXAr5WN",
   fdeCourse: "/courses/fde/",
+  aiLabs: "/ai-labs/",
 
   linkedin: "https://www.linkedin.com/in/rajinikanth-vadla-4221281a4/",
   youtube: "https://www.youtube.com/@IamRajinikanthvadla",
@@ -100,6 +101,7 @@ export const SIDEBAR_NAV: SidebarNavItem[] = [
 
 /** Secondary links tucked under “More” in the rail. */
 export const SIDEBAR_MORE: SidebarNavItem[] = [
+  { label: "AI Labs", href: "/ai-labs", icon: "python" },
   { label: "Python (free)", href: "/python-course", icon: "python" },
   { label: "News", href: "/news", icon: "blog" },
   { label: "Architecture", href: "/architecture", icon: "architecture" },
@@ -144,6 +146,12 @@ export const NAV_GROUPS: NavGroup[] = [
     label: "Learn Free",
     href: "/python-course",
     links: [
+      {
+        label: "AI Labs",
+        href: "/ai-labs",
+        description: "LLM Notebook in Google Colab — your Google login",
+        badge: "NEW",
+      },
       {
         label: "Python Course",
         href: "/python-course",
