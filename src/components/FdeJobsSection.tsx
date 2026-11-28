@@ -62,19 +62,34 @@ export default function FdeJobsSection({ limit = 8 }: Props) {
                   ))}
                 </ul>
               ) : null}
-              {job.bullets?.length ? (
-                <ul className="space-y-2 text-sm text-slate-600 leading-relaxed mb-5 flex-1">
-                  {job.bullets.slice(0, 3).map((bullet) => (
-                    <li key={`${job.id}-${bullet.slice(0, 24)}`} className="pl-3 border-l-2 border-slate-200">
-                      {bullet}
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <p className="text-sm text-slate-600 mb-5 flex-1">
-                  Open the company posting for full requirements.
-                </p>
-              )}
+              {(() => {
+                const bullets = (job.bullets || [])
+                  .map((b) => b.replace(/<[^>]+>/g, " ").replace(/&amp;/g, "&").replace(/\s+/g, " ").trim())
+                  .filter(
+                    (b) =>
+                      b.length >= 40 &&
+                      b.length <= 200 &&
+                      !/<[a-z]|CSQ\d|[A-Z]{2,}\d{4,}/i.test(b) &&
+                      !/^as a forward deployed engineer/i.test(b),
+                  )
+                  .slice(0, 3);
+                if (!bullets.length) {
+                  return (
+                    <p className="text-sm text-slate-600 mb-5 flex-1">
+                      Open the company posting for full requirements.
+                    </p>
+                  );
+                }
+                return (
+                  <ul className="space-y-2 text-sm text-slate-600 leading-relaxed mb-5 flex-1">
+                    {bullets.map((bullet) => (
+                      <li key={`${job.id}-${bullet.slice(0, 24)}`} className="pl-3 border-l-2 border-slate-200">
+                        {bullet}
+                      </li>
+                    ))}
+                  </ul>
+                );
+              })()}
               <a
                 href={job.url}
                 target="_blank"

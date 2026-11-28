@@ -37,39 +37,93 @@ const COURSE_SIGNALS = [
   { tag: "LLM / agents", re: /\bLLM\b|agent|genai|generative|claude|gpt|model/i },
 ];
 
+function decodeEntities(text) {
+  if (!text) return "";
+  return text
+    .replace(/&nbsp;/gi, " ")
+    .replace(/&amp;/gi, "&")
+    .replace(/&lt;/gi, "<")
+    .replace(/&gt;/gi, ">")
+    .replace(/&quot;/gi, '"')
+    .replace(/&#39;|&apos;/gi, "'")
+    .replace(/&#x([0-9a-f]+);/gi, (_, hex) => String.fromCharCode(parseInt(hex, 16)))
+    .replace(/&#(\d+);/g, (_, num) => String.fromCharCode(Number(num)));
+}
+
 function stripHtml(html) {
   if (!html) return "";
-  return html
+  let text = decodeEntities(html);
+  // Second pass in case entities encoded tags (&lt;p&gt;...)
+  text = decodeEntities(text);
+  return text
     .replace(/<script[\s\S]*?<\/script>/gi, " ")
     .replace(/<style[\s\S]*?<\/style>/gi, " ")
+    .replace(/<br\s*\/?>/gi, "\n")
+    .replace(/<\/(p|div|li|h[1-6]|tr)>/gi, "\n")
     .replace(/<[^>]+>/g, " ")
-    .replace(/&nbsp;/g, " ")
-    .replace(/&amp;/g, "&")
-    .replace(/&lt;/g, "<")
-    .replace(/&gt;/g, ">")
-    .replace(/&#39;/g, "'")
-    .replace(/&quot;/g, '"')
     .replace(/\s+/g, " ")
     .trim();
 }
 
-function bulletsFromText(text, max = 3) {
-  const parts = text
-    .split(/(?<=[.!?])\s+|[\n\r]+|[•\u2022*]|\s{2,}/)
-    .map((p) => p.replace(/^[\d.)\-–—:\s]+/, "").trim())
-    .filter(Boolean);
-
-  const preferred = [];
-  const fallback = [];
-  for (const p of parts) {
-    if (p.length < 45 || p.length > 170) continue;
-    if (/experience|python|customer|deploy|product|llm|api|stakeholder|production|security|eval|agent|integrate/i.test(p)) {
-      preferred.push(p);
-    } else {
-      fallback.push(p);
-    }
+function extractListItems(html) {
+  if (!html) return [];
+  const decoded = decodeEntities(html);
+  const items = [];
+  for (const match of decoded.matchAll(/<li\b[^>]*>([\s\S]*?)<\/li>/gi)) {
+    const clean = stripHtml(match[1]);
+    if (clean) items.push(clean);
   }
-  return [...preferred, ...fallback].slice(0, max);
+  return items;
+}
+
+const JUNK_BULLET =
+  /^(about (the )?(team|role|company|us|anthropic|databricks|scale|stripe|privy)|who we are|what you('|’)ll|equal employment|we are an equal|based on the factors|anticipates utilizing|encouraged to apply|compensation|salary|benefits|stock|equity|visa|export control|government license|hiring practices|inclusive|mission is to|as a forward deployed|job (id|code|requisition)|req(uisition)?\.?\s*#?)/i;
+
+const JUNK_INLINE =
+  /<\/?[a-z]|class=\"|content-intro|equal opportunity|affirmative action|privacy policy|unsubscribe|CSQ\d|[A-Z]{2,}\d{4,}|\bREQ[-_]?\d+/i;
+
+const REQUIREMENT_SIGNAL =
+  /\b(experience|years?|python|typescript|javascript|java|golang|go\b|rust|customer|stakeholder|deploy|production|ship|build|design|architect|llm|api|eval|agent|integrat|security|ambiguity|partner|prototype|fullstack|full-stack|software|engineer|own|lead|collaborate|deliver)\b/i;
+
+function cleanBullet(raw) {
+  return stripHtml(raw)
+    .replace(/^[\d.)\-–—•\u2022*\s]+/, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function isUsefulBullet(text) {
+  if (!text) return false;
+  if (text.length < 48 || text.length > 180) return false;
+  if (JUNK_BULLET.test(text)) return false;
+  if (JUNK_INLINE.test(text)) return false;
+  if (/^[A-Z0-9_-]{6,}$/.test(text)) return false; // codes like CSQ327R39
+  if (!REQUIREMENT_SIGNAL.test(text)) return false;
+  // Skip pure role restatements with no skill signal beyond the title words
+  if (/^as a forward deployed engineer/i.test(text) && text.length < 120) return false;
+  return true;
+}
+
+function bulletsFromHtml(html, max = 3) {
+  const fromLists = extractListItems(html).map(cleanBullet).filter(isUsefulBullet);
+  if (fromLists.length >= max) return fromLists.slice(0, max);
+
+  const plain = stripHtml(html);
+  const sentences = plain
+    .split(/(?<=[.!?])\s+/)
+    .map(cleanBullet)
+    .filter(isUsefulBullet);
+
+  const seen = new Set();
+  const out = [];
+  for (const bullet of [...fromLists, ...sentences]) {
+    const key = bullet.toLowerCase();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push(bullet);
+    if (out.length >= max) break;
+  }
+  return out;
 }
 
 function courseTags(title, text) {
@@ -130,10 +184,15 @@ async function fetchBoard(board) {
     const title = (j.title || "").trim();
     if (!TITLE_INCLUDE.test(title) || TITLE_EXCLUDE.test(title)) continue;
 
-    const text = stripHtml(j.content || "");
+    const html = j.content || "";
+    const text = stripHtml(html);
     const location = (j.location && j.location.name) || "See posting";
     const absoluteUrl = j.absolute_url || "";
     if (!absoluteUrl) continue;
+
+    const bullets = bulletsFromHtml(html, 3);
+    // Skip postings we can't summarize cleanly — better empty than junk on the page
+    if (!bullets.length) continue;
 
     const cleanLocation = location.replace(/\s+/g, " ").trim();
     matched.push({
@@ -146,7 +205,7 @@ async function fetchBoard(board) {
       source: "greenhouse",
       board: board.token,
       updatedAt: j.updated_at || j.first_published || null,
-      bullets: bulletsFromText(text),
+      bullets,
       courseTags: courseTags(title, text),
     });
   }

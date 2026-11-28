@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-28T07:48:01.624Z",
+  "updatedAt": "2026-11-28T07:52:58.812Z",
   "displayCount": 8,
   "disclaimer": "Sample openings pulled from public company career boards. Not a placement guarantee — use them to see how this course maps to real FDE hiring signals.",
   "jobs": [
@@ -14,9 +14,9 @@
       "board": "databricks",
       "updatedAt": "2026-11-19T16:47:39-05:00",
       "bullets": [
-        "We work cross-functionally to shape long-term strategic priorities and initiatives alongside engineering, product, and developer relations.",
-        "You will own the architecture, lead design decisions, and implement end-to-end systems spanning data engineering, AI, and application development.",
-        "Based on the factors above, Databricks anticipates utilizing the full width of the range."
+        "Own the Architecture: Lead architecture and design decisions, ensuring solutions are secure, scalable, and aligned with both customer needs and Databricks best practices.",
+        "Work with the Databricks technical team, Project Manager, Architect and Customer team to ensure the technical components of the engagement are delivered to meet customer's needs.",
+        "Customer Immersion: Embed with customer teams, engaging with stakeholders from technical ICs to executives to deeply understand challenges and deliver impact."
       ],
       "courseTags": [
         "Customer discovery",
@@ -35,9 +35,9 @@
       "board": "anthropic",
       "updatedAt": "2026-08-28T16:45:54-04:00",
       "bullets": [
-        "You will collaborate closely with customer teams to ship advanced AI applications that solve real world business problems.",
-        "We expect our FDEs to operate autonomously, thrive under ambiguity, and represent Anthropic at the highest level in customer environments.",
-        "<div class=\"content-intro\"><h2><strong>About Anthropic</strong></h2> <p>Anthropic’s mission is to create reliable, interpretable, and steerable AI systems."
+        "Work within customer systems to build production applications with Claude models, ensuring that these products meet customer requirements.",
+        "Deliver technical artifacts for customers like MCP servers, sub-agents, and agent skills that will be used in production workflows.",
+        "Maintain strong knowledge of the latest developments in LLM capabilities, implementation patterns, and AI product development stacks."
       ],
       "courseTags": [
         "Customer discovery",
@@ -56,8 +56,9 @@
       "board": "stripe",
       "updatedAt": "2026-11-19T12:12:19-05:00",
       "bullets": [
-        "<h2>Who we are</h2> <h3 id=\"about-privy\">About Privy</h3> <p>Our mission is to make privacy and user ownership the default online.",
-        "If you meet these requirements, you are encouraged to apply."
+        "Product taste—Our customers are developers, and to build effective products for them requires technical knowledge—you will often be \"the PM.\"",
+        "Security mindset—A great portion of our product is trust. While we have a dedicated security team, every engineer brings security to their designs from the start.",
+        "Work directly with customers to understand their technical and operational objectives, scope requirements, and prototype and propose software solutions"
       ],
       "courseTags": [
         "Customer discovery",
@@ -76,9 +77,9 @@
       "board": "scaleai",
       "updatedAt": "2026-11-18T19:40:55-05:00",
       "bullets": [
-        "<h2><strong>About Scale AI</strong></h2> <p>Scale AI is the data foundation for AI, helping organizations build and deploy reliable production AI applications.",
-        "Scale employees in eligible roles are also granted equity based compensation, subject to Board of Director approval.",
-        "We work closely with industry leaders like Meta, </em><em>Ernst</em><em> </em><em>&amp;</em><em> Young, Mayo Clinic, Time Inc., the Government of Qatar, and U.S."
+        "Design scalable agent architectures that combine LLMs, retrieval, memory, tools, structured knowledge, and enterprise data into reliable production workflows.",
+        "Build robust integrations that allow AI agents to safely interact with customer systems while meeting enterprise requirements for security, governance, and compliance.",
+        "Rapidly prototype new AI capabilities and evolve successful prototypes into production-ready systems."
       ],
       "courseTags": [
         "Customer discovery",
@@ -97,9 +98,9 @@
       "board": "databricks",
       "updatedAt": "2026-11-19T16:47:39-05:00",
       "bullets": [
-        "<p><strong>About the Team</strong></p> <p>The Forward Deployed Engineering (FDE) team is a highly specialized, customer-facing software engineering team at Databricks.",
-        "We take great care to ensure that our hiring practices are inclusive and meet equal employment opportunity standards.",
-        "government license for such positions, and Employer may decline to proceed with an applicant on this basis alone.</span></strong></p></div>"
+        "Own the Architecture: Lead architecture and design decisions, ensuring solutions are secure, scalable, and aligned with both customer needs and Databricks best practices.",
+        "Solution Delivery: Deliver production-grade systems from data ingestion and transformation through ML/AI model integration to user-facing applications and enablement.",
+        "Customer Immersion: Embed with customer teams, engaging with stakeholders from technical ICs to executives to deeply understand challenges and deliver impact."
       ],
       "courseTags": [
         "Customer discovery",
@@ -118,9 +119,9 @@
       "board": "anthropic",
       "updatedAt": "2026-10-14T13:16:12-04:00",
       "bullets": [
-        "Customers bring you in to lead, not only to implement: you decide what should be built, and then make sure it gets built well.",
-        "We expect Staff FDEs to set direction under ambiguity and represent Anthropic at the highest level in customer environments.",
-        "Hands-on experience with LLMs and agents is expected."
+        "Own technical strategy for a key account or vertical, in partnership with account and product teams.",
+        "Guide technical architecture and design decisions across multiple concurrent workstreams.",
+        "Lead discovery and advisory engagements independently, shaping scope and technical strategy before a build starts."
       ],
       "courseTags": [
         "Customer discovery",
@@ -139,9 +140,9 @@
       "board": "scaleai",
       "updatedAt": "2026-11-18T19:40:55-05:00",
       "bullets": [
-        "<p>Scale’s rapidly growing Global Public Sector team is focused on using AI to address critical challenges facing the public sector around the world.",
-        "We work closely with industry leaders like Meta, </em><em>Ernst</em><em> </em><em>&amp;</em><em> Young, Mayo Clinic, Time Inc., the Government of Qatar, and U.S.",
-        "government agencies including the Army and Air Force."
+        "Partner with public sector clients to scope, collect feedback and implement solutions for complex problems.",
+        "Architect production-grade applications that integrate AI models with full-stack frameworks, managing everything from interactive UIs to backend APIs and systems.",
+        "Deploy and manage infrastructure within cloud environments, ensuring the highest levels of system integrity, security, scalability, and long-term reliability."
       ],
       "courseTags": [
         "Customer discovery",
@@ -160,9 +161,9 @@
       "board": "databricks",
       "updatedAt": "2026-11-19T16:47:39-05:00",
       "bullets": [
-        "<p>CSQ327R39</p> <p>As a Forward Deployed Engineer (FDE) for the Emerging Enterprise &amp; Digital Natives business in EMEA.",
-        "you will work with customers to build and productionize solutions to their data &amp; AI challenges using the Databricks platform.",
-        "We work cross-functionally to shape long-term strategic priorities and initiatives alongside engineering, product, and developer relations."
+        "Own the Architecture: Lead architecture and design decisions, ensuring solutions are secure, scalable, and aligned with both customer needs and Databricks best practices.",
+        "Work with the Databricks technical team, Project Manager, Architect and Customer team to ensure the technical components of the engagement are delivered to meet customer's needs.",
+        "Customer Immersion: Embed with customer teams, engaging with stakeholders from technical ICs to executives to deeply understand challenges and deliver impact."
       ],
       "courseTags": [
         "Customer discovery",
@@ -181,9 +182,9 @@
       "board": "anthropic",
       "updatedAt": "2026-10-16T06:18:15-04:00",
       "bullets": [
-        "<div class=\"content-intro\"><h2><strong>About Anthropic</strong></h2> <p>Anthropic’s mission is to create reliable, interpretable, and steerable AI systems.",
-        "We want AI to be safe and beneficial for our users and for society as a whole.",
-        "We want AI to be safe and beneficial for our users and for society as a whole."
+        "Strong engineering skills: you can take an LLM-powered tool from prototype to production code, and write evals to measure it.",
+        "Experience working directly with external partners or customers in a technical role.",
+        "A scrappy mentality: you're comfortable in ambiguity, wear several hats, and do what it takes to get a result for a partner."
       ],
       "courseTags": [
         "Customer discovery",
@@ -202,9 +203,9 @@
       "board": "scaleai",
       "updatedAt": "2026-11-18T19:40:55-05:00",
       "bullets": [
-        "<h2><strong>About Scale AI</strong></h2> <p>Scale AI is the data foundation for AI, helping organizations build and deploy reliable production AI applications.",
-        "Scale employees in eligible roles are also granted equity based compensation, subject to Board of Director approval.",
-        "We work closely with industry leaders like Meta, </em><em>Ernst</em><em> </em><em>&amp;</em><em> Young, Mayo Clinic, Time Inc., the Government of Qatar, and U.S."
+        "Design scalable agent architectures that combine LLMs, retrieval, memory, tools, structured knowledge, and enterprise data into reliable production workflows.",
+        "Build robust integrations that allow AI agents to safely interact with customer systems while meeting enterprise requirements for security, governance, and compliance.",
+        "Rapidly prototype new AI capabilities and evolve successful prototypes into production-ready systems."
       ],
       "courseTags": [
         "Customer discovery",
