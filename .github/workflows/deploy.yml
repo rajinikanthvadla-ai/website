@@ -35,6 +35,10 @@ jobs:
         run: npm run sync:youtube
         continue-on-error: true
 
+      - name: Sync live FDE job openings
+        run: npm run sync:fde-jobs
+        continue-on-error: true
+
       - name: Pull site settings from the admin panel
         env:
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}

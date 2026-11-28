@@ -4,6 +4,7 @@ import Link from "next/link";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import Countdown from "@/components/Countdown";
 import FdeDemoForm from "@/components/FdeDemoForm";
+import FdeJobsSection from "@/components/FdeJobsSection";
 import StudentFeedbacks from "@/components/StudentFeedbacks";
 import { fetchApprovedTestimonials } from "@/lib/student-testimonials";
 import { LINKS, SITE, YEARS_EXPERIENCE } from "@/lib/constants";
@@ -599,6 +600,8 @@ export default async function FdeCoursePage() {
           </div>
         </div>
       </section>
+
+      <FdeJobsSection limit={8} />
 
       {/* Final CTA */}
       <section className="py-16 md:py-20 bg-slate-900 text-white">

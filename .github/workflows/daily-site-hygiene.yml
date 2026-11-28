@@ -32,6 +32,9 @@ jobs:
       - name: Sync latest YouTube videos
         run: node scripts/sync-youtube-videos.mjs
 
+      - name: Sync live FDE job openings
+        run: node scripts/sync-fde-jobs.mjs
+
       # Skips when the topic is already covered. Never appends a timestamp to force a new slug.
       - name: Generate daily AI article
         if: ${{ inputs.skip_article != 'true' }}
@@ -43,10 +46,10 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add content/youtube-videos.json content/articles.json
+          git add content/youtube-videos.json content/fde-jobs.json content/articles.json
           if git diff --staged --quiet; then
             echo "No content changes to commit"
           else
-            git commit -m "Daily site hygiene: sync YouTube videos and AI article"
+            git commit -m "Daily site hygiene: sync YouTube, FDE jobs, and AI article"
             git push
           fi

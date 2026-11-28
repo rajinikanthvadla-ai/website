@@ -1,0 +1,228 @@
+{
+  "updatedAt": "2026-11-28T07:48:01.624Z",
+  "displayCount": 8,
+  "disclaimer": "Sample openings pulled from public company career boards. Not a placement guarantee — use them to see how this course maps to real FDE hiring signals.",
+  "jobs": [
+    {
+      "id": "databricks-8807049002",
+      "company": "Databricks",
+      "title": "Sr. Forward Deployed Engineer (FDE) - Digital Native Business",
+      "location": "Remote - New York",
+      "locationFull": "Remote - New York",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8807049002",
+      "source": "greenhouse",
+      "board": "databricks",
+      "updatedAt": "2026-11-19T16:47:39-05:00",
+      "bullets": [
+        "We work cross-functionally to shape long-term strategic priorities and initiatives alongside engineering, product, and developer relations.",
+        "You will own the architecture, lead design decisions, and implement end-to-end systems spanning data engineering, AI, and application development.",
+        "Based on the factors above, Databricks anticipates utilizing the full width of the range."
+      ],
+      "courseTags": [
+        "Customer discovery",
+        "Production delivery",
+        "Evals & quality"
+      ]
+    },
+    {
+      "id": "anthropic-5391016008",
+      "company": "Anthropic",
+      "title": "Forward Deployed Engineer",
+      "location": "Munich, Germany",
+      "locationFull": "Munich, Germany",
+      "url": "https://job-boards.greenhouse.io/anthropic/jobs/5391016008",
+      "source": "greenhouse",
+      "board": "anthropic",
+      "updatedAt": "2026-08-28T16:45:54-04:00",
+      "bullets": [
+        "You will collaborate closely with customer teams to ship advanced AI applications that solve real world business problems.",
+        "We expect our FDEs to operate autonomously, thrive under ambiguity, and represent Anthropic at the highest level in customer environments.",
+        "<div class=\"content-intro\"><h2><strong>About Anthropic</strong></h2> <p>Anthropic’s mission is to create reliable, interpretable, and steerable AI systems."
+      ],
+      "courseTags": [
+        "Customer discovery",
+        "Production delivery",
+        "Evals & quality"
+      ]
+    },
+    {
+      "id": "stripe-7230452",
+      "company": "Stripe",
+      "title": "Forward Deployed Engineer, Privy",
+      "location": "New York Privy HQ",
+      "locationFull": "New York Privy HQ",
+      "url": "https://stripe.com/jobs/search?gh_jid=7230452",
+      "source": "greenhouse",
+      "board": "stripe",
+      "updatedAt": "2026-11-19T12:12:19-05:00",
+      "bullets": [
+        "<h2>Who we are</h2> <h3 id=\"about-privy\">About Privy</h3> <p>Our mission is to make privacy and user ownership the default online.",
+        "If you meet these requirements, you are encouraged to apply."
+      ],
+      "courseTags": [
+        "Customer discovery",
+        "Production delivery",
+        "Evals & quality"
+      ]
+    },
+    {
+      "id": "scaleai-4694863005",
+      "company": "Scale AI",
+      "title": "Senior Frontier Agents Engineer (Forward Deployed Engineering)",
+      "location": "San Francisco, CA",
+      "locationFull": "San Francisco, CA",
+      "url": "https://job-boards.greenhouse.io/scaleai/jobs/4694863005",
+      "source": "greenhouse",
+      "board": "scaleai",
+      "updatedAt": "2026-11-18T19:40:55-05:00",
+      "bullets": [
+        "<h2><strong>About Scale AI</strong></h2> <p>Scale AI is the data foundation for AI, helping organizations build and deploy reliable production AI applications.",
+        "Scale employees in eligible roles are also granted equity based compensation, subject to Board of Director approval.",
+        "We work closely with industry leaders like Meta, </em><em>Ernst</em><em> </em><em>&amp;</em><em> Young, Mayo Clinic, Time Inc., the Government of Qatar, and U.S."
+      ],
+      "courseTags": [
+        "Customer discovery",
+        "Production delivery",
+        "Evals & quality"
+      ]
+    },
+    {
+      "id": "databricks-8921476002",
+      "company": "Databricks",
+      "title": "Forward Deployed Engineer",
+      "location": "London, United Kingdom",
+      "locationFull": "London, United Kingdom",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8921476002",
+      "source": "greenhouse",
+      "board": "databricks",
+      "updatedAt": "2026-11-19T16:47:39-05:00",
+      "bullets": [
+        "<p><strong>About the Team</strong></p> <p>The Forward Deployed Engineering (FDE) team is a highly specialized, customer-facing software engineering team at Databricks.",
+        "We take great care to ensure that our hiring practices are inclusive and meet equal employment opportunity standards.",
+        "government license for such positions, and Employer may decline to proceed with an applicant on this basis alone.</span></strong></p></div>"
+      ],
+      "courseTags": [
+        "Customer discovery",
+        "Production delivery",
+        "Evals & quality"
+      ]
+    },
+    {
+      "id": "anthropic-5449229008",
+      "company": "Anthropic",
+      "title": "Staff Forward Deployed Engineer",
+      "location": "New York City, NY · San Francisco, CA +1 more",
+      "locationFull": "New York City, NY; San Francisco, CA; Seattle, WA",
+      "url": "https://job-boards.greenhouse.io/anthropic/jobs/5449229008",
+      "source": "greenhouse",
+      "board": "anthropic",
+      "updatedAt": "2026-10-14T13:16:12-04:00",
+      "bullets": [
+        "Customers bring you in to lead, not only to implement: you decide what should be built, and then make sure it gets built well.",
+        "We expect Staff FDEs to set direction under ambiguity and represent Anthropic at the highest level in customer environments.",
+        "Hands-on experience with LLMs and agents is expected."
+      ],
+      "courseTags": [
+        "Customer discovery",
+        "Production delivery",
+        "Evals & quality"
+      ]
+    },
+    {
+      "id": "scaleai-4673310005",
+      "company": "Scale AI",
+      "title": "Senior Full-Stack Software Engineer, (Forward Deployed), GPS",
+      "location": "London, UK",
+      "locationFull": "London, UK",
+      "url": "https://job-boards.greenhouse.io/scaleai/jobs/4673310005",
+      "source": "greenhouse",
+      "board": "scaleai",
+      "updatedAt": "2026-11-18T19:40:55-05:00",
+      "bullets": [
+        "<p>Scale’s rapidly growing Global Public Sector team is focused on using AI to address critical challenges facing the public sector around the world.",
+        "We work closely with industry leaders like Meta, </em><em>Ernst</em><em> </em><em>&amp;</em><em> Young, Mayo Clinic, Time Inc., the Government of Qatar, and U.S.",
+        "government agencies including the Army and Air Force."
+      ],
+      "courseTags": [
+        "Customer discovery",
+        "Production delivery",
+        "Evals & quality"
+      ]
+    },
+    {
+      "id": "databricks-8439047002",
+      "company": "Databricks",
+      "title": "Forward Deployed Engineer - Emerging Enterprise & DNB",
+      "location": "London, United Kingdom",
+      "locationFull": "London, United Kingdom",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8439047002",
+      "source": "greenhouse",
+      "board": "databricks",
+      "updatedAt": "2026-11-19T16:47:39-05:00",
+      "bullets": [
+        "<p>CSQ327R39</p> <p>As a Forward Deployed Engineer (FDE) for the Emerging Enterprise &amp; Digital Natives business in EMEA.",
+        "you will work with customers to build and productionize solutions to their data &amp; AI challenges using the Databricks platform.",
+        "We work cross-functionally to shape long-term strategic priorities and initiatives alongside engineering, product, and developer relations."
+      ],
+      "courseTags": [
+        "Customer discovery",
+        "Production delivery",
+        "Evals & quality"
+      ]
+    },
+    {
+      "id": "anthropic-5445760008",
+      "company": "Anthropic",
+      "title": "Applied AI Engineer, Beneficial Deployments (Clinical Development, Rare and Neglected Diseases)",
+      "location": "London, UK",
+      "locationFull": "London, UK",
+      "url": "https://job-boards.greenhouse.io/anthropic/jobs/5445760008",
+      "source": "greenhouse",
+      "board": "anthropic",
+      "updatedAt": "2026-10-16T06:18:15-04:00",
+      "bullets": [
+        "<div class=\"content-intro\"><h2><strong>About Anthropic</strong></h2> <p>Anthropic’s mission is to create reliable, interpretable, and steerable AI systems.",
+        "We want AI to be safe and beneficial for our users and for society as a whole.",
+        "We want AI to be safe and beneficial for our users and for society as a whole."
+      ],
+      "courseTags": [
+        "Customer discovery",
+        "Production delivery",
+        "Evals & quality"
+      ]
+    },
+    {
+      "id": "scaleai-4694865005",
+      "company": "Scale AI",
+      "title": "Staff Frontier Agents Engineer (Forward Deployed Engineering)",
+      "location": "San Francisco, CA",
+      "locationFull": "San Francisco, CA",
+      "url": "https://job-boards.greenhouse.io/scaleai/jobs/4694865005",
+      "source": "greenhouse",
+      "board": "scaleai",
+      "updatedAt": "2026-11-18T19:40:55-05:00",
+      "bullets": [
+        "<h2><strong>About Scale AI</strong></h2> <p>Scale AI is the data foundation for AI, helping organizations build and deploy reliable production AI applications.",
+        "Scale employees in eligible roles are also granted equity based compensation, subject to Board of Director approval.",
+        "We work closely with industry leaders like Meta, </em><em>Ernst</em><em> </em><em>&amp;</em><em> Young, Mayo Clinic, Time Inc., the Government of Qatar, and U.S."
+      ],
+      "courseTags": [
+        "Customer discovery",
+        "Production delivery",
+        "Evals & quality"
+      ]
+    }
+  ],
+  "meta": {
+    "totalMatched": 120,
+    "uniqueTitles": 62,
+    "sources": [
+      "Anthropic",
+      "Databricks",
+      "Scale AI",
+      "Stripe",
+      "Airbnb"
+    ],
+    "errors": []
+  }
+}
